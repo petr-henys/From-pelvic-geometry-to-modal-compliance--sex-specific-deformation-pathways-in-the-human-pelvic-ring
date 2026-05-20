@@ -1,0 +1,24 @@
+# Ignore everything by default
+/*
+
+# Keep the ignore rules
+!/.gitignore
+
+# Keep root-level Python scripts
+!/*.py
+
+# Keep only selected directories
+!/analysis/
+!/analysis/**
+!/simulation/
+!/simulation/**
+!/tests/
+!/tests/**
+!/utils/
+!/utils/**
+
+# Ignore Python bytecode cache directories
+/analysis/**/__pycache__/
+/simulation/**/__pycache__/
+/tests/**/__pycache__/
+/utils/**/__pycache__/
