@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath, amssymb, bm}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -50,12 +50,13 @@
 \begin{flushleft}
 {\LARGE\bfseries \ManuscriptTitle\par}
 \vspace{1.5em}
-{\normalsize Petr Heny\v{s}$^{1,2}$, Niels Hammer$^{2,3,4,*}$\par}
+{\normalsize Petr Heny\v{s}$^{1,2}$, Michal Kucha\v{r}$^{5}$, Alexander Mor\'{a}vek$^{5}$, Niels Hammer$^{2,3,4,*}$\par}
 \vspace{0.75em}
 {\small $^{1}$Institute of New Technologies and Applied Informatics, Faculty of Mechatronics, Informatics and Interdisciplinary Studies, Technical University of Liberec, Liberec, Czech Republic\par}
 {\small $^{2}$Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center, Medical University of Graz, Graz, Austria\par}
 {\small $^{3}$Department of Orthopedic and Trauma Surgery, University of Leipzig, Leipzig, Germany\par}
 {\small $^{4}$Division of Biomechatronics, Fraunhofer Institute for Machine Tools and Forming Technology (IWU), Chemnitz and Dresden, Germany\par}
+{\small $^{5}$Department of Anatomy, Faculty of Medicine in Hradec Kr\'{a}lov\'{e}, Charles University, Hradec Kr\'{a}lov\'{e}, Czech Republic\par}
 \vspace{0.75em}
 {\small $^{*}$Corresponding author\par}
 {\small E-mail: \href{mailto:niels.hammer@medunigraz.at}{niels.hammer@medunigraz.at} (NH)\par}
@@ -133,12 +134,14 @@ Here, we evaluate the linearised stiffness spectrum of $N{=}278$ CT-derived, sub
 \label{sec:atlas-results}
 
 Before turning to cohort statistics, it was investigated whether the low-order deformation repertoire already reveals where mechanical meaning is stably localised and where it is likely to be preserved only at the level of a small clustered family.
-Figure~\ref{fig:modes-atlas} shows the median deformation patterns for the first fifteen modes in anterior--posterior view.
-The visualisation immediately suggests a contrast between a compact low-rank program and a richer, more fragile higher-rank repertoire.
-
-Modes~1--3 form the clearest low-rank program.
-They correspond to the three dominant rotational compliance pathways of the ring: torsion about the craniocaudal axis, sagittal nutation/counternutation about the mediolateral axis, and lateral obliquity about the anteroposterior axis.
-These are not rigid-body modes in the strict mathematical sense, but they behave as an interpretable low-rank backbone that, as shown below, routes standing-type loads.
+Figure~\ref{fig:modes-atlas} characterises the global deformation of the complete reference pelvis without separating bones or anatomical branches.
+Direct fitting of simple kinematic templates to the local strain field leaves 97--99\% of the norm unexplained across all modes, because compliance and strain heavily concentrate in the cartilaginous joints (sacroiliac joints and pubic symphysis), which drowns out global ring deformation and fails to discriminate modes.
+To recover the global ring-level character without imposing artificial 1D beam axes on a closed 3D pelvic ring, we evaluate the overall shape change across the entire 3D continuum: infinitesimal rigid-body translation and rotation are first mathematically removed by orthogonal projection, after which the remaining nonrigid displacement field is decomposed into four canonical 3D deformation families (axial tension/compression, bending, transverse shear, and torsion).
+Rigid rotation is eliminated upfront and is not a reported deformation category.
+Subspace overlap on the irregular geometry is handled via Shapley allocation of the explained squared nonrigid shape norm; unexplained deformation is retained as an explicit residual.
+The resulting fractions are descriptive shape fractions conditional on the kinematic dictionary, not strain-energy shares.
+The complete mathematical formulation, four-point tetrahedral quadrature proofs, 23-dimensional polynomial basis, Gram matrix conditioning, synthetic validation benchmarks, and complete 15-mode quantitative profile tables are detailed in Appendix~E (Tables~E1--E2).
+Population stability is tested separately below.
 
 Higher modes raise a different biological question: whether a mechanically interpretable function remains tied to one label or only to a compact family.
 The most important case is the 9--10 pair.
@@ -147,16 +150,27 @@ Mode~10 is a near-degenerate partner with an asymmetric field concentrated aroun
 Their close spacing already suggests that inlet-related behaviour may not be consistently attached to one fixed rank label across subjects, even if it remains preserved within the two-dimensional span they share.
 For this region of the spectrum, the pair is therefore a more reliable biological interpretive unit than either label alone.
 
-\begin{figure}[!htbp]
+% Full A4 figure page; preserve physical label sizes in the atlas.
+\clearpage
+\newgeometry{left=10mm,right=10mm,top=8mm,bottom=8mm}
+\begin{figure}[p]
   \centering
-  \includegraphics[width=\linewidth,height=0.80\textheight,keepaspectratio]{../../results/ref_S1P_fixed_new2/modes_visualisation/modes_median_AP.png}
-  \caption{\textbf{Interpretable deformation pathways preview the spectrum's two organisational scales.}
-  Median displacement fields across the cohort ($N{=}278$) are shown in anterior--posterior view with superimposed deformed wireframes.
-  Colour scale indicates displacement magnitude from blue (minimum/fixed S1 facet) to red (maximum nodal displacement).
-  Modes~1--3 define an order-locked low-rank rotational backbone (craniocaudal torsion, mediolateral nutation, anteroposterior obliquity).
-  Modes~9--10 preview a compact clustered case where inlet opening is preserved at the subspace level rather than by a fixed rank label.}
+  \includegraphics[width=182mm,height=220mm,keepaspectratio]{../../analysis_outputs/plos_revision/figures/reference_mode_atlas.pdf}
+  \begingroup
+  \fontsize{9}{10.5}\selectfont
+  \caption{\textbf{Whole-pelvis deformation patterns of reference modes.}
+  Anterior (left) and cranial (right) views show displacement magnitude from purple to yellow, scaled to a 14~mm maximum; grey geometry is undeformed.
+  Each bar partitions the whole-pelvis nonrigid squared shape norm into fitted axial tension/compression, bending, transverse shear, torsion, and residual.
+  Infinitesimal rigid-body translation and rotation are projected out upfront; rigid rotation is not a reported deformation category.
+  The decomposition operates in full 3D Cartesian space across the entire pelvic ring without imposing a 1D reference axis.
+  Overlapping pattern subspaces are allocated using Shapley values.
+  ``Fitted'' reports the percentage of nonrigid shape change explained by the four canonical 3D families.
+  All fractions use the complete continuum without bone-wise subdivision and describe kinematic shape change rather than elastic-energy shares.}
   \label{fig:modes-atlas}
+  \endgroup
 \end{figure}
+\clearpage
+\restoregeometry
 
 \subsection{Population variability separates an order-locked backbone from recurrent clustered regimes}
 \label{sec:spectral-results}
@@ -390,7 +404,7 @@ Adopting a subspace framework directly resolves false-negative biomechanical cla
 
 The low-rank backbone represents the order-locked regime.
 Modes~1--3 remain spectrally separated, rarely reorder across the cohort ($<0.4\%$ swap rate), and dominate habitual standing loads (carrying $84.5\%$ of retained modal strain energy in symmetric two-leg stance and $92.0\%$ across the triad in single-leg stance).
-Within the present linear framework, this supports the view that the primary kinematic pathways of the pelvic ring---torsion about the craniocaudal axis, sagittal nutation/counternutation, and lateral obliquity---are governed by a conserved, low-cost baseline program.
+Within the present linear framework, this supports the view that the low-order kinematic pathways of the pelvic ringare governed by a conserved, low-cost baseline program.
 We do not infer an evolutionary optimisation principle from these data alone, but the result is physically consistent with biological robustness being anchored in a compact, gap-protected foundation~\citep{Kitano2007,Whitacre2010}.
 
 The higher ranks reveal an organisation characterised by recurrent clustered blocks.
@@ -665,44 +679,44 @@ Canonical coupling scores are reported in units of diameter change per 1\,mm of 
 \end{equation}
 The direct 9--10 label-versus-subspace analysis evaluates AP-inlet coupling for rank mode~9, rank mode~10, and the canonical 9--10 subspace after splitting cluster members by 9$\rightleftarrows$10 swap status.
 
-\subsection{Kinematic deformation mechanisms and regional orthogonal decomposition}
+\subsection{Whole-pelvis global deformation pattern decomposition}
 \label{sec:mechanisms-methods}
 
-To quantitatively classify physical deformation mechanisms (axial stretching/compression, bending, transverse shear, and torsion) across the cohort independently of arbitrary rigid-body rotations, we evaluated cell-wise internal strain tensors directly from the modal displacement fields $\mathbf u_k$.
-On each subject-specific geometry, the deformation gradient $F_s = I + \nabla_{\mathbf X} \boldsymbol\varphi_s$ was evaluated from the diffeomorphic RBF mapping $\boldsymbol\varphi_s$.
-Small-strain tensors for each eigenmode $k \in \{1,\dots,15\}$ were computed in cell-wise DG0 representation as:
-\begin{equation}
-\boldsymbol\varepsilon_k = \frac{1}{2}\left( \nabla \mathbf u_k F_s^{-1} + F_s^{-\top} \nabla \mathbf u_k^\top \right).
-\end{equation}
-Cells exhibiting non-positive Jacobian determinants ($J_s \le 0$) arise exclusively from localized boundary-fitting artifacts on thin cortical rims ($0.0009\%$ of cells cohort-wide; see Results) and were strictly excluded from integration, defining the geometrically admissible domain $\Omega_{\rm adm} = \{c \in \Omega_{\rm ref} : J_{s,c} > 0\}$ with cell integration weights $w_c = J_{s,c} V_{{\rm ref},c}$.
+We analysed the fifteen stored reference eigenvectors on the complete reference continuum mesh, without anatomical subdivision.
+Continuous displacement fields were sampled using positive four-point tetrahedral quadrature, which integrates squared piecewise-linear ($P_1$) displacement norms exactly.
+Direct projection onto local strain fields $\boldsymbol\varepsilon_k=\tfrac12(\nabla\mathbf u_k+\nabla\mathbf u_k^\top)$ leaves 97--99\% of the strain norm in the residual across all eigenmodes, because compliance and strain concentrate heavily in the cartilaginous joints (sacroiliac joints and pubic symphysis).
+This localized joint concentration masks global ring deformation and fails to discriminate modes.
+To recover the global ring-level character, we therefore evaluate the overall shape change across the entire pelvic continuum.
 
-The total quadratic strain norm for mode $k$ over any domain or tissue subregion $\Omega_{\rm reg} \subseteq \Omega_{\rm adm}$ is defined by the volume-weighted Frobenius inner product:
+Infinitesimal rigid-body motion (3 translations and 3 rotations) is spanned by the 6-parameter field $\mathbf u_{\rm rigid}(\mathbf x)=\mathbf t+\boldsymbol\omega\times(\mathbf x-\mathbf x_c)$, where $\mathbf x_c=\langle\mathbf x\rangle_V$ is the volume-weighted centroid.
+The volume-weighted rigid design matrix was orthonormalised via reduced QR decomposition ($\mathbf Q_{\rm rigid}$), and rigid motion was projected out from the displacement field:
 \begin{equation}
-D_{\rm reg}(\mathbf u_k) = \sum_{c \in \Omega_{\rm reg}} w_c (\boldsymbol\varepsilon_{k,c} : \boldsymbol\varepsilon_{k,c}) = \sum_{c \in \Omega_{\rm reg}} w_c \left[ \varepsilon_{11}^2 + \varepsilon_{22}^2 + \varepsilon_{33}^2 + 2\varepsilon_{12}^2 + 2\varepsilon_{13}^2 + 2\varepsilon_{23}^2 \right].
+\mathbf u_{\rm nonrigid} = \mathbf u - \mathbf Q_{\rm rigid}(\mathbf Q_{\rm rigid}^\top \mathbf u).
 \end{equation}
-Normalised tensor fractions $f_{\rm comp} = D_{\rm comp} / D_{\rm reg}$ account for the factor of~2 on shears, strictly satisfying $\sum_{\rm comp} f_{\rm comp} = 1.0$.
-In the anatomical reference frame $[e_{\rm ML}, e_{\rm AP}, e_{\rm CC}]$, components correspond to mediolateral ($f_{\rm ML}$), anteroposterior ($f_{\rm AP}$), and craniocaudal ($f_{\rm CC}$) normal stretching/compression, in-plane transverse shear ($f_{\rm ML-AP}$), coronal shear ($f_{\rm ML-CC}$), and sagittal shear ($f_{\rm AP-CC}$).
-The norm is partitioned into volumetric ($f_{\rm vol} = \sum w_c \operatorname{tr}(\boldsymbol\varepsilon)^2 / (3 D)$) and deviatoric ($f_{\rm dev} = 1 - f_{\rm vol}$) parts.
+Rigid rotation is therefore completely eliminated upfront and is not one of the reported deformation categories.
 
-For elongated branches of the ring (superior and inferior pubic rami, iliac crests), we formulated an orthogonal regional beam model.
-Denoting local branch coordinates as $(s, y, z)$ with longitudinal axis $s$ and volume-centered transverse coordinates $\sum w_c y_c = \sum w_c z_c = 0$, the strain field was decomposed into:
+Coordinates relative to the centroid $\mathbf x_c$ were scaled by the gyration radius $r_g = \sqrt{\langle \|\mathbf x - \mathbf x_c\|^2 \rangle_V}$, defining normalised coordinates $(\tilde x, \tilde y, \tilde z) = (\mathbf x - \mathbf x_c)/r_g$ in the anatomical frame (ML, AP, CC).
+Rather than conditioning on an artificial 1D beam axis, the deformation is decomposed across the entire 3D ring into four canonical deformation families spanning the complete nonrigid polynomial displacement space up to quadratic order:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Axial} (6~DOF): uniform normal extension/compression and normal strain gradients along all three axes,
+$u_i \in \operatorname{span}\{\tilde x_i, \tfrac12 \tilde x_i^2\}$ for $i \in \{x, y, z\}$;
+\item \textbf{Bending} (6~DOF): pure Euler-Bernoulli flexural modes with zero shear strain ($\varepsilon_{ij} = 0$ for $i \ne j$),
+$\mathbf b_{ij} = \tfrac12 \tilde x_i^2 \mathbf e_j - \tilde x_i \tilde x_j \mathbf e_i$ for each ordered pair $i \ne j \in \{x, y, z\}$;
+\item \textbf{Shear} (9~DOF): uniform transverse shears ($( \tilde y, \tilde x, 0 )$, $( 0, \tilde z, \tilde y )$, $( \tilde z, 0, \tilde x )$) and quadratic transverse shear gradients;
+\item \textbf{Torsion} (2~DOF): Saint-Venant twist gradients with zero normal strain,
+$\mathbf t_x = (0, -\tilde x \tilde z, \tilde x \tilde y)$ and $\mathbf t_y = (\tilde y \tilde z, 0, -\tilde x \tilde y)$.
+\end{enumerate}
+Templates in each family were projected orthogonal to $\mathbf Q_{\rm rigid}$ and orthonormalised using reduced singular value decomposition.
+The combined 23-dimensional nonrigid basis spans the deformation space with low condition number ($\kappa \approx 13.9$ on the reference pelvis).
+Because the four deformation families overlap on irregular geometry, the explained nonrigid squared displacement norm was partitioned using Shapley value allocation across all $2^4=16$ subspace combinations:
 \begin{equation}
-\varepsilon_{ss}(y,z) \approx a + b_y y + b_z z, \qquad
-\begin{pmatrix}\varepsilon_{sy}\\\varepsilon_{sz}\end{pmatrix} \approx \begin{pmatrix}g_y\\g_z\end{pmatrix} + t \begin{pmatrix}-z\\y\end{pmatrix},
+f_m = \sum_{S \subseteq M \setminus \{m\}} \frac{|S|!(|M|-|S|-1)!}{|M|!} \left[ R^2(S \cup \{m\}) - R^2(S) \right], \qquad
+\sum_{m=1}^4 f_m + f_{\rm residual} = 1,
 \end{equation}
-representing uniform axial extension/compression ($a$), linear bending gradients ($b_y, b_z$), uniform transverse shear ($g_y, g_z$), circulatory twist ($t$), and residual strain $\boldsymbol\varepsilon_{\rm res}$.
-Volume-weighted orthogonality ensures exact Frobenius energy closure:
-\begin{equation}
-f_{\rm axial} + f_{\rm bending} + f_{\rm shear} + f_{\rm twist} + f_{\rm residual} = 1.0.
-\end{equation}
-
-For near-degenerate clusters spanning an orthonormal basis $Q = [\mathbf u_1, \dots, \mathbf u_r]$, individual mode profiles vary under arbitrary internal rotations $Q \to QO$.
-The basis-invariant aggregate subspace profile is evaluated from the summed quadratic forms:
-\begin{equation}
-\bar D_{\rm comp}(Q) = \sum_{j=1}^r D_{\rm comp}(\mathbf u_j), \qquad f_{\rm comp}(Q) = \frac{\bar D_{\rm comp}(Q)}{\sum_k \bar D_k(Q)},
-\end{equation}
-which is mathematically invariant under any orthogonal transformation $O \in \mathrm{O}(r)$.
-These kinematic fractions describe intrinsic modal deformation mechanisms and are mathematically distinct from load-dependent modal elastic energy fractions.
+where $R^2(S)$ is the fraction of nonrigid squared norm explained by subspace subset $S$, and $f_{\rm residual} = 1 - R^2(M)$.
+Shapley allocation distributes the explained squared norm without order-dependent orthogonalisation bias.
+The fractions are invariant to eigenvector sign and amplitude, describe a specified global 3D shape-change model, and are not strain-energy shares.
+Comprehensive mathematical derivations of the continuum inner product, four-point tetrahedral quadrature, canonical polynomial dictionary, cooperative game-theoretic Shapley allocation, numerical conditioning, synthetic backward-recovery benchmarks, and complete 15-mode quantitative profiles are detailed in Appendix~E (Tables~E1--E2).
 
 \subsection{Load routing and modal strain-energy fractions}
 \label{sec:routing-methods}
@@ -831,9 +845,11 @@ Custom code used to assemble the models, run the spectral analyses, and generate
 A public archival release of the analysis code will accompany publication.
 
 \section*{Author contributions}
-P.H.\ and N.H.\ conceptualised the study.
-P.H.\ developed the computational models, performed the simulations, and analysed the data.
-P.H.\ and N.H.\ interpreted the results and wrote the manuscript.
+P.H.,\ M.K.,\ and N.H.\ conceptualised the study.
+P.H.\ and M.K.\ developed the computational models and performed the simulations.
+P.H.,\ M.K.,\ and A.M.\ analysed the data.
+P.H.,\ M.K.,\ A.M.,\ and N.H.\ interpreted the results and wrote the manuscript.
+All authors reviewed and approved the final manuscript.
 
 \section*{Competing interests}
 The authors declare no competing interests.
@@ -944,7 +960,276 @@ Figure~D2 presents the threshold sensitivity, reference sensitivity, isotropic s
 \subsection*{Table D2. Combined first-order material uncertainty summary}
 \input{../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex}
 
+\clearpage
+\section{Whole-pelvis 3D canonical deformation pattern decomposition}
+\label{sec:appendix-global-deformation}
+
+This appendix provides the complete mathematical formulation, continuum quadrature proofs, coordinate transformations, canonical polynomial dictionary, cooperative game-theoretic projection mechanics, numerical conditioning diagnostics, and synthetic backwards-identification benchmarks for the whole-pelvis 3D deformation decomposition presented in Section~\ref{sec:atlas-results} and Figure~\ref{fig:modes-atlas}.
+Table~E1 tabulates the complete 15-mode quantitative profile across all four canonical deformation families, standalone $R^2$ values, and residual fractions.
+Table~E2 reports the synthetic benchmark validations across idealized symmetric and irregular pelvic domains.
+
+\subsection{Physical motivation: Cartilage compliance concentration vs.\ ring-level kinematics}
+The pelvic ring is a closed, doubly-curved structural biomechanical loop composed of three major bony segments (the sacrum and bilateral coxal bones) joined anteriorly at the pubic symphysis and posteriorly at the bilateral sacroiliac joints (SIJs).
+In continuum mechanics, the standard approach to characterise modal kinematics would be to evaluate the infinitesimal Cauchy strain tensor field,
+\begin{equation}
+\boldsymbol\varepsilon(\mathbf u) = \tfrac{1}{2}\big(\nabla \mathbf u + \nabla \mathbf u^\top\big).
+\label{eq:cauchy-strain}
+\end{equation}
+However, the physiological elastic moduli of articular cartilage and symphyseal fibrocartilage ($E_{\rm cartilage} \sim 10\text{--}50\,\mathrm{MPa}$) are approximately two to three orders of magnitude lower than those of cortical and trabecular bone ($E_{\rm bone} \sim 5\text{--}18\,\mathrm{GPa}$).
+Under generalised modal vibration, elastic deformation naturally channels into these narrow compliant interfaces.
+Consequently, direct $L^2$-projection of the Cauchy strain field onto low-order polynomial strain templates leaves between 97\% and 99\% of the strain norm unexplained in the residual across all fifteen computed eigenmodes.
+The intense local strain spikes in the millimeter-thin joint clefts completely overpower and conceal the systemic, ring-scale kinematics (such as whole-pelvis flaring, torsion, and inlet/outlet dilation).
+
+Furthermore, modeling the human pelvis as a one-dimensional beam conditioned along an arbitrary anatomical axis (e.g., mediolateral, anteroposterior, or craniocaudal) imposes an unphysical 1D kinematic constraint on a closed, three-dimensional ring.
+For complex three-dimensional deformation pathways involving coupled out-of-plane flexure and transverse shearing (such as Mode~2), 1D axis conditioning artificially drives the unexplained residual up to 84\%, distorting biological interpretation.
+To overcome both limitations, our framework evaluates the overall shape change across the entire three-dimensional pelvic continuum without anatomical partitioning and without imposing artificial 1D beam axes, removing infinitesimal rigid-body motion upfront before decomposing the remaining shape change into four canonical 3D polynomial deformation families.
+
+\subsection{Continuum inner product and four-point tetrahedral quadrature}
+Let $\Omega \subset \mathbb{R}^3$ denote the reference pelvic continuum domain with volume $V = \int_\Omega \mathrm{d}V$.
+The natural inner product on the displacement space $[L^2(\Omega)]^3$ weighted by volume is
+\begin{equation}
+\langle \mathbf u, \mathbf v \rangle_V = \frac{1}{V} \int_\Omega \mathbf u(\mathbf x) \cdot \mathbf v(\mathbf x) \, \mathrm{d}V, \qquad
+\|\mathbf u\|_V^2 = \langle \mathbf u, \mathbf u \rangle_V.
+\label{eq:volume-inner-product}
+\end{equation}
+The continuous reference domain $\Omega$ is discretized into an unstructured tetrahedral mesh $\mathcal{T}_h = \{K_e\}_{e=1}^{N_e}$ using piecewise-linear ($P_1$) Lagrange continuous finite elements.
+Within any tetrahedron $K$, a $P_1$ displacement field $\mathbf u(\mathbf x)$ is an affine vector function of position:
+\begin{equation}
+\mathbf u|_K(\mathbf x) = \mathbf A_K \mathbf x + \mathbf b_K, \qquad \mathbf A_K \in \mathbb{R}^{3\times 3}, \quad \mathbf b_K \in \mathbb{R}^3.
+\end{equation}
+The squared displacement norm integrand $\|\mathbf u(\mathbf x)\|^2 = \mathbf u(\mathbf x) \cdot \mathbf u(\mathbf x)$ is therefore an exact polynomial of degree at most 2 in each coordinate:
+\begin{equation}
+\|\mathbf u|_K(\mathbf x)\|^2 = \mathbf x^\top \mathbf A_K^\top \mathbf A_K \mathbf x + 2 \mathbf b_K^\top \mathbf A_K \mathbf x + \|\mathbf b_K\|^2 \in \mathcal{P}_2(K).
+\end{equation}
+To evaluate the continuum volume integral with zero quadrature error, we employ the symmetric four-point Keast/Hammer-Marlowe-Stroud quadrature rule on each tetrahedron $K$.
+For a tetrahedron with vertices $\{\mathbf v_1, \mathbf v_2, \mathbf v_3, \mathbf v_4\}$ and volume $|K| = \frac{1}{6}|\det[\mathbf v_2-\mathbf v_1, \mathbf v_3-\mathbf v_1, \mathbf v_4-\mathbf v_1]|$, the four quadrature points $\mathbf x_{K,q}$ ($q=1,2,3,4$) have barycentric coordinates given by the cyclic permutations of:
+\begin{equation}
+a = \frac{5 + 3\sqrt{5}}{20} \approx 0.5854102, \qquad b = \frac{5 - \sqrt{5}}{20} \approx 0.1381966,
+\end{equation}
+with uniform quadrature weights $w_{K,q} = \frac{1}{4} |K|$.
+Because this four-point rule has degree of precision 2, it integrates any quadratic polynomial over $K$ identically.
+Summing across all $N_e$ tetrahedra gives $N_q = 4 N_e$ discrete sampling points with weights $w_p > 0$.
+Defining normalized quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$, the continuum inner product~\eqref{eq:volume-inner-product} is evaluated with exact numerical precision:
+\begin{equation}
+\langle \mathbf u, \mathbf v \rangle_V = \sum_{p=1}^{N_q} \tilde w_p \, \mathbf u(\mathbf x_p) \cdot \mathbf v(\mathbf x_p).
+\label{eq:quadrature-sum}
+\end{equation}
+
+\subsection{Infinitesimal rigid-body motion elimination}
+Infinitesimal rigid-body displacements in $\mathbb{R}^3$ constitute a 6-dimensional linear Lie algebra subspace $\mathfrak{se}(3)$ consisting of 3 translations and 3 rotations:
+\begin{equation}
+\mathbf u_{\rm rigid}(\mathbf x) = \mathbf t + \boldsymbol\omega \times (\mathbf x - \mathbf x_c), \qquad \mathbf t, \boldsymbol\omega \in \mathbb{R}^3,
+\label{eq:rigid-field}
+\end{equation}
+where $\mathbf x_c$ is the volume-weighted spatial centroid of the pelvic domain,
+\begin{equation}
+\mathbf x_c = \langle \mathbf x \rangle_V = \sum_{p=1}^{N_q} \tilde w_p \, \mathbf x_p.
+\end{equation}
+To ensure scale-free, dimensionally consistent kinematics across subjects, we define the reference gyration radius $r_g$ and non-dimensionalised anatomical coordinates $\tilde{\mathbf x} = (\tilde x, \tilde y, \tilde z)^\top$:
+\begin{equation}
+r_g = \sqrt{\langle \|\mathbf x - \mathbf x_c\|^2 \rangle_V} = \sqrt{\sum_{p=1}^{N_q} \tilde w_p \|\mathbf x_p - \mathbf x_c\|^2}, \qquad
+\tilde{\mathbf x} = \frac{\mathbf x - \mathbf x_c}{r_g}.
+\label{eq:dimless-coords}
+\end{equation}
+Here the Cartesian coordinate directions correspond to the standard anatomical axes: $x$ is mediolateral (ML), $y$ is anteroposterior (AP), and $z$ is craniocaudal (CC).
+
+In the discrete quadrature representation, each displacement field is a stacked vector $\mathbf U \in \mathbb{R}^{3N_q}$ with components $U_{3p-3+i} = \sqrt{\tilde w_p} \, u_i(\mathbf x_p)$ for $i \in \{1,2,3\}$.
+The 6 rigid-body design modes $\mathbf r_1, \dots, \mathbf r_6 \in \mathbb{R}^{3N_q}$ (corresponding to unit translations along $x,y,z$ and unit infinitesimal rotations about $x,y,z$) form the rigid design matrix $\mathbf R \in \mathbb{R}^{3N_q \times 6}$.
+We compute its thin QR decomposition,
+\begin{equation}
+\mathbf R = \mathbf Q_{\rm rigid} \mathbf R_{\rm upper}, \qquad \mathbf Q_{\rm rigid} \in \mathbb{R}^{3N_q \times 6}, \quad \mathbf Q_{\rm rigid}^\top \mathbf Q_{\rm rigid} = \mathbf I_6.
+\end{equation}
+The orthogonal projection operator onto the nonrigid displacement subspace is then:
+\begin{equation}
+\mathbf P_{\rm nonrigid} = \mathbf I_{3N_q} - \mathbf Q_{\rm rigid} \mathbf Q_{\rm rigid}^\top.
+\label{eq:nonrigid-proj}
+\end{equation}
+For any raw modal displacement field $\mathbf u$, the nonrigid component is $\mathbf u_{\rm nonrigid} = \mathbf P_{\rm nonrigid} \mathbf u$, and the total squared displacement norm partitions orthogonally:
+\begin{equation}
+\|\mathbf u\|_V^2 = \|\mathbf u_{\rm rigid}\|_V^2 + \|\mathbf u_{\rm nonrigid}\|_V^2, \qquad
+f_{\rm nonrigid} = \frac{\|\mathbf u_{\rm nonrigid}\|_V^2}{\|\mathbf u\|_V^2}.
+\end{equation}
+Crucially, rigid rotation is eliminated at this foundational stage: it is neither retained in the target deformation field nor reported as an explained deformation category.
+If a displacement field satisfies $\|\mathbf u_{\rm nonrigid}\|_V^2 / \|\mathbf u\|_V^2 \le 10^{-20}$, it is identified as a pure rigid motion and excluded from nonrigid decomposition.
+
+\subsection{Canonical 3D polynomial dictionary}
+The vector space of polynomial displacement fields $\mathbf u(\tilde{\mathbf x})$ of degree at most 2 in three dimensions has dimension $3 \times \binom{3+2}{2} = 30$.
+Subtracting the 6 degrees of freedom of infinitesimal rigid motion leaves a 24-dimensional nonrigid polynomial space.
+We decompose this space into four canonical physical deformation families spanning 23 nonrigid modes (the remaining single degree of freedom is an isotropic volumetric expansion divergence mode orthogonal to standard modal patterns):
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Axial family ($d_{\rm axial} = 6$ degrees of freedom):}
+Uniform normal extension/compression along each anatomical axis, together with quadratic normal strain gradients:
+\begin{equation}
+\begin{aligned}
+\mathbf a_{x,1} &= (\tilde x, 0, 0)^\top, &\quad \mathbf a_{x,2} &= (\tfrac{1}{2}\tilde x^2, 0, 0)^\top, \\
+\mathbf a_{y,1} &= (0, \tilde y, 0)^\top, &\quad \mathbf a_{y,2} &= (0, \tfrac{1}{2}\tilde y^2, 0)^\top, \\
+\mathbf a_{z,1} &= (0, 0, \tilde z)^\top, &\quad \mathbf a_{z,2} &= (0, 0, \tfrac{1}{2}\tilde z^2)^\top.
+\end{aligned}
+\label{eq:axial-family}
+\end{equation}
+
+\item \textbf{Bending family ($d_{\rm bending} = 6$ degrees of freedom):}
+Classical pure Euler-Bernoulli flexural modes.
+For any pair of distinct coordinate axes $i \ne j \in \{x, y, z\}$, the displacement field
+\begin{equation}
+\mathbf b_{ij} = \tfrac{1}{2}\tilde x_i^2 \mathbf e_j - \tilde x_i \tilde x_j \mathbf e_i
+\label{eq:bending-family}
+\end{equation}
+satisfies $\partial_i u_j = \tilde x_i$ and $\partial_j u_i = -\tilde x_i$.
+Consequently, the Cauchy shear strain vanishes identically:
+\begin{equation}
+\varepsilon_{ij}(\mathbf b_{ij}) = \tfrac{1}{2}\big(\partial_j u_i + \partial_i u_j\big) = \tfrac{1}{2}\big(-\tilde x_i + \tilde x_i\big) \equiv 0.
+\end{equation}
+The six ordered pairs $(x,y)$, $(x,z)$, $(y,x)$, $(y,z)$, $(z,x)$, $(z,y)$ thus define six independent shear-free flexural modes.
+
+\item \textbf{Shear family ($d_{\rm shear} = 9$ degrees of freedom):}
+Comprises three uniform transverse shears and six quadratic transverse shear gradients:
+\begin{equation}
+\begin{aligned}
+\mathbf s_{xy,1} &= (\tilde y, \tilde x, 0)^\top, &\quad \mathbf s_{xy,2} &= (\tilde x \tilde y, \tfrac{1}{2}\tilde x^2, 0)^\top, &\quad \mathbf s_{yx,2} &= (\tfrac{1}{2}\tilde y^2, \tilde y \tilde x, 0)^\top, \\
+\mathbf s_{yz,1} &= (0, \tilde z, \tilde y)^\top, &\quad \mathbf s_{yz,2} &= (0, \tilde y \tilde z, \tfrac{1}{2}\tilde y^2)^\top, &\quad \mathbf s_{zy,2} &= (0, \tfrac{1}{2}\tilde z^2, \tilde z \tilde y)^\top, \\
+\mathbf s_{zx,1} &= (\tilde z, 0, \tilde x)^\top, &\quad \mathbf s_{zx,2} &= (\tfrac{1}{2}\tilde z^2, 0, \tilde z \tilde x)^\top, &\quad \mathbf s_{xz,2} &= (\tilde x \tilde z, 0, \tfrac{1}{2}\tilde x^2)^\top.
+\end{aligned}
+\label{eq:shear-family}
+\end{equation}
+Unlike bending, these modes produce non-zero shear strains $\varepsilon_{ij} \ne 0$.
+
+\item \textbf{Torsion family ($d_{\rm torsion} = 2$ degrees of freedom):}
+Saint-Venant torsional twist gradients around the three Cartesian axes:
+\begin{equation}
+\mathbf t_x = (0, -\tilde x \tilde z, \tilde x \tilde y)^\top, \quad
+\mathbf t_y = (\tilde y \tilde z, 0, -\tilde x \tilde y)^\top, \quad
+\mathbf t_z = (-\tilde y \tilde z, \tilde x \tilde z, 0)^\top.
+\label{eq:torsion-family}
+\end{equation}
+Each torsion field exhibits identically zero normal strain ($\varepsilon_{xx} = \varepsilon_{yy} = \varepsilon_{zz} \equiv 0$).
+Crucially, these three vector fields satisfy the identity:
+\begin{equation}
+\mathbf t_x + \mathbf t_y + \mathbf t_z \equiv \mathbf 0.
+\end{equation}
+Hence, the space of Saint-Venant torsional twist has algebraic dimension exactly equal to 2, spanned by $\{\mathbf t_x, \mathbf t_y\}$.
+\end{enumerate}
+
+To assemble the discrete kinematic design matrix, the basis fields in each family $m \in \{\text{axial, bending, shear, torsion}\}$ are sampled at the $N_q$ quadrature points, weighted by $\sqrt{\tilde w_p}$, projected orthogonal to $\mathbf Q_{\rm rigid}$ via $\mathbf P_{\rm nonrigid}$, and orthonormalised via reduced singular value decomposition (SVD):
+\begin{equation}
+\mathbf P_{\rm nonrigid} \mathbf A_m = \mathbf Q_m \mathbf \Sigma_m \mathbf V_m^\top, \qquad \mathbf Q_m \in \mathbb{R}^{3N_q \times d_m}, \quad \mathbf Q_m^\top \mathbf Q_m = \mathbf I_{d_m}.
+\end{equation}
+The concatenated design matrix $\mathbf A = [\mathbf Q_{\rm axial}, \mathbf Q_{\rm bending}, \mathbf Q_{\rm shear}, \mathbf Q_{\rm torsion}] \in \mathbb{R}^{3N_q \times 23}$ spans the 23-dimensional canonical nonrigid deformation subspace.
+
+\subsection{Numerical conditioning and the Gram matrix}
+On an idealized, centrally symmetric spatial domain (such as a cube or cylinder), the four canonical subspaces are mutually orthogonal with respect to the volume inner product:
+\begin{equation}
+\mathbf Q_a^\top \mathbf Q_b = \mathbf 0 \qquad \forall a \ne b \in \{\text{axial, bending, shear, torsion}\}.
+\end{equation}
+In this symmetric limit, the Gram matrix $\mathbf G = \mathbf A^\top \mathbf A = \mathbf I_{23}$ is the identity matrix, with 2-norm condition number $\kappa(\mathbf G) = 1.000$.
+
+On the real, geometrically asymmetric pelvic ring, slight geometric coupling arises, predominantly between bending and shear (both of which involve quadratic cross-terms in $\tilde x_i \tilde x_j$).
+The Gram matrix $\mathbf G = \mathbf A^\top \mathbf A \in \mathbb{R}^{23 \times 23}$ for the reference pelvic mesh has condition number
+\begin{equation}
+\kappa(\mathbf G) = \frac{\sigma_{\max}(\mathbf G)}{\sigma_{\min}(\mathbf G)} \approx 13.887.
+\end{equation}
+A condition number of $\sim 14$ confirms that the 23 canonical modes remain well conditioned and linearly independent without near-collinearity or numerical rank deficiency.
+
+\subsection{Cooperative game-theoretic Shapley value norm allocation}
+Because the four deformation subspaces are not strictly orthogonal on the irregular pelvic anatomy, projecting onto them sequentially (e.g., Gram-Schmidt orthogonalisation) would introduce an arbitrary, order-dependent bias: the first chosen family would absorb all shared variance, artificially starving subsequent families.
+To achieve an objective, order-independent decomposition, we formulate the problem using cooperative game theory.
+
+Let $M = \{\text{axial}, \text{bending}, \text{shear}, \text{torsion}\}$ denote the set of four pattern players ($|M| = 4$).
+There are $2^4 = 16$ possible coalitions $S \subseteq M$.
+For any coalition $S$, we construct the concatenated orthonormal basis $\mathbf A_S \in \mathbb{R}^{3N_q \times \sum_{m \in S} d_m}$ and define the characteristic function $v(S)$ as the fraction of nonrigid squared displacement norm explained by the joint subspace:
+\begin{equation}
+v(S) = R^2(S) = \frac{\mathbf u_{\rm nonrigid}^\top \mathbf P_S \mathbf u_{\rm nonrigid}}{\|\mathbf u_{\rm nonrigid}\|_V^2}, \qquad
+\mathbf P_S = \mathbf A_S (\mathbf A_S^\top \mathbf A_S)^+ \mathbf A_S^\top,
+\label{eq:coalition-r2}
+\end{equation}
+with $v(\emptyset) = 0$, where $(\cdot)^+$ denotes the Moore-Penrose pseudoinverse.
+The Shapley value $f_m$ assigned to each deformation family $m \in M$ is the unique allocation satisfying the four foundational Shapley axioms:
+\begin{enumerate}
+\item \textbf{Efficiency:} The sum of allocated values equals the value of the grand coalition:
+\begin{equation}
+\sum_{m \in M} f_m = v(M) = R^2(M) = 1 - f_{\rm residual}.
+\end{equation}
+\item \textbf{Symmetry:} If two families $m, k \in M$ contribute identically to every coalition ($v(S \cup \{m\}) = v(S \cup \{k\})$ for all $S \subseteq M \setminus \{m, k\}$), then $f_m = f_k$.
+\item \textbf{Dummy player:} If a family $m$ adds zero marginal variance to every coalition ($v(S \cup \{m\}) = v(S)$ for all $S \subseteq M \setminus \{m\}$), then $f_m = 0$.
+\item \textbf{Additivity:} If a deformation field is decomposed into independent orthogonal components, their Shapley shares sum linearly.
+\end{enumerate}
+The explicit Shapley allocation formula evaluates the marginal contribution of family $m$ averaged over all coalition orders:
+\begin{equation}
+f_m = \sum_{S \subseteq M \setminus \{m\}} \frac{|S|!(|M| - |S| - 1)!}{|M|!} \Big[ v\big(S \cup \{m\}\big) - v(S) \Big].
+\label{eq:shapley-formula}
+\end{equation}
+The unexplained shape change is retained as an explicit residual:
+\begin{equation}
+f_{\rm residual} = 1 - v(M) = 1 - R^2(\text{axial} \cup \text{bending} \cup \text{shear} \cup \text{torsion}).
+\end{equation}
+Because subspace projection operators are monotonic ($V_S \subseteq V_{S \cup \{m\}} \implies v(S \cup \{m\}) \ge v(S)$), every marginal contribution is non-negative, which guarantees $f_m \ge 0$ for all $m$.
+Exact closure holds identically:
+\begin{equation}
+f_{\rm axial} + f_{\rm bending} + f_{\rm shear} + f_{\rm torsion} + f_{\rm residual} \equiv 1.0000 \quad (100.0\%).
+\end{equation}
+Furthermore, the fractions are strictly scale-invariant ($\mathbf u \mapsto c\mathbf u$ for $c \ne 0$) and sign-invariant ($\mathbf u \mapsto -\mathbf u$).
+For comparative diagnostics, we also compute the standalone coefficient of determination for each isolated family:
+\begin{equation}
+R^2_m = v(\{m\}) = \frac{\mathbf u_{\rm nonrigid}^\top \mathbf P_m \mathbf u_{\rm nonrigid}}{\|\mathbf u_{\rm nonrigid}\|_V^2}.
+\end{equation}
+Due to the slight geometric coupling between families ($\kappa \approx 13.9$), the sum $\sum_{m \in M} R^2_m$ may moderately exceed the total explained fraction $R^2(M)$; the Shapley values partition this shared overlap fairly and symmetrically.
+
+\subsection{Synthetic benchmark and backwards-identification validation}
+To verify the accuracy, robustness, and backwards-identifiability of the global deformation decomposition, we executed synthetic validation experiments on both an idealized symmetric domain (cube) and the realistic reference pelvis mesh (Table~E2).
+
+On the symmetric domain, pure synthetic fields belonging to the axial, shear, and torsion families are identified with $100.0\%$ fidelity, zero cross-talk, and exactly $0.0\%$ residual.
+For pure Euler-Bernoulli bending ($\mathbf u = (-xy, \tfrac{1}{2}x^2, 0)$), the displacement field consists of an axial cross-term $-xy$ and a transverse parabolic deflection $\tfrac{1}{2}x^2$.
+Because the quadratic shear mode $\mathbf s_{xy,2} = (xy, \tfrac{1}{2}x^2, 0)$ shares the identical transverse parabolic deflection $\tfrac{1}{2}x^2$, the pure flexural field lies in the joint span $V_{\rm bending} \oplus V_{\rm shear}$.
+The Shapley allocation splits this shared transverse deflection analytically, yielding $77.5\%$ bending, $22.5\%$ shear, and exactly $0.0\%$ residual ($100.0\%$ fitted).
+
+On the actual reference pelvis mesh, pure canonical polynomial fields are recovered with exactly $0.0\%$ residual ($100.0\%$ fitted fraction):
+\begin{itemize}
+\item Pure axial stretch ($x\mathbf e_x$): $85.3\%$ axial share, $0.0\%$ residual ($100.0\%$ fitted).
+\item Pure triaxial extension ($x\mathbf e_x - \tfrac{1}{2}y\mathbf e_y - \tfrac{1}{2}z\mathbf e_z$): $84.8\%$ axial share, $0.0\%$ residual ($100.0\%$ fitted).
+\item Pure Euler-Bernoulli bending: $74.1\%$ bending share, $0.0\%$ residual ($100.0\%$ fitted).
+\item Pure transverse shear: $82.8\text{--}90.7\%$ shear share, $0.0\%$ residual ($100.0\%$ fitted).
+\item Pure Saint-Venant torsion: $91.3\text{--}97.7\%$ torsion share, $0.0\%$ residual ($100.0\%$ fitted).
+\end{itemize}
+When subjected to pure infinitesimal rigid translations or pure infinitesimal rotations, the nonrigid fraction is detected as $f_{\rm nonrigid} < 10^{-27}$, correctly triggering the rigid-motion filter and confirming zero spurious contamination.
+Finally, adding arbitrary rigid-body translations and rotations to an axial deformation field yields identical Shapley shares ($85.3\%$ axial, $7.2\%$ bending, $7.5\%$ shear, $0.0\%$ torsion, $0.0\%$ residual) to within machine precision ($< 10^{-10}$), demonstrating complete invariance under rigid-body frame shifts.
+
+\subsection{Reference mode deformation profiles and biomechanical interpretation}
+Table~E1 compiles the quantitative whole-pelvis 3D deformation decomposition for all fifteen reference eigenmodes.
+The results resolve several key biomechanical features of the pelvic ring:
+\begin{itemize}
+\item \textbf{Modes~1 and~2 (low-rank backbone):}
+For Mode~1, the nonrigid deformation accounts for $3.3\%$ of the total displacement norm (the remainder reflecting whole-pelvis rocking on the sacroiliac/pubic supports).
+Its nonrigid shape change is predominantly out-of-plane torsional twist ($23.0\%$) and transverse shear ($17.0\%$), with a total fitted fraction of $42.2\%$.
+For Mode~2, nonrigid shape change ($5.5\%$ of total norm) is a coupled sagittal ring flexure and shear ($23.6\%$ bending, $23.4\%$ shear, $20.8\%$ axial, $68.5\%$ fitted).
+This resolves the earlier 1D beam artifact (which had yielded an unphysical $84\%$ residual): the true 3D ring kinematics explain more than two-thirds of the deformation norm.
+
+\item \textbf{Modes~4 and~5 (dominant flexural pathways):}
+Modes~4 and~5 exhibit strong bending dominance, explaining $43.7\%$ and $47.8\%$ of their nonrigid norm respectively (with standalone bending fits $R^2_{\rm bending}$ reaching $47.6\%$ and $62.4\%$, and total explained fractions of $74.4\%$ and $86.3\%$).
+These modes capture lateral and anteroposterior flaring of the iliac wings.
+
+\item \textbf{The obstetric 9--10 pair:}
+Mode~9 is the most highly fitted mode in the entire spectrum ($91.8\%$ explained, residual only $8.2\%$).
+Its deformation is overwhelmingly axial ($60.6\%$ Shapley share; standalone $R^2_{\rm axial} = 67.7\%$), representing circumferential normal stretching that widens the obstetric pelvic inlet.
+In contrast, its near-degenerate partner Mode~10 ($74.6\%$ fitted) is dominated by torsion ($36.4\%$) and shear ($32.4\%$), with minimal axial contribution ($4.8\%$).
+This quantitative kinematic divergence reinforces why the 9--10 cluster forms a complementary functional unit: Mode~9 provides direct obstetric diameter enlargement, whereas Mode~10 accommodates asymmetric torsional/shear loads.
+\end{itemize}
+
+\clearpage
+\subsection*{Table E1. Reference mode whole-pelvis 3D deformation decomposition}
+\SuppTableInput{../../analysis_outputs/tables/global_deformation_modes_table.tex}
+
+\clearpage
+\subsection*{Table E2. Synthetic benchmark and backwards-identification validation}
+\SuppTableInput{../../analysis_outputs/tables/global_deformation_synthetic_table.tex}
+
+\clearpage
 \bibliographystyle{unsrtnat}
+
+
+
+
+
+
 \bibliography{../report/references}
 
 \end{document}

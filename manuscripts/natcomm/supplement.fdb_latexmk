@@ -1,12 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1789712991.08646 "supplement.tex" "supplement.pdf" "supplement" 1789712991.55936 0
-  "../../analysis_outputs/figures/allometry_dashboard.pdf" 1772822323.54572 59403 f73c6eee7ff4f51ba280c435a4126f3f ""
+["pdflatex"] 1789741192.79024 "supplement.tex" "supplement.pdf" "supplement" 1789741193.23384 0
+  "../../analysis_outputs/figures/allometry_dashboard.pdf" 1789720327.22293 59363 4d2584a88947cc59b005879af89e42b8 ""
   "../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex" 1789711578.81962 1458 c3c17f53210715dab708fbd9a56bfe1b ""
   "../../analysis_outputs/plos_revision/figures/coupling_routing_heatmap.pdf" 1789712126.19774 40637 19e58a4151cd3b1fafa7b5de09d75911 ""
   "../../analysis_outputs/plos_revision/figures/reference_modes.pdf" 1789712623.03625 1502771 5f49a0ecaed9711f188bc56a41b2cc1c ""
   "../../analysis_outputs/plos_revision/figures/robustness.pdf" 1789712125.062 35219 ac5e83d172ba51cd019bc6e1f47f2069 ""
   "../../analysis_outputs/plos_revision/figures/routing_distributions.pdf" 1789712122.6783 264195 1e8dda6b8fba55ddb7fc9b53715d906b ""
-  "../../analysis_outputs/tables/allometry_summary.tex" 1779271044.39148 1884 3d82b3cae3cbee7ea34ea85487830880 ""
+  "../../analysis_outputs/tables/allometry_summary.tex" 1789720327.7717 1884 3d82b3cae3cbee7ea34ea85487830880 ""
   "../../analysis_outputs/tables/clusters.tex" 1779271044.39167 843 17806d8b7bfcdb03074562c9ab8a3480 ""
   "../../analysis_outputs/tables/cohort_bootstrap_robustness.tex" 1789712795.76239 2113 2e0c82395c60cb297abcefb049289bc5 ""
   "../../analysis_outputs/tables/function_locking_synthesis.tex" 1779271044.39222 1512 e83fddfd25e6ed236e4c32003e3385af ""
@@ -102,8 +102,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771244779.23343 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771244812 6831138 e361f9c9db2e636eb064f6a4cc93ec74 ""
-  "supplement.aux" 1789712991.48917 1144 2cf45e46ce6cada30700a260b45723b7 "pdflatex"
-  "supplement.tex" 1789712980.57854 5751 e63d81d5f9b660913184c55cddd2486b ""
+  "supplement.aux" 1789741193.15581 1144 2cf45e46ce6cada30700a260b45723b7 "pdflatex"
+  "supplement.tex" 1789741181.70524 5793 7ff6169d11ff78fc7aba1987e6461c01 ""
   (generated)
   "supplement.aux"
   "supplement.log"

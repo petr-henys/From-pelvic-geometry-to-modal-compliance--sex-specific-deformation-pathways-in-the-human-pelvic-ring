@@ -19,8 +19,10 @@ Mustafa Khammash.
 
 \bibitem[Whitacre(2010)]{Whitacre2010}
 James~M. Whitacre.
-\newblock Degeneracy: a link between evolvability, robustness and complexity in biological systems.
-\newblock \emph{Theoretical Biology and Medical Modelling}, 7\penalty0 (1), 2010.
+\newblock Degeneracy: a link between evolvability, robustness and complexity in
+  biological systems.
+\newblock \emph{Theoretical Biology and Medical Modelling}, 7\penalty0 (1),
+  2010.
 \newblock \doi{10.1186/1742-4682-7-6}.
 
 \bibitem[Whitacre(2012)]{Whitacre2012}
@@ -31,8 +33,10 @@ James~M. Whitacre.
 
 \bibitem[Pierre(1988)]{Pierre1988}
 Christophe Pierre.
-\newblock Mode localization and eigenvalue loci veering phenomena in disordered structures.
-\newblock \emph{Journal of Sound and Vibration}, 126\penalty0 (3):\penalty0 485--502, 1988.
+\newblock Mode localization and eigenvalue loci veering phenomena in disordered
+  structures.
+\newblock \emph{Journal of Sound and Vibration}, 126\penalty0 (3):\penalty0
+  485--502, 1988.
 \newblock \doi{10.1016/0022-460X(88)90226-X}.
 
 \bibitem[Manconi and Mace(2017)]{ManconiMace2017}
@@ -43,25 +47,31 @@ Elisabetta Manconi and B.~R. Mace.
 
 \bibitem[Ghosh and Ghanem(2012)]{GhoshGhanem2012}
 Debraj Ghosh and Roger Ghanem.
-\newblock An invariant subspace-based approach to the random eigenvalue problem of systems with clustered spectrum.
-\newblock \emph{International Journal for Numerical Methods in Engineering}, 91\penalty0 (4):\penalty0 378--396, 2012.
+\newblock An invariant subspace-based approach to the random eigenvalue problem
+  of systems with clustered spectrum.
+\newblock \emph{International Journal for Numerical Methods in Engineering},
+  91\penalty0 (4):\penalty0 378--396, 2012.
 \newblock \doi{10.1002/nme.4276}.
 
 \bibitem[Whitcome et~al.(2017)]{Whitcome2017}
 Katherine~K. Whitcome et~al.
 \newblock Evolutionary biomechanics of the human pelvis.
-\newblock \emph{Philosophical Transactions of the Royal Society B}, 372\penalty0 (1720):\penalty0 20160021, 2017.
+\newblock \emph{Philosophical Transactions of the Royal Society B},
+  372\penalty0 (1720):\penalty0 20160021, 2017.
 \newblock \doi{10.1098/rstb.2016.0021}.
 
 \bibitem[Ruff(2017)]{Ruff2017}
 Christopher Ruff.
-\newblock Morphological variation of the human pelvis and its functional implications.
-\newblock \emph{American Journal of Physical Anthropology}, 162\penalty0 (S63):\penalty0 32--71, 2017.
+\newblock Morphological variation of the human pelvis and its functional
+  implications.
+\newblock \emph{American Journal of Physical Anthropology}, 162\penalty0
+  (S63):\penalty0 32--71, 2017.
 \newblock \doi{10.1002/ajpa.23120}.
 
 \bibitem[Betti and Manica(2020)]{Betti2020}
 Lia Betti and Andrea Manica.
-\newblock Human variation in the shape of the bony pelvis and climatic adaptation.
+\newblock Human variation in the shape of the bony pelvis and climatic
+  adaptation.
 \newblock \emph{Nature Ecology \& Evolution}, 4:\penalty0 153--160, 2020.
 \newblock \doi{10.1038/s41559-019-1060-9}.
 
@@ -73,20 +83,27 @@ E.~Weiss.
 
 \bibitem[Snijders et~al.(1993)Snijders, Vleeming, and Stoeckart]{Snijders1993}
 C.~J. Snijders, A.~Vleeming, and R.~Stoeckart.
-\newblock Transfer of lumbosacral load to iliac bones and legs. part 1: Biomechanics of self-bracing of the sacroiliac joints.
-\newblock \emph{Clinical Biomechanics}, 8\penalty0 (6):\penalty0 285--294, 1993.
+\newblock Transfer of lumbosacral load to iliac bones and legs. part 1:
+  Biomechanics of self-bracing of the sacroiliac joints.
+\newblock \emph{Clinical Biomechanics}, 8\penalty0 (6):\penalty0 285--294,
+  1993.
 \newblock \doi{10.1016/0268-0033(93)90002-Y}.
 
-\bibitem[Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels, and Willard]{Vleeming2012}
-Andry Vleeming, Michael~D. Schuenke, Anthony~T. Masi, Jane~E. Carreiro, Lieven Danneels, and F.~H. Willard.
-\newblock The sacroiliac joint: an overview of its anatomy, function and potential clinical implications.
+\bibitem[Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels, and
+  Willard]{Vleeming2012}
+Andry Vleeming, Michael~D. Schuenke, Anthony~T. Masi, Jane~E. Carreiro, Lieven
+  Danneels, and F.~H. Willard.
+\newblock The sacroiliac joint: an overview of its anatomy, function and
+  potential clinical implications.
 \newblock \emph{Journal of Anatomy}, 221\penalty0 (6):\penalty0 537--567, 2012.
 \newblock \doi{10.1111/j.1469-7580.2012.01564.x}.
 
 \bibitem[Goode et~al.(2008)Goode, Hegedus, and Sizer]{Goode2008}
 Adam Goode, Eric~J. Hegedus, and Philip Sizer.
-\newblock Three-dimensional movements of the sacroiliac joint: A systematic review of the literature and assessment of clinical utility.
-\newblock \emph{Journal of Manual \& Manipulative Therapy}, 16\penalty0 (1):\penalty0 25--38, 2008.
+\newblock Three-dimensional movements of the sacroiliac joint: A systematic
+  review of the literature and assessment of clinical utility.
+\newblock \emph{Journal of Manual \& Manipulative Therapy}, 16\penalty0
+  (1):\penalty0 25--38, 2008.
 \newblock \doi{10.1179/106698108790818639}.
 
 \bibitem[Meijer et~al.(2014)]{Meijer2014}
@@ -109,37 +126,51 @@ C.~No{\"e} et~al.
 
 \bibitem[Guo and Teo(2005)]{GuoTeo2005}
 Li-Xin Guo and Ee-Chon Teo.
-\newblock Prediction of the modal characteristics of the human spine at resonant frequency using finite element models.
-\newblock \emph{Proceedings of the Institution of Mechanical Engineers, Part H: Journal of Engineering in Medicine}, 219\penalty0 (4):\penalty0 277--284, 2005.
+\newblock Prediction of the modal characteristics of the human spine at
+  resonant frequency using finite element models.
+\newblock \emph{Proceedings of the Institution of Mechanical Engineers, Part H:
+  Journal of Engineering in Medicine}, 219\penalty0 (4):\penalty0 277--284,
+  2005.
 \newblock \doi{10.1243/095441105X34275}.
 
 \bibitem[Fan et~al.(2021)Fan, Zhao, and Guo]{Fan2021Modal}
 Wei Fan, Dan Zhao, and Li-Xin Guo.
-\newblock A finite element model of the human lower thorax to pelvis spinal segment: Validation and modal analysis.
-\newblock \emph{Bio-Medical Materials and Engineering}, 32\penalty0 (5):\penalty0 267--279, 2021.
+\newblock A finite element model of the human lower thorax to pelvis spinal
+  segment: Validation and modal analysis.
+\newblock \emph{Bio-Medical Materials and Engineering}, 32\penalty0
+  (5):\penalty0 267--279, 2021.
 \newblock \doi{10.3233/BME-196017}.
 
-\bibitem[Kriechling et~al.(2022)Kriechling, Leoty, and F{\"u}rnstahl]{Kriechling2022}
+\bibitem[Kriechling et~al.(2022)Kriechling, Leoty, and
+  F{\"u}rnstahl]{Kriechling2022}
 Philipp Kriechling, Laura Leoty, and Philipp F{\"u}rnstahl.
-\newblock A statistical shape model-based analysis of periacetabular osteotomies.
-\newblock \emph{The Journal of Bone and Joint Surgery}, 104\penalty0 (12):\penalty0 1107--1115, 2022.
+\newblock A statistical shape model-based analysis of periacetabular
+  osteotomies.
+\newblock \emph{The Journal of Bone and Joint Surgery}, 104\penalty0
+  (12):\penalty0 1107--1115, 2022.
 \newblock \doi{10.2106/JBJS.21.00454}.
 
 \bibitem[Chen and Grimm(2021)]{ChenGrimm2021}
 Sheng Chen and Michele~J. Grimm.
 \newblock Childbirth computational models: Characteristics and applications.
-\newblock \emph{Journal of Biomechanical Engineering}, 143\penalty0 (5):\penalty0 050801, 2021.
+\newblock \emph{Journal of Biomechanical Engineering}, 143\penalty0
+  (5):\penalty0 050801, 2021.
 \newblock \doi{10.1115/1.4049226}.
 
-\bibitem[Roque~de Almeida et~al.(2024)Roque~de Almeida, Alves Campice~de Oliveira, de~Oliveira~Campos, Martins~Rocha, and de~Souza~Bastos]{Almeida2024Uterus}
-Priscila Roque~de Almeida, Isabela Alves Campice~de Oliveira, Joventino de~Oliveira~Campos, Bernardo Martins~Rocha, and Fl{\'a}via de~Souza~Bastos.
-\newblock Modeling of the biomechanical behavior and growth of the human uterus during pregnancy.
+\bibitem[Roque~de Almeida et~al.(2024)Roque~de Almeida, Alves Campice~de
+  Oliveira, de~Oliveira~Campos, Martins~Rocha, and
+  de~Souza~Bastos]{Almeida2024Uterus}
+Priscila Roque~de Almeida, Isabela Alves Campice~de Oliveira, Joventino
+  de~Oliveira~Campos, Bernardo Martins~Rocha, and Fl{\'a}via de~Souza~Bastos.
+\newblock Modeling of the biomechanical behavior and growth of the human uterus
+  during pregnancy.
 \newblock \emph{Journal of Biomechanics}, 174:\penalty0 112268, 2024.
 \newblock \doi{10.1016/j.jbiomech.2024.112268}.
 
 \bibitem[Heny\v{s} and Kucha\v{r}(2025)]{HenyssKuchar2025BoneDat}
 Petr Heny\v{s} and Michal Kucha\v{r}.
-\newblock Bonedat, a database of standardized bone morphology for in silico analyses.
+\newblock Bonedat, a database of standardized bone morphology for in silico
+  analyses.
 \newblock \emph{Scientific Data}, 12\penalty0 (1), 2025.
 \newblock \doi{10.1038/s41597-025-05161-y}.
 

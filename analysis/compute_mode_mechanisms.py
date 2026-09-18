@@ -1,4 +1,6 @@
-"""Cohort-wide computation of kinematic deformation mechanisms for all 15 eigenmodes.
+"""Reference-first computation (use --cohort for the legacy population analysis).
+
+Cohort-wide computation of kinematic deformation mechanisms for all 15 eigenmodes.
 
 Vectorized and optimized for high throughput across all 278 cohort subjects:
 1. Level A: Exact 6-component strain tensor fractions across whole pelvis,
@@ -585,5 +587,16 @@ def run_cohort_mechanisms_pipeline(max_subjects: int | None = None):
 
 
 if __name__ == "__main__":
-    run_cohort_mechanisms_pipeline()
+    import argparse
+    cli = argparse.ArgumentParser(description="Reference mode atlas by default; optional cohort analysis")
+    cli.add_argument("--cohort", action="store_true", help="Run the legacy cohort pipeline")
+    cli.add_argument("--max-subjects", type=int, help="Limit the optional cohort run")
+    args = cli.parse_args()
+    if args.max_subjects is not None and not args.cohort:
+        cli.error("--max-subjects requires --cohort")
+    if args.cohort:
+        run_cohort_mechanisms_pipeline(args.max_subjects)
+    else:
+        from analysis.reference_mode_atlas import main
+        main()
 
