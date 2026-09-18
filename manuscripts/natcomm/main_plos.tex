@@ -663,10 +663,46 @@ Canonical coupling scores are reported in units of diameter change per 1\,mm of 
 \begin{equation}
 \widehat s^{(s)}_k=\frac{|\mathbf b_k^{(s)\top}\boldsymbol\psi_k^{(s)}|}{\max_a \|\boldsymbol\psi_{k,a}^{(s)}\|_2},
 \end{equation}
-where $\max_a \|\boldsymbol\psi_{k,a}^{(s)}\|_2$ denotes the maximum Euclidean displacement magnitude across all mesh nodes~$a$.
-
-so that reported couplings are independent of arbitrary eigenvector normalisation.
 The direct 9--10 label-versus-subspace analysis evaluates AP-inlet coupling for rank mode~9, rank mode~10, and the canonical 9--10 subspace after splitting cluster members by 9$\rightleftarrows$10 swap status.
+
+\subsection{Kinematic deformation mechanisms and regional orthogonal decomposition}
+\label{sec:mechanisms-methods}
+
+To quantitatively classify physical deformation mechanisms (axial stretching/compression, bending, transverse shear, and torsion) across the cohort independently of arbitrary rigid-body rotations, we evaluated cell-wise internal strain tensors directly from the modal displacement fields $\mathbf u_k$.
+On each subject-specific geometry, the deformation gradient $F_s = I + \nabla_{\mathbf X} \boldsymbol\varphi_s$ was evaluated from the diffeomorphic RBF mapping $\boldsymbol\varphi_s$.
+Small-strain tensors for each eigenmode $k \in \{1,\dots,15\}$ were computed in cell-wise DG0 representation as:
+\begin{equation}
+\boldsymbol\varepsilon_k = \frac{1}{2}\left( \nabla \mathbf u_k F_s^{-1} + F_s^{-\top} \nabla \mathbf u_k^\top \right).
+\end{equation}
+Cells exhibiting non-positive Jacobian determinants ($J_s \le 0$) arise exclusively from localized boundary-fitting artifacts on thin cortical rims ($0.0009\%$ of cells cohort-wide; see Results) and were strictly excluded from integration, defining the geometrically admissible domain $\Omega_{\rm adm} = \{c \in \Omega_{\rm ref} : J_{s,c} > 0\}$ with cell integration weights $w_c = J_{s,c} V_{{\rm ref},c}$.
+
+The total quadratic strain norm for mode $k$ over any domain or tissue subregion $\Omega_{\rm reg} \subseteq \Omega_{\rm adm}$ is defined by the volume-weighted Frobenius inner product:
+\begin{equation}
+D_{\rm reg}(\mathbf u_k) = \sum_{c \in \Omega_{\rm reg}} w_c (\boldsymbol\varepsilon_{k,c} : \boldsymbol\varepsilon_{k,c}) = \sum_{c \in \Omega_{\rm reg}} w_c \left[ \varepsilon_{11}^2 + \varepsilon_{22}^2 + \varepsilon_{33}^2 + 2\varepsilon_{12}^2 + 2\varepsilon_{13}^2 + 2\varepsilon_{23}^2 \right].
+\end{equation}
+Normalised tensor fractions $f_{\rm comp} = D_{\rm comp} / D_{\rm reg}$ account for the factor of~2 on shears, strictly satisfying $\sum_{\rm comp} f_{\rm comp} = 1.0$.
+In the anatomical reference frame $[e_{\rm ML}, e_{\rm AP}, e_{\rm CC}]$, components correspond to mediolateral ($f_{\rm ML}$), anteroposterior ($f_{\rm AP}$), and craniocaudal ($f_{\rm CC}$) normal stretching/compression, in-plane transverse shear ($f_{\rm ML-AP}$), coronal shear ($f_{\rm ML-CC}$), and sagittal shear ($f_{\rm AP-CC}$).
+The norm is partitioned into volumetric ($f_{\rm vol} = \sum w_c \operatorname{tr}(\boldsymbol\varepsilon)^2 / (3 D)$) and deviatoric ($f_{\rm dev} = 1 - f_{\rm vol}$) parts.
+
+For elongated branches of the ring (superior and inferior pubic rami, iliac crests), we formulated an orthogonal regional beam model.
+Denoting local branch coordinates as $(s, y, z)$ with longitudinal axis $s$ and volume-centered transverse coordinates $\sum w_c y_c = \sum w_c z_c = 0$, the strain field was decomposed into:
+\begin{equation}
+\varepsilon_{ss}(y,z) \approx a + b_y y + b_z z, \qquad
+\begin{pmatrix}\varepsilon_{sy}\\\varepsilon_{sz}\end{pmatrix} \approx \begin{pmatrix}g_y\\g_z\end{pmatrix} + t \begin{pmatrix}-z\\y\end{pmatrix},
+\end{equation}
+representing uniform axial extension/compression ($a$), linear bending gradients ($b_y, b_z$), uniform transverse shear ($g_y, g_z$), circulatory twist ($t$), and residual strain $\boldsymbol\varepsilon_{\rm res}$.
+Volume-weighted orthogonality ensures exact Frobenius energy closure:
+\begin{equation}
+f_{\rm axial} + f_{\rm bending} + f_{\rm shear} + f_{\rm twist} + f_{\rm residual} = 1.0.
+\end{equation}
+
+For near-degenerate clusters spanning an orthonormal basis $Q = [\mathbf u_1, \dots, \mathbf u_r]$, individual mode profiles vary under arbitrary internal rotations $Q \to QO$.
+The basis-invariant aggregate subspace profile is evaluated from the summed quadratic forms:
+\begin{equation}
+\bar D_{\rm comp}(Q) = \sum_{j=1}^r D_{\rm comp}(\mathbf u_j), \qquad f_{\rm comp}(Q) = \frac{\bar D_{\rm comp}(Q)}{\sum_k \bar D_k(Q)},
+\end{equation}
+which is mathematically invariant under any orthogonal transformation $O \in \mathrm{O}(r)$.
+These kinematic fractions describe intrinsic modal deformation mechanisms and are mathematically distinct from load-dependent modal elastic energy fractions.
 
 \subsection{Load routing and modal strain-energy fractions}
 \label{sec:routing-methods}
