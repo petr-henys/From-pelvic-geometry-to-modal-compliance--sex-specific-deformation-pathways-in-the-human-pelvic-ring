@@ -131,17 +131,21 @@ def process_population(
     all_records: list[dict] = []
 
     for i in range(n_subjects):
-        perm = permutations[i]
-        valid_mask = perm >= 0
-        valid_ref_modes = np.where(valid_mask)[0]
-        valid_subj_modes = perm[valid_mask].astype(int)
-
-        subj_eig = eigenvalues[i, valid_subj_modes]
-        subj_lig = lig_sens[i, valid_subj_modes, :]
-        subj_pret = pret_sens[i, valid_subj_modes, :]
-        subj_cart = cart_sens[i, valid_subj_modes, :]
-        subj_alpha = alpha_sens[i, valid_subj_modes]
-        subj_beta = beta_sens[i, valid_subj_modes]
+        # Spectral gaps must compare adjacent solver ranks, not paired labels.
+        valid_ref_modes = np.arange(eigenvalues.shape[1])
+        subj_eig = eigenvalues[i]
+        if not np.all(np.isfinite(subj_eig)) or np.any(subj_eig <= 0) or np.any(np.diff(subj_eig) < 0):
+            raise ValueError(f"Invalid solver spectrum for subject {i}")
+        subj_lig, subj_pret = lig_sens[i], pret_sens[i]
+        subj_cart, subj_alpha, subj_beta = cart_sens[i], alpha_sens[i], beta_sens[i]
+        # Absolute eigenvalue derivatives with respect to log parameters.
+        G_lig = np.column_stack((subj_lig * stiffness_bl, subj_pret * pretension_bl))
+        G_cart = subj_cart * cart_moduli
+        G_bone = np.column_stack((subj_alpha * alpha_bl, subj_beta * beta_bl))
+        covariance = (G_lig @ Sigma_lig @ G_lig.T
+                      + G_cart @ Sigma_cart @ G_cart.T
+                      + G_bone @ Sigma_bone @ G_bone.T)
+        gap_variance = np.diag(covariance)[:-1] + np.diag(covariance)[1:] - 2 * np.diag(covariance, 1)
 
         # ── Ligament propagation ──
         df_lig = first_order_propagation(
@@ -186,6 +190,7 @@ def process_population(
                 "sex": "Male" if sex[i] == "M" else "Female",
                 "mode": int(valid_ref_modes[m_idx] + 1),
                 "eigenvalue": float(subj_eig[m_idx]),
+                "gap_variance": float(max(0.0, gap_variance[m_idx])) if m_idx < n_valid - 1 else np.nan,
                 # ── Total ──
                 "var_total": var_total,
                 "std_total": float(np.sqrt(max(var_total, 0.0))),
@@ -260,7 +265,7 @@ def compute_summary_stats(df: pd.DataFrame) -> pd.DataFrame:
     df["next_std"] = df.groupby("subject_id")["std_total"].shift(-1) * df["next_eig"]
     df["curr_std"] = df["std_total"] * df["eigenvalue"]
     df["gap"] = df["next_eig"] - df["eigenvalue"]
-    df["gap_std"] = np.sqrt(df["curr_std"] ** 2 + df["next_std"] ** 2)
+    df["gap_std"] = np.sqrt(df["gap_variance"].clip(lower=0.0))
     df["gap_z_score"] = np.where(
         np.isfinite(df["gap"]) & np.isfinite(df["gap_std"]) & (df["gap_std"] > 0),
         df["gap"] / df["gap_std"],
@@ -338,7 +343,7 @@ def generate_latex_table(summary: pd.DataFrame, output_path: Path) -> None:
         r" CoV is the total coefficient of variation (ligament + cartilage + bone)."
         r" Lig/Cart/Bone columns show each group's fraction of total variance."
         r" Gap $Z$-score measures robustness of each spectral gap to combined"
-        r" material noise ($Z > 2$: 95\,\% confidence).}",
+        r" material noise (first-order signal-to-noise ratio; not a confidence probability).}",
         r"\label{tab:material_uncertainty}",
         r"\begin{tabular}{l cccc cccc}",
         r"\toprule",

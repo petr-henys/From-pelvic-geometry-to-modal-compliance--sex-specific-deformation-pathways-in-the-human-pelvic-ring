@@ -1,0 +1,375 @@
+%% Final JRSI manuscript, rhetorically tightened and structurally reshaped
+\documentclass[openacc]{rsproca_new}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{threeparttable}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{csquotes}
+
+\addbibresource{refs.bib}
+
+\jname{rsif}
+\Journal{J R Soc Interface\ }
+
+\begin{document}
+
+\title{Dynamic compliance in the human pelvic ring: sex-specific organisation of childbirth-relevant deformation pathways}
+
+\author{Petr Heny\v{s}$^{1}$, Michal Kucha\v{r}$^{1,2}$, Alexander Mor\'{a}vek$^{2}$, Niels Hammer$^{3,4}$}
+
+\address{$^{1}$Institute of New Technologies and Applied Informatics, Faculty of Mechatronics, Informatics and Interdisciplinary Studies, Technical University of Liberec, Liberec, Czech Republic\\
+$^{2}$Department of Anatomy, Faculty of Medicine in Hradec Kr\'{a}lov\'{e}, Charles University, Hradec Kr\'{a}lov\'{e}, Czech Republic\\
+$^{3}$Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center, Medical University of Graz, Graz, Austria\\
+$^{4}$Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center, Medical University of Graz, Graz, Austria; Department of Orthopedic and Trauma Surgery, University of Leipzig, Leipzig, Germany; Division of Biomechatronics, Fraunhofer IWU, Dresden, Germany}
+
+\subject{biomechanics, evolutionary anthropology, obstetrics}
+
+\keywords{biomechanics, human pelvis, modal analysis, finite-element modelling, childbirth, allometry, sacroiliac joint}
+
+\corres{Michal Kucha\v{r}\\
+\email{kucharm@lfhk.cuni.cz}}
+
+\begin{abstract}
+The human pelvis must simultaneously support habitual bipedal loading and accommodate the rare but extreme mechanical demands of childbirth. This dual role is usually discussed in terms of sexual dimorphism and static canal dimensions, yet pelvic function depends on how a compliant ring system gains access to, and organises, specific deformation pathways. We analysed 278 anatomically standardised lumbopelvic finite-element models derived from clinical CT using correspondence-preserving modal decomposition, allometric normalisation, standardised locomotor and childbirth-motivated load cases, and sensitivity analyses of ligamentous and cartilaginous constraints. Pelvic size explained a substantial share of global stiffness variation, indicating that scale is a major determinant of pathway accessibility. In the pooled unscaled spectrum, women generally showed higher eigenvalues than men, as expected for a smaller geometrically similar structure, but selected pathways already departed from that trend, motivating size-corrected analysis. After adjustment for scale and age, sex differences persisted in a restricted subset of modes, indicating morphology-dependent redistribution of stiffness rather than global laxity. Fractional load-case analysis showed that habitual support scenarios in both sexes were carried by a shared low-order backbone, whereas simulated inlet opening recruited a distinct sex-specific organisation centred on mode~9. This pathway was the dominant inlet-opening component in most subjects and was regulated chiefly by the pubic symphysis, anterior sacroiliac ligaments and sacroiliac cartilage interfaces. We therefore interpret the female pelvis not as generally softened, but as a two-layer mechanical system that preserves everyday support while selectively redistributing compliance towards childbirth-relevant deformation.
+\end{abstract}
+
+\maketitle
+
+\begin{multicols}{2}
+
+\section{Introduction}
+
+The human pelvis must satisfy two demanding functions at once. It transmits load between the trunk and lower limbs during habitual stance and locomotion, yet it also defines the bony boundary of the birth canal. This dual role has long encouraged a geometric interpretation of pelvic biology: selection for efficient bipedalism is taken to constrain pelvic form, whereas selection for parturition favours enlargement of the canal \cite{RosenbergTrevathan2002,Trevathan2015,Grunstra2023}. In that framing, pelvic dimensions become the main currency of function.
+
+Geometry is essential, but it is not the whole mechanical problem. The pelvis is a closed load-bearing ring whose behaviour depends not only on bony dimensions but also on material distribution, sacroiliac and symphyseal interfaces, and ligamentous constraints. Recent work has accordingly moved beyond a one-dimensional reading of the obstetrical dilemma. Wider female pelves do not necessarily incur a locomotor penalty \cite{Warrener2015}; childbirth must be understood in relation to load transfer, pelvic-floor support and developmental robustness as well as canal size \cite{Pavlicev2020,Haeusler2021,Grunstra2019,Grunstra2023}; and human pelvic form varies substantially within and among populations \cite{BettiManica2018,Auerbach2018}, with important developmental and ontogenetic influences on adult morphology \cite{VerbruggenNowlan2017,Novak2020,KurkiDecrausaz2015}. These lines of evidence suggest that static pelvimetry alone cannot capture pelvic function.
+
+What remains limited is a population-scale framework that describes pelvic mechanics directly. Subject-specific finite-element studies have shown that sacroiliac constraints, pubic symphysis stiffness and load direction materially affect pelvic behaviour \cite{Eichenseer2011,Hammer2013}, consistent with broader evidence that the sacroiliac joint is a specialised load-transfer articulation with small but functionally relevant motion \cite{Vleeming2012,Kiapour2019,ChoKwak2020}. Yet case-by-case simulations do not easily reveal which features of mechanical behaviour are shared across individuals, which vary with scale, and which are organised by sex.
+
+Here we address that problem using correspondence-preserving modal analysis of 278 anatomically standardised human pelves. Modal decomposition treats the pelvis not as a rigid set of diameters but as a repertoire of deformation pathways with different stiffness costs. This shift allows two questions to be separated. First, which pathways are mechanically accessible? Second, once a pathway is available, how is response organised under a given load? That distinction is central to childbirth-related mechanics.
+
+Our central proposition is that the female pelvis is best understood not as an evolutionarily compromised or generally loosened structure, but as a highly specified compliant ring. In this framework, pelvic size should primarily modulate the accessibility of deformation pathways, whereas sex should primarily modulate how the ring organises response once those pathways are engaged. We therefore test whether size explains a substantial share of stiffness variation, whether sex differences persist after adjustment for scale and age, whether locomotor loads recruit a shared low-order support backbone, and whether the principal inlet-opening pathway is governed chiefly by the pubic symphysis and sacroiliac constraints rather than by static canal dimensions alone. If so, pelvic function is better described as an architecture of dynamic compliance than as a simple geometric compromise.
+
+\section{Material and methods}
+
+\subsection{Cohort and correspondence-preserving framework}
+
+The analysis used the BoneDat resource, a standardised database of 278 clinical lumbopelvic CT scans from a Central European cohort spanning adolescence to old age \cite{HenysKuchar2025}. In the present derived workbooks, the cohort comprised 150 female and 128 male individuals, aged 16--91 years. BoneDat provides segmented anatomy, a shape-normalisation pipeline, a common reference surface and volumetric meshes, allowing each subject to be represented on a shared anatomical domain while preserving subject-specific morphology through deformation fields. This correspondence-preserving design is essential here because it permits direct mode-wise and region-wise comparison across the full cohort.
+
+The original CT data were acquired on a Siemens Definition AS+ scanner and passed the technical quality control reported for BoneDat. Because the scans were acquired without a calibration phantom, mapped material properties are interpreted here as cohort-wise relative descriptors rather than direct clinical densitometry; phantom-less internal calibration was used to convert the released HU values to hydroxyapatite-equivalent density before elastic property assignment.
+
+\subsection{Allometry and static morphology}
+
+Allometric descriptors were taken from \texttt{allometry.xlsx}. The principal size variable was defined as the cube root of total pelvic volume relative to a template reference volume, which provides an appropriate whole-pelvis scale measure for a three-dimensional structure. Additional descriptors included total surface area, total mass, effective thickness and effective density. Static morphological dimensions were extracted from \texttt{anatomy\_data.xlsx}; the main variables were the anteroposterior inlet diameter (AP), pelvic inlet transverse diameter (PIT), subpubic angle, biacetabular width, biischiadic width, bituberous width, sacral width and iliopectineal eminence width. These variables were retained as the conventional pelvimetric descriptors against which the mechanical phenotype could be compared.
+
+\subsection{Finite-element modelling and modal decomposition}
+
+Each released deformation field was used to warp a tetrahedral template mesh into subject space, after which mechanics were evaluated on the common reference domain. Bone, sacroiliac cartilage and the pubic symphysis were represented on this shared mesh. Bone material properties were spatially heterogeneous and derived from mapped hydroxyapatite-equivalent density; sacroiliac cartilage and the pubic symphysis were assigned region-wise material properties. Linear isotropic elasticity was used throughout.
+
+For each subject, pelvic mechanics were summarised through a generalised elastic eigenproblem,
+\begin{equation}
+K\phi_{k} = \lambda_{k} M\phi_{k}, \qquad k=1,2,\ldots,
+\end{equation}
+where $K$ and $M$ are the subject-specific stiffness and mass matrices on the mapped domain. Lower eigenvalues were interpreted as mechanically more accessible deformation pathways. We focused on modes~1--10, which the supplied documentation identifies as the biologically relevant low-order spectrum.
+
+We distinguish two features of pelvic behaviour. \emph{Pathway accessibility} refers to where a mode lies in the stiffness spectrum: low-order, low-eigenvalue modes are easier to recruit mechanically. \emph{Pathway dominance} refers to how strongly a given load case concentrates response energy into that mode once the pathway has been engaged. This distinction is central to the interpretation of mode~9.
+
+\subsection{Load cases and modal participation}
+
+Static responses were computed for five standardised loading scenarios. Two represented habitual support mechanics: bilateral stance (\texttt{SP2leg}) and unilateral stance (\texttt{SP1leg}). Three represented childbirth-motivated probes: inlet opening (\texttt{LAB\_phase1}), outlet opening (\texttt{LAB\_phase2}) and terminal descent (\texttt{LAB\_phase3}). These scenarios were not intended as literal reproductions of labour, but as controlled mechanical probes that distinguish support-related from childbirth-relevant deformation pathways.
+
+Static displacement fields were projected onto the modal basis by solving
+\begin{equation}
+(\Phi^{T}M\Phi)q = \Phi^{T}Mu,
+\end{equation}
+where $u$ is the static response, $\Phi=[\phi_{1},\ldots,\phi_{m}]$ is the modal basis, and $q$ is the vector of modal participation factors. Modal strain energies were then computed as
+\begin{equation}
+U_{i}=\frac{1}{2}\lambda_{i}q_{i}^{2}\|\phi_{i}\|_{M}^{2}, \qquad
+\eta_{i}=\frac{U_{i}}{\sum_{j}U_{j}}.
+\end{equation}
+For interpretation and table construction, fractions were normalised over modes~1--10 so that the load-case summaries remained focused on the mechanically meaningful low-order spectrum.
+
+\subsection{Sensitivity analysis}
+
+To identify which anatomical constraints regulate the most relevant deformation pathways, we analysed workbook-based sensitivities of eigenvalues to ligament stiffness and cartilage-related modulus changes. For a ligament bundle with axial stiffness $EA_{\ell}$, the first-order modal sensitivity was
+\begin{equation}
+\frac{\partial \lambda_{i}}{\partial EA_{\ell}}
+=
+\frac{\phi_{i}^{T}(\partial K/\partial EA_{\ell})\phi_{i}}
+{\phi_{i}^{T}M\phi_{i}}.
+\end{equation}
+For cartilage and symphyseal regions, the code reported a normalised energy-based sensitivity proxy,
+\begin{equation}
+S_{i,R}=\frac{\mathcal{E}_{i}(R)}{E_{R}\,\phi_{i}^{T}M\phi_{i}},
+\end{equation}
+which is proportional under linearisation to $\partial \lambda_{i}/\partial E_{R}$. These metrics were used to rank the importance of ligament groups, sacroiliac cartilage interfaces and the pubic symphysis for individual modes. Our primary mechanistic focus was mode~9, with modes~2 and~5 retained as support-related and outlet-related reference modes, respectively.
+
+\subsection{Statistical analysis}
+
+Static sex differences were assessed with Welch two-sample $t$-tests. Mode-wise sex effects were estimated using linear models of the form
+\begin{equation}
+\log(\lambda) \sim \log(\mathrm{scale}) + \mathrm{sex} + \mathrm{age}.
+\end{equation}
+The corresponding sex coefficient was interpreted as the percentage change in modal stiffness for males relative to females after adjustment for scale and age. To evaluate the limits of static pelvimetry, we also fitted female-only univariate models relating size-corrected eigenvalues of modes~9 and~2 to individual pelvic dimensions.
+
+\section{Results}
+
+\subsection{Cohort structure and static dimorphism}
+
+The cohort comprised 278 individuals, including 150 women and 128 men, with no meaningful age difference between the sexes (table~\ref{tab:cohort}). As expected, female pelves were smaller in overall scale than male pelves ($0.925 \pm 0.045$ versus $0.998 \pm 0.045$, $p=6.51 \times 10^{-32}$), yet they showed larger AP and PIT dimensions, a wider subpubic angle, and greater biischiadic and bituberous widths. Sacral width showed no significant sex difference. The dataset therefore reproduces classic static dimorphism, but in a regionally patterned rather than uniformly expanded form.
+
+\subsection{Allometry sets the baseline accessibility landscape}
+
+Allometric regressions showed near-isometric scaling of total volume with pelvic scale (slope $=3.000$, $R^2=1.000$), shallower scaling of total surface area (slope $=1.684$, $R^2=0.894$), and increasing total mass with scale (slope $=2.679$, $R^2=0.902$), while effective density decreased modestly (slope $=-0.321$, $R^2=0.117$; table~\ref{tab:allometry}). Size therefore explained an important part of baseline stiffness variation and, by implication, of the accessibility of deformation pathways. This point requires careful interpretation. In the modal sense relevant to the present eigenproblem, lower unscaled eigenvalues in a larger pelvis are the expected signature of geometric scale, not a direct statement about organism-level adequacy under everyday loads.
+
+In the pooled unscaled spectrum, women generally showed higher eigenvalues than men, consistent with the expected size effect of a smaller geometrically similar structure. This expectation was not universal, however. Two modes already departed from that trend in the raw data, with women showing lower eigenvalues despite smaller average pelvic size. These exceptions therefore motivated the subsequent size-corrected analysis, because they suggested that selected pathways were organised by more than scale alone.
+
+\subsection{Size correction isolates morphology-dependent sex differences}
+
+After adjustment for scale and age, several modes retained clear sex differences (table~\ref{tab:modes}). The remaining pattern was therefore not a simple consequence of global size, but a morphology-dependent redistribution of stiffness across the ring. Significant differences persisted in modes~2, 3, 4, 7, 8, 9 and~10, whereas mode~1 remained effectively neutral. Within this subset, mode~9 was especially informative because it later proved to combine a strong sex signal with a distinctive childbirth-weighted loading profile.
+
+Static pelvimetry retained only limited explanatory power. In female-only models, PIT explained $13.5\%$ of the variation in size-scaled mode~9 eigenvalues and AP explained $9.2\%$; no single diameter accounted for more than a modest share of the relevant mechanical variation (table~\ref{tab:staticassoc}). Static dimensions therefore capture part of the phenotype, but not its principal mechanical organisation.
+
+\subsection{Habitual loading is carried by a shared low-order backbone}
+
+Because low-order modes are the most mechanically accessible, we expected them to dominate the response under habitual loading. The fractional analysis confirmed this expectation. Bilateral stance and unilateral stance were both carried primarily by the lowest part of the spectrum, and terminal descent likewise remained low-order dominated, with only modest sex differences in participation (table~\ref{tab:loadcases}). Habitual support mechanics therefore relied on a largely shared low-order backbone in both sexes. The sex-differentiated modal phenotype is thus layered onto, rather than substituted for, the mechanical architecture required for routine load transfer.
+
+\subsection{Mode~9 integrates sex specificity, inlet-opening prominence and anterior ring sensitivity}
+
+The inlet-opening scenario produced the clearest sex difference in response organisation. Mode~9 was the dominant response component in 265 of 278 subjects and therefore represents the principal inlet-opening pathway in the present cohort and modelling framework. Men placed a larger mean fraction of response energy in this single pathway than women ($52.5\%$ versus $46.4\%$), whereas women distributed the response more broadly across coordinated low-order modes, most notably through greater participation of mode~4 ($18.2\%$ versus $6.0\%$). Mode~9 was thus not simply a sex-differentiated eigenmode; it was the pathway in which sex-specific modal organisation became most clearly expressed under childbirth-motivated loading.
+
+Under outlet-opening loading, mode~5 became dominant in both sexes ($40.7\%$ in women and $39.2\%$ in men), consistent with an outlet-related pathway. Even in this scenario, however, women retained greater concurrent participation of mode~9 ($16.1\%$ versus $12.4\%$), whereas men showed greater involvement of mode~6. Childbirth-related loading therefore does not reveal a separate mechanical module so much as a reweighting of related low-order pathways.
+
+Sensitivity analysis localised the regulation of mode~9 to an anteriorly weighted ring constraint system. At the interface level, mode~9 was most sensitive to the left and right sacroiliac cartilage interfaces and then to the pubic symphysis interface. At the ligament level, the largest effect was associated with the symphyseal ligament group, followed by the anterior sacroiliac ligaments and, at lower magnitude, the interosseous sacroiliac ligaments; posterior sacroiliac, sacrospinous and sacrotuberous ligaments were far less influential (table~\ref{tab:sensitivity}). Mode~9 is therefore distinctive not only for its sex specificity and inlet-opening prominence, but also for the way it concentrates ring mechanics into the anterior sacroiliac--symphyseal complex.
+\section{Discussion}
+
+Our central result is best understood as a sequence rather than as a list of sex differences. We first asked what pelvic size should do mechanically. In the modal sense relevant to the present eigenproblem, larger geometrically similar structures are expected to show lower unscaled eigenvalues, and smaller ones higher values. Read that way, the raw spectrum behaved largely as expected: women, being smaller on average, typically showed higher eigenvalues. But the pattern was not complete. Two pathways already ran counter to this allometric expectation in the unscaled data, with women appearing more compliant despite smaller average size. Those exceptions were therefore not minor anomalies; they were the point at which size alone ceased to be an adequate explanation and the size-corrected analysis became necessary.
+
+The corrected spectrum then showed that the remaining sex differences were not diffuse, but selective. This matters because it argues against a globally lax female pelvis. A general softening of the ring would be expected to shift the spectrum broadly in one direction. Instead, habitual loading remained concentrated in the same low-order part of the spectrum in both sexes. Bilateral stance, unilateral stance and terminal descent all relied on a shared low-order support backbone, exactly as one would expect if the pelvis still had to satisfy the mechanical demands of ordinary force transmission. In other words, the female pelvis did not abandon support mechanics in order to gain childbirth-relevant mobility; it preserved the support architecture and reorganised only a limited subset of pathways.
+
+Within that restricted subset, mode~9 stood out because it uniquely linked three otherwise separate observations. First, it belonged to the group of pathways that could not be explained by allometry alone. Second, after size correction it remained sex-differentiated. Third, under simulated inlet opening it became the principal response pathway in the cohort. This combination makes mode~9 more informative than a merely significant eigenmode. It is the point where the sex-specific modal phenotype becomes functionally legible.
+
+Its mechanistic signature reinforces that interpretation. Mode~9 did not reduce to a single static canal diameter, nor did it behave as a diffuse softness of the ring. Instead, it was regulated most strongly by an anterior sacroiliac--symphyseal system, with major contributions from the pubic symphysis, the anterior sacroiliac ligaments and the sacroiliac cartilage interfaces. This localisation is biomechanically important because it makes the principal inlet-opening pathway a property of the whole pelvic ring rather than of gross inlet width alone. It also clarifies why static pelvimetry explained only a modest share of the variance in size-corrected mode~9.
+
+The SIJ-related results fit naturally into the same interpretation. The sacroiliac joint is a low-motion articulation, but not an immobile one, and its function depends on the interaction between local interfaces and whole-ring mechanics \cite{Vleeming2012,Kiapour2019,ChoKwak2020}. In our models, women showed greater sacroiliac rotations and translations across the standardised scenarios, indicating that higher raw stiffness in parts of the female spectrum did not translate into lower realised joint motion. Modal stiffness and realised SIJ kinematics therefore describe related but non-identical levels of pelvic mechanics. This comparison further argues against reading the female pelvis as either simply stiffer or simply laxer.
+
+Taken together, these findings support a two-layer mechanical interpretation of the female pelvis. One layer is shared with males and preserves the low-order support backbone required for habitual loading. The second layer selectively redistributes compliance towards childbirth-relevant pathways, most clearly mode~9, without dissolving ring integrity. In that sense, the female pelvis is better interpreted not as generally lax or evolutionarily compromised, but as a balanced compliant ring whose support and obstetric functions are partitioned across modes rather than collapsed into a single stiffness trade-off.
+
+These findings help reposition biomechanical interpretations of the human pelvis within the broader literature on the obstetrical dilemma. Recent syntheses have argued that childbirth cannot be reduced to a single trade-off between locomotion and canal size \cite{Pavlicev2020,Haeusler2021,Grunstra2023}, and experimental work shows that wider pelves need not impose a substantial locomotor penalty \cite{Warrener2015}. Our results are consistent with that view, but add a specific mechanical formulation: locomotor stability and childbirth-relevant compliance need not sit on one linear axis because they can be organised through partly distinct features of ring mechanics. From this perspective, the female pelvis is not well described as an evolutionarily compromised structure. It is better interpreted as a highly functional configuration that balances habitual support with conditional access to childbirth-relevant deformation.
+
+The study remains limited to linear, small-deformation models and a Central European morphology cohort, and it does not incorporate pregnancy-specific soft-tissue changes, muscle forces, fetal interaction or obstetric outcomes. The omitted \texttt{pretension\_sensitivity.xlsx} workbook also means that our sensitivity interpretation is restricted to stiffness and interface effects. These limitations, however, define the next step rather than the present conclusion. A useful extension will be to test whether the same modal phenotype predicts behaviour in pregnancy-aware, nonlinear or outcome-linked models, and whether similar pathway structure is preserved across more diverse human populations.
+\section{Conclusion}
+
+In this population-scale analysis, allometry explained much of the baseline accessibility of pelvic deformation pathways, but not their full organisation. The raw spectrum broadly followed the expected size effect, yet selected pathways already departed from it, motivating size correction and revealing a morphology-dependent sex signal. Habitual loading remained anchored in a shared low-order support backbone, whereas the principal inlet-opening pathway, mode~9, combined sex specificity, childbirth-weighted recruitment and a sharply localised anterior sacroiliac--symphyseal sensitivity profile. The female pelvis is therefore best understood as a two-layer mechanical system: globally competent for everyday load transfer, yet selectively reorganised to preserve access to childbirth-relevant deformation.
+
+\section*{Ethics}
+
+This study used retrospectively acquired clinical CT data released through the BoneDat resource. According to the BoneDat dataset documentation, the study was approved by the Ethics Committee of University Hospital Hradec Kr\'{a}lov\'{e} (Ref: 202411I03P).
+
+\section*{Data accessibility}
+
+The source morphology dataset is described in BoneDat \cite{HenysKuchar2025}. Derived statistical tables, figure-generation scripts and supplementary processing code should be deposited in a public repository before submission, and the repository DOI inserted here.
+
+\section*{Authors' contributions}
+
+P.H. and M.K. designed the study. P.H. and M.K. performed the computational workflow. P.H., M.K. and A.M. analysed the data. P.H., M.K. and A.M. drafted the manuscript. N.H. contributed anatomical and biomechanical interpretation and critically revised the text. All authors approved the final version.
+
+\section*{Competing interests}
+
+The authors declare no competing interests.
+
+\section*{Funding}
+
+[Insert final funding statement and grant numbers.]
+
+\section*{Acknowledgements}
+
+We thank the BoneDat project for providing the standardised anatomical framework on which this analysis is based.
+
+\end{multicols}
+\begin{table}[p]
+\centering
+\caption{Cohort summary and static pelvic measures. Values are mean $\pm$ s.d. $p$-values are Welch two-sample $t$-tests (female versus male). AP, anteroposterior inlet diameter; PIT, pelvic inlet transverse diameter.}
+\label{tab:cohort}
+\begin{tabular}{lccc}
+\toprule
+Measure & Female $(n=150)$ & Male $(n=128)$ & $p$ \\
+\midrule
+Age (years) & $53.4 \pm 19.7$ & $54.5 \pm 18.9$ & 0.617 \\
+Scale & $0.925 \pm 0.045$ & $0.998 \pm 0.045$ & $6.51 \times 10^{-32}$ \\
+Effective density & $1.341 \pm 0.079$ & $1.321 \pm 0.074$ & 0.028 \\
+AP (mm) & $121.0 \pm 10.0$ & $112.3 \pm 9.1$ & $4.63 \times 10^{-13}$ \\
+PIT (mm) & $134.9 \pm 8.6$ & $127.7 \pm 7.6$ & $2.88 \times 10^{-12}$ \\
+Subpubic angle (deg) & $85.8 \pm 6.1$ & $69.1 \pm 5.3$ & $7.30 \times 10^{-71}$ \\
+Biacetabular width (mm) & $129.1 \pm 8.2$ & $122.0 \pm 7.2$ & $2.94 \times 10^{-13}$ \\
+Biischiadic width (mm) & $109.9 \pm 7.1$ & $97.7 \pm 7.1$ & $9.40 \times 10^{-35}$ \\
+Bituberous width (mm) & $136.5 \pm 8.3$ & $127.3 \pm 7.5$ & $3.03 \times 10^{-19}$ \\
+Sacral width (mm) & $116.7 \pm 5.7$ & $117.5 \pm 6.5$ & 0.327 \\
+Iliopectineal eminence width (mm) & $106.2 \pm 7.0$ & $97.9 \pm 6.0$ & $1.90 \times 10^{-22}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Allometric scaling of geometric and material-derived quantities. Slopes are from log--log regressions against pelvic scale.}
+\label{tab:allometry}
+\begin{tabular}{lccc}
+\toprule
+Outcome versus scale & Slope & $p$ & $R^2$ \\
+\midrule
+Total volume & 3.000 & $<10^{-300}$ & 1.000 \\
+Total surface & 1.684 & $2.53 \times 10^{-136}$ & 0.894 \\
+Total mass & 2.679 & $2.48 \times 10^{-140}$ & 0.902 \\
+Effective density & $-0.321$ & $5.07 \times 10^{-9}$ & 0.117 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Mode-wise scale dependence and adjusted sex effects (modes~1--10). Correlations are Pearson's $r$ between $\log(\mathrm{scale})$ and $\log(\lambda)$ for unscaled and size-scaled eigenvalues. Adjusted sex effect is percent change (male relative to female) from $\log(\lambda) \sim \log(\mathrm{scale}) + \mathrm{sex} + \mathrm{age}$.}
+\label{tab:modes}
+\begin{tabular}{cccccc}
+\toprule
+Mode & $r$ (unscaled) & $p$ & $r$ (scaled) & $p$ & Sex effect \\
+\midrule
+1 & $-0.461$ & $4.96 \times 10^{-16}$ & 0.009 & 0.876 & $+0.85\%$ ($p=0.734$) \\
+2 & $-0.331$ & $1.52 \times 10^{-8}$ & 0.374 & $1.20 \times 10^{-10}$ & $+20.72\%$ ($p=2.62 \times 10^{-18}$) \\
+3 & $-0.467$ & $1.82 \times 10^{-16}$ & 0.233 & $8.84 \times 10^{-5}$ & $+11.23\%$ ($p=1.80 \times 10^{-7}$) \\
+4 & $-0.509$ & $1.04 \times 10^{-19}$ & 0.273 & $3.70 \times 10^{-6}$ & $+15.90\%$ ($p=4.81 \times 10^{-9}$) \\
+5 & $-0.607$ & $2.16 \times 10^{-29}$ & $-0.043$ & 0.480 & $-4.18\%$ ($p=0.106$) \\
+6 & $-0.540$ & $5.15 \times 10^{-22}$ & 0.071 & 0.239 & $+3.39\%$ ($p=0.097$) \\
+7 & $-0.778$ & $1.44 \times 10^{-57}$ & 0.179 & $2.76 \times 10^{-3}$ & $+5.13\%$ ($p=9.70 \times 10^{-4}$) \\
+8 & $-0.398$ & $2.13 \times 10^{-11}$ & 0.304 & $2.37 \times 10^{-7}$ & $+14.45\%$ ($p=4.88 \times 10^{-11}$) \\
+9 & $-0.369$ & $2.06 \times 10^{-10}$ & 0.388 & $1.97 \times 10^{-11}$ & $+20.07\%$ ($p=8.15 \times 10^{-20}$) \\
+10 & $-0.630$ & $4.28 \times 10^{-32}$ & 0.218 & $2.56 \times 10^{-4}$ & $+8.66\%$ ($p=1.43 \times 10^{-5}$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Female-only associations between static pelvic dimensions and size-scaled eigenvalues. Values are $R^2$ and $p$ for univariate linear models of $\log(\lambda_{\mathrm{scaled}})$ versus a single dimension.}
+\label{tab:staticassoc}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{2}{c}{Mode 9} & \multicolumn{2}{c}{Mode 2} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Dimension & $R^2$ & $p$ & $R^2$ & $p$ \\
+\midrule
+PIT & 0.135 & $3.63 \times 10^{-6}$ & 0.089 & $2.11 \times 10^{-4}$ \\
+AP & 0.092 & $1.59 \times 10^{-4}$ & 0.001 & 0.64 \\
+Iliopectineal eminence width & 0.086 & $2.77 \times 10^{-4}$ & 0.026 & 0.050 \\
+Sacral width & 0.077 & $5.96 \times 10^{-4}$ & 0.003 & 0.49 \\
+Biacetabular width & 0.018 & 0.11 & 0.053 & $4.58 \times 10^{-3}$ \\
+Biischiadic width & 0.012 & 0.19 & 0.060 & $2.55 \times 10^{-3}$ \\
+Bituberous width & 0.013 & 0.17 & 0.078 & $5.57 \times 10^{-4}$ \\
+Subpubic angle & 0.071 & $9.84 \times 10^{-4}$ & 0.015 & 0.14 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Mean modal participation fractions (\%) by loading scenario after normalisation over modes~1--10.}
+\label{tab:loadcases}
+\begin{tabular}{llrrrrrrrrrr}
+\toprule
+Scenario & Sex & M1 & M2 & M3 & M4 & M5 & M6 & M7 & M8 & M9 & M10 \\
+\midrule
+Bilateral stance & Female & 0.4 & 84.6 & 0.1 & 7.3 & 4.0 & 1.0 & 0.1 & 1.3 & 1.1 & 0.1 \\
+Bilateral stance & Male   & 0.6 & 84.5 & 0.1 & 4.9 & 4.2 & 1.6 & 0.2 & 2.9 & 0.8 & 0.1 \\
+Unilateral stance & Female & 39.6 & 37.8 & 15.3 & 2.6 & 1.5 & 1.2 & 0.2 & 0.5 & 0.7 & 0.6 \\
+Unilateral stance & Male   & 40.4 & 37.2 & 14.1 & 1.9 & 1.4 & 2.3 & 0.2 & 1.0 & 0.7 & 0.9 \\
+Inlet opening & Female & 0.6 & 4.4 & 4.5 & 18.2 & 3.8 & 1.6 & 1.0 & 15.3 & 46.4 & 4.3 \\
+Inlet opening & Male   & 0.7 & 3.1 & 5.1 & 6.0 & 3.4 & 1.5 & 1.1 & 18.1 & 52.5 & 8.5 \\
+Outlet opening & Female & 0.4 & 2.6 & 0.4 & 15.7 & 40.7 & 17.8 & 0.9 & 3.8 & 16.1 & 1.6 \\
+Outlet opening & Male   & 0.4 & 2.4 & 1.1 & 16.4 & 39.2 & 22.1 & 1.2 & 2.8 & 12.4 & 2.1 \\
+Terminal descent & Female & 0.3 & 77.2 & 0.2 & 8.8 & 1.6 & 0.7 & 0.5 & 10.6 & 0.1 & 0.1 \\
+Terminal descent & Male   & 0.5 & 74.7 & 0.2 & 4.8 & 1.8 & 0.7 & 0.7 & 16.4 & 0.1 & 0.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Sensitivity hierarchy for mode~9, with reference values for modes~5 and~2. Values are cohort means.}
+\label{tab:sensitivity}
+\begin{tabular}{lccc}
+\toprule
+Structure & Mode 9 sensitivity & Mode 5 sensitivity & Mode 2 sensitivity \\
+\midrule
+Left SIJ cartilage interface & $3.32 \times 10^{-3}$ & $6.63 \times 10^{-4}$ & $2.24 \times 10^{-4}$ \\
+Right SIJ cartilage interface & $2.69 \times 10^{-3}$ & $3.74 \times 10^{-4}$ & $1.97 \times 10^{-4}$ \\
+Pubic symphysis interface & $2.07 \times 10^{-3}$ & $6.93 \times 10^{-4}$ & $9.45 \times 10^{-6}$ \\
+Symphyseal ligament group & $1.09 \times 10^{-6}$ & $7.86 \times 10^{-8}$ & $2.12 \times 10^{-9}$ \\
+Anterior SIJ ligaments (bilateral mean) & $4.64 \times 10^{-7}$ & $9.77 \times 10^{-8}$ & $2.59 \times 10^{-8}$ \\
+Interosseous SIJ ligaments (bilateral mean) & $2.40 \times 10^{-7}$ & $4.31 \times 10^{-9}$ & $4.68 \times 10^{-11}$ \\
+Posterior SIJ ligaments (bilateral mean) & $1.27 \times 10^{-8}$ & $3.47 \times 10^{-8}$ & $2.87 \times 10^{-9}$ \\
+Sacrospinous ligaments & $6.57 \times 10^{-9}$ & $3.07 \times 10^{-9}$ & $5.85 \times 10^{-9}$ \\
+Sacrotuberous ligaments & $2.37 \times 10^{-8}$ & $1.24 \times 10^{-9}$ & $6.49 \times 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][7cm][c]{0.9\linewidth}{\centering Placeholder for Figure~1\\
+Cohort-to-template workflow and correspondence-preserving finite-element pipeline.}}
+\caption{Study workflow. Clinical CT-derived pelvic anatomies were mapped onto a common template, converted into subject-specific finite-element models, decomposed into elastic eigenmodes, and analysed through load-case projection and sensitivity analysis.}
+\label{fig:workflow}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][7cm][c]{0.9\linewidth}{\centering Placeholder for Figure~2\\
+Size-corrected modal spectrum and adjusted sex effects.}}
+\caption{Size-corrected modal spectrum. Modes~2 and~9 show the largest adjusted sex effects after control for pelvic scale and age, whereas mode~1 acts as a near-neutral reference.}
+\label{fig:eigs}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][8cm][c]{0.9\linewidth}{\centering Placeholder for Figure~3\\
+Representative deformation maps of modes~1, 2, 5 and~9.}}
+\caption{Representative low-order deformation pathways. Mode~1 captures a conserved unilateral support component, mode~2 the baseline support-related ring mode, mode~5 an outlet-related pathway, and mode~9 the principal candidate inlet-opening pathway.}
+\label{fig:modeshapes}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][8cm][c]{0.9\linewidth}{\centering Placeholder for Figure~4\\
+Stacked-bar modal participation fractions by loading scenario.}}
+\caption{Load-case modal recruitment. Habitual support scenarios are built on a shared low-order modal backbone in both sexes. Under simulated inlet opening, men concentrate more of the response in mode~9, whereas women distribute the response more broadly across coordinated low-order pathways.}
+\label{fig:recruitment}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][7cm][c]{0.9\linewidth}{\centering Placeholder for Figure~5\\
+Mode~9 versus static pelvic dimensions in women.}}
+\caption{Static pelvimetry captures only a modest part of inlet-opening mechanics. PIT and AP are the strongest single predictors of size-corrected mode~9 stiffness in women, yet no single dimension explains more than a modest fraction of the variance.}
+\label{fig:pelvimetry}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\fbox{\parbox[c][7cm][c]{0.9\linewidth}{\centering Placeholder for Figure~6\\
+Sensitivity hierarchy of mode~9 across interfaces and ligament groups.}}
+\caption{Sensitivity hierarchy for the principal inlet-opening pathway. Mode~9 is governed primarily by the pubic symphysis and anteriorly weighted sacroiliac constraints, whereas posterior ligament groups are much less influential.}
+\label{fig:sensitivity}
+\end{figure}
+
+\clearpage
+\printbibliography
+
+\end{document}

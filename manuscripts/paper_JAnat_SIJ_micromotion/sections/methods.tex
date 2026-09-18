@@ -1,0 +1,80 @@
+\section{Materials and methods}
+\subsection{Repository and cohort}
+We used precomputed outputs from a finite-element pelvic repository and two matched auxiliary variants designed to isolate shape-only and material-only effects. The cohort included 278 subjects (150 female, 128 male). Demographic metadata (age, sex), pelvic morphology (eight landmark-based dimensions), SIJ kinematics, and geometry-derived global metrics (volume, surface area, scale factor) were provided as structured tables accompanying the repository. All analyses were scripted and outputs were generated directly from these tables without manual value editing.
+
+The morphology table contained eight pelvic dimensions: AP diameter, biacetabular width, biischiadic width, bituberous width, iliopectineal eminence width, pelvic inlet transverse (PIT), sacral width, and subpubic angle. Missingness for demographic, morphometric, global size-proxy, and SIJ primary outcomes was zero.
+
+\subsubsection*{Ethical considerations}
+This study analyzed a previously published, anonymized imaging-derived dataset and its associated precomputed finite-element repository (BoneDat; \citep{HenyssKuchar2025BoneDat}). No new human imaging or interventions were performed for this work. According to the BoneDat descriptor, use of the source imaging data was approved by the Ethics Committee of the University Hospital Hradec Kr\'alov\'e (reference 202411IO3P) with waiver of informed consent; we refer readers to the BoneDat publication for full ethical and governance details.
+
+\begin{table}[H]
+\centering
+\caption{Cohort characteristics and pelvic dimensions. Values are mean $\pm$ SD unless noted.}
+\label{tab:cohort}
+\StdTableInput{tables/generated/table1_cohort.tex}
+\end{table}
+
+\subsection{Geometry, material mapping, and boundary conditions}
+The FE workflow uses a small-strain isotropic elastic formulation posed on a common reference mesh \citep{BonetWood1997,MarsdenHughes1983}. Subject-specific anatomy is introduced implicitly through a displacement mapping $\phi(\mathbf{X})$ that maps reference coordinates $\mathbf{X}$ to subject coordinates $\mathbf{x}=\mathbf{X}+\phi(\mathbf{X})$. This mapping is used in the elastic operators and to pull back loads defined on subject surfaces to the reference domain (Supporting Information: Supplementary Methods). Global size proxies (total volume, surface area, and a derived scale factor) were computed from the mapped geometry and provided alongside the kinematic outputs.
+
+Material assignment followed repository defaults: bone modulus from density via a piecewise density--modulus relationship grounded in the broader bone mechanics literature \citep{CarterHayes1977,Keller1994,Morgan2003Trabecular,Frost1987,Huiskes1987},
+\begin{equation}
+E = \begin{cases}
+2398\;\text{MPa}, & \rho_{ash} \le 0.486\\
+10200\,\rho_{ash}^{2}, & \rho_{ash} > 0.486
+\end{cases},
+\quad
+\rho_{ash}=\frac{\rho+0.09}{1.14},
+\end{equation}
+with bone Poisson ratio 0.3. SIJ cartilage and pubic symphysis regions used modulus 1.0 MPa and Poisson ratio 0.45, consistent with prior SIJ FE parameterizations emphasizing sensitivity to cartilage and ligament assumptions \citep{Anderson2020,Yang2020,Calixte2022}. Shape and density fields were mapped with radial basis interpolation (smoothing 50, 10 neighbors). Boundary restraint was imposed on the S1 facet using penalty enforcement (surface penalty $\gamma=10^6$).
+
+\subsection{Load cases}
+Five standardized static load cases were analyzed: SP2leg, SP1leg, LAB1, LAB2, LAB3 (Table~\ref{tab:loads}). Forces were applied as total-force vectors on named anatomical surfaces, scaled by loaded-surface area in each subject so that resultant force vectors were identical across subjects. Standing loads were motivated by instrumented hip-force literature, whereas the LAB configurations were treated as simplified obstetric-mechanical proxies rather than full reconstructions of labor physiology \citep{Bergmann2001JBiomech,Kutzner2016PLOS,AJOG2022Uterine,BiomechPregnancy2022}.
+
+\begin{table}[H]
+\centering
+\caption{Standardized load-case definitions used for SIJ analysis.}
+\label{tab:loads}
+\StdTableInput{tables/generated/table2_loads.tex}
+\end{table}
+
+\subsection{SIJ kinematic outcomes}
+For each load, SIJ outputs were available for left and right joints as three rotations (nutation, AP-axis rotation, CC-axis rotation; degrees) and three translations (ML, AP, CC; mm). Primary outcomes were:
+\begin{enumerate}
+\item mean left-right 3D rotation magnitude (deg),
+\item mean left-right 3D translation magnitude (mm).
+\end{enumerate}
+Secondary outcomes were absolute AP/ML/CC translation components. Additional derived outputs were rotational components and left-right asymmetry magnitudes.
+Mathematical and algorithmic details of the implicit geometry mapping, load pullback, SIJ rigid-body extraction from deformed geometry, derived scalar outcomes, and size-scaling exponent estimation are provided in the Supporting Information (Supplementary Methods).
+
+\subsection{Statistical models}
+\subsubsection*{Load-profile and directional re-routing (H1)}
+We summarized outcomes by load using medians and interquartile ranges. For directional re-routing, we computed within-subject differences relative to SP2leg for AP/ML/CC translation components and tested median shifts with Wilcoxon signed-rank tests \citep{Wilcoxon1945}; 95\% CIs were bootstrap percentile intervals \citep{EfronTibshirani1994}.
+
+\subsubsection*{Sex effects under LAB loads (H2)}
+For each LAB phase and each primary outcome, we fit robust linear models (HC3) \citep{White1980,MacKinnonWhite1985}:
+\begin{equation}
+Y \sim \text{sex} + \text{age}_z + \log(\text{volume})_z + \text{AP}_z + \text{Biischiadic}_z + \text{Subpubic}_z + \text{sex}\times\log(\text{volume})_z.
+\end{equation}
+The three pelvic dimensions were selected \emph{a priori} as a parsimonious adjustment set representing inlet depth (AP), posterior/outlet transverse breadth (biischiadic width), and pubic-arch opening (subpubic angle). We preferred this compact set to an eight-dimension model because several pelvic widths were strongly correlated and a fully saturated morphometric adjustment would have reduced interpretability without constituting full-shape control. The sex coefficient (female minus male) should therefore be interpreted as the residual group association after adjustment for age, total volume, and these three coarse anatomical descriptors; it is not a claim of complete anatomical conditioning. We report 95\% CIs, standardized coefficients, partial $R^2$, and BH-FDR corrected $p$ values.
+
+\subsubsection*{Pooled robust models across load cases (H1/H2/H4)}
+Because each subject contributed all five loads, we used cluster-robust OLS (clustered by subject ID) for each primary outcome:
+\begin{align}
+Y &\sim \text{load case} + \text{sex} + \text{age}_z + \log(\text{volume})_z + \text{AP}_z + \text{Biischiadic}_z + \text{Subpubic}_z \\
+&\quad +\; \text{load case}\times\log(\text{volume})_z + \text{sex}\times\log(\text{volume})_z.
+\end{align}
+This model quantified load contrasts against SP2leg, adjusted sex effects, and load-dependent allometric modulation while accounting for repeated measures within subjects.
+
+\subsubsection*{Variance-channel decomposition (H3)}
+For each load and SIJ metric, variance was computed in three matched simulation repositories: full, shape-only, and material-only. In the shape-only repository, the subject mapping $\phi$ was applied while the material mapping was held at the reference assignment; in the material-only repository, subject-specific material mapping was applied on the reference geometry (i.e., $\phi=0$). We reported shape/full and material/full variance ratios (\%) with bootstrap 95\% CIs \citep{EfronTibshirani1994}. Because these are ratios of sample variances from separate simulation variants rather than partitions of a single variance term, values slightly above 100\% can occur and should be interpreted as near-equality rather than literal ``more than full'' variance.
+
+\subsubsection*{Size-scaling models (H4, Variant B)}
+For each load and each primary outcome, we fit robust log--log models:
+\begin{equation}
+\log(Y) \sim \log(\text{total volume}) + \text{sex} + \text{age}_z + \text{AP}_z + \text{Biischiadic}_z + \text{Subpubic}_z + \log(\text{total volume})\times\text{sex}.
+\end{equation}
+Male and female scaling exponents were extracted from main and interaction terms. A supplementary sensitivity analysis replaced $\log(\text{total volume})$ with $\log(\text{scale})$.
+
+\subsection{Multiplicity and software}
+False-discovery control used Benjamini--Hochberg correction within each analysis family \citep{BenjaminiHochberg1995}. We report corrected $p$ values, 95\% CIs, standardized betas, and partial $R^2$. Analyses were run in Python (pandas, statsmodels, scipy, matplotlib, zarr).

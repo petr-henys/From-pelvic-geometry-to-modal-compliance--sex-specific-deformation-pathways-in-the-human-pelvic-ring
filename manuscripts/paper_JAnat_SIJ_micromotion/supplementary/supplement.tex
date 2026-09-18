@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+
+\newcommand{\SuppTableInput}[1]{%
+  \begingroup
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.1}%
+  \noindent\centering
+  \begin{adjustbox}{max width=\linewidth}
+    \input{#1}%
+  \end{adjustbox}
+  \par
+  \endgroup
+}
+
+\title{Supporting Information: Load-Dependent Sacroiliac Joint Micromotion in a Large Pelvic Cohort: Directional Re-routing, Between-Subject Variability and Scaling}
+\author{Petr Heny\v{s}, Niels Hammer}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{../sections/appendix_math}
+
+\section*{Table S1: Directional re-routing metrics}
+\SuppTableInput{../tables/generated/supp_directional_rerouting.tex}
+
+\section*{Table S2: Variance-channel decomposition}
+\SuppTableInput{../tables/generated/supp_variance_channels.tex}
+
+\section*{Table S3: LAB-phase sex-adjusted models}
+\SuppTableInput{../tables/generated/supp_sex_models.tex}
+
+\section*{Table S4: Size-scaling sensitivity using log(scale)}
+\SuppTableInput{../tables/generated/supp_allometry_scale.tex}
+
+\bibliographystyle{apalike}
+\bibliography{../bib/refs}
+
+\end{document}

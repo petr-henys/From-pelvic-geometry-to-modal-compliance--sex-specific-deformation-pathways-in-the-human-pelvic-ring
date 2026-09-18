@@ -16,6 +16,8 @@
 !/tests/**
 !/utils/
 !/utils/**
+!/manuscripts/
+!/manuscripts/**
 
 # Ignore Python bytecode cache directories
 /analysis/**/__pycache__/

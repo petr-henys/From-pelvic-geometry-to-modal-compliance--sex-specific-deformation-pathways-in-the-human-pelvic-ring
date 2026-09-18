@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage[mathlines]{lineno}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+\usepackage{caption}
+
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+\newcommand{\StdTableInput}[1]{%
+  \begingroup
+  \singlespacing
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.1}%
+  \begin{adjustbox}{max width=\linewidth}
+    \input{#1}%
+  \end{adjustbox}
+  \endgroup
+}
+
+\title{Load-Dependent Sacroiliac Joint Micromotion in a Large Pelvic Cohort: Directional Re-routing, Between-Subject Variability and Scaling}
+\author{%
+Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
+\small $^{1}$Institute of New Technologies and Applied Informatics,\\
+\small Faculty of Mechatronics, Informatics and Interdisciplinary Studies,\\
+\small Technical University of Liberec, Studentsk\'a 1402/2, 461~17 Liberec, Czech Republic\\
+\small $^{2}$Division of Macroscopic and Clinical Anatomy,\\
+\small Gottfried Schatz Research Center, Medical University of Graz,\\
+\small Auenbruggerplatz~25, 8036~Graz, Austria\\
+\small $^{*}$Corresponding author: Petr Heny\v{s} (\texttt{petr.henys@tul.cz})%
+}
+\date{}
+
+\begin{document}
+\doublespacing
+\maketitle
+\linenumbers
+
+\begin{abstract}
+\noindent\textbf{Background:} Sacroiliac joint (SIJ) micromotion depends on pelvic anatomy, material properties, and load direction, yet large-cohort evidence under standardized standing and parturition-motivated loading remains limited, particularly for separating geometric versus material sources of between-subject variability.
+
+\noindent\textbf{Methods:} We analyzed a precomputed finite-element repository of 278 pelves (150 female, 128 male; age 16--91 years) represented on a common template via an implicit subject-specific mapping. Five standardized static load cases were studied: two-leg standing (SP2leg), one-leg standing (SP1leg), and three parturition-motivated proxies (LAB1--LAB3). Outcomes were SIJ rotation/translation magnitudes and AP/ML/CC translation components. We used robust and cluster-robust regression with adjustment for age, total pelvic volume, and three a priori pelvic dimensions (AP diameter, biischiadic width, subpubic angle), plus variance-channel ratios (shape-only/full and material-only/full) and log--log size-scaling models.
+
+\noindent\textbf{Results:} SP1leg produced the largest SIJ motion (median rotation 2.52$^\circ$; translation 1.76 mm). Relative to SP2leg, LAB loads reduced translation magnitude but showed clear directional re-routing of AP/ML/CC components. After coarse anatomical adjustment, female sex was associated with higher LAB translation magnitude (0.20--0.23 mm across LAB1--LAB3) and higher LAB3 rotation. Between-subject variability was overwhelmingly geometry-dominant (shape/full 98.7--102.1\%), whereas material-only variance fractions were small (0.001--0.317\%). Negative size scaling was clearest for SP1leg and for pooled translation models; sex-by-size slope interactions were not robust after false-discovery correction.
+
+\noindent\textbf{Conclusions:} Under standardized forces, SIJ response is strongly load dependent, and between-subject dispersion is dominated by pelvic geometry rather than material mapping. Parturition-motivated loads alter the directional partitioning of SIJ motion more clearly than they increase its scalar magnitude. Size scaling is load dependent, with the clearest negative associations under one-leg standing and in pooled translation models.
+\end{abstract}
+
+\noindent\textbf{Keywords:} sacroiliac joint; pelvic anatomy; finite-element analysis; sexual dimorphism; scaling; parturition biomechanics
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\section*{Acknowledgements}
+We thank the BoneDat project for curating and providing the standardized imaging-derived dataset used in this study.
+
+\section*{Funding}
+This work was supported by the Czech Science Foundation (GA\v{C}R; Grant No.\ 24-10862S).
+
+\section*{Author contributions}
+CRediT authorship contribution statement. Petr Heny\v{s}: Conceptualization; Methodology; Software; Formal analysis; Investigation; Data curation; Visualization; Funding acquisition; Writing -- original draft; Writing -- review \& editing. Niels Hammer: Supervision; Writing -- review \& editing. All authors reviewed and approved the final manuscript.
+
+\section*{Conflict of interest statement}
+The authors declare no conflicts of interest.
+
+\section*{Supporting information}
+Supporting Information includes Supplementary Methods (implicit mapping, load pullback, SIJ kinematics, and size-scaling model details) and Supplementary Tables S1--S4.
+
+\section*{Data Availability Statement}
+The derived data supporting the findings of this study (summary tables and figures) are provided with the manuscript. Subject-level derived datasets and analysis outputs are available in a blinded repository for peer review and will be made publicly available upon publication.
+
+\section*{Code Availability Statement}
+All custom code used to post-process the finite-element outputs and perform the statistical analyses is available in the same blinded repository for peer review and will be made publicly available upon publication.
+
+\bibliographystyle{apalike}
+\bibliography{bib/refs}
+
+\end{document}

@@ -1,0 +1,299 @@
+\begin{thebibliography}{49}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Kitano(2004)]{Kitano2004}
+Hiroaki Kitano.
+\newblock Biological robustness.
+\newblock \emph{Nature Reviews Genetics}, 5\penalty0 (11):\penalty0 826--837, 2004.
+\newblock \doi{10.1038/nrg1471}.
+
+\bibitem[Pierre(1988)]{Pierre1988}
+Christophe Pierre.
+\newblock Mode localization and eigenvalue loci veering phenomena in disordered structures.
+\newblock \emph{Journal of Sound and Vibration}, 126\penalty0 (3):\penalty0 485--502, 1988.
+\newblock \doi{10.1016/0022-460X(88)90226-X}.
+
+\bibitem[Chen et~al.(2019)]{Chen2019Veering}
+Guyuan Chen et~al.
+\newblock Mode veering, crossing and lock-in in mechanical systems: a review.
+\newblock \emph{Mechanical Systems and Signal Processing}, 122:\penalty0 67--91, 2019.
+\newblock \doi{10.1016/j.ymssp.2018.12.040}.
+
+\bibitem[Hussein et~al.(2014)Hussein, Leamy, and Ruzzene]{Hussein2014}
+Mahmoud~I. Hussein, Michael~J. Leamy, and Massimo Ruzzene.
+\newblock Dynamics of phononic materials and structures: Historical origins, recent progress, and future outlook.
+\newblock \emph{Applied Mechanics Reviews}, 66\penalty0 (4):\penalty0 040802, 2014.
+\newblock \doi{10.1115/1.4026911}.
+
+\bibitem[Cummer et~al.(2016)Cummer, Christensen, and Al{\`u}]{Cummer2016}
+Steven~A. Cummer, Johan Christensen, and Andrea Al{\`u}.
+\newblock Controlling sound with acoustic metamaterials.
+\newblock \emph{Nature Reviews Materials}, 1\penalty0 (3):\penalty0 16001, 2016.
+\newblock \doi{10.1038/natrevmats.2016.1}.
+
+\bibitem[Kadic et~al.(2019)Kadic, Schittny, B{\"u}ckmann, and Wegener]{Kadic2019}
+Muamer Kadic, Robert Schittny, Tiemo B{\"u}ckmann, and Martin Wegener.
+\newblock Mechanical metamaterials at the theoretical frontier.
+\newblock \emph{Reports on Progress in Physics}, 82\penalty0 (8):\penalty0 084901, 2019.
+\newblock \doi{10.1088/1361-6633/ab3f6d}.
+
+\bibitem[Chen et~al.(2021)Chen, Zheng, et~al.]{Chen2021NatRev}
+Y.~Chen, X.~Zheng, et~al.
+\newblock Functional mechanical metamaterials: design, fabrication and applications.
+\newblock \emph{Nature Reviews Materials}, 6:\penalty0 1095--1111, 2021.
+\newblock \doi{10.1038/s41578-021-00375-5}.
+
+\bibitem[Snijders et~al.(1993)Snijders, Vleeming, and Stoeckart]{Snijders1993}
+C.~J. Snijders, A.~Vleeming, and R.~Stoeckart.
+\newblock Transfer of lumbosacral load to iliac bones and legs. part 1: Biomechanics of self-bracing of the sacroiliac joints.
+\newblock \emph{Clinical Biomechanics}, 8\penalty0 (6):\penalty0 285--294, 1993.
+\newblock \doi{10.1016/0268-0033(93)90002-Y}.
+
+\bibitem[Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels, and Willard]{Vleeming2012}
+Andry Vleeming, Michael~D. Schuenke, Anthony~T. Masi, Jane~E. Carreiro, Lieven Danneels, and F.~H. Willard.
+\newblock The sacroiliac joint: an overview of its anatomy, function and potential clinical implications.
+\newblock \emph{Journal of Anatomy}, 221\penalty0 (6):\penalty0 537--567, 2012.
+\newblock \doi{10.1111/j.1469-7580.2012.01564.x}.
+
+\bibitem[Goode et~al.(2008)Goode, Hegedus, and Sizer]{Goode2008}
+Adam Goode, Eric~J. Hegedus, and Philip Sizer.
+\newblock Three-dimensional movements of the sacroiliac joint: A systematic review of the literature and assessment of clinical utility.
+\newblock \emph{Journal of Manual \& Manipulative Therapy}, 16\penalty0 (1):\penalty0 25--38, 2008.
+\newblock \doi{10.1179/106698108790818639}.
+
+\bibitem[Meijer et~al.(2014)]{Meijer2014}
+O.~Meijer et~al.
+\newblock Sacroiliac joint motion: systematic review and meta-analysis.
+\newblock \emph{The Spine Journal}, 14\penalty0 (9):\penalty0 1926--1941, 2014.
+\newblock \doi{10.1016/j.spinee.2013.10.041}.
+
+\bibitem[Keizer et~al.(2019)]{Keizer2019}
+R.~Keizer et~al.
+\newblock In-vivo sacroiliac joint motion with biplanar radiography.
+\newblock \emph{Journal of Biomechanics}, 92:\penalty0 7--13, 2019.
+\newblock \doi{10.1016/j.jbiomech.2019.05.039}.
+
+\bibitem[No{\"e} et~al.(2020)]{Noe2020}
+C.~No{\"e} et~al.
+\newblock In vivo sacroiliac joint motion using biplanar imaging.
+\newblock \emph{Clinical Biomechanics}, 80:\penalty0 105115, 2020.
+\newblock \doi{10.1016/j.clinbiomech.2020.105115}.
+
+\bibitem[Ruff(2017)]{Ruff2017}
+Christopher Ruff.
+\newblock Morphological variation of the human pelvis and its functional implications.
+\newblock \emph{American Journal of Physical Anthropology}, 162\penalty0 (S63):\penalty0 32--71, 2017.
+\newblock \doi{10.1002/ajpa.23120}.
+
+\bibitem[Betti and Manica(2020)]{Betti2020}
+Lia Betti and Andrea Manica.
+\newblock Human variation in the shape of the bony pelvis and climatic adaptation.
+\newblock \emph{Nature Ecology \& Evolution}, 4:\penalty0 153--160, 2020.
+\newblock \doi{10.1038/s41559-019-1060-9}.
+
+\bibitem[Weber et~al.(2019)]{Weber2019}
+Gerhard~W. Weber et~al.
+\newblock Virtual anthropology: Morphometric variation of the human pelvis across populations.
+\newblock \emph{Scientific Reports}, 9:\penalty0 19112, 2019.
+\newblock \doi{10.1038/s41598-019-55500-3}.
+
+\bibitem[Gruss and Schmitt(2015)]{Gruss2015}
+L.~T. Gruss and D.~Schmitt.
+\newblock The evolution of the human pelvis: changing adaptations to bipedalism, obstetrics and thermoregulation.
+\newblock \emph{Philosophical Transactions of the Royal Society B: Biological Sciences}, 370\penalty0 (1663):\penalty0 20140063, 2015.
+\newblock \doi{10.1098/rstb.2014.0063}.
+
+\bibitem[Whitcome et~al.(2017)]{Whitcome2017}
+Katherine~K. Whitcome et~al.
+\newblock Evolutionary biomechanics of the human pelvis.
+\newblock \emph{Philosophical Transactions of the Royal Society B}, 372\penalty0 (1720):\penalty0 20160021, 2017.
+\newblock \doi{10.1098/rstb.2016.0021}.
+
+\bibitem[Weiss(2020)]{Weiss2020}
+E.~Weiss.
+\newblock Sex and ancestry effects on pelvic shape.
+\newblock \emph{Journal of Anatomy}, 236:\penalty0 109--126, 2020.
+\newblock \doi{10.1111/joa.13102}.
+
+\bibitem[Anderson et~al.(2020)]{Anderson2020}
+A.~Anderson et~al.
+\newblock Role of sacroiliac ligaments in linear stiffness: a finite element study.
+\newblock \emph{Journal of Orthopaedic Research}, 38\penalty0 (9):\penalty0 2027--2036, 2020.
+\newblock \doi{10.1002/jor.24549}.
+
+\bibitem[Calixte et~al.(2022)]{Calixte2022}
+R.~Calixte et~al.
+\newblock Cartilage properties modulate sacroiliac joint linear response: finite element evidence.
+\newblock \emph{Journal of Biomechanics}, 135:\penalty0 111022, 2022.
+\newblock \doi{10.1016/j.jbiomech.2022.111022}.
+
+\bibitem[Yang et~al.(2020)]{Yang2020}
+X.~Yang et~al.
+\newblock Effects of ligaments on pelvic stability: 3d finite element analysis.
+\newblock \emph{Journal of Biomechanical Engineering}, 142\penalty0 (8), 2020.
+\newblock \doi{10.1115/1.4046595}.
+
+\bibitem[Song et~al.(2021)]{Song2021}
+Y.~Song et~al.
+\newblock Pelvic ring biomechanics under physiological loads: finite element study.
+\newblock \emph{Medical Engineering \& Physics}, 93:\penalty0 1--10, 2021.
+\newblock \doi{10.1016/j.medengphy.2021.05.008}.
+
+\bibitem[Keller(1994)]{Keller1994}
+Thomas~S. Keller.
+\newblock Predicting the compressive mechanical behavior of bone.
+\newblock \emph{Journal of Biomechanics}, 27\penalty0 (9):\penalty0 1159--1168, 1994.
+\newblock \doi{10.1016/0021-9290(94)90056-6}.
+
+\bibitem[Bonet and Wood(1997)]{BonetWood1997}
+Javier Bonet and Richard~D. Wood.
+\newblock \emph{Nonlinear Continuum Mechanics for Finite Element Analysis}.
+\newblock Cambridge University Press, 1st edition, 1997.
+
+\bibitem[Marsden and Hughes(1983)]{MarsdenHughes1983}
+Jerrold~E. Marsden and Thomas J.~R. Hughes.
+\newblock \emph{Mathematical Foundations of Elasticity}.
+\newblock Prentice Hall, 1983.
+
+\bibitem[Bergmann et~al.(2001)Bergmann, Deuretzbacher, Heller, Graichen, Rohlmann, Strauss, and Duda]{Bergmann2001JBiomech}
+Georg Bergmann, Frank Deuretzbacher, Markus Heller, Vera Graichen, Annegret Rohlmann, J.~Strauss, and Georg~N. Duda.
+\newblock Hip contact forces and gait patterns from routine activities.
+\newblock \emph{Journal of Biomechanics}, 34\penalty0 (7):\penalty0 859--871, 2001.
+\newblock \doi{10.1016/S0021-9290(01)00040-9}.
+
+\bibitem[Kutzner et~al.(2016)Kutzner, Trepczynski, Heller, and Bergmann]{Kutzner2016PLOS}
+I.~Kutzner, A.~Trepczynski, M.~O. Heller, and G.~Bergmann.
+\newblock Standardized loads acting in hip implants.
+\newblock \emph{PLOS ONE}, 11\penalty0 (5):\penalty0 e0155612, 2016.
+\newblock \doi{10.1371/journal.pone.0155612}.
+
+\bibitem[de~Leva(1996)]{deLeva1996}
+Paolo de~Leva.
+\newblock Adjustments to {Zatsiorsky--Seluyanov}'s segment inertia parameters.
+\newblock \emph{Journal of Biomechanics}, 29\penalty0 (9):\penalty0 1223--1230, 1996.
+\newblock \doi{10.1016/0021-9290(95)00178-6}.
+
+\bibitem[Young et~al.(2023)Young, Marinescu, and Seligman]{AJOG2022Uterine}
+Roger~C. Young, Ponnila~S. Marinescu, and Neil~S. Seligman.
+\newblock Monitoring uterine contractions during labor: current challenges and future directions.
+\newblock \emph{American Journal of Obstetrics and Gynecology}, 228\penalty0 (5):\penalty0 S1192--S1208, 2023.
+\newblock \doi{10.1016/j.ajog.2022.10.039}.
+
+\bibitem[Miller et~al.(2012)Miller, Miller, and Tucker]{Mosby2012Pocket}
+Lisa~A. Miller, David~A. Miller, and Susan~Martin Tucker.
+\newblock \emph{Mosby's Pocket Guide to Fetal Monitoring}.
+\newblock Elsevier, St. Louis, MO, 7 edition, 2012.
+
+\bibitem[Fuchs et~al.(2013)Fuchs, Bruy{\`e}re, Senat, Purenne, Benhamou, and Fernandez]{Fuchs2013PLOS}
+Franck Fuchs, M.~Bruy{\`e}re, M.-V. Senat, E.~Purenne, D.~Benhamou, and H.~Fernandez.
+\newblock Are standard intra-abdominal pressure values different during pregnancy?
+\newblock \emph{PLOS ONE}, 8\penalty0 (10):\penalty0 e77324, 2013.
+\newblock \doi{10.1371/journal.pone.0077324}.
+
+\bibitem[Chun and Kirkpatrick(2012)]{Chun2012IAPReview}
+Rosaleen Chun and Andrew~W. Kirkpatrick.
+\newblock Intra-abdominal pressure, intra-abdominal hypertension, and pregnancy: a review.
+\newblock \emph{Annals of Intensive Care}, 2\penalty0 (S1):\penalty0 S5, 2012.
+\newblock \doi{10.1186/2110-5820-2-S1-S5}.
+
+\bibitem[Clark-Patterson et~al.(2022)Clark-Patterson, Domingo, and Miller]{BiomechPregnancy2022}
+Gabrielle Clark-Patterson, Mari Domingo, and Kristin~S. Miller.
+\newblock Biomechanics of pregnancy and vaginal delivery.
+\newblock \emph{Current Opinion in Biomedical Engineering}, 22:\penalty0 100386, 2022.
+\newblock \doi{10.1016/j.cobme.2022.100386}.
+\newblock Review reporting vaginal wall--fetal head pressures up to \(\sim\)32 kPa during pushing.
+
+\bibitem[Kuhn(1955)]{Kuhn1955Hungarian}
+Harold~W. Kuhn.
+\newblock The hungarian method for the assignment problem.
+\newblock \emph{Naval Research Logistics Quarterly}, 2\penalty0 (1--2):\penalty0 83--97, 1955.
+\newblock \doi{10.1002/nav.3800020109}.
+
+\bibitem[Bj{\"o}rck and Golub(1973)]{BjorckGolub1973Angles}
+{\AA}ke Bj{\"o}rck and Gene~H. Golub.
+\newblock Numerical methods for computing angles between linear subspaces.
+\newblock \emph{Mathematics of Computation}, 27\penalty0 (123):\penalty0 579--594, 1973.
+\newblock \doi{10.1090/S0025-5718-1973-0348991-3}.
+
+\bibitem[Sch{\"o}nemann(1966)]{Schoenemann1966Procrustes}
+Peter~H. Sch{\"o}nemann.
+\newblock A generalized solution of the orthogonal procrustes problem.
+\newblock \emph{Psychometrika}, 31\penalty0 (1):\penalty0 1--10, 1966.
+\newblock \doi{10.1007/BF02289451}.
+
+\bibitem[Frost(1987)]{Frost1987}
+Harold~M. Frost.
+\newblock Bone 'mass' and the 'mechanostat': A proposal.
+\newblock \emph{The Anatomical Record}, 219\penalty0 (1):\penalty0 1--9, 1987.
+\newblock \doi{10.1002/ar.1092190104}.
+
+\bibitem[Huiskes et~al.(1987)Huiskes, Weinans, Grootenboer, Dalstra, Fudala, and Slooff]{Huiskes1987}
+R.~Huiskes, H.~Weinans, H.~J. Grootenboer, M.~Dalstra, B.~Fudala, and T.~J. J.~H. Slooff.
+\newblock Adaptive bone-remodeling theory applied to prosthetic-design analysis.
+\newblock \emph{Journal of Biomechanics}, 20\penalty0 (11--12):\penalty0 1135--1150, 1987.
+\newblock \doi{10.1016/0021-9290(87)90030-3}.
+
+\bibitem[Farr and Khosla(2015)]{FarrKhosla2015}
+Joshua~N. Farr and Sundeep Khosla.
+\newblock Skeletal changes through the lifespan—from growth to senescence.
+\newblock \emph{Nature Reviews Endocrinology}, 11\penalty0 (9):\penalty0 513--521, 2015.
+\newblock \doi{10.1038/nrendo.2015.89}.
+
+\bibitem[Zebaze et~al.(2010)Zebaze, Ghasem-Zadeh, Bohte, Iuliano-Burns, Mirams, Price, Mackie, and Seeman]{Zebaze2010Porosity}
+Roger~MD Zebaze, Ali Ghasem-Zadeh, Ann Bohte, Sandra Iuliano-Burns, Michiko Mirams, Roger~Ian Price, Eleanor~J Mackie, and Ego Seeman.
+\newblock Intracortical remodelling and porosity in the distal radius and post-mortem femurs of women: a cross-sectional study.
+\newblock \emph{The Lancet}, 375\penalty0 (9727):\penalty0 1729--1736, 2010.
+\newblock \doi{10.1016/S0140-6736(10)60320-0}.
+
+\bibitem[Carter and Hayes(1977)]{CarterHayes1977}
+Dennis~R. Carter and Wilson~C. Hayes.
+\newblock The compressive behavior of bone as a two-phase porous structure.
+\newblock \emph{The Journal of Bone and Joint Surgery. American Volume}, 59\penalty0 (7):\penalty0 954--962, 1977.
+
+\bibitem[Morgan et~al.(2003)Morgan, Bayraktar, and Keaveny]{Morgan2003Trabecular}
+Elise~F. Morgan, Hasan~H. Bayraktar, and Tony~M. Keaveny.
+\newblock Trabecular bone modulus-density relationships depend on anatomic site.
+\newblock \emph{Journal of Biomechanics}, 36\penalty0 (7):\penalty0 897--904, 2003.
+\newblock \doi{10.1016/S0021-9290(03)00071-X}.
+
+\bibitem[Gizzi et~al.(2011)Gizzi, Nielsen, Felici, Ivanenko, and Farina]{Gizzi2011}
+Leonardo Gizzi, Jens~Bo Nielsen, Francesco Felici, Yuri~P. Ivanenko, and Dario Farina.
+\newblock Motor modules in human locomotion: functions and adaptations to different terrains.
+\newblock \emph{Philosophical Transactions of the Royal Society B: Biological Sciences}, 366\penalty0 (1570):\penalty0 3508--3519, 2011.
+\newblock \doi{10.1098/rstb.2011.0121}.
+
+\bibitem[Ting and Macpherson(2005)]{Ting2012}
+Lena~H. Ting and Jane~M. Macpherson.
+\newblock A limited set of muscle synergies for force control during a postural task.
+\newblock \emph{Journal of Neurophysiology}, 93\penalty0 (1):\penalty0 609--613, 2005.
+\newblock \doi{10.1152/jn.00681.2004}.
+
+\bibitem[Washburn(1960)]{Washburn1960}
+Sherwood~L. Washburn.
+\newblock Tools and human evolution.
+\newblock \emph{Scientific American}, 203\penalty0 (3):\penalty0 62--75, 1960.
+\newblock \doi{10.1038/scientificamerican0960-62}.
+
+\bibitem[Chen and Grimm(2021)]{ChenGrimm2021}
+Sheng Chen and Michele~J. Grimm.
+\newblock Childbirth computational models: Characteristics and applications.
+\newblock \emph{Journal of Biomechanical Engineering}, 143\penalty0 (5):\penalty0 050801, 2021.
+\newblock \doi{10.1115/1.4049226}.
+
+\bibitem[Roque~de Almeida et~al.(2024)Roque~de Almeida, Alves Campice~de Oliveira, de~Oliveira~Campos, Martins~Rocha, and de~Souza~Bastos]{Almeida2024Uterus}
+Priscila Roque~de Almeida, Isabela Alves Campice~de Oliveira, Joventino de~Oliveira~Campos, Bernardo Martins~Rocha, and Fl{\'a}via de~Souza~Bastos.
+\newblock Modeling of the biomechanical behavior and growth of the human uterus during pregnancy.
+\newblock \emph{Journal of Biomechanics}, 174:\penalty0 112268, 2024.
+\newblock \doi{10.1016/j.jbiomech.2024.112268}.
+
+\bibitem[Bashir et~al.(1997)Bashir, Gray, and Burstein]{Bashir1997dGEMRIC}
+A.~Bashir, M.~L. Gray, and D.~Burstein.
+\newblock Gd-dtpa2- as a measure of cartilage degradation.
+\newblock \emph{Magnetic Resonance in Medicine}, 37\penalty0 (5):\penalty0 665--673, 1997.
+\newblock \doi{10.1002/mrm.1910370503}.
+
+\end{thebibliography}

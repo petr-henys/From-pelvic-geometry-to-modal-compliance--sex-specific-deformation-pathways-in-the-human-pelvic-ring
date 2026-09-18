@@ -1,0 +1,125 @@
+\documentclass[fleqn,usenatbib]{rsproca_new}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue}
+
+\title[Reconfigurable mechanics of the human pelvis]{The human pelvis as a reconfigurable mechanical system: modal evidence for sex-biased compliance}
+
+\author[Henys et al.]{
+Petr Henys$^{1,2}$,
+Michal Kuchar$^{3}$,
+Alexander Moravek$^{1}$
+and Niels Hammer$^{4}$
+}
+
+\address{
+$^{1}$Institute of New Technologies and Applied Informatics, Faculty of Mechatronics, Informatics and Interdisciplinary Studies, Technical University of Liberec, Czech Republic\\
+$^{2}$Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center, Medical University of Graz, Austria\\
+$^{3}$Department of Anatomy, Faculty of Medicine in Hradec Kralove, Charles University, Czech Republic\\
+$^{4}$Department of Macroscopic and Clinical Anatomy, Medical University of Graz, Austria
+}
+
+\corres{Michal Kuchar\email{michal.kuchar@tul.cz}}
+
+\begin{document}
+
+\begin{abstract}
+The human pelvis must simultaneously support habitual bipedal loading and permit parturition, yet most evolutionary and clinical discussions still frame pelvic function in terms of static dimensions. Here we recast the pelvic ring as a reconfigurable mechanical system and quantify its intrinsic deformation repertoire using a population-scale modal framework. We analysed 278 CT-derived pelvic models with shared mesh correspondence, heterogeneous bone material mapping, explicit sacroiliac and pubic interfaces, and ligament-based constraints. Across subjects, overall size strongly influenced stiffness, but size correction did not eliminate sex differences. Several eigenmodes remained significantly more compliant in female pelves, especially modes associated with inlet-opening behaviour. Under locomotor load cases, both sexes recruited similar low-order modes, indicating broadly shared strategies for everyday support. Under childbirth-related load cases, however, the response concentrated in a specific inlet-opening mode, with females distributing deformation more broadly across coordinated low-order pathways than males. Sensitivity analysis further showed that pubic symphysis and sacroiliac interface properties exert the strongest control over this opening-related mechanics. These results suggest that obstetric performance is not captured adequately by static pelvimetry alone. Instead, childbirth-relevant function emerges from the interaction of shape, scale, material distribution and soft-tissue constraint. The framework provides a mechanically explicit way to compare pelves across individuals and offers a tractable bridge between evolutionary anthropology, structural biomechanics and clinically relevant pelvic function.
+\end{abstract}
+
+\keywords{pelvis biomechanics, modal analysis, childbirth, sacroiliac joint, finite element modelling, evolutionary anthropology}
+
+\maketitle
+
+\section{Introduction}
+The human pelvis occupies a central position in debates about the evolution of bipedalism and childbirth. Classical formulations of the obstetric dilemma interpret pelvic morphology as a trade-off between locomotor efficiency and parturitional adequacy \citep{washburn1960,rosenberg1992,dunsworth2012}. More recent work has complicated that picture by showing that wider female pelves do not necessarily incur the simple locomotor penalties often assumed, and that obstetric performance depends on far more than static inlet dimensions alone \citep{warrener2015,betti2017,pavlicev2020}. Clinical obstetrics has arrived at a similar conclusion: routine pelvimetry has limited predictive value because labour outcome depends on fetal position, soft tissues, uterine forces and maternal movement in addition to skeletal geometry.
+
+A key limitation of both the evolutionary and clinical literature is that pelvic form is still often described using static measurements. Yet the pelvis is a closed ring structure whose mechanical behaviour depends on how bone, cartilage, ligaments and geometry jointly distribute deformation under load. Finite-element studies have shown that pelvic response is sensitive to load direction, boundary conditions and sacroiliac constraints \citep{eichenseer2011,hammer2013,toyohara2020}. What remains missing is a population-level framework that can compare these behaviours across many subjects in a mechanically homologous way.
+
+Here we treat each pelvis as a reconfigurable mechanical system whose intrinsic deformation patterns can be described by its elastic eigenmodes. This mode-based perspective shifts attention from whether a pelvis is simply ``wide'' or ``narrow'' to which deformation pathways are most mechanically accessible. We apply this framework to 278 CT-derived pelves and test four questions. First, how strongly does allometry structure pelvic stiffness? Second, do female and male pelves differ in mode-specific compliance after accounting for scale? Third, how do locomotor and childbirth-related loads recruit the modal basis differently? Fourth, which soft-tissue constraints most strongly tune the childbirth-relevant response? Our central claim is deliberately modest: female pelves are not merely larger at selected diameters, but are mechanically organized to permit different distributions of deformation under obstetric loading.
+
+\section{Material and methods}
+\subsection{Cohort and image-derived models}
+We analysed 278 adult lumbopelvic CT scans (150 female, 128 male; age range 16--91 years) from a Central European cohort. Subject-specific pelvic geometry was brought into shared correspondence by warping a common tetrahedral template to each subject. This enabled direct, nodewise comparison of geometry, material mapping, eigenmodes and static responses across the cohort. Bone material heterogeneity was estimated from phantom-less CT calibration and mapped to element-wise elastic properties. The model included the ilia, sacrum, sacroiliac joint interfaces and pubic symphysis.
+
+\subsection{Finite-element framework}
+Linear elastic finite-element models were solved on a common reference mesh with subject-specific geometry pullback and material assignment. Ligamentous structures were represented by spring bundles linking anatomically defined attachment regions. For each subject, we solved the generalized eigenproblem
+\begin{equation}
+K\phi_k = \lambda_k M\phi_k,
+\end{equation}
+where $K$ is the global stiffness matrix, $M$ the consistent mass matrix, $\lambda_k$ the mode-specific eigenvalue, and $\phi_k$ the corresponding eigenvector. Smaller eigenvalues indicate greater compliance of the corresponding deformation pathway.
+
+\subsection{Allometry and static morphology}
+We quantified total volume, surface area, effective density and a scalar size parameter derived from total pelvic volume. Conventional static dimensions included anteroposterior inlet diameter (AP), pelvic inlet transverse diameter (PIT), subpubic angle, biacetabular width, biischiadic width, bituberous width, sacral width and iliopectineal eminence width.
+
+\subsection{Standardized load cases and modal recruitment}
+Static responses were computed for four principal loading contexts: bilateral stance, unilateral stance, inlet-opening and outlet-opening. Each static displacement field was projected onto the modal basis to obtain mode-wise participation and energy fractions. This allowed direct comparison between locomotor and childbirth-related response organization.
+
+\subsection{Soft-tissue sensitivity analysis}
+To assess which soft-tissue elements most strongly govern childbirth-relevant compliance, we perturbed ligament and interface stiffness parameters and estimated eigenvalue sensitivities for the dominant inlet-opening mode. Particular attention was paid to the pubic symphysis, anterior sacroiliac ligaments and sacroiliac cartilage regions.
+
+\subsection{Statistics}
+Sex differences were assessed with Welch tests for static measures and linear models of the form $\log(\lambda) \sim \log(\mathrm{scale}) + \mathrm{sex} + \mathrm{age}$ for mode-wise stiffness. Associations between selected modes and static dimensions were examined with single-predictor linear models in the female sample. Because the study is primarily mechanistic, emphasis is placed on effect size structure rather than on threshold significance alone.
+
+\section{Results}
+\subsection{Static size and morphology}
+Female pelves were smaller in overall scale but larger in several childbirth-relevant dimensions, including AP diameter, PIT, subpubic angle, biischiadic width, bituberous width and sacral width. Effective density differed only modestly between sexes. Across the cohort, total volume scaled close to geometric expectation, whereas effective density decreased with size, indicating that simple geometric similarity does not fully describe pelvic mechanical scaling.
+
+\subsection{Eigenstructure and sex-biased compliance}
+Eigenvalues spanned multiple orders of magnitude. Larger pelves generally exhibited lower eigenvalues, confirming a strong allometric contribution to compliance. However, adjustment for scale and age did not eliminate sex effects. Several modes remained significantly stiffer in males, with the largest differences observed in modes 2 and 9. By contrast, the lowest mode showed little residual sex difference after adjustment. These results indicate that sex-related mechanics are concentrated in selected deformation pathways rather than uniformly across the modal spectrum.
+
+\subsection{Static dimensions incompletely explain mode-specific behaviour}
+Within females, conventional pelvic dimensions explained only a modest fraction of the variance in the most sexually differentiated modes. Inlet-related measures such as PIT and AP were the strongest predictors of the major inlet-opening mode, but even the largest models explained only a limited share of the variance. This result reinforces the view that childbirth-relevant pelvic function cannot be reduced to a few linear diameters.
+
+\subsection{Locomotor versus childbirth-related loading}
+Under bilateral stance, the response was dominated by a low-order mode shared almost identically across sexes, consistent with a common strategy for routine weight transfer. Unilateral stance distributed energy primarily across the first three modes and again showed limited sex divergence. In contrast, inlet-opening loads recruited a distinct higher mode that dominated the response in most subjects. Females displayed lower stiffness in this pathway and distributed deformation more broadly across accompanying low-order modes, whereas males concentrated a larger fraction of the response in the dominant opening mode itself. Outlet-opening loads were governed by another shared dominant mode, but females again retained greater concurrent participation of the inlet-opening pathway.
+
+\subsection{Soft-tissue tuning}
+Sensitivity analysis showed that childbirth-relevant inlet-opening compliance is governed primarily by the pubic symphysis and sacroiliac interface properties, with anterior sacroiliac ligaments forming a second tier of influence. Posterior ligament groups exerted markedly smaller effects in the linearized framework. These findings support the interpretation that obstetric mechanics are strongly modulated by anterior ring and joint-constraint properties rather than by osseous geometry alone.
+
+\section{Discussion}
+The present results support a form--function interpretation of the pelvis that is more dynamic than standard pelvimetric models. Static diameters remain biologically meaningful, but they describe only part of the system. The stronger message is that pelvic mechanics are structured by accessible deformation pathways, and these pathways differ by load context and by sex.
+
+For locomotor loading, female and male pelves relied on largely overlapping low-order strategies. This observation fits recent challenges to overly simple versions of the obstetric dilemma, including evidence that pelvic breadth does not map straightforwardly onto locomotor cost \citep{warrener2015}. For childbirth-related loading, however, the female pelvis showed a consistent bias toward greater access to opening-related compliance, especially through a mode linked to inlet expansion. This difference remained after scaling adjustment, suggesting that it is not merely a by-product of female pelves being smaller overall.
+
+The soft-tissue sensitivity results sharpen this interpretation. In the present framework, pubic and sacroiliac interface properties are the principal gates through which childbirth-relevant deformation becomes mechanically available. That pattern is consistent with clinical and comparative observations that pelvic function during labour cannot be understood from bone alone \citep{berghella2020,pink2024}. It also offers a more precise alternative to broad verbal claims about ``flexibility'': the issue is not generalized laxity, but selective accessibility of particular deformation pathways while retaining ordinary support during stance.
+
+This interpretation also helps explain why static pelvic shape varies substantially across women despite strong selection on successful reproduction. If obstetric function is buffered partly by how deformation is distributed through the pelvic ring and its interfaces, then multiple morphologies may satisfy the necessary mechanical envelope. Such buffering would allow climatic, developmental and phylogenetic factors to shape pelvic form without enforcing a single obstetric optimum \citep{betti2017,weaver2009}.
+
+\subsection{Limitations}
+The models are linear elastic and therefore do not reproduce the full nonlinear, time-dependent mechanics of pregnancy and labour. Subject-specific hormonal state, parity, muscle forces and fetal interaction were not available. The childbirth-related loads are standardized mechanical probes rather than patient-specific simulations of labour. The study therefore does not predict delivery outcome directly. Instead, it identifies mechanically interpretable compliance structure at population scale.
+
+\section{Conclusion}
+The human pelvis is better understood as a reconfigurable mechanical system than as a rigid set of obstetric diameters. Population-scale modal analysis shows that female pelves differ from male pelves not only in geometry but also in how compliance is distributed across load-dependent deformation pathways. Locomotor support relies on largely shared low-order modes, whereas childbirth-related loading preferentially reveals sex-biased access to inlet-opening compliance, strongly tuned by pubic and sacroiliac constraints. This framework provides a tractable basis for linking pelvic anatomy to function across evolutionary, biomechanical and clinical contexts.
+
+\section{Ethics}
+The study re-used retrospectively collected imaging data processed as a research dataset. Ethical approval, waiver procedures and data-governance details should be stated here exactly as approved in the originating dataset documentation.
+
+\section{Data accessibility}
+The manuscript should cite the final dataset release, code repository and archival DOI used for the analyses. At revision stage, replace this placeholder with repository links and persistent identifiers.
+
+\section{Authors' contributions}
+P.H. and M.K. conceived the study. P.H. and M.K. performed the computational analyses. P.H., M.K. and A.M. interpreted the results. P.H. drafted the manuscript. All authors revised the manuscript critically and approved the submitted version.
+
+\section{Competing interests}
+The authors declare no competing interests.
+
+\section{Funding}
+Please replace this section with the final grant wording, including project numbers and institutional support from Charles University and any additional funders.
+
+\section{Acknowledgements}
+We thank collaborators associated with dataset preparation, anatomical interpretation and computational infrastructure. This placeholder should be replaced by the final acknowledgements text.
+
+\bibliographystyle{rsc}
+\bibliography{jrsi_interface_refs}
+
+\end{document}

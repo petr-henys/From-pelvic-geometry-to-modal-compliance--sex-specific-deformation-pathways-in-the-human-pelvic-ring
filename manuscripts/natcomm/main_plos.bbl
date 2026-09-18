@@ -1,0 +1,326 @@
+\begin{thebibliography}{43}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Washburn(1960)]{Washburn1960}
+Sherwood~L. Washburn.
+\newblock Tools and human evolution.
+\newblock \emph{Scientific American}, 203\penalty0 (3):\penalty0 62--75, 1960.
+\newblock \doi{10.1038/scientificamerican0960-62}.
+
+\bibitem[Gruss and Schmitt(2015)]{Gruss2015}
+L.~T. Gruss and D.~Schmitt.
+\newblock The evolution of the human pelvis: changing adaptations to
+  bipedalism, obstetrics and thermoregulation.
+\newblock \emph{Philosophical Transactions of the Royal Society B: Biological
+  Sciences}, 370\penalty0 (1663):\penalty0 20140063, 2015.
+\newblock \doi{10.1098/rstb.2014.0063}.
+
+\bibitem[Heny\v{s} and Kucha\v{r}(2025)]{HenyssKuchar2025BoneDat}
+Petr Heny\v{s} and Michal Kucha\v{r}.
+\newblock Bonedat, a database of standardized bone morphology for in silico
+  analyses.
+\newblock \emph{Scientific Data}, 12\penalty0 (1), 2025.
+\newblock \doi{10.1038/s41597-025-05161-y}.
+
+\bibitem[Kriechling et~al.(2022)Kriechling, Leoty, and
+  F{\"u}rnstahl]{Kriechling2022}
+Philipp Kriechling, Laura Leoty, and Philipp F{\"u}rnstahl.
+\newblock A statistical shape model-based analysis of periacetabular
+  osteotomies.
+\newblock \emph{The Journal of Bone and Joint Surgery}, 104\penalty0
+  (12):\penalty0 1107--1115, 2022.
+\newblock \doi{10.2106/JBJS.21.00454}.
+
+\bibitem[Kitano(2004)]{Kitano2004}
+Hiroaki Kitano.
+\newblock Biological robustness.
+\newblock \emph{Nature Reviews Genetics}, 5\penalty0 (11):\penalty0 826--837,
+  2004.
+\newblock \doi{10.1038/nrg1471}.
+
+\bibitem[Kitano(2007)]{Kitano2007}
+Hiroaki Kitano.
+\newblock Towards a theory of biological robustness.
+\newblock \emph{Molecular Systems Biology}, 3\penalty0 (1), 2007.
+\newblock \doi{10.1038/msb4100179}.
+
+\bibitem[Khammash(2016)]{Khammash2016}
+Mustafa Khammash.
+\newblock An engineering viewpoint on biological robustness.
+\newblock \emph{BMC Biology}, 14\penalty0 (1), 2016.
+\newblock \doi{10.1186/s12915-016-0241-x}.
+
+\bibitem[Whitacre(2010)]{Whitacre2010}
+James~M. Whitacre.
+\newblock Degeneracy: a link between evolvability, robustness and complexity in
+  biological systems.
+\newblock \emph{Theoretical Biology and Medical Modelling}, 7\penalty0 (1),
+  2010.
+\newblock \doi{10.1186/1742-4682-7-6}.
+
+\bibitem[Whitacre(2012)]{Whitacre2012}
+James~M. Whitacre.
+\newblock Biological robustness: Paradigms, mechanisms, and systems principles.
+\newblock \emph{Frontiers in Genetics}, 3, 2012.
+\newblock \doi{10.3389/fgene.2012.00067}.
+
+\bibitem[Ting and Macpherson(2005)]{Ting2012}
+Lena~H. Ting and Jane~M. Macpherson.
+\newblock A limited set of muscle synergies for force control during a postural
+  task.
+\newblock \emph{Journal of Neurophysiology}, 93\penalty0 (1):\penalty0
+  609--613, 2005.
+\newblock \doi{10.1152/jn.00681.2004}.
+
+\bibitem[Pierre(1988)]{Pierre1988}
+Christophe Pierre.
+\newblock Mode localization and eigenvalue loci veering phenomena in disordered
+  structures.
+\newblock \emph{Journal of Sound and Vibration}, 126\penalty0 (3):\penalty0
+  485--502, 1988.
+\newblock \doi{10.1016/0022-460X(88)90226-X}.
+
+\bibitem[Manconi and Mace(2017)]{ManconiMace2017}
+Elisabetta Manconi and B.~R. Mace.
+\newblock Veering and strong coupling effects in structural dynamics.
+\newblock \emph{Journal of Vibration and Acoustics}, 139\penalty0 (2), 2017.
+\newblock \doi{10.1115/1.4035109}.
+
+\bibitem[Ghosh and Ghanem(2012)]{GhoshGhanem2012}
+Debraj Ghosh and Roger Ghanem.
+\newblock An invariant subspace-based approach to the random eigenvalue problem
+  of systems with clustered spectrum.
+\newblock \emph{International Journal for Numerical Methods in Engineering},
+  91\penalty0 (4):\penalty0 378--396, 2012.
+\newblock \doi{10.1002/nme.4276}.
+
+\bibitem[Hussein et~al.(2014)Hussein, Leamy, and Ruzzene]{Hussein2014}
+Mahmoud~I. Hussein, Michael~J. Leamy, and Massimo Ruzzene.
+\newblock Dynamics of phononic materials and structures: Historical origins,
+  recent progress, and future outlook.
+\newblock \emph{Applied Mechanics Reviews}, 66\penalty0 (4):\penalty0 040802,
+  2014.
+\newblock \doi{10.1115/1.4026911}.
+
+\bibitem[Cummer et~al.(2016)Cummer, Christensen, and Al{\`u}]{Cummer2016}
+Steven~A. Cummer, Johan Christensen, and Andrea Al{\`u}.
+\newblock Controlling sound with acoustic metamaterials.
+\newblock \emph{Nature Reviews Materials}, 1\penalty0 (3):\penalty0 16001,
+  2016.
+\newblock \doi{10.1038/natrevmats.2016.1}.
+
+\bibitem[Snijders et~al.(1993)Snijders, Vleeming, and Stoeckart]{Snijders1993}
+C.~J. Snijders, A.~Vleeming, and R.~Stoeckart.
+\newblock Transfer of lumbosacral load to iliac bones and legs. part 1:
+  Biomechanics of self-bracing of the sacroiliac joints.
+\newblock \emph{Clinical Biomechanics}, 8\penalty0 (6):\penalty0 285--294,
+  1993.
+\newblock \doi{10.1016/0268-0033(93)90002-Y}.
+
+\bibitem[Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels, and
+  Willard]{Vleeming2012}
+Andry Vleeming, Michael~D. Schuenke, Anthony~T. Masi, Jane~E. Carreiro, Lieven
+  Danneels, and F.~H. Willard.
+\newblock The sacroiliac joint: an overview of its anatomy, function and
+  potential clinical implications.
+\newblock \emph{Journal of Anatomy}, 221\penalty0 (6):\penalty0 537--567, 2012.
+\newblock \doi{10.1111/j.1469-7580.2012.01564.x}.
+
+\bibitem[Goode et~al.(2008)Goode, Hegedus, and Sizer]{Goode2008}
+Adam Goode, Eric~J. Hegedus, and Philip Sizer.
+\newblock Three-dimensional movements of the sacroiliac joint: A systematic
+  review of the literature and assessment of clinical utility.
+\newblock \emph{Journal of Manual \& Manipulative Therapy}, 16\penalty0
+  (1):\penalty0 25--38, 2008.
+\newblock \doi{10.1179/106698108790818639}.
+
+\bibitem[Guo and Teo(2005)]{GuoTeo2005}
+Li-Xin Guo and Ee-Chon Teo.
+\newblock Prediction of the modal characteristics of the human spine at
+  resonant frequency using finite element models.
+\newblock \emph{Proceedings of the Institution of Mechanical Engineers, Part H:
+  Journal of Engineering in Medicine}, 219\penalty0 (4):\penalty0 277--284,
+  2005.
+\newblock \doi{10.1243/095441105X34275}.
+
+\bibitem[Fan et~al.(2021)Fan, Zhao, and Guo]{Fan2021Modal}
+Wei Fan, Dan Zhao, and Li-Xin Guo.
+\newblock A finite element model of the human lower thorax to pelvis spinal
+  segment: Validation and modal analysis.
+\newblock \emph{Bio-Medical Materials and Engineering}, 32\penalty0
+  (5):\penalty0 267--279, 2021.
+\newblock \doi{10.3233/BME-196017}.
+
+\bibitem[Chen and Grimm(2021)]{ChenGrimm2021}
+Sheng Chen and Michele~J. Grimm.
+\newblock Childbirth computational models: Characteristics and applications.
+\newblock \emph{Journal of Biomechanical Engineering}, 143\penalty0
+  (5):\penalty0 050801, 2021.
+\newblock \doi{10.1115/1.4049226}.
+
+\bibitem[Roque~de Almeida et~al.(2024)Roque~de Almeida, Alves Campice~de
+  Oliveira, de~Oliveira~Campos, Martins~Rocha, and
+  de~Souza~Bastos]{Almeida2024Uterus}
+Priscila Roque~de Almeida, Isabela Alves Campice~de Oliveira, Joventino
+  de~Oliveira~Campos, Bernardo Martins~Rocha, and Fl{\'a}via de~Souza~Bastos.
+\newblock Modeling of the biomechanical behavior and growth of the human uterus
+  during pregnancy.
+\newblock \emph{Journal of Biomechanics}, 174:\penalty0 112268, 2024.
+\newblock \doi{10.1016/j.jbiomech.2024.112268}.
+
+\bibitem[Edelman and Gally(2001)]{EdelmanGally2001}
+Gerald~M. Edelman and Joseph~A. Gally.
+\newblock Degeneracy and complexity in biological systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 98\penalty0
+  (24):\penalty0 13763--13768, 2001.
+\newblock \doi{10.1073/pnas.231499798}.
+
+\bibitem[Clark-Patterson et~al.(2022)Clark-Patterson, Domingo, and
+  Miller]{BiomechPregnancy2022}
+Gabrielle Clark-Patterson, Mari Domingo, and Kristin~S. Miller.
+\newblock Biomechanics of pregnancy and vaginal delivery.
+\newblock \emph{Current Opinion in Biomedical Engineering}, 22:\penalty0
+  100386, 2022.
+\newblock \doi{10.1016/j.cobme.2022.100386}.
+
+\bibitem[Bonet and Wood(1997)]{BonetWood1997}
+Javier Bonet and Richard~D. Wood.
+\newblock \emph{Nonlinear Continuum Mechanics for Finite Element Analysis}.
+\newblock Cambridge University Press, 1st edition, 1997.
+
+\bibitem[Marsden and Hughes(1983)]{MarsdenHughes1983}
+Jerrold~E. Marsden and Thomas J.~R. Hughes.
+\newblock \emph{Mathematical Foundations of Elasticity}.
+\newblock Prentice Hall, 1983.
+
+\bibitem[Keller(1994)]{Keller1994}
+Thomas~S. Keller.
+\newblock Predicting the compressive mechanical behavior of bone.
+\newblock \emph{Journal of Biomechanics}, 27\penalty0 (9):\penalty0 1159--1168,
+  1994.
+\newblock \doi{10.1016/0021-9290(94)90056-6}.
+
+\bibitem[Carter and Hayes(1977)]{CarterHayes1977}
+Dennis~R. Carter and Wilson~C. Hayes.
+\newblock The compressive behavior of bone as a two-phase porous structure.
+\newblock \emph{The Journal of Bone and Joint Surgery. American Volume},
+  59\penalty0 (7):\penalty0 954--962, 1977.
+
+\bibitem[Morgan et~al.(2003)Morgan, Bayraktar, and
+  Keaveny]{Morgan2003Trabecular}
+Elise~F. Morgan, Hasan~H. Bayraktar, and Tony~M. Keaveny.
+\newblock Trabecular bone modulus-density relationships depend on anatomic
+  site.
+\newblock \emph{Journal of Biomechanics}, 36\penalty0 (7):\penalty0 897--904,
+  2003.
+\newblock \doi{10.1016/S0021-9290(03)00071-X}.
+
+\bibitem[Frost(1987)]{Frost1987}
+Harold~M. Frost.
+\newblock Bone 'mass' and the 'mechanostat': A proposal.
+\newblock \emph{The Anatomical Record}, 219\penalty0 (1):\penalty0 1--9, 1987.
+\newblock \doi{10.1002/ar.1092190104}.
+
+\bibitem[Huiskes et~al.(1987)Huiskes, Weinans, Grootenboer, Dalstra, Fudala,
+  and Slooff]{Huiskes1987}
+R.~Huiskes, H.~Weinans, H.~J. Grootenboer, M.~Dalstra, B.~Fudala, and T.~J.
+  J.~H. Slooff.
+\newblock Adaptive bone-remodeling theory applied to prosthetic-design
+  analysis.
+\newblock \emph{Journal of Biomechanics}, 20\penalty0 (11--12):\penalty0
+  1135--1150, 1987.
+\newblock \doi{10.1016/0021-9290(87)90030-3}.
+
+\bibitem[Farr and Khosla(2015)]{FarrKhosla2015}
+Joshua~N. Farr and Sundeep Khosla.
+\newblock Skeletal changes through the lifespan—from growth to senescence.
+\newblock \emph{Nature Reviews Endocrinology}, 11\penalty0 (9):\penalty0
+  513--521, 2015.
+\newblock \doi{10.1038/nrendo.2015.89}.
+
+\bibitem[Zebaze et~al.(2010)Zebaze, Ghasem-Zadeh, Bohte, Iuliano-Burns, Mirams,
+  Price, Mackie, and Seeman]{Zebaze2010Porosity}
+Roger~MD Zebaze, Ali Ghasem-Zadeh, Ann Bohte, Sandra Iuliano-Burns, Michiko
+  Mirams, Roger~Ian Price, Eleanor~J Mackie, and Ego Seeman.
+\newblock Intracortical remodelling and porosity in the distal radius and
+  post-mortem femurs of women: a cross-sectional study.
+\newblock \emph{The Lancet}, 375\penalty0 (9727):\penalty0 1729--1736, 2010.
+\newblock \doi{10.1016/S0140-6736(10)60320-0}.
+
+\bibitem[de~Leva(1996)]{deLeva1996}
+Paolo de~Leva.
+\newblock Adjustments to {Zatsiorsky--Seluyanov}'s segment inertia parameters.
+\newblock \emph{Journal of Biomechanics}, 29\penalty0 (9):\penalty0 1223--1230,
+  1996.
+\newblock \doi{10.1016/0021-9290(95)00178-6}.
+
+\bibitem[Bergmann et~al.(2001)Bergmann, Deuretzbacher, Heller, Graichen,
+  Rohlmann, Strauss, and Duda]{Bergmann2001JBiomech}
+Georg Bergmann, Frank Deuretzbacher, Markus Heller, Vera Graichen, Annegret
+  Rohlmann, J.~Strauss, and Georg~N. Duda.
+\newblock Hip contact forces and gait patterns from routine activities.
+\newblock \emph{Journal of Biomechanics}, 34\penalty0 (7):\penalty0 859--871,
+  2001.
+\newblock \doi{10.1016/S0021-9290(01)00040-9}.
+
+\bibitem[Bergmann et~al.(2016)Bergmann, Bender, Dymke, Duda, and
+  Damm]{Kutzner2016PLOS}
+Georg Bergmann, Alwina Bender, J{\"o}rn Dymke, Georg Duda, and Philipp Damm.
+\newblock Standardized loads acting in hip implants.
+\newblock \emph{PLOS ONE}, 11\penalty0 (5):\penalty0 e0155612, 2016.
+\newblock \doi{10.1371/journal.pone.0155612}.
+
+\bibitem[Young et~al.(2023)Young, Marinescu, and Seligman]{AJOG2022Uterine}
+Roger~C. Young, Ponnila~S. Marinescu, and Neil~S. Seligman.
+\newblock Monitoring uterine contractions during labor: current challenges and
+  future directions.
+\newblock \emph{American Journal of Obstetrics and Gynecology}, 228\penalty0
+  (5):\penalty0 S1192--S1208, 2023.
+\newblock \doi{10.1016/j.ajog.2022.10.039}.
+
+\bibitem[Miller et~al.(2012)Miller, Miller, and Tucker]{Mosby2012Pocket}
+Lisa~A. Miller, David~A. Miller, and Susan~Martin Tucker.
+\newblock \emph{Mosby's Pocket Guide to Fetal Monitoring}.
+\newblock Elsevier, St. Louis, MO, 7 edition, 2012.
+
+\bibitem[Fuchs et~al.(2013)Fuchs, Bruy{\`e}re, Senat, Purenne, Benhamou, and
+  Fernandez]{Fuchs2013PLOS}
+Franck Fuchs, M.~Bruy{\`e}re, M.-V. Senat, E.~Purenne, D.~Benhamou, and
+  H.~Fernandez.
+\newblock Are standard intra-abdominal pressure values different during
+  pregnancy?
+\newblock \emph{PLOS ONE}, 8\penalty0 (10):\penalty0 e77324, 2013.
+\newblock \doi{10.1371/journal.pone.0077324}.
+
+\bibitem[Chun and Kirkpatrick(2012)]{Chun2012IAPReview}
+Rosaleen Chun and Andrew~W. Kirkpatrick.
+\newblock Intra-abdominal pressure, intra-abdominal hypertension, and
+  pregnancy: a review.
+\newblock \emph{Annals of Intensive Care}, 2\penalty0 (S1):\penalty0 S5, 2012.
+\newblock \doi{10.1186/2110-5820-2-S1-S5}.
+
+\bibitem[Kuhn(1955)]{Kuhn1955Hungarian}
+Harold~W. Kuhn.
+\newblock The hungarian method for the assignment problem.
+\newblock \emph{Naval Research Logistics Quarterly}, 2\penalty0
+  (1--2):\penalty0 83--97, 1955.
+\newblock \doi{10.1002/nav.3800020109}.
+
+\bibitem[Bj{\"o}rck and Golub(1973)]{BjorckGolub1973Angles}
+{\AA}ke Bj{\"o}rck and Gene~H. Golub.
+\newblock Numerical methods for computing angles between linear subspaces.
+\newblock \emph{Mathematics of Computation}, 27\penalty0 (123):\penalty0
+  579--594, 1973.
+\newblock \doi{10.1090/S0025-5718-1973-0348991-3}.
+
+\bibitem[Sch{\"o}nemann(1966)]{Schoenemann1966Procrustes}
+Peter~H. Sch{\"o}nemann.
+\newblock A generalized solution of the orthogonal procrustes problem.
+\newblock \emph{Psychometrika}, 31\penalty0 (1):\penalty0 1--10, 1966.
+\newblock \doi{10.1007/BF02289451}.
+
+\end{thebibliography}

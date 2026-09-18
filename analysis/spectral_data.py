@@ -5,6 +5,8 @@ All I/O (Zarr, NumPy, JSON landmarks, FEBio mesh) lives here.
 from __future__ import annotations
 
 import warnings
+import json
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -169,15 +171,31 @@ def load_outlet_landmarks() -> dict[str, np.ndarray]:
     return landmarks
 
 
-def load_fe_mesh_coords() -> np.ndarray | None:
-    """Load FE mesh node coordinates from the FEBio .feb model."""
-    feb_path = REPO_ROOT / "anatomy_data" / "full_model.feb"
-    if not feb_path.exists():
-        warnings.warn(f"Missing FEBio model file: {feb_path}", stacklevel=2)
-        return None
-    from simulation.febio_parser import load_febio_node_coords
+@lru_cache(maxsize=1)
+def load_reference_space():
+    """Rebuild the serial FE space in the ordering of the stored solver vectors.
 
-    return load_febio_node_coords(feb_path)
+    Never substitute FEBio file order for DOLFINx degree-of-freedom order.
+    The mesh path is taken from the simulation metadata, not a plotting default.
+    """
+    from dolfinx import fem
+    from mpi4py import MPI
+    from simulation.febio_parser import FEBio2Dolfinx
+    if MPI.COMM_WORLD.size != 1:
+        raise RuntimeError("Stored cohort arrays require serial postprocessing")
+    metadata = json.loads((REPO_ROOT / "results/ref_S1P_fixed_new2/simulation_metadata.json").read_text())
+    parser = FEBio2Dolfinx(str(REPO_ROOT / metadata["config"]["DOMAIN_MESH_PATH"]))
+    domain = parser.mesh_dolfinx
+    V = fem.functionspace(domain, ("P", 1, (domain.geometry.dim,)))
+    if V.tabulate_dof_coordinates().shape[0] != metadata["reference_eigvec_shape"][1]:
+        raise ValueError("Reconstructed FE space does not match stored eigenvectors")
+    return parser, V
+
+
+def load_fe_mesh_coords() -> np.ndarray:
+    """Coordinates in the solver DOF ordering of eigenvectors.zarr."""
+    _, V = load_reference_space()
+    return np.asarray(V.tabulate_dof_coordinates(), dtype=float)
 
 
 def load_template_and_shapes() -> tuple[np.ndarray, np.ndarray] | None:
@@ -199,42 +217,23 @@ def load_template_and_shapes() -> tuple[np.ndarray, np.ndarray] | None:
     return np.asarray(tpl.points, dtype=float), shapes
 
 
+@lru_cache(maxsize=1)
 def load_mass_matrix():
-    """Assemble reference mass matrix M0 as scipy sparse CSR.
+    """Consistent reference L2 mass matrix in stored solver DOF ordering.
 
-    Builds M0 = ∫ u·v dx on the P1 vector function space from the FEBio mesh.
-    Returns scipy.sparse.csr_matrix or None if DOLFINx is unavailable.
+    Missing DOLFINx is an error: silently changing the metric would alter the
+    statistical estimand and make published subspace results irreproducible.
     """
-    feb_path = REPO_ROOT / "anatomy_data" / "full_model.feb"
-    if not feb_path.exists():
-        warnings.warn(f"Missing FEBio model for M0: {feb_path}", stacklevel=2)
-        return None
-    try:
-        from dolfinx import fem
-        from dolfinx.fem import petsc
-        import ufl
-        from simulation.febio_parser import FEBio2Dolfinx
-        from scipy.sparse import csr_matrix
-    except ImportError:
-        warnings.warn(
-            "DOLFINx/PETSc not available — M0 cannot be assembled; "
-            "subspace metrics will fall back to L2",
-            stacklevel=2,
-        )
-        return None
-
-    f2x = FEBio2Dolfinx(str(feb_path))
-    domain = f2x.mesh_dolfinx
-    gdim = domain.geometry.dim
-    V = fem.functionspace(domain, ("P", 1, (gdim,)))
-    u = ufl.TrialFunction(V)
-    v = ufl.TestFunction(V)
-    dx = ufl.Measure("dx", domain=domain)
-    form = fem.form(ufl.inner(u, v) * dx)
-    M = petsc.create_matrix(form)
-    petsc.assemble_matrix(M, form)
+    from dolfinx import fem
+    from dolfinx.fem import petsc
+    import ufl
+    from scipy.sparse import csr_matrix
+    _, V = load_reference_space()
+    u, v = ufl.TrialFunction(V), ufl.TestFunction(V)
+    form = fem.form(ufl.inner(u, v) * ufl.dx)
+    M = petsc.assemble_matrix(form)
     M.assemble()
     ai, aj, av = M.getValuesCSR()
-    M_sp = csr_matrix((av, aj, ai), shape=M.getSize())
+    result = csr_matrix((av.copy(), aj.copy(), ai.copy()), shape=M.getSize())
     M.destroy()
-    return M_sp
+    return result

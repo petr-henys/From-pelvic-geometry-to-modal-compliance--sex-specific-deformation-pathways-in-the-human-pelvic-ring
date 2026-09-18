@@ -1,0 +1,1590 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+% ---- Float placement tuning (keep figures near callouts) ----
+\usepackage[section]{placeins} % prevents floats from crossing sections
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.70}
+\pretocmd{\subsection}{\FloatBarrier}{}{}
+
+% Load-case label used throughout
+\title{On the Spectral Edge:\\ Near-Degenerate Eigenstructure and Mode Identity Exchange in the Human Pelvic Ring}
+\author{Petr Heny\v{s}, Niels Hammer}
+\date{\today}
+
+% Panel references for multi-panel figures (avoids hard-coded "Fig.~5c")
+\newcounter{figpanel}[figure]
+\renewcommand{\thefigpanel}{\alph{figpanel}}
+\newcommand{\StdTableFont}{\footnotesize}
+\newcommand{\StdTableInput}[1]{%
+  \begingroup
+  \setlength{\tabcolsep}{4pt}%
+  \resizebox{\linewidth}{!}{\input{#1}}%
+  \endgroup
+}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+Does the mechanical personality of the human pelvis---encoded in its dominant eigenshapes---remain stable across a morphologically diverse population, or does it teeter on the edge of reorganization?
+We address this question through a cohort-scale linear spectral analysis of $N{=}278$ CT-derived finite-element pelvis models, each assembled on a common reference domain via pullback kinematics.
+Two sources of inter-subject variability are isolated---pelvic \emph{shape} (registration deformation field $\boldsymbol\varphi_s$) and \emph{bone density} mapped to heterogeneous Young's modulus via a power-law relationship---while ligament and cartilage parameters remain fixed across all subjects.
+For each subject we solve the generalized eigenproblem $K_s\boldsymbol\phi = \lambda\,M_s\boldsymbol\phi$ and extract the 15 lowest eigenpairs, pairing modes across the cohort via the unmapped reference mass inner product~$M_{\mathrm{ref}}^{0}$ and optimal assignment on the MAC matrix.
+
+We introduce an operationalized four-part framework for detecting and interpreting spectral variability:
+(A)~gap-based near-degenerate cluster detection,
+(B)~subspace tracking via principal angles and Grassmann distances on a shared reference inner product,
+(C)~rigorous distinction between true degeneracy and near-degenerate mixing in a discrete cohort, and
+(D)~canonical pelvic diameter functionals (inlet AP/ML and outlet biischiadic/bituberous) that yield a physically stable basis inside otherwise ambiguous near-degenerate subspaces.
+
+The answer is striking: shape and bone-density variation alone---without any soft-tissue parameter changes---suffice to push a substantial fraction of the cohort across spectral tipping points.
+Rank modes~9--10 form the most prevalent near-degenerate pair (54.7\% of subjects), exhibiting near-degenerate mixing with substantial character exchange (within-cluster 9$\rightleftarrows$10 transposition rate 37.5\%), and a broader four-mode block at rank~12--15 undergoes frequent multi-mode shuffling.
+Rank modes~5--6 couple strongly to outlet diameter functionals, providing anatomically anchored coordinates for interpreting higher-rank subspaces even when functional probing is restricted to standing and the LAB load family (LAB$_1$--LAB$_3$: mediolateral ring compression, SIJ distraction, and AP outlet distraction).
+Sex dimorphism is prominent: females display larger subspace rotations at rank~9--10 (Grassmann $d_G$: males~0.26 vs.\ females~0.40, $p < 10^{-4}$), while males swap more modes per subject overall.
+A two-degree-of-freedom toy model yields a closed-form robustness criterion via the ratio $|\Delta|/|c|$; a Schur-complement extension to three~DOFs reveals how hidden compliance pathways can shift the effective coupling toward the near-degenerate regime.
+These results demonstrate that the human pelvic ring inhabits a spectrally fragile region of parameter space, where population-level morphological scatter routinely reorganizes the identity of low-lying eigenmodes.
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+
+\subsection*{Why eigenmode identity matters---and when it breaks}
+Every load-bearing biological structure possesses a characteristic spectrum of eigenshapes: deformation patterns that channel energy, define stiffness pathways, and ultimately govern how forces are distributed.
+A natural question in structural biology is whether the qualitative organization of these dominant eigenshapes is \emph{stable} across a population---robust against the scatter of geometry, bone quality, and tissue composition that evolution tolerates \citep{Kitano2004}---or whether it is \emph{fragile}, so that physiologically plausible perturbations reshuffle which eigenshapes dominate.
+In the former case, small parameter shifts preserve the \emph{ordering} and \emph{identity} of the lowest eigenpairs, and individual mode labels carry population-wide mechanical meaning.
+In the latter, neighbouring eigenpairs can \emph{exchange identity} through a near-degenerate mixing mechanism---the structural analogue of the near-degenerate mixing with character exchanges long studied in quantum mechanics and vibration theory \citep{Pierre1988,Chen2019Veering}.
+The distinction is consequential: if mode identity is population-stable, then biomechanical inferences drawn from a single cadaver or ``average'' model generalize safely; if it is not, cross-subject comparison demands subspace-level analysis, and the familiar assertion that ``the $k$-th mode does $X$'' becomes misleading.
+Engineered phononic media and metamaterials exploit both logics: stable band structure guards against fabrication scatter \citep{Hussein2014}, while deliberate band-order tuning enables novel functionality via gentle geometric adjustment \citep{Cummer2016,Kadic2019,Chen2021NatRev}.
+In biology, however, the question has barely been posed at population scale.
+
+\subsection*{The pelvic ring: a structure ripe for spectral surprises}
+The osteoligamentous pelvic ring couples bilateral hip reactions to the lumbosacral junction through a mechanically subtle architecture.
+Classical form/force-closure models posit that joint-surface geometry and soft-tissue tension stabilize the ring, especially against anteroposterior shear and mediolateral (ML) rocking \citep{Snijders1993,Vleeming2012}.
+In vivo, sacroiliac joint (SIJ) motions are remarkably small---sub-degree rotations, sub-millimetre translations---and strongly anisotropic \citep{Goode2008,Meijer2014,Keizer2019,Noe2020}.
+We use the pelvic anatomical frame: X=mediolateral~(ML), Y=anteroposterior~(AP), Z\,=\,craniocaudal~(CC).
+Yet beneath this apparent rigidity lies substantial inter-subject architectural diversity: sacral curvature, iliac flare, SIJ orientation, and cortical thickness all vary widely \citep{Ruff2017,Betti2020,Weber2019,Gruss2015,Whitcome2017,Weiss2020}, and finite-element and cadaveric studies confirm that cartilage properties and ligament families substantially reshape the linear stiffness landscape \citep{Anderson2020,Calixte2022,Yang2020,Song2021}.
+
+A key structural motif involves low-lying rotational-type eigenpairs: CC torsion of the ring, which acts as a filter limiting torsional transfer to the trunk, and ML nutation/counternutation about the SIJ, which supports load transmission in stance and gait \citep{Vleeming2012,Goode2008}.
+These pathways coexist at similar energy scales, raising an intriguing possibility: if population geometry routinely places subjects near a near-degenerate condition---where neighbouring eigenpairs can mix or re-order under small parameter shifts---then a cohort with fixed soft-tissue parameterization should display subject-specific spectral ordering driven \emph{purely} by shape and bone-density variability.
+The pelvis, in other words, may be a structure that lives on the spectral edge.
+
+\subsection*{Scope and contribution}
+We test this hypothesis by isolating two sources of inter-subject variability in a strictly linear setting:
+\begin{enumerate}[leftmargin=1.8em]
+\item \textbf{Shape:} a diffeomorphic registration $\chi_s$ maps a common template $\Omega_{\mathrm{ref}}$ to each subject $\Omega_s$; the resulting deformation gradient $F_s$ enters the pullback-assembled stiffness and mass operators.
+\item \textbf{Bone density/elasticity:} subject-specific CT-derived hydroxyapatite density fields $\rho_s(X)$ are converted to heterogeneous Young's modulus $E_s(X)$ via a power-law relationship.
+\end{enumerate}
+Crucially, ligament (11 families) and cartilage parameters are \emph{identical} for all $N{=}278$ subjects---any spectral reordering observed is therefore attributable solely to skeletal geometry and bone quality.
+We assemble subject-specific operators $K_s$, $M_s$ on the common template, solve the generalized eigenproblem, and pair modes across the cohort using the unmapped reference mass $M_{\mathrm{ref}}^{0}$.
+To make this analysis rigorous and reproducible, we introduce a new operationalized framework addressing four challenges:
+(A)~gap-based cluster detection for near-degenerate eigenvalue bands,
+(B)~subspace tracking via principal angles and Grassmann distance on a shared reference inner product,
+(C)~precise criteria for distinguishing true degeneracy from near-degenerate mixing in a discrete (non-parametric) cohort, and
+(D)~canonical pelvic diameter functionals as linear observables that stabilize physical interpretation inside near-degenerate subspaces.
+A 2-DOF and 3-DOF toy model provide closed-form analogues that illuminate the mechanics of near-degenerate mixing with character exchanges and hidden compliance pathways.
+Three dataset modes (full, shape-only, material-only) allow direct decomposition of spectral variability into its geometric and material components.
+
+\section{Materials and Methods}
+
+\subsection{Cohort, geometry normalization, and covariates}
+We analyze $N=278$ registered CT-derived FE pelvis models.
+The registration/normalization pipeline standardizes size to isolate \emph{shape} variability.
+Sex ($n_F{=}150$, $n_M{=}128$) and age (range 16--91, mean~54) are available for all subjects.
+Nine pelvic dimensions are measured on the registered meshes via anatomical landmarks; these serve as morphological proxy axes in the spectral analysis (Sec.~\ref{sec:degeneracy}).
+For source consistency, inlet AP and inlet transverse (ML) dimensions are taken from the birth-canal landmark set on the registered template, whereas biischiadic, bituberous, and outlet AP diameters are taken from the palpation landmark set.
+The outlet AP scalar diameter is defined by the pubis-insertion to sacrococcygeal-joint landmark pair and is retained as a separate morphology/load descriptor even when the canonical outlet basis is restricted to the biischiadic/bituberous pair.
+
+\subsection{Function spaces, pullback kinematics, and constitutive model}
+\label{sec:pullback}
+Let $\Omega_{\rm ref}\subset\mathbb{R}^3$ be the template domain and $\Omega_s$ the subject domain, with a fixed diffeomorphic registration $x=\chi_s(X)$ from $X\in\Omega_{\rm ref}$ to $x\in\Omega_s$. Denote $F_s(X)=\nabla_X \chi_s(X)$ and $J_s(X)=\det F_s(X)>0$. When convenient we write $\chi_s(X)=X+\varphi_s(X)$, so $F_s=I+\nabla_X\varphi_s$. We solve \emph{small-strain linear elasticity} on $\Omega_s$, pulled back and integrated on $\Omega_{\rm ref}$. For $\widehat{\mathbf u},\widehat{\mathbf v}\in V\subset[H^1(\Omega_{\rm ref})]^3$,
+\begin{align}
+\bm\varepsilon_x(\mathbf u)&=\mathrm{sym}(\nabla_x \mathbf u)=\mathrm{sym}\big(\nabla_X \widehat{\mathbf u}\,F_s^{-1}\big),\\
+\bm\sigma_x&=C_{\rm phys}(x):\bm\varepsilon_x(\mathbf u),\\
+a(\widehat{\mathbf u},\widehat{\mathbf v})
+&=\int_{\Omega_{\rm ref}}\Big[C_{\rm phys}\!\big(\chi_s(X)\big):\mathrm{sym}\big(\nabla_X \widehat{\mathbf u}\,F_s^{-1}\big)\Big]:
+\mathrm{sym}\big(\nabla_X \widehat{\mathbf v}\,F_s^{-1}\big)\,J_s\,\mathrm dX.
+\end{align}
+Here $F_s$ and $J_s$ arise solely from the fixed image registration $\chi_s$ and do not depend on mechanical displacements; no finite-strain mechanics is implied.
+
+\paragraph{Material properties.}
+The physical elasticity tensor $C_{\rm phys}(x)$ is isotropic and heterogeneous. For bone, the subject-specific hydroxyapatite density field $\rho(x)$ is converted to ash density $\rho_{\mathrm{ash}} = (\rho + 0.09) / 1.14$ and mapped to Young's modulus $E$ via a piecewise power law \citep{Keller1994}: $E = 2398.0$\,MPa for $\rho_{\mathrm{ash}} \le 0.486$, and $E = \alpha \rho_{\mathrm{ash}}^\beta$ for $\rho_{\mathrm{ash}} > 0.486$, with baseline parameters $\alpha=10\,200$ and $\beta=2.0$. Cartilage (sacroiliac joints and pubic symphysis) is modeled as a homogeneous linear elastic material with baseline $E=1.0$\,MPa and Poisson's ratio $\nu=0.45$.
+
+\paragraph{Boundary penalties and scaling.}
+Dirichlet penalties on $\Gamma_{\rm ref}$ use
+\begin{equation}
+a_\Gamma(\widehat{\mathbf u},\widehat{\mathbf v})
+=\gamma\int_{\Gamma_{\rm ref}} \widehat{\mathbf u}\cdot \widehat{\mathbf v}\,J_{\Gamma,s}\,\mathrm dS_X,
+\qquad J_{\Gamma,s}=J_s\,\|F_s^{-T}N\|.
+\end{equation}
+We verify invariance of results to a decade sweep of $\gamma$.
+For practical tuning we set $\gamma=\alpha\,\bar E/h$ with characteristic element size $h$ and $\alpha\in[10^3,10^5]$; we report $\kappa(K_s)$ and confirm eigen-ordering and near-degenerate cluster classification decisions are invariant across $\alpha$.
+
+\subsection{External loading and force control on the reference surface}
+\label{sec:loading}
+When physical tractions $\mathbf t_{\rm phys}(x)$ or pressures $p_{\rm phys}(x)$ on $\Gamma_s$ are desired, the Neumann term in the weak form is pulled back to $\Gamma_{\rm ref}$ so that physical resultants are invariant under $\chi_s$:
+\begin{equation}
+\int_{\Gamma_s}\mathbf t_{\rm phys}\cdot \mathbf v\,\mathrm dS_x
+=\int_{\Gamma_{\rm ref}} \big[J_{\Gamma,s}(X)\,\mathbf t_{\rm phys}(\chi_s(X))\big]\cdot \widehat{\mathbf v}(X)\,\mathrm dS_X,
+\qquad J_{\Gamma,s}=J_s\,\|F_s^{-T}N\|,
+\label{eq:neumann-pullback}
+\end{equation}
+for inward pressure of magnitude $p_{\rm phys}>0$ acting against the outward normal $\mathbf n_x$, we set $\mathbf t_{\rm phys}=-p_{\rm phys}\,\mathbf n_x$ (equivalently, a signed pressure can absorb the sign convention). 
+
+In our simulations, all load cases are defined as a \emph{total force} $\mathbf F$ applied to a specific physical region (e.g., the acetabulum). To ensure that every subject in the cohort experiences exactly the same total force vector regardless of their individual anatomical size, the applied traction $\mathbf t_{\rm phys}$ is computed per subject by dividing the target force $\mathbf F$ by the subject's physical surface area $A_{\rm phys} = \int_{\Gamma_{\rm ref}} J_{\Gamma,s}\,\mathrm dS_X$ of the loaded region. This corresponds to the \texttt{defined\_on=sample} and \texttt{input\_type=total\_force} settings in Table~\ref{tab:loads-en}. With \eqref{eq:neumann-pullback}, the physical \emph{integrated force} $\int_{\Gamma_s}\mathbf t_{\rm phys}\,\mathrm dS_x$ equals the reference integral and therefore matches the target resultant $\mathbf F$ irrespective of inter-subject area/angle changes \citep[see, e.g.,][]{BonetWood1997,MarsdenHughes1983}. 
+
+\subsection{Ligament model in pullback coordinates}
+\label{sec:ligmodel}
+Ligament families are represented as polyline bundles mapped from template nodes $X_i$ to physical points $x_i=\chi_s(X_i)$. For each segment $(X_i,X_j)$ define the physical unit tangent $\mathbf e=(x_j-x_i)/\|x_j-x_i\|$ and length $L=\|x_j-x_i\|$. The total bundle stiffness $K_{\text{bundle}}$ and pretension $T_{\text{bundle}}$ are distributed equally among the $N_{\text{seg}}$ segments in the bundle, yielding a per-segment spring constant $k_{\text{seg}} = K_{\text{bundle}} / N_{\text{seg}}$ and per-segment pretension $T_{\text{seg}} = T_{\text{bundle}} / N_{\text{seg}}$. The axial-stiffness block reads
+\begin{equation}
+K^{\text{ax}}_{ij}=k_{\text{seg}}\,(\mathbf e\mathbf e^\top),
+\end{equation}
+assembled into the global matrix with the standard $2\times2$ block $\begin{bmatrix} +W & -W \\ -W & +W\end{bmatrix}$, $W=k_{\text{seg}}\,(\mathbf e\mathbf e^\top)$.
+If a pretension $T_{\text{seg}}\ge 0$ is present (prestressed linearization), the segment contributes a \emph{geometric} stiffness
+\begin{equation}
+K^{\text{geo}}_{ij}=\frac{T_{\text{seg}}}{L}\,\big(I-\mathbf e\mathbf e^\top\big)\ \succeq 0,
+\end{equation}
+and paired nodal forces $\pm T_{\text{seg}}\,\mathbf e$ to the global right-hand side. The full assembled operator is
+\begin{equation}
+K_s=K_{\text{elas},s}+K_{\text{lig},s}+K^{\text{geo}}_s(T)+K_{\Gamma,s},\qquad f=f_{\text{ext}}+f_{\text{pret}}(T).
+\end{equation}
+
+\section{Standardized load cases for standing and labor: magnitudes, rationale, and solver mapping}
+\label{sec:standard-loads-en}
+
+\paragraph{Scope.}
+We specify physiologically grounded but numerically conservative load magnitudes for the linear (stiffness-only) pelvic analyses used in this work: \emph{(i) quiet two-leg stance}, \emph{(ii) one-leg stance}, and three parturition-motivated proxy phases LAB$_1$--LAB$_3$.
+LAB$_1$ applies symmetric mediolateral ring-contact compression, LAB$_2$ applies bilateral ischial-tuberosity distraction, and LAB$_3$ applies anteroposterior outlet distraction (pubis insertion vs.\ SCJ).
+The targets balance (a) plausibility against (b) linear-regime stability and (c) cohort comparability.
+
+\subsection{Physiological basis and order-of-magnitude checks}
+\label{sec:phys-basis-en}
+
+\textbf{Standing and hip contact forces.}
+In-vivo telemetry with instrumented implants shows resultants of about \(\sim\)2.5--3.5\,\(\times\)BW during one-leg support and similar or larger peaks during gait, while quiet two-leg standing produces much smaller per-hip loads \citep{Bergmann2001JBiomech,Kutzner2016PLOS}.
+For mass partitioning, classic segment data put the head-arms-trunk (HAT) mass around \(\approx 0.59\) of body mass, implying an \(\approx 0.30\) BW share per hip in symmetric quiet stance (before muscular co-contraction), consistent with small SIJ motions reported in vivo \citep{deLeva1996}.
+
+\textbf{Force magnitudes in labor.}
+Typical intrauterine contraction pressures reach \(\approx\)40--80\,mmHg (5.3--10.7\,kPa) in the second stage, on a tonic baseline of \(\sim\)10--15\,mmHg \citep{AJOG2022Uterine,Mosby2012Pocket}.
+Pregnancy elevates intra-abdominal pressures into the low tens of mmHg (e.g., median \(\approx\)14\,mmHg pre-cesarean, \(\approx\)11.5\,mmHg early postpartum) \citep{Fuchs2013PLOS,Chun2012IAPReview}.
+Direct wall pressures at the fetal head--vaginal interface up to \(\sim\)32\,kPa have been reported during voluntary pushing \citep{BiomechPregnancy2022}. These clinical observations motivate the order of magnitude (400\,N resultants) used across LAB$_1$--LAB$_3$ in our linear proxy.
+
+\subsection{Load-case definitions and recommended magnitudes}
+\label{sec:load-defs-en}
+
+\begin{table}[!tbp]
+  \centering
+  \caption{Recommended standardized magnitudes for each load case.
+  \textit{defined\_on}: \texttt{sample} = physical surface (traction is scaled by the subject's physical area $A_{\rm phys}$ so the integrated force equals the target), \texttt{template} = reference surface.
+  \textit{input\_type}: \texttt{intensity} = pressure/traction per area; \texttt{total\_force} = solver divides by area so that the integrated force equals the given total. Angles: ML/AP/CC follow the pelvic frame.}
+  \label{tab:loads-en}
+  \StdTableFont
+  \setlength{\tabcolsep}{4pt}
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{@{}llllll@{}}
+    \toprule
+    Case & Region (tag) & Vector & Direction & defined\_on & input\_type \\
+    \midrule
+    Two-leg stance & Acetabulum L (2) & \(\mathbf F=(0,0,400)\) N & $+\,\mathrm{CC}$ & sample & total\_force \\
+                   & Acetabulum R (3) & \(\mathbf F=(0,0,400)\) N & $+\,\mathrm{CC}$ & sample & total\_force \\
+    \addlinespace
+    One-leg stance & Stance acetabulum (2) & \(\mathbf F=(0,0,800)\) N & $+\,\mathrm{CC}$ & sample & total\_force \\
+    \addlinespace
+    LAB$_1$  & Ring contact L/R & \(\mathbf F=(\pm 400,0,0)\) N & $\pm\,\mathrm{ML}$ & sample & total\_force \\
+    LAB$_2$  & Ischial tuberosity L/R & \(\mathbf F=(\pm 400,0,0)\) N & $\pm\,\mathrm{ML}$ & sample & total\_force \\
+    LAB$_3$  & Pubis insertion & \(\mathbf F=(0,-400,0)\) N & $-\,\mathrm{AP}$ & sample & total\_force \\
+             & SCJ & \(\mathbf F=(0,+400,0)\) N & $+\,\mathrm{AP}$ & sample & total\_force \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+\paragraph{Notes and ranges.}
+(1) \emph{Two-leg stance:} \(400\,\mathrm{N}\) per hip reflects a quiet, symmetric split of HAT onto both acetabula in the absence of large abductor moments. This keeps displacements small and robust to inter-subject area variability \citep{deLeva1996}. 
+(2) \emph{One-leg stance:} \(800\,\mathrm{N}\) is conservative relative to in-vivo peaks (2.5--3.5\,BW) but adequate to probe rotational-mode dominance in our linear window \citep{Bergmann2001JBiomech,Kutzner2016PLOS}. 
+(3) \emph{LAB$_1$:} bilateral mediolateral (ML) resultants of $\pm 400$\,N applied as \texttt{total\_force} on the left and right ring-contact surfaces, producing inward lateral compression of the pelvic ring. 
+(4) \emph{LAB$_2$:} bilateral mediolateral resultants of $\pm 400$\,N on the ischial tuberosities, representing a phase-shifted outlet/SIJ distraction pattern.
+(5) \emph{LAB$_3$:} anteroposterior outlet distraction with $(0,-400,0)$\,N on pubis insertion and $(0,+400,0)$\,N on SCJ.
+These parturition-motivated traction load cases use prescribed total resultants and are not intended to replicate contact-driven, nonlinear late-stage labour mechanics.
+
+\subsection{Generalized eigenproblem and mode pairing}\label{sec:evp}
+We assemble $K_s$ and $M_s$ on $\Omega_{\rm ref}$ via the pullback.
+The mass matrix incorporates the registration Jacobian:
+\begin{equation}
+m(\widehat{\mathbf u},\widehat{\mathbf v})
+=\int_{\Omega_{\rm ref}} J_s(X)\,\widehat{\mathbf u}(X)\cdot\widehat{\mathbf v}(X)\,\mathrm dX,
+\qquad J_s=\det F_s.
+\end{equation}
+The unmapped reference mass matrix $M_{\mathrm{ref}}^{0}$ uses $J\equiv 1$ (identity deformation) and provides a \emph{shared} inner product across all subjects.
+We solve the generalized eigenproblem
+\begin{equation}\label{eq:gep}
+K_s\boldsymbol\phi_k=\lambda_k\,M_s\boldsymbol\phi_k, \qquad
+\boldsymbol\phi_i^\top M_s \boldsymbol\phi_j=\delta_{ij},
+\end{equation}
+using a Krylov--Schur solver (SLEPc) with shift-invert spectral transform and MUMPS direct factorization, extracting the 15 lowest non-rigid eigenpairs.
+Rigid modes ($\lambda<10^{-8}$) are filtered.
+
+\paragraph{Mode pairing across subjects.}
+We pair modes between a reference subject and each sample using the mass-weighted MAC on the shared metric $M_{\mathrm{ref}}^{0}$:
+\begin{equation}\label{eq:mac}
+\mathrm{MAC}_{M_0}(\mathbf x,\mathbf y)
+=\frac{|\mathbf x^\top M_{\mathrm{ref}}^{0}\,\mathbf y|^2}
+     {(\mathbf x^\top M_{\mathrm{ref}}^{0}\,\mathbf x)\,
+      (\mathbf y^\top M_{\mathrm{ref}}^{0}\,\mathbf y)}
+\in[0,1].
+\end{equation}
+The full $15{\times}15$ MAC matrix between reference and sample modes is computed; an optimal assignment (Hungarian algorithm) on $-\mathrm{MAC}$ yields a permutation $\pi_s$, with unmatched modes ($\mathrm{MAC}<0.05$) marked as $-1$ \citep{Kuhn1955Hungarian}.
+The permutation array $\pi_s$ is stored for every subject.
+
+\paragraph{Rank index versus reference-mode labels.}
+We use two complementary indexings.
+\emph{Rank} index $i$ refers to the $i$-th smallest eigenvalue for each subject (solver order, required for $\mathrm{gap}_{\rm in}$ and rank-cluster detection).
+Because near-degenerate eigenpairs can exchange ordering across subjects, rank indices are not guaranteed to represent the same mechanical pathway population-wide.
+The pairing permutation $\pi_s$ provides a \emph{reference} label: $\pi_s(i_{\rm ref})=j_{\rm rank}$ maps reference-mode $i_{\rm ref}$ (defined on the chosen reference subject) to its rank position $j_{\rm rank}$ in subject $s$.
+When reporting near-degenerate clusters we always state the \emph{rank} index range (e.g.\ rank 12--15) and then, separately, summarize which \emph{reference} modes most commonly occupy that rank block (from $\pi_s^{-1}$) for mechanical interpretation.
+
+% ============================================================
+\subsection{Spectral gaps and near-degenerate cluster detection}
+\label{sec:gaps}
+
+\paragraph{A.\ In-gap for consecutive eigenvalues.}
+For subject $s$ with rank-ordered eigenvalues $\lambda_1\le\lambda_2\le\cdots\le\lambda_{N_{\rm ev}}$,
+\begin{equation}\label{eq:gap-in}
+\mathrm{gap}_{\rm in}(i) = \frac{\lambda_{i+1}-\lambda_i}{\lambda_i},
+\qquad i=1,\ldots,N_{\rm ev}-1.
+\end{equation}
+
+\paragraph{Near-degenerate cluster.}
+A cluster $[i\,..\,j]$ is the maximal contiguous index set starting at $i$ such that all internal gaps satisfy $\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ for $k=i,\ldots,j{-}1$.
+The threshold $\varepsilon_{\rm in}$ is determined from data: we pool all $\mathrm{gap}_{\rm in}$ values across the cohort in the mode range of interest and set $\varepsilon_{\rm in}$ at a chosen percentile (e.g.\ 25th percentile), reporting sensitivity to this choice.
+
+\paragraph{Out-separation.}
+The isolation of a cluster $[i\,..\,j]$ from its spectral neighbours is measured by
+\begin{equation}\label{eq:sep-out}
+\mathrm{sep}_{\rm out} = \min\!\left(
+  \frac{\lambda_i - \lambda_{i-1}}{\lambda_i},\;
+  \frac{\lambda_{j+1} - \lambda_j}{\lambda_j}
+\right),
+\end{equation}
+defined when the cluster has both a lower and an upper neighbour.
+A well-isolated near-degenerate cluster has $\mathrm{sep}_{\rm out}\gg\varepsilon_{\rm in}$.
+
+% ============================================================
+\subsection{Subspace tracking on the reference discretization}
+\label{sec:subspace}
+
+\paragraph{B.\ Subspace comparison and Grassmann distance.}
+For a near-degenerate cluster of dimension $r$, let $Q_s\in\mathbb R^{n\times r}$ denote an orthonormal basis for the subject's eigenvector block on the common reference discretization, $M_{\mathrm{ref}}^{0}$-orthonormalized so that $Q_s^\top M_{\mathrm{ref}}^{0}\, Q_s = I_r$.
+Fix a reference subject (e.g.\ the median subject or template) with basis $Q_{\rm ref}$.
+The \emph{overlap matrix} is
+\begin{equation}\label{eq:overlap}
+S = Q_{\rm ref}^\top\, M_{\mathrm{ref}}^{0}\, Q_s \;\in\;\mathbb R^{r\times r}.
+\end{equation}
+From the SVD $S=U\Sigma V^\top$ with $\cos\theta_k = \sigma_k$ $(k=1,\ldots,r)$, we obtain the \emph{principal angles} $\theta_k$ between the two subspaces \citep{BjorckGolub1973Angles}.
+The \emph{Grassmann distance} is
+\begin{equation}\label{eq:grassmann}
+d_G(Q_{\rm ref}, Q_s) = \|\boldsymbol\theta\|_2 = \bigg(\sum_{k=1}^{r}\theta_k^2\bigg)^{1/2}.
+\end{equation}
+
+\paragraph{Procrustes alignment.}
+To obtain a stable basis representation \emph{within} a near-degenerate subspace (where individual eigenvectors are not unique), we perform a Procrustes rotation \citep{Schoenemann1966Procrustes}:
+\begin{equation}\label{eq:procrustes}
+\widetilde Q_s \;\leftarrow\; Q_s\,(V U^\top),
+\end{equation}
+which minimizes the Euclidean distance to $Q_{\rm ref}$ and ``locks'' the basis orientation to the reference.
+
+% ============================================================
+\subsection{Degeneracy versus near-degenerate mixing}
+\label{sec:degeneracy}
+
+\paragraph{C.\ Precise definitions.}
+
+\subparagraph{True degeneracy.}
+Eigenvalue $\lambda_i$ has multiplicity $r>1$ if $\lambda_i=\lambda_{i+1}=\cdots=\lambda_{i+r-1}$ (numerically: $\mathrm{gap}_{\rm in}(k)\le\varepsilon_{\rm deg}$ for all internal pairs, where $\varepsilon_{\rm deg}\ll\varepsilon_{\rm in}$ is set at the scale of solver tolerance).
+Individual eigenvectors inside the degenerate subspace are \emph{not unique}; the physically meaningful object is the $r$-dimensional subspace $\mathrm{span}\{Q_s\}$.
+Any unitary rotation within this subspace yields an equally valid basis.
+
+\subparagraph{Near-degenerate mixing.}
+When $\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ but $\mathrm{gap}_{\rm in}(k)>\varepsilon_{\rm deg}$, the eigenvalues are \emph{close but distinct}.
+Small perturbations (shape or material changes across subjects) can cause the subspace basis to \emph{rotate} substantially, even though the subspace itself may be nearly preserved.
+This ``subject-specific basis rotation'' is distinct from a veering-like (operational, discrete-cohort) exchange signature.
+
+\subparagraph{Veering-like (operational, discrete-cohort) pattern.}
+In a parametric eigenvalue problem $K(\mu)\boldsymbol\phi=\lambda(\mu)\,M(\mu)\boldsymbol\phi$, veering refers to a near-degenerate mixing with character exchange in which two eigenvalue branches approach each other and repel, with a simultaneous rapid exchange of mode character.
+In a \emph{discrete cohort} (subjects as unordered samples, not a continuous parameter), a veering-like signature can only be claimed operationally if:
+\begin{enumerate}[leftmargin=1.8em]
+\item A one-dimensional morphology axis $\mu$ is chosen (e.g.\ AP inlet diameter, ML transverse, or PC1 of shape) from available cohort data;
+\item Subjects are sorted by $\mu$ and branch tracking is performed between neighbours via overlap~\eqref{eq:overlap};
+\item A \emph{local minimum} of $\mathrm{gap}_{\rm in}$ is observed simultaneously with a rapid rotation of canonical directions inside the near-degenerate subspace (Sec.~\ref{sec:canonical}).
+\end{enumerate}
+If these conditions cannot be satisfied, we use the term ``near-degenerate mixing'' or ``subject-specific subspace rotation'' rather than assigning a veering-like label.
+
+\paragraph{Veering-like evidence panel (when applicable).}
+With subjects sorted by a morphology proxy $\mu$, we report:
+\begin{enumerate}[leftmargin=1.8em,label=(\roman*)]
+\item $\mathrm{gap}_{\rm in}(i)$ vs.\ $\mu$ — a V-shaped minimum signals approach;
+\item principal angle $\theta_1$ between consecutive subjects' subspace bases vs.\ $\mu$ — rapid rotation near the gap minimum;
+\item exchange of canonical character (e.g.\ AP vs.\ ML inlet score, or biischiadic vs.\ bituberous outlet score; Sec.~\ref{sec:canonical}) between the two branches.
+\end{enumerate}
+
+% ============================================================
+\subsection{Canonical pelvic diameter functionals}
+\label{sec:canonical}
+
+\paragraph{D.\ Pelvic diameter observables.}
+Canonical interpretation of near-degenerate subspaces requires physically meaningful linear functionals that are invariant to within-subspace rotations.
+We define two complementary sets of such functionals, targeting the two pelvic planes that are most relevant to parturition mechanics.
+
+\emph{Inlet metrics.}  Pelvic inlet diameters (AP and ML/transverse) are standard obstetric descriptors.
+Let $(X_{\rm ant}, X_{\rm post})$ be the anterior and posterior inlet landmarks, and $(X_{\rm left}, X_{\rm right})$ the lateral landmarks on the template mesh.
+
+\emph{Outlet metrics.}  At the pelvic midplane and outlet, we use biischiadic (ischial-spine) and bituberous (ischial-tuberosity) widths.
+Landmark pairs are $(X_{\rm BIS,L}, X_{\rm BIS,R})$ and $(X_{\rm BIT,L}, X_{\rm BIT,R})$.
+These metrics target deformation patterns that widen the midplane/outlet and provide anatomically interpretable coordinates for subspace-level interpretation.
+The inlet landmark pairs are drawn from the birth-canal annotation set on the registered template, whereas the outlet landmark pairs are drawn from the palpation annotation set.
+We also track a separate outlet AP scalar diameter between pubis insertion and the sacrococcygeal joint.
+Its advantage is different from that of the paired canonical basis: as a \emph{single}, load-aligned observable it directly quantifies AP outlet opening and is therefore useful for morphology proxies or load-matched function-locking diagnostics, especially for LAB$_3$.
+However, a single scalar cannot by itself define a two-axis outlet coordinate system inside a near-degenerate subspace, so the present canonical outlet construction remains intentionally two-dimensional and uses only the $(\mathbf b_{\rm BIS},\mathbf b_{\rm BIT})$ pair.
+Because inter-subject shape variation rotates all landmark positions (mean AP direction deviation $\approx 3^{\circ}$, max $\approx 11^{\circ}$), we compute \emph{patient-specific} measurement directions for each set.
+For subject~$s$ with shape map $\varphi_s$, the deformed landmark positions $X^s = X + \varphi_s(X)$ yield subject-specific unit directions:
+\begin{equation}
+\mathbf e_{\rm AP}^{(s)} = \frac{X_{\rm ant}^s-X_{\rm post}^s}{\|X_{\rm ant}^s-X_{\rm post}^s\|},\qquad
+\mathbf e_{\rm ML}^{(s)} = \frac{X_{\rm right}^s-X_{\rm left}^s}{\|X_{\rm right}^s-X_{\rm left}^s\|},
+\end{equation}
+where $\varphi_s$ at the landmark positions is obtained by RBF interpolation of the SSM displacement field (Sec.~\ref{sec:pullback}).
+For a displacement field $\mathbf u$ (represented as nodal values), the AP and ML \emph{opening scores} for subject~$s$ are
+\begin{equation}\label{eq:inlet-scores}
+s_{\rm AP}^{(s)}(\mathbf u) = {\mathbf e_{\rm AP}^{(s)}}^\top\!\big(\mathbf u(X_{\rm ant}) - \mathbf u(X_{\rm post})\big),
+\qquad
+s_{\rm ML}^{(s)}(\mathbf u) = {\mathbf e_{\rm ML}^{(s)}}^\top\!\big(\mathbf u(X_{\rm right}) - \mathbf u(X_{\rm left})\big).
+\end{equation}
+These are linear functionals of $\mathbf u$, hence representable as $s_{\rm AP}^{(s)}(\mathbf u)={\mathbf b_{\rm AP}^{(s)}}^\top \mathbf u$ and $s_{\rm ML}^{(s)}(\mathbf u)={\mathbf b_{\rm ML}^{(s)}}^\top \mathbf u$ with sparse, patient-specific measurement vectors $\mathbf b_{\rm AP}^{(s)}$, $\mathbf b_{\rm ML}^{(s)}$ that differ across subjects only in the direction components; the IDW support nodes remain fixed on the template mesh because all eigenvectors are defined in referential coordinates.
+The outlet scores $s_{\rm BIS}^{(s)}$ and $s_{\rm BIT}^{(s)}$ are constructed identically, substituting the biischiadic and bituberous landmark pairs for the inlet landmarks.  Inlet and outlet functionals thus provide a common framework: each set defines a pair of measurement vectors, and the canonical basis construction (below) applies uniformly to both.
+
+\paragraph{Canonical basis inside a near-degenerate subspace.}
+Given a pair of measurement vectors---$(\mathbf b_1, \mathbf b_2)$, which may be the inlet pair $(\mathbf b_{\rm AP}, \mathbf b_{\rm ML})$ or the outlet pair $(\mathbf b_{\rm BIS}, \mathbf b_{\rm BIT})$---and a cluster with orthonormal basis $Q_s\in\mathbb R^{n\times r}$, project the patient-specific measurement vectors:
+\begin{equation}\label{eq:canonical-proj}
+\mathbf c_{1}^{(s)} = Q_s^\top \mathbf b_{1}^{(s)},\quad
+\mathbf c_{2}^{(s)} = Q_s^\top \mathbf b_{2}^{(s)},\quad
+C_s = [\mathbf c_{1}^{(s)}\;\; \mathbf c_{2}^{(s)}]\;\in\;\mathbb R^{r\times 2}.
+\end{equation}
+The SVD $C_s=U_s\Sigma_s V_s^\top$ yields a canonical basis inside the subspace:
+\begin{equation}\label{eq:canonical-basis}
+\boldsymbol\psi_1^{(s)} = Q_s\,U_s[:,1],\qquad
+\boldsymbol\psi_2^{(s)} = Q_s\,U_s[:,2],
+\end{equation}
+oriented by the sign convention $\mathbf b_1^{(s)\top}\boldsymbol\psi_1^{(s)}\ge 0$.
+The singular values $\sigma_1\ge\sigma_2$ quantify how strongly the subspace couples to the two chosen diameter axes.
+This canonical basis is \emph{invariant} to arbitrary rotations of $Q_s$ within the subspace and provides a physically stable interpretation even when individual eigenmode indices are not unique.
+Applied with the inlet pair $(\mathbf b_{\rm AP}, \mathbf b_{\rm ML})$, it yields the AP/ML canonical basis; applied with the outlet pair $(\mathbf b_{\rm BIS}, \mathbf b_{\rm BIT})$, it yields the biischiadic/bituberous canonical basis.
+
+\paragraph{Scale normalization for reporting.}
+Eigenvectors are defined only up to a (subject-specific) scale and may be returned with different normalizations by the eigen-solver.
+To report canonical coupling in interpretable units that are invariant to this arbitrary scaling, we use the max-norm normalized scores, e.g.\ for the inlet pair:
+\begin{equation}
+\widehat s_{\rm AP}^{(s)}(\boldsymbol\psi_1^{(s)})=\frac{|s_{\rm AP}^{(s)}(\boldsymbol\psi_1^{(s)})|}{\|\boldsymbol\psi_1^{(s)}\|_\infty},\qquad
+\widehat s_{\rm ML}^{(s)}(\boldsymbol\psi_2^{(s)})=\frac{|s_{\rm ML}^{(s)}(\boldsymbol\psi_2^{(s)})|}{\|\boldsymbol\psi_2^{(s)}\|_\infty},
+\end{equation}
+which can be interpreted as ``opening per 1\,mm of maximum nodal modal amplitude.'' (Here $\|\cdot\|_\infty$ denotes the maximum nodal displacement magnitude.)
+The outlet scores $\widehat s_{\rm BIS}$ and $\widehat s_{\rm BIT}$ are normalized identically.
+
+% ============================================================
+\subsection{Bridging eigenstructure to load routing: static validation}\label{sec:static}
+We solve $K_s\mathbf u=\mathbf b$ for each standardized load case (Table~\ref{tab:loads-en}) and evaluate:
+
+\paragraph{(i) Modal dominance.}
+With $M_s$-orthonormal $\Phi$, the modal coordinates are $q=\Phi^\top M_s\, u$ (from the $M_s$-weighted projection) and modal energies $E_i=\tfrac12\lambda_i\,q_i^2$.
+The energy fraction $f_i = E_i / \sum_j E_j$ measures each eigenshape's contribution to the total strain energy under the applied load.
+We report $f_i$ stratified by sex for all load cases, together with $\mathrm{MAC}_{M_0}(\mathbf u, \boldsymbol\phi_i)$ per load case.
+This decomposition links the abstract spectral structure to concrete load-routing: a mode with a large energy fraction is a dominant stiffness pathway for that loading scenario, regardless of its eigenvalue rank label.
+
+\paragraph{(ii) Upper-tail SED postprocessing.}
+To quantify whether near-degenerate routing differences translate into materially relevant \emph{extremes} under standing and LAB$_1$--LAB$_3$, we postprocess the static displacement solutions into elementwise strain-energy density (SED).
+For each subject and load case we read precomputed DG0 strain and stress tensors $(\bm\varepsilon,\bm\sigma)$ and compute the per-element SED,
+\begin{equation}
+w = \tfrac12\,\bm\varepsilon:\bm\sigma,
+\end{equation}
+restricted to three tissue domains: \texttt{bone}, \texttt{cartilage} (including the symphysis), and \texttt{all}.
+Let $\{w_e\}$ be the elementwise SED values within a chosen domain and $\{V_e\}$ the corresponding element volumes.
+We report three volume-weighted tail metrics per subject:
+\begin{enumerate}[leftmargin=1.8em]
+\item \textbf{P99 SED:} $P99 = Q_{0.99}^{(V)}(\{w_e\})$, the 99th percentile under volume weights.
+\item \textbf{Top-1\% mean SED:} the volume-weighted mean of $w_e$ over the upper 1\% volume tail, i.e.\ the subset of elements with the largest SED values whose cumulative volume reaches 1\% of the total domain volume.
+\item \textbf{Exceedance volume fraction:} $\phi_\tau = \dfrac{1}{\sum_e V_e}\sum_e V_e\,\mathbf 1[w_e>\tau]$, where the cohort-level threshold $\tau$ is defined \emph{per load case and domain} as the 95th percentile of the cohort distribution of each subject's P95 value (i.e.\ $\tau=Q_{0.95}(\{Q_{0.95}^{(V)}(\{w_e\})\}_{\rm subjects})$).
+\end{enumerate}
+To avoid repeated-measures inflation, we aggregate the per-load-case metrics to one \textbf{standing} value per subject (mean over SP2leg and SP1leg) and one \textbf{parturition} value per subject (mean over LAB\_phase1, LAB\_phase2, LAB\_phase3).
+All upper-tail analyses reported in this manuscript compare these per-subject aggregates unless phase-resolved LAB panels are explicitly shown.
+
+% ============================================================
+\subsection{Dataset modes: decomposing variability sources}
+\label{sec:dataset-modes}
+Three simulation runs isolate the contributions of shape and material:
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Full} ($\chi_s + E_s$): both registration deformation and subject-specific bone modulus.
+\item \textbf{Shape only} ($\chi_s$, $E_{\rm ref}$): registration deformation with reference (mean) bone modulus.
+\item \textbf{Material only} ($\chi_{\rm id}$, $E_s$): identity deformation (no shape variation) with subject-specific bone modulus.
+\end{itemize}
+Comparing eigenvalue distributions and cluster statistics across these modes quantifies the relative importance of shape vs.\ bone density.
+
+% ============================================================
+\subsection{Analytical eigenvalue sensitivities}
+\label{sec:sensitivities}
+To propagate material uncertainty to the eigenvalue spectrum without repeated finite-element solves, we compute the first-order analytical sensitivities of the eigenvalues with respect to the material parameters $p_j$. For the generalized eigenvalue problem $K_s \boldsymbol\phi_m = \lambda_m M_s \boldsymbol\phi_m$, the sensitivity of the $m$-th eigenvalue to a parameter $p_j$ that only affects the stiffness matrix is given by:
+\begin{equation}
+\frac{\partial \lambda_m}{\partial p_j} = \frac{\boldsymbol\phi_m^\top \frac{\partial K_s}{\partial p_j} \boldsymbol\phi_m}{\boldsymbol\phi_m^\top M_s \boldsymbol\phi_m}.
+\end{equation}
+We compute these sensitivities for three independent parameter groups:
+\begin{enumerate}[leftmargin=1.8em]
+\item \textbf{Ligament stiffness and pretension:} The derivative $\partial K_s / \partial k_{\text{seg}}$ is the geometric outer product $\mathbf e\mathbf e^\top$, and $\partial K_s / \partial T_{\text{seg}}$ is the geometric stiffness $(I-\mathbf e\mathbf e^\top)/L$. These are aggregated per bundle.
+\item \textbf{Cartilage modulus:} The derivative is the element-wise stiffness matrix integrated over the sacroiliac joints and pubic symphysis domains, scaled by the baseline modulus $E_{\text{region}}$.
+\item \textbf{Bone density-law parameters:} For the high-density branch $E = \alpha \rho_{\mathrm{ash}}^\beta$, the derivatives with respect to the prefactor $\alpha$ and exponent $\beta$ are computed element-wise using the chain rule $\partial E / \partial \alpha = \rho_{\mathrm{ash}}^\beta = E/\alpha$ and $\partial E / \partial \beta = \alpha \rho_{\mathrm{ash}}^\beta \ln(\rho_{\mathrm{ash}}) = E \ln(\rho_{\mathrm{ash}})$, and integrated over the bone domain.
+\end{enumerate}
+These analytical derivatives are evaluated once per subject at the baseline parameter values and stored as dimensionless Jacobians $J_j^{(m)} = (p_j / \lambda_m) \partial \lambda_m / \partial p_j$ for subsequent uncertainty propagation (Sec.~\ref{sec:uq-results}).
+
+% ============================================================
+\subsection{Panel of metrics}
+\label{sec:metrics-panel}
+
+Table~\ref{tab:metrics-panel} summarizes all metrics used in the spectral analysis.
+
+\begin{table}[!tbp]
+\centering
+\caption{Summary of spectral and subspace metrics.}
+\label{tab:metrics-panel}
+\StdTableFont
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Definition / Reference} \\
+\midrule
+$\lambda_i$ & Eigenvalue & $K_s\boldsymbol\phi_i = \lambda_i M_s\boldsymbol\phi_i$ \\[3pt]
+$\mathrm{gap}_{\rm in}(i)$ & In-gap & $(\lambda_{i+1}-\lambda_i)/\lambda_i$ \\[3pt]
+$\varepsilon_{\rm in}$ & Cluster threshold & Data-driven (percentile of $\mathrm{gap}_{\rm in}$) \\[3pt]
+$\mathrm{sep}_{\rm out}$ & Out-separation & Eq.~\eqref{eq:sep-out} \\[3pt]
+$\mathrm{MAC}_{M_0}$ & Mass-weighted MAC & Eq.~\eqref{eq:mac} \\[3pt]
+$S$ & Overlap matrix & $Q_{\rm ref}^\top M_{\rm ref}^0 Q_s$, Eq.~\eqref{eq:overlap} \\[3pt]
+$\theta_k$ & Principal angles & $\cos\theta_k = \sigma_k(S)$ \\[3pt]
+$d_G$ & Grassmann distance & $\|\boldsymbol\theta\|_2$, Eq.~\eqref{eq:grassmann} \\[3pt]
+$s_{\rm AP}$, $s_{\rm ML}$ & Inlet opening scores & Eq.~\eqref{eq:inlet-scores} \\[3pt]
+$s_{\rm BIS}$, $s_{\rm BIT}$ & Outlet widening scores & Analogous to Eq.~\eqref{eq:inlet-scores} \\[3pt]
+$\boldsymbol\psi_1$, $\boldsymbol\psi_2$ & Canonical basis & Eq.~\eqref{eq:canonical-basis} \\[3pt]
+$\pi_s$ & Mode pairing permutation (ref$\to$rank) & Hungarian assignment on $\mathrm{MAC}_{M_0}$ \\[3pt]
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+% ============================================================
+\section{Toy model: near-degenerate mixing with character exchange and hidden pathways}
+\label{sec:toy}
+\subsection{2-DOF model: two rotational coordinates with coupling}
+\label{sec:2dof}
+Let $q_1$ denote a generalized CC torsion coordinate. Let $q_2$ denote a generalized ML nutation and counternutation coordinate. The strain energy is
+\begin{equation}
+U(q_1,q_2)=\frac12
+\begin{bmatrix}q_1 & q_2\end{bmatrix}
+\begin{bmatrix}k_1 & c\\[2pt] c & k_2\end{bmatrix}
+\begin{bmatrix}q_1\\[2pt]q_2\end{bmatrix},
+\qquad k_1,k_2>0,\ k_1k_2>c^2.
+\end{equation}
+Define the asymmetry $\Delta=k_1-k_2$. The eigenvalues are
+\begin{equation}
+\lambda_{\pm}=\frac{k_1+k_2}{2}\ \pm\ \sqrt{\left(\frac{\Delta}{2}\right)^2+c^2},
+\end{equation}
+and the mixing angle $\theta$ obeys $\tan(2\theta)={2c}/{\Delta}$.
+
+\paragraph{True degeneracy ($c=0$, $k_1=k_2$).}
+When $c=0$ and $\Delta=0$, both eigenvalues coincide ($\lambda_+=\lambda_-$); the eigenspace is two-dimensional and any orthonormal basis is valid. This is the only case of true degeneracy.
+
+\paragraph{Near-degenerate mixing with character exchange ($c\neq 0$).}
+For $c\neq 0$, the two eigenvalue curves $\lambda_\pm(\mu)$ cannot cross as a morphology parameter $\mu$ varies.
+The minimum separation $2|c|$ is attained when $\Delta(\mu)=0$; at this point $\theta=\pm 45^\circ$ and the two modes \emph{exchange identity}.
+The robustness criterion is:
+\begin{align}
+\label{eq:criterion}
+\text{\bf Near-degenerate/mixing} & \iff \exists\,\mu:\ |\Delta(\mu)|\le \tau\,|c(\mu)|,\qquad \\
+\text{\bf Stable ordering} & \iff \forall\,\mu:\ |\Delta(\mu)|> \tau\,|c(\mu)|, \notag
+\end{align}
+with safety factor $\tau\in[1.5,2]$.
+
+\subsection{3-DOF extension: hidden pathway via Schur complement}
+\label{sec:3dof}
+A third coordinate $q_3$ (e.g.\ local SIJ shear) adds
+\begin{equation}
+K_{3\times3}=
+\begin{bmatrix}
+k_1 & c & d_1\\
+c & k_2 & d_2\\
+d_1 & d_2 & s
+\end{bmatrix}.
+\end{equation}
+Eliminating $q_3$:
+\begin{equation}
+K_{\mathrm{eff}}=
+\begin{bmatrix}
+k_1 - d_1^2/s & c - d_1 d_2/s\\
+c - d_1 d_2/s & k_2 - d_2^2/s
+\end{bmatrix}
+=
+\begin{bmatrix}
+k_1^{\mathrm{eff}} & c^{\mathrm{eff}}\\
+c^{\mathrm{eff}} & k_2^{\mathrm{eff}}
+\end{bmatrix}.
+\end{equation}
+A compliant hidden pathway ($s$ small) softens the diagonals and shifts the coupling $c^{\mathrm{eff}}$, potentially pushing a stable configuration toward the near-degenerate regime by shrinking $|\Delta^{\mathrm{eff}}|$ or altering $c^{\mathrm{eff}}$.
+
+\paragraph{Mapping to the numerical methodology.}
+The cluster/subspace framework (Secs.~\ref{sec:gaps}--\ref{sec:canonical}) is the $n$-DOF numerical analogue of this 2-DOF picture: the cluster corresponds to $\{q_1,q_2\}$, the canonical diameter basis ($\boldsymbol\psi_1, \boldsymbol\psi_2$) to the rotated eigenvectors, and $\mathrm{gap}_{\rm in}$ to $(\lambda_+ - \lambda_-)/\lambda_-$.
+The 3-DOF Schur complement illustrates that additional DOFs (hidden SIJ compliance, out-of-plane pathways) can shift the effective $(\Delta^{\mathrm{eff}}, c^{\mathrm{eff}})$---consistent with the observation that subjects with different pelvic shapes may occupy different regions of the near-degenerate parameter space.
+Figure~\ref{fig:toy-grid} summarizes the stable-ordering and near-degenerate regimes and visualizes the robustness criterion \eqref{eq:criterion}.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/toy_model_figure_grid.pdf}
+  \caption{\textbf{Linear toy model: stable ordering vs.\ near-degenerate mixing.}
+  \textbf{(a,\,b)} Stable-ordering scenario: $\lambda_{\pm}(\mu)$ well separated; mixing angle $\theta$ remains small.
+  \textbf{(c,\,d)} Near-degenerate scenario: near-degenerate mixing with character exchange with gap $2|c|$; $\theta$ passes through ${\approx}45^\circ$, exchanging mode identity.
+  \textbf{(e,\,f)} Diagnostic: $|\Delta(\mu)|$ vs.\ $\tau|c(\mu)|$; intersection signals near-degeneracy.
+  Parameters as in Sec.~\ref{sec:2dof}; $\tau=2$.}
+  \label{fig:toy-grid}
+\end{figure}
+
+\subsection{Stochastic extension: population variability, hidden pathways, and task-dependent routing}
+\label{sec:toy-stochastic}
+The analytical 2-DOF/3-DOF toy model above explains \emph{how} near-degenerate mixing arises; to connect more directly to the cohort logic of this manuscript, we extend it to a \emph{stochastic population} of toy pelves.
+In the toy model, we treat the morphology proxy $\mu$ as a latent population variable with mild sex shifts, map it to detuning $\Delta$ with noise, and introduce additional variability through a 3rd hidden compliance pathway (Schur complement; Sec.~\ref{sec:3dof}), which perturbs the effective two-mode parameters $(\Delta^{\mathrm{eff}},c^{\mathrm{eff}})$.
+We then define (i) a near-degeneracy index $z=|\Delta^{\mathrm{eff}}|/|c^{\mathrm{eff}}|$ with mixing when $z\le\tau$, (ii) a mixing angle $\theta$ as a subspace-rotation analogue, (iii) a discrete swap marker based on basis alignment, and (iv) a simple task-routing calculation in the 3-DOF system distinguishing a standing-like load (dominated by the third ``backbone'' coordinate) from a parturition-like load (dominated by the two-mode subspace).
+Finally, we compute an upper-tail localization \emph{proxy} from the static parturition-like displacement in the effective 2-DOF system, showing how within-subspace routing can broaden the distribution tails even when the subspace itself remains a stable functional channel.
+Figure~\ref{fig:toy-pop-dashboard} compiles this stochastic extension and its cohort-level analogues (mixing, swap, routing, and tail localization).
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/toy_population_variability_dashboard.pdf}
+  \caption{\textbf{Stochastic toy cohort: variability, near-degeneracy, routing, and extremes.}
+  \textbf{(a)}~Hidden compliance pathways (3-DOF Schur complement) shift a subset of individuals toward the near-degenerate regime by changing the effective index $|\Delta^{\mathrm{eff}}|/|c^{\mathrm{eff}}|$ relative to the ``bare'' $|\Delta|/|c|$.
+  \textbf{(b)}~Population distribution of $|\Delta^{\mathrm{eff}}|/|c^{\mathrm{eff}}|$ with near-degenerate threshold $\tau$ (dashed).
+  \textbf{(c)}~Mixing angle $\theta$ vs.\ morphology proxy $\mu$ with swap marker overlaid (triangles): swap is a discrete manifestation of label fragility that can occur within a broader continuum of subspace rotation.
+  \textbf{(d)}~Sex-stratified prevalence of mixing ($z\le\tau$) and swap.
+  \textbf{(e)}~Task switching in load routing in the 3-DOF system: standing-like loading routes energy into a backbone mode, while parturition-like loading routes energy into the two-mode clustered subspace.
+  \textbf{(f)}~Within-cluster routing under parturition-like loading (energy partition ratio) modulates a toy upper-tail localization proxy, illustrating how tails can be sensitive to routing state inside a stable subspace.
+  \emph{Interpretive link:} the FE cohort results are the high-dimensional analogue of this picture---population variability can preserve a canalized backbone while recurrent near-degenerate subspaces remain functionally interpretable at the subspace level, with internal routing states that disproportionately modulate extremes.}
+  \label{fig:toy-pop-dashboard}
+\end{figure}
+
+% ============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Eigenshape atlas: mechanical character of the dominant modes}
+\label{sec:mode-atlas}
+
+Before examining population-level statistics, we first characterise the deformation patterns themselves.
+Figure~\ref{fig:modes-atlas} shows the median eigenshapes (modes~1--15) rendered in the anterior--posterior view.
+
+\textbf{Mode~1} is a rotation of the pelvic ring about the craniocaudal (CC, inferior--superior) axis---essentially a torsion of the trunk relative to the lower limbs.
+It is most prominently activated under single-leg stance (SP1leg), where the asymmetric support induces a net CC torque on the ring.
+
+\textbf{Mode~2} corresponds to a rotation about the medial--lateral (ML) axis, i.e.\ sagittal nutation/counternutation of the sacrum relative to the ilia.
+It dominates the symmetric two-leg standing load case (SP2leg), where the gravitational resultant passes through the sagittal midplane and drives anterior--posterior rocking.
+
+\textbf{Mode~3} is a nearly pure rotation about the anterior--posterior (AP) axis, producing a lateral tilting (obliquity) of the ring.
+Like mode~1 it is mainly activated under single-leg stance, where the medio-lateral load eccentricity drives coronal-plane bending.
+
+Together, modes~1--3 account for the three rigid-body-like rotational degrees of freedom of the pelvic ring (CC torsion, ML nutation, AP obliquity) and capture the bulk of the strain energy under standing-type loads (Sec.~\ref{sec:fractions-results}).
+
+\textbf{Mode~9} is an inlet-opening deformation pattern: the pubic symphysis and sacral promontory move apart, widening the pelvic ring.
+It carries substantial energy under LAB, which applies bilateral mediolateral compression on the pelvic ring contact surfaces.
+Together with mode~10---an asymmetric pattern with large deformations concentrated around the pubic region---it forms the most prevalent near-degenerate pair in the cohort ($\approx 55\%$, Sec.~\ref{sec:spectral-gaps-results}).
+The physical proximity of their eigenvalues and the exchange of their mechanical character when subjects are ordered by AP inlet diameter constitute the clearest veering-like two-mode exchange signature in the cohort.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth,height=0.85\textheight,keepaspectratio]{../../results/ref_S1P_fixed_new2/modes_visualisation/modes_median_AP.png}
+  \caption{\textbf{Eigenshape atlas.}
+  Median displacement fields for modes~1--15 rendered in the anterior--posterior view.  
+  Modes~1--3 correspond to quasi-rigid rotations about the CC, ML, and AP axes, respectively.
+  Mode~9 exhibits an inlet-opening pattern preferentially recruited under LAB; mode~10 is its asymmetric near-degenerate partner with deformation localised around the pubic symphysis.}
+  \label{fig:modes-atlas}
+\end{figure}
+
+\subsection{Cohort demographics and eigenvalue covariates}
+
+Before dissecting the spectral structure itself, we first ask whether---and how strongly---the eigenvalue spectrum co-varies with the two most accessible demographic descriptors: biological sex and age.
+The cohort comprises $N{=}278$ subjects ($n_F{=}150$ females, $n_M{=}128$ males; age range 16--91~yr, mean $54{\pm}19$).
+Figure~\ref{fig:sex-age} summarizes the demographic distribution and covariate effects on the eigenvalue spectrum: age structure in panel~\ref{fig:sex-age-a}, sex effects in panel~\ref{fig:sex-age-b}, and age effects in panel~\ref{fig:sex-age-c}.
+
+An ordinary-least-squares model $\log\lambda_i \sim \beta_{\rm sex}\,\mathrm{sex} + \beta_{\rm age}\,\mathrm{age}$ fitted per mode reveals two distinct covariate patterns.
+\textbf{Sex effect:} modes~1 and 4--7 show significantly positive $\beta_{\rm sex}$ ($p<0.05$; females stiffer), while modes~2 and~11 show negative $\beta_{\rm sex}$ (males stiffer); modes 12, 13, and~15 are also significant but with positive coefficients.
+\textbf{Age effect:} $\beta_{\rm age}$ is significantly negative for modes 2 and 4--15, indicating progressive stiffness loss with advancing age; the strongest decline occurs at mode~11 ($\beta_{\rm age} \approx -0.0036$ per year, $p < 10^{-5}$).
+In physical terms, this age-related softening is consistent with established bone adaptation and architecture--stiffness links in biomechanics \citep{Frost1987,Huiskes1987,FarrKhosla2015,Zebaze2010Porosity}; effects of this type are expected to be more visible in higher-order modes whose deformation fields sample a larger fraction of the cortical shell.
+
+Swap rates stratified by sex (Fig.~\ref{fig:sex-age}\ref{fig:sex-age-d}) show significant sex differences at modes~9--10 (males $\approx$48\% vs.\ females $\approx$9\%), modes~4--6 (males $\approx$24--48\% vs.\ females $\approx$13--29\%), and mode~15.
+Males exhibit a higher median swap count per subject (4~vs.~3 for females, Mann--Whitney $p < 10^{-4}$, $r_{rb} = -0.41$; Fig.~\ref{fig:sex-age}\ref{fig:sex-age-e}), and this permutation burden correlates positively with age ($\rho_{\mathrm{Sp}} = 0.21$, $p < 10^{-3}$).
+The higher male swap count likely reflects narrower spectral gaps at key mode pairs in the male pelvis, which provide a smaller ``spectral moat'' between neighbouring branches and therefore make mode-identity exchange more likely, consistent with classical veering/mode-localization behavior in weakly separated spectra \citep{Pierre1988,Chen2019Veering}.
+The positive age--swap correlation further supports this interpretation: age-associated skeletal softening can reduce effective modal separation and increase susceptibility to exchange in near-degenerate pairs \citep{Frost1987,Huiskes1987,Chen2019Veering}.
+The gap sensitivity panel (Fig.~\ref{fig:sex-age}\ref{fig:sex-age-f}) shows that the sex-associated rank-biserial $r$ for $\mathrm{gap}_{\rm in}$ is most pronounced at mode pairs 1--2 ($r = -0.49$), 7--8 ($r = -0.47$), and 10--11 ($r = -0.48$), while the strongest age-related Spearman $\rho$ effects appear at pairs 3--4 ($\rho = -0.30$) and 10--11 ($\rho = -0.24$).
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/sex_age_analysis.pdf}
+  \caption{\textbf{Cohort demographics and spectral covariates.}
+  \textbf{(a)}~Age distribution by sex.
+  \textbf{(b)}~Sex effect $\beta_{\rm sex}$ on $\log\lambda_i$ with 95\% CI; circled markers: $p<0.05$.
+  \textbf{(c)}~Age effect $\beta_{\rm age}$ per year.
+  \textbf{(d)}~Per-mode permutation swap rate by sex (asterisks: $p<0.05$).
+  \textbf{(e)}~Total swapped-mode count vs.\ age.
+  \textbf{(f)}~Gap sensitivity: rank-biserial $r$ for sex (orange) and Spearman $\rho$ for age (teal) per consecutive mode pair.}
+  \label{fig:sex-age}
+  \setcounter{figpanel}{0}
+  \refstepcounter{figpanel}\label{fig:sex-age-a}
+  \refstepcounter{figpanel}\label{fig:sex-age-b}
+  \refstepcounter{figpanel}\label{fig:sex-age-c}
+  \refstepcounter{figpanel}\label{fig:sex-age-d}
+  \refstepcounter{figpanel}\label{fig:sex-age-e}
+  \refstepcounter{figpanel}\label{fig:sex-age-f}
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{Spectral gap structure, permutation statistics, and variability sources}
+\label{sec:spectral-gaps-results}
+
+With demographic context established, we turn to the central question: where in the eigenvalue spectrum do near-degenerate conditions arise, how prevalent are they, and what are their variability sources?
+Figure~\ref{fig:spectral-dashboard} combines the spectral gap distribution (a), mode-swap statistics (b), and coefficient-of-variation (CV) decomposition (c) into a single dashboard.
+
+\paragraph{A.\ Gap distribution and near-degenerate clusters.}
+The gap-distribution panel (Fig.~\ref{fig:spectral-dashboard}\ref{fig:spectral-dashboard-a}) uses a data-driven threshold $\varepsilon_{\rm in}$ set at the 25th~percentile of the pooled $\mathrm{gap}_{\rm in}$ distribution, yielding $\varepsilon_{\rm in} \approx 0.13$.
+Nine near-degenerate rank clusters are detected above a 3\% prevalence floor (Table~\ref{tab:clusters}).
+The most prevalent cluster is \emph{rank modes 9--10} (54.7\% of subjects, $\mathrm{gap}_{\rm in,\min}^{\rm med} = 0.081$, $\mathrm{sep}_{\rm out}^{\rm med} = 0.49$), followed by a broad \emph{rank modes 12--15} block (41.7\%, $\mathrm{gap}_{\rm in,\min}^{\rm med} = 0.032$, $\mathrm{sep}_{\rm out}^{\rm med} = 0.43$).
+All detected clusters are classified as near-degenerate; no true degeneracy ($\mathrm{gap}_{\rm in} \le \varepsilon_{\rm deg} = 10^{-6}$) is observed in any subject.
+The absence of exact degeneracy is expected for a structure lacking continuous rotational symmetry, whereas near-degenerate veering/exchange remains possible under small perturbations \citep{Pierre1988,Chen2019Veering}; what is noteworthy is how \emph{close} the pelvis comes---the median internal gaps for the two dominant clusters sit at roughly one-tenth of a mode's eigenvalue, placing many subjects squarely in the regime where small perturbations can reverse eigenvalue ordering.
+
+\paragraph{Mode permutation statistics.}
+The permutation swap rates (Fig.~\ref{fig:spectral-dashboard}\ref{fig:spectral-dashboard-b}) confirm that modes 1--3 are spectrally stable (swap rate $< 0.4\%$), while modes 12--13 have the highest swap rate ($\approx 63\%$), with mode~15 also showing a 20\% unpaired (failed pairing) rate.
+
+\paragraph{Variability decomposition.}
+The CV decomposition (Fig.~\ref{fig:spectral-dashboard}\ref{fig:spectral-dashboard-c}) compares eigenvalue dispersion across three dataset modes.
+Shape variability (registration deformation $\chi_s$) dominates the CV for low-rank modes 1--8, while bone-density variability ($E_s$) contributes comparably in the higher modes 9--15.
+The combined (full) CV exceeds both individual sources, confirming that shape and material variations are not simply additive.
+This non-additivity arises because shape changes modulate how density heterogeneity enters the stiffness integral: a different bone geometry redistributes the same density field across different portions of the deformation domain, creating cross-terms that neither source produces alone.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/spectral_structure_dashboard.pdf}
+  \caption{\textbf{Spectral gap structure, permutation statistics, and variability sources.}
+  \textbf{(a)}~Box plots of $\mathrm{gap}_{\rm in}(i)$ for each consecutive mode pair.  The dashed crimson line marks the data-driven cluster threshold $\varepsilon_{\rm in}$.
+  \textbf{(b)}~Per-mode swap rate: blue = paired non-identity, grey = unpaired.
+  \textbf{(c)}~Eigenvalue variability decomposition: CV($\lambda_i$) for the full, shape-only, and material-only datasets, showing the relative contribution of geometric and material variability to eigenvalue dispersion.}
+  \label{fig:spectral-dashboard}
+  \setcounter{figpanel}{0}
+  \refstepcounter{figpanel}\label{fig:spectral-dashboard-a}
+  \refstepcounter{figpanel}\label{fig:spectral-dashboard-b}
+  \refstepcounter{figpanel}\label{fig:spectral-dashboard-c}
+\end{figure}
+
+\begin{table}[!tbp]
+\centering
+\caption{Detected near-degenerate rank clusters (prevalence $\ge 3\%$).}
+\label{tab:clusters}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/clusters.tex}
+\end{table}
+
+% ------------------------------------------------------------------
+\subsection{Subspace tracking and canonical diameter coupling}
+\label{sec:subspace-results}
+
+\paragraph{B.\ Grassmann distances.}
+Eigenvalue proximity is a necessary but not sufficient condition for mode identity exchange---we must also examine how much the underlying \emph{eigenspaces} rotate from subject to subject.
+Figure~\ref{fig:subspace-dashboard} (top row) shows Grassmann distances $d_G$ from the reference subject for each top-5 cluster, stratified by sex.
+The rank 9--10 cluster shows the strongest sex dimorphism ($d_G$: male median~0.26, female median~0.40; Mann--Whitney $p < 10^{-4}$, $r_{rb} = 0.86$), indicating that females exhibit substantially larger subspace rotations for this near-degenerate pair.
+Mechanically, this implies that female pelvic geometry subjects this mode pair to stronger effective inter-mode coupling, rendering the two-mode subspace orientation more sensitive to small morphological perturbations---a pattern explored quantitatively in Sec.~\ref{sec:tradeoff}.
+The rank 14--15 cluster ($r_{rb} = 0.54$, $p < 10^{-3}$), rank 5--6 cluster ($r_{rb} = -0.63$, $p < 10^{-6}$; males larger), and rank 12--13 cluster ($r_{rb} = -0.48$, $p < 10^{-3}$; males larger) also show significant sex differences.
+
+\paragraph{D.\ Canonical diameter scores.}
+Figure~\ref{fig:subspace-dashboard} displays canonical coupling scores for each cluster.  Rows~2--3 show the inlet metrics (AP and ML opening per 1\,mm of maximum nodal displacement); rows~4--5 show the outlet metrics (biischiadic and bituberous widening per 1\,mm).
+The canonical basis $(\boldsymbol\psi_1, \boldsymbol\psi_2)$ is invariant to within-subspace rotations and thus provides a physically stable interpretation even when individual eigenmode labels are unreliable.
+
+The rank~9--10 cluster exhibits the strongest inlet coupling (AP: median~0.41\,mm/mm), confirming that this near-degenerate pair involves the inlet-opening eigenshape.
+Notably, the rank~5--6 cluster shows strong \emph{outlet} coupling: the biischiadic score (median~0.92\,mm/mm) is the second-largest canonical coupling in the analysis, while bituberous coupling is much weaker (median~0.04\,mm/mm).
+This indicates that the rank~5--6 near-degenerate pair involves deformation concentrated at the ischial-spine level---the pelvic midplane---and motivates the use of outlet diameter functionals as anatomically interpretable coordinates for clustered subspaces, independent of any particular load case.
+The rank~5--6 cluster also shows significant sex dimorphism in Grassmann distance ($r_{rb} = -0.63$; males larger), while rank~12--13 shows a similar-direction but smaller effect ($r_{rb} = -0.48$), indicating heterogeneous sex effects across near-degenerate clusters.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{../../analysis_outputs/figures/subspace_analysis_dashboard.pdf}
+  \caption{\textbf{Subspace tracking and canonical coupling.}  
+  \textbf{Row~1:}~Sex-stratified Grassmann distance $d_G$ from the reference subject for each of the five most prevalent near-degenerate rank clusters.  
+  \textbf{Rows~2--3:}~Inlet canonical coupling (AP and ML opening per 1\,mm maximum nodal amplitude).  
+  \textbf{Rows~4--5:}~Outlet canonical coupling (biischiadic and bituberous widening per 1\,mm maximum nodal amplitude).  
+  All derived from the SVD-based canonical basis $(\boldsymbol\psi_1,\boldsymbol\psi_2)$ inside each near-degenerate subspace.  
+  Box plots show male (blue) vs.\ female (orange); $p$-values and rank-biserial $r$ from Mann--Whitney $U$ tests.}
+  \label{fig:subspace-dashboard}
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{Veering-like vs.\ mixing classification}
+
+\paragraph{C.\ Classification of near-degenerate clusters.}
+Table~\ref{tab:classification} reports the veering-like/mixing verdict for each top-5 cluster, derived from the combined evidence of adjacent-rank swap diagnostics and permutation structure along a cluster-appropriate morphology axis (AP inlet diameter for inlet-related clusters; bispinous width for the outlet-related rank~5--6 cluster).
+
+Table~\ref{tab:swap-diagnostics} lists per-pair swap diagnostics and Table~\ref{tab:swap-rates} shows per-mode swap rates across the cohort.
+In Table~\ref{tab:swap-diagnostics}, swap rates are computed \emph{within the cluster member set} and conditional on matching the dominant reference-mode pair for the given rank-adjacent pair.
+Table~\ref{tab:classification} reports a cluster-level \emph{any-swap} rate over all members (hence it can be smaller when reference-mode occupancy is heterogeneous or when some members are unpaired).
+Both differ from the unconditional per-mode swap rates in Table~\ref{tab:swap-rates}.
+The rank 9--10 cluster is classified as \textbf{veering-like}.
+Within-cluster, the rank-$9{\leftrightarrow}10$ transposition rate is 37.5\% and the exchange maps cleanly to reference modes $9{\leftrightarrow}10$ (Tables~\ref{tab:swap-diagnostics} and \ref{tab:classification}).
+However, because subjects are discrete samples and the morphology-axis permutation null test (below) does not support strong localization of exchange along a single anatomical axis, we treat ``veering-like'' as an operational cohort label rather than a confirmed one-parameter near-degenerate mixing with character exchange.
+
+The rank 12--15 block is classified as \textbf{mixing (multi-mode)}: Table~\ref{tab:swap-diagnostics} identifies three adjacent-rank swap pairs (12${\leftrightarrow}$13, 13${\leftrightarrow}$14, 14${\leftrightarrow}$15), and Table~\ref{tab:classification} indicates that higher-order within-block cycles (length $>2$) are common, consistent with multi-mode shuffling beyond simple pairwise exchange.
+This is the spectral fingerprint of a genuinely higher-dimensional near-degeneracy, where the avoided-crossing picture of the 2-DOF toy model no longer suffices and one must reason about the full block subspace.
+The dominant reference modes occupying this rank block are 12--15 (Table~\ref{tab:classification}).
+
+The remaining clusters (rank 5--6, 12--13) show only \textbf{weak exchange}: swap rates are low ($\approx 4$--11\%), indicating sporadic rank swaps rather than systematic character exchange.
+The rank 14--15 cluster shows heterogeneous reference-mode occupancy (dominant reference set $\{12,15\}$; Table~\ref{tab:classification}), consistent with participation in the broader 12--15 mixing rather than an isolated two-mode exchange.
+
+\paragraph{Morphology-axis diagnostics.}
+To probe whether swap events concentrate along a single anatomical axis, we evaluate running swap-rate profiles along a cluster-specific morphology proxy (AP inlet diameter for inlet-related clusters, bispinous width for the rank~5--6 cluster) and summarize their localization against a shuffled-proxy null (Table~\ref{tab:null-test}).
+Full diagnostic curves are omitted here for brevity.
+
+% ------------------------------------------------------------------
+\subsection{Robustness to cohort composition and dataset ordering}
+\label{sec:robustness}
+
+We perform three complementary robustness checks to ensure that the reported spectral structure is not an artefact of the particular cohort composition or processing order.
+
+\paragraph{(i) Ordering invariance.}
+All spectral metrics (cluster prevalence, swap rates, gap distributions) are computed from per-subject quantities that are aggregated by simple averaging or counting.
+We formally verify ordering invariance by randomly permuting the subject axis 100 times and confirming that cluster prevalence and swap rates remain identical to machine precision (maximum absolute difference $< 10^{-12}$).
+
+\paragraph{(ii) Bootstrap subsample stability.}
+To assess sensitivity to cohort composition, we draw 500 random 80\%-subsamples (without replacement) and recompute cluster prevalence, per-mode swap rates, and median $\mathrm{gap}_{\rm in}$ for each consecutive mode pair.
+The 95\% bootstrap confidence intervals for cluster prevalence are narrow (e.g.\ rank~9--10: observed~54.7\%, 95\%~CI [51.8\%, 57.7\%]; rank~12--15: observed~41.7\%, 95\%~CI [38.7\%, 45.0\%]), confirming that the near-degenerate clusters are robust features of the population, not artefacts of a few outlier subjects.
+Per-mode swap rates and median gaps show similarly tight bootstrap distributions (Table~\ref{tab:bootstrap}).
+
+\paragraph{(iii) Morphology-axis permutation null test.}
+For each adjacent-rank swap pair in Table~\ref{tab:swap-diagnostics}, we shuffle the cluster-specific morphology proxy (AP inlet diameter or bispinous width) 1000 times and recompute the peak swap rate, active fraction, and CV of the running swap rate.
+Significance requires all three diagnostics (peak rate, active fraction, and CV) to exceed 95\% of the null distribution ($p < 0.05$ for all three).
+No swap pair passes this combined criterion: the rank~9--10 pair, which shows the strongest signal, has $p_{\rm CV} = 0.027$ but $p_{\rm peak} = 0.255$ and $p_{\rm active} = 0.820$, indicating that while the veering-like pattern is somewhat more concentrated than chance along the AP morphology axis, peak and activity diagnostics are not unusual relative to the null.
+This suggests that the morphological modulation of mode exchange is subtle and does not dominate the variability in this cohort.
+Full null-test diagnostics are summarized in Table~\ref{tab:null-test}.
+
+% ------------------------------------------------------------------
+\subsection{Sex-stratified spectral summary}
+
+Figure~\ref{fig:sex-summary} provides a comprehensive sex-stratified overview of all spectral and subspace metrics.
+Table~\ref{tab:sex-tests} reports the Mann--Whitney $U$ statistics and rank-biserial effect sizes.
+
+The most prominent sex effects are:
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Subspace rotation (rank 9--10):} $d_G$ male median~0.26 vs.\ female~0.40 ($r_{rb} = 0.86$, $p < 10^{-4}$)---the largest sex effect in the spectral analysis.
+\item \textbf{Subspace rotation (rank 14--15):} $r_{rb} = 0.54$ ($p < 10^{-3}$).
+\item \textbf{Gap sensitivity (7--8):} $\mathrm{gap}_{\rm in}$ male median~0.36 vs.\ female~0.25 ($r_{rb} = -0.47$, $p < 10^{-4}$)---males have larger spectral separation at this pair.
+\item \textbf{Swap count:} males swap more modes per subject ($r_{rb} = -0.41$, $p < 10^{-4}$).
+\item \textbf{Overall permutation rate:} 89.8\% (male) vs.\ 90.0\% (female), not significant (Fisher exact $p = 1.0$)---the sex difference lies in the \emph{severity}, not the \emph{prevalence}, of permutation.
+\end{itemize}
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/sex_stratified_summary.pdf}
+  \caption{\textbf{Sex-stratified spectral summary.}
+  Most panels show a Mann--Whitney $U$ test comparing male (blue) vs.\ female (orange) distributions for one spectral or subspace metric; the overall permutation rate panel uses Fisher's exact test.
+  Metrics include $\mathrm{gap}_{\rm in}$ for each gap index inside detected clusters, per-subject swap count, overall permutation rate, and Grassmann distance $d_G$ for each top cluster.
+  $p$-values and rank-biserial $r$ (or odds ratio for the permutation rate) are annotated.}
+  \label{fig:sex-summary}
+\end{figure}
+
+\begin{table}[!tbp]
+\centering
+\caption{Sex-stratified Mann--Whitney $U$ tests for spectral metrics.
+Rank-biserial $r > 0$: females larger; $r < 0$: males larger.}
+\label{tab:sex-tests}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/sex_stratified_summary.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Veering-like vs.\ mixing classification for the five most prevalent near-degenerate clusters. Swap rate is reported as a fraction (0--1).}
+\label{tab:classification}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/veering_vs_mixing_classification.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Adjacent rank-pair swap diagnostics (swap rate conditional on cluster membership and dominant reference-mode pair). Swap rate is reported as a fraction (0--1). Near-deg.\ frac.\ is the fraction of the full cohort with $\mathrm{gap}_{\mathrm{in}}<\varepsilon_{\rm in}$ at the given rank pair.}
+\label{tab:swap-diagnostics}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/swap_pair_diagnostics.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Per-mode swap rates across the cohort. Rates are fractions (0--1).}
+\label{tab:swap-rates}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/swap_rates.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Morphology-axis permutation null-test results for adjacent rank-pair swap diagnostics.  Diagnostics include peak swap rate, active fraction, and CV of the running swap rate along the morphology proxy; $p$-values are computed against the shuffled-proxy null.}
+\label{tab:null-test}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/veering_null_test.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Cohort bootstrap robustness: 500 random 80\%-subsamples.}
+\label{tab:bootstrap}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/cohort_bootstrap_robustness.tex}
+\end{table}
+
+% ------------------------------------------------------------------
+\subsection{Modal energy fractions under static loads}
+\label{sec:fractions-results}
+
+To bridge eigenstructure to mechanical function, we project the static displacement $\mathbf{u}_s = K_s^{-1}\mathbf{b}$ onto the $M_s$-orthonormal eigenbasis $\Phi$ for each subject and each standardised load case (Table~\ref{tab:loads-en}).
+The modal energy fraction $f_i = E_i / \sum_j E_j$ with $E_i = \tfrac{1}{2} \lambda_i q_i^2$ quantifies the share of total strain energy carried by mode~$i$ under a given load.
+
+Figure~\ref{fig:fractions-panel} shows sex-stratified split-violin distributions of $f_i$ for the first twelve \emph{rank} modes (solver order) across five load cases (SP2leg, SP1leg, LAB$_1$, LAB$_2$, LAB$_3$).
+Three key patterns emerge:
+\begin{enumerate}[leftmargin=1.4em]
+\item \textbf{Standing loads are low-rank but not identical.}
+  SP2leg is highly concentrated in mode~2 (mean share $\approx 84.5\%$, Table~\ref{tab:mode-activation-dominant}), whereas SP1leg is distributed across the rotational backbone modes~1--3 (top-3 cumulative share $\approx 92.0\%$).
+  This is consistent with the atlas interpretation: the three quasi-rigid rotational eigenshapes (CC torsion, ML nutation, AP obliquity; Fig.~\ref{fig:modes-atlas}) define the primary standing compliance pathways.
+\item \textbf{LAB routing is strongly phase-specific.}
+  LAB$_1$ is inlet-centered: the rank-mode $\{9,10\}$ pair carries $\approx 50.9\%$ of total energy and mode~9 is the top contributor.
+  LAB$_2$ reroutes toward mid-rank deformation programs (modes~4--8: $\approx 79.1\%$), with modes~5--6--4 as the leading triad.
+  LAB$_3$ is hybrid: rotational mode~2 remains dominant ($\approx 45.8\%$), while modes~4--6 and~9 provide substantial additional throughput.
+\item \textbf{Sex dimorphism in LAB routing appears already in rank-mode fractions.}
+  In LAB$_1$, females concentrate energy in rank mode~9 while males concentrate energy in rank mode~10 (cohort means $\bar f_9^{F}\!\approx\!0.397$ vs.\ $\bar f_9^{M}\!\approx\!0.262$; $\bar f_{10}^{F}\!\approx\!0.074$ vs.\ $\bar f_{10}^{M}\!\approx\!0.291$), reflecting the strongly male-biased 9$\rightleftarrows$10 exchange and sex-dimorphic operating points within the same two-dimensional $\{9,10\}$ subspace.
+\end{enumerate}
+These energy-fraction distributions demonstrate that the spectral structure documented above has direct functional consequences: under LAB$_1$--LAB$_3$, the near-degenerate cluster at rank modes~9--10 carries non-negligible energy and therefore provides a meaningful target for functional interpretation.
+Other near-degenerate blocks (e.g.\ 12--15) encode additional higher-rank deformation programs, but their throughput under the standing and LAB$_1$--LAB$_3$ load family is more phase-dependent and their functional meaning is more cleanly expressed at the subspace level than via individual mode labels.
+Mode-identity exchange within these clusters therefore implies a genuine redistribution of load-routing pathways, not merely a permutation of mechanically irrelevant higher-order shapes.
+However, the critical distinction between individual-mode relabelling and subspace-level reorganisation must be drawn; we quantify cross-load overlap explicitly in Sec.~\ref{sec:mode-activation-overlap} and then focus on the rank~9--10 trade-off in Sec.~\ref{sec:tradeoff}.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../results/ref_S1P_fixed_new2/analysis/fractions_panel_A.pdf}
+  \caption{\textbf{Modal energy fractions under standardised static loads.}
+  Sex-stratified split-violin plots of the modal energy fraction $f_i = E_i / \sum_j E_j$ for rank modes~1--12 (solver order) across five load cases (SP2leg, SP1leg, LAB$_1$, LAB$_2$, LAB$_3$).
+  Blue: male ($n = 128$); orange: female ($n = 150$).
+  Modes~1--3 dominate standing loads, while LAB phases redistribute energy toward higher-rank pathways, including inlet-opening deformation programs.}
+  \label{fig:fractions-panel}
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{Mode activation overlap across load cases}
+\label{sec:mode-activation-overlap}
+
+To separate \emph{shared} from \emph{load-specific} routing, we summarize the full mode--load activation matrix using mean fractions, dominant-mode sets, and pairwise overlap diagnostics (Fig.~\ref{fig:mode-activation-dashboard}, Tables~\ref{tab:mode-activation-dominant}--\ref{tab:mode-activation-overlap}).
+
+The dominant-set analysis defines, for each load case, the smallest set of modes whose mean fractions reach 80\% cumulative throughput ($N_{80}$).
+SP2leg is the most concentrated case ($N_{80}=1$, mode~2 alone), while SP1leg requires the canonical rotational triad (modes~1--3; $N_{80}=3$).
+Among LAB phases, LAB$_1$ and LAB$_3$ each require five modes to reach 80\%, whereas LAB$_2$ reaches 80\% with four modes led by the 4--6 block plus mode~9.
+
+Pairwise overlaps show that LAB$_2$ and LAB$_3$ share most dominant pathways (Jaccard~0.80; shared modes 4,5,6,9), while SP2leg has no dominant-set overlap with LAB$_1$ or LAB$_2$.
+At the same time, cosine similarity of the full activation vectors remains high for SP2leg--LAB$_3$ (0.94), indicating that a shared dominant rotational axis (mode~2) can coexist with distinct secondary routing.
+Thus, ``shared mode'' and ``shared profile'' are not equivalent descriptors of functional loading.
+
+Family-level decomposition links these overlaps back to mechanical interpretation:
+standing loads are rotational-backbone dominated (modes~1--3: $\approx 85$--92\%),
+LAB$_1$ is inlet-pair dominated ($\{9,10\}$: $\approx 51\%$),
+LAB$_2$ is mid-rank-block dominated (modes~4--8: $\approx 79\%$),
+and LAB$_3$ mixes rotational and mid-rank channels.
+This phase-resolved activation map provides the functional context for why only selected near-degenerate clusters (especially 9--10) become mechanically consequential in downstream tail and SIJ analyses.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/mode_activation_dashboard.pdf}
+  \caption{\textbf{Mode activation overlap across standing and LAB load cases.}
+  \textbf{(A)}~Mean mode-energy fractions (modes~1--15 $\times$ five load cases); white squares mark load-specific dominant 80\% sets.
+  \textbf{(B)}~Cumulative concentration curves after per-load sorting, with points at $N_{80}$.
+  \textbf{(C)}~Jaccard overlap matrix of dominant 80\% mode sets.
+  \textbf{(D)}~Mechanical family shares with bootstrap 95\% confidence intervals: rotational backbone (1--3), mid-rank mixed block (4--8), inlet routing pair (9--10), and higher-rank mixed block (11--15).}
+  \label{fig:mode-activation-dashboard}
+\end{figure}
+
+\begin{table}[!tbp]
+\centering
+\caption{Dominant mode sets by load case.
+$N_{80}$ is the smallest number of modes needed to reach 80\% cumulative mean energy fraction.}
+\label{tab:mode-activation-dominant}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/mode_activation_dominant_sets.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Pairwise overlap and similarity of load-case activation profiles.
+Jaccard is computed on dominant 80\% sets; cosine similarity uses full 15-mode mean profiles.}
+\label{tab:mode-activation-overlap}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/mode_activation_overlap.tex}
+\end{table}
+
+% ------------------------------------------------------------------
+\subsection{Parturition-routing trade-off at rank modes~9--10}
+\label{sec:tradeoff}
+
+The preceding sections documented three seemingly distinct observations about the rank~9--10 near-degenerate pair: (i)~females display significantly larger Grassmann distances ($d_G$ median 0.40 vs.\ 0.26 for males, $r_{rb} = 0.86$), (ii)~the pair exhibits substantial identity exchange (within-cluster 9$\rightleftarrows$10 transposition rate 37.5\%, with per-mode swap rates strongly male-biased; Fig.~\ref{fig:sex-age}\ref{fig:sex-age-d}), and (iii)~the canonical AP-inlet coupling and block energy fractions across LAB$_1$--LAB$_3$ are substantial.
+Figure~\ref{fig:tradeoff} synthesises these observations into a five-panel diagnostic that exposes the underlying trade-off.
+
+Panel~(A; Fig.~\ref{fig:tradeoff}\ref{fig:tradeoff-A}) plots Grassmann distance against spectral gap $\mathrm{gap}_{\mathrm{in}}(9{-}10)$ for each subject, coloured by sex.
+Females cluster at wider gaps yet exhibit \emph{larger} subspace rotation.
+In a 2-DOF analogy, larger $\mathrm{gap}_{\mathrm{in}}$ corresponds to increased spectral separation, which can arise from detuning-like effects and/or reduced effective coupling; in the cohort setting, $\mathrm{gap}_{\mathrm{in}}$ does not uniquely map to the toy detuning parameter $\Delta$ because coupling and latent pathways can co-vary.
+Operationally, the pattern is veering-like: eigenvalue \emph{ordering} can become more identifiable (larger gaps) even as basis orientation within a near-degenerate subspace varies substantially.
+
+Panel~(B; Fig.~\ref{fig:tradeoff}\ref{fig:tradeoff-B}) shows a small but significant swap-associated shift in canonical AP-inlet coupling (pooled no-swap vs.\ swapped: $r_{rb}=-0.23$, $p=1.76\times 10^{-2}$).
+Thus, swapping is not a binary functional breakdown of the inlet-opening channel; it induces a moderate amplitude modulation while preserving the same two-dimensional functional subspace.
+
+Panels~(C)--(E; Fig.~\ref{fig:tradeoff}\ref{fig:tradeoff-C}, \ref{fig:tradeoff-D}, and \ref{fig:tradeoff-E}) show phase-resolved block energy fractions $\sum_{i \in \{9,10\}} \bar f_i$ under LAB$_1$, LAB$_2$, LAB$_3$ versus AP inlet diameter.
+The morphology dependence is phase-specific: LAB$_1$ shows a strong negative association ($\rho_s=-0.48$, $p=4.3\times10^{-17}$), whereas LAB$_2$ and LAB$_3$ are positive ($\rho_s=0.40$, $p=5.5\times10^{-12}$; $\rho_s=0.17$, $p=4.8\times10^{-3}$).
+Even with this phase dependence, the \{9,\,10\} subspace remains a major LAB$_1$ pathway (median $\bar f_C \approx 0.53$ among 9--10 near-degenerate subjects), with lower throughput in LAB$_2$ and LAB$_3$.
+
+Taken together, the five panels indicate that rank~9--10 exchange is primarily a \emph{labelling} instability with quantitative functional tuning: subspace-level inlet routing persists, but coupling amplitude and throughput vary with swap state, morphology, and LAB phase.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/labour_routing_tradeoff.pdf}
+  \caption{\textbf{Trade-off at rank modes~9--10 across LAB phases.}
+  \textbf{(A)}~$\mathrm{gap}_{\mathrm{in}}(9{-}10)$ vs.\ $d_G$ (sex-coloured).
+  \textbf{(B)}~AP coupling by swap group and sex (small but statistically significant swap-associated shift; $p=0.018$).
+  \textbf{(C)}~LAB$_1$ block energy fraction ($9{+}10$) vs.\ AP inlet diameter.
+  \textbf{(D)}~LAB$_2$ block energy fraction ($9{+}10$) vs.\ AP inlet diameter.
+  \textbf{(E)}~LAB$_3$ block energy fraction ($9{+}10$) vs.\ AP inlet diameter.}
+  \label{fig:tradeoff}
+  \begingroup
+  \renewcommand{\thefigpanel}{\Alph{figpanel}}
+  \setcounter{figpanel}{0}
+  \refstepcounter{figpanel}\label{fig:tradeoff-A}
+  \refstepcounter{figpanel}\label{fig:tradeoff-B}
+  \refstepcounter{figpanel}\label{fig:tradeoff-C}
+  \refstepcounter{figpanel}\label{fig:tradeoff-D}
+  \refstepcounter{figpanel}\label{fig:tradeoff-E}
+  \endgroup
+\end{figure}
+
+To test whether this trade-off is specific to the rank~9--10 pair or reflects a general pattern, we define a \emph{function-locking index}~(FLI) for each of the five most prevalent clusters.
+For a given cluster~$C$ and load case~$L$, the FLI is the Spearman rank correlation $\rho_{\mathrm{Sp}}$ between the cluster's per-subject coupling score and the block energy fraction $\sum_{i\in C}\bar f_i^{(L)}$.
+For the paired inlet and outlet observables this coupling score is computed from the SVD-based canonical basis (Sec.~\ref{sec:canonical}); for the single outlet-AP observable it is computed as the unique rank-1 direction obtained by projecting that measurement vector into the cluster subspace.
+A high~$|\rho_{\mathrm{Sp}}|$ indicates that subjects whose eigensubspace is more strongly coupled to a given diameter observable also channel proportionally more energy through the cluster under the corresponding load, i.e.\ the cluster is \emph{function-locked} to that load.
+
+Table~\ref{tab:fli} summarises the results.
+Here, the `best-predictor coupling axis' denotes the diameter axis whose coupling has the largest $|\rho_{\mathrm{Sp}}|$ with phase-specific LAB$_k$ block throughput (FLI); candidate observables are the four canonical pair axes (AP/ML inlet, BIS/BIT outlet) plus the scalar outlet-AP observable.
+Under LAB$_1$, the rank~9--10 cluster carries a high share of strain energy (median $\bar f_C = 0.529$) and its outlet coupling correlates strongly with this throughput ($\rho_{\mathrm{Sp}} \approx 0.52$).
+Allowing the scalar outlet-AP observable is informative precisely because it is load-matched to LAB$_3$: it becomes the strongest predictor for rank modes~9--10 in LAB$_2$ and LAB$_3$, for rank modes~12--13 in LAB$_3$, and for rank modes~14--15 in LAB$_3$.
+At the same time, it does \emph{not} replace the paired canonical outlet basis: LAB$_1$ still highlights mediolateral outlet structure more cleanly through BIS/BIT, while the mixed 12--15 block in LAB$_2$ locks most strongly via the ML inlet axis ($\rho_{\mathrm{Sp}} \approx 0.70$).
+Other prevalent clusters can dominate different LAB phases (notably rank modes~5--6 in LAB$_2$, $\bar f_C \approx 0.592$), indicating that functional significance is phase-dependent rather than captured by a single pooled LAB label.
+Three conditions must thus be satisfied for sex-dimorphic mode exchange to acquire functional significance: (i)~function-locking to an obstetric load, (ii)~a veering-like exchange regime enabling mode-identity swap, and (iii)~high energy throughput ($\bar f_C > 10\%$).
+Only the rank~9--10 cluster satisfies all three simultaneously (Fig.~\ref{fig:fli}).
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{Load--function coupling synthesis across LAB phases.}
+For each of the five most prevalent clusters: veering-like/mixing regime; the best-predictor diameter coupling (chosen from AP/ML inlet, BIS/BIT outlet, and scalar OutletAP, whichever has the larger $|\rho_{\mathrm{Sp}}|$ with block energy fraction under LAB$_k$); the corresponding Spearman~$\rho_{\mathrm{Sp}}$; median block energy fraction~$\bar f_C$ for the listed LAB phase; and sex effect size on Grassmann distance~($r_{rb}$).
+Stars: ${}^{***}\!p<0.001$, ${}^{**}\!p<0.01$, ${}^{*}\!p<0.05$.}
+\label{tab:fli}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/function_locking_synthesis.tex}
+\end{table}
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/function_locking_heatmap.pdf}
+  \caption{\textbf{Load--function coupling by cluster and load case.}
+  Heatmaps show Spearman $\rho_{\mathrm{Sp}}$ between canonical coupling and block energy fraction.
+  \textbf{(A)}~AP inlet coupling.
+  \textbf{(B)}~ML inlet coupling.
+  \textbf{(C)}~BIS outlet coupling.
+  \textbf{(D)}~BIT outlet coupling.
+  \textbf{(E)}~Outlet AP scalar coupling.
+  \textbf{(F)}~Sex effect on $d_G$ ($r_{rb}$).
+  Cluster labels use regime codes: V~(veering-like), W~(weak exchange), M~(mixing), M4~(mixing 4D).
+  Stars: ${}^{***}\!p<0.001$, ${}^{**}\!p<0.01$, ${}^{*}\!p<0.05$.}
+  \label{fig:fli}
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{Upper-tail extreme strain-energy localization under parturition-motivated loading}
+\label{sec:upper-tail-results}
+
+The preceding Results establish that the rank~9--10 near-degenerate pair is both prevalent and functionally engaged across LAB phases (Table~\ref{tab:fli}), but they do not quantify whether the associated routing variability increases or suppresses mechanically relevant \emph{extremes}.
+We therefore postprocessed the static standing and LAB solutions into elementwise bone strain-energy density (SED) and evaluated volume-weighted upper-tail metrics (Sec.~\ref{sec:static}(ii)).
+In this section, ``LAB'' tail metrics denote per-subject aggregates over LAB$_1$--LAB$_3$, whereas routing variables are taken from LAB$_1$ (the highest-throughput phase for the $\{9,10\}$ block).
+
+\paragraph{Swap status associates with reduced upper-tail extremes under LAB in bone.}
+Figure~\ref{fig:tail-swap-bone} compares LAB bone SED tails between subjects without a 9--10 identity exchange (swap$=0$) and those with a swap (swap$=1$).
+Across the cohort, swap subjects exhibit lower upper-tail extremes (Table~\ref{tab:tail-swap-bone}); the analyses below show that sex and operating point materially modulate the size of this unadjusted separation.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/fig12_swap_specificity_dashboard_bone.pdf}
+  \caption{\textbf{Swap-tail and parturition-specificity dashboard (bone).}
+  Top row: aggregated LAB upper-tail metrics (mean over LAB$_1$--LAB$_3$), $\log_{10}P99(w)$ and $\log_{10}$(top-1\% mean of $w$), stratified by swap status.
+  Bottom row: within-subject LAB$-$standing deltas for $\log_{10}P99(w)$ and exceedance fraction.
+  All panels use swap$=0$ vs.\ swap$=1$ box plots with sex-coloured points.}
+  \label{fig:tail-swap-bone}
+  \label{fig:tail-specificity-bone}
+\end{figure}
+
+\begin{table}[!tbp]
+\centering
+\caption{Cohort-level aggregated LAB bone SED upper-tail metrics (mean over LAB$_1$--LAB$_3$) by swap status of the 9--10 block.
+Mann--Whitney $U$ tests and Cliff's $\Delta$ are computed on $\log_{10}$-transformed values; $q$ is BH-FDR across all hypothesis tests reported in Figs.~\ref{fig:tail-swap-bone}--\ref{fig:tail-matched-males}.}
+\label{tab:tail-swap-bone}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/tables/tail_risk_swap_bone.tex}
+\end{table}
+
+\paragraph{Parturition-specificity control using within-subject deltas.}
+To test whether the swap association reflects LAB-specific mechanics rather than a baseline difference, we computed per-subject deltas between LAB and standing aggregates.
+Swap subjects show more negative upper-tail deltas and a reduced change in exceedance fraction compared with non-swap subjects (Fig.~\ref{fig:tail-specificity-bone}); adjusted models controlling for sex and age preserve this directionality.
+
+\paragraph{Within-subspace routing provides a continuous mechanism bridge.}
+Routing within the $\{9,10\}$ subspace, quantified by the LAB$_1$ energy partition $E_9/(E_9+E_{10})$, is strongly associated with aggregated LAB upper-tail extreme strain-energy localization (Fig.~\ref{fig:tail-mechanism-bone}), with an equivalent relationship for the sign-invariant mixing angle $\theta=\mathrm{atan2}(|a_{10}|,|a_{9}|)$.
+In adjusted OLS models, routing variables remain informative after controlling for sex, age, $\mathrm{gap}_{\rm in}(9{-}10)$, and $d_G(9{-}10)$; routing and swap are also strongly collinear, consistent with swap acting primarily as a discrete marker of a continuous routing state.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=0.49\linewidth]{../../analysis_outputs/figures/fig3_mechanism_bone_theta.pdf}%
+  \hfill
+  \includegraphics[width=0.49\linewidth]{../../analysis_outputs/figures/fig3_mechanism_bone_ratio.pdf}
+  \caption{\textbf{Mechanism bridge (bone): within-subspace routing vs.\ upper-tail extremes.}
+  Relationships between aggregated LAB $\log_{10}P99(w)$ (mean over LAB$_1$--LAB$_3$) and two routing summaries of the $\{9,10\}$ block under LAB$_1$:
+  mixing angle $\theta$ (left) and energy partition ratio $E_9/(E_9+E_{10})$ (right).
+  Points are coloured by sex and shaped by swap status; LOWESS trends and adjusted-model summaries are annotated.}
+  \label{fig:tail-mechanism-bone}
+\end{figure}
+
+\paragraph{Operating point and sex are dominant covariates.}
+Aggregated LAB upper-tail extremes are strongly sex-dimorphic (Cliff's $\Delta=-0.93$, $p=7.93\times 10^{-41}$; Fig.~\ref{fig:tail-sex-bone}).
+In a multivariable model $\log_{10}P99(w) \sim \mathrm{sex}+\mathrm{swap}+\mathrm{gap}_{\rm in}(9{-}10)+d_G(9{-}10)+\mathrm{age}$, sex remains the dominant predictor (sex$_F$ coefficient $0.249$, $p=8.33\times10^{-23}$) while swap retains a smaller negative association (coefficient $-0.039$, $p=1.58\times10^{-2}$).
+For operating-point covariates, $\mathrm{gap}_{\rm in}(9{-}10)$ shows a modest overall association with tail risk ($\rho_s=0.282$), whereas $d_G(9{-}10)$ shows a strong overall negative association ($\rho_s=-0.692$); both display opposite-sign sex-stratified trends (Fig.~\ref{fig:tail-operating-bone}).
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/fig4_operating_point_bone.pdf}
+  \caption{\textbf{Operating point vs.\ aggregated LAB upper-tail extremes (bone).}
+  $\log_{10}P99(w)$ under aggregated LAB (mean over LAB$_1$--LAB$_3$) versus $\mathrm{gap}_{\rm in}(9{-}10)$ (left) and $d_G(9{-}10)$ (right), with swap status overlaid.}
+  \label{fig:tail-operating-bone}
+\end{figure}
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/fig5_sex_valve_bone.pdf}
+  \caption{\textbf{Sex baseline and swap ``valve'' effect (bone).}
+  Distribution of $\log_{10}P99(w)$ under aggregated LAB (mean over LAB$_1$--LAB$_3$) by sex (left) and adjusted regression coefficients controlling for swap and operating-point covariates (right).}
+  \label{fig:tail-sex-bone}
+\end{figure}
+
+\paragraph{Parturition-motivated output proxy: within-sex function--tail association and routing term.}
+To test whether routing provides a mechanistic bridge between \emph{functional output} and \emph{upper-tail localization}, we defined a loadcase-matched output proxy as an inlet transverse (ML) diameter change $\Delta D_{\mathrm{ML}}$ extracted directly from the LAB$_1$ static displacement field using the inlet/outlet diameter functionals (Sec.~\ref{sec:canonical}).
+Specifically, $\Delta D_{\mathrm{ML}}=\mathbf e_s\cdot(\mathbf u(p_1)-\mathbf u(p_2))$, where $\mathbf e_s$ is the patient-specific baseline diameter direction and $\mathbf u$ is the LAB$_1$ displacement field evaluated at landmark endpoints by IDW on the template FE mesh; we also report the normalized output $\Delta D_{\mathrm{ML}}/\max\|\mathbf u\|$.
+Absolute output magnitude covaries strongly with the LAB upper-tail metric, consistent with function and extremes sharing a deformation-scale component under fixed external resultants.
+After normalizing by per-subject displacement scale $\max\|\mathbf u\|$, the routing ratio $E_9/(E_9+E_{10})$ remains significant within each sex in robust OLS models, indicating that routing captures information not reducible to a single scalar output magnitude (Fig.~\ref{fig:function-tail-mediation}, Table~\ref{tab:function-tail-mediation}).
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/fig6_function_tail_mediation_bone.pdf}
+  \caption{\textbf{Parturition-motivated output proxy and within-sex routing association (bone, LAB$_1$).}
+  Within each sex, $\log_{10}P99(w)$ is shown against an explicit output proxy $\Delta D_{\mathrm{ML}}$ (left) and the normalized output $\Delta D_{\mathrm{ML}}/\max\|\mathbf u\|$ (middle), with point color encoding the within-subspace routing ratio $E_9/(E_9+E_{10})$ and marker shape indicating swap status.
+  Right: robust OLS (HC3) summary for the normalized model (full coefficients: Table~\ref{tab:function-tail-mediation}).
+  \emph{Takeaway:} routing variables capture basis-invariant redistribution information that helps link functional output to mechanical extremes within each sex.}
+  \label{fig:function-tail-mediation}
+\end{figure}
+
+\input{../../analysis_outputs/tables/function_tail_mediation_LAB_phase1_bone.tex}
+
+\paragraph{Robustness check: matched males.}
+To reduce confounding by operating point, we performed nearest-neighbour matching within males on age, $\mathrm{gap}_{\rm in}(9{-}10)$, and $d_G(9{-}10)$ and re-estimated the swap effect using paired inference.
+In this matched subset ($N=36$ pairs), the paired swap effect on $\log_{10}P99(w)$ is negative but weak (Wilcoxon $p=0.441$, rank-biserial $-0.15$; Fig.~\ref{fig:tail-matched-males}); bootstrap uncertainty on the median paired difference spans zero (median $\Delta=-0.005$, 95\% CI $[-0.067,+0.034]$), reinforcing that operating-point covariates explain much of the unadjusted within-male separation.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{../../analysis_outputs/figures/fig1_matched_males_bone.pdf}
+  \caption{\textbf{Covariate-matched males (bone): paired swap effect.}
+  Matched pairs are constructed by nearest-neighbour covariate matching on age, $\mathrm{gap}_{\rm in}(9{-}10)$, and $d_G(9{-}10)$.}
+  \label{fig:tail-matched-males}
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{SIJ micromotion profile and mechanistic channel decomposition}
+\label{sec:sij-micromotion-results}
+
+To connect the subspace-level spectral results to joint-level mechanics, we analyzed the already computed SIJ kinematic outputs (relative left/right SIJ rotations and translations) across five active static load cases (SP2leg, SP1leg, LAB$_1$, LAB$_2$, LAB$_3$).
+For each subject we summarized SIJ micromotion by bilateral mean magnitude (rotation in degrees, translation in mm), directional components (ML/AP/CC translation; nutation/AP/CC rotation), and L/R asymmetry.
+This analysis uses only stored arrays (no additional FE solves) and is fully reproducible from the generated SIJ tables in \texttt{analysis\_outputs/sij\_micromotion}.
+Figure~\ref{fig:sij-micromotion-dashboard} provides an integrated dashboard of the same SIJ analysis blocks (load profile, directional rerouting, sex/swap contrasts, operating-point coupling, and channel decomposition).
+
+\paragraph{Load-case micromotion profile: anisotropic redistribution rather than uniform amplification.}
+Table~\ref{tab:sij-micro-load-profile} shows the cohort medians by load case.
+SP1leg produces the largest SIJ micromotion (median rotation magnitude 2.516\,deg; translation magnitude 1.755\,mm), consistent with unilateral loading and the elevated hip-resultant asymmetry observed in single-support activities \citep{Bergmann2001JBiomech,Kutzner2016PLOS}.
+Relative to SP2leg, the three LAB phases show non-uniform responses:
+LAB$_1$ and LAB$_2$ reduce both global rotation and translation magnitudes (medians 1.393/0.665 and 1.433/0.764), whereas LAB$_3$ combines slightly higher rotation (1.769) with lower translation (0.790).
+Directional balance is likewise phase-specific: LAB$_1$ and LAB$_2$ increase ML translation (0.410 and 0.476\,mm vs.\ 0.318\,mm in SP2leg) with strongly reduced CC translation, while LAB$_3$ shifts toward larger AP rotation with lower ML translation.
+In dashboard panel~B, all directional quantities are defined as signed paired differences
+$\Delta_{\mathrm{dir}}(\text{load})=\mathrm{dir}(\text{load})-\mathrm{dir}(\mathrm{SP2leg})$.
+Therefore, SP1leg and LAB$_1$--LAB$_3$ appear in panel~B, while SP2leg is the zero reference by construction and is shown explicitly only in panel~A/Table~\ref{tab:sij-micro-load-profile}.
+This indicates that labour loading is characterized by phase-dependent directional rerouting of SIJ motion, not by a simple scalar increase in mobility, consistent with known anisotropic SIJ behavior \citep{Goode2008,Meijer2014,Keizer2019,Noe2020}.
+
+\begin{table}[!tbp]
+\centering
+\caption{SIJ micromotion profile across static load cases (cohort medians).}
+\label{tab:sij-micro-load-profile}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_load_summary.tex}
+\end{table}
+
+\paragraph{Sex baseline and swap association across LAB phases.}
+At LAB$_1$, females show substantially larger SIJ motion than males across all major metrics
+(e.g., rotation magnitude 1.880 vs.\ 1.013\,deg; translation magnitude 0.876 vs.\ 0.467\,mm; both $p\ll10^{-10}$), with analogous female$>$male trends in LAB$_2$ and LAB$_3$.
+Unadjusted swap comparisons show lower global motion in swap subjects across LAB$_1$--LAB$_3$ (e.g., LAB$_1$ translation magnitude 0.519 vs.\ 0.748\,mm, $p=1.4\times10^{-4}$), while AP-translation separation remains weak or absent in LAB$_1$ and LAB$_3$ (Tables~\ref{tab:sij-micro-swap-lab1}, \ref{tab:sij-micro-swap-lab2}, and \ref{tab:sij-micro-swap-lab3}).
+In HC3-adjusted models ($\sim$ swap + sex + age + $\mathrm{gap}_{\rm in}$ + $d_G$), swap is non-significant for global rotation/translation magnitudes and ML translation ($p>0.47$), while AP translation remains positively associated with swap (coefficient 0.069, $p=0.019$; 0.092, $p=0.0018$ after adding $\log_{10}P99(w)$).
+Mechanistically, this supports the interpretation that swap is primarily a marker of an operating/routing state, with only a specific AP component retained after adjustment.
+
+\begin{table}[!tbp]
+\centering
+\caption{SIJ micromotion under LAB\textsubscript{1}: swap vs.\ no-swap comparisons (Mann--Whitney).}
+\label{tab:sij-micro-swap-lab1}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_swap_tests_LAB_phase1.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{SIJ micromotion under LAB\textsubscript{2}: swap vs.\ no-swap comparisons (Mann--Whitney).}
+\label{tab:sij-micro-swap-lab2}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_swap_tests_LAB_phase2.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{SIJ micromotion under LAB\textsubscript{3}: swap vs.\ no-swap comparisons (Mann--Whitney).}
+\label{tab:sij-micro-swap-lab3}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_swap_tests_LAB_phase3.tex}
+\end{table}
+
+\paragraph{Operating-point coupling and tail linkage.}
+Under LAB$_1$, SIJ translation magnitude correlates weakly but significantly with $\mathrm{gap}_{\rm in}(9{-}10)$ ($\rho_{\mathrm{Sp}}=0.19$, $p=0.0011$), while association with $d_G(9{-}10)$ is weak ($\rho_{\mathrm{Sp}}=0.063$, $p=0.30$).
+In contrast, SIJ motion metrics correlate consistently with upper-tail SED measures (e.g., translation magnitude vs.\ $P99(w)$: $\rho_{\mathrm{Sp}}=0.47$, $p<2\times10^{-16}$), indicating that SIJ-level kinematic amplitude and extreme strain localization are coupled at the cohort level.
+
+\paragraph{Morphology/structure vs.\ material channel in SIJ variability.}
+Comparing the three existing cohorts (\texttt{full}, \texttt{shape\_only}, \texttt{material\_only}) shows that between-subject variance of SIJ micromotion is almost entirely carried by the skeletal channel (shape + density field variation), not by material-only scatter in the current setup.
+Across all analyzed load cases, the shape-only/full variance ratio is $\approx 1$ (99--101\% by the variance-ratio estimator), while the material-only/full ratio is typically $<0.3\%$ (Tables~\ref{tab:sij-micro-channel-lab1}, \ref{tab:sij-micro-channel-lab2}, and \ref{tab:sij-micro-channel-lab3}).
+Thus, the observed SIJ micromotion heterogeneity in this study is predominantly morphology-structured, with material perturbations acting as a minor secondary channel for joint-level kinematic dispersion.
+
+\begin{table}[!tbp]
+\centering
+\caption{Variance-channel decomposition of SIJ micromotion under LAB\textsubscript{1}.  Ratios are computed as sample-variance ratios; values slightly above 100\% reflect finite-sample and numerical estimation noise and should be interpreted as $\approx$100\%.}
+\label{tab:sij-micro-channel-lab1}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_variance_channels_LAB_phase1.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Variance-channel decomposition of SIJ micromotion under LAB\textsubscript{2}.}
+\label{tab:sij-micro-channel-lab2}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_variance_channels_LAB_phase2.tex}
+\end{table}
+
+\begin{table}[!tbp]
+\centering
+\caption{Variance-channel decomposition of SIJ micromotion under LAB\textsubscript{3}.}
+\label{tab:sij-micro-channel-lab3}
+\StdTableFont
+\StdTableInput{../../analysis_outputs/sij_micromotion/sij_micromotion_variance_channels_LAB_phase3.tex}
+\end{table}
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth,height=0.77\textheight,keepaspectratio]{../../analysis_outputs/figures/sij_micromotion_dashboard.pdf}
+  \caption{\textbf{SIJ micromotion dashboard (population, precomputed kinematics).}
+  \textbf{(A)}~Load-case profile of SIJ global rotation and translation magnitudes (median with 10th--90th percentiles).
+  \textbf{(B)}~Directional translation deltas versus SP2 baseline, showing anisotropic rerouting across SP1 and LAB\textsubscript{1}--LAB\textsubscript{3}; SP2 is not plotted in this panel because $\Delta(\mathrm{SP2})\equiv 0$ by definition.
+  \textbf{(C--E)}~Sex baseline under LAB\textsubscript{1}--LAB\textsubscript{3} (female vs.\ male medians with 10th--90th percentile spread).
+  \textbf{(F--H)}~Swap vs.\ no-swap median contrasts under LAB\textsubscript{1}--LAB\textsubscript{3} for key SIJ outputs.
+  \textbf{(I)}~Spearman coupling of SIJ metrics to operating-point and tail metrics ($\rho$, with * marking $p<0.05$).
+  \textbf{(J)}~Variance-channel ratios under LAB\textsubscript{1}--LAB\textsubscript{3}: shape-only/full and material-only/full.
+  Together, the dashboard links SIJ-level motion anisotropy and tail-coupled operating states while confirming morphology-dominant between-subject SIJ variability in this cohort.}
+  \label{fig:sij-micromotion-dashboard}
+\end{figure}
+
+\paragraph{Mechanistic hypotheses and targeted tests.}
+The SIJ subanalysis suggests the following testable hypotheses in the context of this article:
+\begin{enumerate}[leftmargin=1.4em]
+\item \textbf{Directional rerouting hypothesis.}
+Parturition-like loading reorganizes SIJ motion directionality (CC $\downarrow$, ML $\uparrow$) rather than globally increasing SIJ mobility.
+Primary test: paired within-subject Wilcoxon + sign-balance on directional deltas (already positive in this cohort for ML and negative for CC).
+\item \textbf{Swap-as-marker hypothesis.}
+Swap in the 9--10 spectral block is not a global driver of SIJ hypermobility.
+After covariate adjustment, only AP SIJ translation retains a swap signal.
+Primary test: HC3 models with and without tail covariates, plus a sex$\times$swap interaction.
+\item \textbf{Operating-point mediation hypothesis.}
+$\mathrm{gap}_{\rm in}(9{-}10)$ influences SIJ translational amplitude, which then co-varies with upper-tail localization.
+Primary test: partial correlation / mediation models linking gap $\rightarrow$ SIJ metric $\rightarrow$ tail metric.
+\item \textbf{Channel-dominance hypothesis.}
+Subject-level SIJ kinematic variance is dominated by morphology.
+Material-only perturbations are second order for kinematic spread.
+Primary test: bootstrap confidence intervals for variance-channel ratios across load cases and SIJ components.
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\subsection{Material uncertainty propagation}
+\label{sec:uq-results}
+
+All preceding analyses hold material parameters fixed across the $N{=}278$ cohort.
+We now quantify, for each subject individually, how population-level material-property scatter propagates to the eigenvalue spectrum using an analytical first-order uncertainty framework applied to all three independent parameter groups: (i)~ligament stiffness and pretension (22~dimensions), (ii)~cartilage modulus (3~dimensions: SIJ left, SIJ right, pubic symphysis), and (iii)~bone density-law parameters (2~dimensions: prefactor~$\alpha$ and exponent~$\beta$ in the high-density branch of the piecewise Keller law $E=\alpha\rho_{\mathrm{ash}}^{\beta}$ for $\rho_{\mathrm{ash}} > 0.486$).
+For each group, the dimensionless Jacobian $J_j^{(m)}=(p_j/\lambda_m)\,\partial\lambda_m/\partial p_j$ is assembled from stored sensitivity arrays, and the eigenvalue variance in log-space is obtained analytically as $\mathrm{Var}(\log\lambda_m)=\mathbf{J}_m^T\,\Sigma\,\mathbf{J}_m$.
+Because the three groups are physically independent, total variance is additive.
+No additional finite-element solves are required.
+
+\paragraph{Ligament uncertainty model.}
+The 22~ligament inputs (11~stiffnesses + 11~pretensions) are parameterized via a hierarchical log-normal prior with three variance levels:
+(i)~a \emph{global laxity} factor shared by all bundles ($\sigma_{\text{global}}^{(k)}=0.25$, $\sigma_{\text{global}}^{(T)}=0.35$);
+(ii)~\emph{per-type residuals} ($\sigma_{\text{type}}^{(k)}=0.20$, $\sigma_{\text{type}}^{(T)}=0.25$); and
+(iii)~\emph{left--right asymmetry} ($\sigma_{\text{asym}}^{(k)}=0.10$, $\sigma_{\text{asym}}^{(T)}=0.12$).
+A cross-correlation $\rho_{kT}=0.50$ links stiffness and pretension at the global level.
+The resulting $22{\times}22$ covariance matrix implies per-bundle CoV~$\approx$~34\,\% (stiffness) and 46\,\% (pretension).
+
+\paragraph{Cartilage uncertainty model.}
+The three cartilage moduli (baseline $E=1.0$\,MPa for all regions) are similarly modelled hierarchically:
+a global factor ($\sigma_{\text{global}}=0.35$) representing overall cartilage compliance,
+a per-joint-type residual ($\sigma_{\text{type}}=0.25$) contrasting SIJ vs.\ symphysis, and
+an L/R asymmetry term ($\sigma_{\text{asym}}=0.10$) for the bilateral SIJ.
+This yields per-region CoV~$\approx$~53\,\% (SIJ) and 47\,\% (symphysis), bracketing the broad SIJ/symphysis cartilage modulus spread reported in pelvic FE and cadaveric literature \citep{Anderson2020,Calixte2022,Song2021}.
+
+\paragraph{Bone density-law uncertainty model.}
+The power-law parameters for the high-density branch ($\alpha=10\,200$, $\beta=2.0$, applied when $\rho_{\mathrm{ash}} > 0.486$) are assigned log-space uncertainties $\sigma_\alpha=0.30$ and $\sigma_\beta=0.20$ with cross-correlation $\rho_{\alpha\beta}=-0.40$ (reflecting the negative covariance between prefactor and exponent in published regression fits). The low-density branch ($E=2398.0$\,MPa) and the threshold are kept fixed.
+This spans published density--modulus calibrations from Carter \& Hayes (1977; modulus $\propto \rho^3$) through Morgan et al.\ (2003; site-dependent lower exponents), up to the present baseline \citep{CarterHayes1977,Morgan2003Trabecular}.
+
+\paragraph{Combined eigenvalue uncertainty.}
+Table~\ref{tab:material_uncertainty} and Figure~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-A} present the combined results.
+The total CoV of the eigenvalues is remarkably uniform across modes at 42--47\,\%, with minimal sex differences ($<$2 percentage points).
+This uniformity arises because the dominant parameter group---cartilage---contributes similarly to every mode.
+Figure~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-B} reveals the variance partition: \textbf{cartilage modulus accounts for 81--94\,\% of the total variance} across all modes and both sexes, ligament parameters contribute 1--16\,\% (peaking at mode~7, where the deformation strains the anterior SIJ complex), and bone density-law parameters contribute 0--18\,\% (growing for higher modes 11--14, where cortical bone regions carry more elastic energy).
+
+The overwhelming cartilage dominance has a clear physical explanation: cartilage modulus uncertainty is large ($\sim$50\,\% CoV, reflecting the poorly constrained material characterization of SIJ and symphysis cartilage) and these regions are highly compliant---even small fractional changes in modulus translate directly into large fractional eigenvalue changes.
+The dimensionless sensitivity $|(E_j/\lambda_m)\,\partial\lambda_m/\partial E_j|$ for individual cartilage-modulus parameters is large (median $\approx 0.34$), exceeding the corresponding per-bundle ligament stiffness sensitivities (median $\approx 0.01$) by more than an order of magnitude.
+Panel~(E; Fig.~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-E}) resolves this cartilage channel into SIJ-left, SIJ-right, and pubic-symphysis contributions and confirms that the dominant individual contributors remain cartilage parameters.
+
+\paragraph{Ligament-only results.}
+It is instructive to examine the ligament contribution in isolation (Table~\ref{tab:ligament_uncertainty}).
+Ligament-only CoV ranges from 3.5\,\% (mode~12) to 17.7\,\% (mode~7, female), with 72--87\,\% of the ligament variance explained by the global laxity factor.
+This internal hierarchy confirms that ligament noise predominantly \emph{shifts} the spectrum globally, preserving relative gaps.
+The ligament contribution peaks at mode~7 because the associated deformation pattern engages the anterior SIJ ligaments as the dominant restraint.
+
+\paragraph{Spectral gap robustness under combined uncertainty.}
+Figure~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-C} shows gap $Z$-scores under the combined material uncertainty.
+Because of the large cartilage-driven CoVs, \emph{no spectral gap achieves $Z > 2$} under the full uncertainty model---even the 10--11 gap, which was extremely robust under ligament-only analysis ($Z \approx 7.9$--$9.4$), now drops to $Z \approx 1.1$--$1.3$.
+This qualitative shift arises because the dominant cartilage contribution acts as a near-global scaling factor that increases both adjacent eigenvalues proportionally but also increases the absolute uncertainty bands, eroding the signal-to-noise ratio of every gap.
+
+However, the \emph{relative} gap hierarchy is preserved.
+The 9--10 gap remains the most fragile ($Z \approx 0.0$--$0.2$), pairs 4--5, 5--6, 12--13 remain near zero, and the major cluster boundaries (10--11, 1--2, 8--9) remain the most robust relative positions.
+The critical implication is that while cartilage modulus uncertainty increases the \emph{absolute} spectral noise floor, the near-degenerate \emph{architecture}---which clusters are fragile and which inter-cluster boundaries remain robust---is entirely determined by skeletal shape and bone density variation, not by cartilage parameterization.
+
+\paragraph{Bone density-law decomposition.}
+Figure~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-F} decomposes bone variance into $\alpha$ (prefactor) and $\beta$ (exponent) contributions.
+The exponent $\beta$ dominates in essentially all modes ($>$90\,\% of bone variance), because it enters the constitutive law nonlinearly ($E \propto \rho^{\beta}$) and modulates a spatially heterogeneous density field, whereas $\alpha$ acts as a global linear rescaling of bone stiffness.
+The negative cross-correlation ($\rho_{\alpha\beta}=-0.40$) partially cancels the two terms, keeping the total bone contribution moderate (0--18\,\%).
+This ranking is consistent with panel~(G; Fig.~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-G}), where top-5 marginal importance is led by cartilage-related terms.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/material_uncertainty_dashboard.pdf}
+  \caption{\textbf{Combined material uncertainty propagation across the population.}
+  \textbf{(A)}~Total eigenvalue CoV (\%) by sex.
+  \textbf{(B)}~Variance decomposition by material group: ligament (blue), cartilage (orange), bone density law (green).
+  \textbf{(C)}~Gap $Z$-scores under combined uncertainty: bars = mean, triangles = 10th percentile.
+  \textbf{(D)}~Ligament internal hierarchy (global, per-type, L/R asymmetry).
+  \textbf{(E)}~Cartilage per-region importance (SIJ left, SIJ right, pubic symphysis).
+  \textbf{(F)}~Bone $\alpha$ vs.\ $\beta$ variance decomposition.
+  \textbf{(G)}~Top-5 individual parameter importance (population-average marginal variance).
+  All results are obtained analytically from stored finite-element sensitivity arrays.}
+  \label{fig:material-uq-dashboard}
+  \begingroup
+  \renewcommand{\thefigpanel}{\Alph{figpanel}}
+  \setcounter{figpanel}{0}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-A}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-B}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-C}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-D}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-E}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-F}
+  \refstepcounter{figpanel}\label{fig:material-uq-dashboard-G}
+  \endgroup
+\end{figure}
+
+% ------------------------------------------------------------------
+\subsection{Allometric scaling: body-size effects on the eigenvalue spectrum}
+\label{sec:allometry}
+
+All preceding spectral analyses are performed on size-normalized geometries: the registration pipeline maps each pelvis onto a common template, factoring out absolute body scale and isolating shape and bone-density variation.
+However, the underlying allometric data are available.
+Process\-ing of raw meshes yields, for each of the $N{=}278$ subjects, an isotropic scaling factor $s$ (cube root of total-volume ratio to the template), together with per-body volumes, surface areas, masses, and effective densities (Table~\ref{tab:allometry-summary}).
+
+\paragraph{Eigenvalue scaling exponents.}
+We estimate, for each mode $k$, the log--log scaling law $\log\lambda_k = \beta_{\rm scale}^{(k)}\log s + \gamma^{(k)}\mathbf{1}_{\rm female} + \varepsilon$ via instrumental-variable 2SLS (instruments: total volume, total surface, template-geometry mass; heteroskedasticity-robust standard errors).
+All 15 scaling exponents are highly significant ($p_{\rm FDR} < 10^{-9}$; Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-A}, Table~\ref{tab:allometry-summary}).
+Exponents range from $\beta \approx -1.4$ to $-2.4$, bracketing the classical $\lambda \propto L^{-2}$ dimensional prediction but showing strong mode dependence:
+higher-order modes (especially 4, 7, 8, 10) are more sensitive to body size, consistent with the finer spatial wavelengths being more strongly penalized by scale change.
+An interquartile shift in log-scale changes individual eigenvalues by 10--17\,\% (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-A}, right axis).
+
+\paragraph{Variance decomposition.}
+A Shapley (LMG) $R^2$ decomposition into four predictor groups---scale, sex, shape, material---reveals that scale explains 13--55\,\% of eigenvalue variance (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-B}), with a median of $\approx$30\,\%.
+Shape variation dominates for most modes (33--78\,\%), while sex and material separately contribute 1--9\,\% and 1--37\,\%, respectively.
+Notably, the scale contribution increases for modes whose scaling exponent departs most from the mean (modes 7 and 15), suggesting that body-size effects are mode-specific and cannot be captured by a single global factor.
+
+\paragraph{Body size and mode swapping.}
+One striking finding is the sex-stratified relationship between body size and the probability of mode swap at the 9--10 near-degenerate pair.
+A logistic model $P(\mathrm{swap}_{9{\text{-}}10}) \sim s$ shows that swap probability increases markedly with pelvic scale (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-C}).
+Male subjects---who have smaller spectral gaps at 9--10 (median $\mathrm{gap}_{\rm in}^{(M)} < \mathrm{gap}_{\rm in}^{(F)}$, $p = 1.49\times 10^{-6}$)---swap at substantially higher rates ($\approx$47.7\,\% vs.\ $\approx$8.7\,\% for females).
+The spectral gap itself shows a moderate but significant association with scale (Spearman $\rho$, Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-D}), indicating that body size modulates spectral fragility.
+
+\paragraph{SIJ mechanics and energy routing.}
+SIJ micromotion across LAB phases shows clear monotonic scale dependence: rotation and translational amplitudes correlate with isotropic scale (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-E}).
+Energy-fraction sensitivities (percent-point change per IQR of log-scale) are largest for low-rank dominant modes and decrease for higher modes (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-F}).
+The scale effect on load routing is load-case dependent: standing loads show larger scale sensitivity in modes 1--3, while LAB phases redistribute scale effects towards modes 9--10, consistent with the parturition routing trade-off.
+
+\begin{figure}[!tbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analysis_outputs/figures/allometry_dashboard.pdf}
+  \caption{\textbf{Allometric body-size scaling of the pelvic eigenvalue spectrum.}
+  \textbf{(A)}~Scaling exponents $\beta_{\rm scale}$ per mode from IV-2SLS regression of $\log\lambda$ on $\log s$ (isotropic scale); bars = point estimate, whiskers = 95\,\% CI, stars = FDR$<$0.05, dashed line = classical $\lambda\propto L^{-2}$.
+  \textbf{(B)}~Shapley/LMG $R^2$ decomposition: share of eigenvalue variance explained by scale (purple), sex (teal), shape (orange), and material (blue).
+  \textbf{(C)}~Mode 9--10 swap probability vs.\ isotropic scale, sex-stratified; curve = logistic fit.
+  \textbf{(D)}~Relative spectral gap$_{\rm in}$(9--10) vs.\ scale with LOWESS trend; sex coded by color/marker.
+  \textbf{(E)}~SIJ rotation magnitude across LAB phases vs.\ body size.
+  \textbf{(F)}~Energy-fraction sensitivity (pp per IQR of log-scale) across five load cases.}
+  \label{fig:allometry-dashboard}
+  \begingroup
+  \renewcommand{\thefigpanel}{\Alph{figpanel}}
+  \setcounter{figpanel}{0}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-A}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-B}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-C}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-D}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-E}
+  \refstepcounter{figpanel}\label{fig:allometry-dashboard-F}
+  \endgroup
+\end{figure}
+
+\input{../../analysis_outputs/tables/allometry_summary.tex}
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection*{The pelvis as a spectrally fragile structure}
+The central finding of this work is that shape and bone-density variability---with identical ligament and cartilage parameterization across all 278 subjects---suffice to produce widespread eigenmode identity exchange among near-degenerate eigenpairs.
+This is not a marginal effect: nearly 55\% of the cohort exhibits near-degenerate clustering at rank modes~9--10, and more than 40\% at the broader 12--15 block (Table~\ref{tab:clusters}, Fig.~\ref{fig:spectral-dashboard}).
+The human pelvic ring, as analyzed in the linear regime, inhabits a \emph{spectrally fragile} region of parameter space, where population-level morphological scatter routinely crosses the narrow gaps separating neighbouring eigenvalue branches.
+
+At the same time, the gap-separated low-rank rotational backbone (modes~1--3; swap rate $<0.4\%$, Fig.~\ref{fig:spectral-dashboard}) remains population-stable, indicating that pelvic mechanics combines robust low-dimensional pathways with sensitive, cluster-dominated directions.
+More broadly, low-dimensional robust organization is a recurring biological motif, from general notions of biological robustness \citep{Kitano2004} to modular/synergy structure in locomotor and postural coordination \citep{Gizzi2011,Ting2012}.
+
+\subsection*{Implications for biomechanical modelling}
+This spectral fragility has immediate practical consequences.
+First, it means that the common practice of analysing ``the $k$-th eigenmode'' across subjects---prevalent in population-level FE studies \citep{Anderson2020,Yang2020,Song2021}---is unreliable for the higher modes identified here: what the solver labels mode~9 in one subject may be mode~10 in another, and the two carry different mechanical character (inlet-opening vs.\ asymmetric pubic deformation; Fig.~\ref{fig:modes-atlas}).
+Cross-subject comparison must be performed at the \emph{subspace} level---using Grassmann distances, canonical diameter projections, or other basis-invariant descriptors---rather than at the individual-mode level.
+
+Second, the operationalized framework introduced here (gap-based clustering, subspace tracking via principal angles/Grassmann distance, canonical diameter functionals for both inlet and outlet) provides a reproducible methodology for quantifying spectral variability in biological structures that is applicable beyond the pelvis---for example, to the vertebral column, the cranial vault, or the long-bone diaphysis---wherever morphological scatter may approach the scale of spectral gaps.
+
+Third, the near-degenerate blocks (especially rank modes~9--10, 5--6, and 12--15) imply that sensitivity analyses based on mode-by-mode perturbation can yield misleading conclusions if they do not account for the possibility that a perturbation crosses a spectral tipping point and transforms the mode's identity entirely \citep{Pierre1988,Chen2019Veering}.
+The appropriate sensitivity object is the subspace spanned by the near-degenerate cluster, not the individual eigenvector.
+
+\subsection*{Connection to the toy model and physical interpretation}
+The 2-DOF toy model (Sec.~\ref{sec:2dof}) provides a qualitative interpretive framework: the ratio $|\Delta|/|c|$ serves as a conceptual index of proximity to the avoided-crossing point, although neither~$\Delta$ nor~$c$ is measured directly in the numerical model.
+In the cohort, morphological parameters (inlet diameter, iliac flare, sacral curvature) can be viewed as moving subjects through a near-degenerate design space in which detuning-like and coupling-like effects may co-vary.
+Accordingly, $\mathrm{gap}_{\rm in}$ and subspace-rotation metrics provide qualitative veering-like indicators rather than direct estimates of the toy-model parameters $(\Delta,c)$; the morphology-axis permutation null test (Sec.~\ref{sec:robustness}) suggests that any localization of exchange along a single anatomical axis is subtle \citep{Ruff2017,Betti2020,Weber2019,Whitcome2017}.
+The 3-DOF Schur-complement extension (Sec.~\ref{sec:3dof}) demonstrates that hidden compliance pathways---such as SIJ cartilage flexibility or out-of-plane cortical thinning---can shift the effective $(\Delta^{\mathrm{eff}}, c^{\mathrm{eff}})$ toward the near-degenerate regime, even when the ``bare'' two-mode parameters would predict stable ordering.
+This mechanism may explain why the rank~12--15 block, which involves more complex deformation patterns engaging multiple anatomical regions simultaneously, exhibits the richest mixing behavior.
+The mapping from the $n$-DOF numerical framework back to the analytical 2-DOF picture---cluster $\leftrightarrow\{q_1,q_2\}$, canonical basis $\leftrightarrow$ rotated eigenvectors, $\mathrm{gap}_{\rm in}\leftrightarrow (\lambda_+-\lambda_-)/\lambda_-$---provides practitioners with an intuitive guideline for interpreting high-dimensional spectral data.
+
+\subsection*{Sex dimorphism in spectral structure}
+The sex differences documented here are among the largest effect sizes in the analysis.
+The Grassmann distance at rank~9--10 ($r_{rb} = 0.86$) indicates that female subspace orientation at this mode pair is far more variable than male.
+Paradoxically, females also cluster at \emph{wider} spectral gaps (Sec.~\ref{sec:tradeoff}, Fig.~\ref{fig:tradeoff}\ref{fig:tradeoff-A}).
+In the toy-model analogy, observing wider gaps together with larger subspace rotations suggests that detuning-like and coupling-like effects may co-vary across subjects rather than vary independently.
+One hypothesis is that inlet-related shape variation modulates both coupling-like mixing and detuning-like asymmetry through multiple compliance pathways; however, $\mathrm{gap}_{\rm in}$ and $d_G$ do not uniquely map to the toy-model parameters $(\Delta,c)$, so this remains a qualitative interpretation.
+Meanwhile, males exhibit higher per-subject swap counts (Fig.~\ref{fig:sex-age}\ref{fig:sex-age-e}) and higher swap rates at several mid/high modes (Fig.~\ref{fig:sex-age}\ref{fig:sex-age-d}), suggesting that male spectral fragility, while broader, may be less concentrated at a single critical pair.
+
+Whether this spectral fragility reflects an evolutionary constraint---the ``obstetrical dilemma'' balancing locomotor efficiency against birth-canal dimensions \citep{Washburn1960,Whitcome2017}---or simply a geometric consequence of pelvic shape dimorphism remains an open question.
+What the spectral data show unambiguously is that the female pelvis has larger \emph{subspace-orientation} variability at rank~9--10, whereas males carry a higher burden of discrete mode-label exchange across the spectrum.
+Critically, the trade-off analysis (Fig.~\ref{fig:tradeoff}) indicates that the female-biased 9--10 signal is therefore better described as a rotation of the near-degenerate subspace, with only moderate swap-related functional modulation: AP-inlet coupling shifts moderately with swap status, while block LAB throughput varies continuously with inlet morphology.
+Mechanically, this indicates that---at the normalized scale studied here---the obstetrically relevant rank~9--10 deformation family remains robust at the subspace level, even though its amplitude is tuned by operating point; for LAB$_1$, the strongest throughput-locking predictor is outlet coupling rather than inlet coupling (Sec.~\ref{sec:tradeoff}). Whether this robustness persists across the full un-normalized size distribution has not been directly tested (see Sec.~\ref{sec:allometry}).
+In contrast, the rank~5--6 near-degenerate pair---which couples most strongly to the pelvic outlet (biischiadic canonical score: median~0.92\,mm/mm)---also shows significant sex dimorphism in subspace rotation ($r_{rb} = -0.63$; males larger), indicating that outlet-level spectral fragility is also modulated by sex, though less strongly than rank~9--10.
+
+\subsection*{Anatomical meaning of the near-degenerate modes 9 and 10}
+While the spectral gap analysis provides a rigorous mathematical framework for identifying mode swapping, the biological significance of this phenomenon lies in the physical deformation patterns these modes represent.
+Mode~9 typically characterizes a symmetric opening of the pelvic ring (bilateral nutation/counternutation and pubic symphysis distraction), a motion relevant to birth-canal expansion during parturition \citep{Whitcome2017,BiomechPregnancy2022}.
+In contrast, Mode~10 often represents an asymmetric, torsional deformation of the pelvis (e.g., unilateral iliac flaring or out-of-plane twisting), consistent with known sex- and shape-related pelvic asymmetry channels \citep{Ruff2017,Weiss2020}.
+When morphological variation causes these modes to swap---making the asymmetric Mode~10 more compliant (lower eigenvalue) than the symmetric Mode~9---the pelvis's primary available compliance pathway shifts.
+At the cohort level, swap status is associated with substantially lower upper-tail strain energy density ($P99(w)$ median reduced by $\approx 41\%$; Sec.~\ref{sec:upper-tail-results}), but this raw association is heavily confounded by sex and spectral operating point.
+In covariate-matched males ($N=36$ pairs), the paired swap effect is negative but weak (Wilcoxon $p=0.441$, rank-biserial $-0.15$; Fig.~\ref{fig:tail-matched-males}), and bootstrap uncertainty on the median paired difference spans zero; a continuous within-block routing variable ($E_9/(E_9{+}E_{10})$) also renders swap non-informative when both are included in the same model (Fig.~\ref{fig:tail-mechanism-bone}).
+Thus, swap is best understood as a discrete marker of a particular spectral routing regime, not as a causal mechanism that reduces mechanical extremes.
+The SIJ micromotion analysis (Sec.~\ref{sec:sij-micromotion-results}) reinforces this interpretation: after covariate adjustment, swap shows no significant association with global SIJ rotation or translation magnitudes ($p>0.47$), retaining only a moderate AP-translation signal ($p=0.019$).
+
+\subsection*{Allometric scaling and the size--fragility nexus}
+The allometric analysis (Sec.~\ref{sec:allometry}) demonstrates that body size is not merely a confound to be normalized away but an active modulator of spectral structure.
+Eigenvalue scaling exponents range from $-1.4$ to $-2.4$, spanning and overshooting the classical $\lambda \propto L^{-2}$ prediction from dimensional analysis; the mode dependence reflects the distinct spatial wavelengths and strain-energy distributions of each eigenmode.
+Critically, body size is entangled with mode-swap probability: the logistic model in Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-C} shows that larger pelves are more likely to exhibit a 9--10 swap, with the sex-stratified rates (males $\approx$47.7\,\%, females $\approx$8.7\,\%) driven in part by the joint distribution of size, inlet geometry, and spectral gap.
+However, while absolute size modulates the \emph{probability} of encountering a mode swap, whether body size also modulates the \emph{magnitude} of the swap-associated tail reduction has not been tested directly: the tail-risk analysis (Sec.~\ref{sec:upper-tail-results}) is conducted on size-normalized geometries, and the allometric recovery does not yet include an interaction between scale and swap status.
+From a variance-decomposition perspective (Fig.~\ref{fig:allometry-dashboard}\ref{fig:allometry-dashboard-B}), scale accounts for more than half the eigenvalue variance in some modes (up to 55\%), yet shape variation remains dominant overall---indicating that the registration pipeline successfully isolates the shape-driven spectral phenomena while the post-hoc allometric recovery quantifies the residual size channel.
+These findings are consistent with prior biomechanics literature linking density/architecture to stiffness scaling \citep{Frost1987,Huiskes1987} and confirm that a full predictive model of un-normalized pelvic spectral structure would need to account for both shape-at-fixed-scale and scale-driven effects with mode-specific exponents.
+
+\subsection*{Upper-tail extremes, redundancy, and within-subspace adaptivity}
+The upper-tail analyses (Sec.~\ref{sec:upper-tail-results}) extend this subspace-level picture from kinematic interpretation and energy fractions to \emph{localized mechanical extremes}.
+In bone under LAB, subjects with a 9--10 swap exhibit substantially lower SED tails (Fig.~\ref{fig:tail-swap-bone}; median $P99(w)$ reduced by $\approx 41\%$), with a large unadjusted effect size (Cliff's $\delta \approx 0.57$, $p \approx 4.3\times10^{-13}$; Table~\ref{tab:tail-swap-bone}), but much of this separation reflects sex and operating-point covariates.
+In adjusted regression the residual swap coefficient is smaller ($\approx -0.039$ in $\log_{10}$ units, i.e.\ $\sim$9\% change; Fig.~\ref{fig:tail-sex-bone}), and within covariate-matched males ($N=36$ pairs) the paired effect is negative but weak (Wilcoxon $p=0.441$, rank-biserial $-0.15$; Fig.~\ref{fig:tail-matched-males}) with bootstrap uncertainty on the median paired difference spanning zero.
+These controls motivate a cautious interpretation: swap does not \emph{cause} tail reduction; rather, it is a cohort-level marker of a particular spectral routing regime.
+
+Importantly, a continuous within-block routing variable---the energy partition $E_9/(E_9+E_{10})$ under LAB$_1$---is strongly associated with upper-tail localization (Fig.~\ref{fig:tail-mechanism-bone}) and renders swap non-informative when both are included in the same model.
+Together with the trade-off pattern in Fig.~\ref{fig:tradeoff} (small swap effect on AP coupling and phase-specific morphology dependence of block LAB fractions), this supports a \emph{block-level robustness with within-block routing variability} interpretation: the $\{9,10\}$ subspace remains functionally interpretable as an inlet-opening channel at the subspace level, while the internal routing within the block modulates the degree of strain-energy localization under aggregated LAB loading.
+A plausible mechanical explanation is redundancy/load-sharing: near-degenerate eigenvectors provide two comparably compliant pathways through which deformation and energy can be redistributed, and subjects in such operating points are \emph{associated} with lower hot-spot severity, consistent with general robustness-by-redundancy arguments in biological systems \citep{Kitano2004}.
+We note that ligament strain is not modelled directly in this study; all upper-tail metrics refer to bone strain-energy density.
+
+\subsection*{Identifiability versus reliability and the role of operating point}
+The operating-point analyses (Fig.~\ref{fig:tail-operating-bone}) suggest an identifiability--reliability distinction.
+Larger $\mathrm{gap}_{\rm in}(9{-}10)$ (greater eigenvalue separation, hence higher mode identifiability) does not guarantee reduced upper-tail extremes; within females, $\mathrm{gap}_{\rm in}(9{-}10)$ correlates positively with $\log_{10}P99(w)$, and the sign of the $d_G(9{-}10)$ association flips between males and females.
+These opposite-sign relationships imply that males and females occupy different regions of the near-degenerate design space, consistent with multi-objective constraints in which functional requirements (inlet opening) and extreme-localization suppression trade off differently across sexes and across operating points \citep{Whitcome2017,Washburn1960}.
+Using an explicit LAB output proxy $\Delta D_{\mathrm{ML}}$ extracted from the static displacement field, we find a strong within-sex function--tail association and show that routing ratio remains significant in normalized models within each sex (Fig.~\ref{fig:function-tail-mediation}, Table~\ref{tab:function-tail-mediation}).
+A remaining priority is to extend this analysis across additional anatomical functionals and to test whether the same coupling persists under nonlinear/pre-stressed configurations.
+
+The function-locking analysis (Table~\ref{tab:fli}) clarifies why the sex-dimorphic trade-off concentrates at rank~9--10 and does not appear at every cluster.
+Three distinct mechanisms prevent the remaining clusters from exhibiting the same phenomenon.
+Some clusters operate in a ``weak exchange'' regime (e.g.\ rank~5--6 and 12--13), so eigenvalue branches approach but do not enter a clean two-mode veering-like exchange regime that would enable identity exchange.
+Others are embedded in higher-dimensional mixing blocks (e.g.\ 12--15), where subspace-level interpretation remains possible but two-mode swapping is not the relevant instability.
+Finally, several clusters have low throughput in LAB$_1$ and LAB$_3$ ($\bar f_C<8\%$ for many entries; Table~\ref{tab:fli}), rendering even statistically detectable coupling mechanically moderate in those phases.
+Thus, the rank~9--10 cluster is uniquely high-throughput in LAB$_1$ (median $\bar f_C=0.529$) while also showing the strongest two-mode veering-like exchange signature in the cohort and a large sex effect on subspace orientation ($r_{rb} = 0.86$).
+Other clusters can dominate specific phases (e.g., rank modes~5--6 in LAB$_2$), underscoring phase-dependent routing within the broader LAB$_1$--LAB$_3$ family.
+
+\subsection*{Material-property robustness: what soft-tissue and bone uncertainty does---and does not---change}
+A natural concern is whether the fixed material parameterization artificially creates (or masks) the near-degenerate phenomena documented above.
+The combined first-order uncertainty propagation (Sec.~\ref{sec:uq-results}, Tables~\ref{tab:material_uncertainty}--\ref{tab:ligament_uncertainty}) provides a layered answer.
+
+\emph{Cartilage dominates the total noise budget.}
+Across all modes, cartilage modulus uncertainty accounts for 81--94\,\% of the total eigenvalue variance (Fig.~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-B}), reflecting the large inherent scatter in SIJ and symphysis cartilage characterization (literature range 0.2--10\,MPa) and the high dimensionless sensitivity of eigenmodes to these compliant regions.
+Ligaments contribute only 1--16\,\%, with the peak at mode~7 (anterior SIJ engagement), while bone density-law uncertainty contributes 0--18\,\%, growing at higher modes (11--14) where cortical bone carries more elastic energy.
+
+\emph{Large absolute uncertainty, but preserved gap architecture.}
+The combined CoV of 42--47\,\% per mode is substantially larger than the ligament-only CoV (3--18\,\%), and no spectral gap achieves $Z > 2$ under the full model---even the formerly robust 10--11 boundary drops to $Z \approx 1.1$--$1.3$.
+However, the \emph{relative} gap hierarchy is strictly preserved: the 9--10 gap remains most fragile ($Z \approx 0$), pairs 4--5, 5--6, 12--13 cluster near zero, and boundaries 10--11, 1--2, 8--9 remain the relatively most robust.
+This is because the dominant cartilage contribution acts as an approximately global noise floor that raises all uncertainty bands proportionally, without introducing differential mode-specific perturbations that would reorganize the gap pattern.
+
+\emph{Spectral architecture is skeleton-driven.}
+The conclusions drawn from the skeletal-variation analysis (Sec.~\ref{sec:spectral-gaps-results}) therefore stand: which clusters are fragile and which inter-cluster boundaries remain robust is determined by pelvic shape and bone-density variation, not by cartilage or ligament parameterization.
+Material noise is expected to amplify the \emph{rate} of mode-identity exchange within already-fragile clusters, consistent with perturbation sensitivity in veering-prone systems \citep{Pierre1988,Chen2019Veering}; within our first-order uncertainty propagation we do not find evidence that material scatter alone creates new near-degenerate clusters.
+
+\emph{Ligament-only analysis provides mechanistic detail.}
+Examining ligament uncertainty in isolation (Table~\ref{tab:ligament_uncertainty}, Fig.~\ref{fig:material-uq-dashboard}\ref{fig:material-uq-dashboard-D}) reveals a clean internal hierarchy: the global laxity factor explains 72--87\,\% of ligament variance, confirming that ligament noise predominantly \emph{shifts} the spectrum globally.
+The gap $Z$-score taxonomy under ligament-only uncertainty is substantially more favorable ($Z_{10{\to}11} \approx 7.9$--9.4), and the individual ligament decomposition provides mode-specific physical insight (Table~\ref{tab:ligament-dominance}): mode~1 is governed by posterior SIJ ligaments (83--88\,\%), mode~7 by anterior SIJ ligaments ($\approx$91--95\,\%), and the critical inlet-opening mode~9 is dominated by the pubic symphysis (45--63\,\%), with a notable sex difference reflecting the wider female inlet.
+
+\emph{Practical implication.}
+In a modelling context where ligament properties are calibrated against experimental data and cartilage modulus uncertainty is reduced (e.g., through subject-specific MRI-based estimation), the effective CoV would drop substantially, recovering the favorable gap-robustness picture shown by the ligament-only analysis.
+Conversely, when cartilage parameters are poorly constrained, the large material noise floor should motivate subspace-level rather than mode-by-mode analysis---precisely the framework advocated throughout this work.
+
+\subsection*{Limitations}
+Several limitations should be noted.
+First, all analyses are strictly \emph{linear}: we solve the small-strain eigenproblem and do not account for geometric or material nonlinearities that arise under physiological loads.
+This is particularly relevant for LAB, which we implement as a static bilateral-traction proxy with prescribed total resultants. 
+Childbirth is an inherently nonlinear, large-deformation process involving complex contact mechanics between the fetal head and the pelvic canal, as well as significant viscoelastic yielding of the pelvic ligaments \citep{BiomechPregnancy2022,ChenGrimm2021,Almeida2024Uterus,Vleeming2012}. 
+Consequently, our linear eigenstiffness approach does not simulate the full passage of the fetus. 
+Instead, it quantifies the \emph{initial structural stability} and the primary compliance pathways of the unloaded pelvis. 
+This approach is biomechanically justified because the initial tangent stiffness dictates the path of least resistance during the early stages of loading, thereby determining which deformation modes are most readily recruited before nonlinear stiffening occurs \citep{BonetWood1997}. 
+How these near-degenerate clusters behave under finite deformation and pre-stress remains an open question.
+In addition, swap is a discrete marker of an operating/routing regime; associations with upper-tail metrics are observational and can be confounded; SIJ micromotion is a kinematic proxy and ligament strains are not modeled directly.
+Second, material parameters (ligaments, cartilage, bone density law) are held \emph{fixed} across all subjects.
+The combined first-order uncertainty propagation (Sec.~\ref{sec:uq-results}) shows that total eigenvalue CoVs of 42--47\,\% arise under plausible material scatter, dominated by cartilage modulus uncertainty (81--94\,\% of variance).
+However, the \emph{relative} gap architecture is preserved: which clusters are fragile and which inter-cluster boundaries remain robust is determined by skeletal geometry, not by material parameterization.
+Under ligament-only uncertainty (Table~\ref{tab:ligament_uncertainty}), CoV drops to 3--18\,\% with inter-cluster gaps robust at $Z > 4$, indicating that reducing cartilage uncertainty through subject-specific estimation would substantially improve per-mode identifiability.
+Third, the registration pipeline normalizes pelvis \emph{size}, so the main spectral analyses are conducted at fixed scale.
+Allometric effects are, however, recovered post-hoc (Sec.~\ref{sec:allometry}): isotropic-scale regression shows that body size explains 13--55\,\% of eigenvalue variance with mode-dependent scaling exponents ($\beta \approx -1.4$ to $-2.4$), and that scale modulates both mode-swap probabilities and spectral gap structure.
+These results complement the shape- and density-based findings but do not yet account for the full nonlinear interaction between size and morphological covariates; in particular, whether the routing phenomena documented in the preceding sections persist at comparable magnitude under the full un-normalized size distribution remains untested.
+Finally, the cohort comprises clinical CT scans with a mean age of 54~yr, which may over-represent older adults relative to the general population; whether younger cohorts show qualitatively different near-degenerate patterns remains to be determined.
+
+% ============================================================
+\section*{Future work}
+The spectral fragility documented here opens several avenues for further investigation.
+
+\emph{Material variability:} the first-order uncertainty propagation (Sec.~\ref{sec:uq-results}) reveals that cartilage modulus uncertainty dominates the total eigenvalue noise budget (81--94\,\%), with ligament uncertainty providing mode-specific mechanistic detail and bone density-law parameters contributing moderately at higher modes.
+The combined analysis shows that the relative gap architecture is preserved despite large total CoVs, but absolute gap robustness is substantially weaker than under ligament-only analysis.
+Subject-specific estimation of cartilage modulus (e.g.\ via delayed gadolinium-enhanced MRI of cartilage---dGEMRIC) would be the single most impactful experimental refinement \citep{Bashir1997dGEMRIC}.
+Full nonlinear Monte Carlo sweeps are needed to map the exact topology of mode exchange under large material variation, to test whether entirely new near-degenerate clusters emerge, and to quantify the interaction between skeletal and material variability channels.
+
+\emph{Functional output and upper-tail trade-offs:} we compute an explicit LAB output proxy as an inlet transverse (ML) diameter change $\Delta D_{\mathrm{ML}}$ extracted from the LAB static displacement field and show within-sex normalized models in which routing ratio remains associated with upper-tail localization (Table~\ref{tab:function-tail-mediation}), consistent with routing variables carrying information beyond a single scalar output magnitude.
+A remaining priority is to extend this analysis across additional anatomical functionals (inlet/outlet and distributed patch-wise measures) and across nonlinear/pre-stressed configurations.
+
+\emph{Parametric continuation:} replacing the discrete cohort with a continuous parametric sweep along morphology axes (AP diameter, sacral curvature, iliac flare) would enable formal verification of veering-like avoided-crossing signatures versus true crossings in the continuous limit and identification of the precise critical parameter values at which mode identity exchange occurs.
+
+\emph{Nonlinear extension:} solving the eigenproblem on pre-stressed configurations (standing, single-leg stance, LAB loading) would reveal how load-dependent geometric stiffness reshapes the near-degenerate landscape, potentially opening or closing the spectral gaps documented here and connecting eigenstructure directly to functional loading scenarios.
+
+% ============================================================
+% Supplementary table: combined material uncertainty propagation
+% ============================================================
+\input{../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex}
+
+% ============================================================
+% Supplementary table: ligament uncertainty propagation
+% ============================================================
+\input{../../analysis_outputs/ligament_uncertainty/ligament_uncertainty_table.tex}
+
+% ============================================================
+\begin{table}[!tbp]
+\centering
+\caption{Ligament-only uncertainty: dominant ligament-group relative importance for selected modes.
+Values are the sex-stratified mean relative importance (\%) of the dominant ligament group in the ligament-only variance decomposition (sum of left/right groups where applicable).}
+\label{tab:ligament-dominance}
+\StdTableFont
+\begin{tabular}{lcc}
+\toprule
+Mode & Female dominant group (importance) & Male dominant group (importance) \\
+\midrule
+1 & Posterior SIJ ligaments (83.0\,\%) & Posterior SIJ ligaments (87.7\,\%) \\
+7 & Anterior SIJ ligaments (95.4\,\%) & Anterior SIJ ligaments (90.9\,\%) \\
+9 & Pubic symphysis (44.9\,\%) & Pubic symphysis (62.6\,\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section*{Appendix A: small-$c$ expansion and sensitivities}
+\label{app:expansion}
+For $|c|\ll |\Delta|$,
+\begin{equation}
+\lambda_{\pm}=\frac{k_1+k_2}{2}\ \pm\ \left(\frac{|\Delta|}{2}+\frac{c^2}{|\Delta|}+\mathcal{O}\!\left(\frac{c^4}{|\Delta|^3}\right)\right),\qquad
+\theta\approx \frac{c}{\Delta}.
+\end{equation}
+Eigenvalue sensitivities:
+\begin{equation}
+\frac{\partial \lambda_{\pm}}{\partial k_1}=\frac12\left(1\pm \frac{\Delta}{2\sqrt{(\Delta/2)^2+c^2}}\right),\quad
+\frac{\partial \lambda_{\pm}}{\partial c}=\pm \frac{c}{\sqrt{(\Delta/2)^2+c^2}}.
+\end{equation}
+
+\newpage
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

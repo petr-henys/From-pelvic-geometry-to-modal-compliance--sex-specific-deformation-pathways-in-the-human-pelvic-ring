@@ -79,9 +79,11 @@ def compute_sep_out(
     cluster_start: int,
     cluster_end: int,
 ) -> np.ndarray:
-    """Out-separation for cluster [start, end) across subjects."""
+    """Two-sided separation for [start, end); NaN at truncated boundaries."""
     n_subj, n_modes = eigenvalues.shape
     sep = np.full(n_subj, np.nan)
+    if cluster_start == 0 or cluster_end == n_modes:
+        return sep
     for s in range(n_subj):
         vals = []
         if cluster_start > 0:
@@ -812,17 +814,15 @@ def canonical_basis_in_subspace(
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Canonical inlet basis inside subspace Q.
 
-    When *M* is provided, projections use the M-inner product:
-    c = Q^T M b  (Q must be M-orthonormal).
+    Measurement vectors are covectors: the observable is b.T @ u.
+    Thus its restriction to the M-orthonormal basis Q is Q.T @ b,
+    not Q.T @ M @ b. M is retained for API compatibility; it enters
+    only the construction of Q, never the covector restriction.
 
     Returns (ψ1, ψ2, singular_values).
     """
-    if M is not None:
-        c_ap = Q.T @ (M @ b_ap)
-        c_ml = Q.T @ (M @ b_ml)
-    else:
-        c_ap = Q.T @ b_ap
-        c_ml = Q.T @ b_ml
+    c_ap = Q.T @ b_ap
+    c_ml = Q.T @ b_ml
     C = np.column_stack([c_ap, c_ml])
     U, sigmas, _ = np.linalg.svd(C, full_matrices=False)
     psi1 = Q @ U[:, 0]
@@ -894,10 +894,7 @@ def single_functional_coupling(
     the observable is projected into the subspace and normalized to obtain the
     unique direction in ``Q`` that maximizes that scalar functional.
     """
-    if M is not None:
-        c = Q.T @ (M @ b_vec)
-    else:
-        c = Q.T @ b_vec
+    c = Q.T @ b_vec
     sigma = float(np.linalg.norm(c))
     if sigma <= 1e-12:
         return np.nan, np.zeros(Q.shape[0], dtype=float), 0.0
@@ -1140,12 +1137,13 @@ def cohort_bootstrap_robustness(
     target_clusters: list[tuple[int, int]],
     *,
     n_boot: int = 500,
-    subsample_frac: float = 0.8,
+    subsample_frac: float = 1.0,
     seed: int = 42,
+    threshold_percentile: float | None = None,
 ) -> dict:
-    """Bootstrap resampling test: verify key metrics are stable under cohort subsampling.
+    """Subject bootstrap: verify key metrics are stable under cohort subsampling.
 
-    Repeatedly draws ``subsample_frac`` of subjects (without replacement) and
+    Repeatedly draws ``subsample_frac`` of subjects with replacement and
     recomputes cluster prevalence, per-mode swap rates, and median gap_in for
     each target cluster.
 
@@ -1197,11 +1195,13 @@ def cohort_bootstrap_robustness(
     boot_med_gaps = np.empty((n_boot, n_modes - 1))
 
     for b in range(n_boot):
-        idx = rng.choice(n_subj, size=n_draw, replace=False)
+        idx = rng.choice(n_subj, size=n_draw, replace=True)
         ev_b = eigenvalues[idx]
         perm_b = perm_rank_to_ref[idx]
 
-        cl_b = detect_clusters(ev_b, eps_in)
+        threshold_b = (float(np.nanpercentile(compute_gap_in(ev_b), threshold_percentile))
+                       if threshold_percentile is not None else eps_in)
+        cl_b = detect_clusters(ev_b, threshold_b)
         for cs, ce in target_clusters:
             lbl = cluster_label(cs, ce)
             boot_prev[lbl][b] = float(np.mean([(cs, ce) in cl for cl in cl_b]))
