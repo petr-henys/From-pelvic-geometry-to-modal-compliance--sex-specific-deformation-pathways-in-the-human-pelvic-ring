@@ -124,14 +124,18 @@ def compute_swap_9_10(perm: pd.DataFrame) -> np.ndarray:
 
 
 def compute_gap_in(eigenvalues: pd.DataFrame, pair: tuple[int, int] = (9, 10)) -> np.ndarray:
-    """Relative spectral gap between pair of adjacent modes (1-based).
+    """Relative spectral gap between pair of adjacent solver ranks (1-based).
 
     Uses the canonical formula gap_in(i) = (λ_{i+1} - λ_i) / λ_i
+    where λ are sorted in ascending solver order,
     consistent with spectral_metrics.compute_gap_in.
     """
+    cols = [c for c in eigenvalues.columns if c.startswith("eig_")]
+    vals = eigenvalues[cols].to_numpy(float)
+    sorted_vals = np.sort(vals, axis=1)
     a, b = pair
-    la = eigenvalues[f"eig_{a}"].to_numpy(float)
-    lb = eigenvalues[f"eig_{b}"].to_numpy(float)
+    la = sorted_vals[:, a - 1]
+    lb = sorted_vals[:, b - 1]
     return (lb - la) / la
 
 

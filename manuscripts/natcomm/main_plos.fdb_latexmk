@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main_plos"] 1789716866.21115 "main_plos.aux" "main_plos.bbl" "main_plos" 1789717990.84592 0
+["bibtex main_plos"] 1789721075.1549 "main_plos.aux" "main_plos.bbl" "main_plos" 1789721076.53923 0
   "../report/references.bib" 1789715009.05264 23204 a1188393ce2438561b689bba4d6d687c ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "main_plos.aux" 1789717990.60964 33083 ff1a4665f76c6e852a3961ea1735b552 "pdflatex"
+  "main_plos.aux" 1789721076.30272 32776 ed67fb657416d8a05912bbc93cf1c34b "pdflatex"
   (generated)
   "main_plos.bbl"
   "main_plos.blg"
   (rewritten before read)
-["pdflatex"] 1789717989.53963 "main_plos.tex" "main_plos.pdf" "main_plos" 1789717990.84624 0
-  "../../analysis_outputs/figures/allometry_dashboard.pdf" 1772822323.54572 59403 f73c6eee7ff4f51ba280c435a4126f3f ""
+["pdflatex"] 1789721075.21676 "main_plos.tex" "main_plos.pdf" "main_plos" 1789721076.53976 0
+  "../../analysis_outputs/figures/allometry_dashboard.pdf" 1789720327.22293 59363 4d2584a88947cc59b005879af89e42b8 ""
   "../../analysis_outputs/figures/function_locking_heatmap.pdf" 1772822194.45184 63637 77f97f6b966a45b33e05de192d4a4bbe ""
   "../../analysis_outputs/figures/sex_stratified_summary.pdf" 1772822091.29943 27186 686950d85732af8cb537bc6ff0f0daa5 ""
   "../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex" 1789711578.81962 1458 c3c17f53210715dab708fbd9a56bfe1b ""
@@ -20,7 +20,7 @@
   "../../analysis_outputs/plos_revision/figures/routing_associations.pdf" 1789712123.54238 38153 886892c322aab170ad7afd9e428a4ff5 ""
   "../../analysis_outputs/plos_revision/figures/spectral_structure.pdf" 1789712119.18023 27574 5691e8a2227acb723f636cf71aea20e6 ""
   "../../analysis_outputs/plos_revision/figures/toy_model.pdf" 1789712127.5001 45024 bf20b1e0b70ecb537b97ebe021ebeb6f ""
-  "../../analysis_outputs/tables/allometry_summary.tex" 1779271044.39148 1884 3d82b3cae3cbee7ea34ea85487830880 ""
+  "../../analysis_outputs/tables/allometry_summary.tex" 1789720327.7717 1884 3d82b3cae3cbee7ea34ea85487830880 ""
   "../../analysis_outputs/tables/clusters.tex" 1779271044.39167 843 17806d8b7bfcdb03074562c9ab8a3480 ""
   "../../analysis_outputs/tables/cohort_bootstrap_robustness.tex" 1789712795.76239 2113 2e0c82395c60cb297abcefb049289bc5 ""
   "../../analysis_outputs/tables/function_locking_synthesis.tex" 1779271044.39222 1512 e83fddfd25e6ed236e4c32003e3385af ""
@@ -174,10 +174,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771244779.23343 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771244812 6831138 e361f9c9db2e636eb064f6a4cc93ec74 ""
   "images/model_setup.pdf" 1789717989.43147 1372040 9ac0ed33e44ec8ac7333ce5a101728e8 ""
-  "main_plos.aux" 1789717990.60964 33083 ff1a4665f76c6e852a3961ea1735b552 "pdflatex"
-  "main_plos.bbl" 1789716866.26986 14021 41f9743029ed0b4e4262e0c8f7604c91 "bibtex main_plos"
-  "main_plos.out" 1789717990.61201 9131 d0cdca10684e539e1f042abb48f809f3 "pdflatex"
-  "main_plos.tex" 1789717039.90261 78001 5d4a274a0a2e7886555fcdb9ddb06ce8 ""
+  "main_plos.aux" 1789721076.30272 32776 ed67fb657416d8a05912bbc93cf1c34b "pdflatex"
+  "main_plos.bbl" 1789721075.21219 12378 0664bad61b5c2ff1dd09311f72ba2512 "bibtex main_plos"
+  "main_plos.out" 1789721076.30444 9293 2505311fdce7a87e2ddd7f816f4364bf "pdflatex"
+  "main_plos.tex" 1789721048.7806 81941 9a50d214e27c2309856e7f040fd6e35b ""
   (generated)
   "main_plos.aux"
   "main_plos.log"

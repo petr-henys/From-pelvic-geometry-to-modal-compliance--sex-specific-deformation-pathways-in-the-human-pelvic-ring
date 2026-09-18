@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -48,12 +48,6 @@ Hiroaki Kitano.
 \newblock \emph{Molecular Systems Biology}, 3\penalty0 (1), 2007.
 \newblock \doi{10.1038/msb4100179}.
 
-\bibitem[Khammash(2016)]{Khammash2016}
-Mustafa Khammash.
-\newblock An engineering viewpoint on biological robustness.
-\newblock \emph{BMC Biology}, 14\penalty0 (1), 2016.
-\newblock \doi{10.1186/s12915-016-0241-x}.
-
 \bibitem[Whitacre(2010)]{Whitacre2010}
 James~M. Whitacre.
 \newblock Degeneracy: a link between evolvability, robustness and complexity in
@@ -98,21 +92,6 @@ Debraj Ghosh and Roger Ghanem.
   91\penalty0 (4):\penalty0 378--396, 2012.
 \newblock \doi{10.1002/nme.4276}.
 
-\bibitem[Hussein et~al.(2014)Hussein, Leamy, and Ruzzene]{Hussein2014}
-Mahmoud~I. Hussein, Michael~J. Leamy, and Massimo Ruzzene.
-\newblock Dynamics of phononic materials and structures: Historical origins,
-  recent progress, and future outlook.
-\newblock \emph{Applied Mechanics Reviews}, 66\penalty0 (4):\penalty0 040802,
-  2014.
-\newblock \doi{10.1115/1.4026911}.
-
-\bibitem[Cummer et~al.(2016)Cummer, Christensen, and Al{\`u}]{Cummer2016}
-Steven~A. Cummer, Johan Christensen, and Andrea Al{\`u}.
-\newblock Controlling sound with acoustic metamaterials.
-\newblock \emph{Nature Reviews Materials}, 1\penalty0 (3):\penalty0 16001,
-  2016.
-\newblock \doi{10.1038/natrevmats.2016.1}.
-
 \bibitem[Snijders et~al.(1993)Snijders, Vleeming, and Stoeckart]{Snijders1993}
 C.~J. Snijders, A.~Vleeming, and R.~Stoeckart.
 \newblock Transfer of lumbosacral load to iliac bones and legs. part 1:
@@ -138,22 +117,20 @@ Adam Goode, Eric~J. Hegedus, and Philip Sizer.
   (1):\penalty0 25--38, 2008.
 \newblock \doi{10.1179/106698108790818639}.
 
-\bibitem[Guo and Teo(2005)]{GuoTeo2005}
-Li-Xin Guo and Ee-Chon Teo.
-\newblock Prediction of the modal characteristics of the human spine at
-  resonant frequency using finite element models.
-\newblock \emph{Proceedings of the Institution of Mechanical Engineers, Part H:
-  Journal of Engineering in Medicine}, 219\penalty0 (4):\penalty0 277--284,
-  2005.
-\newblock \doi{10.1243/095441105X34275}.
+\bibitem[Edelman and Gally(2001)]{EdelmanGally2001}
+Gerald~M. Edelman and Joseph~A. Gally.
+\newblock Degeneracy and complexity in biological systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 98\penalty0
+  (24):\penalty0 13763--13768, 2001.
+\newblock \doi{10.1073/pnas.231499798}.
 
-\bibitem[Fan et~al.(2021)Fan, Zhao, and Guo]{Fan2021Modal}
-Wei Fan, Dan Zhao, and Li-Xin Guo.
-\newblock A finite element model of the human lower thorax to pelvis spinal
-  segment: Validation and modal analysis.
-\newblock \emph{Bio-Medical Materials and Engineering}, 32\penalty0
-  (5):\penalty0 267--279, 2021.
-\newblock \doi{10.3233/BME-196017}.
+\bibitem[Clark-Patterson et~al.(2022)Clark-Patterson, Domingo, and
+  Miller]{BiomechPregnancy2022}
+Gabrielle Clark-Patterson, Mari Domingo, and Kristin~S. Miller.
+\newblock Biomechanics of pregnancy and vaginal delivery.
+\newblock \emph{Current Opinion in Biomedical Engineering}, 22:\penalty0
+  100386, 2022.
+\newblock \doi{10.1016/j.cobme.2022.100386}.
 
 \bibitem[Chen and Grimm(2021)]{ChenGrimm2021}
 Sheng Chen and Michele~J. Grimm.
@@ -171,21 +148,6 @@ Priscila Roque~de Almeida, Isabela Alves Campice~de Oliveira, Joventino
   during pregnancy.
 \newblock \emph{Journal of Biomechanics}, 174:\penalty0 112268, 2024.
 \newblock \doi{10.1016/j.jbiomech.2024.112268}.
-
-\bibitem[Edelman and Gally(2001)]{EdelmanGally2001}
-Gerald~M. Edelman and Joseph~A. Gally.
-\newblock Degeneracy and complexity in biological systems.
-\newblock \emph{Proceedings of the National Academy of Sciences}, 98\penalty0
-  (24):\penalty0 13763--13768, 2001.
-\newblock \doi{10.1073/pnas.231499798}.
-
-\bibitem[Clark-Patterson et~al.(2022)Clark-Patterson, Domingo, and
-  Miller]{BiomechPregnancy2022}
-Gabrielle Clark-Patterson, Mari Domingo, and Kristin~S. Miller.
-\newblock Biomechanics of pregnancy and vaginal delivery.
-\newblock \emph{Current Opinion in Biomedical Engineering}, 22:\penalty0
-  100386, 2022.
-\newblock \doi{10.1016/j.cobme.2022.100386}.
 
 \bibitem[Bonet and Wood(1997)]{BonetWood1997}
 Javier Bonet and Richard~D. Wood.
