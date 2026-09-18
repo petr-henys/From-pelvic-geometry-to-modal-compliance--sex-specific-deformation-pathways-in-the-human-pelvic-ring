@@ -13,20 +13,38 @@ from analysis.spectral_data import load_reference_space,load_inlet_landmarks
 from analysis.plos_revision import FIG,style,save
 
 
-def render(grid,front=True,arrows=(),points=None,scalars=None):
- p=pv.Plotter(off_screen=True,window_size=(650,650));p.set_background('white')
- opts={'color':'#d4d8dc'} if scalars is None else {'scalars':scalars,'cmap':'viridis','clim':[0,1]}
- p.add_mesh(grid,**opts,show_scalar_bar=False,smooth_shading=True)
- for start,vec,color in arrows:
-  p.add_arrows(np.asarray(start)[None,:],np.asarray(vec)[None,:],mag=1,color=color)
- if points is not None:
-  for pts,c in points:
-   p.add_mesh(pv.lines_from_points(pts),color=c,line_width=5)
-   p.add_points(pts,color=c,point_size=10,render_points_as_spheres=True)
- center=np.array(grid.center);extent=grid.length
- p.camera_position=(center+np.array([0,-extent*2,0]) if front else center+np.array([0,0,extent*2]),center,(0,0,1) if front else (0,1,0))
- p.enable_parallel_projection();p.camera.zoom(1.1)
- im=p.screenshot(return_img=True);p.close();return im
+from analysis.publication_rendering import create_publication_plotter
+
+def render(grid, front=True, arrows=(), points=None, scalars=None):
+    p = create_publication_plotter(
+        window_size=(900, 900),
+        enable_ssaa=True,
+        enable_ssao=False,
+    )
+    surf = grid.extract_surface(algorithm='dataset_surface') if isinstance(grid, pv.UnstructuredGrid) else grid
+    if isinstance(surf, pv.PolyData) and "Normals" not in surf.point_data:
+        surf = surf.compute_normals(point_normals=True, feature_angle=60.0)
+
+    if scalars is None:
+        opts = {'color': '#ece7df', 'ambient': 0.25, 'diffuse': 0.75, 'specular': 0.12}
+    else:
+        opts = {'scalars': scalars, 'cmap': 'viridis', 'clim': [0, 1], 'ambient': 0.28, 'diffuse': 0.82, 'specular': 0.12}
+
+    p.add_mesh(surf, **opts, show_scalar_bar=False, smooth_shading=True)
+    for start, vec, color in arrows:
+        p.add_arrows(np.asarray(start)[None, :], np.asarray(vec)[None, :], mag=1, color=color)
+    if points is not None:
+        for pts, c in points:
+            p.add_mesh(pv.lines_from_points(pts), color=c, line_width=5)
+            p.add_points(pts, color=c, point_size=10, render_points_as_spheres=True)
+    center = np.array(grid.center)
+    extent = grid.length
+    p.camera_position = (center + np.array([0, -extent * 2, 0]) if front else center + np.array([0, 0, extent * 2]), center, (0, 0, 1) if front else (0, 1, 0))
+    p.enable_parallel_projection()
+    p.camera.zoom(1.1)
+    im = p.screenshot(return_img=True)
+    p.close()
+    return im
 
 
 def main():

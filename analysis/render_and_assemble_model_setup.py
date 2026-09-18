@@ -79,11 +79,21 @@ lig_colors = {
     'left_ST': '#5e3c99',
 }
 
-def render_scene(path, actors, cam_pos, focal_point, view_up, size=(1200, 1200)):
-    p = pv.Plotter(off_screen=True, window_size=size)
-    p.set_background('white')
+from analysis.publication_rendering import create_publication_plotter
+
+def render_scene(path, actors, cam_pos, focal_point, view_up, size=(1200, 1200), ssao=True):
+    p = create_publication_plotter(
+        window_size=size,
+        enable_ssaa=True,
+        enable_ssao=ssao,
+        ssao_radius=25.0,
+        ssao_bias=0.005,
+        ssao_kernel_size=256,
+    )
     for mesh_obj, kwargs in actors:
-        p.add_mesh(mesh_obj, smooth_shading=True, **kwargs)
+        kw = dict(smooth_shading=True, ambient=0.25, diffuse=0.75, specular=0.12)
+        kw.update(kwargs)
+        p.add_mesh(mesh_obj, **kw)
     p.camera_position = [cam_pos, focal_point, view_up]
     p.screenshot(str(path))
     p.close()

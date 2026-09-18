@@ -71,44 +71,36 @@ def main():
         coords
     )
     grid.point_data['node_id'] = np.arange(len(coords))
-    surface = grid.extract_surface()
+    from analysis.publication_rendering import (
+        create_publication_plotter,
+        add_ghost_reference_mesh,
+        add_deformed_scalar_mesh,
+        configure_publication_camera,
+        crop_image_whitespace,
+    )
+
+    surface = grid.extract_surface(algorithm='dataset_surface').compute_normals(point_normals=True, feature_angle=60.0)
     ids = surface.point_data['node_id']
     center = (coords.min(axis=0) + coords.max(axis=0)) / 2
 
     def render(u, view):
-        p = pv.Plotter(off_screen=True, window_size=(700, 600))
-        p.set_background('white')
+        p = create_publication_plotter(
+            window_size=(1050, 900),
+            enable_ssaa=True,
+            enable_depth_peeling=True,
+            enable_ssao=False,
+        )
         norm = np.linalg.norm(u, axis=1)
         shape = surface.copy()
-        # Scale to 50 mm max deflection so deformation is clearly visible across all modes
         shape.points = surface.points + 50.0 * u[ids] / norm.max()
+        shape = shape.compute_normals(point_normals=True, feature_angle=60.0)
         
-        # Undeformed reference: clean neutral grey ghost with smooth shading
-        p.add_mesh(surface, color='#c5ccd6', opacity=0.32, smooth_shading=True)
-        # Deformed shape: vibrant viridis with specular & ambient lighting for 3D depth
-        p.add_mesh(
-            shape,
-            scalars=norm[ids] / norm.max(),
-            cmap='viridis',
-            clim=(0, 1),
-            smooth_shading=True,
-            ambient=0.30,
-            diffuse=0.75,
-            specular=0.22,
-            show_scalar_bar=False
-        )
-        direction, up = (([0, -1, 0], [0, 0, 1]) if view == 'AP' else ([0, 0, 1], [0, 1, 0]))
-        p.camera_position = [center + 700 * np.array(direction), center, up]
-        p.enable_parallel_projection()
-        p.camera.parallel_scale = 195
+        add_ghost_reference_mesh(p, surface, color='#b8c0cc', opacity=0.28)
+        add_deformed_scalar_mesh(p, shape, scalars=norm[ids] / norm.max(), cmap='viridis', clim=(0, 1))
+        configure_publication_camera(p, center, view=view, distance=700.0, parallel_scale=195.0)
         img = p.screenshot(return_img=True)
         p.close()
-        
-        yy, xx = np.where(np.any(img[:, :, :3] < 245, axis=2))
-        pad = 8
-        ymin, ymax = max(0, yy.min() - pad), min(img.shape[0], yy.max() + pad + 1)
-        xmin, xmax = max(0, xx.min() - pad), min(img.shape[1], xx.max() + pad + 1)
-        return img[ymin:ymax, xmin:xmax]
+        return crop_image_whitespace(img, pad=8)
 
     colors = {
         'axial': '#2b7bba',      # rich distinct blue

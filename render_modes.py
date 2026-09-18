@@ -133,33 +133,44 @@ def render_modes_gallery(
     distance = mesh.length * 2.0
     parallel_scale = _compute_parallel_scale(mesh.bounds, 1.0)
 
+    from analysis.publication_rendering import create_publication_plotter
+
     tiles: list[np.ndarray] = []
     for mode_idx, vec in enumerate(eigenvectors):
-        p = pv.Plotter(off_screen=True, window_size=(tile, tile), border=False)
-        p.set_background("white")
+        p = create_publication_plotter(
+            window_size=(tile, tile),
+            enable_ssaa=True,
+            enable_depth_peeling=True,
+            enable_ssao=False,
+        )
 
         # Undeformed mesh colored by magnitude
         magnitudes = np.linalg.norm(vec, axis=-1)
         base = mesh.copy(deep=True)
         base.point_data.clear()
         base.point_data["magnitude"] = magnitudes
+        surf_base = base.extract_surface(algorithm='dataset_surface').compute_normals(point_normals=True, feature_angle=60.0)
         p.add_mesh(
-            base,
+            surf_base,
             scalars="magnitude",
             cmap="rainbow",
-            smooth_shading=False,
+            smooth_shading=True,
+            ambient=0.28,
+            diffuse=0.80,
+            specular=0.12,
             show_scalar_bar=False,
         )
 
-        # Deformed mesh as wireframe
+        # Deformed mesh as subtle wireframe
         deformed = mesh.copy(deep=True)
         deformed.points = mesh.points + scale * vec
+        surf_deformed = deformed.extract_surface(algorithm='dataset_surface')
         p.add_mesh(
-            deformed,
-            color="#000000",
+            surf_deformed,
+            color="#222222",
             style="wireframe",
             line_width=1.0,
-            opacity=0.1,
+            opacity=0.20,
         )
 
         cam_pos = _camera_pose(center, distance, camera_view)
@@ -168,7 +179,7 @@ def render_modes_gallery(
         p.camera.parallel_scale = parallel_scale
 
         p.add_text(
-            f"Mode {mode_idx+1}", position="upper_left", font_size=14, shadow=False,
+            f"Mode {mode_idx+1}", position="upper_left", font_size=14, shadow=False, color="#111827"
         )
 
         img = p.screenshot(return_img=True)

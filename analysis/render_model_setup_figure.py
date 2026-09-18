@@ -15,6 +15,7 @@ import matplotlib.patches as patches
 from matplotlib.lines import Line2D
 
 from analysis.spectral_data import load_inlet_landmarks, load_outlet_landmarks
+from analysis.publication_rendering import create_publication_plotter
 
 OUT_DIR = Path('analysis_outputs/plos_revision/figures')
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -69,10 +70,20 @@ lig_colors = {
 }
 
 def render_scene(path, actors, cam_pos, focal_point, view_up, size=(1200, 1200)):
-    p = pv.Plotter(off_screen=True, window_size=size)
-    p.set_background('white')
+    p = create_publication_plotter(
+        window_size=size,
+        background='white',
+        enable_ssaa=True,
+        enable_ssao=True,
+        ssao_radius=25.0,
+        ssao_bias=0.005,
+        ssao_kernel_size=256,
+    )
     for mesh_obj, kwargs in actors:
-        p.add_mesh(mesh_obj, smooth_shading=True, **kwargs)
+        clean_kwargs = dict(kwargs)
+        if isinstance(mesh_obj, pv.PolyData) and "Normals" not in mesh_obj.point_data:
+            mesh_obj = mesh_obj.compute_normals(point_normals=True, feature_angle=60.0)
+        p.add_mesh(mesh_obj, smooth_shading=True, **clean_kwargs)
     p.camera_position = [cam_pos, focal_point, view_up]
     p.screenshot(str(path))
     p.close()
