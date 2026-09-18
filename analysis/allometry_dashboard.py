@@ -29,26 +29,26 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from scipy import stats
 
-from utils.plot_utils import (
-    setup_plot_style,
-    FULL_WIDTH,
+from analysis.publication_style import (
+    apply_publication_style,
+    panel_label as pub_panel_label,
+    style_axis,
+    MALE_COLOR,
+    FEMALE_COLOR,
+    NEUTRAL_COLOR,
+    format_pvalue,
+    save_publication_figure,
+    COL2_WIDTH,
     ROW_H,
-    ROW_H_SMALL,
-    ANNOT_SIZE,
-    SMALL_ANNOT_SIZE,
+)
+from utils.plot_utils import (
     SCALE_EFFECT_COLOR,
     SEX_EFFECT_COLOR,
     SHAPE_EFFECT_COLOR,
     MATERIAL_EFFECT_COLOR,
-    MALE_COLOR,
-    FEMALE_COLOR,
-    NEUTRAL_COLOR,
     SWAP_LINE_COLOR,
-    SCATTER_ALPHA,
-    LINE_WIDTH,
     BAR_EDGE_LW,
     BAR_EDGE_COLOR,
-    panel_label,
     format_mode_label_short,
 )
 
@@ -153,24 +153,26 @@ def plot_panel_A(ax: plt.Axes, res: pd.DataFrame) -> None:
 
     bars = ax.bar(x, y, color=SCALE_EFFECT_COLOR, yerr=yerr, capsize=2,
                   edgecolor=BAR_EDGE_COLOR, linewidth=BAR_EDGE_LW)
-    ax.axhline(0, color="0.4", lw=0.6, ls="--")
+    ax.axhline(0, color="#6b7280", lw=0.6, ls="--")
 
     # Classical elastic scaling reference line λ ~ L^(-2)
-    ax.axhline(-2.0, color="0.6", lw=0.5, ls=":", label="elastic λ∝L⁻²")
+    ax.axhline(-2.0, color="#9ca3af", lw=0.6, ls=":", label=r"Elastic scaling $\lambda \propto L^{-2}$")
 
     # Significance markers
     for i in range(NUM_MODES):
         sig = res["beta_scale_signif"].iloc[i]
         if sig:
-            ax.text(i, hi[i] + 0.08, "★", ha="center", va="bottom",
-                    fontsize=SMALL_ANNOT_SIZE, color=SCALE_EFFECT_COLOR)
+            ax.text(i, hi[i] + 0.08, "*", ha="center", va="bottom",
+                    fontsize=7.5, color=SCALE_EFFECT_COLOR, fontweight="bold")
 
     ax.set_xticks(x)
-    ax.set_xticklabels([format_mode_label_short(i) for i in range(NUM_MODES)],
-                       fontsize=ANNOT_SIZE)
-    ax.set_ylabel(r"$\beta_{\rm scale}$ (log–log)")
-    ax.legend(fontsize=SMALL_ANNOT_SIZE, loc="lower right")
-    panel_label(ax, "A  Scale exponent")
+    ax.set_xticklabels([str(i + 1) for i in range(NUM_MODES)], fontsize=7.0)
+    ax.set_xlabel("Mode rank", fontsize=7.5)
+    ax.set_ylabel(r"$\beta_{\rm scale}$ (log–log)", fontsize=7.5)
+    ax.legend(fontsize=6.5, loc="lower right", frameon=False)
+    pub_panel_label(ax, "A")
+    ax.set_title(r"Eigenvalue scaling $\beta_{\rm scale}$", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -199,12 +201,14 @@ def plot_panel_B(ax: plt.Axes, res: pd.DataFrame) -> None:
         bottom += vals
 
     ax.set_xticks(x)
-    ax.set_xticklabels([format_mode_label_short(i) for i in range(NUM_MODES)],
-                       fontsize=ANNOT_SIZE)
-    ax.set_ylabel("Explained variance (%)")
-    ax.set_ylim(0, 105)
-    ax.legend(fontsize=SMALL_ANNOT_SIZE, ncol=4, loc="upper right")
-    panel_label(ax, "B  Variance split")
+    ax.set_xticklabels([str(i + 1) for i in range(NUM_MODES)], fontsize=7.0)
+    ax.set_xlabel("Mode rank", fontsize=7.5)
+    ax.set_ylabel("Explained variance (%)", fontsize=7.5)
+    ax.set_ylim(0, 122)
+    ax.legend(fontsize=6.5, ncol=4, loc="upper center", bbox_to_anchor=(0.5, 1.0), frameon=False)
+    pub_panel_label(ax, "B")
+    ax.set_title("Variance decomposition", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -218,43 +222,47 @@ def plot_panel_C(ax: plt.Axes, meta: pd.DataFrame, perm: pd.DataFrame) -> None:
     sex = meta["sex"].to_numpy()
 
     # Logistic regression: swap ~ scale
-    from scipy.special import expit
     mask = np.isfinite(scale) & np.isfinite(swap)
     X = scale[mask]
     Y = swap[mask].astype(float)
     if Y.sum() > 5 and (1 - Y).sum() > 5:
         slope, intercept, _, _, _ = stats.linregress(X, Y)
         x_fit = np.linspace(X.min(), X.max(), 200)
-        # Simple logistic via statsmodels if available, else linear approx
         try:
             import statsmodels.api as sm
             logit_model = sm.Logit(Y, sm.add_constant(X)).fit(disp=0)
             y_fit = logit_model.predict(sm.add_constant(x_fit))
         except Exception:
             y_fit = np.clip(intercept + slope * x_fit, 0, 1)
-        ax.plot(x_fit, y_fit, color=SWAP_LINE_COLOR, lw=1.2, zorder=3)
+        ax.plot(x_fit, y_fit, color="#374151", lw=1.4, zorder=3, label="Logistic fit")
 
     # Sex-stratified scatter
     for sex_val, color, label, marker in [
         ("M", MALE_COLOR, "Male", "o"), ("F", FEMALE_COLOR, "Female", "s")
     ]:
         m = sex == sex_val
-        jitter = np.random.default_rng(42).uniform(-0.03, 0.03, size=m.sum())
-        ax.scatter(scale[m], swap[m] + jitter, c=color, s=12,
-                   alpha=SCATTER_ALPHA, marker=marker, label=label, zorder=2,
+        jitter = np.random.default_rng(42).uniform(-0.025, 0.025, size=m.sum())
+        ax.scatter(scale[m], swap[m] + jitter, c=color, s=14,
+                   alpha=0.55, marker=marker, label=label, zorder=2,
                    linewidths=0)
 
-    # Swap rate by sex annotation
+    # Swap rate by sex annotation (placed in central open space)
     m_rate = swap[sex == "M"].mean()
     f_rate = swap[sex == "F"].mean()
-    ax.text(0.02, 0.92, f"Swap rate: M={m_rate:.1%}, F={f_rate:.1%}",
-            transform=ax.transAxes, fontsize=SMALL_ANNOT_SIZE, va="top")
+    ax.text(
+        0.04, 0.70,
+        f"Swap rate:\nMale: {m_rate:.1%}\nFemale: {f_rate:.1%}",
+        transform=ax.transAxes, fontsize=6.8, va="center",
+        bbox=dict(boxstyle="round,pad=0.3", fc="#ffffff", ec="#e5e7eb", alpha=0.9),
+    )
 
-    ax.set_xlabel("Isotropic scale")
-    ax.set_ylabel("P(swap 9–10)")
-    ax.set_ylim(-0.12, 1.12)
-    ax.legend(fontsize=SMALL_ANNOT_SIZE, loc="center right")
-    panel_label(ax, "C  Swap vs size")
+    ax.set_xlabel("Isotropic scale $s$", fontsize=7.5)
+    ax.set_ylabel(r"$P(\mathrm{swap}_{9–10})$", fontsize=7.5)
+    ax.set_ylim(-0.10, 1.10)
+    ax.legend(fontsize=6.5, loc="center right", frameon=False)
+    pub_panel_label(ax, "C")
+    ax.set_title("Mode 9–10 swap probability", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -271,26 +279,29 @@ def plot_panel_D(ax: plt.Axes, meta: pd.DataFrame, eigenvalues: pd.DataFrame) ->
         ("M", MALE_COLOR, "Male", "o"), ("F", FEMALE_COLOR, "Female", "s")
     ]:
         m = sex == sex_val
-        ax.scatter(scale[m], gap[m], c=color, s=12, alpha=SCATTER_ALPHA,
+        ax.scatter(scale[m], gap[m], c=color, s=14, alpha=0.55,
                    marker=marker, label=label, linewidths=0)
 
     # LOWESS trend
     try:
         import statsmodels.api as sm
         lowess = sm.nonparametric.lowess(gap, scale, frac=0.4)
-        ax.plot(lowess[:, 0], lowess[:, 1], color="0.2", lw=1.0, ls="-",
+        ax.plot(lowess[:, 0], lowess[:, 1], color="#1f2937", lw=1.2, ls="-",
                 label="LOWESS", zorder=4)
     except Exception:
         pass
 
     rho, p = stats.spearmanr(scale, gap, nan_policy="omit")
-    ax.text(0.02, 0.92, f"ρ={rho:.3f}, p={p:.1e}",
-            transform=ax.transAxes, fontsize=SMALL_ANNOT_SIZE, va="top")
+    ax.text(0.04, 0.93, f"$\\rho = {rho:.2f}$, {format_pvalue(p)}",
+            transform=ax.transAxes, fontsize=6.8, va="top")
 
-    ax.set_xlabel("Isotropic scale")
-    ax.set_ylabel("gap$_{\\rm in}$(9–10)")
-    ax.legend(fontsize=SMALL_ANNOT_SIZE, loc="upper right")
-    panel_label(ax, "D  Gap vs size")
+    ax.set_xlabel("Isotropic scale $s$", fontsize=7.5)
+    ax.set_ylabel(r"$\mathrm{gap}_{\rm in}(9–10)$", fontsize=7.5)
+    ax.set_ylim(-0.02, 0.46)
+    ax.legend(fontsize=6.5, loc="upper right", frameon=False)
+    pub_panel_label(ax, "D")
+    ax.set_title(r"Spectral gap $\mathrm{gap}_{\rm in}(9–10)$", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -302,7 +313,9 @@ def plot_panel_E(ax: plt.Axes, sij: pd.DataFrame, meta: pd.DataFrame) -> None:
     if sij.empty:
         ax.text(0.5, 0.5, "SIJ data not available", ha="center", va="center",
                 transform=ax.transAxes)
-        panel_label(ax, "E  SIJ micromotion vs body size")
+        pub_panel_label(ax, "E")
+        ax.set_title("SIJ micromotion vs body size", pad=5, fontsize=7.8, fontweight="medium")
+        style_axis(ax)
         return
 
     lab = sij[sij["load_case"].isin(["LAB_phase1", "LAB_phase2", "LAB_phase3"])].copy()
@@ -316,7 +329,6 @@ def plot_panel_E(ax: plt.Axes, sij: pd.DataFrame, meta: pd.DataFrame) -> None:
     )
 
     if "scale" not in lab.columns:
-        # Fallback: merge by index
         lab["scale"] = meta["scale"].values[lab["subject_idx"].values]
 
     scale = lab["scale"].to_numpy(float)
@@ -327,27 +339,30 @@ def plot_panel_E(ax: plt.Axes, sij: pd.DataFrame, meta: pd.DataFrame) -> None:
     # Rotation
     for sex_val, color, marker in [("M", MALE_COLOR, "o"), ("F", FEMALE_COLOR, "s")]:
         m = sex == sex_val
-        ax.scatter(scale[m], rot[m], c=color, s=10, alpha=SCATTER_ALPHA,
+        ax.scatter(scale[m], rot[m], c=color, s=12, alpha=0.55,
                    marker=marker, linewidths=0)
 
     rho_rot, p_rot = stats.spearmanr(scale, rot, nan_policy="omit")
     rho_trans, p_trans = stats.spearmanr(scale, trans, nan_policy="omit")
-    ax.text(0.02, 0.92, f"Rot: ρ={rho_rot:.3f}, p={p_rot:.2e}\n"
-                         f"Trans: ρ={rho_trans:.3f}, p={p_trans:.2e}",
-            transform=ax.transAxes, fontsize=SMALL_ANNOT_SIZE, va="top")
+    ax.text(0.04, 0.95, f"Rot: $\\rho = {rho_rot:.2f}$, {format_pvalue(p_rot)}\n"
+                         f"Trans: $\\rho = {rho_trans:.2f}$, {format_pvalue(p_trans)}",
+            transform=ax.transAxes, fontsize=6.8, va="top")
 
     # Add LOWESS
     try:
         import statsmodels.api as sm
         lowess = sm.nonparametric.lowess(rot, scale, frac=0.4)
-        ax.plot(lowess[:, 0], lowess[:, 1], color=MALE_COLOR, lw=1.0, ls="-",
-                alpha=0.8, zorder=4)
+        ax.plot(lowess[:, 0], lowess[:, 1], color="#1f2937", lw=1.2, ls="-",
+                alpha=0.85, zorder=4)
     except Exception:
         pass
 
-    ax.set_xlabel("Isotropic scale")
-    ax.set_ylabel("SIJ rotation (deg)")
-    panel_label(ax, "E  SIJ vs size")
+    ax.set_xlabel("Isotropic scale $s$", fontsize=7.5)
+    ax.set_ylabel("SIJ rotation (°)", fontsize=7.5)
+    ax.set_ylim(-0.2, 5.8)
+    pub_panel_label(ax, "E")
+    ax.set_title("SIJ micromotion vs scale", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -374,13 +389,15 @@ def plot_panel_F(ax: plt.Axes, frac: pd.DataFrame) -> None:
         ax.bar(x[:len(y)] + offset, y, bar_w * 0.9, color=colors[li],
                edgecolor="white", linewidth=0.2, label=LOAD_LABELS[li])
 
-    ax.axhline(0, color="0.4", lw=0.6, ls="--")
+    ax.axhline(0, color="#6b7280", lw=0.6, ls="--")
     ax.set_xticks(x)
-    ax.set_xticklabels([format_mode_label_short(i) for i in range(n_modes)],
-                       fontsize=ANNOT_SIZE)
-    ax.set_ylabel("Scale IQR (pp)")
-    ax.legend(fontsize=SMALL_ANNOT_SIZE, ncol=n_loads, loc="lower right")
-    panel_label(ax, "F  Energy vs size")
+    ax.set_xticklabels([str(i + 1) for i in range(n_modes)], fontsize=7.0)
+    ax.set_xlabel("Mode rank", fontsize=7.5)
+    ax.set_ylabel(r"Scale sensitivity $\Delta$ (pp / IQR)", fontsize=7.5)
+    ax.legend(fontsize=6.5, ncol=3, loc="upper right", frameon=False)
+    pub_panel_label(ax, "F")
+    ax.set_title("Modal energy sensitivity to scale", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax, y_grid=True)
 
 
 # =====================================================================
@@ -389,9 +406,6 @@ def plot_panel_F(ax: plt.Axes, frac: pd.DataFrame) -> None:
 
 def build_summary_table(res: pd.DataFrame, frac: pd.DataFrame) -> pd.DataFrame:
     """Build a concise allometry summary table for manuscript."""
-    # Robust p-values in the upstream artefact can be written as 0.0 for
-    # highly significant modes; recompute from t-statistics to avoid
-    # reporting 0.0e+00 in the manuscript table.
     from statsmodels.stats.multitest import multipletests
 
     t_vals = res["beta_scale_t"].to_numpy(dtype=float)
@@ -460,7 +474,7 @@ def export_latex_table(summary: pd.DataFrame, path: Path) -> None:
 # =====================================================================
 
 def main() -> None:
-    setup_plot_style()
+    apply_publication_style()
     FIG_DIR.mkdir(parents=True, exist_ok=True)
     TAB_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -473,12 +487,12 @@ def main() -> None:
     sij = load_sij_subject_level()
 
     # ── Figure: 3 × 2 mosaic ──────────────────────────────────
-    fig = plt.figure(figsize=(FULL_WIDTH, 2 * ROW_H + 0.45), constrained_layout=False)
+    fig = plt.figure(figsize=(COL2_WIDTH * 1.05, ROW_H * 2.3), layout="constrained")
     mosaic = [
         ["A", "B", "C"],
         ["D", "E", "F"],
     ]
-    axes = fig.subplot_mosaic(mosaic, gridspec_kw={"wspace": 0.20, "hspace": 0.28})
+    axes = fig.subplot_mosaic(mosaic)
 
     plot_panel_A(axes["A"], res)
     plot_panel_B(axes["B"], res)
@@ -487,14 +501,8 @@ def main() -> None:
     plot_panel_E(axes["E"], sij, meta)
     plot_panel_F(axes["F"], frac)
 
-    fig.subplots_adjust(left=0.07, right=0.985, bottom=0.08, top=0.97)
-    fig.set_constrained_layout(False)
-    fig.set_layout_engine("none")
     fig_path = FIG_DIR / "allometry_dashboard"
-    fig.savefig(fig_path.with_suffix(".pdf"), bbox_inches=None)
-    fig.set_constrained_layout(False)
-    fig.set_layout_engine("none")
-    fig.savefig(fig_path.with_suffix(".png"), dpi=300, bbox_inches=None)
+    save_publication_figure(fig, fig_path)
     plt.close(fig)
     print(f"Figure saved: {fig_path}.pdf / .png")
 

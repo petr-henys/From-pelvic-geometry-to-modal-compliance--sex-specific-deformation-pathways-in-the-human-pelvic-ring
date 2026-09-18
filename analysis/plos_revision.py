@@ -34,25 +34,35 @@ from analysis.spectral_config import DATA_DIR_FULL,DATA_DIR_SHAPE,DATA_DIR_MATER
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'analysis_outputs/plos_revision'; FIG=OUT/'figures'; TAB=OUT/'tables'
-MALE='#0072B2'; FEMALE='#D99000'; COLORS=[MALE,FEMALE,'#009E73','#CC79A7','#777777']
+from analysis.publication_style import (
+    COL1_WIDTH, COL15_WIDTH, COL2_WIDTH, FULL_WIDTH,
+    MALE_COLOR, FEMALE_COLOR, BACKBONE_COLOR, MIDRANK_COLOR, INLET_SWAP_COLOR, HIGHER_RESERVE_COLOR,
+    SWAP_COLOR, NOSWAP_COLOR, UNPAIRED_COLOR, NEUTRAL_COLOR, BLOCK_COLORS,
+    apply_publication_style, panel_label, style_axis, style_distribution,
+    style_scatter, style_heatmap, style_colorbar, format_pvalue, save_publication_figure
+)
+from matplotlib.colors import TwoSlopeNorm
+
+MALE=MALE_COLOR; FEMALE=FEMALE_COLOR; COLORS=[MALE,FEMALE,INLET_SWAP_COLOR,HIGHER_RESERVE_COLOR,'#777777']
 LOADS=['SP2leg','SP1leg','LAB1','LAB2','LAB3']
 AXES=['AP','ML','BIS','BIT','OUTLETAP']
 RNG_SEED=20260918
 
 def style():
- plt.rcParams.update({'font.family':'sans-serif','font.sans-serif':['Arial','DejaVu Sans'],
-  'font.size':10,'axes.labelsize':10,'axes.titlesize':10,'xtick.labelsize':9,
-  'ytick.labelsize':9,'legend.fontsize':9,'axes.spines.top':False,'axes.spines.right':False,
-  'pdf.fonttype':42,'savefig.dpi':400})
+ apply_publication_style()
 
 def save(fig,name):
- fig.savefig(FIG/f'{name}.pdf',bbox_inches='tight',pad_inches=.08)
- fig.savefig(FIG/f'{name}.png',bbox_inches='tight',pad_inches=.08,dpi=180)
- plt.close(fig)
+ save_publication_figure(fig, FIG/name, formats=('pdf','png'), dpi=400, verbose=False)
 
 def panel(ax,title):
- ax.set_title(title,loc='left',fontweight='bold',pad=12)
- ax.grid(axis='y',alpha=.18); ax.set_axisbelow(True)
+ parts = title.split('  ', 1)
+ if len(parts) == 2 and len(parts[0]) == 1:
+  panel_label(ax, parts[0])
+  ax.set_title(parts[1], loc='left', fontsize=8.5, color='#374151', pad=4.0)
+ else:
+  panel_label(ax, title[:1])
+  ax.set_title(title[1:].strip(), loc='left', fontsize=8.5, color='#374151', pad=4.0)
+ style_axis(ax, spines=('left','bottom'), y_grid=True)
 
 def table(df,name):
  df.to_csv(TAB/f'{name}.csv',index=False)
@@ -219,139 +229,195 @@ def statistics(df):
 
 def plots(df):
  style();ev,perm,sex,age,gaps,eps,clusters,counts,top=basic()
- fig,axs=plt.subplots(3,1,figsize=(6.4,7.6),layout='constrained')
- axs[0].boxplot(gaps,tick_labels=[f'{i}-{i+1}' for i in range(1,15)],showfliers=False)
- axs[0].axhline(eps,color='#D55E00',ls='--',label=f'25th percentile = {eps:.3f}')
- axs[0].set_ylabel('Relative gap');panel(axs[0],'A  Consecutive eigenvalue gaps')
- axs[0].legend(loc='upper right',frameon=False)
+ 
+ # 1. Spectral structure (Figure 2)
+ fig,axs=plt.subplots(3,1,figsize=(COL2_WIDTH,7.4),layout='constrained')
+ gap_data=[gaps[:,i] for i in range(14)]
+ gap_labels=[f'{i}–{i+1}' for i in range(1,15)]
+ style_distribution(axs[0],gap_data,positions=np.arange(1,15),labels=gap_labels,
+                    color=NEUTRAL_COLOR,width=0.46,pt_alpha=0.22,pt_size=6,rng_seed=42)
+ axs[0].axhline(eps,color=FEMALE_COLOR,ls='--',lw=1.2,label=f'25th percentile threshold ($\\epsilon = {eps:.3f}$)')
+ axs[0].set_ylabel('Relative gap')
+ axs[0].set_xlabel('Adjacent solver ranks')
+ panel(axs[0],'A  Consecutive eigenvalue gaps')
+ axs[0].legend(loc='upper right',frameon=False,fontsize=8)
+ 
  x=np.arange(1,16); sw=((perm!=np.arange(15))&(perm>=0)).mean(axis=0); un=(perm<0).mean(axis=0)
- axs[1].bar(x,sw,color=MALE,label='Exchanged');axs[1].bar(x,un,bottom=sw,color='.75',label='Unpaired')
- axs[1].set_xticks(x);axs[1].set_ylabel('Subject fraction');axs[1].set_xlabel('Reference label')
- panel(axs[1],'B  Label exchange and pairing failures');axs[1].legend(ncol=2,frameon=False)
- for j,(path,label,color) in enumerate([(DATA_DIR_FULL,'Combined',MALE),(DATA_DIR_SHAPE,'Shape only',FEMALE),(DATA_DIR_MATERIAL,'Material only','#009E73')]):
-  v=load_eigenvalues(path);axs[2].bar(x+(j-1)*.25,v.std(axis=0)/v.mean(axis=0),width=.25,label=label,color=color)
- axs[2].set_xticks(x);axs[2].set_xlabel('Solver rank');axs[2].set_ylabel('Coefficient of variation');axs[2].set_ylim(0,.25)
- panel(axs[2],'C  Between-subject eigenvalue variability');axs[2].legend(ncol=3,frameon=False)
+ axs[1].bar(x,sw,color=SWAP_COLOR,label='Exchanged',width=0.62,edgecolor='none')
+ axs[1].bar(x,un,bottom=sw,color=UNPAIRED_COLOR,label='Unpaired',width=0.62,edgecolor='none')
+ axs[1].set_xticks(x);axs[1].set_ylabel('Subject fraction');axs[1].set_xlabel('Reference modal rank')
+ panel(axs[1],'B  Label exchange and pairing failures');axs[1].legend(loc='upper left',ncol=2,frameon=False,fontsize=8)
+ 
+ bar_w=0.26
+ for j,(path,label,color) in enumerate([(DATA_DIR_FULL,'Combined',MALE_COLOR),(DATA_DIR_SHAPE,'Shape only',MIDRANK_COLOR),(DATA_DIR_MATERIAL,'Material only',INLET_SWAP_COLOR)]):
+  v=load_eigenvalues(path);axs[2].bar(x+(j-1)*bar_w,v.std(axis=0)/v.mean(axis=0),width=bar_w,label=label,color=color,edgecolor='none')
+ axs[2].set_xticks(x);axs[2].set_xlabel('Solver rank');axs[2].set_ylabel('Coefficient of variation');axs[2].set_ylim(0,.24)
+ panel(axs[2],'C  Between-subject eigenvalue variability');axs[2].legend(loc='upper right',ncol=3,frameon=False,fontsize=8)
  save(fig,'spectral_structure')
+ 
+ # 2. Label stability (Figure 4 - Central Result)
  key=df[(df.block=='9-10')&df.member]
- fig,axs=plt.subplots(1,3,figsize=(6.4,3.5),layout='constrained')
- for ax,m,title in zip(axs,['rank9','rank10','AP'],['A  Rank 9','B  Rank 10','C  Subspace 9–10']):
-  arrays=[key.loc[key.swap==v,m].to_numpy() for v in [0,1]]
-  ax.boxplot(arrays,showfliers=False,widths=.55,medianprops={'color':'black'})
-  rng=np.random.default_rng(42)
-  for v in [0,1]:
-   g=key[key.swap==v];ax.scatter(v+1+rng.uniform(-.12,.12,len(g)),g[m],c=[MALE if s=='M' else FEMALE for s in g.sex],s=9,alpha=.55)
-  ax.set_xticks([1,2],['No exchange\n(n=95)','Exchange\n(n=57)']); ax.set_ylim(0,max(key[m])*1.12)
+ fig,axs=plt.subplots(1,3,figsize=(COL2_WIDTH,3.4),sharey=True,layout='constrained')
+ g0=key[key.swap==0]; g1=key[key.swap==1]
+ pcols0=[MALE_COLOR if s=='M' else FEMALE_COLOR for s in g0.sex]
+ pcols1=[MALE_COLOR if s=='M' else FEMALE_COLOR for s in g1.sex]
+ axs[0].set_ylim(0,0.88)
+ 
+ panels_cfg=[
+  ('rank9','A  Rank mode 9',r'$\Delta = -0.31$' + '\n' + format_pvalue(1.5e-19)),
+  ('rank10','B  Rank mode 10',r'$\Delta = +0.27$' + '\n' + format_pvalue(6.9e-18)),
+  ('AP','C  Subspace 9–10',r'$\Delta = -0.01$' + '\n' + r'$p = 0.44\ \mathrm{(n.s.)}$'),
+ ]
+ for ax,(m,title,annot_txt) in zip(axs,panels_cfg):
+  data_m=[g0[m].to_numpy(),g1[m].to_numpy()]
+  style_distribution(ax,data_m,positions=[1,2],labels=['No exchange\n(n = 95)','Exchange\n(n = 57)'],
+                     color=NEUTRAL_COLOR,width=0.48,pt_alpha=0.38,pt_size=10,
+                     point_colors=[pcols0,pcols1],rng_seed=42)
   panel(ax,title)
- axs[0].set_ylabel('AP coupling (mm/mm)')
- fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE,label='Male'),plt.Line2D([],[],marker='o',ls='',color=FEMALE,label='Female')],loc='outside lower center',ncol=2,frameon=False)
+  ax.text(0.96,0.94,annot_txt,transform=ax.transAxes,ha='right',va='top',fontsize=7.5,color='#374151',
+          bbox=dict(boxstyle='round,pad=0.2',facecolor='white',edgecolor='#e5e7eb',alpha=0.85,lw=0.6))
+ axs[0].set_ylabel('AP inlet coupling (mm/mm)')
+ fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE_COLOR,markersize=4.5,label='Male (n = 80)'),
+                     plt.Line2D([],[],marker='o',ls='',color=FEMALE_COLOR,markersize=4.5,label='Female (n = 72)')],
+            loc='outside lower center',ncol=2,frameon=False,fontsize=8)
  save(fig,'label_stability')
- # Functional specificity: all five prevalent blocks, uncluttered distribution panels.
+ 
+ # 3. Functional coupling (Figure 3)
  blocks=[f'{c[0]+1}-{c[1]}' for c,_ in top]
- fig,axs=plt.subplots(2,2,figsize=(6.4,5.8),layout='constrained')
- for ax,m,title in zip(axs.flat,['AP','ML','BIS','BIT'],['A  AP inlet','B  ML inlet','C  Biischiadic','D  Bituberous']):
-  ax.boxplot([df.loc[(df.block==b)&df.member,m] for b in blocks],tick_labels=blocks,showfliers=False)
-  ax.set_ylabel('Coupling (mm/mm)');ax.set_xlabel('Rank block');panel(ax,title)
+ fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.4),layout='constrained')
+ coupling_cfgs=[
+  ('AP','A  AP inlet','AP coupling (mm/mm)'),
+  ('ML','B  ML inlet','ML coupling (mm/mm)'),
+  ('BIS','C  Biischiadic','BIS coupling (mm/mm)'),
+  ('BIT','D  Bituberous','BIT coupling (mm/mm)'),
+ ]
+ for ax,(m,title,ylbl) in zip(axs.flat,coupling_cfgs):
+  block_data=[df.loc[(df.block==b)&df.member,m].to_numpy() for b in blocks]
+  b_colors=[BLOCK_COLORS.get(b,NEUTRAL_COLOR) for b in blocks]
+  style_distribution(ax,block_data,positions=np.arange(len(blocks)),labels=blocks,
+                     color=b_colors,width=0.46,pt_alpha=0.28,pt_size=7,rng_seed=42)
+  ax.set_ylabel(ylbl);ax.set_xlabel('Rank block');panel(ax,title)
  save(fig,'functional_coupling')
+ 
+ # 4. Load routing (Figure 6)
  fractions=_open_zarr_array(DATA_DIR_FULL/'mode_energy_fraction.zarr'); means=fractions.mean(axis=0)
- fig,axs=plt.subplots(2,1,figsize=(6.4,5.8),layout='constrained')
- im=axs[0].imshow(means.T,vmin=0,vmax=1,cmap='Blues',aspect='auto')
+ fig,axs=plt.subplots(2,1,figsize=(COL2_WIDTH,5.4),layout='constrained')
+ im=axs[0].imshow(means.T,vmin=0,vmax=1,cmap='viridis',aspect='auto',interpolation='nearest')
  axs[0].set_xticks(np.arange(15),np.arange(1,16));axs[0].set_yticks(np.arange(5),LOADS);axs[0].set_xlabel('Solver rank')
- panel(axs[0],'A  Mean retained modal energy share');fig.colorbar(im,ax=axs[0],label='Share',fraction=.035)
+ panel(axs[0],'A  Mean retained modal energy share')
+ style_axis(axs[0],spines=('left','bottom','top','right'),y_grid=False,x_grid=False)
+ style_colorbar(fig,im,ax=axs[0],label='Mean share',orientation='vertical',shrink=0.88,fraction=0.035,pad=0.02)
  bottom=np.zeros(5)
- for a,b,label,c in [(0,3,'1–3',MALE),(3,8,'4–8',FEMALE),(8,10,'9–10','#009E73'),(10,15,'11–15','#CC79A7')]:
-  y=means[a:b].sum(axis=0);axs[1].bar(np.arange(5),y,bottom=bottom,label=label,color=c);bottom+=y
- axs[1].set_xticks(np.arange(5),LOADS);axs[1].set_ylabel('Mean energy share');panel(axs[1],'B  Routing across modal blocks')
- axs[1].legend(title='Ranks',loc='outside upper center' if False else 'upper center',bbox_to_anchor=(.5,-.16),ncol=4,frameon=False)
+ for a,b,label,c in [(0,3,'1–3 (Backbone)',BACKBONE_COLOR),(3,8,'4–8 (Mid-rank)',MIDRANK_COLOR),(8,10,'9–10 (Inlet swap)',INLET_SWAP_COLOR),(10,15,'11–15 (Higher reserve)',HIGHER_RESERVE_COLOR)]:
+  y=means[a:b].sum(axis=0);axs[1].bar(np.arange(5),y,bottom=bottom,label=label,color=c,width=0.55,edgecolor='none');bottom+=y
+ axs[1].set_xticks(np.arange(5),LOADS);axs[1].set_ylabel('Mean energy share');axs[1].set_ylim(0,1.05)
+ panel(axs[1],'B  Routing across modal blocks')
+ axs[1].legend(title='Modal blocks',loc='upper center',bbox_to_anchor=(0.5,-0.18),ncol=4,frameon=False,fontsize=8)
  save(fig,'load_routing')
- # Full sex-specific distributions: 3 x 2, explicit legend, all 15 ranks.
- fig,axs=plt.subplots(3,2,figsize=(6.4,7.3),layout='constrained')
+ 
+ # 5. Routing distributions (Figure S1)
+ fig,axs=plt.subplots(3,2,figsize=(COL2_WIDTH,7.2),layout='constrained')
  for l,ax in enumerate(axs.flat):
   if l==5:ax.axis('off');continue
-  for k,(s,c) in enumerate([('M',MALE),('F',FEMALE)]):
-   ar=fractions[sex==s,:,l];pos=np.arange(1,16)+(k-.5)*.3
+  for k,(s,c) in enumerate([('M',MALE_COLOR),('F',FEMALE_COLOR)]):
+   ar=fractions[sex==s,:,l];pos=np.arange(1,16)+(k-.5)*.32
    vp=ax.violinplot(list(ar.T),positions=pos,widths=.28,showextrema=False,showmedians=True)
-   for body in vp['bodies']:body.set_facecolor(c);body.set_alpha(.65)
-   vp['cmedians'].set_color(c)
-  ax.set_xticks([1,3,5,7,9,11,13,15]);ax.set_xlabel('Rank');ax.set_ylabel('Energy share');ax.set_ylim(0,1)
+   for body in vp['bodies']:body.set_facecolor(c);body.set_alpha(.55);body.set_edgecolor('none')
+   vp['cmedians'].set_color(c);vp['cmedians'].set_linewidth(1.4)
+  ax.set_xticks([1,3,5,7,9,11,13,15]);ax.set_xlabel('Solver rank');ax.set_ylabel('Energy share');ax.set_ylim(0,1)
   panel(ax,f'{chr(65+l)}  {LOADS[l]}')
- fig.legend(handles=[plt.Line2D([],[],color=MALE,lw=4,label='Male (n=128)'),plt.Line2D([],[],color=FEMALE,lw=4,label='Female (n=150)')],loc='outside lower center',ncol=2,frameon=False)
+ fig.legend(handles=[plt.Line2D([],[],color=MALE_COLOR,lw=3.0,label='Male (n = 128)'),plt.Line2D([],[],color=FEMALE_COLOR,lw=3.0,label='Female (n = 150)')],loc='outside lower center',ncol=2,frameon=False,fontsize=8)
  save(fig,'routing_distributions')
- # Associations: pooled statistics are tabulated, panels show separate within-sex trends.
- fig,axs=plt.subplots(2,2,figsize=(6.4,5.8),layout='constrained')
- for ax,load in zip(axs.flat,LOADS[2:]):
-  full=df[df.block=='9-10']
-  for s,c in [('M',MALE),('F',FEMALE)]:
-   g=full[full.sex==s];ax.scatter(g.AP_diameter,g[load],s=9,color=c,alpha=.5)
-   fit=np.polyfit(g.AP_diameter,g[load],1);xx=np.linspace(g.AP_diameter.min(),g.AP_diameter.max(),50);ax.plot(xx,np.polyval(fit,xx),c=c,ls='--')
-  ax.set_xlabel('AP inlet diameter (mm)');ax.set_ylabel('9–10 energy share');panel(ax,f'{chr(65+LOADS[2:].index(load))}  {load}')
- axs[1,1].boxplot([key.loc[(key.sex==s)&(key.swap==v),'AP'] for v in [0,1] for s in ['M','F']],tick_labels=['M/no','F/no','M/yes','F/yes'],showfliers=False)
- axs[1,1].set_xlabel('Sex / exchange');axs[1,1].set_ylabel('AP coupling (mm/mm)');panel(axs[1,1],'D  Subspace coupling')
- fig.legend(handles=[plt.Line2D([],[],color=MALE,label='Male'),plt.Line2D([],[],color=FEMALE,label='Female')],loc='outside lower center',ncol=2,frameon=False)
+ 
+ # 6. Routing associations (Figure 5)
+ fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.6),layout='constrained')
+ full=df[df.block=='9-10']
+ for ax,load,letter in zip(axs.flat[:3],LOADS[2:],['A','B','C']):
+  for s,c in [('M',MALE_COLOR),('F',FEMALE_COLOR)]:
+   g=full[full.sex==s];style_scatter(ax,g.AP_diameter,g[load],c=c,s=10,alpha=0.45)
+   fit=np.polyfit(g.AP_diameter,g[load],1);xx=np.linspace(g.AP_diameter.min(),g.AP_diameter.max(),50);ax.plot(xx,np.polyval(fit,xx),color=c,ls='--',lw=1.3)
+  ax.set_xlabel('AP inlet diameter (mm)');ax.set_ylabel('9–10 energy share');panel(ax,f'{letter}  {load}')
+ y_min_bc=min(axs[0,1].get_ylim()[0],axs[1,0].get_ylim()[0]);y_max_bc=max(axs[0,1].get_ylim()[1],axs[1,0].get_ylim()[1])
+ axs[0,1].set_ylim(y_min_bc,y_max_bc);axs[1,0].set_ylim(y_min_bc,y_max_bc)
+ groups_d=[
+  key.loc[(key.sex=='M')&(key.swap==0),'AP'].to_numpy(),
+  key.loc[(key.sex=='F')&(key.swap==0),'AP'].to_numpy(),
+  key.loc[(key.sex=='M')&(key.swap==1),'AP'].to_numpy(),
+  key.loc[(key.sex=='F')&(key.swap==1),'AP'].to_numpy(),
+ ]
+ cols_d=[MALE_COLOR,FEMALE_COLOR,MALE_COLOR,FEMALE_COLOR]
+ style_distribution(axs[1,1],groups_d,positions=[1,2,3,4],labels=['M / no','F / no','M / yes','F / yes'],
+                    color=cols_d,width=0.48,pt_alpha=0.40,pt_size=9,rng_seed=42)
+ axs[1,1].set_xlabel('Sex / exchange status');axs[1,1].set_ylabel('AP coupling (mm/mm)');panel(axs[1,1],'D  Subspace coupling')
+ fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE_COLOR,label='Male'),plt.Line2D([],[],marker='o',ls='',color=FEMALE_COLOR,label='Female')],loc='outside lower center',ncol=2,frameon=False,fontsize=8)
  save(fig,'routing_associations')
- # Correctly indexed, covariance-aware UQ: no inference of 95% confidence from Z.
+ 
+ # 7. Material uncertainty (Figure 9)
  uq=pd.read_csv(ROOT/'analysis_outputs/material_uncertainty/population_material_summary.csv')
- fig,axs=plt.subplots(2,1,figsize=(6.4,5.8),layout='constrained')
- for j,(s,c) in enumerate([('Male',MALE),('Female',FEMALE)]):
-  g=uq[uq.sex==s].sort_values('mode');axs[0].plot(g['mode'],g.mean_CoV_total*100,'o-',c=c,label=s,ms=3)
-  g=g[g['mode']<15];axs[1].plot(g['mode']+(j-.5)*.1,g.mean_gap_z,'o-',c=c,ms=3)
-  axs[1].scatter(g['mode']+(j-.5)*.1,g.p10_gap_z,marker='v',c=c,s=14)
- axs[0].set_xticks(np.arange(1,16));axs[0].set_ylabel('Eigenvalue CoV (%)');axs[0].set_xlabel('Solver rank');axs[0].legend(ncol=2,frameon=False)
+ fig,axs=plt.subplots(2,1,figsize=(COL2_WIDTH,5.6),layout='constrained')
+ for j,(s,c) in enumerate([('Male',MALE_COLOR),('Female',FEMALE_COLOR)]):
+  g=uq[uq.sex==s].sort_values('mode');axs[0].plot(g['mode'],g.mean_CoV_total*100,'o-',c=c,label=s,ms=3.5,lw=1.2)
+  g14=g[g['mode']<15];axs[1].plot(g14['mode']+(j-.5)*.12,g14.mean_gap_z,'o-',c=c,ms=3.5,lw=1.2,label=s)
+  axs[1].scatter(g14['mode']+(j-.5)*.12,g14.p10_gap_z,marker='v',c=c,s=14,zorder=3)
+ axs[0].set_xticks(np.arange(1,16));axs[0].set_ylabel('Eigenvalue CoV (%)');axs[0].set_xlabel('Solver rank');axs[0].legend(loc='upper right',ncol=2,frameon=False,fontsize=8)
  panel(axs[0],'A  First-order material uncertainty')
- axs[1].axvspan(8.7,9.3,color='#999999',alpha=.15);axs[1].set_xticks(np.arange(1,15),[f'{i}–{i+1}' for i in range(1,15)],rotation=45)
- axs[1].set_ylabel('Gap / propagated SD');axs[1].set_xlabel('Adjacent solver ranks');axs[1].set_ylim(bottom=0)
+ axs[1].axvspan(8.6,9.4,color='#e5e7eb',alpha=0.65,zorder=0);axs[1].set_xticks(np.arange(1,15),[f'{i}–{i+1}' for i in range(1,15)],rotation=30,ha='right')
+ axs[1].set_ylabel('Gap / propagated SD ($Z$)');axs[1].set_xlabel('Adjacent solver ranks');axs[1].set_ylim(bottom=0)
  panel(axs[1],'B  Gap uncertainty including shared-parameter covariance')
  save(fig,'material_uncertainty')
- # Additional robustness replaces unsupported allometric recovery claims.
- th=pd.read_csv(TAB/'threshold_sensitivity.csv');fig,axs=plt.subplots(2,2,figsize=(6.4,5.9),layout='constrained')
- for b,c in zip(blocks,COLORS):
-  g=th[th.Block==b];axs[0,0].plot(g.Percentile,g.Prevalence,'o-',c=c,label=b,ms=3)
- axs[0,0].set_xlabel('Gap percentile');axs[0,0].set_ylabel('Block prevalence');panel(axs[0,0],'A  Threshold sensitivity')
- axs[0,0].legend(ncol=2,fontsize=8,frameon=False)
+ 
+ # 8. Robustness (Figure 13 / S3)
+ th=pd.read_csv(TAB/'threshold_sensitivity.csv');fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.6),layout='constrained')
+ for b in blocks:
+  c=BLOCK_COLORS.get(b,NEUTRAL_COLOR);g=th[th.Block==b];axs[0,0].plot(g.Percentile,g.Prevalence,'o-',c=c,label=b,ms=3.5,lw=1.2)
+ axs[0,0].set_xlabel('Gap percentile threshold');axs[0,0].set_ylabel('Block prevalence');panel(axs[0,0],'A  Threshold sensitivity')
+ axs[0,0].legend(ncol=2,fontsize=7.5,frameon=False)
  rr=pd.read_csv(TAB/'reference_sensitivity.csv')
- for b,c in zip(blocks,COLORS):
-  g=rr[rr.Block==b];axs[0,1].plot(g['Reference quantile'],g['Median distance'],'o-',c=c,ms=3)
- axs[0,1].set_xlabel('Reference eigenvalue percentile');axs[0,1].set_ylabel('Median Grassmann distance');panel(axs[0,1],'B  Reference sensitivity')
+ for b in blocks:
+  c=BLOCK_COLORS.get(b,NEUTRAL_COLOR);g=rr[rr.Block==b];axs[0,1].plot(g['Reference quantile'],g['Median distance'],'o-',c=c,ms=3.5,lw=1.2)
+ axs[0,1].set_xlabel('Reference eigenvalue percentile');axs[0,1].set_ylabel('Median Grassmann distance ($d_G$)');panel(axs[0,1],'B  Reference sensitivity')
  full=df[df.block=='9-10']
- for s,c in [('M',MALE),('F',FEMALE)]:
-  g=full[full.sex==s];axs[1,0].scatter(g.scale,g.gap,s=9,color=c,alpha=.5)
- axs[1,0].set_xlabel('Isotropic scale');axs[1,0].set_ylabel('Relative gap (9–10)');panel(axs[1,0],'C  Size and solver-rank gap')
+ for s,c in [('M',MALE_COLOR),('F',FEMALE_COLOR)]:
+  g=full[full.sex==s];style_scatter(axs[1,0],g.scale,g.gap,c=c,s=10,alpha=0.45)
+ axs[1,0].set_xlabel('Isotropic scale ($s$)');axs[1,0].set_ylabel('Relative gap ($9$–$10$)');panel(axs[1,0],'C  Size and solver-rank gap')
  errors=_open_zarr_array(DATA_DIR_FULL/'mode_reconstruction_error.zarr')
- axs[1,1].boxplot(errors*100,tick_labels=LOADS,showfliers=False);axs[1,1].tick_params(axis='x',rotation=45)
- axs[1,1].set_ylabel('Relative displacement error (%)');panel(axs[1,1],'D  Fifteen-mode reconstruction')
+ err_data=[errors[:,l]*100 for l in range(5)]
+ style_distribution(axs[1,1],err_data,positions=np.arange(5),labels=LOADS,color=NEUTRAL_COLOR,width=0.48,pt_alpha=0.30,pt_size=8,rng_seed=42)
+ axs[1,1].set_xlabel('Load condition');axs[1,1].set_ylabel('Displacement error (%)');panel(axs[1,1],'D  15-mode displacement reconstruction error')
  save(fig,'robustness')
- # Correlation heatmaps: fixed [-1,1] scale, no stars crossing cell boundaries.
- fig,axs=plt.subplots(2,3,figsize=(6.4,5.8),layout='constrained');corr=[]
+ 
+ # 9. Coupling routing heatmap (Figure S2)
+ fig,axs=plt.subplots(2,3,figsize=(COL2_WIDTH,5.4),layout='constrained');corr=[];im=None
  for ax,m in zip(axs.flat,AXES):
   mat=np.empty((len(blocks),5))
   for j,b in enumerate(blocks):
    g=df[(df.block==b)&df.member]
    for l,load in enumerate(LOADS):
     rho,p=stats.spearmanr(g[m],g[load]);mat[j,l]=rho;corr.append({'Block':b,'Functional':m,'Load':load,'n':len(g),'rho':rho,'p':p})
-  im=ax.imshow(mat,vmin=-1,vmax=1,cmap='RdBu_r',aspect='auto')
-  for j in range(len(blocks)):
-   for l in range(5):ax.text(l,j,f'{mat[j,l]:.2f}',ha='center',va='center',fontsize=8,color='white' if abs(mat[j,l])>.55 else 'black')
-  ax.set_xticks(np.arange(5),LOADS,rotation=45,ha='right');ax.set_yticks(np.arange(len(blocks)),blocks);ax.set_title(m,loc='left',fontweight='bold')
- axs[1,2].axis('off');fig.colorbar(im,ax=axs[:,2],label='Spearman correlation',shrink=.75)
+  im=style_heatmap(ax,mat,cmap='RdBu_r',norm=TwoSlopeNorm(vmin=-1,vcenter=0,vmax=1),x_labels=LOADS,y_labels=blocks,annot=True,annot_fmt='{:.2f}',annot_size=7.5)
+  ax.tick_params(axis='x',rotation=35);panel(ax,m)
+ axs[1,2].axis('off');style_colorbar(fig,im,ax=axs[:,2],label=r'Spearman correlation ($\rho$)',shrink=0.75)
  save(fig,'coupling_routing_heatmap');corr=pd.DataFrame(corr);corr['q']=multipletests(corr.p,method='fdr_bh')[1];table(corr,'coupling_routing_correlations')
- # Toy model is illustrative and not fitted to anatomy.
+ 
+ # 10. Toy model (Figure 7)
  from analysis.toy_subspace_dashboard import ToyConfig,make_main_cohort,make_summary_curves
  cfg=ToyConfig(); toy=make_main_cohort(cfg);curves=make_summary_curves(cfg)
- fig,axs=plt.subplots(2,2,figsize=(6.4,5.7),layout='constrained')
- for i,c in enumerate(['#555555',MALE,FEMALE]):axs[0,0].scatter(toy['mu'],toy['evals'][:,i],s=4,c=c,alpha=.5)
- axs[0,0].set_ylabel('Eigenvalue');axs[0,0].set_xlabel('Model parameter μ');panel(axs[0,0],'A  Illustrative spectrum')
- for k,c,label in [('label_low',MALE,'Lower rank'),('label_high',FEMALE,'Upper rank'),('subspace','#222222','Pair')]:
-  axs[0,1].scatter(toy['mu'],toy[k],s=4,c=c,alpha=.6,label=label)
- axs[0,1].set_ylabel('Squared functional projection');axs[0,1].set_xlabel('Model parameter μ');panel(axs[0,1],'B  Functional projection')
- axs[0,1].legend(loc='upper center',bbox_to_anchor=(.5,-.24),ncol=3,fontsize=8,frameon=False)
- # Means, unlike componentwise medians, sum exactly to one.
+ fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.4),layout='constrained')
+ for i,c in enumerate([BACKBONE_COLOR,MALE_COLOR,FEMALE_COLOR]):style_scatter(axs[0,0],toy['mu'],toy['evals'][:,i],c=c,s=6,alpha=0.5)
+ axs[0,0].set_ylabel(r'Eigenvalue ($\lambda$)');axs[0,0].set_xlabel(r'Model parameter $\mu$');panel(axs[0,0],'A  Illustrative spectrum')
+ for k,c,label in [('label_low',MALE_COLOR,'Lower rank'),('label_high',FEMALE_COLOR,'Upper rank'),('subspace','#111827','Pair')]:
+  style_scatter(axs[0,1],toy['mu'],toy[k],c=c,s=6,alpha=0.55,label=label)
+ axs[0,1].set_ylabel('Squared functional projection');axs[0,1].set_xlabel(r'Model parameter $\mu$');panel(axs[0,1],'B  Functional projection')
+ axs[0,1].legend(loc='upper center',bbox_to_anchor=(0.5,-0.22),ncol=3,fontsize=8,frameon=False)
  y=np.vstack([toy['standing'].mean(axis=0),toy['task'].mean(axis=0)]);bottom=np.zeros(2)
- for k,c,label in [(0,'#555555','Backbone'),(1,MALE,'Lower rank'),(2,FEMALE,'Upper rank')]:
-  axs[1,0].bar([0,1],y[:,k],bottom=bottom,color=c,label=label);bottom+=y[:,k]
- axs[1,0].set_xticks([0,1],['Standing-like','Task-like']);axs[1,0].set_ylabel('Mean energy share');panel(axs[1,0],'C  Constructed load contrast')
- for k,c,label in [('mismatch',FEMALE,'Carrier change'),('subspace_retained','#222222','Pair projection'),('task_cluster','#009E73','Pair routing')]:axs[1,1].plot(curves['eta'],curves[k],'o-',c=c,label=label,ms=3)
- axs[1,1].set_xlabel('Nuisance scale η');axs[1,1].set_ylabel('Fraction');panel(axs[1,1],'D  Nuisance sensitivity')
- axs[1,1].legend(loc='upper center',bbox_to_anchor=(.5,-.25),frameon=False,fontsize=8)
+ for k,c,label in [(0,BACKBONE_COLOR,'Backbone'),(1,MALE_COLOR,'Lower rank'),(2,FEMALE_COLOR,'Upper rank')]:
+  axs[1,0].bar([0,1],y[:,k],bottom=bottom,color=c,label=label,width=0.50,edgecolor='none');bottom+=y[:,k]
+ axs[1,0].set_xticks([0,1]);axs[1,0].set_xticklabels(['Standing-like','Task-like']);axs[1,0].set_ylabel('Mean energy share');panel(axs[1,0],'C  Constructed load contrast')
+ axs[1,0].legend(loc='upper center',bbox_to_anchor=(0.5,-0.22),ncol=3,fontsize=8,frameon=False)
+ for k,c,label in [('mismatch',FEMALE_COLOR,'Carrier change'),('subspace_retained','#111827','Pair projection'),('task_cluster',INLET_SWAP_COLOR,'Pair routing')]:
+  axs[1,1].plot(curves['eta'],curves[k],'o-',c=c,label=label,ms=3.5,lw=1.2)
+ axs[1,1].set_xlabel(r'Nuisance scale $\eta$');axs[1,1].set_ylabel('Fraction');panel(axs[1,1],'D  Nuisance sensitivity')
+ axs[1,1].legend(loc='upper center',bbox_to_anchor=(0.5,-0.22),ncol=3,fontsize=8,frameon=False)
  save(fig,'toy_model')
 
 

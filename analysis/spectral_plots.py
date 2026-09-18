@@ -12,6 +12,17 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
+from analysis.publication_style import (
+    apply_publication_style,
+    panel_label as pub_panel_label,
+    style_axis,
+    style_distribution,
+    format_pvalue,
+    save_publication_figure,
+    MALE_COLOR,
+    FEMALE_COLOR,
+    NEUTRAL_COLOR,
+)
 from analysis.spectral_config import (
     COL2_WIDTH,
     EPS_DEG,
@@ -30,12 +41,9 @@ from utils.plot_utils import (
     BAR_EDGE_LW,
     BOX_LW,
     DEFAULT_FONT_SIZE,
-    FEMALE_COLOR,
     FILL_ALPHA,
-    MALE_COLOR,
     MATERIAL_EFFECT_COLOR,
     MEDIAN_LW,
-    NEUTRAL_COLOR,
     SCATTER_ALPHA,
     SHAPE_EFFECT_COLOR,
     SMALL_ANNOT_SIZE,
@@ -51,10 +59,8 @@ from utils.plot_utils import (
 def _save_fig(fig: plt.Figure, name: str) -> Path:
     """Save figure in all configured formats and close."""
     FIG_DIR.mkdir(parents=True, exist_ok=True)
-    primary = FIG_DIR / f"{name}.{FIG_FMT}"
-    for fmt in FIG_FORMATS:
-        path = FIG_DIR / f"{name}.{fmt}"
-        fig.savefig(path, dpi=FIG_DPI)
+    primary = FIG_DIR / f"{name}.pdf"
+    save_publication_figure(fig, FIG_DIR / name)
     plt.close(fig)
     return primary
 
@@ -113,6 +119,20 @@ def _save_table(
     tex_path.write_text(_sanitize_tex(raw), encoding="utf-8")
 
 
+def _format_metric_title(metric: str) -> str:
+    if metric.startswith("gap_in"):
+        core = metric.replace("gap_in", "").strip(" ()").replace("-", "–").replace("\u2013", "–")
+        return f"gap$_{{\\rm in}}$({core})"
+    if metric.startswith("d_G"):
+        core = metric.replace("d_G", "").strip(" ()").replace("modes_", "").replace("_", "–")
+        return f"$d_G$({core})"
+    if metric == "swap_count_per_subject":
+        return "Swapped modes / subject"
+    if "permutation" in metric:
+        return "Pairing exchange rate"
+    return metric
+
+
 def _sex_boxplot(
     ax: plt.Axes,
     vals_m: np.ndarray,
@@ -121,46 +141,46 @@ def _sex_boxplot(
     title: str = "",
     show_p: bool = True,
 ) -> None:
-    """Styled sex-stratified box plot with Mann-Whitney U annotation."""
+    """Styled sex-stratified distribution plot with Mann-Whitney U annotation."""
     vals_m = np.asarray(vals_m, dtype=float)
     vals_f = np.asarray(vals_f, dtype=float)
     vals_m = vals_m[np.isfinite(vals_m)]
     vals_f = vals_f[np.isfinite(vals_f)]
-    bp = ax.boxplot(
+    if len(vals_m) == 0 or len(vals_f) == 0:
+        return
+
+    style_distribution(
+        ax,
         [vals_m, vals_f],
-        tick_labels=["Male", "Female"],
-        patch_artist=True,
-        showfliers=False,
-        widths=0.5,
-        medianprops=dict(color="black", linewidth=MEDIAN_LW),
-        boxprops=dict(linewidth=BOX_LW),
-        whiskerprops=dict(linewidth=BOX_LW),
-        capprops=dict(linewidth=BOX_LW),
+        positions=[0, 1],
+        labels=["Male", "Female"],
+        color=[MALE_COLOR, FEMALE_COLOR],
+        pt_size=9.0,
+        pt_alpha=0.35,
+        width=0.45,
     )
-    bp["boxes"][0].set_facecolor(MALE_COLOR)
-    bp["boxes"][0].set_alpha(FILL_ALPHA)
-    bp["boxes"][1].set_facecolor(FEMALE_COLOR)
-    bp["boxes"][1].set_alpha(FILL_ALPHA)
-    ax.set_ylabel(ylabel)
+    ax.set_ylabel(ylabel, fontsize=7.5)
     if title:
-        panel_label(ax, title)
+        ax.set_title(_format_metric_title(title), fontsize=8.0, fontweight="medium", pad=5)
+    style_axis(ax, y_grid=True)
+
     if show_p and len(vals_m) > 1 and len(vals_f) > 1:
         u_stat, p_val = stats.mannwhitneyu(vals_m, vals_f, alternative="two-sided")
         n_m, n_f = len(vals_m), len(vals_f)
-        r_eff = 1 - 2 * u_stat / (n_m * n_f)
-        sig = (
-            "***" if p_val < 0.001
-            else "**" if p_val < 0.01
-            else "*" if p_val < 0.05
-            else "n.s."
-        )
+        r_eff = 1.0 - 2.0 * u_stat / (n_m * n_f)
+        p_txt = format_pvalue(p_val, prefix="p = ")
+        eff_txt = f"$r_{{rb}} = {r_eff:+.2f}$"
         ax.text(
-            0.5, 0.97,
-            f"p={p_val:.1e} {sig}\nr={r_eff:.2f}",
+            0.5, 0.95,
+            f"{p_txt}, {eff_txt}",
             transform=ax.transAxes, ha="center", va="top",
-            fontsize=ANNOT_SIZE,
-            color="crimson" if p_val < 0.05 else "0.4",
+            fontsize=6.8,
+            color="#111827",
+            fontweight="medium",
         )
+        curr_min, curr_max = ax.get_ylim()
+        span = curr_max - curr_min
+        ax.set_ylim(curr_min, curr_max + 0.16 * span)
 
 
 # ============================================================
@@ -336,16 +356,16 @@ def plot_sex_stratified_summary(
     mask_f: np.ndarray,
 ) -> None:
     """Grid of sex-stratified box/bar plots for all summary metrics."""
+    apply_publication_style()
     n_metrics = len(summary_rows)
     if n_metrics == 0:
         return
     n_cols = min(n_metrics, 4)
     n_rows_fig = (n_metrics + n_cols - 1) // n_cols
-    _annot_fs = ANNOT_SIZE
 
     fig, axes_sum = plt.subplots(
         n_rows_fig, n_cols,
-        figsize=(COL2_WIDTH, ROW_H * n_rows_fig),
+        figsize=(COL2_WIDTH, ROW_H * n_rows_fig * 1.15),
         squeeze=False,
         layout="constrained",
     )
@@ -357,11 +377,13 @@ def plot_sex_stratified_summary(
 
         if metric.startswith("gap_in"):
             parts = metric.split("(")[1].rstrip(")").split("\u2013")
+            if len(parts) < 2:
+                parts = metric.split("(")[1].rstrip(")").split("-")
             gi = int(parts[0]) - 1
             vals_m = gaps_full[mask_m, gi]
             vals_f = gaps_full[mask_f, gi]
             _sex_boxplot(ax, vals_m, vals_f,
-                         ylabel="gap$_{\\mathrm{in}}$", title=metric)
+                         ylabel=r"$\mathrm{gap}_{\mathrm{in}}$", title=metric)
         elif metric.startswith("d_G"):
             cl_key = metric.split("(")[1].rstrip(")")
             vals_m = grassmann_results[cl_key][mask_m]
@@ -373,18 +395,21 @@ def plot_sex_stratified_summary(
         elif "permutation" in metric:
             ax.bar(
                 ["Male", "Female"], [rate_m, rate_f],
-                color=[MALE_COLOR, FEMALE_COLOR], alpha=FILL_ALPHA,
-                edgecolor=BAR_EDGE_COLOR, lw=BAR_EDGE_LW,
+                color=[MALE_COLOR, FEMALE_COLOR], alpha=0.88,
+                edgecolor="none", width=0.5,
             )
-            ax.set_ylabel("Swap rate")
-            ax.set_title(metric)
-            p_txt = f"p={srow['p_value']:.2e}"
+            ax.set_ylabel("Swap rate", fontsize=7.5)
+            ax.set_title(_format_metric_title(metric), fontsize=8.0, fontweight="medium", pad=5)
+            p_txt = format_pvalue(srow['p_value'], prefix="p = ")
             ax.text(
                 0.5, 0.95, p_txt,
                 transform=ax.transAxes, ha="center", va="top",
-                fontsize=_annot_fs,
-                color="crimson" if srow["p_value"] < 0.05 else "0.4",
+                fontsize=6.8,
+                color="#111827",
+                fontweight="medium",
             )
+            ax.set_ylim(0, 1.15)
+            style_axis(ax, y_grid=True)
 
     for j in range(n_metrics, len(axes_flat)):
         axes_flat[j].set_visible(False)

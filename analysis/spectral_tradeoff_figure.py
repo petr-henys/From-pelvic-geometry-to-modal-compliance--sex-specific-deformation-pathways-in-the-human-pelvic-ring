@@ -56,13 +56,22 @@ from analysis.spectral_metrics import (
     invert_pairing_permutation,
     orthonormalize_l2,
 )
-from analysis.spectral_plots import _save_fig
+from analysis.publication_style import (
+    apply_publication_style,
+    panel_label as pub_panel_label,
+    style_axis,
+    style_distribution,
+    format_pvalue,
+    save_publication_figure,
+    MALE_COLOR,
+    FEMALE_COLOR,
+    NEUTRAL_COLOR,
+    ROW_H,
+)
 from utils.plot_utils import (
     ANNOT_SIZE,
-    FEMALE_COLOR,
     FILL_ALPHA,
     LINE_WIDTH,
-    MALE_COLOR,
     SCATTER_ALPHA,
     MEDIAN_LW,
     BOX_LW,
@@ -271,12 +280,12 @@ def main() -> None:
 
     # ── Figure ────────────────────────────────────────────────
     print("Plotting ...")
+    apply_publication_style()
     fig, axes = plt.subplots(
         1,
         5,
-        figsize=(COL2_WIDTH * 1.6, COL2_WIDTH / 3.2),
-        constrained_layout=False,
-        gridspec_kw={"wspace": 0.20},
+        figsize=(COL2_WIDTH * 1.15, ROW_H * 1.55),
+        layout="constrained",
     )
     ax_a, ax_b, ax_c, ax_d, ax_e = axes
 
@@ -289,60 +298,60 @@ def main() -> None:
         sel = fin_a & mask_sex
         ax_a.scatter(
             gap_910[sel], dG[sel],
-            c=color, alpha=SCATTER_ALPHA, s=14,
+            c=color, alpha=0.55, s=14,
             edgecolors="none", label=label, zorder=3,
         )
-    ax_a.set_xlabel("gap$_{\\mathrm{in}}$(9–10)")
-    ax_a.set_ylabel("$d_G$ (modes 9–10)")
+    ax_a.set_xlabel(r"$\mathrm{gap}_{\mathrm{in}}(9–10)$", fontsize=7.5)
+    ax_a.set_ylabel(r"$d_G$ (modes 9–10)", fontsize=7.5)
 
     # Mann–Whitney annotation for d_G
     dg_m = dG[fin_a & mask_m]
     dg_f = dG[fin_a & mask_f]
     u, p_dg = stats.mannwhitneyu(dg_m, dg_f, alternative="two-sided")
-    r_dg = 1 - 2 * u / (len(dg_m) * len(dg_f))
-    sig = "***" if p_dg < 0.001 else "**" if p_dg < 0.01 else "*" if p_dg < 0.05 else "n.s."
+    r_dg = 1.0 - 2.0 * u / (len(dg_m) * len(dg_f))
     ax_a.text(
-        0.97, 0.97,
-        f"$r_{{rb}}$={r_dg:.2f} {sig}",
+        0.96, 0.95,
+        f"$r_{{rb}} = {r_dg:+.2f}$\n{format_pvalue(p_dg)}",
         transform=ax_a.transAxes, ha="right", va="top",
-        fontsize=ANNOT_SIZE,
-        color="crimson" if p_dg < 0.05 else "0.4",
+        fontsize=6.2, color="#111827", fontweight="medium",
     )
-    ax_a.legend(loc="lower right", fontsize=ANNOT_SIZE)
-    panel_label(ax_a, "A Gap vs $d_G$")
+    ax_a.legend(loc="lower right", fontsize=6.5, frameon=False)
+    pub_panel_label(ax_a, "A")
+    ax_a.set_title("Separation vs rotation", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax_a, y_grid=True)
 
     # ── Panel (B): AP coupling by swap × sex ─────────────────
     fin_b = member & np.isfinite(ap_coupling)
     groups = []
-    group_labels = []
+    group_labels = ["M", "F", "M", "F"]
     group_colors = []
-    for swap_state, swap_lbl in [(False, "No swap"), (True, "Swapped")]:
-        for m_sex, color, sex_lbl in [
-            (mask_m, MALE_COLOR, "M"),
-            (mask_f, FEMALE_COLOR, "F"),
+    positions = [0.0, 0.9, 2.1, 3.0]
+    for swap_state in [False, True]:
+        for m_sex, color in [
+            (mask_m, MALE_COLOR),
+            (mask_f, FEMALE_COLOR),
         ]:
             sel = fin_b & m_sex & (is_swapped == swap_state)
             vals = ap_coupling[sel]
             vals = vals[np.isfinite(vals)]
             groups.append(vals)
-            group_labels.append(f"{swap_lbl}\n{sex_lbl}")
             group_colors.append(color)
 
-    bp = ax_b.boxplot(
+    style_distribution(
+        ax_b,
         groups,
-        tick_labels=group_labels,
-        patch_artist=True,
-        showfliers=False,
-        widths=0.55,
-        medianprops=dict(color="black", linewidth=MEDIAN_LW),
-        boxprops=dict(linewidth=BOX_LW),
-        whiskerprops=dict(linewidth=BOX_LW),
-        capprops=dict(linewidth=BOX_LW),
+        positions=positions,
+        labels=group_labels,
+        color=group_colors,
+        pt_size=9.0,
+        pt_alpha=0.35,
+        width=0.38,
     )
-    for patch, color in zip(bp["boxes"], group_colors):
-        patch.set_facecolor(color)
-        patch.set_alpha(FILL_ALPHA)
-    ax_b.set_ylabel("AP coupling (mm/mm)")
+    ax_b.set_ylabel("AP coupling (mm/mm)", fontsize=7.5)
+    ax_b.text(0.45, -0.15, "No-swap", transform=ax_b.get_xaxis_transform(),
+              ha="center", va="top", fontsize=6.8, color="#374151")
+    ax_b.text(2.55, -0.15, "Swapped", transform=ax_b.get_xaxis_transform(),
+              ha="center", va="top", fontsize=6.8, color="#374151")
 
     # Test: pooled no-swap vs swapped (ignoring sex)
     no_swap_all = np.concatenate([groups[0], groups[1]])
@@ -351,27 +360,24 @@ def main() -> None:
         u_swap, p_swap = stats.mannwhitneyu(
             no_swap_all, swap_all, alternative="two-sided",
         )
-        r_swap = 1 - 2 * u_swap / (len(no_swap_all) * len(swap_all))
-        sig_swap = (
-            "***" if p_swap < 0.001
-            else "**" if p_swap < 0.01
-            else "*" if p_swap < 0.05
-            else "n.s."
-        )
+        r_swap = 1.0 - 2.0 * u_swap / (len(no_swap_all) * len(swap_all))
         ax_b.text(
-            0.5, 0.97,
-            f"swap effect: $r_{{rb}}$={r_swap:.2f} {sig_swap}",
+            0.5, 0.95,
+            f"Swap effect:\n$r_{{rb}} = {r_swap:+.2f}$, {format_pvalue(p_swap)}",
             transform=ax_b.transAxes, ha="center", va="top",
-            fontsize=ANNOT_SIZE,
-            color="crimson" if p_swap < 0.05 else "0.4",
+            fontsize=6.2, color="#111827", fontweight="medium",
         )
-    panel_label(ax_b, "B AP coupling")
+        curr_min, curr_max = ax_b.get_ylim()
+        ax_b.set_ylim(curr_min, curr_max + 0.16 * (curr_max - curr_min))
+    pub_panel_label(ax_b, "B")
+    ax_b.set_title("AP inlet coupling", pad=5, fontsize=7.8, fontweight="medium")
+    style_axis(ax_b, y_grid=True)
 
-    # ── Panel (C): LAB₁ block fraction vs AP diameter ───────
+    # ── Panels (C, D, E): LAB block fraction vs AP diameter ──
     for ax_lab, lab_frac, lab_tag, panel_lbl in [
-        (ax_c, lab1_block_frac, "LAB\u2081", "C"),
-        (ax_d, lab2_block_frac, "LAB\u2082", "D"),
-        (ax_e, lab3_block_frac, "LAB\u2083", "E"),
+        (ax_c, lab1_block_frac, r"$\mathrm{LAB}_1$", "C"),
+        (ax_d, lab2_block_frac, r"$\mathrm{LAB}_2$", "D"),
+        (ax_e, lab3_block_frac, r"$\mathrm{LAB}_3$", "E"),
     ]:
         if ap_dim is not None:
             for m_sex, color, label in [
@@ -381,7 +387,7 @@ def main() -> None:
                 sel = m_sex & np.isfinite(lab_frac) & np.isfinite(ap_dim)
                 ax_lab.scatter(
                     ap_dim[sel], lab_frac[sel],
-                    c=color, alpha=SCATTER_ALPHA, s=14,
+                    c=color, alpha=0.55, s=14,
                     edgecolors="none", label=label, zorder=3,
                 )
                 # OLS trend line
@@ -391,33 +397,38 @@ def main() -> None:
                     x_fit = np.linspace(x.min(), x.max(), 50)
                     ax_lab.plot(
                         x_fit, intercept + slope * x_fit,
-                        color=color, lw=LINE_WIDTH * 1.5, ls="--",
-                        alpha=0.7, zorder=2,
+                        color=color, lw=1.2, ls="--",
+                        alpha=0.8, zorder=2,
                     )
-            ax_lab.set_xlabel("AP inlet diameter (mm)")
-            ax_lab.set_ylabel(f"{lab_tag} block energy fraction (modes 9+10)")
+            ax_lab.set_xlabel("AP inlet diameter (mm)", fontsize=7.5)
+            if ax_lab is ax_c:
+                ax_lab.set_ylabel(r"Block fraction (modes 9+10)", fontsize=7.5)
+            else:
+                ax_lab.set_ylabel("Block fraction", fontsize=7.5)
 
             # Overall Spearman for fraction vs. AP diameter
             fin_c = np.isfinite(lab_frac) & np.isfinite(ap_dim)
             rho, p_rho = stats.spearmanr(ap_dim[fin_c], lab_frac[fin_c])
             ax_lab.text(
-                0.97, 0.97,
-                f"$\\rho_s$={rho:.2f}, p={p_rho:.1e}",
+                0.96, 0.95,
+                f"$\\rho_s = {rho:.2f}$\n{format_pvalue(p_rho)}",
                 transform=ax_lab.transAxes, ha="right", va="top",
-                fontsize=ANNOT_SIZE,
-                color="crimson" if p_rho < 0.05 else "0.4",
+                fontsize=6.2, color="#111827", fontweight="medium",
             )
-            ax_lab.legend(loc="lower left", fontsize=ANNOT_SIZE)
+            if ax_lab is ax_c:
+                ax_lab.legend(loc="lower left", fontsize=6.5, frameon=False)
         else:
             ax_lab.text(
                 0.5, 0.5, "AP dimension\nnot available",
                 transform=ax_lab.transAxes, ha="center", va="center",
             )
-        panel_label(ax_lab, f"{panel_lbl} {lab_tag} block vs AP dia.")
+        pub_panel_label(ax_lab, panel_lbl)
+        ax_lab.set_title(f"{lab_tag} block routing", pad=5, fontsize=7.8, fontweight="medium")
+        style_axis(ax_lab, y_grid=True)
 
-    fig.subplots_adjust(left=0.06, right=0.995, bottom=0.20, top=0.92, wspace=0.22)
-
-    out = _save_fig(fig, "labour_routing_tradeoff")
+    save_publication_figure(fig, FIG_DIR / "labour_routing_tradeoff")
+    out = FIG_DIR / "labour_routing_tradeoff.pdf"
+    plt.close(fig)
     print(f"Saved: {out}")
 
 

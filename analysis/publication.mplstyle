@@ -1,0 +1,84 @@
+# Matplotlib stylesheet for PLOS Computational Biology publication figures
+# Restrained, modern, data-first scientific typography and layout
+
+# Font family & mathtext
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica Neue, Helvetica, DejaVu Sans
+mathtext.fontset: dejavusans
+mathtext.default: regular
+axes.unicode_minus: False
+
+# Font sizes (calibrated for 7.2" double-column and 3.5" single-column print width)
+font.size: 8.5
+axes.labelsize: 9.0
+axes.titlesize: 9.0
+xtick.labelsize: 8.0
+ytick.labelsize: 8.0
+legend.fontsize: 8.0
+legend.title_fontsize: 8.5
+figure.titlesize: 9.5
+
+# Axes & Spines (clean data-first framing, subtle spines)
+axes.linewidth: 0.75
+axes.spines.top: False
+axes.spines.right: False
+axes.edgecolor: "374151"
+axes.labelcolor: "1f2937"
+axes.facecolor: white
+text.color: "111827"
+axes.titleweight: normal
+axes.titlepad: 4.0
+
+# Ticks (subtle outward ticks)
+xtick.direction: out
+ytick.direction: out
+xtick.major.size: 3.0
+ytick.major.size: 3.0
+xtick.minor.size: 1.5
+ytick.minor.size: 1.5
+xtick.major.width: 0.75
+ytick.major.width: 0.75
+xtick.minor.width: 0.5
+ytick.minor.width: 0.5
+xtick.color: "374151"
+ytick.color: "374151"
+xtick.labelcolor: "374151"
+ytick.labelcolor: "374151"
+xtick.major.pad: 2.5
+ytick.major.pad: 2.5
+
+# Lines, Markers, Patches
+lines.linewidth: 1.2
+lines.markersize: 4.0
+lines.solid_capstyle: round
+patch.linewidth: 0.6
+errorbar.capsize: 2.0
+
+# Legend (frame-off, compact)
+legend.frameon: False
+legend.borderpad: 0.2
+legend.handlelength: 1.2
+legend.handleheight: 0.7
+legend.handletextpad: 0.4
+legend.columnspacing: 0.8
+
+# Grid (disabled by default; subtle below data when enabled)
+axes.grid: False
+axes.grid.axis: y
+axes.axisbelow: True
+grid.color: "e5e7eb"
+grid.linewidth: 0.5
+grid.linestyle: -
+grid.alpha: 0.8
+
+# Figure & Saving (true vector editable typography)
+figure.facecolor: white
+savefig.facecolor: white
+savefig.edgecolor: white
+savefig.transparent: False
+savefig.bbox: tight
+savefig.pad_inches: 0.04
+pdf.fonttype: 42
+ps.fonttype: 42
+svg.fonttype: none
+

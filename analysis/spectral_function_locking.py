@@ -63,6 +63,16 @@ from analysis.spectral_metrics import (
     single_functional_coupling,
 )
 from analysis.spectral_plots import _save_fig, _save_table
+from analysis.publication_style import (
+    apply_publication_style,
+    panel_label as pub_panel_label,
+    style_axis,
+    style_colorbar,
+    MALE_COLOR,
+    FEMALE_COLOR,
+    NEUTRAL_COLOR,
+    save_publication_figure,
+)
 from utils.plot_utils import (
     ANNOT_SIZE,
     FEMALE_COLOR,
@@ -569,6 +579,7 @@ def _plot_heatmap(
     regimes: dict[str, str],
 ) -> None:
     """Six-panel figure: AP/ML/BIS/BIT/OutletAP ρ heatmaps plus d_G sex bar."""
+    apply_publication_style()
     n_cl = len(cl_labels)
     # Short cluster labels for Y axis
     ylabels = []
@@ -576,16 +587,16 @@ def _plot_heatmap(
         verdict = regimes.get(ck, "")
         parts = ck.split("_")
         if len(parts) >= 3:
-            core = f"{parts[1]}-{parts[2]}"
+            core = f"{parts[1]}–{parts[2]}"
         else:
-            core = ck.replace("modes_", "").replace("_", "-")
+            core = ck.replace("modes_", "").replace("_", "–")
         ylabels.append(f"{core} ({_regime_abbrev(verdict)})")
 
     fig, axes = plt.subplots(
         1,
         6,
-        figsize=(COL2_WIDTH * 1.18, ROW_H * 1.72),
-        gridspec_kw={"width_ratios": [4.1, 4.1, 4.1, 4.1, 4.1, 2.3], "wspace": 0.15},
+        figsize=(COL2_WIDTH * 1.16, ROW_H * 1.75),
+        gridspec_kw={"width_ratios": [4.0, 4.0, 4.0, 4.0, 4.0, 2.5], "wspace": 0.16},
         constrained_layout=False,
     )
     heat_axes = axes[:5]
@@ -597,6 +608,7 @@ def _plot_heatmap(
     )
     norm = TwoSlopeNorm(vcenter=0, vmin=-vmax, vmax=vmax)
     cmap = "RdBu_r"
+    panel_letters = ["A", "B", "C", "D", "E"]
 
     for idx, axis in enumerate(AXIS_ORDER):
         ax = heat_axes[idx]
@@ -607,15 +619,22 @@ def _plot_heatmap(
             interpolation="nearest",
         )
         ax.set_xticks(range(N_LOAD))
-        ax.set_xticklabels(LOAD_LABELS_SHORT, fontsize=ANNOT_SIZE)
+        ax.set_xticklabels(LOAD_LABELS_SHORT, fontsize=6.8)
         ax.set_yticks(range(n_cl))
         if idx == 0:
-            ax.set_yticklabels(ylabels, fontsize=ANNOT_SIZE)
-            ax.tick_params(axis="y", pad=2)
+            ax.set_yticklabels(ylabels, fontsize=7.2)
+            ax.tick_params(axis="y", pad=3)
         else:
             # Keep cluster labels only on panel A to avoid label overlap.
             ax.set_yticklabels([])
             ax.tick_params(axis="y", left=False)
+
+        # Subtle cell grid lines
+        ax.set_xticks(np.arange(-0.5, N_LOAD, 1), minor=True)
+        ax.set_yticks(np.arange(-0.5, n_cl, 1), minor=True)
+        ax.grid(which="minor", color="white", linestyle="-", linewidth=0.6)
+        ax.tick_params(which="minor", bottom=False, left=False)
+
         # Annotate cells
         for i in range(n_cl):
             for j in range(N_LOAD):
@@ -625,54 +644,75 @@ def _plot_heatmap(
                     continue
                 sig = _sig_str(p_val)
                 txt = f"{r_val:.2f}{sig}"
-                color = "white" if abs(r_val) > 0.4 * vmax else "black"
+                color = "white" if abs(r_val) > 0.42 * vmax else "#111827"
                 ax.text(
                     j, i, txt, ha="center", va="center",
-                    fontsize=SMALL_ANNOT_SIZE,
+                    fontsize=4.8,
                     color=color,
+                    fontweight="normal",
                 )
-        panel_label(ax, AXIS_PANEL_TITLES[axis])
+        pub_panel_label(ax, panel_letters[idx], offset=(-0.14, 1.05))
+        ax.set_title(AXIS_DISPLAY[axis], fontsize=7.8, fontweight="medium", pad=5)
+        style_axis(ax, spines=("left", "bottom", "top", "right"), spine_color="#6b7280", spine_width=0.6)
 
-    # Side panel: d_G sex dimorphism
-    colors = []
+    # Side panel F: d_G sex dimorphism
+    bar_colors = []
     for i in range(n_cl):
         if np.isfinite(dg_p[i]) and dg_p[i] < 0.05:
-            colors.append(FEMALE_COLOR if dg_r_rb[i] > 0 else MALE_COLOR)
+            bar_colors.append(FEMALE_COLOR if dg_r_rb[i] > 0 else MALE_COLOR)
         else:
-            colors.append(NEUTRAL_COLOR)
+            bar_colors.append(NEUTRAL_COLOR)
     ax_bar.barh(
         range(n_cl), dg_r_rb,
-        color=colors, alpha=FILL_ALPHA + 0.15,
-        edgecolor="0.3", linewidth=0.4,
+        color=bar_colors, alpha=0.88,
+        edgecolor="none", height=0.65,
     )
     ax_bar.set_yticks(range(n_cl))
     ax_bar.set_yticklabels([])
-    ax_bar.set_xlabel("$r_{rb}(d_G)$")
-    ax_bar.axvline(0, color="0.5", lw=0.4, ls="--")
+    ax_bar.set_xlabel(r"Rank-biserial $r_{\mathrm{rb}}(d_G)$", fontsize=7.0)
+    ax_bar.set_xlim(-0.95, 1.15)
+    ax_bar.axvline(0, color="#6b7280", lw=0.6, ls="--")
     for i in range(n_cl):
         if np.isfinite(dg_r_rb[i]):
             sig = _sig_str(dg_p[i])
-            ax_bar.text(
-                dg_r_rb[i] + 0.02, i,
-                f"{dg_r_rb[i]:.2f}{sig}",
-                va="center",
-                fontsize=SMALL_ANNOT_SIZE,
-            )
+            val = dg_r_rb[i]
+            txt = f"{val:+.2f}{sig}"
+            if val < 0:
+                ax_bar.text(
+                    val - 0.04, i, txt,
+                    va="center", ha="right",
+                    fontsize=5.8, color="#111827", fontweight="medium",
+                )
+            else:
+                ax_bar.text(
+                    val + 0.04, i, txt,
+                    va="center", ha="left",
+                    fontsize=5.8, color="#111827", fontweight="medium",
+                )
     ax_bar.invert_yaxis()
     for ax in heat_axes:
         ax.invert_yaxis()
-    panel_label(ax_bar, "F $d_G$ sex")
+    pub_panel_label(ax_bar, "F", offset=(-0.18, 1.05))
+    ax_bar.set_title(r"Sex effect ($d_G$)", fontsize=7.8, fontweight="medium", pad=5)
+    style_axis(ax_bar, spines=("bottom",), x_grid=True, grid_color="#f3f4f6")
 
     # Colorbar
-    cbar = fig.colorbar(
-        im, ax=heat_axes.tolist(), orientation="horizontal",
-        fraction=0.055, pad=0.09, shrink=0.72,
+    cbar = style_colorbar(
+        fig,
+        im,
+        ax=heat_axes.tolist(),
+        orientation="horizontal",
+        fraction=0.045,
+        pad=0.11,
+        shrink=0.65,
+        label=r"Spearman rank correlation $\rho$",
     )
-    cbar.set_label("Spearman $\\rho$")
 
-    fig.subplots_adjust(left=0.11, right=0.995, bottom=0.21, top=0.90, wspace=0.18)
+    fig.subplots_adjust(left=0.12, right=0.99, bottom=0.22, top=0.89, wspace=0.18)
 
-    out = _save_fig(fig, "function_locking_heatmap")
+    save_publication_figure(fig, FIG_DIR / "function_locking_heatmap")
+    out = FIG_DIR / "function_locking_heatmap.pdf"
+    plt.close(fig)
     print(f"Figure: {out}")
 
 

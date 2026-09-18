@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  18 SEP 2026 17:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  18 SEP 2026 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -591,13 +591,13 @@ _mode_atlas.pdf  used on input line 158.
 (pdftex.def)             Requested size: 491.49524pt x 626.00972pt.
  [5 <../../analysis_outputs/plos_revision/figures/reference_mode_atlas.pdf>]
 <../../analysis_outputs/plos_revision/figures/spectral_structure.pdf, id=377, 4
-68.06822pt x 554.79224pt>
+93.95387pt x 534.54117pt>
 File: ../../analysis_outputs/plos_revision/figures/spectral_structure.pdf Graph
 ic file (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/spectral_structure.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/spectral_
 structure.pdf  used on input line 206.
-(pdftex.def)             Requested size: 401.88089pt x 476.34166pt.
+(pdftex.def)             Requested size: 440.17531pt x 476.34372pt.
 
 (../../analysis_outputs/tables/clusters.tex) [6
 
@@ -605,67 +605,67 @@ structure.pdf  used on input line 206.
 
 
 ] [7 <../../analysis_outputs/plos_revision/figures/spectral_structure.pdf>]
-<../../analysis_outputs/plos_revision/figures/functional_coupling.pdf, id=408, 
-468.06822pt x 424.7062pt>
+<../../analysis_outputs/plos_revision/figures/functional_coupling.pdf, id=429, 
+494.80814pt x 389.99997pt>
 File: ../../analysis_outputs/plos_revision/figures/functional_coupling.pdf Grap
 hic file (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/functional_coupling.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/functiona
 l_coupling.pdf  used on input line 250.
-(pdftex.def)             Requested size: 452.9679pt x 411.0054pt.
+(pdftex.def)             Requested size: 452.9679pt x 357.03691pt.
  [8]
-<../../analysis_outputs/plos_revision/figures/label_stability.pdf, id=419, 468.
-06822pt x 256.97981pt>
+<../../analysis_outputs/plos_revision/figures/label_stability.pdf, id=440, 494.
+80814pt x 244.4878pt>
 File: ../../analysis_outputs/plos_revision/figures/label_stability.pdf Graphic 
 file (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/label_stability.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/label_sta
 bility.pdf  used on input line 285.
-(pdftex.def)             Requested size: 452.9679pt x 248.68977pt.
-<../../analysis_outputs/plos_revision/figures/routing_associations.pdf, id=420,
- 468.06822pt x 423.20082pt>
+(pdftex.def)             Requested size: 452.9679pt x 223.8235pt.
+<../../analysis_outputs/plos_revision/figures/routing_associations.pdf, id=441,
+ 494.80814pt x 403.46112pt>
 File: ../../analysis_outputs/plos_revision/figures/routing_associations.pdf Gra
 phic file (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/routing_associations.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/routing_a
 ssociations.pdf  used on input line 296.
-(pdftex.def)             Requested size: 452.9679pt x 409.54858pt.
+(pdftex.def)             Requested size: 452.9679pt x 369.3603pt.
  [9 <../../analysis_outputs/plos_revision/figures/functional_coupling.pdf>] [10
  <../../analysis_outputs/plos_revision/figures/label_stability.pdf>]
-<../../analysis_outputs/plos_revision/figures/load_routing.pdf, id=473, 467.170
-85pt x 424.79149pt>
+<../../analysis_outputs/plos_revision/figures/load_routing.pdf, id=514, 493.323
+06pt x 390.08765pt>
 File: ../../analysis_outputs/plos_revision/figures/load_routing.pdf Graphic fil
 e (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/load_routing.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/load_rout
 ing.pdf  used on input line 328.
-(pdftex.def)             Requested size: 452.9679pt x 411.88521pt.
+(pdftex.def)             Requested size: 452.9679pt x 358.18262pt.
 
 (../../analysis_outputs/tables/mode_activation_dominant_sets.tex) [11 <../../an
 alysis_outputs/plos_revision/figures/routing_associations.pdf>] [12 <../../anal
 ysis_outputs/plos_revision/figures/load_routing.pdf>]
-<../../analysis_outputs/plos_revision/figures/toy_model.pdf, id=529, 466.15527p
-t x 419.26988pt>
+<../../analysis_outputs/plos_revision/figures/toy_model.pdf, id=574, 490.83789p
+t x 390.57718pt>
 File: ../../analysis_outputs/plos_revision/figures/toy_model.pdf Graphic file (
 type pdf)
 <use ../../analysis_outputs/plos_revision/figures/toy_model.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/toy_model
 .pdf  used on input line 373.
-(pdftex.def)             Requested size: 452.9679pt x 407.4334pt.
- [13] [14 <../../analysis_outputs/plos_revision/figures/toy_model.pdf>]
+(pdftex.def)             Requested size: 452.9679pt x 360.45578pt.
+ [13]
 Overfull \hbox (4.61806pt too wide) in paragraph at lines 394--398
 []\OT1/cmr/m/n/10.95 This dis-tinc-tion sep-a-rates three ob-jects of-ten con-f
 lated in com-par-a-tive biome-chan-ics: anatom-
  []
 
-
+[14 <../../analysis_outputs/plos_revision/figures/toy_model.pdf>]
 Overfull \hbox (15.17564pt too wide) in paragraph at lines 417--421
 \OT1/cmr/m/n/10.95 The hu-man pelvic ring has long been stud-ied through the fr
 ame-work of the ``ob-stet-ri-cal dilemma'' [[],
  []
 
 [15] [16]
-<images/model_setup.pdf, id=601, 784.59003pt x 637.2624pt>
+<images/model_setup.pdf, id=647, 784.59003pt x 637.2624pt>
 File: images/model_setup.pdf Graphic file (type pdf)
 <use images/model_setup.pdf>
 Package pdftex.def Info: images/model_setup.pdf  used on input line 471.
@@ -684,14 +684,14 @@ Overfull \hbox (7.54306pt too wide) in paragraph at lines 698--700
  []
 
 [22] [23]
-<../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf, id=844,
- 468.06822pt x 424.7062pt>
+<../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf, id=889,
+ 493.95387pt x 404.45976pt>
 File: ../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf Gra
 phic file (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/material_
 uncertainty.pdf  used on input line 764.
-(pdftex.def)             Requested size: 452.9679pt x 411.0054pt.
+(pdftex.def)             Requested size: 452.9679pt x 370.91022pt.
  [24 <../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf>] [
 25] [26] [27] (../../analysis_outputs/tables/clusters.tex)
 (../../analysis_outputs/tables/rank_cluster_ref_mapping.tex)
@@ -702,81 +702,81 @@ uncertainty.pdf  used on input line 764.
 (../report/veering_vs_mixing_classification.tex)
 (../../analysis_outputs/tables/veering_null_test.tex) [29]
 (../../analysis_outputs/tables/cohort_bootstrap_robustness.tex)
-<../../analysis_outputs/figures/sex_stratified_summary.pdf, id=911, 536.93709pt
- x 520.34402pt>
+<../../analysis_outputs/figures/sex_stratified_summary.pdf, id=956, 526.37505pt
+ x 598.39557pt>
 File: ../../analysis_outputs/figures/sex_stratified_summary.pdf Graphic file (t
 ype pdf)
 <use ../../analysis_outputs/figures/sex_stratified_summary.pdf>
 Package pdftex.def Info: ../../analysis_outputs/figures/sex_stratified_summary.
 pdf  used on input line 903.
-(pdftex.def)             Requested size: 452.9679pt x 438.99155pt.
+(pdftex.def)             Requested size: 452.9679pt x 514.96626pt.
  [30
 
 ]
 (../../analysis_outputs/tables/sex_stratified_summary.tex) [31 <../../analysis_
-outputs/figures/sex_stratified_summary.pdf>]
+outputs/figures/sex_stratified_summary.pdf>] [32]
 Overfull \hbox (13.62433pt too wide) in paragraph at lines 912--914
 \OT1/cmr/m/n/10.95 vides com-pre-hen-sive load-specificity di-ag-nos-tics, in-c
 lud-ing cluster-level function-locking, dominant-
  []
 
-<../../analysis_outputs/figures/function_locking_heatmap.pdf, id=939, 614.95837
-pt x 217.43845pt>
+<../../analysis_outputs/figures/function_locking_heatmap.pdf, id=1014, 598.2240
+9pt x 227.6543pt>
 File: ../../analysis_outputs/figures/function_locking_heatmap.pdf Graphic file 
 (type pdf)
 <use ../../analysis_outputs/figures/function_locking_heatmap.pdf>
 Package pdftex.def Info: ../../analysis_outputs/figures/function_locking_heatma
 p.pdf  used on input line 920.
-(pdftex.def)             Requested size: 452.9679pt x 160.16536pt.
+(pdftex.def)             Requested size: 452.9679pt x 172.37642pt.
 (../../analysis_outputs/tables/function_locking_synthesis.tex)
 (../../analysis_outputs/tables/mode_activation_dominant_sets.tex)
-(../../analysis_outputs/tables/mode_activation_overlap.tex) [32
+(../../analysis_outputs/tables/mode_activation_overlap.tex) [33
 
- <../../analysis_outputs/figures/function_locking_heatmap.pdf>] [33]
-<../../analysis_outputs/figures/allometry_dashboard.pdf, id=980, 515.12476pt x 
-299.99854pt>
+ <../../analysis_outputs/figures/function_locking_heatmap.pdf>] [34]
+<../../analysis_outputs/figures/allometry_dashboard.pdf, id=1055, 519.56058pt x
+ 298.95796pt>
 File: ../../analysis_outputs/figures/allometry_dashboard.pdf Graphic file (type
  pdf)
 <use ../../analysis_outputs/figures/allometry_dashboard.pdf>
 Package pdftex.def Info: ../../analysis_outputs/figures/allometry_dashboard.pdf
   used on input line 943.
-(pdftex.def)             Requested size: 452.9679pt x 263.81184pt.
- [34
+(pdftex.def)             Requested size: 452.9679pt x 260.65242pt.
+ [35
 
  <../../analysis_outputs/figures/allometry_dashboard.pdf>]
-(../../analysis_outputs/tables/allometry_summary.tex) [35
+(../../analysis_outputs/tables/allometry_summary.tex) [36
 
 ]
-<../../analysis_outputs/plos_revision/figures/robustness.pdf, id=1022, 468.0682
-2pt x 431.93321pt>
+<../../analysis_outputs/plos_revision/figures/robustness.pdf, id=1104, 494.8081
+4pt x 404.45094pt>
 File: ../../analysis_outputs/plos_revision/figures/robustness.pdf Graphic file 
 (type pdf)
 <use ../../analysis_outputs/plos_revision/figures/robustness.pdf>
 Package pdftex.def Info: ../../analysis_outputs/plos_revision/figures/robustnes
 s.pdf  used on input line 955.
-(pdftex.def)             Requested size: 452.9679pt x 417.99928pt.
- [36
+(pdftex.def)             Requested size: 452.9679pt x 370.26646pt.
+ [37
 
  <../../analysis_outputs/plos_revision/figures/robustness.pdf>]
 (../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex)
-[37
+[38
 
-] [38
+] [39
 
 ]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 101
 9.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [39]
-[40] [41] [42] [43{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-(../../analysis_outputs/tables/global_deformation_modes_table.tex) [44
+) [40]
+[41] [42] [43] [44{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+(../../analysis_outputs/tables/global_deformation_modes_table.tex) [45
 
 ]
-(../../analysis_outputs/tables/global_deformation_synthetic_table.tex) [45
+(../../analysis_outputs/tables/global_deformation_synthetic_table.tex) [46
 
 ]
-(./main_plos.bbl [46
+(./main_plos.bbl [47
 
 ]
 Underfull \hbox (badness 1558) in paragraph at lines 225--231
@@ -784,7 +784,7 @@ Underfull \hbox (badness 1558) in paragraph at lines 225--231
 Graichen, An-negret
  []
 
-[47]) [48] (./main_plos.aux)
+[48]) [49] (./main_plos.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -793,8 +793,8 @@ Package rerunfilecheck Info: File `main_plos.out' has not changed.
 (rerunfilecheck)             Checksum: 3EF662630891220D17E8A31672209690;12793.
  ) 
 Here is how much of TeX's memory you used:
- 13506 strings out of 476106
- 217806 string characters out of 5793933
+ 13507 strings out of 476106
+ 217813 string characters out of 5793933
  1957975 words of memory out of 5000000
  35009 multiletter control sequences out of 15000+600000
  576092 words of font info for 102 fonts, out of 8000000 for 9000
@@ -823,10 +823,10 @@ msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main_plos.pdf (48 pages, 5509321 bytes).
+Output written on main_plos.pdf (49 pages, 5660985 bytes).
 PDF statistics:
- 1318 PDF objects out of 1440 (max. 8388607)
- 855 compressed objects within 9 object streams
- 243 named destinations out of 1000 (max. 500000)
+ 1413 PDF objects out of 1440 (max. 8388607)
+ 871 compressed objects within 9 object streams
+ 244 named destinations out of 1000 (max. 500000)
  378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
