@@ -80,11 +80,11 @@ def main():
         p.set_background('white')
         norm = np.linalg.norm(u, axis=1)
         shape = surface.copy()
-        # Scale to 14 mm max deflection for enhanced visual clarity
-        shape.points = surface.points + 14.0 * u[ids] / norm.max()
+        # Scale to 50 mm max deflection so deformation is clearly visible across all modes
+        shape.points = surface.points + 50.0 * u[ids] / norm.max()
         
         # Undeformed reference: clean neutral grey ghost with smooth shading
-        p.add_mesh(surface, color='#d0d4dc', opacity=0.28, smooth_shading=True)
+        p.add_mesh(surface, color='#c5ccd6', opacity=0.32, smooth_shading=True)
         # Deformed shape: vibrant viridis with specular & ambient lighting for 3D depth
         p.add_mesh(
             shape,
@@ -94,18 +94,18 @@ def main():
             smooth_shading=True,
             ambient=0.30,
             diffuse=0.75,
-            specular=0.20,
+            specular=0.22,
             show_scalar_bar=False
         )
         direction, up = (([0, -1, 0], [0, 0, 1]) if view == 'AP' else ([0, 0, 1], [0, 1, 0]))
         p.camera_position = [center + 700 * np.array(direction), center, up]
         p.enable_parallel_projection()
-        p.camera.parallel_scale = 175
+        p.camera.parallel_scale = 195
         img = p.screenshot(return_img=True)
         p.close()
         
         yy, xx = np.where(np.any(img[:, :, :3] < 245, axis=2))
-        pad = 6
+        pad = 8
         ymin, ymax = max(0, yy.min() - pad), min(img.shape[0], yy.max() + pad + 1)
         xmin, xmax = max(0, xx.min() - pad), min(img.shape[1], xx.max() + pad + 1)
         return img[ymin:ymax, xmin:xmax]
