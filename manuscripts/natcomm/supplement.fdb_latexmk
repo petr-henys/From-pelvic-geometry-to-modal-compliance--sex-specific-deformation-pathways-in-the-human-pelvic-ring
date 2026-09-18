@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1789741192.79024 "supplement.tex" "supplement.pdf" "supplement" 1789741193.23384 0
+["pdflatex"] 1789743522.63515 "supplement.tex" "supplement.pdf" "supplement" 1789743523.06933 0
   "../../analysis_outputs/figures/allometry_dashboard.pdf" 1789720327.22293 59363 4d2584a88947cc59b005879af89e42b8 ""
   "../../analysis_outputs/material_uncertainty/material_uncertainty_table.tex" 1789711578.81962 1458 c3c17f53210715dab708fbd9a56bfe1b ""
   "../../analysis_outputs/plos_revision/figures/coupling_routing_heatmap.pdf" 1789712126.19774 40637 19e58a4151cd3b1fafa7b5de09d75911 ""
@@ -102,8 +102,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771244779.23343 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771244812 6831138 e361f9c9db2e636eb064f6a4cc93ec74 ""
-  "supplement.aux" 1789741193.15581 1144 2cf45e46ce6cada30700a260b45723b7 "pdflatex"
-  "supplement.tex" 1789741181.70524 5793 7ff6169d11ff78fc7aba1987e6461c01 ""
+  "supplement.aux" 1789743523.00179 1144 2cf45e46ce6cada30700a260b45723b7 "pdflatex"
+  "supplement.tex" 1789743498.64834 5806 1619cdb0afd5df2e80429692def7768e ""
   (generated)
   "supplement.aux"
   "supplement.log"

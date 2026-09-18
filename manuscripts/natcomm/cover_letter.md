@@ -1,6 +1,6 @@
 Dear Editors of *PLOS Computational Biology*,
 
-Please consider our manuscript, **“Stable modal subspaces preserve inlet-related deformation across human pelvic anatomical variability,”** for publication as a Research Article in *PLOS Computational Biology*.
+Please consider our manuscript, **“Stable and interchangeable deformation pathways preserve pelvic mechanical function across anatomical variability,”** for publication as a Research Article in *PLOS Computational Biology*.
 
 A central methodological challenge in population biomechanics and computational morphology is comparing mechanical deformation pathways across anatomically variable individuals. Standard computational pipelines sort deformation modes by stiffness or eigenvalue rank, implicitly assuming that the same rank index carries identical biological function in every subject. In this study, we show that this assumption breaks down whenever adjacent eigenvalues approach each other: small anatomical perturbations drive mode veering and label exchanges, even when the mechanically functional subspace remains completely preserved across the population.
 
