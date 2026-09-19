@@ -90,8 +90,8 @@ Biomechanical studies typically compare individuals by examining vibration or de
 Using detailed computational finite-element models of 278 human pelves, we tested whether this assumption holds across population anatomy.
 We found that everyday standing loads rely on a few dominant, stable deformation patterns (modes~1--3) that maintain consistent rank ordering and strong shape alignment across individuals (median mass-weighted modal assurance criterion to reference $> 0.96$).
 In contrast, patterns associated with widening of the pelvic inlet do not remain attached to a single fixed numerical rank.
-Instead, this anatomical opening capacity is preserved across recurrent deformation subspaces whose internal mode order can swap between individuals.
-Comparing skeletons strictly mode-by-mode can therefore create the false impression of functional disruption when the underlying anatomical capacity is actually preserved.
+Instead, this anatomical opening capacity remains remarkably stable across recurrent deformation subspaces whose internal mode order can swap between individuals.
+Comparing skeletons strictly mode-by-mode can therefore create the false impression of functional disruption when the underlying anatomical capacity is substantially more stable at the subspace level.
 Our study provides a principled computational approach to compare anatomically variable structures at the level of small groups of cooperating deformation pathways.
 
 
@@ -148,7 +148,7 @@ Higher modes raise a different biological question: whether a mechanically inter
 The most important case is the 9--10 pair.
 Mode~9 typically exhibits an inlet-opening deformation in which the pubic symphysis and the sacral promontory move apart, widening the pelvic ring.
 Mode~10 is a near-degenerate partner with an asymmetric field concentrated around the pubic region.
-Their close spacing already suggests that inlet-related behaviour may not be consistently attached to one fixed rank label across subjects, even if it remains preserved within the two-dimensional span they share.
+Their close spacing already suggests that inlet-related behaviour may not be consistently attached to one fixed rank label across subjects, even if it remains remarkably stable within the two-dimensional span they share.
 For this region of the spectrum, the pair is therefore a more reliable biological interpretive unit than either label alone.
 
 % Full A4 figure page; preserve physical label sizes in the atlas.
@@ -180,12 +180,12 @@ The cohort of $N{=}278$ subjects resolves the spectrum into two regimes: an orde
 Modes~1--3 are rarely reordered across the cohort (swap rate $<0.4\%$), whereas higher ranks contain small consecutive gaps and frequent label exchange.
 Using a data-driven cluster threshold $\varepsilon_{\rm in}\approx 0.131$ (25th percentile of pooled relative consecutive gaps; see Methods), we detect nine near-degenerate rank clusters above a 3\% prevalence floor.
 The most prevalent cluster is rank modes~9--10 (54.7\% of subjects), followed by rank modes~12--15 (41.7\%) and rank modes~5--6 (33.8\%).
-No exact numerical degeneracy ($\mathrm{gap}_{\rm in} \le 10^{-6}$) is observed, as expected for a three-dimensional asymmetric anatomical structure without continuous rotational or discrete reflectional symmetries.
+No eigenvalue pair met the operational numerical multiplicity criterion ($\mathrm{gap}_{\rm in} \le 10^{-6}$). No obvious spatial symmetry was identified that would enforce repeated eigenvalues, although accidental degeneracy is not mathematically excluded.
 
 Anatomical variability does not destabilise the spectrum uniformly.
 Label fragility is concentrated in a small number of compact families, while low-rank order is preserved.
 For the dominant 9--10 and 12--15 clusters, median relative internal gaps are small enough that modest perturbations can reverse local ordering.
-The clusters nevertheless remain externally separated from neighbouring modes, so they are best interpreted as compact clustered subspaces rather than as a global loss of spectral organisation.
+The 9--10 block is externally separated from both neighbouring modes, whereas the 12--15 regime is left-separated but right-truncated by the eigensolve; in both cases, the dynamics are best interpreted as compact clustered subspaces rather than as a global loss of spectral organisation.
 This pattern is consistent with a pelvic system that preserves stable baseline load-transfer pathways while allowing selected higher-rank functions to vary within a limited local repertoire.
 
 Permutation statistics reinforce this interpretation.
@@ -226,16 +226,16 @@ Once individual labels become unstable, the next question is whether the corresp
 Figure~\ref{fig:subspace-dashboard} shows that several do, when interpreted using invariant-subspace descriptors rather than individual eigenvector labels.
 Two basis-invariant outputs were evaluated.
 First, Grassmann distance from a reference subject quantifies how much a subspace rotates across the cohort.
-Second, canonical coupling to anatomical diameter functionals (AP and ML inlet; biischiadic and bituberous outlet) provides functionally interpretable coordinates inside each clustered block (Methods).
+Second, basis-invariant anatomical capacities for anatomical diameter functionals (AP and ML inlet; biischiadic and bituberous outlet) provide functionally interpretable coordinates inside each clustered block (Methods).
 
-The rank~9--10 subspace shows the strongest inlet-related coupling among the prevalent clusters.
-Its median AP-inlet coupling is \BlockNineTenAP\,mm of inlet diameter change per 1\,mm of maximum nodal modal amplitude, making 9--10 the clearest higher-rank inlet-related program in the cohort.
-In contrast, the rank~5--6 cluster shows the strongest transverse outlet-related coupling, with median biischiadic widening \BlockFiveSixBIS\,mm/mm and bituberous response \BlockFiveSixBIT\,mm/mm (accompanied by \BlockFiveSixOUTLETAP\,mm/mm for outlet AP dilation; in the 9--10 subspace, biischiadic widening reaches \BlockNineTenBIS\,mm/mm and outlet AP reaches \BlockNineTenOUTLETAP\,mm/mm).
+The rank~9--10 subspace shows the strongest inlet-related capacity among the prevalent clusters.
+Its median AP-inlet capacity is \BlockNineTenAP\,mm of inlet diameter change per 1\,mm of maximum nodal displacement, making 9--10 the clearest higher-rank inlet-related program in the cohort.
+In contrast, the rank~5--6 cluster shows the strongest transverse outlet-related capacity, with median biischiadic widening \BlockFiveSixBIS\,mm/mm and bituberous response \BlockFiveSixBIT\,mm/mm (accompanied by \BlockFiveSixOUTLETAP\,mm/mm for outlet AP dilation; in the 9--10 subspace, biischiadic widening reaches \BlockNineTenBIS\,mm/mm and outlet AP reaches \BlockNineTenOUTLETAP\,mm/mm).
 Different clustered subspaces therefore carry different mechanical programs: one is functionally aligned with the inlet, another with the outlet.
 
 The four-dimensional 12--15 block illustrates a third regime.
 It has high prevalence, small internal gaps, and a richer pattern of within-block mixing than a simple two-mode exchange.
-Its canonical coupling structure is more diffuse than in 9--10 or 5--6, consistent with it representing a broader, higher-order reserve rather than a single sharply interpretable program.
+Its anatomical capacity structure is more diffuse than in 9--10 or 5--6, consistent with it representing a broader, higher-order reserve rather than a single sharply interpretable program.
 Furthermore, because spectral eigensolves were truncated at $N_{\rm ev}=15$, external separation of this upper block on the right cannot be determined without higher eigenvalues; we therefore treat 12--15 as a diffuse higher-rank regime bounded by modal truncation.
 Not every recurrent cluster corresponds to one clean anatomical function.
 This heterogeneity is itself biologically informative: the framework separates compact, functionally specific blocks from mixed higher-rank families, and the former are the clearest targets for single-function biological interpretation.
@@ -248,8 +248,8 @@ This qualifies how clustered behaviour is distributed across the population with
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{../../analysis_outputs/plos_revision/figures/functional_coupling.pdf}
-  \caption{\textbf{Anatomical diameter coupling across recurrent clustered modal subspaces.}
-  Canonical coupling scores (mm diameter change per mm maximum nodal displacement) for the five most prevalent rank blocks across the cohort ($N{=}278$):
+  \caption{\textbf{Basis-invariant anatomical capacities across recurrent clustered modal subspaces.}
+  Basis-invariant anatomical capacities (maximum anatomical diameter response per 1\,mm maximum nodal displacement) for the five most prevalent rank blocks across the cohort ($N{=}278$):
   \textbf{(A)}~anteroposterior (AP) inlet,
   \textbf{(B)}~mediolateral (ML) inlet,
   \textbf{(C)}~biischiadic outlet, and
@@ -258,19 +258,19 @@ This qualifies how clustered behaviour is distributed across the population with
   \label{fig:subspace-dashboard}
 \end{figure}
 
-\subsection{Subspace-level preservation is more stable than fixed labels in clustered regimes}
+\subsection{Subspace-level capacity is substantially more stable than fixed labels in clustered regimes}
 \label{sec:label-results}
 
-A direct consequence of this framing follows: in a clustered regime, function should be preserved more stably at the scale of the subspace than at the scale of its individual labels.
+A direct consequence of this framing follows: in a clustered regime, functional anatomical capacity is substantially more stable at the scale of the subspace than coupling attached to individual spectral ranks.
 This hypothesis was tested for the most prevalent cluster, rank modes~9--10 (Fig.~\ref{fig:label-stability}).
 
 Among subjects within the 9--10 cluster ($n{=}\ClusterMemberN$), AP-inlet coupling attached to \emph{rank mode~9} is high when labels do not swap ($n{=}\ClusterNoSwapN$) and low when they do ($n{=}\ClusterSwapN$) (median \RankNineNo\ vs.\ \RankNineYes\,mm/mm; difference \RankNineDifference\,mm/mm, 95\% CI [\RankNineLow, \RankNineHigh], $p = \RankNinePformatted$, rank-biserial $r_{\rm rb} = \RankNineRankBiserial$).
 The complementary pattern appears for \emph{rank mode~10} (median \RankTenNo\ vs.\ \RankTenYes\,mm/mm; difference $+$\RankTenDifference\,mm/mm, 95\% CI [\RankTenLow, \RankTenHigh], $p = \RankTenPformatted$, $r_{\rm rb} = \RankTenRankBiserial$).
 Label-level coupling therefore redistributes decisively between the two rank indices, not because the inlet-related signal disappears, but because it shifts inside the same two-dimensional block while the solver labels exchange ($p < 10^{-21}$ for both modes).
 
-By contrast, the \emph{subspace-level} AP capacity of the 9--10 block remains substantial across both groups (basis-invariant single-functional capacity $\widehat\kappa_{\rm AP}$: median \ScalarAPNo\ vs.\ \ScalarAPYes\,mm/mm; difference \ScalarAPDifference\,mm/mm, 95\% CI [\ScalarAPLow, \ScalarAPHigh], ratio \ScalarAPRatio, $p = \ScalarAPPval$, $r_{\rm rb} = \ScalarAPRankBiserial$; companion joint-SVD score: median \PairAPNo\ vs.\ \PairAPYes\,mm/mm, difference \PairAPDifference\,mm/mm, 95\% CI [\PairAPLow, \PairAPHigh], $p = \PairAPPval$).
-In sharp contrast to the massive, statistically decisive redistribution seen at the single-mode level ($p < 10^{-21}$), the subspace-level capacity exhibits only modest descriptive variation between non-swapped and swapped groups (difference \ScalarAPDifference\,mm/mm, 95\% CI [\ScalarAPLow, \ScalarAPHigh], $p = \ScalarAPPval$).
-Across the entire unselected cohort ($N{=}\CohortN$; \CohortNoSwapN\ no-exchange vs.\ \CohortSwapN\ exchange), rank~9 coupling shifts by \CohortRankNineDifference\,mm/mm ($p = \CohortRankNinePformatted$) and rank~10 shifts by $+$\CohortRankTenDifference\,mm/mm ($p = \CohortRankTenPformatted$), whereas subspace-level single-functional capacity differs by only \CohortScalarAPDifference\,mm/mm (95\% CI [\CohortScalarAPLow, \CohortScalarAPHigh], $p = \CohortScalarAPPformatted$, non-significant descriptive contrast).
+By contrast, the \emph{subspace-level} AP capacity of the 9--10 block remains substantial across both groups (basis-invariant single-functional capacity $\kappa_{{\rm AP},\infty}$: median \ScalarAPNo\ vs.\ \ScalarAPYes\,mm/mm; difference \ScalarAPDifference\,mm/mm, 95\% CI [\ScalarAPLow, \ScalarAPHigh], ratio \ScalarAPRatio, $p = \ScalarAPPformatted$, $r_{\rm rb} = \ScalarAPRankBiserial$; companion joint-SVD score: median \PairAPNo\ vs.\ \PairAPYes\,mm/mm, difference \PairAPDifference\,mm/mm, 95\% CI [\PairAPLow, \PairAPHigh], $p = \PairAPPformatted$).
+In sharp contrast to the massive, statistically decisive redistribution seen at the single-mode level ($p < 10^{-21}$), the subspace-level capacity exhibits only modest descriptive variation between non-swapped and swapped groups (difference \ScalarAPDifference\,mm/mm, 95\% CI [\ScalarAPLow, \ScalarAPHigh], $p = \ScalarAPPformatted$).
+Across the entire unselected cohort ($N{=}\CohortN$; \CohortNoSwapN\ no-exchange vs.\ \CohortSwapN\ exchange), rank~9 coupling shifts by \CohortRankNineDifference\,mm/mm ($p = \CohortRankNinePformatted$) and rank~10 shifts by $+$\CohortRankTenDifference\,mm/mm ($p = \CohortRankTenPformatted$), whereas subspace-level single-functional capacity differs by only \CohortScalarAPDifference\,mm/mm (the median difference is minimal with a 95\% bootstrap CI of [\CohortScalarAPLow, \CohortScalarAPHigh] spanning zero, and the Mann--Whitney test detects no significant shift across the full cohort, $p = \CohortScalarAPPformatted$, in sharp contrast to the massive single-mode redistribution where $\Delta \approx 0.30$--$0.32$\,mm/mm and $p < 10^{-33}$).
 What becomes unstable is the attachment of the function to one rank index rather than another, not the anatomical capability itself.
 Across-subject comparisons of higher-order clustered modes phrased as though ``mode~9'' or ``mode~10'' were fixed entities across the cohort can therefore be misleading.
 For this regime, the biologically meaningful unit is a compact recurrent subspace---here the shared 9--10 block.
@@ -318,6 +318,7 @@ Different loading geometries recruit different parts of the higher-rank spectrum
 
 Among the recurrent clustered regimes, 9--10 remains the clearest case because it combines high cohort prevalence, clear inlet-related interpretation, direct label-versus-subspace evidence (Fig.~\ref{fig:label-stability}), and substantial recruitment under \LABone.
 The 5--6 pair remains an outlet-related secondary contrast under \LABtwo, whereas 12--15 is common but behaves, under the present load family, as a mixed higher-rank reserve rather than a single dominant pathway.
+Primary cohort routing is evaluated on the total static response; an incremental sensitivity check isolating $\delta\mathbf u_{\rm ext} = K_s^{-1}\mathbf f_{\rm ext}$ on $N=10$ representative subjects confirmed that removing baseline ligament pretension leaves modal dominance rankings and functional conclusions invariant (shifts $\le 3.5\%$; Section~\ref{sec:loading}).
 Additional load-specificity and sex-stratified summaries are reported in Appendix~B and Appendix~C.
 
 These are linear comparative proxy loads, not simulations of labour.
@@ -386,11 +387,11 @@ This minimal model therefore formalises why the interpretive unit must shift fro
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection*{Subspace preservation resolves the tension between anatomical variability and functional stability}
+\subsection*{Subspace stability resolves the tension between anatomical variability and functional robustness}
 
 This pelvic cohort demonstrates that anatomical deformation programs can remain robust across substantial skeletal variability without requiring rigid one-to-one conservation of individual spectral ranks.
-Habitual load transfer is concentrated in a low-rank backbone, whereas higher-order anatomical deformations are preserved within compact recurrent subspaces.
-The essential biological insight is not merely that spectral labels can become unstable, but that anatomical variation redistributes deformation within a compact local repertoire while preserving the anatomical capability itself.
+Habitual load transfer is concentrated in a low-rank backbone, whereas higher-order anatomical deformations remain remarkably stable within compact recurrent subspaces.
+The essential biological insight is not merely that spectral labels can become unstable, but that anatomical variation redistributes deformation within a compact local repertoire while maintaining the anatomical capability itself.
 
 This distinction separates three objects often conflated in comparative biomechanics: anatomical shape, deformation pathway, and spectral rank.
 Shape varies continuously across individuals; deformation pathways describe physical kinematic motions of the ring; and spectral rank merely sorts these pathways by ascending stiffness.
@@ -429,7 +430,7 @@ This indicates that the pelvic ring can tolerate individual-level variations in 
 \subsection*{Methodological scope, physiological limitations, and future directions}
 
 What generalises from this study is the logic for testing robustness, not the exact pelvic cluster layout.
-Combining spectral gap structure, subspace comparison via Grassmann distance, anatomically defined functionals, and modal strain-energy routing makes it possible to evaluate whether function is preserved through stable individual pathways or through stable subspaces in any anatomically variable, load-bearing biological system.
+Combining spectral gap structure, subspace comparison via Grassmann distance, anatomically defined functionals, and modal strain-energy routing makes it possible to evaluate whether function is maintained through stable individual pathways or through stable subspaces in any anatomically variable, load-bearing biological system.
 The specific rank partition observed here should not be transferred uncritically to other skeletal assemblies or altered physiological states, nor should every recurrent cluster be assumed to map cleanly onto a single anatomical degree of freedom.
 
 Several limitations bound the physiological interpretation of these findings.
@@ -438,8 +439,8 @@ Childbirth is a complex, contact-driven, large-deformation process accompanied b
 The linear modal spectrum characterises the deformation repertoire immediately available before large-scale joint separation occurs; it does not simulate the descent of the fetal head or predict clinical labour outcomes~\citep{BonetWood1997}.
 Second, the cohort was assembled from clinical CT scans with a mean subject age of $\approx 54$~years, which may not fully represent the pelvic morphology of primiparous women.
 Third, while baseline cartilage and ligament stiffnesses were calibrated against literature values, subject-specific ligament properties were not available.
-Our material uncertainty analysis employs first-order Taylor series propagation rather than full non-linear Monte Carlo sampling, which is computationally prohibitive across 278 high-resolution 3D finite-element meshes; while first-order propagation accurately reflects localized sensitivity and covariance-aware gap variances, it does not capture higher-order non-linear parameter interactions.
-Nonetheless, our sensitivity analyses (Appendix~D) confirm that realistic material uncertainty raises overall spectral variability without reorganising the underlying gap architecture or dismantling the clustered regimes.
+Our material uncertainty analysis employs first-order Taylor series propagation rather than full non-linear Monte Carlo sampling, which is computationally prohibitive across 278 high-resolution 3D finite-element meshes; while this local linear approximation indicates localized sensitivity trends and covariance-aware gap variances, it represents a first-order approximation that does not capture higher-order non-linear parameter interactions or full non-linear distributions.
+Nonetheless, our sensitivity analyses (Appendix~D) indicate that realistic material uncertainty raises overall spectral variability without reorganising the underlying gap architecture or dismantling the clustered regimes.
 Extending this subspace framework to include geometrically nonlinear deformation, full stochastic sampling, and individualised soft-tissue kinematics represents a promising direction for future population biomechanics.
 
 % ============================================================
@@ -568,9 +569,17 @@ Loads were applied as force-controlled Neumann tractions via~\eqref{eq:neumann-p
 Two standing cases were considered: symmetric two-leg stance (SP2leg; $400$\,N per acetabulum, $+$CC) and one-leg stance (SP1leg; $800$\,N on the stance acetabulum, $+$CC).
 The 400\,N per hip in SP2leg is a conservative split of head--arms--trunk mass onto both acetabula based on classical segment-inertia data~\citep{deLeva1996}, and the 800\,N one-leg value is well below in-vivo hip-implant peaks of 2.5--3.5$\times$BW recorded during single-leg support and gait~\citep{Bergmann2001JBiomech,Kutzner2016PLOS}.
 Three proxy load cases probed parturition-relevant routing without modelling contact mechanics: \LABone\ applied bilateral mediolateral internal ring expansion forces ($\pm 400$\,N outward), \LABtwo\ applied bilateral ischial-tuberosity distraction ($\pm 400$\,N), and \LABthree\ applied anteroposterior outlet distraction between the pubis insertion ($-$AP, $400$\,N) and the sacrococcygeal joint ($+$AP, $400$\,N).
-Their order of magnitude is consistent with published summaries of uterine contraction pressures of $\sim$40--80\,mmHg~\citep{AJOG2022Uterine,Mosby2012Pocket}, elevated intra-abdominal pressures during pregnancy~\citep{Fuchs2013PLOS,Chun2012IAPReview}, and review-level biomechanical estimates of fetal head--canal wall pressures during pushing~\citep{BiomechPregnancy2022}.
-These loads are used as comparative probes rather than clinical simulations of labour~\citep{ChenGrimm2021,Almeida2024Uterus}.
-The 400\,N and 800\,N force magnitudes act as standardized comparative probes of pelvic structural compliance. Static finite-element solutions solve the linear equilibrium equation $K_s \mathbf u = \mathbf f_{\rm ext} + \mathbf f_{\rm pret}(T)$, where $\mathbf f_{\rm pret}$ represents baseline ligament pretension ($20$\,N per ligament bundle) and $\mathbf f_{\rm ext}$ represents external load. By linearity, the displacement decomposes as $\mathbf u = \mathbf u_{\rm pret} + \delta\mathbf u_{\rm ext}$ with incremental external response $\delta\mathbf u_{\rm ext} = K_s^{-1}\mathbf f_{\rm ext}$. Scaling external force resultant $\mathbf f_{\rm ext} \to c\mathbf f_{\rm ext}$ scales incremental displacements strictly proportionally ($\delta\mathbf u_{\rm ext} \to c\,\delta\mathbf u_{\rm ext}$), such that modal expansion coefficients $q_i = \boldsymbol\phi_i^\top M_s \delta\mathbf u_{\rm ext}$ scale by $c$, modal energies $E_i = \frac{1}{2}\lambda_i q_i^2$ scale by $c^2$, and the normalized modal strain-energy fractions $f_i = E_i / \sum_j E_j$ of the incremental response are strictly invariant to load magnitude. Because external physiological loads ($400\text{--}800$\,N) substantially exceed baseline pretension, modal energy shares for total deformation remain approximately scale-invariant and are governed primarily by applied force geometry rather than magnitude.
+These loads act as standardized comparative probes of pelvic structural compliance rather than clinical simulations of labour~\citep{ChenGrimm2021,Almeida2024Uterus}.
+Static finite-element solutions solve the linear equilibrium equation $K_s \mathbf u = \mathbf b$ with
+\begin{equation}
+\mathbf b = \mathbf f_{\rm ext} + \mathbf f_{\rm pret}
+\label{eq:total-load-vector}
+\end{equation}
+for the primary total-response analysis, where $\mathbf f_{\rm pret}$ represents baseline ligament pretension ($20$\,N per ligament bundle) and $\mathbf f_{\rm ext}$ represents external load.
+Primary cohort-wide modal strain-energy fractions (Fig.~\ref{fig:fractions-panel}, Table~\ref{tab:dominant-sets}) are computed directly from these total displacement fields $\mathbf u$.
+By linearity, total displacement decomposes as $\mathbf u = \mathbf u_{\rm pret} + \delta\mathbf u_{\rm ext}$, where $\delta\mathbf u_{\rm ext} = K_s^{-1}\mathbf f_{\rm ext}$ is the incremental external load response.
+Under external load scaling $\mathbf f_{\rm ext} \to c\mathbf f_{\rm ext}$, incremental displacements scale proportionally ($\delta\mathbf u_{\rm ext} \to c\,\delta\mathbf u_{\rm ext}$), such that modal expansion coefficients $q_i = \boldsymbol\phi_i^\top M_s \delta\mathbf u_{\rm ext}$ scale by $c$, modal energies $E_i = \frac{1}{2}\lambda_i q_i^2$ scale by $c^2$, and the normalized modal strain-energy fractions $f_i = E_i / \sum_j E_j$ of the incremental response are strictly scale-invariant.
+To verify that baseline pretension does not confound modal load routing, an incremental sensitivity analysis subtracting $\mathbf u_{\rm pret}$ was performed on a representative subset of $N=10$ subjects (5 exchange, 5 non-exchange across all 5 loads): top recruited modes matched in 100\% of proxy cases and 90\% of standing cases, functional block energy shifts were minor ($\le 3.5\%$; Modes~9--10 inlet energy increased from $71.7\%$ to $75.2\%$), and dominant set sizes ($N_{80}$) were identical, confirming that the primary total-response routing faithfully captures external load recruitment without requiring full-cohort re-simulation.
 
 \subsection{Generalised eigenproblem, rigid-mode filtering, and cross-subject pairing}
 \label{sec:evp}
@@ -611,7 +620,7 @@ External separation is quantified by
 \label{eq:sep-out}
 \end{equation}
 defined for interior clusters ($i > 1$ and $j < N_{\rm ev}$) where both adjacent neighbours exist. For boundary blocks reaching modal truncation (such as the 12--15 cluster with $N_{\rm ev}=15$), the upper neighbour is uncomputed and two-sided separation is formally undefined.
-Exact mathematical multiplicity ($\lambda_i = \lambda_{i+1}$) was not observed under the operational numerical tolerance $\mathrm{gap}_{\rm in}\le\varepsilon_{\rm deg}=10^{-6}$ in any subject. While the absence of continuous or discrete spatial symmetries in the pelvic ring makes symmetry-enforced degeneracy impossible, it does not strictly preclude accidental parameter-dependent crossings; nonetheless, all regimes detected by~\eqref{eq:gap-in} are genuine near-degenerate clusters, for which small perturbations can drive rapid internal basis rotation and label exchange~\citep{Pierre1988,ManconiMace2017}.
+Exact mathematical multiplicity ($\lambda_i = \lambda_{i+1}$) was not observed under the operational numerical tolerance $\mathrm{gap}_{\rm in}\le\varepsilon_{\rm deg}=10^{-6}$ in any subject. No obvious spatial symmetry was identified that would enforce repeated eigenvalues, although accidental parameter-dependent crossings are not mathematically excluded; nonetheless, all regimes detected by~\eqref{eq:gap-in} are genuine near-degenerate clusters, for which small perturbations can drive rapid internal basis rotation and label exchange~\citep{Pierre1988,ManconiMace2017}.
 
 \subsection{Invariant subspaces: principal angles, Grassmann distance, and Procrustes alignment}
 \label{sec:subspace-methods}
@@ -642,7 +651,7 @@ All quantitative biological comparisons use basis-invariant scalars derived from
 
 \noindent\textbf{Degeneracy vs.\ near-degenerate mixing.}
 Exact mathematical multiplicity requires $\lambda_i = \lambda_{i+1}$ (operationalized numerically as $\mathrm{gap}_{\rm in}(k)\le\varepsilon_{\rm deg}$ for all $k$ in the block, with $\varepsilon_{\rm deg}\ll\varepsilon_{\rm in}$); individual eigenvectors inside a degenerate subspace are then not unique, and any unitary rotation inside $\mathrm{span}(Q_s)$ is an equally valid basis.
-When $\varepsilon_{\rm deg}<\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ the eigenvalues are close but distinct; the eigenvectors are formally unique, yet small perturbations can rotate the internal basis substantially while $\mathrm{span}(Q_s)$ itself remains nearly preserved.
+When $\varepsilon_{\rm deg}<\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ the eigenvalues are close but distinct; the eigenvectors are formally unique, yet small perturbations can rotate the internal basis substantially while $\mathrm{span}(Q_s)$ itself remains remarkably stable.
 This is the regime in which label exchange occurs without loss of the block-level mechanical content.
 
 \subsection{Canonical anatomical functionals inside clustered subspaces}
@@ -664,32 +673,17 @@ s_\ell^{(s)}(\mathbf u) = \mathbf e_\ell^{(s)\top}\! \big(\mathbf u(X_{\rm targe
 \end{equation}
 with measurement vectors $\mathbf b_\ell^{(s)} \in \mathbb R^n$ constructed using inverse-distance weighting (IDW) interpolation onto the $k_{\rm idw}=8$ nearest mesh nodes around each anatomical landmark coordinate, ensuring smooth, mesh-robust landmark displacement estimates across subjects.
 
-\noindent\textbf{Basis-invariant single-functional capacity.}
-For any individual functional $\mathbf b_\ell^{(s)}$ and an $M_{\rm ref}^0$-orthonormal basis $Q_s \in \mathbb R^{n \times r}$ spanning a clustered subspace of dimension $r$ ($Q_s^\top M_{\rm ref}^0 Q_s = I_r$), every displacement in the subspace is parameterized by $\mathbf u = Q_s \boldsymbol\alpha$ with $\boldsymbol\alpha \in \mathbb R^r$.
-The maximum functional response attainable over the unit modal sphere $\|\boldsymbol\alpha\|_2 \le 1$ is:
+\noindent\textbf{Basis-invariant max-nodal anatomical capacity.}
+For any individual functional $\mathbf b_\ell^{(s)}$ and an orthonormal basis $Q_s \in \mathbb R^{n \times r}$ spanning a clustered subspace of dimension $r$ ($Q_s^\top M_{\rm ref}^0 Q_s = I_r$), every displacement in the subspace is parameterized by $\mathbf u = Q_s \boldsymbol\alpha$ with $\boldsymbol\alpha \in \mathbb R^r$.
+The maximum anatomical diameter response per 1\,mm maximum nodal displacement is defined by the constrained max-nodal capacity:
 \begin{equation}
-\kappa_\ell(Q_s) = \max_{\|\boldsymbol\alpha\|_2 \le 1} \mathbf b_\ell^{(s)\top} Q_s \boldsymbol\alpha = \|Q_s^\top \mathbf b_\ell^{(s)}\|_2.
-\label{eq:single-functional-norm}
+\kappa_{\ell,\infty}(Q_s) = \max_{\boldsymbol\alpha \ne \mathbf 0} \frac{|\mathbf b_\ell^{(s)\top} Q_s \boldsymbol\alpha|}{\max_a \|(Q_s \boldsymbol\alpha)_a\|_2} = \max_{\boldsymbol\alpha} |\mathbf b_\ell^{(s)\top} Q_s \boldsymbol\alpha| \quad \text{s.t.} \quad \max_a \|(Q_s \boldsymbol\alpha)_a\|_2 \le 1,
+\label{eq:single-functional-max-nodal}
 \end{equation}
-This extremal capacity is achieved along the unique modal direction $\boldsymbol\alpha^* = Q_s^\top \mathbf b_\ell^{(s)} / \|Q_s^\top \mathbf b_\ell^{(s)}\|_2$, defining the optimal spatial displacement field:
-\begin{equation}
-\boldsymbol\psi_\ell^{(s)} = Q_s \frac{Q_s^\top \mathbf b_\ell^{(s)}}{\|Q_s^\top \mathbf b_\ell^{(s)}\|_2} \in \mathbb R^n.
-\label{eq:single-functional-field}
-\end{equation}
-Under an arbitrary internal basis rotation $\widetilde Q_s = Q_s R$ with $R \in \mathrm O(r)$, we have
-\begin{equation}
-\|\widetilde Q_s^\top \mathbf b_\ell^{(s)}\|_2 = \|R^\top Q_s^\top \mathbf b_\ell^{(s)}\|_2 = \|Q_s^\top \mathbf b_\ell^{(s)}\|_2 = \kappa_\ell(Q_s),
-\end{equation}
-and the physical displacement field transforms identically:
-\begin{equation}
-\widetilde{\boldsymbol\psi}_\ell^{(s)} = (Q_s R) \frac{R^\top Q_s^\top \mathbf b_\ell^{(s)}}{\|R^\top Q_s^\top \mathbf b_\ell^{(s)}\|_2} = Q_s R R^\top \frac{Q_s^\top \mathbf b_\ell^{(s)}}{\|Q_s^\top \mathbf b_\ell^{(s)}\|_2} = \boldsymbol\psi_\ell^{(s)}.
-\end{equation}
-Both the scalar capacity $\kappa_\ell(Q_s)$ and the physical displacement field $\boldsymbol\psi_\ell^{(s)}$ are therefore strictly invariant under any internal orthogonal basis rotation, providing an objective, single-functional measure that requires no bivariate coordinate choices.
-The corresponding normalized coupling score is reported in millimetres of diameter change per millimetre of maximum nodal modal displacement:
-\begin{equation}
-\widehat\kappa_\ell^{(s)} = \frac{|\mathbf b_\ell^{(s)\top}\boldsymbol\psi_\ell^{(s)}|}{\max_a \|\boldsymbol\psi_{\ell,a}^{(s)}\|_2}.
-\label{eq:single-coupling-score}
-\end{equation}
+where $a$ indexes the finite-element mesh nodes and $\|(Q_s \boldsymbol\alpha)_a\|_2$ denotes the Euclidean displacement norm of node $a$.
+Because both the numerator and the max-nodal constraint depend only on the physical displacement field $\mathbf u = Q_s \boldsymbol\alpha$, this quantity is strictly invariant under arbitrary internal orthogonal basis rotations $\widetilde Q_s = Q_s R$ with $R \in \mathrm O(r)$, since $\widetilde Q_s (R^\top \boldsymbol\alpha) = Q_s \boldsymbol\alpha$.
+For $r=2$, the zero-homogeneity of the objective allows parameterization of $\boldsymbol\alpha$ by polar angle $\theta \in [0, \pi)$ with $\boldsymbol\alpha(\theta) = (\cos\theta, \sin\theta)^\top$, solved via high-resolution angular search and scalar refinement; for $r \ge 3$, Nelder--Mead simplex optimisation was used to estimate the optimum; multi-start validation on representative subjects agreed to $<10^{-6}$.
+The optimal spatial displacement field $\boldsymbol\psi_\ell^{(s)} = Q_s \boldsymbol\alpha^* / \max_a \|(Q_s \boldsymbol\alpha^*)_a\|_2$ satisfies $\max_a \|\boldsymbol\psi_{\ell,a}^{(s)}\|_2 = 1.0$ exactly, and the resulting anatomical capacity $\kappa_{\ell,\infty}(Q_s) = |\mathbf b_\ell^{(s)\top}\boldsymbol\psi_\ell^{(s)}|$ has physical units of millimetres diameter change per millimetre maximum nodal displacement.
 
 \noindent\textbf{Multivariate canonical decomposition.}
 When joint coupling across a pair of measurement vectors $(\mathbf b_1^{(s)}, \mathbf b_2^{(s)})$ (e.g., AP and ML inlet, or BIS and BIT outlet) is examined, we assemble the covector matrix $B_s = [\mathbf b_1^{(s)}\ \ \mathbf b_2^{(s)}] \in \mathbb R^{n \times 2}$ and its subspace projection:
@@ -702,7 +696,7 @@ The canonical displacement modes in physical space are $\boldsymbol\psi_k^{(s)} 
 By construction, their action is exactly equal to the singular values: $\widetilde{\mathbf b}_k^{(s)\top}\boldsymbol\psi_k^{(s)} = \sigma_k$.
 The clean singular scores normalized by maximum nodal displacement are $\widehat s_k^{(s)} = \sigma_k / \max_a \|\boldsymbol\psi_{k,a}^{(s)}\|_2$.
 Because $V_s \in \mathrm O(2)$ mixes the two anatomical axes, mode $\boldsymbol\psi_1^{(s)}$ is primary-dominant only when $|V_s[0, 0]| \ge |V_s[1, 0]|$; across the pelvic cohort, the first singular mode in the 9--10 subspace is predominantly aligned with the higher-compliance transverse (ML) axis ($|V_s[1, 0]| > |V_s[0, 0]|$ in $99.6\%$ of subjects).
-For unambiguous, axis-specific evaluation of anatomical opening without coordinate mixing, the basis-invariant single-functional capacity $\widehat\kappa_\ell^{(s)}$ (Eq.~\ref{eq:single-coupling-score}) serves as our primary quantitative metric, while joint-SVD scores provide complementary bivariate structure.
+For unambiguous, axis-specific evaluation of anatomical opening without coordinate mixing, the basis-invariant single-functional capacity $\kappa_{\ell,\infty}(Q_s)$ (Eq.~\ref{eq:single-functional-max-nodal}) serves as our primary quantitative metric, while joint-SVD scores provide complementary bivariate structure.
 
 \subsection{Whole-pelvis global deformation pattern decomposition}
 \label{sec:mechanisms-methods}
@@ -733,7 +727,7 @@ $\mathbf t_x = (0, -\tilde x \tilde z, \tilde x \tilde y)^\top$ and $\mathbf t_y
 \end{enumerate}
 Templates in each family were projected orthogonal to $\mathbf Q_{\rm rigid}$ and orthonormalised using reduced singular value decomposition.
 The combined 24-dimensional nonrigid basis $\mathbf A$ spans the deformation space with low condition number ($\kappa(\mathbf A) \approx 4.58$ on the reference pelvis), corresponding to a Gram matrix condition number $\kappa(\mathbf G) = \kappa(\mathbf A)^2 \approx \GramConditionNumber$.
-Because the four deformation families have intrinsic mathematical overlap on irregular geometries, Shapley value allocation is employed as an objective game-theoretic method to partition the explained squared nonrigid norm fairly and symmetrically across the overlapping subspaces, rather than acting as a separator of mutually orthogonal physical mechanisms:
+Because the four deformation families exhibit intrinsic non-orthogonality (correlated explanatory subspaces) on irregular geometries, Shapley value allocation is employed as an objective game-theoretic method to partition the shared explained norm fairly and symmetrically across the subspaces, rather than acting as a separator of mutually orthogonal physical mechanisms:
 \begin{equation}
 f_m = \sum_{S \subseteq M \setminus \{m\}} \frac{|S|!(|M|-|S|-1)!}{|M|!} \left[ R^2(S \cup \{m\}) - R^2(S) \right], \qquad
 \sum_{m=1}^4 f_m + f_{\rm residual} = 1,
@@ -967,7 +961,7 @@ Table~C1 summarises the phase-specific coupling synthesis, Table~C2 reproduces t
 
 These analyses bound the main claims rather than extend them.
 Allometry quantifies what is lost when the main spectral analysis is performed on size-normalised pelves.
-Material uncertainty quantifies how much absolute eigenvalue identifiability would degrade under broader soft-tissue and density-law scatter while showing that the relative fragile-versus-robust gap architecture is preserved.
+Material uncertainty quantifies how much absolute eigenvalue identifiability would degrade under broader soft-tissue and density-law scatter while showing that the relative fragile-versus-robust gap architecture remains robust.
 Figure~D1 shows the post-hoc allometric recovery analysis, and Table~D1 summarises the corresponding scaling exponents and variance decomposition.
 Figure~D2 presents the threshold sensitivity, reference sensitivity, isotropic scale vs solver gap, and 15-mode displacement reconstruction error, alongside Table~D2 which tabulates the combined first-order uncertainty propagation used to support the robustness discussion in the main text.
 
@@ -1146,12 +1140,12 @@ To assemble the discrete kinematic design matrix, the basis fields in each famil
 \end{equation}
 The concatenated design matrix $\mathbf A = [\mathbf Q_{\rm axial}, \mathbf Q_{\rm bending}, \mathbf Q_{\rm shear}, \mathbf Q_{\rm torsion}] \in \mathbb{R}^{3N_q \times \NonrigidDOFs}$ spans the complete \NonrigidDOFs-dimensional canonical nonrigid deformation subspace.
 
-\subsection{Numerical conditioning, family overlap, and the Gram matrix}
-It is important to note that the four canonical deformation families have intrinsic algebraic overlap and are not mutually orthogonal even on an idealized symmetric domain.
+\subsection{Numerical conditioning, family non-orthogonality, and the Gram matrix}
+It is important to note that the four canonical deformation families exhibit intrinsic non-orthogonality and are not mutually orthogonal even on an idealized symmetric domain.
 For example, on the symmetric unit cube $[-1, 1]^3$ (volume $V = 8$), the unnormalized continuum volume integral between the bending mode $\mathbf b = (-xy, \frac{1}{2}x^2, 0)^\top$ and the shear mode $\mathbf s = (xy, \frac{1}{2}x^2, 0)^\top$ evaluates analytically to $\int_{[-1, 1]^3} \mathbf b \cdot \mathbf s \, \mathrm dV = -22/45 \approx -0.4889$, corresponding to a volume-normalized inner product $\langle \mathbf b, \mathbf s \rangle_V = \frac{1}{V}\int_{[-1, 1]^3} \mathbf b \cdot \mathbf s \, \mathrm dV = -11/180 \approx -0.0611$ (angular cosine $\cos\theta = -11/29 \approx -0.3793$).
-Consequently, the four deformation families share non-zero algebraic overlap by mathematical necessity, independently of geometric irregularity.
+Consequently, the four deformation families share correlated explanatory subspaces by mathematical necessity, independently of geometric irregularity.
 
-On the real, geometrically asymmetric pelvic ring, this intrinsic algebraic overlap combines with anatomical geometry.
+On the real, geometrically asymmetric pelvic ring, this intrinsic non-orthogonality combines with anatomical geometry.
 The kinematic design matrix $\mathbf A$ has 2-norm condition number $\kappa(\mathbf A) \approx \DesignConditionNumber$, and the associated Gram matrix $\mathbf G = \mathbf A^\top \mathbf A \in \mathbb{R}^{\NonrigidDOFs \times \NonrigidDOFs}$ has condition number:
 \begin{equation}
 \kappa(\mathbf G) = \frac{\sigma_{\max}(\mathbf G)}{\sigma_{\min}(\mathbf G)} = \kappa(\mathbf A)^2 \approx \GramConditionNumber.
@@ -1159,7 +1153,7 @@ The kinematic design matrix $\mathbf A$ has 2-norm condition number $\kappa(\mat
 A Gram condition number of $\sim 21$ confirms that all \NonrigidDOFs\ canonical modes remain linearly independent and well-conditioned without numerical rank deficiency.
 
 \subsection{Cooperative game-theoretic Shapley value norm allocation}
-Because the four deformation subspaces have intrinsic mathematical overlap and cannot be mutually orthogonal, projecting onto them sequentially (e.g., Gram-Schmidt orthogonalisation) would introduce an arbitrary, order-dependent bias: the first chosen family would absorb all shared variance, artificially starving subsequent families.
+Because the four deformation subspaces exhibit intrinsic non-orthogonality (shared explained norm) and cannot be mutually orthogonal, projecting onto them sequentially (e.g., Gram-Schmidt orthogonalisation) would introduce an arbitrary, order-dependent bias: the first chosen family would absorb all shared variance, artificially starving subsequent families.
 To achieve an objective, order-independent decomposition, we formulate the problem using cooperative game theory.
 
 Let $M = \{\text{axial}, \text{bending}, \text{shear}, \text{torsion}\}$ denote the set of four pattern players ($|M| = 4$).
@@ -1179,7 +1173,7 @@ The Shapley value $f_m$ assigned to each deformation family $m \in M$ is the uni
 \end{equation}
 \item \textbf{Symmetry:} If two families $m, k \in M$ contribute identically to every coalition ($v(S \cup \{m\}) = v(S \cup \{k\})$ for all $S \subseteq M \setminus \{m, k\}$), then $f_m = f_k$.
 \item \textbf{Dummy player:} If a family $m$ adds zero marginal variance to every coalition ($v(S \cup \{m\}) = v(S)$ for all $S \subseteq M \setminus \{m\}$), then $f_m = 0$.
-\item \textbf{Additivity:} If a deformation field is decomposed into independent orthogonal components, their Shapley shares sum linearly.
+\item \textbf{Additivity:} For any two characteristic value functions $v$ and $w$ defined on the same set of players, the values allocated under the combined sum game $(v + w)(S) = v(S) + w(S)$ satisfy $\phi_m(v + w) = \phi_m(v) + \phi_m(w)$.
 \end{enumerate}
 The explicit Shapley allocation formula evaluates the marginal contribution of family $m$ averaged over all coalition orders:
 \begin{equation}

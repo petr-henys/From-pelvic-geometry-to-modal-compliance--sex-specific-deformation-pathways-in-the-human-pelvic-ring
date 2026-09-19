@@ -6,6 +6,7 @@
 
 # Keep root-level Python scripts
 !/*.py
+!/FINAL_PRESUBMISSION_CHECK.md
 
 # Keep only selected directories
 !/analysis/

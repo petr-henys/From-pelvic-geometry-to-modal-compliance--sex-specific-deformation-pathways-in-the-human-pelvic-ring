@@ -77,6 +77,9 @@ def _dot_M(x: np.ndarray, y: np.ndarray, M: Optional['PETSc.Mat']) -> complex:
         return np.vdot(x, y)
     
 
+    if hasattr(M, "dot"):
+        return np.vdot(x, M.dot(y))
+
     vx = PETSc.Vec().createWithArray(x, comm=M.comm)
     vy = PETSc.Vec().createWithArray(y, comm=M.comm)
     return vx.dot(M * vy)

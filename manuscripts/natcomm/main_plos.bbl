@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -226,35 +226,6 @@ Georg Bergmann, Alwina Bender, J{\"o}rn Dymke, Georg Duda, and Philipp Damm.
 \newblock Standardized loads acting in hip implants.
 \newblock \emph{PLOS ONE}, 11\penalty0 (5):\penalty0 e0155612, 2016.
 \newblock \doi{10.1371/journal.pone.0155612}.
-
-\bibitem[Young et~al.(2023)Young, Marinescu, and Seligman]{AJOG2022Uterine}
-Roger~C. Young, Ponnila~S. Marinescu, and Neil~S. Seligman.
-\newblock Monitoring uterine contractions during labor: current challenges and
-  future directions.
-\newblock \emph{American Journal of Obstetrics and Gynecology}, 228\penalty0
-  (5):\penalty0 S1192--S1208, 2023.
-\newblock \doi{10.1016/j.ajog.2022.10.039}.
-
-\bibitem[Miller et~al.(2012)Miller, Miller, and Tucker]{Mosby2012Pocket}
-Lisa~A. Miller, David~A. Miller, and Susan~Martin Tucker.
-\newblock \emph{Mosby's Pocket Guide to Fetal Monitoring}.
-\newblock Elsevier, St. Louis, MO, 7 edition, 2012.
-
-\bibitem[Fuchs et~al.(2013)Fuchs, Bruy{\`e}re, Senat, Purenne, Benhamou, and
-  Fernandez]{Fuchs2013PLOS}
-Franck Fuchs, M.~Bruy{\`e}re, M.-V. Senat, E.~Purenne, D.~Benhamou, and
-  H.~Fernandez.
-\newblock Are standard intra-abdominal pressure values different during
-  pregnancy?
-\newblock \emph{PLOS ONE}, 8\penalty0 (10):\penalty0 e77324, 2013.
-\newblock \doi{10.1371/journal.pone.0077324}.
-
-\bibitem[Chun and Kirkpatrick(2012)]{Chun2012IAPReview}
-Rosaleen Chun and Andrew~W. Kirkpatrick.
-\newblock Intra-abdominal pressure, intra-abdominal hypertension, and
-  pregnancy: a review.
-\newblock \emph{Annals of Intensive Care}, 2\penalty0 (S1):\penalty0 S5, 2012.
-\newblock \doi{10.1186/2110-5820-2-S1-S5}.
 
 \bibitem[Kuhn(1955)]{Kuhn1955Hungarian}
 Harold~W. Kuhn.

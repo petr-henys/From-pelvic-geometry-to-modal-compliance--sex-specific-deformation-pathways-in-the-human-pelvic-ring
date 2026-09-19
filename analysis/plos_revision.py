@@ -27,7 +27,7 @@ from analysis.spectral_data import (load_eigenvalues,load_permutations,load_eige
  load_fe_mesh_coords,load_mass_matrix,load_metadata,load_pelvic_dimensions,
  load_template_and_shapes,load_inlet_landmarks,load_outlet_landmarks,_open_zarr_array)
 from analysis.spectral_metrics import (compute_gap_in,detect_clusters,compute_sep_out,
- orthonormalize_l2,canonical_pair_couplings,single_functional_coupling,
+ orthonormalize_l2,canonical_pair_couplings,single_functional_coupling,single_functional_capacity_max_nodal,
  coupling_per_1mm_max,build_patient_measurement_vectors,invert_pairing_permutation,
  compute_principal_angles,grassmann_distance,cohort_bootstrap_robustness)
 from analysis.spectral_config import DATA_DIR_FULL,DATA_DIR_SHAPE,DATA_DIR_MATERIAL
@@ -113,11 +113,11 @@ def compute_subjects():
    block=modes[cs:ce].reshape(ce-cs,-1).T; Q=orthonormalize_l2(block,M=M)
    ap,ml,*_=canonical_pair_couplings(Q,measurements['AP'][i],measurements['ML'][i],M=M)
    bis,bit,*_=canonical_pair_couplings(Q,measurements['BIS'][i],measurements['BIT'][i],M=M)
-   out,_,_=single_functional_coupling(Q,measurements['OUTLETAP'][i],M=M)
-   scalar,_,sigma=single_functional_coupling(Q,measurements['AP'][i],M=M)
-   ml_scalar,_,ml_sigma=single_functional_coupling(Q,measurements['ML'][i],M=M)
-   bis_scalar,_,bis_sigma=single_functional_coupling(Q,measurements['BIS'][i],M=M)
-   bit_scalar,_,bit_sigma=single_functional_coupling(Q,measurements['BIT'][i],M=M)
+   out,_,_=single_functional_capacity_max_nodal(Q,measurements['OUTLETAP'][i],M=M)
+   scalar,_,sigma=single_functional_capacity_max_nodal(Q,measurements['AP'][i],M=M)
+   ml_scalar,_,ml_sigma=single_functional_capacity_max_nodal(Q,measurements['ML'][i],M=M)
+   bis_scalar,_,bis_sigma=single_functional_capacity_max_nodal(Q,measurements['BIS'][i],M=M)
+   bit_scalar,_,bit_sigma=single_functional_capacity_max_nodal(Q,measurements['BIT'][i],M=M)
    rec={'subject':i,'sex':sex[i],'age':age[i],'block':f'{cs+1}-{ce}',
     'member':(cs,ce) in clusters[i],
     'AP':scalar,'ML':ml_scalar,'BIS':bis_scalar,'BIT':bit_scalar,'OUTLETAP':out,

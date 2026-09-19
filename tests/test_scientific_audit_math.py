@@ -332,3 +332,84 @@ def test_linear_elasticity_incremental_load_scaling():
     # Incremental response scales exactly linearly: delta_u(c) == c * delta_u
     np.testing.assert_allclose(delta_u_c, c * delta_u, atol=1e-12)
 
+
+def test_exact_max_nodal_capacity_properties():
+    """Verify mathematical properties of exact max-nodal anatomical capacity."""
+    from analysis.spectral_metrics import single_functional_capacity_max_nodal, single_functional_coupling
+
+    rng = np.random.default_rng(2028)
+    n_nodes = 50
+    n_dofs = n_nodes * 3
+
+    # Test r=1
+    A1 = rng.normal(size=(n_dofs, 1))
+    Q1, _ = np.linalg.qr(A1)
+    b1 = rng.normal(size=n_dofs)
+    cap1, psi1, _ = single_functional_capacity_max_nodal(Q1, b1)
+    max_u1 = np.sqrt(np.sum(psi1.reshape(-1, 3) ** 2, axis=1)).max()
+    np.testing.assert_allclose(max_u1, 1.0, atol=1e-12)
+
+    # Test r=2
+    A2 = rng.normal(size=(n_dofs, 2))
+    Q2, _ = np.linalg.qr(A2)
+    b2 = rng.normal(size=n_dofs)
+    cap2, psi2, sigma2 = single_functional_capacity_max_nodal(Q2, b2)
+    cap2_old, _, _ = single_functional_coupling(Q2, b2, exact_max_nodal=False)
+
+    # Constraint satisfaction
+    max_u2 = np.sqrt(np.sum(psi2.reshape(-1, 3) ** 2, axis=1)).max()
+    np.testing.assert_allclose(max_u2, 1.0, atol=1e-6)
+
+    # True max-nodal must be >= old post-hoc sphere normalized value
+    assert cap2 >= cap2_old - 1e-12
+
+    # Rotation invariance under O(2)
+    angle = rng.uniform(0, 2 * np.pi)
+    R = np.array([[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]])
+    cap2_rot, _, _ = single_functional_capacity_max_nodal(Q2 @ R, b2)
+    np.testing.assert_allclose(cap2_rot, cap2, atol=1e-5)
+
+    # Sign invariance under b -> -b
+    cap2_neg, _, _ = single_functional_capacity_max_nodal(Q2, -b2)
+    np.testing.assert_allclose(cap2_neg, cap2, atol=1e-12)
+
+    # Test r=4
+    A4 = rng.normal(size=(n_dofs, 4))
+    Q4, _ = np.linalg.qr(A4)
+    b4 = rng.normal(size=n_dofs)
+    cap4, psi4, _ = single_functional_capacity_max_nodal(Q4, b4)
+    cap4_old, _, _ = single_functional_coupling(Q4, b4, exact_max_nodal=False)
+    max_u4 = np.sqrt(np.sum(psi4.reshape(-1, 3) ** 2, axis=1)).max()
+    np.testing.assert_allclose(max_u4, 1.0, atol=1e-6)
+    assert cap4 >= cap4_old - 1e-6
+
+
+def test_incremental_load_routing_scale_invariance():
+    """Verify that incremental modal energy fractions are strictly scale-invariant."""
+    rng = np.random.default_rng(2029)
+    n = 20
+    A = rng.normal(size=(n, n))
+    K = A.T @ A + 3.0 * np.eye(n)
+    M = np.eye(n)
+
+    # Solve generalized eigenproblem K phi = lambda M phi
+    evals, evecs = np.linalg.eigh(K)
+
+    f_ext = rng.normal(size=n) * 400.0
+    u_inc_1 = np.linalg.solve(K, f_ext)
+
+    # Modal coordinates q_i = phi_i^T M u_inc
+    q_1 = evecs.T @ M @ u_inc_1
+    E_1 = 0.5 * evals * (q_1 ** 2)
+    fracs_1 = E_1 / np.sum(E_1)
+
+    # Scaled load: c * f_ext
+    c = 3.7
+    u_inc_c = np.linalg.solve(K, c * f_ext)
+    q_c = evecs.T @ M @ u_inc_c
+    E_c = 0.5 * evals * (q_c ** 2)
+    fracs_c = E_c / np.sum(E_c)
+
+    # Fractions must be identical to machine precision
+    np.testing.assert_allclose(fracs_c, fracs_1, atol=1e-14)
+

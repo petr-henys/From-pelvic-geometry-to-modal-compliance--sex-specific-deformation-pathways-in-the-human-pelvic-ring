@@ -11,7 +11,7 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-from scipy import stats
+from scipy import optimize, stats
 
 
 # ============================================================
@@ -930,17 +930,147 @@ def canonical_pair_couplings(
     return primary, secondary, psi_prim, psi_sec, sigmas
 
 
-def single_functional_coupling(
+def single_functional_capacity_max_nodal(
     Q: np.ndarray,
     b_vec: np.ndarray,
     M: np.ndarray | None = None,
 ) -> tuple[float, np.ndarray, float]:
+    """Basis-invariant max-nodal anatomical capacity for a single observable.
+
+    Computes:
+        kappa_{ell, infty}(Q) = max_{alpha != 0} |b^T Q alpha| / max_a ||(Q alpha)_a||_2
+        s.t. max_a ||(Q alpha)_a||_2 == 1.0.
+
+    Evaluated across all nodes to guarantee exact constraint satisfaction.
+
+    Parameters
+    ----------
+    Q : (n_dof, r)
+        Orthonormal basis of subspace.
+    b_vec : (n_dof,)
+        Measurement functional.
+    M : optional
+        Mass matrix (for signature consistency).
+
+    Returns
+    -------
+    capacity : float
+        Maximum anatomical response per 1 mm maximum nodal displacement (mm/mm).
+    psi : (n_dof,)
+        Optimal displacement field, normalized so max_a ||psi_a||_2 == 1.0.
+    sigma : float
+        L2 norm ||Q^T b||_2.
+    """
+    c = Q.T @ b_vec
+    sigma = float(np.linalg.norm(c))
+    if sigma <= 1e-12:
+        return np.nan, np.zeros(Q.shape[0], dtype=float), 0.0
+
+    r = Q.shape[1]
+
+    if r == 1:
+        psi = Q[:, 0].copy()
+        max_u = float(np.sqrt(np.sum(psi.reshape(-1, 3) ** 2, axis=1)).max())
+        if max_u > 1e-12:
+            psi /= max_u
+        if b_vec @ psi < 0:
+            psi = -psi
+        return float(abs(b_vec @ psi)), psi, sigma
+
+    elif r == 2:
+        thetas = np.linspace(0, np.pi, 90, endpoint=False)
+        alphas = np.vstack([np.cos(thetas), np.sin(thetas)])  # (2, 90)
+        chunk_size = 45
+        max_norms = np.zeros(90)
+        for k in range(0, 90, chunk_size):
+            sub_alphas = alphas[:, k : k + chunk_size]
+            u_chunk = (Q @ sub_alphas).reshape(-1, 3, chunk_size)
+            max_norms[k : k + chunk_size] = np.sqrt(np.max(np.sum(u_chunk**2, axis=1), axis=0))
+
+        numerators = np.abs(c @ alphas)
+        ratios = numerators / np.maximum(max_norms, 1e-12)
+        best_idx = int(np.argmax(ratios))
+        best_theta = thetas[best_idx]
+
+        def obj(th):
+            a = np.array([np.cos(th), np.sin(th)])
+            num = abs(float(c @ a))
+            u_th = (Q @ a).reshape(-1, 3)
+            den = float(np.sqrt(np.sum(u_th**2, axis=1)).max())
+            return -num / max(den, 1e-12)
+
+        delta = np.pi / 90
+        res = optimize.minimize_scalar(
+            obj,
+            bracket=(best_theta - delta, best_theta, best_theta + delta),
+            options={"xtol": 1e-6},
+        )
+        best_alpha = np.array([np.cos(res.x), np.sin(res.x)])
+        best_psi = Q @ best_alpha
+        max_u = float(np.sqrt(np.sum(best_psi.reshape(-1, 3) ** 2, axis=1)).max())
+        if max_u > 1e-12:
+            best_psi /= max_u
+        if b_vec @ best_psi < 0:
+            best_psi = -best_psi
+        return float(abs(b_vec @ best_psi)), best_psi, sigma
+
+    else:
+        alpha_init = c / sigma
+
+        def loss(a):
+            norm_a = float(np.linalg.norm(a))
+            if norm_a < 1e-12:
+                return 0.0
+            a_unit = a / norm_a
+            num = abs(float(c @ a_unit))
+            u = (Q @ a_unit).reshape(-1, 3)
+            den = float(np.sqrt(np.sum(u**2, axis=1)).max())
+            return -num / max(den, 1e-12)
+
+        init_simplex = np.zeros((r + 1, r))
+        init_simplex[0] = alpha_init
+        for k in range(r):
+            e = np.zeros(r)
+            e[k] = 1.0
+            init_simplex[k + 1] = e
+
+        res_nm = optimize.minimize(
+            loss,
+            alpha_init,
+            method="Nelder-Mead",
+            options={
+                "initial_simplex": init_simplex,
+                "xatol": 1e-6,
+                "fatol": 1e-6,
+                "maxiter": 500,
+            },
+        )
+        best_a = res_nm.x / np.linalg.norm(res_nm.x)
+        best_psi = Q @ best_a
+        max_u = float(np.sqrt(np.sum(best_psi.reshape(-1, 3) ** 2, axis=1)).max())
+        if max_u > 1e-12:
+            best_psi /= max_u
+        if b_vec @ best_psi < 0:
+            best_psi = -best_psi
+        return float(abs(b_vec @ best_psi)), best_psi, sigma
+
+
+def single_functional_coupling(
+    Q: np.ndarray,
+    b_vec: np.ndarray,
+    M: np.ndarray | None = None,
+    exact_max_nodal: bool = False,
+) -> tuple[float, np.ndarray, float]:
     """Maximally coupled direction in subspace Q for a single observable.
 
-    This is the rank-1 analogue of the paired canonical basis:
-    the observable is projected into the subspace and normalized to obtain the
-    unique direction in ``Q`` that maximizes that scalar functional.
+    When exact_max_nodal is True, computes the true max-nodal anatomical
+    capacity: kappa_{ell, infty}(Q) = max_{alpha != 0} |b^T Q alpha| / max_a ||(Q alpha)_a||_2.
+    When exact_max_nodal is False (default for backward compatibility), computes the
+    post-hoc L2-sphere normalized capacity.
     """
+    if exact_max_nodal:
+        return single_functional_capacity_max_nodal(Q, b_vec, M=M)
+
     c = Q.T @ b_vec
     sigma = float(np.linalg.norm(c))
     if sigma <= 1e-12:
