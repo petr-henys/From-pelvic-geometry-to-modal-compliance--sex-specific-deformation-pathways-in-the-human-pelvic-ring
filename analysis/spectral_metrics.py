@@ -812,22 +812,39 @@ def canonical_basis_in_subspace(
     b_ml: np.ndarray,
     M: np.ndarray | None = None,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """Canonical inlet basis inside subspace Q.
+    """Canonical pair basis inside subspace Q.
 
     Measurement vectors are covectors: the observable is b.T @ u.
     Thus its restriction to the M-orthonormal basis Q is Q.T @ b,
     not Q.T @ M @ b. M is retained for API compatibility; it enters
     only the construction of Q, never the covector restriction.
 
-    Returns (ψ1, ψ2, singular_values).
+    Joint SVD:
+        B = [b_ap, b_ml]
+        C = Q.T @ B = U @ diag(sigmas) @ V.T
+        psi_k = Q @ U[:, k]
+        matching functional b_tilde_k = B @ V[:, k]
+
+    The singular modes are assigned based on covector dominance in V:
+    the mode with larger weight in b_ap is aligned with AP, and the other with ML.
+
+    Returns (psi1, psi2, singular_values).
     """
     c_ap = Q.T @ b_ap
     c_ml = Q.T @ b_ml
     C = np.column_stack([c_ap, c_ml])
-    U, sigmas, _ = np.linalg.svd(C, full_matrices=False)
-    psi1 = Q @ U[:, 0]
-    psi2 = Q @ U[:, 1] if U.shape[1] > 1 else np.zeros_like(psi1)
-    # Fix sign conventions: ψ₁ aligned with b_ap, ψ₂ aligned with b_ml
+    U, sigmas, Vt = np.linalg.svd(C, full_matrices=False)
+    V = Vt.T
+
+    p1 = Q @ U[:, 0]
+    p2 = Q @ U[:, 1] if U.shape[1] > 1 else np.zeros_like(p1)
+
+    if abs(V[0, 0]) >= abs(V[1, 0]):
+        psi1, psi2 = p1, p2
+    else:
+        psi1, psi2 = p2, p1
+
+    # Fix sign conventions: psi1 aligned with b_ap, psi2 aligned with b_ml
     if b_ap @ psi1 < 0:
         psi1 = -psi1
     if b_ml @ psi2 < 0:
@@ -864,23 +881,53 @@ def canonical_pair_couplings(
     b_secondary: np.ndarray,
     M: np.ndarray | None = None,
 ) -> tuple[float, float, np.ndarray, np.ndarray, np.ndarray]:
-    """Canonical pair coupling scores for the first and second paired axes.
+    """Canonical pair coupling scores for primary and secondary observables.
+
+    Joint SVD:
+        B = [b_primary, b_secondary]
+        C = Q.T @ B = U @ diag(sigmas) @ V.T
+        psi_k = Q @ U[:, k]
+        matching functional b_tilde_k = B @ V[:, k]
+        clean score s_hat_k = sigma_k / max_a ||psi_{k, a}||_2
 
     Returns
     -------
-    primary_per_1mm, secondary_per_1mm, psi1, psi2, sigmas
-        ``psi1`` is the leading canonical direction for ``b_primary`` and
-        ``psi2`` is the companion direction for ``b_secondary``.
+    primary_per_1mm, secondary_per_1mm, psi_primary, psi_secondary, sigmas
     """
-    psi1, psi2, sigmas = canonical_basis_in_subspace(
-        Q, b_primary, b_secondary, M=M,
-    )
-    primary = coupling_per_1mm_max(b_primary, psi1)
-    secondary = (
-        coupling_per_1mm_max(b_secondary, psi2)
-        if np.linalg.norm(psi2) > 1e-12 else np.nan
-    )
-    return primary, secondary, psi1, psi2, sigmas
+    c_prim = Q.T @ b_primary
+    c_sec = Q.T @ b_secondary
+    C = np.column_stack([c_prim, c_sec])
+    U, sigmas, Vt = np.linalg.svd(C, full_matrices=False)
+    V = Vt.T
+
+    p1 = Q @ U[:, 0]
+    p2 = Q @ U[:, 1] if U.shape[1] > 1 else np.zeros_like(p1)
+
+    u1 = p1.reshape(-1, 3)
+    max_u1 = float(np.linalg.norm(u1, axis=1).max())
+    s1 = (sigmas[0] / max_u1) if max_u1 > 1e-12 else np.nan
+
+    if U.shape[1] > 1:
+        u2 = p2.reshape(-1, 3)
+        max_u2 = float(np.linalg.norm(u2, axis=1).max())
+        s2 = (sigmas[1] / max_u2) if max_u2 > 1e-12 else np.nan
+    else:
+        s2 = np.nan
+
+    # Dominance assignment based on V
+    if abs(V[0, 0]) >= abs(V[1, 0]):
+        primary, secondary = s1, s2
+        psi_prim, psi_sec = p1, p2
+    else:
+        primary, secondary = s2, s1
+        psi_prim, psi_sec = p2, p1
+
+    if b_primary @ psi_prim < 0:
+        psi_prim = -psi_prim
+    if np.linalg.norm(psi_sec) > 1e-12 and b_secondary @ psi_sec < 0:
+        psi_sec = -psi_sec
+
+    return primary, secondary, psi_prim, psi_sec, sigmas
 
 
 def single_functional_coupling(

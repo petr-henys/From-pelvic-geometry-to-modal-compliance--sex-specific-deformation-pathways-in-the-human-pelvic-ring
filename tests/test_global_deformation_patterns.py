@@ -30,7 +30,7 @@ def test_rigid_motion_is_removed_completely():
 
 
 def test_pure_synthetic_deformations_on_symmetric_domain():
-    """On a symmetric domain, pure canonical deformation families are mutually orthogonal."""
+    """Pure canonical deformation families have zero residual; Shapley correctly allocates shared subspace content."""
     x_1d = np.linspace(-1, 1, 15)
     X, Y, Z = np.meshgrid(x_1d, x_1d, x_1d, indexing='ij')
     points = np.column_stack([X.ravel(), Y.ravel(), Z.ravel()])

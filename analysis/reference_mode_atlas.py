@@ -10,6 +10,7 @@ import json
 import numpy as np
 import pandas as pd
 import pyvista as pv
+import basix
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -42,12 +43,11 @@ def main():
     if np.any(volumes <= 0):
         raise ValueError('Degenerate tetrahedra')
 
-    # Positive four-point sampling integrates squared P1 displacements exactly.
-    a = (5 + 3 * np.sqrt(5)) / 20
-    b = (5 - np.sqrt(5)) / 20
-    bary = np.full((4, 4), b)
-    np.fill_diagonal(bary, a)
-    qweights = np.full(4, 0.25)
+    # Positive degree-4 tetrahedral quadrature rule (14 points per tetrahedron)
+    # Required for exact integration of u_h * p_2 (degree 3) and p_2 * p_2 (degree 4).
+    pts, wts = basix.make_quadrature(basix.CellType.tetrahedron, 4)
+    bary = np.column_stack([1.0 - pts.sum(axis=1), pts[:, 0], pts[:, 1], pts[:, 2]])
+    qweights = 6.0 * wts  # normalized so sum(qweights) == 1.0 per unit tet volume
     points = np.einsum('qv,cvd->cqd', bary, vertices).reshape(-1, 3)
     weights = (volumes[:, None] * qweights).ravel()
 
@@ -234,7 +234,7 @@ def main():
 
     (OUT / 'global_deformation_provenance.json').write_text(json.dumps(dict(
         source=str(source.relative_to(ROOT)),
-        integration='Positive four-point tetrahedral sampling, exact for squared P1 target displacement',
+        integration='Positive 14-point (degree-4) tetrahedral quadrature, exact for degree-4 polynomials',
         measure='Squared nonrigid displacement after rigid projection; not strain or energy',
         allocation='Shapley contributions of four 3D canonical pattern families (axial, bending, shear, torsion)',
         n_modes=len(modes)

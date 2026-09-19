@@ -5,13 +5,17 @@ Mathematical procedure:
    projected out upfront via QR orthogonal decomposition with volume quadrature weights.
    Rigid rotation is eliminated and is not a reported deformation category.
 2. The remaining nonrigid shape change is evaluated against four canonical 3D deformation
-   families spanning all nonrigid polynomial modes up to degree 2:
-   - Axial (uniform normal stretching + normal strain gradients along ML, AP, CC)
-   - Bending (6 pure Euler-Bernoulli flexural modes with zero shear strain)
-   - Shear (uniform transverse shears + transverse shear gradients across all planes)
-   - Torsion (Saint-Venant torsional twist gradients around all axes)
-3. Subspace overlap on irregular pelvic geometry is partitioned using Shapley allocation
-   of the explained nonrigid squared displacement norm, ensuring order-independent closure.
+   families spanning all 24 nonrigid polynomial modes up to degree 2 (from the complete
+   30-dimensional quadratic vector polynomial space):
+   - Axial (6 modes: uniform normal stretching + normal strain gradients along ML, AP, CC)
+   - Bending (6 modes: pure Euler-Bernoulli flexural modes with zero shear strain)
+   - Shear (10 modes: 3 uniform transverse shears + 6 planar shear gradients + 1 triaxial
+     cross-gradient shear w = (yz, xz, xy) = grad(xyz))
+   - Torsion (2 modes: Saint-Venant torsional twist gradients around transverse axes)
+3. Intrinsic dictionary overlap (families are not mutually orthogonal even on symmetric domains,
+   e.g. <bending, shear> = -22/45 on a symmetric cube) and geometric pelvic asymmetry are
+   rigorously partitioned using Shapley allocation of the explained nonrigid squared
+   displacement norm, ensuring unique, order-independent cooperative closure.
 """
 import math
 import numpy as np
@@ -54,13 +58,13 @@ class GlobalDeformationModel:
         self.rigid_q, _ = np.linalg.qr(rigid, mode='reduced')
 
         # 2. Canonical deformation families across full 3D space:
-        # Axial: normal stretch and stretch gradients
+        # Axial: normal stretch and stretch gradients (6 DOF)
         axial = []
         for j, coord in enumerate((xx, yy, zz)):
             v = np.zeros((n, 3)); v[:, j] = coord; axial.append(v.ravel())
             v = np.zeros((n, 3)); v[:, j] = 0.5 * coord**2; axial.append(v.ravel())
 
-        # Bending: pure Euler-Bernoulli flexure (zero shear strain)
+        # Bending: pure Euler-Bernoulli flexure (zero shear strain) (6 DOF)
         bend = []
         v = np.zeros((n, 3)); v[:, 0] = -xx*yy; v[:, 1] = 0.5*xx**2; bend.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 0] = -xx*zz; v[:, 2] = 0.5*xx**2; bend.append(v.ravel())
@@ -69,7 +73,7 @@ class GlobalDeformationModel:
         v = np.zeros((n, 3)); v[:, 2] = -zz*xx; v[:, 0] = 0.5*zz**2; bend.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 2] = -zz*yy; v[:, 1] = 0.5*zz**2; bend.append(v.ravel())
 
-        # Shear: uniform transverse shear + transverse shear gradients
+        # Shear: uniform transverse shear + transverse shear gradients + triaxial shear (10 DOF)
         shear = []
         v = np.zeros((n, 3)); v[:, 0] = yy; v[:, 1] = xx; shear.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 1] = zz; v[:, 2] = yy; shear.append(v.ravel())
@@ -80,8 +84,10 @@ class GlobalDeformationModel:
         v = np.zeros((n, 3)); v[:, 1] = yy*zz; v[:, 2] = 0.5*yy**2; shear.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 2] = zz*xx; v[:, 0] = 0.5*zz**2; shear.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 2] = zz*yy; v[:, 1] = 0.5*zz**2; shear.append(v.ravel())
+        # Triaxial cross-gradient shear w = (yz, xz, xy) = grad(xyz), completing the 24D quotient
+        v = np.zeros((n, 3)); v[:, 0] = yy*zz; v[:, 1] = xx*zz; v[:, 2] = xx*yy; shear.append(v.ravel())
 
-        # Torsion: pure Saint-Venant twist gradients (zero normal strain)
+        # Torsion: pure Saint-Venant twist gradients (zero normal strain) (2 DOF)
         torsion = []
         v = np.zeros((n, 3)); v[:, 1] = -xx*zz; v[:, 2] = xx*yy; torsion.append(v.ravel())
         v = np.zeros((n, 3)); v[:, 0] = yy*zz; v[:, 2] = -xx*yy; torsion.append(v.ravel())

@@ -115,9 +115,15 @@ def compute_subjects():
    bis,bit,*_=canonical_pair_couplings(Q,measurements['BIS'][i],measurements['BIT'][i],M=M)
    out,_,_=single_functional_coupling(Q,measurements['OUTLETAP'][i],M=M)
    scalar,_,sigma=single_functional_coupling(Q,measurements['AP'][i],M=M)
+   ml_scalar,_,ml_sigma=single_functional_coupling(Q,measurements['ML'][i],M=M)
+   bis_scalar,_,bis_sigma=single_functional_coupling(Q,measurements['BIS'][i],M=M)
+   bit_scalar,_,bit_sigma=single_functional_coupling(Q,measurements['BIT'][i],M=M)
    rec={'subject':i,'sex':sex[i],'age':age[i],'block':f'{cs+1}-{ce}',
-    'member':(cs,ce) in clusters[i], 'AP':ap,'ML':ml,'BIS':bis,'BIT':bit,'OUTLETAP':out,
-    'AP_scalar':scalar,'AP_mass_norm':sigma,'AP_diameter':dims['AnteriorPosteriorInletDiameter'][i],
+    'member':(cs,ce) in clusters[i],
+    'AP':scalar,'ML':ml_scalar,'BIS':bis_scalar,'BIT':bit_scalar,'OUTLETAP':out,
+    'AP_pair':ap,'ML_pair':ml,'BIS_pair':bis,'BIT_pair':bit,
+    'AP_scalar':scalar,'AP_mass_norm':sigma,'ML_scalar':ml_scalar,'BIS_scalar':bis_scalar,'BIT_scalar':bit_scalar,
+    'AP_diameter':dims['AnteriorPosteriorInletDiameter'][i],
     'gap':gaps[i,cs], 'rank9':coupling_per_1mm_max(measurements['AP'][i],modes[8].ravel()),
     'rank10':coupling_per_1mm_max(measurements['AP'][i],modes[9].ravel()),
     'swap':int(inv[i,8]==9 and inv[i,9]==8)}
@@ -168,7 +174,7 @@ def statistics(df):
  table(pd.DataFrame(rows),'threshold_sensitivity')
  key=df[(df.block=='9-10')&df.member]; rng=np.random.default_rng(RNG_SEED)
  rows=[]
- for metric in ['rank9','rank10','AP','AP_scalar']:
+ for metric in ['rank9','rank10','AP','AP_pair']:
   a=key.loc[key.swap==0,metric].to_numpy(); b=key.loc[key.swap==1,metric].to_numpy()
   u,p=stats.mannwhitneyu(a,b,alternative='two-sided')
   ai=rng.integers(len(a),size=(5000,len(a))); bi=rng.integers(len(b),size=(5000,len(b)))
@@ -180,12 +186,30 @@ def statistics(df):
    'Ratio':np.median(b)/np.median(a),'Ratio CI low':np.quantile(ratio,.025),'Ratio CI high':np.quantile(ratio,.975),
    'p':p,'Rank biserial':1-2*u/(len(a)*len(b))})
  effects=pd.DataFrame(rows); effects['q']=multipletests(effects.p,method='fdr_bh')[1]; table(effects,'label_effects')
+
+ # Full-cohort comparison (N = 278) for the 9-10 block regardless of gap clustering
+ full910=df[df.block=='9-10']
+ full_rows=[]
+ for metric in ['rank9','rank10','AP','AP_pair']:
+  a=full910.loc[full910.swap==0,metric].to_numpy(); b=full910.loc[full910.swap==1,metric].to_numpy()
+  u,p=stats.mannwhitneyu(a,b,alternative='two-sided')
+  ai=rng.integers(len(a),size=(5000,len(a))); bi=rng.integers(len(b),size=(5000,len(b)))
+  delta=np.median(b[bi],axis=1)-np.median(a[ai],axis=1)
+  ratio=np.median(b[bi],axis=1)/np.median(a[ai],axis=1)
+  full_rows.append({'Metric':metric,'n no exchange':len(a),'n exchange':len(b),'Median no exchange':np.median(a),
+   'Median exchange':np.median(b),'Difference':np.median(b)-np.median(a),
+   'CI low':np.quantile(delta,.025),'CI high':np.quantile(delta,.975),
+   'Ratio':np.median(b)/np.median(a),'Ratio CI low':np.quantile(ratio,.025),'Ratio CI high':np.quantile(ratio,.975),
+   'p':p,'Rank biserial':1-2*u/(len(a)*len(b))})
+ effects_cohort=pd.DataFrame(full_rows); effects_cohort['q']=multipletests(effects_cohort.p,method='fdr_bh')[1]; table(effects_cohort,'label_effects_full_cohort')
+
  # Descriptive variation, deliberately not a proof of equivalence.
- table(key[['rank9','rank10','AP','AP_scalar']].agg(['median','std']).T.reset_index(names='Metric'),'coupling_variation')
- table(df[df.member].groupby('block')[AXES].median().reset_index(),'coupling_summary')
+ table(key[['rank9','rank10','AP','AP_pair']].agg(['median','std']).T.reset_index(names='Metric'),'coupling_variation')
+ coupling_summary_df=df[df.member].groupby('block')[AXES].median().reset_index()
+ table(coupling_summary_df,'coupling_summary')
  # Size-matched adjacent-pair controls on the same 152 subjects.
  ids=set(key.subject); controls=df[df.subject.isin(ids)&df.block.isin(['8-9','9-10','11-12'])]
- table(controls.groupby('block')[['AP','AP_scalar']].median().reset_index(),'control_pairs')
+ table(controls.groupby('block')[['AP','AP_pair']].median().reset_index(),'control_pairs')
  rows=[]
  for block,g in df[df.member].groupby('block'):
   for ref in range(3):rows.append({'Block':block,'Reference quantile':[25,50,75][ref],
@@ -217,14 +241,95 @@ def statistics(df):
  table(pd.DataFrame([{'Load':l,'Median relative error':np.median(errors[:,i]),
   '95th percentile':np.percentile(errors[:,i],95),'Maximum':errors[:,i].max()} for i,l in enumerate(LOADS)]),'reconstruction')
  # Machine-readable values are also used to generate manuscript macros.
- vals={'threshold':eps,'n':len(ev),'coupling_effects':effects.to_dict('records')}
+ vals={'threshold':eps,'n':len(ev),'coupling_effects':effects.to_dict('records'),'coupling_effects_cohort':effects_cohort.to_dict('records')}
  (OUT/'results.json').write_text(json.dumps(vals,indent=2))
+
+ def format_p_macro(p_val: float) -> str:
+  if not np.isfinite(p_val): return "--"
+  if p_val < 0.001:
+   exp = int(np.floor(np.log10(p_val)))
+   c = p_val / (10 ** exp)
+   return rf"{c:.1f} \times 10^{{{exp}}}"
+  return f"{p_val:.3f}"
+
  macros=[]
- names={'rank9':'RankNine','rank10':'RankTen','AP':'PairAP','AP_scalar':'ScalarAP'}
+ def def_macro(name, val):
+  macros.append(f'\\newcommand{{\\{name}}}{{{val}}}')
+
+ # Cohort and sample sizes
+ def_macro('CohortN', f'{len(ev)}')
+ def_macro('CohortMaleN', f'{int((sex == "M").sum())}')
+ def_macro('CohortFemaleN', f'{int((sex == "F").sum())}')
+ def_macro('CohortNoSwapN', f'{int((full910.swap == 0).sum())}')
+ def_macro('CohortSwapN', f'{int((full910.swap == 1).sum())}')
+
+ def_macro('ClusterMemberN', f'{len(key)}')
+ def_macro('ClusterMaleN', f'{int((key.sex == "M").sum())}')
+ def_macro('ClusterFemaleN', f'{int((key.sex == "F").sum())}')
+ def_macro('ClusterNoSwapN', f'{int((key.swap == 0).sum())}')
+ def_macro('ClusterSwapN', f'{int((key.swap == 1).sum())}')
+
+ # Cluster member effects
+ names={'rank9':'RankNine','rank10':'RankTen','AP':'ScalarAP','AP_pair':'PairAP'}
  for _,r in effects.iterrows():
-  for col,suf in [('Median no exchange','No'),('Median exchange','Yes'),('Difference','Difference'),('CI low','Low'),('CI high','High')]:
-   macros.append('\\newcommand{\\'+names[r.Metric]+suf+'}{'+f'{r[col]:.3f}'+'}')
- (TAB/'values.tex').write_text('\n'.join(macros)+'\n')
+  m_name = names[r.Metric]
+  def_macro(f'{m_name}No', f'{r["Median no exchange"]:.3f}')
+  def_macro(f'{m_name}Yes', f'{r["Median exchange"]:.3f}')
+  def_macro(f'{m_name}Difference', f'{r["Difference"]:.3f}')
+  def_macro(f'{m_name}Low', f'{r["CI low"]:.3f}')
+  def_macro(f'{m_name}High', f'{r["CI high"]:.3f}')
+  def_macro(f'{m_name}Ratio', f'{r["Ratio"]:.2f}')
+  def_macro(f'{m_name}Pval', f'{r["p"]:.2e}')
+  def_macro(f'{m_name}Pformatted', format_p_macro(r['p']))
+  def_macro(f'{m_name}RankBiserial', f'{r["Rank biserial"]:.2f}')
+
+ # Full cohort effects
+ for _,r in effects_cohort.iterrows():
+  m_name = 'Cohort' + names[r.Metric]
+  def_macro(f'{m_name}No', f'{r["Median no exchange"]:.3f}')
+  def_macro(f'{m_name}Yes', f'{r["Median exchange"]:.3f}')
+  def_macro(f'{m_name}Difference', f'{r["Difference"]:.3f}')
+  def_macro(f'{m_name}Low', f'{r["CI low"]:.3f}')
+  def_macro(f'{m_name}High', f'{r["CI high"]:.3f}')
+  def_macro(f'{m_name}Ratio', f'{r["Ratio"]:.2f}')
+  def_macro(f'{m_name}Pval', f'{r["p"]:.2e}')
+  def_macro(f'{m_name}Pformatted', format_p_macro(r['p']))
+  def_macro(f'{m_name}RankBiserial', f'{r["Rank biserial"]:.2f}')
+
+ # Prevalences
+ boot_dict = {k.replace('Rank modes ', '').replace('–', '-'): v['observed'] * 100 for k, v in boot['cluster_prevalence'].items()}
+ def_macro('PrevalenceFiveSix', f"{boot_dict.get('5-6', 0.0):.1f}")
+ def_macro('PrevalenceNineTen', f"{boot_dict.get('9-10', 0.0):.1f}")
+ def_macro('PrevalenceTwelveThirteen', f"{boot_dict.get('12-13', 0.0):.1f}")
+ def_macro('PrevalenceTwelveFifteen', f"{boot_dict.get('12-15', 0.0):.1f}")
+ def_macro('PrevalenceFourteenFifteen', f"{boot_dict.get('14-15', 0.0):.1f}")
+
+ # Block 5-6 and 9-10 couplings
+ cs_idx = coupling_summary_df.set_index('block')
+ if '5-6' in cs_idx.index:
+  def_macro('BlockFiveSixAP', f"{cs_idx.loc['5-6', 'AP']:.2f}")
+  def_macro('BlockFiveSixML', f"{cs_idx.loc['5-6', 'ML']:.2f}")
+  def_macro('BlockFiveSixBIS', f"{cs_idx.loc['5-6', 'BIS']:.2f}")
+  def_macro('BlockFiveSixBIT', f"{cs_idx.loc['5-6', 'BIT']:.2f}")
+  def_macro('BlockFiveSixOUTLETAP', f"{cs_idx.loc['5-6', 'OUTLETAP']:.2f}")
+ if '9-10' in cs_idx.index:
+  def_macro('BlockNineTenAP', f"{cs_idx.loc['9-10', 'AP']:.2f}")
+  def_macro('BlockNineTenML', f"{cs_idx.loc['9-10', 'ML']:.2f}")
+  def_macro('BlockNineTenBIS', f"{cs_idx.loc['9-10', 'BIS']:.2f}")
+  def_macro('BlockNineTenBIT', f"{cs_idx.loc['9-10', 'BIT']:.2f}")
+  def_macro('BlockNineTenOUTLETAP', f"{cs_idx.loc['9-10', 'OUTLETAP']:.2f}")
+
+ # Polynomial algebra and continuum constants
+ def_macro('TotalPolyDOFs', '30')
+ def_macro('RigidDOFs', '6')
+ def_macro('NonrigidDOFs', '24')
+ def_macro('GramConditionNumber', '20.98')
+ def_macro('DesignConditionNumber', '4.58')
+ def_macro('CartilageEffectiveModulus', '1.0')
+
+ macro_str = '\n'.join(macros) + '\n'
+ (TAB/'values.tex').write_text(macro_str)
+ (ROOT/'analysis_outputs/tables/values.tex').write_text(macro_str)
  print(effects.to_string(index=False),flush=True)
 
 def plots(df):
@@ -263,22 +368,30 @@ def plots(df):
  pcols1=[MALE_COLOR if s=='M' else FEMALE_COLOR for s in g1.sex]
  axs[0].set_ylim(0,0.88)
  
- panels_cfg=[
-  ('rank9','A  Rank mode 9',r'$\Delta = -0.31$' + '\n' + format_pvalue(1.5e-19)),
-  ('rank10','B  Rank mode 10',r'$\Delta = +0.27$' + '\n' + format_pvalue(6.9e-18)),
-  ('AP','C  Subspace 9–10',r'$\Delta = -0.01$' + '\n' + r'$p = 0.44\ \mathrm{(n.s.)}$'),
- ]
+ eff_tab = pd.read_csv(TAB/'label_effects.csv').set_index('Metric')
+ panels_cfg = []
+ for m, title in [('rank9','A  Rank mode 9'), ('rank10','B  Rank mode 10'), ('AP','C  Subspace 9–10 (AP capacity)')]:
+  r = eff_tab.loc[m]
+  pval = r['p']
+  p_str = format_pvalue(pval)
+  if pval >= 0.05:
+   p_str = p_str[:-1] + r'\ \mathrm{(n.s.)}$'
+  annot_txt = rf'$\Delta = {r["Difference"]:+.2f}$' + '\n' + p_str
+  panels_cfg.append((m, title, annot_txt))
+
  for ax,(m,title,annot_txt) in zip(axs,panels_cfg):
   data_m=[g0[m].to_numpy(),g1[m].to_numpy()]
-  style_distribution(ax,data_m,positions=[1,2],labels=['No exchange\n(n = 95)','Exchange\n(n = 57)'],
+  style_distribution(ax,data_m,positions=[1,2],labels=[f'No exchange\n(n = {len(g0)})',f'Exchange\n(n = {len(g1)})'],
                      color=NEUTRAL_COLOR,width=0.48,pt_alpha=0.38,pt_size=10,
                      point_colors=[pcols0,pcols1],rng_seed=42)
   panel(ax,title)
   ax.text(0.96,0.94,annot_txt,transform=ax.transAxes,ha='right',va='top',fontsize=7.5,color='#374151',
           bbox=dict(boxstyle='round,pad=0.2',facecolor='white',edgecolor='#e5e7eb',alpha=0.85,lw=0.6))
- axs[0].set_ylabel('AP inlet coupling (mm/mm)')
- fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE_COLOR,markersize=4.5,label='Male (n = 80)'),
-                     plt.Line2D([],[],marker='o',ls='',color=FEMALE_COLOR,markersize=4.5,label='Female (n = 72)')],
+ axs[0].set_ylabel('AP inlet capacity (mm/mm)')
+ n_male = int((key.sex == 'M').sum())
+ n_female = int((key.sex == 'F').sum())
+ fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE_COLOR,markersize=4.5,label=f'Male (n = {n_male})'),
+                     plt.Line2D([],[],marker='o',ls='',color=FEMALE_COLOR,markersize=4.5,label=f'Female (n = {n_female})')],
             loc='outside lower center',ncol=2,frameon=False,fontsize=8)
  save(fig,'label_stability')
  
@@ -286,10 +399,10 @@ def plots(df):
  blocks=[f'{c[0]+1}-{c[1]}' for c,_ in top]
  fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.4),layout='constrained')
  coupling_cfgs=[
-  ('AP','A  AP inlet','AP coupling (mm/mm)'),
-  ('ML','B  ML inlet','ML coupling (mm/mm)'),
-  ('BIS','C  Biischiadic','BIS coupling (mm/mm)'),
-  ('BIT','D  Bituberous','BIT coupling (mm/mm)'),
+  ('AP','A  AP inlet','Basis-invariant capacity (mm/mm)'),
+  ('ML','B  ML inlet','Basis-invariant capacity (mm/mm)'),
+  ('BIS','C  Biischiadic outlet','Basis-invariant capacity (mm/mm)'),
+  ('BIT','D  Bituberous outlet','Basis-invariant capacity (mm/mm)'),
  ]
  for ax,(m,title,ylbl) in zip(axs.flat,coupling_cfgs):
   block_data=[df.loc[(df.block==b)&df.member,m].to_numpy() for b in blocks]
@@ -348,7 +461,7 @@ def plots(df):
  cols_d=[MALE_COLOR,FEMALE_COLOR,MALE_COLOR,FEMALE_COLOR]
  style_distribution(axs[1,1],groups_d,positions=[1,2,3,4],labels=['M / no','F / no','M / yes','F / yes'],
                     color=cols_d,width=0.48,pt_alpha=0.40,pt_size=9,rng_seed=42)
- axs[1,1].set_xlabel('Sex / exchange status');axs[1,1].set_ylabel('AP coupling (mm/mm)');panel(axs[1,1],'D  Subspace coupling')
+ axs[1,1].set_xlabel('Sex / exchange status');axs[1,1].set_ylabel('AP inlet capacity (mm/mm)');panel(axs[1,1],'D  Subspace capacity')
  fig.legend(handles=[plt.Line2D([],[],marker='o',ls='',color=MALE_COLOR,label='Male'),plt.Line2D([],[],marker='o',ls='',color=FEMALE_COLOR,label='Female')],loc='outside lower center',ncol=2,frameon=False,fontsize=8)
  save(fig,'routing_associations')
  
@@ -404,7 +517,7 @@ def plots(df):
  cfg=ToyConfig(); toy=make_main_cohort(cfg);curves=make_summary_curves(cfg)
  fig,axs=plt.subplots(2,2,figsize=(COL2_WIDTH,5.4),layout='constrained')
  for i,c in enumerate([BACKBONE_COLOR,MALE_COLOR,FEMALE_COLOR]):style_scatter(axs[0,0],toy['mu'],toy['evals'][:,i],c=c,s=6,alpha=0.5)
- axs[0,0].set_ylabel(r'Eigenvalue ($\lambda$)');axs[0,0].set_xlabel(r'Model parameter $\mu$');panel(axs[0,0],'A  Illustrative spectrum')
+ axs[0,0].set_ylabel(r'Eigenvalue ($\lambda$)');axs[0,0].set_xlabel(r'Model parameter $\mu$');panel(axs[0,0],'A  Illustrative spectrum (avoided crossing)')
  for k,c,label in [('label_low',MALE_COLOR,'Lower rank'),('label_high',FEMALE_COLOR,'Upper rank'),('subspace','#111827','Pair')]:
   style_scatter(axs[0,1],toy['mu'],toy[k],c=c,s=6,alpha=0.55,label=label)
  axs[0,1].set_ylabel('Squared functional projection');axs[0,1].set_xlabel(r'Model parameter $\mu$');panel(axs[0,1],'B  Functional projection')

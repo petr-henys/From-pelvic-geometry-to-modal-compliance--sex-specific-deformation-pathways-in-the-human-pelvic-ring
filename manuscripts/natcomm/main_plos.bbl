@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,15 +25,6 @@ Petr Heny\v{s} and Michal Kucha\v{r}.
   analyses.
 \newblock \emph{Scientific Data}, 12\penalty0 (1), 2025.
 \newblock \doi{10.1038/s41597-025-05161-y}.
-
-\bibitem[Kriechling et~al.(2022)Kriechling, Leoty, and
-  F{\"u}rnstahl]{Kriechling2022}
-Philipp Kriechling, Laura Leoty, and Philipp F{\"u}rnstahl.
-\newblock A statistical shape model-based analysis of periacetabular
-  osteotomies.
-\newblock \emph{The Journal of Bone and Joint Surgery}, 104\penalty0
-  (12):\penalty0 1107--1115, 2022.
-\newblock \doi{10.2106/JBJS.21.00454}.
 
 \bibitem[Kitano(2004)]{Kitano2004}
 Hiroaki Kitano.

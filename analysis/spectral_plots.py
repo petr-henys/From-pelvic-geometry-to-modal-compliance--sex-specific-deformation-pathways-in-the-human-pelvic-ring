@@ -113,7 +113,7 @@ def _save_table(
 
     tex_path = TAB_DIR / f"{name}.tex"
     # Use a general-format float printer to avoid reporting small p-values as 0.0000.
-    df_tex.to_latex(tex_path, index=False, float_format="%.4g")
+    df_tex.to_latex(tex_path, index=False, float_format="%.4g", na_rep="--")
     # Sanitize Unicode in the generated tex file
     raw = tex_path.read_text(encoding="utf-8")
     tex_path.write_text(_sanitize_tex(raw), encoding="utf-8")

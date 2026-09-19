@@ -17,6 +17,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import numpy as np
+import basix
 import pandas as pd
 from analysis.spectral_data import load_reference_space
 from analysis.global_deformation_patterns import GlobalDeformationModel
@@ -101,11 +102,9 @@ def generate_synthetic_table():
     vertices = coords[cells]
     edges = np.stack([vertices[:, j] - vertices[:, 0] for j in (1, 2, 3)], axis=-1)
     volumes = np.abs(np.linalg.det(edges)) / 6
-    a = (5 + 3 * np.sqrt(5)) / 20
-    b = (5 - np.sqrt(5)) / 20
-    bary = np.full((4, 4), b)
-    np.fill_diagonal(bary, a)
-    qweights = np.full(4, 0.25)
+    pts, wts = basix.make_quadrature(basix.CellType.tetrahedron, 4)
+    bary = np.column_stack([1.0 - pts.sum(axis=1), pts[:, 0], pts[:, 1], pts[:, 2]])
+    qweights = 6.0 * wts
     pts_pelv = np.einsum('qv,cvd->cqd', bary, vertices).reshape(-1, 3)
     w_pelv = (volumes[:, None] * qweights).ravel()
     mod_pelv = GlobalDeformationModel(pts_pelv, w_pelv)
