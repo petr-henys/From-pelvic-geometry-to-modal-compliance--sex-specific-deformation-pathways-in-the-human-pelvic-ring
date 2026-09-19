@@ -20,6 +20,7 @@ from PIL import Image
 OUT_PDF = Path('analysis_outputs/plos_revision/figures/model_setup.pdf')
 OUT_PNG = Path('analysis_outputs/plos_revision/figures/model_setup.png')
 MANUSCRIPT_PDF = Path('manuscripts/natcomm/images/model_setup.pdf')
+MANUSCRIPT_PNG = Path('manuscripts/natcomm/images/model_setup.png')
 TMP_DIR = Path('/tmp/model_setup_hq')
 TMP_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -313,9 +314,9 @@ img_D3 = load_crop_and_pad_to_aspect(TMP_DIR / 'hq_panel_D3.png', target_aspect=
 # ==========================================
 # 3. ASSEMBLE COMPOSITE FIGURE
 # ==========================================
-fig = plt.figure(figsize=(11.5, 9.2), dpi=300)
+fig = plt.figure(figsize=(11.5, 9.8), dpi=300)
 plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Helvetica']
-plt.rcParams['font.size'] = 8.5
+plt.rcParams['font.size'] = 9.0
 
 # Main layout GridSpec:
 # Row 0: Top section (Panels A, B1, B2)
@@ -324,9 +325,9 @@ plt.rcParams['font.size'] = 8.5
 # Row 3: Bottom info cards (C1, C2, D1, D2, D3)
 gs_main = gridspec.GridSpec(
     4, 1,
-    height_ratios=[1.30, 0.08, 0.72, 0.22],
+    height_ratios=[1.30, 0.085, 0.70, 0.25],
     hspace=0.10,
-    top=0.96, bottom=0.03, left=0.04, right=0.96
+    top=0.96, bottom=0.03, left=0.035, right=0.965
 )
 
 # ------------------------------------------
@@ -337,7 +338,7 @@ gs_main = gridspec.GridSpec(
 gs_top = gridspec.GridSpecFromSubplotSpec(
     2, 3,
     subplot_spec=gs_main[0],
-    height_ratios=[1.0, 0.24],
+    height_ratios=[1.0, 0.29],
     width_ratios=[1.42, 1.0, 1.0],
     hspace=0.05, wspace=0.12
 )
@@ -354,14 +355,14 @@ ax_B2_info = fig.add_subplot(gs_top[1, 2])
 # --- Panel A ---
 ax_A.imshow(img_A)
 ax_A.axis('off')
-ax_A.set_title(r'$\mathbf{A}$   Pelvic finite-element assembly & soft tissues', loc='left', fontsize=10.5, pad=7, fontweight='bold', color='#0f172a')
+ax_A.set_title(r'$\mathbf{A}$   Pelvic finite-element assembly & soft tissues', loc='left', fontsize=11.0, pad=7, fontweight='bold', color='#0f172a')
 
 # 1. S1 fixed boundary badge (top center, clearly clear of iliac crests)
 ax_A.annotate(
     r'Fixed boundary: $S_1$ facet ($\mathbf{u} = \mathbf{0}$)',
     xy=(0.50, 0.77), xycoords='axes fraction',
     xytext=(0.50, 0.95), textcoords='axes fraction',
-    ha='center', va='center', fontsize=8.2, fontweight='bold', color='#15803d',
+    ha='center', va='center', fontsize=9.0, fontweight='bold', color='#15803d',
     bbox=dict(boxstyle='round,pad=0.35', facecolor='#f0fdf4', edgecolor='#86efac', lw=1.0),
     arrowprops=dict(arrowstyle='->', color='#15803d', lw=1.5)
 )
@@ -371,7 +372,7 @@ ax_A.annotate(
     'Sacroiliac joint\n(articular cartilage)',
     xy=(0.70, 0.65), xycoords='axes fraction',
     xytext=(0.86, 0.90), textcoords='axes fraction',
-    ha='center', va='center', fontsize=7.8, fontweight='bold', color='#0369a1',
+    ha='center', va='center', fontsize=8.5, fontweight='bold', color='#0369a1',
     bbox=dict(boxstyle='round,pad=0.35', facecolor='#f0f9ff', edgecolor='#7dd3fc', lw=1.0),
     arrowprops=dict(arrowstyle='->', color='#0369a1', lw=1.3, connectionstyle='arc3,rad=-0.12')
 )
@@ -381,7 +382,7 @@ ax_A.annotate(
     'Pubic symphysis\n(fibrocartilage disc)',
     xy=(0.50, 0.05), xycoords='axes fraction',
     xytext=(0.13, 0.07), textcoords='axes fraction',
-    ha='center', va='center', fontsize=7.8, fontweight='bold', color='#7c3aed',
+    ha='center', va='center', fontsize=8.5, fontweight='bold', color='#7c3aed',
     bbox=dict(boxstyle='round,pad=0.35', facecolor='#faf5ff', edgecolor='#d8b4fe', lw=1.0),
     arrowprops=dict(arrowstyle='->', color='#7c3aed', lw=1.3, connectionstyle='arc3,rad=0.18')
 )
@@ -392,65 +393,63 @@ rect_leg = FancyBboxPatch((0.01, 0.04), 0.98, 0.92, boxstyle='round,pad=0.03,rou
                           facecolor='#f8fafc', edgecolor='#e2e8f0', lw=1.0, transform=ax_A_leg.transAxes)
 ax_A_leg.add_patch(rect_leg)
 
-# 6 ligament items in 2 rows x 3 columns
+# 6 ligament items arranged in 3 rows x 2 columns for optimal legibility & rhythm
 lig_items = [
-    ('#d7191c', 'Anterior SIJ lig.'),
-    ('#fdae61', 'Posterior SIJ lig.'),
-    ('#2b83ba', 'Interosseous SIJ lig.'),
-    ('#e66101', 'Sacrospinous lig.'),
-    ('#5e3c99', 'Sacrotuberous lig.'),
-    ('#c51b7d', 'Pubic ligaments'),
+    # Column 1 (Left)
+    ('#d7191c', 'Anterior SIJ lig.', 0.04, 0.74),
+    ('#2b83ba', 'Interosseous SIJ lig.', 0.04, 0.45),
+    ('#e66101', 'Sacrospinous lig.', 0.04, 0.16),
+    # Column 2 (Right)
+    ('#fdae61', 'Posterior SIJ lig.', 0.52, 0.74),
+    ('#5e3c99', 'Sacrotuberous lig.', 0.52, 0.45),
+    ('#c51b7d', 'Pubic ligaments', 0.52, 0.16),
 ]
-xs = [0.025, 0.35, 0.67]
-ys = [0.65, 0.25]
-for idx, (col, lbl) in enumerate(lig_items):
-    col_idx = idx % 3
-    row_idx = idx // 3
-    ax_A_leg.plot(xs[col_idx], ys[row_idx], marker='s', markersize=6.5, color=col, transform=ax_A_leg.transAxes)
-    ax_A_leg.text(xs[col_idx] + 0.032, ys[row_idx], lbl, transform=ax_A_leg.transAxes,
-                  va='center', ha='left', fontsize=7.2, color='#1e293b', fontweight='medium')
+for col, lbl, x, y in lig_items:
+    ax_A_leg.plot(x, y, marker='s', markersize=8.0, color=col, transform=ax_A_leg.transAxes)
+    ax_A_leg.text(x + 0.038, y, lbl, transform=ax_A_leg.transAxes,
+                  va='center', ha='left', fontsize=8.8, color='#0f172a', fontweight='semibold')
 
 # --- Panel B1: Inlet diameters ---
 ax_B1.imshow(img_B1)
 ax_B1.axis('off')
-ax_B1.set_title(r'$\mathbf{B}_1$   Inlet plane (superior view)', loc='left', fontsize=10.0, pad=7, fontweight='bold', color='#0f172a')
+ax_B1.set_title(r'$\mathbf{B}_1$   Inlet plane (superior view)', loc='left', fontsize=10.5, pad=7, fontweight='bold', color='#0f172a')
 
 # Panel B1 Info Card (ax_B1_info)
 ax_B1_info.axis('off')
 rect_b1 = FancyBboxPatch((0.01, 0.04), 0.98, 0.92, boxstyle='round,pad=0.03,rounding_size=0.05',
                          facecolor='#f8fafc', edgecolor='#e2e8f0', lw=1.0, transform=ax_B1_info.transAxes)
 ax_B1_info.add_patch(rect_b1)
-ax_B1_info.text(0.50, 0.76, 'Pelvic Inlet Diameters', transform=ax_B1_info.transAxes,
-               ha='center', va='center', fontsize=7.8, fontweight='bold', color='#0f172a')
+ax_B1_info.text(0.50, 0.77, 'Pelvic Inlet Diameters', transform=ax_B1_info.transAxes,
+               ha='center', va='center', fontsize=9.2, fontweight='bold', color='#0f172a')
 # AP
-ax_B1_info.plot(0.06, 0.44, marker='o', markersize=5.5, color='#d7191c', transform=ax_B1_info.transAxes)
+ax_B1_info.plot(0.06, 0.44, marker='o', markersize=6.5, color='#d7191c', transform=ax_B1_info.transAxes)
 ax_B1_info.text(0.12, 0.44, 'Conjugata vera (AP): 123 mm', transform=ax_B1_info.transAxes,
-               ha='left', va='center', fontsize=7.2, color='#1e293b', fontweight='medium')
+               ha='left', va='center', fontsize=8.4, color='#1e293b', fontweight='semibold')
 # ML
-ax_B1_info.plot(0.06, 0.18, marker='o', markersize=5.5, color='#2b83ba', transform=ax_B1_info.transAxes)
+ax_B1_info.plot(0.06, 0.18, marker='o', markersize=6.5, color='#2b83ba', transform=ax_B1_info.transAxes)
 ax_B1_info.text(0.12, 0.18, 'Transverse diameter (ML): 131 mm', transform=ax_B1_info.transAxes,
-               ha='left', va='center', fontsize=7.2, color='#1e293b', fontweight='medium')
+               ha='left', va='center', fontsize=8.4, color='#1e293b', fontweight='semibold')
 
 # --- Panel B2: Outlet diameters ---
 ax_B2.imshow(img_B2)
 ax_B2.axis('off')
-ax_B2.set_title(r'$\mathbf{B}_2$   Outlet plane (inferior view)', loc='left', fontsize=10.0, pad=7, fontweight='bold', color='#0f172a')
+ax_B2.set_title(r'$\mathbf{B}_2$   Outlet plane (inferior view)', loc='left', fontsize=10.5, pad=7, fontweight='bold', color='#0f172a')
 
 # Panel B2 Info Card (ax_B2_info)
 ax_B2_info.axis('off')
 rect_b2 = FancyBboxPatch((0.01, 0.04), 0.98, 0.92, boxstyle='round,pad=0.03,rounding_size=0.05',
                          facecolor='#f8fafc', edgecolor='#e2e8f0', lw=1.0, transform=ax_B2_info.transAxes)
 ax_B2_info.add_patch(rect_b2)
-ax_B2_info.text(0.50, 0.76, 'Pelvic Outlet Diameters', transform=ax_B2_info.transAxes,
-               ha='center', va='center', fontsize=7.8, fontweight='bold', color='#0f172a')
+ax_B2_info.text(0.50, 0.77, 'Pelvic Outlet Diameters', transform=ax_B2_info.transAxes,
+               ha='center', va='center', fontsize=9.2, fontweight='bold', color='#0f172a')
 # BIS
-ax_B2_info.plot(0.06, 0.44, marker='o', markersize=5.5, color='#7b3294', transform=ax_B2_info.transAxes)
+ax_B2_info.plot(0.06, 0.44, marker='o', markersize=6.5, color='#7b3294', transform=ax_B2_info.transAxes)
 ax_B2_info.text(0.12, 0.44, 'Biischiadic diameter (BIS): 103 mm', transform=ax_B2_info.transAxes,
-               ha='left', va='center', fontsize=7.2, color='#1e293b', fontweight='medium')
+               ha='left', va='center', fontsize=8.4, color='#1e293b', fontweight='semibold')
 # BIT
-ax_B2_info.plot(0.06, 0.18, marker='o', markersize=5.5, color='#1a9641', transform=ax_B2_info.transAxes)
+ax_B2_info.plot(0.06, 0.18, marker='o', markersize=6.5, color='#1a9641', transform=ax_B2_info.transAxes)
 ax_B2_info.text(0.12, 0.18, 'Bituberous diameter (BIT): 132 mm', transform=ax_B2_info.transAxes,
-               ha='left', va='center', fontsize=7.2, color='#1e293b', fontweight='medium')
+               ha='left', va='center', fontsize=8.4, color='#1e293b', fontweight='semibold')
 
 # ------------------------------------------
 # CATEGORY HEADER BANNERS (Row 1)
@@ -469,7 +468,7 @@ rect_hs = FancyBboxPatch((0.00, 0.05), 0.98, 0.90, boxstyle='round,pad=0.02,roun
                          facecolor='#fffbeb', edgecolor='#fde68a', lw=1.0, transform=ax_hdr_stand.transAxes)
 ax_hdr_stand.add_patch(rect_hs)
 ax_hdr_stand.text(0.50, 0.50, 'Habitual Locomotor Loads (Standing)', transform=ax_hdr_stand.transAxes,
-                 ha='center', va='center', fontsize=8.8, fontweight='bold', color='#92400e')
+                 ha='center', va='center', fontsize=9.8, fontweight='bold', color='#92400e')
 
 ax_hdr_labor = fig.add_subplot(gs_hdr[1])
 ax_hdr_labor.axis('off')
@@ -477,7 +476,7 @@ rect_hl = FancyBboxPatch((0.00, 0.05), 1.00, 0.90, boxstyle='round,pad=0.02,roun
                          facecolor='#fdf2f8', edgecolor='#fbcfe8', lw=1.0, transform=ax_hdr_labor.transAxes)
 ax_hdr_labor.add_patch(rect_hl)
 ax_hdr_labor.text(0.50, 0.50, 'Parturition-Motivated Proxy Loads (Birth Canal Transit Stages)', transform=ax_hdr_labor.transAxes,
-                 ha='center', va='center', fontsize=8.8, fontweight='bold', color='#9d174d')
+                 ha='center', va='center', fontsize=9.8, fontweight='bold', color='#9d174d')
 
 # ------------------------------------------
 # BOTTOM SECTION: 5 Load Cases (Images in Row 2, Info Cards in Row 3)
@@ -546,7 +545,7 @@ for i in range(5):
     ax_i = axes_img[i]
     ax_i.imshow(bot_imgs[i])
     ax_i.axis('off')
-    ax_i.set_title(bot_titles[i], loc='center', fontsize=9.0, pad=5, fontweight='bold', color='#0f172a')
+    ax_i.set_title(bot_titles[i], loc='center', fontsize=9.6, pad=5, fontweight='bold', color='#0f172a')
     
     # Card
     ax_c = axes_card[i]
@@ -558,19 +557,21 @@ for i in range(5):
     ax_c.add_patch(rect_c)
     
     ax_c.text(0.50, 0.74, cd['sub'], transform=ax_c.transAxes,
-              ha='center', va='center', fontsize=7.4, fontweight='bold', color='#0f172a')
+              ha='center', va='center', fontsize=8.5, fontweight='bold', color='#0f172a')
     ax_c.text(0.50, 0.44, cd['force'], transform=ax_c.transAxes,
-              ha='center', va='center', fontsize=7.2, fontweight='bold', color=cd['accent'])
+              ha='center', va='center', fontsize=8.3, fontweight='bold', color=cd['accent'])
     ax_c.text(0.50, 0.18, cd['target'], transform=ax_c.transAxes,
-              ha='center', va='center', fontsize=6.6, color='#64748b', fontweight='medium')
+              ha='center', va='center', fontsize=7.6, color='#475569', fontweight='semibold')
 
 # Export both to analysis_outputs and directly to manuscript directory
 fig.savefig(OUT_PDF, bbox_inches='tight', dpi=300)
 fig.savefig(OUT_PNG, bbox_inches='tight', dpi=300)
 fig.savefig(MANUSCRIPT_PDF, bbox_inches='tight', dpi=300)
+fig.savefig(MANUSCRIPT_PNG, bbox_inches='tight', dpi=300)
 plt.close(fig)
 
 print(f'Successfully generated Figure 8:')
 print(f'  - PDF: {OUT_PDF}')
 print(f'  - PNG: {OUT_PNG}')
-print(f'  - Manuscript: {MANUSCRIPT_PDF}')
+print(f'  - Manuscript PDF: {MANUSCRIPT_PDF}')
+print(f'  - Manuscript PNG: {MANUSCRIPT_PNG}')

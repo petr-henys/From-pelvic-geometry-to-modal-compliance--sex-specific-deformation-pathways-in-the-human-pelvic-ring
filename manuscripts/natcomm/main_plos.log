@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  18 SEP 2026 17:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  19 SEP 2026 06:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,11 +665,11 @@ ame-work of the ``ob-stet-ri-cal dilemma'' [[],
  []
 
 [15] [16]
-<images/model_setup.pdf, id=647, 784.59003pt x 637.2624pt>
+<images/model_setup.pdf, id=647, 796.2419pt x 677.65573pt>
 File: images/model_setup.pdf Graphic file (type pdf)
 <use images/model_setup.pdf>
 Package pdftex.def Info: images/model_setup.pdf  used on input line 471.
-(pdftex.def)             Requested size: 430.31812pt x 349.52303pt.
+(pdftex.def)             Requested size: 430.31812pt x 366.23885pt.
  [17] [18 <./images/model_setup.pdf>] [19] [20] [21]
 Overfull \hbox (2.5498pt too wide) in paragraph at lines 691--693
 []\OT1/cmr/m/n/10.95 Infinitesimal rigid-body mo-tion (3 trans-la-tions and 3 r
@@ -684,7 +684,7 @@ Overfull \hbox (7.54306pt too wide) in paragraph at lines 698--700
  []
 
 [22] [23]
-<../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf, id=889,
+<../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf, id=873,
  493.95387pt x 404.45976pt>
 File: ../../analysis_outputs/plos_revision/figures/material_uncertainty.pdf Gra
 phic file (type pdf)
@@ -702,7 +702,7 @@ uncertainty.pdf  used on input line 764.
 (../report/veering_vs_mixing_classification.tex)
 (../../analysis_outputs/tables/veering_null_test.tex) [29]
 (../../analysis_outputs/tables/cohort_bootstrap_robustness.tex)
-<../../analysis_outputs/figures/sex_stratified_summary.pdf, id=956, 526.37505pt
+<../../analysis_outputs/figures/sex_stratified_summary.pdf, id=940, 526.37505pt
  x 598.39557pt>
 File: ../../analysis_outputs/figures/sex_stratified_summary.pdf Graphic file (t
 ype pdf)
@@ -720,8 +720,8 @@ Overfull \hbox (13.62433pt too wide) in paragraph at lines 912--914
 lud-ing cluster-level function-locking, dominant-
  []
 
-<../../analysis_outputs/figures/function_locking_heatmap.pdf, id=1014, 598.2240
-9pt x 227.6543pt>
+<../../analysis_outputs/figures/function_locking_heatmap.pdf, id=998, 598.22409
+pt x 227.6543pt>
 File: ../../analysis_outputs/figures/function_locking_heatmap.pdf Graphic file 
 (type pdf)
 <use ../../analysis_outputs/figures/function_locking_heatmap.pdf>
@@ -733,7 +733,7 @@ p.pdf  used on input line 920.
 (../../analysis_outputs/tables/mode_activation_overlap.tex) [33
 
  <../../analysis_outputs/figures/function_locking_heatmap.pdf>] [34]
-<../../analysis_outputs/figures/allometry_dashboard.pdf, id=1055, 519.56058pt x
+<../../analysis_outputs/figures/allometry_dashboard.pdf, id=1039, 519.56058pt x
  298.95796pt>
 File: ../../analysis_outputs/figures/allometry_dashboard.pdf Graphic file (type
  pdf)
@@ -747,7 +747,7 @@ Package pdftex.def Info: ../../analysis_outputs/figures/allometry_dashboard.pdf
 (../../analysis_outputs/tables/allometry_summary.tex) [36
 
 ]
-<../../analysis_outputs/plos_revision/figures/robustness.pdf, id=1104, 494.8081
+<../../analysis_outputs/plos_revision/figures/robustness.pdf, id=1088, 494.8081
 4pt x 404.45094pt>
 File: ../../analysis_outputs/plos_revision/figures/robustness.pdf Graphic file 
 (type pdf)
@@ -823,10 +823,10 @@ msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main_plos.pdf (49 pages, 5660985 bytes).
+Output written on main_plos.pdf (49 pages, 5695415 bytes).
 PDF statistics:
- 1413 PDF objects out of 1440 (max. 8388607)
- 871 compressed objects within 9 object streams
+ 1397 PDF objects out of 1440 (max. 8388607)
+ 875 compressed objects within 9 object streams
  244 named destinations out of 1000 (max. 500000)
  378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
