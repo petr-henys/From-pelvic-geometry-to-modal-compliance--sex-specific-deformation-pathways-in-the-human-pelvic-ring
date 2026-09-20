@@ -7,14 +7,14 @@ Let $\Omega_0$ be the FE template and $\boldsymbol\chi_i(\mathbf X)=\mathbf X+\b
 \begin{equation}
 \boldsymbol\varepsilon_i(\mathbf u)=\operatorname{sym}(\nabla_X\mathbf u\,\mathbf F_i^{-1}).
 \end{equation}
-The pullback requires an orientation-preserving, nonsingular map. RBF smoothness alone does not prove this condition. For physical coordinates in mm, the discrete weak problem is
+The pullback requires an orientation-preserving, nonsingular map. RBF smoothness alone does not prove this condition. Here $\nabla_X\mathbf u$ differentiates the displacement represented on the template; $\operatorname{sym}\mathbf B=(\mathbf B+\mathbf B^T)/2$. Volume integration satisfies $dV_i=J_i\,dV_0$. Thus, for example, the elastic term on the template is $\int_{\Omega_0}(\mathbf C_i\boldsymbol\varepsilon_i(\mathbf u)): \boldsymbol\varepsilon_i(\mathbf v)\,J_i\,dV_0$. For physical coordinates in mm, find the discrete displacement $\mathbf u_h$ such that, for every test displacement $\mathbf v_h$, the weak problem is
 \begin{equation}
 \int_{\Omega_i}\mathbf C_i\boldsymbol\varepsilon(\mathbf u):\boldsymbol\varepsilon(\mathbf v)\,dV
 +\int_{\Gamma_{S1,i}}\gamma\,\mathbf u\cdot\mathbf v\,dS
 +\mathbf v_h^T\mathbf K_{lig,i}\mathbf u_h
 =\int_{\Gamma_{load,i}}\mathbf t\cdot\mathbf v\,dS+\mathbf v_h^T\mathbf f_{pre,i}.
 \end{equation}
-The surface penalty has units N/mm$^3$, because its associated traction is $\gamma\mathbf u$ in N/mm$^2$. It imposes an approximate fixed boundary, not exact $\mathbf u=0$. The ligament stiffness and pretension terms are required for consistency with the assembled solver. For one spring segment of length $L$, direction $\mathbf e$, assigned stiffness $k$ and pretension $T$, its directional stiffness is
+Here $\mathbf C_i$ is the isotropic elasticity tensor, $\mathbf t$ is the prescribed surface traction, and $\mathbf u_h,\mathbf v_h$ are nodal coefficient vectors in the spring terms. In each tissue, $\boldsymbol\sigma=2\mu\boldsymbol\varepsilon+\lambda\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I$, with $\mu=E/[2(1+\nu)]$ and $\lambda=E\nu/[(1+\nu)(1-2\nu)]$. The surface penalty has units N/mm$^3$, because its associated traction is $\gamma\mathbf u$ in N/mm$^2$. It imposes an approximate fixed boundary, not exact $\mathbf u=0$. The ligament stiffness and pretension terms are required for consistency with the assembled solver. For one spring segment of length $L$, direction $\mathbf e$, assigned stiffness $k$ and pretension $T$, its directional stiffness is
 \begin{equation}
 \mathbf W=k\mathbf e\mathbf e^T+(T/L)(\mathbf I-\mathbf e\mathbf e^T).
 \end{equation}
@@ -33,7 +33,7 @@ Let $\mathbf X_j$ be surface template nodes. The two point clouds used for kinem
 \mathbf p^0_{ij}=\mathbf X_j+\boldsymbol\phi_i(\mathbf X_j),\qquad
 \mathbf p^1_{i\ell j}=\mathbf p^0_{ij}+\mathbf u_{i\ell}(\mathbf X_j).
 \end{equation}
-Both use identical topology and point correspondence. Comparing $\mathbf X_j$ with $\mathbf p^1_{i\ell j}$ would incorrectly include subject morphology in the measured motion. Geometry was reconstructed with the original two-stage interpolation: template-to-FE mapping (10 neighbors, smoothing 50) followed by FE-to-surface mapping (10 neighbors, zero smoothing). Saved elastic fields use the latter interpolation. Cached sparse interpolation weights implement the same linear RBF evaluation; numerical comparisons against direct RBF evaluation check this equivalence.
+Both use identical topology and point correspondence. Here ``unloaded denotes the geometric reference with zero stored elastic displacement, not a separately equilibrated pretension-only state. The loaded field includes both the prescribed external load and the ligament pretension right-hand side. Comparing $\mathbf X_j$ with $\mathbf p^1_{i\ell j}$ would incorrectly include subject morphology in the measured motion. Geometry was reconstructed with the original two-stage interpolation: template-to-FE mapping (10 neighbors, smoothing 50) followed by FE-to-surface mapping (10 neighbors, zero smoothing). Saved elastic fields use the latter interpolation. Cached sparse interpolation weights implement the same linear RBF evaluation; numerical comparisons against direct RBF evaluation check this equivalence.
 
 \subsection{Pelvis-aligned reporting frame}
 The origin $\mathbf o$ is the centroid of the unloaded surface. The initial ML axis is the dominant eigenvector of the point-cloud covariance, with deterministic sign. The symmetry-plane routine uses this PCA approximation; it does not optimize reflection symmetry. Project the centered points onto its orthogonal plane and take the leading in-plane singular vector. Orthogonalization gives $\hat{\mathbf z}$, followed by
@@ -53,7 +53,7 @@ Fit the sacral point correspondence by ordinary least squares,
 \end{equation}
 where $+$ denotes the Moore--Penrose pseudoinverse. This removes fitted affine sacral deformation, including stretch and shear; it is not only a change of rigid observer frame.
 
-For each side, select sacral and iliac points within 5~mm of the opposing point cloud. If fewer than 80 points qualify, use up to the nearest 80 available points. Distances are between discrete points rather than continuous articular surfaces. For each bone ROI, the rigid fit maps $\mathbf p^0$ to $\mathbf q$. With centered row matrices $\widetilde{\mathbf P}_B,\widetilde{\mathbf Q}_B$,
+For each side, first restrict both point clouds to that side of the reporting-frame midplane (falling back to the entire bone if this set is empty). Select sacral and iliac points within 5~mm of the opposing restricted point cloud. If fewer than 80 points qualify, use up to the nearest 80 available points. Distances are between discrete points rather than continuous articular surfaces. For each bone ROI, the rigid fit maps $\mathbf p^0$ to $\mathbf q$. With centered row matrices $\widetilde{\mathbf P}_B,\widetilde{\mathbf Q}_B$,
 \begin{equation}
 \widetilde{\mathbf P}_B^T\widetilde{\mathbf Q}_B=\mathbf U\boldsymbol\Sigma\mathbf V^T,
 \quad \mathbf R_B=\mathbf V\operatorname{diag}(1,1,\det(\mathbf V\mathbf U^T))\mathbf U^T,
@@ -82,7 +82,11 @@ For the unloaded sacral ROI centroid $\mathbf p_c$, the reported displacement is
 \begin{equation}
 \mathbf d=\mathbf P^T[(\mathbf R_I-\mathbf R_S)\mathbf p_c+\mathbf t_I-\mathbf t_S].
 \end{equation}
-It evaluates the difference of two fitted maps at a common reference point. It is neither the distance between opposing articular surfaces nor a displacement along a surface normal. The bilateral summaries are
+It evaluates the difference of two fitted maps at a common reference point, expressed in the unloaded pelvic axes after affine correction. It is not the translational parameter of $T_S^{-1}T_I$. In fact, with $\mathbf t_{rel}=\mathbf R_S^T(\mathbf t_I-\mathbf t_S)$,
+\begin{equation}
+\mathbf d=\mathbf P^T\mathbf R_S\big[(\mathbf R_{rel}-\mathbf I)\mathbf p_c+\mathbf t_{rel}\big].
+\end{equation}
+This identity makes explicit the distinction between the relative rigid transform and the reported point-displacement difference. It is neither the distance between opposing articular surfaces nor a displacement along a surface normal. The bilateral summaries are
 \begin{align}
 |\boldsymbol\theta|&=\tfrac12\sum_{s=L,R}(\alpha_{x,s}^2+\beta_{y,s}^2+\gamma_{z,s}^2)^{1/2}, &
 |\mathbf d|&=\tfrac12\sum_{s=L,R}\|\mathbf d_s\|,\\
@@ -98,4 +102,18 @@ For the sex-interaction log model, $b_M=\beta_v$ and $b_F=\beta_v+\beta_{v:s}$. 
 \begin{equation}
 \operatorname{Var}(b_F)=\operatorname{Var}(\beta_v)+\operatorname{Var}(\beta_{v:s})+2\operatorname{Cov}(\beta_v,\beta_{v:s}).
 \end{equation}
-Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Figure~\ref{fig:allometry} uses this same adjusted model, with the other continuous covariates set to their cohort means.
+Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Figure~\ref{fig:allometry} reports slopes from this model. Supplementary Figure S1 shows its conditional geometric-mean curves with age and the morphometric covariates set to their cohort means.
+
+\subsection{Statistical estimands and uncertainty}
+All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume exponents. Standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization.
+
+For design matrix $\mathbf Z$, OLS residuals $e_i$ and leverage $h_{ii}$, the HC3 covariance estimator is
+\begin{equation}
+\widehat{\operatorname{Cov}}_{HC3}(\widehat{\boldsymbol\beta})=
+(\mathbf Z^T\mathbf Z)^{-1}\mathbf Z^T
+\operatorname{diag}\!\left[\frac{e_i^2}{(1-h_{ii})^2}\right]
+\mathbf Z(\mathbf Z^T\mathbf Z)^{-1}.
+\end{equation}
+For any coefficient contrast $\mathbf c$, its estimate is $\mathbf c^T\widehat{\boldsymbol\beta}$ and standard error is $[\mathbf c^T\widehat{\operatorname{Cov}}_{HC3}\mathbf c]^{1/2}$. Reported Wald intervals use the normal critical value (approximately 1.96). The allometry exponents are conditional elasticities: holding the other predictors fixed, multiplying volume by $a>0$ multiplies the fitted geometric-mean response by $a^b$.
+
+For a paired contrast $\Delta_i$, the reported effect is $\operatorname{median}_i\Delta_i$, not the difference between two marginal medians. With $n_*$ nonzero differences and $B=\sum_i\mathbb 1(\Delta_i>0)$, the two-sided exact sign test uses $B\sim\operatorname{Binomial}(n_*,1/2)$ under the null of balanced signs. For a continuous difference distribution this is a test of zero median; excluding exact zeros conditions on nonzero differences. Bootstrap intervals are percentile intervals obtained by resampling subjects, preserving the paired observations. They are pointwise intervals, whereas the reported $q$ values apply Benjamini--Hochberg adjustment within the specified test families; these two summaries need not cross their respective thresholds together.

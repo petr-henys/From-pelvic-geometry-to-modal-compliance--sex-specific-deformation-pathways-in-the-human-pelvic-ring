@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 15:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 20:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -639,12 +639,12 @@ athsy.enc}] [2]
 (../tables/generated/supp_extraction_sensitivity.tex) [5
 
 ]
-<../figures/SuppFig1_allometry_scatter.pdf, id=55, 1047.915pt x 448.07399pt>
+<../figures/SuppFig1_allometry_scatter.pdf, id=55, 614.295pt x 831.105pt>
 File: ../figures/SuppFig1_allometry_scatter.pdf Graphic file (type pdf)
 <use ../figures/SuppFig1_allometry_scatter.pdf>
 Package pdftex.def Info: ../figures/SuppFig1_allometry_scatter.pdf  used on inp
 ut line 64.
-(pdftex.def)             Requested size: 455.24411pt x 194.65079pt.
+(pdftex.def)             Requested size: 427.93057pt x 578.96689pt.
  [6
 
  <../figures/SuppFig1_allometry_scatter.pdf>] (./supplement.aux)
@@ -673,9 +673,9 @@ m/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
 fb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmsy9.pfb>
-Output written on supplement.pdf (6 pages, 388913 bytes).
+Output written on supplement.pdf (6 pages, 384978 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
+ 225 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams
  17 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)

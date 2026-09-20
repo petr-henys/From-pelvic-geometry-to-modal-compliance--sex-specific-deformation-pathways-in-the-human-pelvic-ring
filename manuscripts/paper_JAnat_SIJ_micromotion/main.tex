@@ -48,6 +48,17 @@ Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
 }
 \date{}
 
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+% Keep float-only pages compact instead of vertically spreading figures.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{18pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
 \begin{document}
 \doublespacing
 \begingroup

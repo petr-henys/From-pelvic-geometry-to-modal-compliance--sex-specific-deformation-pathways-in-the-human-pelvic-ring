@@ -1,9 +1,9 @@
 \section{Results}
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.67\textheight,keepaspectratio]{figures/Fig1_anatomy_coordinates_loads.pdf}
-\caption{\textbf{Model anatomy and load definitions.} (A) Pelvic assembly with schematic morphometric overlays; their drawn locations illustrate dimensions and are not quantitative landmark measurements. Green denotes the S1 constraint, orange the SIJ cartilage and purple the symphysis. (B) Exploded articulation and pelvis-aligned coordinate definitions; arrows illustrate axes, not measured trajectories. Rotations describe ilium relative to sacrum. (C) Bilateral and unilateral acetabular loads. (D) Independent ring, ischial and AP force pairs. Arrows represent applied global force directions; they do not demonstrate joint opening. The penalty approximates a fixed boundary.}
+\caption{\textbf{Anatomy, motion definitions and load application.} (A) Pelvic assembly: green denotes the S1 constraint, orange SIJ cartilage and purple the symphysis. (B) Exploded articulation with illustrative axis directions; these arrows do not define the subject-specific PCA frame or anatomical signs. (C) Rotational and translational reporting conventions. (D,E) Bilateral and unilateral acetabular loads, each totaling 800~N. (F--H) Independent internal-ring, ischial and AP force pairs. Load arrows show applied global directions, not measured joint opening. The S1 penalty approximates a fixed boundary.}
 \label{fig:overview}
 \end{figure}
 \subsection{Anatomical diversity across matched mechanical comparisons}
@@ -20,7 +20,7 @@ The paired SP1leg-minus-SP2leg median difference in rotation norm was $+1.048$ (
 \StdTableInput{tables/generated/table3_micromotion_summary.tex}
 \end{table}
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig2_primary_load_profiles.pdf}
 \caption{\textbf{Load-dependent motion and asymmetry.} Rotation-triplet norm, relative translation norm, absolute ML rotation and bilateral translation-magnitude asymmetry. Points are subjects; boxplots show medians and IQRs, with whiskers at 1.5 IQR. Female and male groups use vermilion and blue. Jitter is deterministic. No signed nutation direction is inferred.}
@@ -29,7 +29,7 @@ The paired SP1leg-minus-SP2leg median difference in rotation norm was $+1.048$ (
 \subsection{Load application site selects distinct motion components}
 The localized force pairs separated the response into distinct component patterns (Fig.~\ref{fig:directional}). Both transverse pairs reduced the absolute CC component relative to bilateral support, but the ML component increased only under LAB2: its paired median contrast was +0.052~mm (95\% CI +0.047 to +0.061, $q<0.001$), compared with $-0.007$~mm for LAB1 (95\% CI $-0.018$ to +0.002, $q=0.254$). Both also reduced the AP component. LAB3 increased the ML and AP components while reducing the CC component. The shared transverse-redistribution prediction was therefore only partly supported. Supplementary Table S1 gives all paired contrasts and adjusted probabilities. Component magnitudes quantify motion along the reporting axes; the arrows connect componentwise median contrasts and are not physical trajectories.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig3_directional_rerouting.pdf}
 \caption{\textbf{Paired absolute-component contrasts.} (A) Median within-subject differences from SP2leg, with bootstrap 95\% CIs. (B) Individual ML/CC contrast pairs and arrows to their componentwise medians. Positive values mean larger component magnitude, not outward joint motion. Corrected $q$ values are reported in Supplementary Table S1; intervals are pointwise, not simultaneous.}
@@ -39,7 +39,7 @@ The localized force pairs separated the response into distinct component pattern
 LAB1 female-minus-male translation coefficients were $+0.055$, $+0.040$ and $+0.013$~mm in M0, M1 and M2. The M2 interval was -0.005 to +0.031~mm ($p=0.166$, $q=0.566$). LAB2 female-minus-male translation coefficients were $+0.071$, $+0.041$ and $-0.031$~mm in M0, M1 and M2. The M2 interval was -0.078 to +0.016~mm ($p=0.192$, $q=0.566$). LAB3 female-minus-male translation coefficients were $+0.258$, $+0.212$ and $+0.002$~mm in M0, M1 and M2. The M2 interval was -0.060 to +0.064~mm ($p=0.950$, $q=0.950$). The maximum non-intercept VIF in M2 was 5.55.
 For LAB1, the pooled Spearman correlation between subpubic angle and translation magnitude was $r_s=0.444$ ($p<0.001$). The male-only correlation was $r_s=-0.063$ ($p=0.480$). The female-only correlation was $r_s=-0.145$ ($p=0.077$). These exploratory correlations are uncorrected for multiplicity and do not estimate a geometric mechanism. Figure~\ref{fig:sexeffects} and Supplementary Table S3 report M2 estimates for both outcomes.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig4_sex_effects_lab.pdf}
 \caption{\textbf{Pelvic dimensions reshape the sex comparison.} (A,B) M2 female-minus-male coefficients with HC3 95\% CIs, shown on separate translation and rotation axes. Labels give BH-adjusted $q$ values across six tests. (C) Nested translation coefficients; connecting lines show changes between model specifications, not causal pathways. (D) LAB1 translation versus subpubic angle, with pooled and sex-stratified Spearman correlations. M0 adjusts for age, M1 adds volume, and M2 adds the morphometric triad.}
@@ -48,7 +48,7 @@ For LAB1, the pooled Spearman correlation between subpubic angle and translation
 \subsection{Individual geometry preserves responses under standardized bone density}
 Across five loads and five endpoints, shape-only/full variance ratios ranged from 96.43\% to 120.61\% (median 100.68\%). Material-only/full ratios ranged from 0.014\% to 5.789\% (median 0.244\%). For rotation, minimum shape/full identity-line $R^2$ was 0.8777, and maximum RMSE was 0.0318~degrees. For translation, minimum shape/full identity-line $R^2$ was 0.9457, and maximum RMSE was 0.0280~mm. These compare model variants and do not decompose an additive population variance budget (Fig.~\ref{fig:variance}; Supplementary Table S2).
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig5_variance_channels.pdf}
 \caption{\textbf{Variance ratios across matched variants.} (A) Shape-only/full and (B) material-only/full sample-variance ratios, in percent. Five endpoints are shown. Color scales differ between panels and follow their actual data ranges. Values above 100\% are allowed. Bootstrap intervals and paired agreement diagnostics are provided in Supplementary Table S2; neither panel represents variance explained by an independent causal factor.}
@@ -58,7 +58,7 @@ Across five loads and five endpoints, shape-only/full variance ratios ranged fro
 20 of 20 sex-specific slopes survived FDR correction. The exponents ranged from -1.062 to -0.366; the largest adjusted slope $q$ was 0.002. The inverse association with pelvic volume was therefore consistent across all five loading configurations. Full estimates and intervals are in Table~\ref{tab:allometry}.
 Sex-by-volume interaction $q$ values ranged from 0.343 to 0.699; nonsignificance does not establish equivalence. Figure~\ref{fig:allometry} and Table~\ref{tab:allometry} use the same adjusted models. Pooled cluster-robust coefficients are reported in Supplementary Table S5.
 
-\begin{figure}[p]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig6_allometry_loglog.pdf}
 \caption{\textbf{Conditional log-volume slopes.} Male and female exponents with HC3 95\% CIs from the same adjusted log--log models as Table~\ref{tab:allometry}. The vertical zero line indicates no conditional association. Confidence intervals are pointwise; labels give slope $q$ values from the 20-test family. Raw scatterplots and adjusted conditional geometric-mean curves are supplied as Supplementary Figure S1.}

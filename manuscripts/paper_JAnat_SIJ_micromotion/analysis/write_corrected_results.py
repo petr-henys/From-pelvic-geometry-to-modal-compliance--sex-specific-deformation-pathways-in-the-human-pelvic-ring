@@ -11,7 +11,7 @@ def prob(x):return '<0.001' if x<.001 else f'={x:.3f}'
 def interval(r,coef='median_delta'):return f"${r[coef]:+.3f}$ (95\\% CI {r.ci95_low:+.3f} to {r.ci95_high:+.3f})"
 def figure(file,label,caption,height=None):
     opts=r'width=\textwidth'+(f',height={height}\\textheight,keepaspectratio' if height else '')
-    return '\n'+r'\begin{figure}[p]'+'\n'+r'\centering'+'\n'+f'\\includegraphics[{opts}]{{figures/{file}.pdf}}\n'+f'\\caption{{{caption}}}\n\\label{{{label}}}\n'+r'\end{figure}'+'\n'
+    return '\n'+r'\begin{figure}[htbp]'+'\n'+r'\centering'+'\n'+f'\\includegraphics[{opts}]{{figures/{file}.pdf}}\n'+f'\\caption{{{caption}}}\n\\label{{{label}}}\n'+r'\end{figure}'+'\n'
 def table(file,label,caption):
     return '\n'+r'\begin{table}[htbp]'+'\n'+r'\centering'+'\n'+f'\\caption{{{caption}}}\n\\label{{{label}}}\n\\StdTableInput{{tables/generated/{file}.tex}}\n'+r'\end{table}'+'\n'
 def main():
@@ -19,7 +19,7 @@ def main():
     nested=pd.read_csv(T/'nested_sex_models.csv');direc=pd.read_csv(T/'directional_rerouting.csv');h1=pd.read_csv(T/'standing_contrasts.csv');allo=pd.read_csv(T/'allometry_models.csv')
     med=d.groupby('load_case').median(numeric_only=True)
     text=r'\section{Results}'+'\n'
-    text+=figure('Fig1_anatomy_coordinates_loads','fig:overview',r'\textbf{Model anatomy and load definitions.} (A) Pelvic assembly with schematic morphometric overlays; their drawn locations illustrate dimensions and are not quantitative landmark measurements. Green denotes the S1 constraint, orange the SIJ cartilage and purple the symphysis. (B) Exploded articulation and pelvis-aligned coordinate definitions; arrows illustrate axes, not measured trajectories. Rotations describe ilium relative to sacrum. (C) Bilateral and unilateral acetabular loads. (D) Independent ring, ischial and AP force pairs. Arrows represent applied global force directions; they do not demonstrate joint opening. The penalty approximates a fixed boundary.',.67)
+    text+=figure('Fig1_anatomy_coordinates_loads','fig:overview',r'\textbf{Anatomy, motion definitions and load application.} (A) Pelvic assembly: green denotes the S1 constraint, orange SIJ cartilage and purple the symphysis. (B) Exploded articulation with illustrative axis directions; these arrows do not define the subject-specific PCA frame or anatomical signs. (C) Rotational and translational reporting conventions. (D,E) Bilateral and unilateral acetabular loads, each totaling 800~N. (F--H) Independent internal-ring, ischial and AP force pairs. Load arrows show applied global directions, not measured joint opening. The S1 penalty approximates a fixed boundary.',.67)
     text+=r'\subsection{Anatomical diversity across matched mechanical comparisons}'+'\n'
     text+=f'The analysis includes {d.patient_id.nunique()} subjects and {len(d)} subject--load observations in the full variant, with corresponding records in both auxiliary variants. Cohort demographics and dimensions are unchanged (Table~\\ref{{tab:cohort}}). Each anatomy contributes matched responses to all five loads and all three variants.\n'
     zero=[]

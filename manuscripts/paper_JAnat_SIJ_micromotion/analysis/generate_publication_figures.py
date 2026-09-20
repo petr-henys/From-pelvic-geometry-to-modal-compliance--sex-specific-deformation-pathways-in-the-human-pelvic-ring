@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-"""High-end publication figure generator for the Journal of Anatomy SIJ micromotion manuscript.
+"""Publication figure generator for the Journal of Anatomy SIJ micromotion manuscript.
 
-Generates:
-- Fig 1: 3D anatomical rendering of the pelvis and SIJ, local joint coordinate frames, and 3D standardized load cases.
-- Fig 2: Distribution dashboard of primary SIJ kinematics: 3D rotation, 3D translation, nutation angle, and bilateral asymmetry.
-- Fig 3: Directional translation re-routing: component differences (AP, ML, CC) and 3D vector trajectory.
-- Fig 4: Sexual dimorphism under parturition-motivated loads: forest plot + adjusted distributions + morphometric mediation.
-- Fig 5: Variance-channel decomposition: dual annotated heatmaps (Shape vs Material) and bootstrap 95% CIs.
-- Fig 6: Allometric scaling: 2x5 log-log grid with annotated exponents (beta +/- SE), R^2, and significance.
+Generates an anatomical overview, load profiles, paired component contrasts,
+conditional sex estimates, variant variance ratios, adjusted volume slopes,
+and supplementary raw observations with conditional geometric-mean curves.
 """
 
 from __future__ import annotations
@@ -218,424 +214,46 @@ def _load_crop_and_pad_to_aspect(path: Path | str, target_aspect: float = 1.0, p
     return np.array(canvas)
 
 def build_figure_1() -> None:
-    cache_dir = FIG_DIR / ".cache"
-    cache_dir.mkdir(parents=True, exist_ok=True)
-
-    # 1. Panel A render
-    render_A = cache_dir / "sij_fig1_render.png"
-    if not render_A.exists():
-        tmp_A = Path("/tmp/sij_fig1_render.png")
-        if tmp_A.exists():
-            import shutil
-            shutil.copy(tmp_A, render_A)
+    """Compact anatomical overview; definitions use the manuscript's reporting frame."""
+    cache = FIG_DIR / '.cache'
+    fig = plt.figure(figsize=(12, 7.0), layout='constrained')
+    outer = fig.add_gridspec(2, 1, height_ratios=[1.15, 1], hspace=.07)
+    top = outer[0].subgridspec(1, 3, width_ratios=[1, .85, 1.15], wspace=.06)
+    for j, filename, title in [(0,'sij_fig1_render.png','A. Pelvic assembly'),
+                                (1,'test_sij_smooth.png','B. SIJ articulation')]:
+        ax=fig.add_subplot(top[j])
+        ax.imshow(_load_crop_and_pad_to_aspect(cache/filename, target_aspect=1.1, pad=12))
+        ax.axis('off');ax.set_title(title,loc='left',fontweight='bold')
+        if j==0:
+            note='Green: S1 constraint   Orange: SIJ cartilage\nPurple: pubic symphysis'
         else:
-            render_fig1_3d_anatomy(render_A)
-
-    # 2. Panel B1 render
-    render_B1 = cache_dir / "test_sij_smooth.png"
-    if not render_B1.exists():
-        tmp_B1 = Path("/tmp/test_sij_smooth.png")
-        if tmp_B1.exists():
-            import shutil
-            shutil.copy(tmp_B1, render_B1)
-        else:
-            render_sij_3d_articulation(render_B1)
-
-    # 3. Load case renders C1, C2, D1, D2, D3
-    load_names = ["hq_panel_C1.png", "hq_panel_C2.png", "hq_panel_D1.png", "hq_panel_D2.png", "hq_panel_D3.png"]
-    load_paths = []
-    for nm in load_names:
-        cp = cache_dir / nm
-        if not cp.exists():
-            tp = Path("/tmp/model_setup_hq") / nm
-            if tp.exists():
-                import shutil
-                shutil.copy(tp, cp)
-        load_paths.append(cp if cp.exists() else Path("/tmp/model_setup_hq") / nm)
-
-    # Crop and standardize aspects
-    img_A = _load_crop_and_pad_to_aspect(render_A, target_aspect=1.12, pad=20)
-    img_B1 = _load_crop_and_pad_to_aspect(render_B1, target_aspect=0.92, pad=15)
-    img_C1 = _load_crop_and_pad_to_aspect(load_paths[0], target_aspect=1.05, pad=20)
-    img_C2 = _load_crop_and_pad_to_aspect(load_paths[1], target_aspect=1.05, pad=20)
-    img_D1 = _load_crop_and_pad_to_aspect(load_paths[2], target_aspect=1.05, pad=20)
-    img_D2 = _load_crop_and_pad_to_aspect(load_paths[3], target_aspect=1.05, pad=20)
-    img_D3 = _load_crop_and_pad_to_aspect(load_paths[4], target_aspect=1.05, pad=20)
-
-    fig = plt.figure(figsize=(12.2, 10.8), dpi=300)
-    plt.rcParams["font.sans-serif"] = ["DejaVu Sans", "Arial", "Helvetica"]
-    plt.rcParams["font.size"] = 8.5
-
-    # Palette
-    COLOR_ML = "#15803d"   # forest green
-    COLOR_AP = "#0284c7"   # ocean blue
-    COLOR_CC = "#dc2626"   # vibrant vermilion
-    COLOR_S1 = "#15803d"
-    COLOR_SIJ = "#ea580c"
-    COLOR_PUB = "#7c3aed"
-
-    # Main GridSpec: 4 vertical sections
-    gs_main = gridspec.GridSpec(
-        4, 1,
-        height_ratios=[1.36, 0.08, 0.68, 0.32],
-        hspace=0.10,
-        top=0.965, bottom=0.03, left=0.035, right=0.965
-    )
-
-    # -------------------------------------------------------------
-    # TOP ROW: 3 Subplots side-by-side (A, B1, B2)
-    # -------------------------------------------------------------
-    gs_top = gridspec.GridSpecFromSubplotSpec(
-        1, 3,
-        subplot_spec=gs_main[0],
-        width_ratios=[1.16, 0.88, 1.18],
-        wspace=0.14
-    )
-
-    # Panel A: Pelvic FE assembly & morphometric landmarks
-    ax_A = fig.add_subplot(gs_top[0])
-    ax_A.imshow(img_A)
-    ax_A.axis("off")
-    ax_A.set_title(r"$\mathbf{A}$   Pelvic FE assembly & landmarks",
-                   loc="left", fontsize=10.0, pad=6, fontweight="bold", color="#0f172a")
-
-    # S1 badge
-    ax_A.annotate(
-        r"Fixed boundary: $S_1$ facet ($\mathbf{u} \approx \mathbf{0}$)" "\n" r"Dirichlet penalty $\gamma = 10^6$ N/mm³",
-        xy=(0.50, 0.77), xycoords="axes fraction",
-        xytext=(0.50, 0.94), textcoords="axes fraction",
-        ha="center", va="center", fontsize=7.4, fontweight="bold", color=COLOR_S1,
-        bbox=dict(boxstyle="round,pad=0.26", facecolor="#f0fdf4", edgecolor="#86efac", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_S1, lw=1.3)
-    )
-
-    # SIJ cartilage badges
-    ax_A.annotate(
-        "Left SIJ\ncartilage",
-        xy=(0.28, 0.76), xycoords="axes fraction",
-        xytext=(0.10, 0.88), textcoords="axes fraction",
-        ha="center", va="center", fontsize=7.2, fontweight="bold", color=COLOR_SIJ,
-        bbox=dict(boxstyle="round,pad=0.22", facecolor="#fff7ed", edgecolor="#fdba74", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_SIJ, lw=1.1)
-    )
-
-    ax_A.annotate(
-        "Right SIJ\ncartilage",
-        xy=(0.74, 0.73), xycoords="axes fraction",
-        xytext=(0.88, 0.85), textcoords="axes fraction",
-        ha="center", va="center", fontsize=7.2, fontweight="bold", color=COLOR_SIJ,
-        bbox=dict(boxstyle="round,pad=0.22", facecolor="#fff7ed", edgecolor="#fdba74", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_SIJ, lw=1.1)
-    )
-
-    # Pubic symphysis badge
-    ax_A.annotate(
-        "Pubic symphysis\n(fibrocartilage disc)",
-        xy=(0.43, 0.12), xycoords="axes fraction",
-        xytext=(0.16, 0.08), textcoords="axes fraction",
-        ha="center", va="center", fontsize=7.2, fontweight="bold", color=COLOR_PUB,
-        bbox=dict(boxstyle="round,pad=0.22", facecolor="#faf5ff", edgecolor="#d8b4fe", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_PUB, lw=1.1)
-    )
-
-    # Morphometric triad overlay lines
-    COLOR_TRIAD_AP = "#0288d1"
-    COLOR_TRIAD_ISCH = "#e65100"
-    COLOR_TRIAD_SUB = "#c2185b"
-
-    # AP diameter (Conjugate vera)
-    pt_prom = np.array([0.49, 0.69])
-    pt_pub = np.array([0.43, 0.14])
-    ax_A.plot([pt_prom[0], pt_pub[0]], [pt_prom[1], pt_pub[1]], transform=ax_A.transAxes,
-              color=COLOR_TRIAD_AP, lw=1.8, ls="--", zorder=10)
-    ax_A.plot([pt_prom[0], pt_pub[0]], [pt_prom[1], pt_pub[1]], "o", transform=ax_A.transAxes,
-              color=COLOR_TRIAD_AP, ms=4.5, zorder=11)
-    ax_A.annotate(r"$d_{\mathrm{AP}}$ (Conjugate vera)", xy=(0.46, 0.38), xytext=(0.26, 0.38),
-                  xycoords="axes fraction", textcoords="axes fraction",
-                  ha="right", va="center", fontsize=7.0, fontweight="bold", color=COLOR_TRIAD_AP,
-                  arrowprops=dict(arrowstyle="->", color=COLOR_TRIAD_AP, lw=1.0),
-                  bbox=dict(boxstyle="round,pad=0.18", facecolor="white", edgecolor=COLOR_TRIAD_AP, alpha=0.92))
-
-    # Biischiadic width
-    pt_isch_l = np.array([0.36, 0.44])
-    pt_isch_r = np.array([0.62, 0.44])
-    ax_A.plot([pt_isch_l[0], pt_isch_r[0]], [pt_isch_l[1], pt_isch_r[1]], transform=ax_A.transAxes,
-              color=COLOR_TRIAD_ISCH, lw=1.8, ls="--", zorder=10)
-    ax_A.plot([pt_isch_l[0], pt_isch_r[0]], [pt_isch_l[1], pt_isch_r[1]], "s", transform=ax_A.transAxes,
-              color=COLOR_TRIAD_ISCH, ms=4.2, zorder=11)
-    ax_A.text(0.55, 0.47, r"$w_{\mathrm{biisch}}$ (Interspinous)", transform=ax_A.transAxes,
-              ha="left", va="bottom", fontsize=7.0, fontweight="bold", color=COLOR_TRIAD_ISCH,
-              bbox=dict(boxstyle="round,pad=0.18", facecolor="white", edgecolor=COLOR_TRIAD_ISCH, alpha=0.92))
-
-    # Subpubic arch angle
-    pt_apex = np.array([0.43, 0.12])
-    pt_ram_l = np.array([0.35, 0.20])
-    pt_ram_r = np.array([0.51, 0.20])
-    ax_A.plot([pt_apex[0], pt_ram_l[0]], [pt_apex[1], pt_ram_l[1]], transform=ax_A.transAxes,
-              color=COLOR_TRIAD_SUB, lw=1.6, ls="-", zorder=10)
-    ax_A.plot([pt_apex[0], pt_ram_r[0]], [pt_apex[1], pt_ram_r[1]], transform=ax_A.transAxes,
-              color=COLOR_TRIAD_SUB, lw=1.6, ls="-", zorder=10)
-    ax_A.annotate(r"$\alpha_{\mathrm{subpubic}}$ (Arch angle)", xy=(0.43, 0.16), xytext=(0.60, 0.16),
-                  xycoords="axes fraction", textcoords="axes fraction",
-                  ha="left", va="center", fontsize=7.0, fontweight="bold", color=COLOR_TRIAD_SUB,
-                  arrowprops=dict(arrowstyle="->", color=COLOR_TRIAD_SUB, lw=1.0),
-                  bbox=dict(boxstyle="round,pad=0.18", facecolor="white", edgecolor=COLOR_TRIAD_SUB, alpha=0.92))
-
-    # Panel A legend card
-    legend_text = (
-        r"$\mathbf{Morphometric\;Triad}$:" "\n"
-        r"• $d_{\mathrm{AP}}$: Conjugata vera (inlet AP)" "\n"
-        r"• $w_{\mathrm{biisch}}$: Interspinous width" "\n"
-        r"• $\alpha_{\mathrm{subpubic}}$: Subpubic arch angle"
-    )
-    ax_A.text(0.02, 0.58, legend_text, transform=ax_A.transAxes, fontsize=6.8, va="top",
-              bbox=dict(boxstyle="round,pad=0.28", facecolor="#f8fafc", edgecolor="#cbd5e1", alpha=0.95))
-
-    # -------------------------------------------------------------
-    # Sub-panel B1: 3D Joint Articulation & Triad
-    # -------------------------------------------------------------
-    ax_B1 = fig.add_subplot(gs_top[1])
-    ax_B1.imshow(img_B1)
-    ax_B1.axis("off")
-    ax_B1.set_title(r"$\mathbf{B}_1$   SIJ articulation & triad", loc="left", fontsize=10.0, pad=6, fontweight="bold", color="#0f172a")
-
-    # Callouts on B1
-    ax_B1.annotate(
-        r"$\mathbf{\hat{z}}_{\mathrm{CC}}$ (Craniocaudal)",
-        xy=(0.50, 0.73), xycoords="axes fraction",
-        xytext=(0.50, 0.93), textcoords="axes fraction",
-        ha="center", va="center", fontsize=7.0, fontweight="bold", color=COLOR_CC,
-        bbox=dict(boxstyle="round,pad=0.20", facecolor="#fef2f2", edgecolor="#fca5a5", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_CC, lw=1.3)
-    )
-
-    ax_B1.annotate(
-        r"$\mathbf{\hat{x}}_{\mathrm{ML}}$ (Mediolateral)",
-        xy=(0.33, 0.45), xycoords="axes fraction",
-        xytext=(0.04, 0.35), textcoords="axes fraction",
-        ha="left", va="center", fontsize=7.0, fontweight="bold", color=COLOR_ML,
-        bbox=dict(boxstyle="round,pad=0.20", facecolor="#f0fdf4", edgecolor="#86efac", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_ML, lw=1.3)
-    )
-
-    ax_B1.annotate(
-        r"$\mathbf{\hat{y}}_{\mathrm{AP}}$ (Anteroposterior)",
-        xy=(0.37, 0.58), xycoords="axes fraction",
-        xytext=(0.04, 0.68), textcoords="axes fraction",
-        ha="left", va="center", fontsize=7.0, fontweight="bold", color=COLOR_AP,
-        bbox=dict(boxstyle="round,pad=0.20", facecolor="#f0f9ff", edgecolor="#7dd3fc", lw=1.0),
-        arrowprops=dict(arrowstyle="->", color=COLOR_AP, lw=1.3)
-    )
-
-    ax_B1.annotate(
-        "Auricular cartilage\n(Sacral facet)",
-        xy=(0.58, 0.48), xycoords="axes fraction",
-        xytext=(0.86, 0.48), textcoords="axes fraction",
-        ha="center", va="center", fontsize=6.8, fontweight="bold", color=COLOR_SIJ,
-        bbox=dict(boxstyle="round,pad=0.20", facecolor="#fff7ed", edgecolor="#fdba74", lw=0.9),
-        arrowprops=dict(arrowstyle="->", color=COLOR_SIJ, lw=1.1)
-    )
-
-    ax_B1.annotate(
-        "Ilium facet\n(offset +40 mm)",
-        xy=(0.14, 0.20), xycoords="axes fraction",
-        xytext=(0.28, 0.08), textcoords="axes fraction",
-        ha="center", va="center", fontsize=6.6, color="#475569", fontweight="semibold",
-        bbox=dict(boxstyle="round,pad=0.20", facecolor="#f8fafc", edgecolor="#cbd5e1", lw=0.9),
-        arrowprops=dict(arrowstyle="->", color="#64748b", lw=1.0)
-    )
-
-    # -------------------------------------------------------------
-    # Sub-panel B2: 6 Degrees of Freedom Diagram & Formal Definitions
-    # -------------------------------------------------------------
-    ax_B2 = fig.add_subplot(gs_top[2])
-    ax_B2.axis("off")
-    ax_B2.set_title(r"$\mathbf{B}_2$   SIJ 6 degrees of freedom (6 DOFs)", loc="left", fontsize=10.0, pad=6, fontweight="bold", color="#0f172a")
-
-    card_b2 = FancyBboxPatch((0.01, 0.01), 0.98, 0.98, boxstyle="round,pad=0.02,rounding_size=0.04",
-                             facecolor="#f8fafc", edgecolor="#cbd5e1", lw=1.0, transform=ax_B2.transAxes)
-    ax_B2.add_patch(card_b2)
-
-    # --- Section 1: Rotations ---
-    ax_B2.text(0.04, 0.950, r"$\mathbf{3\;Rotational\;DOFs}$ (Fixed-axis $xyz$):", transform=ax_B2.transAxes,
-               fontsize=8.0, fontweight="bold", color="#0f172a")
-
-    # 1. Nutation
-    ax_B2.plot(0.05, 0.880, marker="o", markersize=4.8, color=COLOR_ML, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.880, r"$\mathbf{\theta_{\mathrm{nut}}}$ ($\alpha_x$, ML axis): $\mathbf{ML\ rotation}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_ML, va="center")
-    ax_B2.text(0.09, 0.825, r"Absolute ML rotation; nutation sign not inferred",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # 2. Abduction
-    ax_B2.plot(0.05, 0.750, marker="o", markersize=4.8, color=COLOR_AP, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.750, r"$\mathbf{\theta_{\mathrm{abd}}}$ ($\beta_y$, AP axis): $\mathbf{AP\ rotation}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_AP, va="center")
-    ax_B2.text(0.09, 0.695, r"Frontal rotation; side-specific signed convention",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # 3. Axial rotation
-    ax_B2.plot(0.05, 0.620, marker="o", markersize=4.8, color=COLOR_CC, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.620, r"$\mathbf{\theta_{\mathrm{rot}}}$ ($\gamma_z$, CC axis): $\mathbf{Axial\;Rotation / Torsion}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_CC, va="center")
-    ax_B2.text(0.09, 0.565, r"Rotation about the pelvis-aligned CC axis",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # Divider line
-    ax_B2.plot([0.04, 0.96], [0.520, 0.520], color="#cbd5e1", lw=0.8, transform=ax_B2.transAxes)
-
-    # --- Section 2: Translations ---
-    ax_B2.text(0.04, 0.478, r"$\mathbf{3\;Translational\;DOFs}$ (Contact Point $\mathbf{p}_c$):", transform=ax_B2.transAxes,
-               fontsize=8.0, fontweight="bold", color="#0f172a")
-
-    # 1. dML
-    ax_B2.plot(0.05, 0.408, marker="s", markersize=4.4, color=COLOR_ML, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.408, r"$\mathbf{d_{\mathrm{ML}}}$ ($dx$, ML): $\mathbf{ML\ component}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_ML, va="center")
-    ax_B2.text(0.09, 0.353, r"ML component; not articular-normal joint gapping",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # 2. dAP
-    ax_B2.plot(0.05, 0.278, marker="s", markersize=4.4, color=COLOR_AP, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.278, r"$\mathbf{d_{\mathrm{AP}}}$ ($dy$, AP): $\mathbf{Anteroposterior\;Gliding / Shear}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_AP, va="center")
-    ax_B2.text(0.09, 0.223, r"AP component in the PCA reporting frame",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # 3. dCC
-    ax_B2.plot(0.05, 0.148, marker="s", markersize=4.4, color=COLOR_CC, transform=ax_B2.transAxes)
-    ax_B2.text(0.09, 0.148, r"$\mathbf{d_{\mathrm{CC}}}$ ($dz$, CC): $\mathbf{Vertical\;Craniocaudal\;Shear}$",
-               transform=ax_B2.transAxes, fontsize=7.4, fontweight="bold", color=COLOR_CC, va="center")
-    ax_B2.text(0.09, 0.093, r"CC component in the PCA reporting frame",
-               transform=ax_B2.transAxes, fontsize=6.6, color="#334155", va="center")
-
-    # Footer note: resultant norms & asymmetry
-    ax_B2.plot([0.04, 0.96], [0.065, 0.065], color="#cbd5e1", lw=0.6, ls=":", transform=ax_B2.transAxes)
-    ax_B2.text(0.50, 0.028, r"$|\mathbf{\theta}| = \frac{1}{2}(\|\mathbf{\theta}_L\| + \|\mathbf{\theta}_R\|), \;\; |\mathbf{d}| = \frac{1}{2}(\|\mathbf{d}_L\| + \|\mathbf{d}_R\|), \;\; \Delta_{\mathrm{asym}} = |\|\mathbf{d}_L\| - \|\mathbf{d}_R\||$",
-               transform=ax_B2.transAxes, fontsize=6.3, color="#475569", ha="center", va="center")
-
-    # -------------------------------------------------------------
-    # CATEGORY HEADER BANNERS (Row 1)
-    # -------------------------------------------------------------
-    gs_hdr = gridspec.GridSpecFromSubplotSpec(
-        1, 2,
-        subplot_spec=gs_main[1],
-        width_ratios=[0.40, 0.60],
-        wspace=0.04
-    )
-
-    ax_hdr_stand = fig.add_subplot(gs_hdr[0])
-    ax_hdr_stand.axis("off")
-    rect_hs = FancyBboxPatch((0.00, 0.05), 0.98, 0.90, boxstyle="round,pad=0.02,rounding_size=0.08",
-                             facecolor="#fffbeb", edgecolor="#fde68a", lw=1.0, transform=ax_hdr_stand.transAxes)
-    ax_hdr_stand.add_patch(rect_hs)
-    ax_hdr_stand.text(0.50, 0.50, "Standardized Standing Loads", transform=ax_hdr_stand.transAxes,
-                     ha="center", va="center", fontsize=9.2, fontweight="bold", color="#92400e")
-
-    ax_hdr_labor = fig.add_subplot(gs_hdr[1])
-    ax_hdr_labor.axis("off")
-    rect_hl = FancyBboxPatch((0.00, 0.05), 1.00, 0.90, boxstyle="round,pad=0.02,rounding_size=0.08",
-                             facecolor="#fdf2f8", edgecolor="#fbcfe8", lw=1.0, transform=ax_hdr_labor.transAxes)
-    ax_hdr_labor.add_patch(rect_hl)
-    ax_hdr_labor.text(0.50, 0.50, "Independent Localized Force Pairs", transform=ax_hdr_labor.transAxes,
-                     ha="center", va="center", fontsize=9.2, fontweight="bold", color="#9d174d")
-
-    # -------------------------------------------------------------
-    # BOTTOM ROW: 5 Load Cases (Images & Cards)
-    # -------------------------------------------------------------
-    gs_bot_img = gridspec.GridSpecFromSubplotSpec(
-        1, 5,
-        subplot_spec=gs_main[2],
-        width_ratios=[1.0, 1.0, 1.0, 1.0, 1.0],
-        wspace=0.10
-    )
-
-    gs_bot_card = gridspec.GridSpecFromSubplotSpec(
-        1, 5,
-        subplot_spec=gs_main[3],
-        width_ratios=[1.0, 1.0, 1.0, 1.0, 1.0],
-        wspace=0.10
-    )
-
-    axes_img = [fig.add_subplot(gs_bot_img[i]) for i in range(5)]
-    axes_card = [fig.add_subplot(gs_bot_card[i]) for i in range(5)]
-
-    bot_imgs = [img_C1, img_C2, img_D1, img_D2, img_D3]
-    bot_titles = [
-        r"$\mathbf{C}_1$   $\mathrm{SP2leg}$",
-        r"$\mathbf{C}_2$   $\mathrm{SP1leg}$",
-        r"$\mathbf{D}_1$   $\mathrm{LAB}_1$ (Inlet)",
-        r"$\mathbf{D}_2$   $\mathrm{LAB}_2$ (Midpelvis)",
-        r"$\mathbf{D}_3$   $\mathrm{LAB}_3$ (Outlet)",
-    ]
-
-    card_data = [
-        {
-            "title": "Bilateral Standing",
-            "force": r"$2 \times +400$ N vertical",
-            "target": "Acetabular notches",
-            "response": "800 N net vertical force",
-            "bg": "#fffbeb", "border": "#fde68a", "accent": "#b45309"
-        },
-        {
-            "title": "Unilateral Standing",
-            "force": r"$1 \times +800$ N vertical",
-            "target": "Right acetabulum",
-            "response": "800 N net vertical force",
-            "bg": "#fffbeb", "border": "#fde68a", "accent": "#b45309"
-        },
-        {
-            "title": "Internal Ring Pair",
-            "force": r"$\pm 400$ N lateral pair",
-            "target": "Inner pectineal ring",
-            "response": "Zero net force; ML pair",
-            "bg": "#fdf2f8", "border": "#fbcfe8", "accent": "#be185d"
-        },
-        {
-            "title": "Ischial Force Pair",
-            "force": r"$\pm 400$ N lateral pair",
-            "target": "Ischial tuberosities",
-            "response": "Zero net force; ML pair",
-            "bg": "#faf5ff", "border": "#e9d5ff", "accent": "#7c3aed"
-        },
-        {
-            "title": "Outlet AP Force Pair",
-            "force": r"$\pm 400$ N AP pair",
-            "target": "Pubis & SCJ",
-            "response": "Zero net force; AP pair",
-            "bg": "#fffbeb", "border": "#fde68a", "accent": "#b45309"
-        },
-    ]
-
-    for i in range(5):
-        # Image
-        ax_i = axes_img[i]
-        ax_i.imshow(bot_imgs[i])
-        ax_i.axis("off")
-        ax_i.set_title(bot_titles[i], loc="center", fontsize=9.2, pad=4, fontweight="bold", color="#0f172a")
-
-        # Card
-        ax_c = axes_card[i]
-        ax_c.axis("off")
-        cd = card_data[i]
-
-        rect_c = FancyBboxPatch((0.02, 0.04), 0.96, 0.92, boxstyle="round,pad=0.02,rounding_size=0.06",
-                                facecolor=cd["bg"], edgecolor=cd["border"], lw=1.0, transform=ax_c.transAxes)
-        ax_c.add_patch(rect_c)
-
-        ax_c.text(0.50, 0.81, cd["title"], transform=ax_c.transAxes,
-                  ha="center", va="center", fontsize=8.0, fontweight="bold", color="#0f172a")
-        ax_c.text(0.50, 0.57, cd["force"], transform=ax_c.transAxes,
-                  ha="center", va="center", fontsize=7.8, fontweight="bold", color=cd["accent"])
-        ax_c.text(0.50, 0.35, cd["target"], transform=ax_c.transAxes,
-                  ha="center", va="center", fontsize=7.1, color="#475569", fontweight="semibold")
-        ax_c.text(0.50, 0.14, cd["response"], transform=ax_c.transAxes,
-                  ha="center", va="center", fontsize=6.8, color="#0f172a", fontstyle="italic")
-
-    fig.savefig(FIG_DIR / "Fig1_anatomy_coordinates_loads.pdf", bbox_inches="tight", dpi=300)
-    fig.savefig(FIG_DIR / "Fig1_anatomy_coordinates_loads.png", bbox_inches="tight", dpi=300)
+            note='Exploded view; arrows illustrate axis directions\nGreen: ML   Blue: AP   Red: CC'
+        ax.text(.5,-.02,note,transform=ax.transAxes,ha='center',va='top',fontsize=8)
+    ax=fig.add_subplot(top[2]);ax.axis('off')
+    ax.set_title('C. Joint-motion definitions',loc='left',fontweight='bold')
+    lines=[('Reference','Unloaded subject anatomy'),
+           ('Rotations',r'Fixed-axis $xyz$: $R_z(\gamma)R_y(\beta)R_x(\alpha)$'),
+           ('Translations','Difference of fitted bone maps at the\nsacral region-of-interest centroid'),
+           ('Reporting axes','Pelvis-aligned ML, AP and CC;\nabsolute components are compared'),
+           ('Bilateral asymmetry',r'$A_d=\left|\|\mathbf{d}_L\|-\|\mathbf{d}_R\|\right|$')]
+    for y,(heading,body) in zip([.94,.77,.60,.38,.16],lines):
+        ax.text(.02,y,heading,transform=ax.transAxes,fontsize=9,fontweight='bold',va='top')
+        ax.text(.02,y-.065,body,transform=ax.transAxes,fontsize=8.5,va='top',linespacing=1.4)
+    bottom=outer[1].subgridspec(1,5,wspace=.04)
+    names=['C1','C2','D1','D2','D3']
+    titles=['D. SP2leg','E. SP1leg','F. LAB1','G. LAB2','H. LAB3']
+    notes=['Bilateral acetabular load\n400 N per side; 800 N total',
+           'Right acetabular load\n800 N total',
+           'Internal ring force pair\nOpposing ML forces: 400 N each',
+           'Ischial force pair\nOpposing ML forces: 400 N each',
+           'Pubis–sacrococcygeal pair\nOpposing AP forces: 400 N each']
+    for j,(name,title,note) in enumerate(zip(names,titles,notes)):
+        ax=fig.add_subplot(bottom[j])
+        ax.imshow(_load_crop_and_pad_to_aspect(cache/f'hq_panel_{name}.png',target_aspect=.95,pad=12))
+        ax.axis('off');ax.set_title(title,loc='left',fontweight='bold')
+        ax.text(.5,-.035,note,transform=ax.transAxes,ha='center',va='top',fontsize=7.8,linespacing=1.5)
+    for ext in ['pdf','png']:fig.savefig(FIG_DIR/f'Fig1_anatomy_coordinates_loads.{ext}',dpi=300,bbox_inches='tight')
     plt.close(fig)
-    print("Generated Fig 1.")
 
 # ==============================================================================
 # FIGURE 2: PRIMARY LOAD PROFILES, NUTATION, AND BILATERAL ASYMMETRY
@@ -646,8 +264,8 @@ def build_figure_2(subject_df: pd.DataFrame) -> None:
     panels = [
         (axes[0, 0], "rot_mag_deg", "A. Cardan rotation norm (|θ|)", "Rotation magnitude (deg)", "#0072b2"),
         (axes[0, 1], "trans_mag_mm", "B. 3D Translation magnitude (|d|)", "Translation magnitude (mm)", "#009e73"),
-        (axes[1, 0], "nut_abs_deg", "C. Absolute ML rotation (|θ_x|)", "Absolute ML rotation (deg)", "#e69f00"),
-        (axes[1, 1], "lr_trans_asym_mm", "D. Bilateral translation asymmetry (|d_L - d_R|)", "Left-right asymmetry (mm)", "#d55e00"),
+        (axes[1, 0], "nut_abs_deg", r"C. Absolute ML rotation ($|\theta_x|$)", "Absolute ML rotation (deg)", "#e69f00"),
+        (axes[1, 1], "lr_trans_asym_mm", r"D. Bilateral asymmetry ($|\|d_L\|-\|d_R\||$)", "Left-right asymmetry (mm)", "#d55e00"),
     ]
 
     rng = np.random.default_rng(20260920)
@@ -734,9 +352,9 @@ def build_figure_3(delta_df: pd.DataFrame, subject_df: pd.DataFrame) -> None:
 
         # Value labels above/below bars
         for j, val in enumerate(vals):
-            pos_y = val + (0.04 if val >= 0 else -0.07)
+            pos_y = (sub["ci95_high"].iloc[j] + 0.045 if val >= 0 else sub["ci95_low"].iloc[j] - 0.045)
             ax_a.text(x[j] + (i - 1) * bar_w, pos_y, f"{val:+.2f}",
-                      ha="center", va="center", fontsize=7.0, fontweight="bold")
+                      ha="center", va="center", fontsize=6.5, fontweight="bold")
 
     ax_a.axhline(0, color="black", lw=0.8)
     ax_a.set_xticks(x)
@@ -800,7 +418,7 @@ def build_figure_3(delta_df: pd.DataFrame, subject_df: pd.DataFrame) -> None:
 def build_figure_4(subject_df: pd.DataFrame) -> None:
     effects = pd.read_csv(TABLE_DIR / "sex_models_lab.csv")
     nested = pd.read_csv(TABLE_DIR / "nested_sex_models.csv")
-    fig, axes = plt.subplots(2, 2, figsize=(10.5, 8), constrained_layout=True)
+    fig, axes = plt.subplots(2, 2, figsize=(10.5, 6.8), constrained_layout=True, gridspec_kw={"height_ratios": [.70, 1]})
     for ax, outcome, title, unit in zip(axes[0], ["trans_mag_mm", "rot_mag_deg"],
             ["A. Fully adjusted translation", "B. Fully adjusted rotation"], ["mm", "deg"]):
         sub = effects[effects.outcome == outcome].set_index("load_case").loc[LAB_LOADS]
@@ -885,7 +503,7 @@ def build_figure_5(variance_df: pd.DataFrame) -> None:
                          color="white" if val > (shape_mat.min()+shape_mat.max())/2 else "black")
 
     cbar0 = fig.colorbar(im0, ax=axes[0], fraction=0.046, pad=0.04)
-    cbar0.set_label("Variance retained (%)", fontsize=8.5)
+    cbar0.set_label("Variance ratio (%)", fontsize=8.5)
 
     # Panel B: Material-only / Full variance (%)
     im1 = axes[1].imshow(mat_mat, aspect="auto", cmap="OrRd", vmin=0.0, vmax=float(mat_mat.max()))
@@ -893,7 +511,7 @@ def build_figure_5(variance_df: pd.DataFrame) -> None:
     axes[1].set_xticks(np.arange(len(LOAD_ORDER)))
     axes[1].set_xticklabels([LOAD_SHORT[l] for l in LOAD_ORDER], fontsize=9.0)
     axes[1].set_yticks(np.arange(len(avail_metrics)))
-    axes[1].set_yticklabels(avail_labels, fontsize=8.5)
+    axes[1].set_yticklabels([])
 
     # Print exact percentage in each cell
     for r in range(mat_mat.shape[0]):
@@ -917,14 +535,14 @@ def build_figure_5(variance_df: pd.DataFrame) -> None:
 def build_supplementary_scatter(subject_df: pd.DataFrame) -> None:
     allom_df = pd.read_csv(TABLE_DIR / "allometry_models.csv")
 
-    fig, axes = plt.subplots(2, len(LOAD_ORDER), figsize=(14.5, 6.2), sharex=True)
+    fig, axes = plt.subplots(len(LOAD_ORDER), 2, figsize=(8.5, 11.5), sharex=True)
 
     outcomes = ["rot_mag_deg", "trans_mag_mm"]
     y_labels = ["Rotation magnitude (|θ|, deg)", "Translation magnitude (|d|, mm)"]
 
     for i_row, (outcome, ylabel) in enumerate(zip(outcomes, y_labels)):
         for i_col, load in enumerate(LOAD_ORDER):
-            ax = axes[i_row, i_col]
+            ax = axes[i_col, i_row]
             sub = subject_df[subject_df["load_case"] == load].copy()
 
             # Retrieve model statistics
@@ -963,22 +581,10 @@ def build_supplementary_scatter(subject_df: pd.DataFrame) -> None:
             ax.grid(True, linestyle="--", alpha=0.25)
 
             # Titles and labels
-            if i_row == 0:
-                ax.set_title(LOAD_SHORT[load], fontweight="bold", fontsize=10.0)
-            if i_col == 0:
-                ax.set_ylabel(ylabel, fontsize=9.0)
-            if i_row == 1:
-                ax.set_xlabel("Total pelvic volume (cm³)", fontsize=8.5)
-
-            # Inset box with scaling exponents
-            sig_flag = ""
-            stat_str = (
-                f"β_M = {beta_m:.2f} [{ci_m_low:.2f}, {ci_m_high:.2f}]\n"
-                f"β_F = {beta_f:.2f} [{ci_f_low:.2f}, {ci_f_high:.2f}]{sig_flag}\n"
-                f"Adjusted R² = {r2_val:.2f}"
-            )
-            ax.text(0.04, 0.06, stat_str, transform=ax.transAxes, fontsize=6.8,
-                    bbox=dict(boxstyle="round,pad=0.25", facecolor="#ffffff", edgecolor="#ced4da", alpha=0.85))
+            ax.set_title(LOAD_SHORT[load] + (" — rotation" if i_row == 0 else " — translation"), fontweight="bold", fontsize=10.0)
+            ax.set_ylabel(ylabel, fontsize=9.0)
+            if i_col == len(LOAD_ORDER)-1:
+                ax.set_xlabel("Pelvic bone volume (cm³)", fontsize=8.5)
 
             # Highlight SP1leg column
             if load == "SP1leg":
@@ -995,7 +601,7 @@ def build_supplementary_scatter(subject_df: pd.DataFrame) -> None:
 def build_figure_6(subject_df):
     build_supplementary_scatter(subject_df)
     data=pd.read_csv(TABLE_DIR/'allometry_models.csv')
-    fig,axes=plt.subplots(1,2,figsize=(10.5,5.4),constrained_layout=True)
+    fig,axes=plt.subplots(1,2,figsize=(10.5,4.2),constrained_layout=True)
     for ax,outcome,title in zip(axes,['rot_mag_deg','trans_mag_mm'],['A. Rotation','B. Translation']):
         d=data[data.outcome==outcome].set_index('load_case').loc[LOAD_ORDER]
         for sex,color,offset in [('male',COLOR_MALE,-.12),('female',COLOR_FEMALE,.12)]:
