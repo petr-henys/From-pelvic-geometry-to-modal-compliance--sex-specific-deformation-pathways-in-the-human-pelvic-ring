@@ -47,21 +47,10 @@ Chen, S. and Grimm, M.~J. (2021).
 \newblock Childbirth computational models: Characteristics and applications.
 \newblock {\em Journal of Biomechanical Engineering}, 143(5):050801.
 
-\bibitem[Chun and Kirkpatrick, 2012]{Chun2012IAPReview}
-Chun, R. and Kirkpatrick, A.~W. (2012).
-\newblock Intra-abdominal pressure, intra-abdominal hypertension, and
-  pregnancy: a review.
-\newblock {\em Annals of Intensive Care}, 2(S1):S5.
-
 \bibitem[Efron and Tibshirani, 1994]{EfronTibshirani1994}
 Efron, B. and Tibshirani, R.~J. (1994).
 \newblock {\em An Introduction to the Bootstrap}.
 \newblock Chapman \& Hall/CRC.
-
-\bibitem[Farr and Khosla, 2015]{FarrKhosla2015}
-Farr, J.~N. and Khosla, S. (2015).
-\newblock Skeletal changes through the lifespan---from growth to senescence.
-\newblock {\em Nature Reviews Endocrinology}, 11(9):513--521.
 
 \bibitem[Frost, 1987]{Frost1987}
 Frost, H.~M. (1987).
@@ -81,11 +70,17 @@ Goode, A., Hegedus, E.~J., and Sizer, P. (2008).
   review of the literature and assessment of clinical utility.
 \newblock {\em Journal of Manual \& Manipulative Therapy}, 16(1):25--38.
 
-\bibitem[Gruss and Schmitt, 2015]{Gruss2015}
-Gruss, L.~T. and Schmitt, D. (2015).
-\newblock The evolution of the human pelvis: changing adaptations to
-  bipedalism?
-\newblock {\em The Anatomical Record}, 298(7):1235--1245.
+\bibitem[Hammer et~al., 2019]{Hammer2019}
+Hammer, N., H{\"o}ch, A., Klima, S., Le~Joncour, J.-B., Rouquette, C., and
+  Ramezani, M. (2019).
+\newblock Effects of cutting the sacrospinous and sacrotuberous ligaments.
+\newblock {\em Clinical Anatomy}, 32(2):231--237.
+
+\bibitem[Hammer et~al., 2013]{Hammer2013}
+Hammer, N., Steinke, H., Lingslebe, U., Bechmann, I., Josten, C., Slowik, V.,
+  and B{\"o}hme, J. (2013).
+\newblock Ligamentous influence in pelvic load distribution.
+\newblock {\em The Spine Journal}, 13(10):1321--1330.
 
 \bibitem[Heny\v{s} and Kucha\v{r}, 2025]{HenyssKuchar2025BoneDat}
 Heny\v{s}, P. and Kucha\v{r}, M. (2025).
@@ -115,6 +110,13 @@ Keizer, R. et~al. (2019).
 Keller, T.~S. (1994).
 \newblock Predicting the compressive mechanical behavior of bone.
 \newblock {\em Journal of Biomechanics}, 27(9):1159--1168.
+
+\bibitem[Kiapour et~al., 2019]{Kiapour2019}
+Kiapour, A., Joukar, A., Elgafy, H., Erbulut, D., Agarwal, A., and Goel, V.~K.
+  (2019).
+\newblock Biomechanics of the sacroiliac joint: Anatomy, function,
+  biomechanics, sexual dimorphism, and causes of pain.
+\newblock {\em International Journal of Spine Surgery}, 14(Suppl 1):S3--S13.
 
 \bibitem[Kutzner et~al., 2016]{Kutzner2016PLOS}
 Kutzner, I., Trepczynski, A., Heller, M.~O., and Bergmann, G. (2016).
@@ -150,10 +152,16 @@ Morgan, E.~F., Bayraktar, H.~H., and Keaveny, T.~M. (2003).
   site.
 \newblock {\em Journal of Biomechanics}, 36(7):897--904.
 
-\bibitem[No{"e} et~al., 2020]{Noe2020}
-No{"e}, C. et~al. (2020).
+\bibitem[No{\"e} et~al., 2020]{Noe2020}
+No{\"e}, C. et~al. (2020).
 \newblock In vivo sacroiliac joint motion using biplanar imaging.
 \newblock {\em Clinical Biomechanics}, 80:105115.
+
+\bibitem[Pavli{\v c}ev et~al., 2020]{Pavlicev2020}
+Pavli{\v c}ev, M., Romero, R., and Mitteroecker, P. (2020).
+\newblock Evolution of the human pelvis and obstructed labor: new explanations
+  of an old obstetrical dilemma.
+\newblock {\em American Journal of Obstetrics and Gynecology}, 222(1):3--16.
 
 \bibitem[Roque~de Almeida et~al., 2024]{Almeida2024Uterus}
 Roque~de Almeida, P., Alves Campice~de Oliveira, I., de~Oliveira~Campos, J.,
@@ -224,12 +232,5 @@ Wilcoxon, F. (1945).
 Yang, X. et~al. (2020).
 \newblock Effects of ligaments on pelvic stability: 3d finite element analysis.
 \newblock {\em Journal of Biomechanical Engineering}, 142(8).
-
-\bibitem[Zebaze et~al., 2010]{Zebaze2010Porosity}
-Zebaze, R.~M., Ghasem-Zadeh, A., Bohte, A., Iuliano-Burns, S., Mirams, M.,
-  Price, R.~I., Mackie, E.~J., and Seeman, E. (2010).
-\newblock Intracortical remodelling and porosity in the distal radius and
-  post-mortem femurs of women: a cross-sectional study.
-\newblock {\em The Lancet}, 375(9727):1729--1736.
 
 \end{thebibliography}
