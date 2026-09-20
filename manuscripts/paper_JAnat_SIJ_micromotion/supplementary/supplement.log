@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  13 APR 2026 09:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 15:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -270,6 +270,26 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks29
 \@floatcapt=\box69
 )
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen179
+\Gin@req@width=\dimen180
+)
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
 
@@ -291,26 +311,6 @@ Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen179
-\Gin@req@width=\dimen180
-)
 (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box70
@@ -469,7 +469,7 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count315
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 32.
+h' as default language. on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
@@ -480,7 +480,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 32
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 33
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -494,24 +494,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./supplement.aux)
 \openout1 = `supplement.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -554,7 +554,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 32.
+or `english'. on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -578,94 +578,105 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 33.
 
 (./supplement.out) (./supplement.out)
 \@outlinefile=\write3
 \openout3 = `supplement.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-4.
+5.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-4.
+5.
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-34.
+35.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-34.
+35.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 34.
+(Font)              <6> on input line 35.
  (../sections/appendix_math.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 6.
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-27.
-
-(/usr/share/texmf/tex/latex/lm/ot1lmss.fd
-File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-m
-athsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] [2] [3] [4])
+(Font)              <10.95> on input line 2.
+)
 (../tables/generated/supp_directional_rerouting.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 1.
-) [5]
-(../tables/generated/supp_variance_channels.tex)
+)
+(../tables/generated/supp_variance_channels.tex) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
+dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-m
+athsy.enc}] [2]
+(../tables/generated/supp_variant_agreement.tex)
 (../tables/generated/supp_sex_models.tex)
-(../tables/generated/supp_allometry_scale.tex) (./supplement.bbl) [6]
-(./supplement.aux)
+(../tables/generated/supp_allometry_scale.tex) [3
+
+]
+(../tables/generated/table4a_primary_models.tex) [4
+
+]
+(../tables/generated/supp_extraction_sensitivity.tex) [5
+
+]
+<../figures/SuppFig1_allometry_scatter.pdf, id=55, 1047.915pt x 448.07399pt>
+File: ../figures/SuppFig1_allometry_scatter.pdf Graphic file (type pdf)
+<use ../figures/SuppFig1_allometry_scatter.pdf>
+Package pdftex.def Info: ../figures/SuppFig1_allometry_scatter.pdf  used on inp
+ut line 64.
+(pdftex.def)             Requested size: 455.24411pt x 194.65079pt.
+ [6
+
+ <../figures/SuppFig1_allometry_scatter.pdf>] (./supplement.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `supplement.out' has not changed.
-(rerunfilecheck)             Checksum: 99C47F93CF6D528978C8D1E38A78831B;3004.
+(rerunfilecheck)             Checksum: B0CDC80DBA326D21F377155ED084D6D1;257.
  ) 
 Here is how much of TeX's memory you used:
- 15579 strings out of 476106
- 300940 string characters out of 5793933
- 1975975 words of memory out of 5000000
- 37276 multiletter control sequences out of 15000+600000
- 645475 words of font info for 84 fonts, out of 8000000 for 9000
+ 15487 strings out of 476106
+ 300220 string characters out of 5793933
+ 1952975 words of memory out of 5000000
+ 37240 multiletter control sequences out of 15000+600000
+ 625911 words of font info for 81 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 86i,9n,93p,575b,912s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,506b,898s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on supplement.pdf (6 pages, 330944 bytes).
+pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmsy9.pfb>
+Output written on supplement.pdf (6 pages, 389563 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 72 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 500000)
+ 14 words of extra memory for PDF output out of 10000 (max. 10000000)
 

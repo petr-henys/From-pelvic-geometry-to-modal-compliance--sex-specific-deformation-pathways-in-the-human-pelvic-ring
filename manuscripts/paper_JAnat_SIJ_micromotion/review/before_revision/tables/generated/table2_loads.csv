@@ -1,0 +1,6 @@
+Load case,Mechanical proxy,Applied total forces,Resultant
+SP2leg,Bilateral standing,"[0,0,+400] N on right AC notch and [0,0,+400] N on left AC notch",800 N cranio-caudal
+SP1leg,Unilateral standing,"[0,0,+800] N on right AC notch",800 N cranio-caudal
+LAB1,Mediolateral ring compression proxy,"[+400,0,0] N on ring_contact_left and [-400,0,0] N on ring_contact_right",0 N net; bilateral ML pair
+LAB2,Ischial loading / SIJ distraction proxy,"[+400,0,0] N on left_ischium_tuber and [-400,0,0] N on right_ischium_tuber",0 N net; bilateral ML pair
+LAB3,Outlet AP distraction proxy,"[0,-400,0] N on pubis_ins and [0,+400,0] N on SCJ",0 N net; AP pair

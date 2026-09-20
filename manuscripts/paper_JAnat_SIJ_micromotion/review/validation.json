@@ -1,0 +1,15 @@
+{
+  "subjects": 278,
+  "full_observations": 1390,
+  "all_variant_observations": 4170,
+  "missing_values": 0,
+  "allometry_scale_identity_passed": true,
+  "M2_text_table_model_identity_passed": true,
+  "12_primary_sign_tests_recomputed": true,
+  "unit_tests": "4 passed",
+  "broader_FE_tests": "not collected: mpi4py unavailable in current Python environment",
+  "main_pdf_compiled": true,
+  "supplement_pdf_compiled": true,
+  "unresolved_references": 0,
+  "overfull_boxes": 0
+}

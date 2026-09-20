@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{float}
+\usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{hyperref}
 \usepackage[round,authoryear]{natbib}
@@ -25,7 +26,7 @@
   \endgroup
 }
 
-\title{Supporting Information: Load-Dependent Sacroiliac Joint Micromotion in a Large Pelvic Cohort: Directional Re-routing, Between-Subject Variability and Scaling}
+\title{Supporting Information: Load-dependent sacroiliac joint motion in 278 pelvic finite-element models}
 \author{Petr Heny\v{s}, Niels Hammer}
 \date{}
 
@@ -37,16 +38,31 @@
 \section*{Table S1: Directional re-routing metrics}
 \SuppTableInput{../tables/generated/supp_directional_rerouting.tex}
 
-\section*{Table S2: Variance-channel decomposition}
+\section*{Table S2: Variance ratios and paired agreement}
 \SuppTableInput{../tables/generated/supp_variance_channels.tex}
+\clearpage
+\subsection*{Table S2 continued: shape/full agreement}
+\SuppTableInput{../tables/generated/supp_variant_agreement.tex}
 
-\section*{Table S3: LAB-phase sex-adjusted models}
+\section*{Table S3: Fully adjusted LAB sex models}
 \SuppTableInput{../tables/generated/supp_sex_models.tex}
 
-\section*{Table S4: Size-scaling sensitivity using log(scale)}
+\section*{Table S4: Exact scaling reparameterization using log(scale)}
 \SuppTableInput{../tables/generated/supp_allometry_scale.tex}
 
-\bibliographystyle{apalike}
-\bibliography{../bib/refs}
+
+\clearpage
+\section*{Table S5: Pooled models with subject-clustered covariance}
+Coefficients with interaction terms are conditional: the volume main effect refers to male SP2leg. Outcome-SD coefficients divide by the pooled outcome SD; binary predictors retain their coding. Log-volume and the other continuous covariates are standardized. No robust-Wald statistic is interpreted as partial variance explained.
+\SuppTableInput{../tables/generated/table4a_primary_models.tex}
+\clearpage
+\section*{Table S6: Extraction sensitivity}
+Absolute differences between rigid-only and affine sacral correction in six subjects at archive indices 0, 55, 110, 165, 220 and 277. Each contributes five loads. These are subset maxima, not cohort-wide bounds.
+\SuppTableInput{../tables/generated/supp_extraction_sensitivity.tex}
+\clearpage
+\section*{Supplementary Figure S1: Raw data and adjusted curves}
+\includegraphics[width=\textwidth]{../figures/SuppFig1_allometry_scatter.pdf}
+Points are raw observations. Lines and bands are conditional geometric means and pointwise HC3 95\% confidence intervals from the adjusted model, with age and the morphometric triad held at their cohort means. Thus the curves need not pass through the raw group means. Lines are restricted to each sex's observed volume range. Displayed exponents come from the same model as the curves and Table 4.
+
 
 \end{document}

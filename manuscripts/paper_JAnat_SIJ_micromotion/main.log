@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 08:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 15:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,6 +303,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box69
 \@float@everytoks=\toks30
 \@floatcapt=\box70
+) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
 ) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
  (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -463,8 +465,8 @@ Package caption Info: longtable package is loaded.
  (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 23.
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 50.
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 51.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -472,7 +474,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 50.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 51.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -482,24 +484,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -556,125 +558,125 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 50.
-Package hyperref Info: Link coloring ON on input line 50.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 51.
+Package hyperref Info: Link coloring ON on input line 51.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 53.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 56.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 53.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 56.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 53.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 56.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 53.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 56.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 53.
+(Font)              <12> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 53.
+(Font)              <8> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 53.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+(Font)              <6> on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 53.
+(Font)              <10> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 53.
+(Font)              <7> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 53.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 53.
+(Font)              <5> on input line 56.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 56.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 55.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 59.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
+) (./sections/abstract.tex) (./sections/introduction.tex [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}] (./sections/introduction.tex [2] [3]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}] [2]) (./sections/methods.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 14.
- [4]) (./sections/methods.tex (./tables/generated/table1_cohort.tex
+(Font)              <10.95> on input line 3.
+ (./tables/generated/table1_cohort.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 1.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [5] [6{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] (./tables/generated/table2_loads.tex) [7] [8] [9]) (./sections/results.tex
-<figures/Fig1_anatomy_coordinates_loads.pdf, id=402, 1026.23402pt x 693.792pt>
+)) [3] [4{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] (./tables/generated/table2_loads.tex) [5] [6]) (./sections/results.tex [7]
+<figures/Fig1_anatomy_coordinates_loads.pdf, id=215, 844.48311pt x 758.28896pt>
 File: figures/Fig1_anatomy_coordinates_loads.pdf Graphic file (type pdf)
 <use figures/Fig1_anatomy_coordinates_loads.pdf>
 Package pdftex.def Info: figures/Fig1_anatomy_coordinates_loads.pdf  used on input line 5.
-(pdftex.def)             Requested size: 446.13727pt x 301.61711pt.
- [10] [11 <./figures/Fig1_anatomy_coordinates_loads.pdf>] (./tables/generated/table3_micromotion_summary.tex)
-<figures/Fig2_primary_load_profiles.pdf, id=583, 794.97pt x 563.70598pt>
+(pdftex.def)             Requested size: 455.24094pt x 408.77571pt.
+ (./tables/generated/table3_micromotion_summary.tex)
+<figures/Fig2_primary_load_profiles.pdf, id=218, 794.97pt x 563.70598pt>
 File: figures/Fig2_primary_load_profiles.pdf Graphic file (type pdf)
 <use figures/Fig2_primary_load_profiles.pdf>
-Package pdftex.def Info: figures/Fig2_primary_load_profiles.pdf  used on input line 31.
-(pdftex.def)             Requested size: 446.13727pt x 316.36131pt.
- [12] [13 <./figures/Fig2_primary_load_profiles.pdf>]
-<figures/Fig3_directional_rerouting.pdf, id=732, 831.105pt x 346.89601pt>
+Package pdftex.def Info: figures/Fig2_primary_load_profiles.pdf  used on input line 25.
+(pdftex.def)             Requested size: 455.24411pt x 322.821pt.
+ [8] [9 <./figures/Fig1_anatomy_coordinates_loads.pdf>] [10 <./figures/Fig2_primary_load_profiles.pdf>]
+<figures/Fig3_directional_rerouting.pdf, id=541, 831.105pt x 346.89601pt>
 File: figures/Fig3_directional_rerouting.pdf Graphic file (type pdf)
 <use figures/Fig3_directional_rerouting.pdf>
-Package pdftex.def Info: figures/Fig3_directional_rerouting.pdf  used on input line 45.
-(pdftex.def)             Requested size: 432.48051pt x 180.51399pt.
- [14 <./figures/Fig3_directional_rerouting.pdf>]
-<figures/Fig4_sex_effects_lab.pdf, id=844, 903.375pt x 346.89601pt>
+Package pdftex.def Info: figures/Fig3_directional_rerouting.pdf  used on input line 40.
+(pdftex.def)             Requested size: 455.24411pt x 190.01529pt.
+<figures/Fig4_sex_effects_lab.pdf, id=543, 758.835pt x 578.16pt>
 File: figures/Fig4_sex_effects_lab.pdf Graphic file (type pdf)
 <use figures/Fig4_sex_effects_lab.pdf>
-Package pdftex.def Info: figures/Fig4_sex_effects_lab.pdf  used on input line 59.
-(pdftex.def)             Requested size: 446.13727pt x 171.3197pt.
- [15 <./figures/Fig4_sex_effects_lab.pdf>]
-<figures/Fig5_variance_channels.pdf, id=955, 867.24pt x 361.35pt>
+Package pdftex.def Info: figures/Fig4_sex_effects_lab.pdf  used on input line 50.
+(pdftex.def)             Requested size: 455.24411pt x 346.85457pt.
+ [11]
+<figures/Fig5_variance_channels.pdf, id=551, 867.24pt x 361.35pt>
 File: figures/Fig5_variance_channels.pdf Graphic file (type pdf)
 <use figures/Fig5_variance_channels.pdf>
-Package pdftex.def Info: figures/Fig5_variance_channels.pdf  used on input line 73.
-(pdftex.def)             Requested size: 446.13727pt x 185.89056pt.
- [16 <./figures/Fig5_variance_channels.pdf>]
-<figures/Fig6_allometry_loglog.pdf, id=1059, 1047.915pt x 448.07399pt>
+Package pdftex.def Info: figures/Fig5_variance_channels.pdf  used on input line 59.
+(pdftex.def)             Requested size: 455.24411pt x 189.68402pt.
+<figures/Fig6_allometry_loglog.pdf, id=555, 767.26407pt x 398.68903pt>
 File: figures/Fig6_allometry_loglog.pdf Graphic file (type pdf)
 <use figures/Fig6_allometry_loglog.pdf>
-Package pdftex.def Info: figures/Fig6_allometry_loglog.pdf  used on input line 87.
-(pdftex.def)             Requested size: 446.13727pt x 190.76051pt.
- [17] (./tables/generated/table4a_primary_models.tex) (./tables/generated/table4b_allometry.tex) [18 <./figures/Fig6_allometry_loglog.pdf>] [19]) (./sections/discussion.tex [20] [21] [22] [23]) (./sections/conclusion.tex [24]) [25] (./sections/appendix.tex [26] [27] [28] [29] [30] [31]) [32] (./main.bbl [33] [34] [35]) [36] (./main.aux)
+Package pdftex.def Info: figures/Fig6_allometry_loglog.pdf  used on input line 69.
+(pdftex.def)             Requested size: 455.24411pt x 236.55676pt.
+ (./tables/generated/table4b_allometry.tex) [12]) [13] [14 <./figures/Fig3_directional_rerouting.pdf>] [15 <./figures/Fig4_sex_effects_lab.pdf>] [16 <./figures/Fig5_variance_channels.pdf> <./figures/Fig6_allometry_loglog.pdf>] (./sections/discussion.tex [17
+
+] [18]) (./sections/conclusion.tex [19]) (./sections/appendix.tex [20] [21] [22]) [23] [24] (./main.bbl [25]) [26] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 92280DDA6E0B73C33FDCB71A4908DE56;7924.
+(rerunfilecheck)             Checksum: FEDEEB32C4FE42D4A94D03E476C6C352;5055.
  ) 
 Here is how much of TeX's memory you used:
- 18357 strings out of 476106
- 350293 string characters out of 5793933
- 1957975 words of memory out of 5000000
- 39847 multiletter control sequences out of 15000+600000
- 672653 words of font info for 121 fonts, out of 8000000 for 9000
+ 18184 strings out of 476106
+ 347826 string characters out of 5793933
+ 1943975 words of memory out of 5000000
+ 39769 multiletter control sequences out of 15000+600000
+ 649187 words of font info for 106 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 73i,15n,117p,3834b,1081s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (36 pages, 1750745 bytes).
+ 73i,12n,117p,1645b,1047s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (26 pages, 2624379 bytes).
 PDF statistics:
- 1558 PDF objects out of 1728 (max. 8388607)
- 839 compressed objects within 9 object streams
- 203 named destinations out of 1000 (max. 500000)
- 255 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1154 PDF objects out of 1200 (max. 8388607)
+ 488 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

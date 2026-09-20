@@ -128,3 +128,33 @@ Zero finite-element models were rerun or recomputed; all adjustments rely strict
 - **Panel D (Applied Force Components):** Generated horizontal 3D force component bar chart (ML, AP, CC) for every load case and contact surface.
 - **Files Modified:** `analysis/generate_publication_figures.py`, `figures/Fig1_anatomy_coordinates_loads.pdf`, `figures/Fig1_anatomy_coordinates_loads.png`, `sections/results.tex`.
 
+---
+
+## 13. PLOS-Aligned Figure 1 Modernization with Complete SIJ 6-DOF Kinematics
+- **Design Alignment with PLOS Paper:** Redesigned Figure 1 to mirror the multi-panel clarity and visual hierarchy of the companion setup figure, integrating direct 3D pelvic meshes with overlaid surface force arrows, colored category header banners, and structured parameter cards.
+- **Top Row (Panels A, B1, B2):**
+  - **Panel A (Pelvic FE Assembly & Landmarks):** High-resolution rendered pelvic mesh displaying Dirichlet penalty boundary plate on S1 ($u=0, \gamma=10^6$ N/mm), bilateral SIJ cartilages (orange), pubic symphysis (purple), and the morphometric triad ($d_{\text{AP}}$, $w_{\text{biisch}}$, $\alpha_{\text{subpubic}}$) with a structured legend card.
+  - **Panel B$_1$ (SIJ Articulation & Local Triad):** Exploded 3D view of the left sacroiliac joint (ilium offset laterally by $+40$ mm) displaying the sacral auricular cartilage, iliac facet, contact centroid ($\mathbf{p}_c$), and the orthogonal coordinate triad: mediolateral ($\hat{\mathbf{x}}_{\text{ML}}$, green), anteroposterior ($\hat{\mathbf{y}}_{\text{AP}}$, blue), and craniocaudal ($\hat{\mathbf{z}}_{\text{CC}}$, vermilion).
+  - **Panel B$_2$ (SIJ 6 Degrees of Freedom Diagram):** Unified container card specifying the 3 rotational DOFs (Cardan $XYZ$: $\theta_{\text{nut}}$ nutation/counternutation, $\theta_{\text{abd}}$ out-flare/in-flare, $\theta_{\text{rot}}$ axial torsion) and 3 translational DOFs at contact point $\mathbf{p}_c$ ($d_{\text{ML}}$ distraction/compression, $d_{\text{AP}}$ AP gliding/shear, $d_{\text{CC}}$ vertical CC shear), with formula footer defining scalar 3D rotation norm ($|\boldsymbol{\theta}|$), translation norm ($|\mathbf{d}|$), and bilateral asymmetry ($\Delta_{\text{asym}}$).
+- **Middle Row (Category Banners):**
+  - Habitual Locomotor Regimes (Standing) banner spanning C1 and C2.
+  - Parturition-Motivated Proxy Loads (Birth Canal Transit Stages) banner spanning D1, D2, and D3.
+- **Bottom Row (5 Columns C1--C2, D1--D3):**
+  - High-resolution 3D renders with 3D force arrows directly on the anatomy for SP2leg, SP1leg, LAB1, LAB2, and LAB3.
+  - Structured parameter cards below each render detailing configuration name, applied force vectors, anatomical contact zones, and key SIJ kinematic responses.
+- **Manuscript Text & Float Optimization:**
+  - Synchronized references in `sections/methods.tex` and updated comprehensive caption in `sections/results.tex`.
+  - Constrained float dimensions to prevent page overflow; compiled `main.pdf` (36 pages) with **0 errors, 0 warnings, and 0 overfull/underfull boxes**.
+- **Files Modified:** `analysis/generate_publication_figures.py`, `figures/Fig1_anatomy_coordinates_loads.pdf`, `figures/Fig1_anatomy_coordinates_loads.png`, `sections/methods.tex`, `sections/results.tex`.
+
+
+
+
+## 2026-09-20 — Full scientific revision and endpoint recomputation
+
+- Corrected SIJ reference from template X to unloaded subject X+phi; re-extracted all 4,170 subject/load/variant records from saved FE fields. Original FE archives preserved.
+- Corrected Cardan ordering/singular branch, penalty dimensions, ligament and material descriptions; added portable regression tests and rigid-only sensitivity checks.
+- Recomputed statistics, harmonized M2, replaced median-inconsistent primary signed-rank inference with exact sign tests, and removed invalid robust-Wald partial R².
+- Rebuilt six figures and supplementary allometry scatterplots; regenerated numerical Results and abstract.
+- Revised hypotheses and conclusions: adjusted LAB sex surplus is unsupported; geometry/material comparisons are restricted and non-additive.
+- Removed demonstrably unrelated references and added prior cohort work. Added Czech review and reproduction instructions.

@@ -20,7 +20,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import zarr
-from scipy.stats import wilcoxon
+from scipy.stats import wilcoxon, norm, spearmanr, binomtest
 import statsmodels.formula.api as smf
 from statsmodels.stats.multitest import multipletests
 
@@ -69,7 +69,7 @@ SECONDARY_OUTCOMES = ["ap_trans_abs_mm", "ml_trans_abs_mm", "cc_trans_abs_mm"]
 METRIC_LABELS = {
     "rot_mag_deg": "Rotation magnitude (deg)",
     "trans_mag_mm": "Translation magnitude (mm)",
-    "nut_abs_deg": "Nutation component (deg)",
+    "nut_abs_deg": "Absolute ML rotation (deg)",
     "ap_rot_abs_deg": "AP rotation component (deg)",
     "cc_rot_abs_deg": "CC rotation component (deg)",
     "ap_trans_abs_mm": "AP translation component (mm)",
@@ -95,11 +95,6 @@ def zscore(series: pd.Series) -> pd.Series:
 def fmt_median_iqr(values: pd.Series) -> str:
     q25, q50, q75 = np.percentile(values.to_numpy(dtype=float), [25, 50, 75])
     return f"{q50:.3f} [{q25:.3f}, {q75:.3f}]"
-
-
-def partial_r2_from_t(t_value: float, df_resid: float) -> float:
-    t2 = float(t_value) ** 2
-    return t2 / (t2 + float(df_resid)) if np.isfinite(t2) and np.isfinite(df_resid) else np.nan
 
 
 def bootstrap_ci(data: np.ndarray, statistic_fn, n_boot: int = 2000, seed: int = 42) -> tuple[float, float]:
@@ -214,10 +209,11 @@ def _extract_lr_sij_frame(anatomy_xlsx: Path, load_case: str) -> pd.DataFrame:
 
 
 def build_subject_level(base_subject: pd.DataFrame) -> pd.DataFrame:
-    all_frames = [_extract_lr_sij_frame(ANATOMY_XLSX, load) for load in LOAD_ORDER]
-    kinematics = pd.concat(all_frames, ignore_index=True)
-
-    subject = kinematics.merge(base_subject, on="patient_id", how="inner", validate="many_to_one")
+    corrected = pd.read_csv(PAPER_ROOT / "tables/corrected/kinematics.csv")
+    kinematics = corrected.loc[corrected.channel == "full"].drop(columns="channel")
+    if len(kinematics) != len(base_subject) * len(LOAD_ORDER):
+        raise ValueError("Corrected kinematic cohort is incomplete")
+    subject = kinematics.merge(base_subject, on="subject_idx", how="inner", validate="many_to_one")
     subject["load_case"] = pd.Categorical(subject["load_case"], categories=LOAD_ORDER, ordered=True)
 
     # z-scored outcomes for standardized coefficients
@@ -296,19 +292,19 @@ def create_table_2_load_definitions() -> pd.DataFrame:
             },
             {
                 "Load case": "LAB1",
-                "Mechanical proxy": "Mediolateral ring compression proxy",
+                "Mechanical proxy": "Internal ring force pair",
                 "Applied total forces": "[+400,0,0] N on ring_contact_left and [-400,0,0] N on ring_contact_right",
                 "Resultant": "0 N net; bilateral ML pair",
             },
             {
                 "Load case": "LAB2",
-                "Mechanical proxy": "Ischial loading / SIJ distraction proxy",
+                "Mechanical proxy": "Ischial force pair",
                 "Applied total forces": "[+400,0,0] N on left_ischium_tuber and [-400,0,0] N on right_ischium_tuber",
                 "Resultant": "0 N net; bilateral ML pair",
             },
             {
                 "Load case": "LAB3",
-                "Mechanical proxy": "Outlet AP distraction proxy",
+                "Mechanical proxy": "Outlet AP force pair",
                 "Applied total forces": "[0,-400,0] N on pubis_ins and [0,+400,0] N on SCJ",
                 "Resultant": "0 N net; AP pair",
             },
@@ -360,7 +356,8 @@ def compute_directional_rerouting(subject_df: pd.DataFrame) -> pd.DataFrame:
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 nz = delta[np.abs(delta) > 1e-12]
-                p_val = float(wilcoxon(nz).pvalue) if len(nz) else np.nan
+                wilcoxon_p = float(wilcoxon(nz).pvalue) if len(nz) else np.nan
+                p_val = float(binomtest(int((nz > 0).sum()), len(nz), 0.5).pvalue) if len(nz) else 1.0
             dz = float(np.mean(delta) / np.std(delta, ddof=1)) if np.std(delta, ddof=1) > 0 else np.nan
             rows.append(
                 {
@@ -370,6 +367,7 @@ def compute_directional_rerouting(subject_df: pd.DataFrame) -> pd.DataFrame:
                     "ci95_low": ci_low,
                     "ci95_high": ci_high,
                     "p_value": p_val,
+                    "wilcoxon_p_value": wilcoxon_p,
                     "cohen_dz": dz,
                 }
             )
@@ -412,7 +410,6 @@ def fit_cluster_robust_model(subject_df: pd.DataFrame, outcome: str) -> tuple[pd
                 "ci95_high": float(ci.loc[term, 1]),
                 "p_value": float(model.pvalues[term]),
                 "beta_std": float(model_z.params.get(term, np.nan)),
-                "partial_r2": partial_r2_from_t(t_value, float(model.df_resid)),
             }
         )
 
@@ -429,7 +426,7 @@ def fit_sex_models_lab(subject_df: pd.DataFrame) -> pd.DataFrame:
         for outcome in PRIMARY_OUTCOMES:
             formula = (
                 f"{outcome} ~ sex_F + age_z + log_total_volume_z + AP_z + "
-                "BiischiadicWidth_z + SubpubicAngle_z + sex_F:log_total_volume_z"
+                "BiischiadicWidth_z + SubpubicAngle_z"
             )
             model = smf.ols(formula, data=sub).fit(cov_type="HC3")
             model_z = smf.ols(formula.replace(outcome, f"{outcome}_z", 1), data=sub).fit(cov_type="HC3")
@@ -444,12 +441,39 @@ def fit_sex_models_lab(subject_df: pd.DataFrame) -> pd.DataFrame:
                     "ci95_high": float(ci[1]),
                     "p_value": float(model.pvalues[term]),
                     "beta_std": float(model_z.params[term]),
-                    "partial_r2": partial_r2_from_t(float(model.tvalues[term]), float(model.df_resid)),
                 }
             )
 
     out = pd.DataFrame(rows)
     out["p_fdr_bh"] = multipletests(out["p_value"], method="fdr_bh")[1]
+    return out
+
+
+def fit_nested_models(subject_df):
+    rows = []
+    from statsmodels.stats.outliers_influence import variance_inflation_factor
+    for load in LAB_LOADS:
+        sub = subject_df.loc[subject_df.load_case == load]
+        for outcome in PRIMARY_OUTCOMES:
+            for name, rhs in [("M0", "sex_F + age_z"), ("M1", "sex_F + age_z + log_total_volume_z"),
+                    ("M2", "sex_F + age_z + log_total_volume_z + AP_z + BiischiadicWidth_z + SubpubicAngle_z")]:
+                fit = smf.ols(f"{outcome} ~ {rhs}", data=sub).fit(cov_type="HC3")
+                ci = fit.conf_int().loc["sex_F"]
+                rows.append(dict(load_case=load, outcome=outcome, model=name, beta=fit.params.sex_F,
+                    ci95_low=ci[0], ci95_high=ci[1], p_value=fit.pvalues.sex_F,
+                    max_vif=max(variance_inflation_factor(fit.model.exog,j) for j in range(1,fit.model.exog.shape[1]))))
+    return pd.DataFrame(rows)
+
+
+def standing_contrasts(subject_df):
+    rows=[]
+    for metric in PRIMARY_OUTCOMES+["lr_trans_asym_mm"]:
+        wide=subject_df.pivot(index="patient_id",columns="load_case",values=metric)
+        delta=(wide.SP1leg-wide.SP2leg).to_numpy()
+        lo,hi=bootstrap_ci(delta,np.median,n_boot=3000,seed=22)
+        rows.append(dict(metric=metric,median_delta=np.median(delta),ci95_low=lo,ci95_high=hi,
+                         p_value=binomtest(int((delta>0).sum()), int((delta!=0).sum()), .5).pvalue))
+    out=pd.DataFrame(rows);out["q"]=multipletests(out.p_value,method="fdr_bh")[1]
     return out
 
 
@@ -495,11 +519,16 @@ def fit_allometry_models(subject_df: pd.DataFrame) -> tuple[pd.DataFrame, dict[t
                     "sex_slope_interaction_beta": b_inter,
                     "sex_slope_interaction_p": float(model.pvalues.get("log_total_volume:sex_F", np.nan)),
                     "adj_r2": float(model.rsquared_adj),
+                    "male_p": float(2*norm.sf(abs(b_male/se_m))),
+                    "female_p": float(2*norm.sf(abs(b_female/se_f))),
                     "n": int(len(sub)),
                 }
             )
 
     out = pd.DataFrame(rows)
+    q = multipletests(np.r_[out.male_p, out.female_p], method="fdr_bh")[1]
+    out["male_q"] = q[:len(out)]
+    out["female_q"] = q[len(out):]
     out["interaction_p_fdr_bh"] = multipletests(out["sex_slope_interaction_p"], method="fdr_bh")[1]
     return out, models
 
@@ -583,15 +612,11 @@ def compute_variance_channels() -> pd.DataFrame:
         metrics = {}
         n_subjects_per_channel: dict[str, int] = {}
         for ch, data_dir in channels.items():
-            angles = np.asarray(zarr.open_group(str(data_dir / f"sij_angles_{load}.zarr"), mode="r")["data"][:], dtype=float)
-            trans = np.asarray(zarr.open_group(str(data_dir / f"sij_trans_{load}.zarr"), mode="r")["data"][:], dtype=float)
-            n_subjects_per_channel[ch] = angles.shape[0]
-            metrics[ch] = _metric_frame_from_arrays(angles, trans)
-
-        # Ensure subject alignment across variance channels
-        assert len(set(n_subjects_per_channel.values())) == 1, (
-            f"Subject count mismatch across variance channels for {load}: {n_subjects_per_channel}"
-        )
+            corrected = pd.read_csv(PAPER_ROOT / "tables/corrected/kinematics.csv")
+            metrics[ch] = corrected.loc[(corrected.channel == ch) & (corrected.load_case == load)].set_index("subject_idx").sort_index()
+        for ch in channels:
+            if not metrics[ch].index.equals(metrics["full"].index):
+                raise ValueError("Subject identities differ across variance channels")
 
         for metric in ["rot_mag_deg", "trans_mag_mm", "ap_trans_abs_mm", "ml_trans_abs_mm", "cc_trans_abs_mm"]:
             x_full = metrics["full"][metric].to_numpy(dtype=float)
@@ -623,6 +648,9 @@ def compute_variance_channels() -> pd.DataFrame:
                     "load_case": load,
                     "metric": metric,
                     "var_full": var_full,
+                    "identity_r2": 1 - np.sum((x_full-x_shape)**2)/np.sum((x_full-x_full.mean())**2),
+                    "rmse": float(np.sqrt(np.mean((x_full-x_shape)**2))),
+                    "mae": float(np.mean(np.abs(x_full-x_shape))),
                     "var_shape_only": var_shape,
                     "var_material_only": var_mat,
                     "shape_over_full_pct": shape_ratio,
@@ -656,9 +684,9 @@ def write_data_dictionary(base_subject: pd.DataFrame, subject_df: pd.DataFrame, 
         "",
         "## Source files",
         f"- `results/ref_S1P_fixed_new2/data/demography.xlsx`: patient-level age and sex metadata.",
-        f"- `results/ref_S1P_fixed_new2/data/anatomy_data.xlsx`: morphology sheet (8 pelvic dimensions) and SIJ kinematics sheets for 5 load cases x 2 sides.",
+        f"- `results/ref_S1P_fixed_new2/data/anatomy_data.xlsx`: morphology sheet (8 pelvic dimensions); legacy SIJ sheets are not used.",
         f"- `results/ref_S1P_fixed_new2/data/allometry.xlsx`: true-size metrics (scale, surface, volume, mass).",
-        f"- `results/ref_S1P_fixed_new2[_shape_only|_material_only]/data/sij_angles_*.zarr`, `sij_trans_*.zarr`: variance-channel decomposition inputs.",
+        "- `tables/corrected/kinematics.csv`: corrected unloaded-subject-reference endpoints for all three variants. The original sij Zarr arrays are superseded.",
         "",
         "## Cohort",
         f"- Subjects: {len(base_subject)}",
@@ -1009,7 +1037,6 @@ def save_latex_tables(
             "ci95_low",
             "ci95_high",
             "beta_std",
-            "partial_r2",
             "p_fdr_bh",
         ]
     ]
@@ -1061,6 +1088,8 @@ def main() -> None:
     pooled_models = pd.concat(pooled_frames, ignore_index=True)
 
     sex_models = fit_sex_models_lab(subject_df)
+    fit_nested_models(subject_df).to_csv(OUT_TABLE_DIR / "nested_sex_models.csv", index=False)
+    standing_contrasts(subject_df).to_csv(OUT_TABLE_DIR / "standing_contrasts.csv", index=False)
     allometry, allometry_model_objects = fit_allometry_models(subject_df)
     allometry_scale = fit_allometry_models_scale(subject_df)
     variance_channels = compute_variance_channels()
@@ -1090,14 +1119,6 @@ def main() -> None:
         allometry_scale,
     )
     write_data_dictionary(base_subject, subject_df, variance_channels)
-
-    # Figures
-    plot_figure_1_loads_and_coordinates()
-    plot_figure_2_primary_by_load(subject_df)
-    plot_figure_3_directional_rerouting(directional)
-    plot_figure_4_sex_effects(sex_models)
-    plot_figure_5_variance_channels(variance_channels)
-    plot_figure_6_allometry(subject_df, allometry_model_objects)
 
     # concise summary for manuscript writing
     summary_payload = {

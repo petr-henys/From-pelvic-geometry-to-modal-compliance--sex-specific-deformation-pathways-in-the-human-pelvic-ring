@@ -422,6 +422,10 @@ class ElasticSolver(SolverBase):
 
         return strain, stress
 
+    def mapped_coordinates(self, points: np.ndarray) -> np.ndarray:
+        """Unloaded subject coordinates, including geometry but no elastic motion."""
+        return points + self._fu(points)
+
     def deform(self, points: np.ndarray) -> np.ndarray:
         """Evaluate deformed coordinates X' at arbitrary points.
 

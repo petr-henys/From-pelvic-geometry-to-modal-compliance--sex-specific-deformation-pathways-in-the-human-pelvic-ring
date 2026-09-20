@@ -1,0 +1,8 @@
+{
+  "reference": "X + phi",
+  "loaded": "X + phi + u",
+  "affine_sacrum_removal": true,
+  "original_results_modified": false,
+  "n_subjects": 278,
+  "dof_order_check": "exact equality of all five reference displacement arrays and VTK point arrays"
+}

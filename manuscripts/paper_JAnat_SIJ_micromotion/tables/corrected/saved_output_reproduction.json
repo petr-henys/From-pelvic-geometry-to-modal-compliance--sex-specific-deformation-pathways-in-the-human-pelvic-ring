@@ -1,0 +1,62 @@
+[
+  {
+    "subject_idx": 0,
+    "metric": "angles",
+    "max_error": 1.4599432773820809e-13
+  },
+  {
+    "subject_idx": 0,
+    "metric": "trans",
+    "max_error": 6.183942247162122e-13
+  },
+  {
+    "subject_idx": 55,
+    "metric": "angles",
+    "max_error": 2.524647157997606e-13
+  },
+  {
+    "subject_idx": 55,
+    "metric": "trans",
+    "max_error": 1.396882609583372e-12
+  },
+  {
+    "subject_idx": 110,
+    "metric": "angles",
+    "max_error": 1.544597783009749e-13
+  },
+  {
+    "subject_idx": 110,
+    "metric": "trans",
+    "max_error": 8.755218772193984e-13
+  },
+  {
+    "subject_idx": 165,
+    "metric": "angles",
+    "max_error": 4.3537395910675514e-13
+  },
+  {
+    "subject_idx": 165,
+    "metric": "trans",
+    "max_error": 8.509859483751825e-13
+  },
+  {
+    "subject_idx": 220,
+    "metric": "angles",
+    "max_error": 1.1457501614131615e-13
+  },
+  {
+    "subject_idx": 220,
+    "metric": "trans",
+    "max_error": 9.158229730132916e-13
+  },
+  {
+    "subject_idx": 277,
+    "metric": "angles",
+    "max_error": 4.878319970202938e-13
+  },
+  {
+    "subject_idx": 277,
+    "metric": "trans",
+    "max_error": 5.575540029667536e-13
+  }
+]

@@ -17,15 +17,15 @@ term_map = {
     "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase3]": "LAB3 (vs SP2leg)",
     "sex_F": "Female sex",
     "age_z": "Age ($z$)",
-    "log_total_volume_z": "Pelvic volume ($z$)",
-    "C(load_case, Treatment(reference='SP2leg'))[T.SP1leg]:log_total_volume_z": "SP1leg $\\times$ Volume ($z$)",
-    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase1]:log_total_volume_z": "LAB1 $\\times$ Volume ($z$)",
-    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase2]:log_total_volume_z": "LAB2 $\\times$ Volume ($z$)",
-    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase3]:log_total_volume_z": "LAB3 $\\times$ Volume ($z$)",
+    "log_total_volume_z": "Log pelvic volume ($z$)",
+    "C(load_case, Treatment(reference='SP2leg'))[T.SP1leg]:log_total_volume_z": "SP1leg $\\times$ Log volume ($z$)",
+    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase1]:log_total_volume_z": "LAB1 $\\times$ Log volume ($z$)",
+    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase2]:log_total_volume_z": "LAB2 $\\times$ Log volume ($z$)",
+    "C(load_case, Treatment(reference='SP2leg'))[T.LAB_phase3]:log_total_volume_z": "LAB3 $\\times$ Log volume ($z$)",
     "AP_z": "Inlet AP diameter ($z$)",
     "BiischiadicWidth_z": "Biischiadic width ($z$)",
     "SubpubicAngle_z": "Subpubic angle ($z$)",
-    "sex_F:log_total_volume_z": "Female $\\times$ Volume ($z$)",
+    "sex_F:log_total_volume_z": "Female $\\times$ Log volume ($z$)",
 }
 
 outcome_map = {
@@ -35,9 +35,9 @@ outcome_map = {
 
 # ----------------- Table 4A -----------------
 lines_4a = [
-    r"\begin{tabular}{llcccc}",
+    r"\begin{tabular}{llccc}",
     r"\toprule",
-    r"Outcome & Predictor & $\beta$ [95\% CI] & Std.\ $\beta$ & Partial $R^2$ & $q_{\text{FDR}}$ \\",
+    r"Outcome & Predictor & $\beta$ [95\% CI] & Outcome-SD $\beta$ & $q_{\text{FDR}}$ \\",
     r"\midrule",
 ]
 
@@ -53,7 +53,6 @@ for outcome in ["rot_mag_deg", "trans_mag_mm"]:
         ci_l = row["ci95_low"]
         ci_h = row["ci95_high"]
         b_std = row["beta_std"]
-        pr2 = row["partial_r2"]
         q = row["p_fdr_bh"]
 
         q_str = "< 0.001" if q < 0.001 else f"{q:.3f}"
@@ -62,7 +61,7 @@ for outcome in ["rot_mag_deg", "trans_mag_mm"]:
         out_col = outcome_map[outcome] if first else ""
         first = False
         lines_4a.append(
-            f"{out_col} & {term_clean} & {b_ci} & {b_std:.3f} & {pr2:.3f} & {q_str} \\\\"
+            f"{out_col} & {term_clean} & {b_ci} & {b_std:.3f} & {q_str} \\\\"
         )
     if outcome == "rot_mag_deg":
         lines_4a.append(r"\midrule")

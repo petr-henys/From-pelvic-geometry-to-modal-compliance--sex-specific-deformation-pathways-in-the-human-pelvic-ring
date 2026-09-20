@@ -18,6 +18,9 @@ def _compute_sij_stats(
     template_ref_mesh = template.copy(deep=True)
     deformed_mesh = template_ref_mesh.copy(deep=True)
     deformed_mesh.points = elastic_solver.deform(template_ref_mesh.points)
+    # Joint motion must compare the same subject before and after elastic loading.
+    # Comparing X against X + phi + u confounds anatomy with mechanical motion.
+    template_ref_mesh.points = elastic_solver.mapped_coordinates(template_ref_mesh.points)
     sij_stats = sij_relative_angles(template_ref_mesh, deformed_mesh)
     return displacement, sij_stats
 

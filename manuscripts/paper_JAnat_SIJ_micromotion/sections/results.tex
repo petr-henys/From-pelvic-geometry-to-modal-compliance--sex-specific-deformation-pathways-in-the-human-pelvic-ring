@@ -1,111 +1,87 @@
 \section{Results}
 
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{figures/Fig1_anatomy_coordinates_loads.pdf}
-\caption{\textbf{Pelvic anatomical framework, morphometric dimensions, boundary conditions, and standardized loading regimes.} 
-(A) 3D finite-element rendering of the human pelvis showing the bilateral sacroiliac joint (SIJ) articular cartilages (orange), the superior S1 sacral facet constrained via a Dirichlet penalty ($\mathbf{u} = \mathbf{0}, \gamma = 10^6\;\text{N/mm}$; green), and the anterior fibrocartilaginous pubic symphysis disc (purple). Overlays mark the primary morphometric triad: anteroposterior inlet diameter (conjugate vera $d_{\text{AP}}$, blue), biischiadic interspinous width ($w_{\text{biisch}}$, amber), and subpubic arch angle ($\alpha_{\text{subpubic}}$, magenta). 
-(B) Locomotor stance configurations and boundary conditions: symmetrical two-leg stance (SP2leg; $+400\;\text{N}$ per acetabular notch, $+800\;\text{N}$ total vertical resultant reacting against the constrained sacral base) and single-leg stance (SP1leg; $+800\;\text{N}$ unilateral vertical ground reaction on the right acetabulum with unsupported contralateral hemi-pelvis). 
-(C) Parturition-motivated mechanical expansion proxies: LAB1 (internal pelvic ring compression/shear proxy; $\pm 400\;\text{N}$ mediolateral pair on pectineal surfaces), LAB2 (ischial tuberosity transverse distraction proxy; $\pm 400\;\text{N}$ outward mediolateral pair), and LAB3 (outlet anteroposterior distraction proxy; $-400\;\text{N}$ anterior pubis, $+400\;\text{N}$ posterior sacrococcygeal joint). 
-(D) Applied resultant force components across anatomical axes: mediolateral (ML, green), anteroposterior (AP, blue), and craniocaudal (CC, vermilion). Mathematical formulations for the continuum boundary value problem, landmark extractions, rigid kinematic registration, and local Cardan angle extractions are detailed in Appendix~\ref{app:mathematical_formulation}.}
+\includegraphics[width=\textwidth,height=0.67\textheight,keepaspectratio]{figures/Fig1_anatomy_coordinates_loads.pdf}
+\caption{\textbf{Model anatomy and load definitions.} (A) Pelvic assembly with schematic morphometric overlays; their drawn locations illustrate dimensions and are not quantitative landmark measurements. Green denotes the S1 constraint, orange the SIJ cartilage and purple the symphysis. (B) Exploded articulation and pelvis-aligned coordinate definitions; arrows illustrate axes, not measured trajectories. Rotations describe ilium relative to sacrum. (C) Bilateral and unilateral acetabular loads. (D) Independent ring, ischial and AP force pairs. Arrows represent applied global force directions; they do not demonstrate joint opening. The penalty approximates a fixed boundary.}
 \label{fig:overview}
 \end{figure}
+\subsection{Cohort and corrected extraction}
+The corrected dataset contains 278 subjects and 1390 subject--load observations in the full variant, with corresponding records in both auxiliary variants. Cohort demographics and dimensions are unchanged (Table~\ref{tab:cohort}). All numerical results below use the unloaded subject reference.
+The unloaded-to-unloaded checks were below $10^{-8}$ in degrees and mm for every subject.
+\subsection{Standing load contrasts (H1)}
+Under SP2leg and SP1leg, median rotation norms were 0.956$^\circ$ and 2.040$^\circ$, and median translations were 1.058 and 1.627~mm, respectively. Median bilateral translation asymmetry was 0.065~mm in SP2leg and 1.602~mm in SP1leg (Fig.~\ref{fig:loadprofiles}).
+The paired SP1leg-minus-SP2leg median difference in rotation norm was $+1.048$ (95\% CI +1.004 to +1.102) degrees, $q<0.001$. The paired SP1leg-minus-SP2leg median difference in translation magnitude was $+0.582$ (95\% CI +0.559 to +0.603) mm, $q<0.001$. The paired SP1leg-minus-SP2leg median difference in translation asymmetry was $+1.509$ (95\% CI +1.445 to +1.568) mm, $q<0.001$. These comparisons test motion and asymmetry; absolute ML rotation does not establish self-bracing nutation.
 
-\subsection{Cohort completeness and morphometric sexual dimorphism}
-The analyzed cohort comprised 278 human pelvic models (150 female, 128 male; age 53.9 $\pm$ 19.3 years, range 16--91). All 278 datasets exhibited complete records across demographic metadata, eight 3D anatomical dimensions, and finite-element kinematic outcomes (Table~\ref{tab:cohort}). Morphometric comparisons confirmed characteristic pelvic sexual dimorphism: female pelves exhibited significantly larger mean anteroposterior inlet diameter ($121.04 \pm 10.02$ vs.\ $112.34 \pm 9.07$~mm), biischiadic outlet width ($109.87 \pm 7.13$ vs.\ $97.71 \pm 7.06$~mm), and subpubic arch angle ($85.80 \pm 6.14^\circ$ vs.\ $69.11 \pm 5.26^\circ$), despite having lower total pelvic bone volume ($736.79 \pm 105.99$ vs.\ $925.28 \pm 126.99\;\text{cm}^3$) and lower global scale factors ($0.92 \pm 0.05$ vs.\ $1.00 \pm 0.05$) than male pelves.
-
-\subsection{Functional load-dependence: locomotor self-bracing versus asymmetric shear (H1)}
-Sacroiliac joint kinematics varied markedly across loading regimes (Table~\ref{tab:microsummary}; Fig.~\ref{fig:loadprofiles}). Bipedal standing (SP2leg) engaged physiological nutation (median $\theta_{\text{nut}} = 1.062^\circ$ [IQR 0.653, 1.522]), maintaining low bilateral translation asymmetry ($0.215$~mm [0.093, 0.347]) and moderate resultant motion ($|\boldsymbol{\theta}| = 1.692^\circ$ [1.211, 2.451]; $|\mathbf{d}| = 1.299$~mm [0.971, 1.625]).
-
-Transition to single-leg stance (SP1leg) produced the highest kinematic demand among the evaluated states, driving resultant rotation to $2.516^\circ$ [1.981, 3.137] and translation to $1.755$~mm [1.458, 2.053]. Unilateral acetabular support induced a marked increase in bilateral translation asymmetry, rising from $0.215$~mm in SP2leg to $2.013$~mm [1.423, 2.548] in SP1leg (Fig.~\ref{fig:loadprofiles}D). While sagittal nutation remained elevated ($1.160^\circ$ [0.819, 1.619]), unilateral vertical support imposed substantial frontal pelvic tilt (abduction $\theta_y = 1.582^\circ$ [1.195, 1.977]), generating differential shear across the pelvic arch.
-
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
-\caption{SIJ micromotion summary by load case across 278 subjects. Values represent median [interquartile range].}
+\caption{Corrected SIJ motion summaries across 278 subjects. Values are median [interquartile range]; component columns are absolute magnitudes.}
 \label{tab:microsummary}
 \StdTableInput{tables/generated/table3_micromotion_summary.tex}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{figures/Fig2_primary_load_profiles.pdf}
-\caption{\textbf{Primary SIJ kinematic distributions across locomotor and parturition load regimes.} Raincloud distribution dashboard showing: (A) 3D resultant rotation magnitude ($|\boldsymbol{\theta}|$, deg), (B) 3D resultant translation magnitude ($|\mathbf{d}|$, mm), (C) sagittal nutation angle ($\theta_{\text{nut}}$, deg), and (D) bilateral translation asymmetry ($|d_{\text{left}} - d_{\text{right}}|$, mm). Boxplots depict medians and interquartile ranges; dashed reference lines indicate quiet stance baselines (SP2leg). Note the reduction in nutation under simulated labor (C) and the marked elevation in bilateral asymmetry during single-leg stance (D).}
+\includegraphics[width=\textwidth]{figures/Fig2_primary_load_profiles.pdf}
+\caption{\textbf{Corrected motion distributions.} Rotation-triplet norm, relative translation norm, absolute ML rotation and bilateral translation-magnitude asymmetry. Points are subjects; boxplots show medians and IQRs, with whiskers at 1.5 IQR. Female and male groups use vermilion and blue. Jitter is deterministic. No signed nutation direction is inferred.}
 \label{fig:loadprofiles}
 \end{figure}
+\subsection{Component contrasts (H2)}
+LAB1: the ML absolute-component contrast was $-0.007$ (95\% CI -0.018 to +0.002)~mm, $q=0.254$; the AP absolute-component contrast was $-0.303$ (95\% CI -0.322 to -0.270)~mm, $q<0.001$; the CC absolute-component contrast was $-0.854$ (95\% CI -0.886 to -0.817)~mm, $q<0.001$.
 
-\subsection{Directional kinematic contrasts in 3D state space (H2)}
-Under parturition-motivated configurations (LAB1--LAB3), SIJ kinematics exhibited directional re-routing rather than uniform scaling (Table~\ref{tab:microsummary}; Fig.~\ref{fig:directional}). In contrast to stance, sagittal nutation decreased under internal ring expansion, dropping to $0.432^\circ$ [0.257, 0.731] in LAB1 and $0.412^\circ$ [0.247, 0.630] in LAB2 (Fig.~\ref{fig:loadprofiles}C).
+LAB2: the ML absolute-component contrast was $+0.052$ (95\% CI +0.047 to +0.061)~mm, $q<0.001$; the AP absolute-component contrast was $-0.181$ (95\% CI -0.207 to -0.157)~mm, $q<0.001$; the CC absolute-component contrast was $-0.877$ (95\% CI -0.900 to -0.841)~mm, $q<0.001$.
 
-Decomposition of within-subject displacement differences relative to SP2leg demonstrated directional anisotropy (Fig.~\ref{fig:directional}A; Supplementary Table S1). Single-leg stance selectively increased vertical shear ($\Delta\text{CC} = +0.394$~mm, 95\% CI 0.347 to 0.434, $p < 10^{-40}$) and anteroposterior translation ($\Delta\text{AP} = +0.072$~mm, 95\% CI 0.045 to 0.096, $p < 10^{-20}$), while mediolateral displacement showed no significant shift ($\Delta\text{ML} = +0.005$~mm, $p = 0.095$). Conversely, internal ring compression (LAB1) produced an abrupt reduction in craniocaudal shear ($\Delta\text{CC} = -0.850$~mm, 95\% CI $-0.881$ to $-0.811$) while channeling displacement into transverse outward distraction ($\Delta\text{ML} = +0.086$~mm, 95\% CI 0.077 to 0.095, $p < 10^{-30}$). Circumferential dilation (LAB2) similarly suppressed vertical shear ($\Delta\text{CC} = -0.903$~mm, 95\% CI $-0.931$ to $-0.853$) while augmenting both transverse distraction ($\Delta\text{ML} = +0.145$~mm, 95\% CI 0.132 to 0.160) and sagittal gliding ($\Delta\text{AP} = +0.163$~mm, 95\% CI 0.102 to 0.213).
+LAB3: the ML absolute-component contrast was $+0.011$ (95\% CI +0.003 to +0.017)~mm, $q=0.007$; the AP absolute-component contrast was $+0.032$ (95\% CI +0.018 to +0.043)~mm, $q<0.001$; the CC absolute-component contrast was $-0.556$ (95\% CI -0.586 to -0.537)~mm, $q<0.001$.
 
-Projecting these responses into a 2D kinematic state space ($\Delta\text{ML}$ vs.\ $\Delta\text{CC}$; Fig.~\ref{fig:directional}B) highlights the directional contrast: locomotor stance contrasts populate the vertical shear axis, whereas parturition proxies diverge along the transverse distraction axis.
+All contrasts are paired differences in absolute magnitudes relative to SP2leg (Fig.~\ref{fig:directional}; Supplementary Table S1). The state-space arrows connect the baseline to componentwise median contrasts; they are not physical displacement vectors or trajectories.
 
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/Fig3_directional_rerouting.pdf}
-\caption{\textbf{Directional translation differences and 2D state-space contrast.} (A) Within-subject translation shifts ($\Delta = \text{Load} - \text{SP2leg}$) for anteroposterior (AP, blue), mediolateral (ML, green), and craniocaudal (CC, vermilion) axes. Error bars indicate bootstrap 95\% confidence intervals; asterisks denote significant median shifts after BH-FDR correction ($q < 0.05$). (B) Kinematic state-space contrast mapping transverse shifts ($\Delta\text{ML}$) against vertical shear shifts ($\Delta\text{CC}$), highlighting the functional divergence between locomotor vertical shear and obstetric transverse ring compliance.}
+\includegraphics[width=\textwidth]{figures/Fig3_directional_rerouting.pdf}
+\caption{\textbf{Paired absolute-component contrasts.} (A) Median within-subject differences from SP2leg, with bootstrap 95\% CIs. (B) Individual ML/CC contrast pairs and arrows to their componentwise medians. Positive values mean larger component magnitude, not outward joint motion. Corrected $q$ values are reported in Supplementary Table S1; intervals are pointwise, not simultaneous.}
 \label{fig:directional}
 \end{figure}
+\subsection{Sex and morphometric associations (H3)}
+LAB1 female-minus-male translation coefficients were $+0.055$, $+0.040$ and $+0.013$~mm in M0, M1 and M2. The M2 interval was -0.005 to +0.031~mm ($p=0.166$, $q=0.566$). LAB2 female-minus-male translation coefficients were $+0.071$, $+0.041$ and $-0.031$~mm in M0, M1 and M2. The M2 interval was -0.078 to +0.016~mm ($p=0.192$, $q=0.566$). LAB3 female-minus-male translation coefficients were $+0.258$, $+0.212$ and $+0.002$~mm in M0, M1 and M2. The M2 interval was -0.060 to +0.064~mm ($p=0.950$, $q=0.950$). The maximum non-intercept VIF in M2 was 5.55.
+For LAB1, the pooled Spearman correlation between subpubic angle and translation magnitude was $r_s=0.444$ ($p<0.001$). The male-only correlation was $r_s=-0.063$ ($p=0.480$). The female-only correlation was $r_s=-0.145$ ($p=0.077$). These exploratory correlations are uncorrected for multiplicity and do not estimate a geometric mechanism. Figure~\ref{fig:sexeffects} and Supplementary Table S3 report M2 estimates for both outcomes.
 
-\subsection{Sex-related differences and morphometric associations (H3)}
-In unadjusted models conditioned only on age (Model 0; Eq.~\ref{eq:m0}), female pelves demonstrated greater translation magnitude under all parturition configurations: $+0.364$~mm in LAB1 (SE $= 0.030, p < 10^{-30}$), $+0.414$~mm in LAB2 (SE $= 0.033, p < 10^{-35}$), and $+0.344$~mm in LAB3 (SE $= 0.031, p < 10^{-25}$). Adjusting for total pelvic bone volume (Model 1; Eq.~\ref{eq:m1}) attenuated the female surplus to $+0.295$~mm in LAB1, $+0.329$~mm in LAB2, and $+0.279$~mm in LAB3 ($p < 10^{-9}$ for all). 
-
-Further adjustment for the morphometric triad (Model 2; Eq.~\ref{eq:m2}: AP diameter, biischiadic width, and subpubic arch angle) reduced the conditional difference (female minus male) to $+0.224$~mm in LAB1 ($\text{SE} = 0.078$, 95\% CI 0.070 to 0.378, $p = 0.0042$), $+0.193$~mm in LAB2 ($\text{SE} = 0.083$, 95\% CI 0.031 to 0.355, $p = 0.0196$), and $+0.231$~mm in LAB3 ($\text{SE} = 0.080$, 95\% CI 0.075 to 0.388, $p = 0.0038$; Fig.~\ref{fig:sexeffects}A,B; Supplementary Table S3). Across Model 2, multicollinearity diagnostics confirmed acceptable variance inflation factors: female sex ($\text{VIF} = 5.55$), subpubic angle ($\text{VIF} = 4.76$), biischiadic width ($\text{VIF} = 3.03$), pelvic volume ($\text{VIF} = 2.62$), AP diameter ($\text{VIF} = 1.59$), and age ($\text{VIF} = 1.55$), all well below the standard threshold of 10. Rotational dimorphism was strongest in outlet distraction (LAB3: $+0.627^\circ$, 95\% CI 0.206 to 1.048, BH-FDR $p = 0.007$).
-
-In pooled cluster-robust models across all load regimes, female sex retained significant positive associations for both rotation ($+0.450^\circ$, $p = 0.020$) and translation ($+0.254$~mm, $p < 0.001$; Table~\ref{tab:allometry}A). Morphometric associations revealed that enhanced compliance is linked with anterior arch architecture: LAB1 translation correlated positively with the subpubic arch angle (Spearman $r = 0.52, p = 2.2 \times 10^{-20}$; Fig.~\ref{fig:sexeffects}C), indicating that wider anterior arch geometry facilitates outward compliance of the dorsal sacroiliac joints.
-
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{figures/Fig4_sex_effects_lab.pdf}
-\caption{\textbf{Sex-related differences under parturition loading and morphometric associations.} (A) Forest plot of adjusted female-minus-male differences (95\% CI) for translation magnitude (green circles) and rotation magnitude (orange squares) across LAB1--LAB3 from multivariable robust OLS models. (B) Kernel density distributions of covariate-adjusted translation in LAB1 for females (vermilion) and males (blue). (C) Morphometric association scatterplot of LAB1 translation magnitude versus subpubic arch angle across the cohort ($r = 0.52, p = 2.2 \times 10^{-20}$).}
+\includegraphics[width=\textwidth]{figures/Fig4_sex_effects_lab.pdf}
+\caption{\textbf{Conditional sex estimates and morphology.} (A,B) M2 female-minus-male coefficients with HC3 95\% CIs, shown on separate translation and rotation axes. Labels give BH-adjusted $q$ values across six tests. (C) Nested translation coefficients; connecting lines show changes between model specifications, not causal pathways. (D) LAB1 translation versus subpubic angle, with pooled and sex-stratified Spearman correlations. All panels use corrected endpoints.}
 \label{fig:sexeffects}
 \end{figure}
+\subsection{Restricted geometry/material comparison (H4)}
+Across five loads and five endpoints, shape-only/full variance ratios ranged from 96.43\% to 120.61\% (median 100.68\%). Material-only/full ratios ranged from 0.014\% to 5.789\% (median 0.244\%). For rotation, minimum shape/full identity-line $R^2$ was 0.8777, and maximum RMSE was 0.0318~degrees. For translation, minimum shape/full identity-line $R^2$ was 0.9457, and maximum RMSE was 0.0280~mm. These compare model variants and do not decompose an additive population variance budget (Fig.~\ref{fig:variance}; Supplementary Table S2).
 
-\subsection{Variance channels: structural geometry versus material heterogeneity (H4)}
-Decomposition of between-subject variance across the three matched simulation variants revealed that macroscopic skeletal geometry accounts for the predominant share of population dispersion (Fig.~\ref{fig:variance}; Supplementary Table S2). The shape-only model reproduced $98.7\%$ to $102.1\%$ (overall median $100.46\%$) of full-model variance across all load cases and kinematic degrees of freedom. Values slightly exceeding 100\% reflect sample-variance ratios derived from separate simulation datasets, signifying near-complete variance retention by skeletal geometry.
-
-Paired subject-level diagnostics between the Full and Shape-Only models confirmed close individual correspondence across all load regimes. For resultant translation magnitude, the coefficient of determination against the 1:1 identity line was $R^2 \ge 0.994$, with Pearson correlation $r \ge 0.997$, Spearman rank correlation $r_s \ge 0.996$, $\text{RMSE} \le 0.031$~mm, and $\text{MAE} \le 0.021$~mm. For resultant rotation, concordance was similarly high ($R^2 \ge 0.999$, $r \ge 0.999$, $\text{RMSE} \le 0.023^\circ$, $\text{MAE} \le 0.015^\circ$).
-
-In contrast, the material-only model (isolating CT-derived bone mineral density and elastic modulus heterogeneity on the unmapped reference geometry) accounted for a small fraction of population variance, ranging from $0.001\%$ to $0.317\%$ (overall median $0.033\%$). For resultant rotation and translation, material-only variance fractions remained below $0.053\%$ and $0.295\%$, respectively. Under parturition-motivated configurations, material-only variance did not exceed $0.067\%$ for translation or $0.030\%$ for rotation. These results indicate that inter-individual differences in bone mineral density have a minor influence on macroscopic joint micromotion under standardized loading compared to skeletal architecture.
-
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{figures/Fig5_variance_channels.pdf}
-\caption{\textbf{Variance-channel decomposition: shape versus bone material heterogeneity.} Dual annotated percentage heatmaps displaying: (A) Proportion of full-model population variance retained by the shape-only model ($V_{\text{shape}} / V_{\text{full}} \times 100\%$). (B) Proportion of full-model variance explained by the material-only model ($V_{\text{material}} / V_{\text{full}} \times 100\%$). Cell annotations indicate exact percentages across five load cases and six kinematic metrics.}
+\includegraphics[width=\textwidth]{figures/Fig5_variance_channels.pdf}
+\caption{\textbf{Variance ratios across matched variants.} (A) Shape-only/full and (B) material-only/full sample-variance ratios, in percent. Five endpoints are shown. Color scales differ between panels and follow their actual data ranges. Values above 100\% are allowed. Bootstrap intervals and paired agreement diagnostics are provided in Supplementary Table S2; neither panel represents variance explained by an independent causal factor.}
 \label{fig:variance}
 \end{figure}
+\subsection{Exploratory volume associations}
+20 of 20 sex-specific slopes survived FDR correction. The exponents ranged from -1.062 to -0.366; the largest adjusted slope $q$ was 0.002. Thus negative conditional volume associations extended across standing and all three localized force-pair configurations, rather than being restricted to unilateral standing. Full estimates and intervals are in Table~\ref{tab:allometry}.
+Sex-by-volume interaction $q$ values ranged from 0.343 to 0.699; nonsignificance does not establish equivalence. Figure~\ref{fig:allometry} and Table~\ref{tab:allometry} use the same adjusted models. Pooled cluster-robust coefficients are reported in Supplementary Table S5.
 
-\subsection{Secondary allometric scaling with pelvic size}
-Log--log power-law regressions of SIJ micromotion against total pelvic bone volume revealed load-dependent scaling (Table~\ref{tab:allometry}B; Fig.~\ref{fig:allometry}). Statistically significant negative allometric scaling was observed during single-leg stance (SP1leg): larger pelvic volume was associated with reduced micromotion in both sexes, with scaling exponents of $\beta_{\text{male}} = -0.482$ (95\% CI $-0.870$ to $-0.094$, raw $p = 0.0148$, FDR $q = 0.0742$) and $\beta_{\text{female}} = -0.428$ (95\% CI $-0.762$ to $-0.093$, raw $p = 0.0122$, FDR $q = 0.0405$) for rotation ($R^2 = 0.38$), and $\beta_{\text{male}} = -0.569$ (95\% CI $-0.869$ to $-0.269$, raw $p < 0.001$, FDR $q = 0.0020$) and $\beta_{\text{female}} = -0.432$ (95\% CI $-0.669$ to $-0.194$, raw $p < 0.001$, FDR $q = 0.0037$) for translation ($R^2 = 0.50$).
-
-Under two-leg stance and parturition configurations, volume scaling exponents were generally attenuated, with 95\% confidence intervals crossing zero in most cases. A notable exception was female translation in LAB2, which retained a statistically significant negative scaling exponent ($\beta_{\text{female}} = -0.614$, 95\% CI $-1.061$ to $-0.166$, raw $p = 0.0072$, BH-FDR $q = 0.0360$), whereas male scaling in LAB2 was not significant ($\beta_{\text{male}} = -0.367$, 95\% CI $-0.904$ to $0.171$, $p = 0.1809$, $q = 0.3654$). Crucially, sex-by-size interaction terms were not statistically significant across any load case or outcome after BH-FDR correction (all corrected $q \ge 0.958$), indicating that male and female pelves follow consistent allometric scaling trajectories.
-
-In pooled cluster-robust models across all 1,390 observations, translation magnitude exhibited an overall negative volume association ($\beta = -0.092$ per 1 SD increase, 95\% CI $-0.143$ to $-0.041$, BH-FDR $q < 0.001$; Table~\ref{tab:allometry}A), modulated by significant load$\times$size interaction terms.
-
-\begin{figure}[H]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.98\textwidth]{figures/Fig6_allometry_loglog.pdf}
-\caption{\textbf{Allometric log--log scaling of SIJ micromotion with total pelvic volume.} $2\times 5$ regression grid for rotation magnitude (top) and translation magnitude (bottom) across SP2leg, SP1leg, and LAB1--LAB3. Points show male (blue) and female (vermilion) subjects; solid lines depict sex-stratified power-law fits. The shaded panel highlights single-leg stance (SP1leg), which displays consistent negative allometric scaling in both sexes.}
+\includegraphics[width=\textwidth]{figures/Fig6_allometry_loglog.pdf}
+\caption{\textbf{Conditional log-volume slopes.} Male and female exponents with HC3 95\% CIs from the same adjusted log--log models as Table~\ref{tab:allometry}. The vertical zero line indicates no conditional association. Confidence intervals are pointwise; labels give slope $q$ values from the 20-test family. Raw scatterplots and adjusted conditional geometric-mean curves are supplied as Supplementary Figure S1.}
 \label{fig:allometry}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
-\caption{Pooled cluster-robust regression models and load-wise allometric scaling exponents. Panel A: Pooled models across all 1,390 observations (clustered by subject). Panel B: Load-specific log--log power-law scaling exponents ($\beta$ and 95\% CI).}
+\caption{Adjusted log--log exponents by load and sex. Slope $q$ values use the 20-test family; interaction $q$ values use a separate ten-test family.}
 \label{tab:allometry}
-\textbf{Panel A}\par
-\StdTableInput{tables/generated/table4a_primary_models.tex}
-\vspace{1em}
-
-\textbf{Panel B}\par
 \StdTableInput{tables/generated/table4b_allometry.tex}
 \end{table}
-
-\subsection{Summary of hypothesis testing}
-In summary:
+\subsection{Extraction sensitivity and hypothesis assessment}
+In six subjects selected at approximately evenly spaced archive indices (30 subject--load comparisons), replacing affine sacral correction with rigid-only correction changed bilateral rotation norms by at most 0.0229$^\circ$ and translation magnitudes by at most 0.0055~mm. This subset diagnostic does not bound errors in the remaining cohort (Supplementary Table S6).
 \begin{itemize}
-\item \textbf{H1 (Load-Dependence and Stance Asymmetry): Supported.} Locomotor loading engaged self-bracing nutation ($\theta_{\text{nut}} \ge 1.06^\circ$), with SP1leg driving a substantial increase in bilateral translation asymmetry ($2.01$~mm vs.\ $0.21$~mm) and frontal tilt. Parturition proxies reduced sagittal nutation ($0.41^\circ$--$0.43^\circ$) and re-routed displacement into transverse expansion.
-\item \textbf{H2 (Directional Kinematic Contrasts): Supported.} Parturition loading reduced vertical craniocaudal shear ($\Delta\text{CC} \le -0.85$~mm) while selectively augmenting transverse distraction ($\Delta\text{ML} \ge +0.09$~mm) and sagittal gliding.
-\item \textbf{H3 (Sex-Related Differences and Morphometric Associations): Supported.} Female pelves exhibited greater translational compliance across labor configurations ($+0.19$ to $+0.23$~mm in fully adjusted models, $p \le 0.020$). This difference attenuated upon adjusting for pelvic size and architecture, and correlated positively with subpubic arch angle ($r = 0.52, p < 10^{-19}$).
-\item \textbf{H4 (Relative Contributions of Shape versus Material Heterogeneity): Supported.} Macroscopic skeletal geometry accounted for 98.7\% to 102.1\% (median 100.5\%) of population variance, whereas bone mineral density heterogeneity explained less than 0.32\% (median 0.033\%). Allometric volume scaling was load-dependent, manifesting most clearly during single-leg stance.
+\item \textbf{H1:} Supported for the specified static endpoints. This does not verify a nutation or force-closure mechanism.
+\item \textbf{H2:} The full proposed LAB1/LAB2 component pattern is not supported after multiplicity correction. LAB3 is a separate contrast; signed opening remains untested.
+\item \textbf{H3:} No positive fully adjusted female translation association survived FDR correction. The nested coefficient changes are descriptive and do not establish causal mediation.
+\item \textbf{H4:} Shape/full variance retention and paired errors support only the stated comparison with a reference bone-density field. They do not rank geometry against unmodeled soft-tissue variability.
 \end{itemize}

@@ -1,0 +1,93 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage[mathlines]{lineno}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+\usepackage{caption}
+
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+\newcommand{\StdTableInput}[1]{%
+  \begingroup
+  \singlespacing
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.1}%
+  \begin{adjustbox}{max width=\linewidth}
+    \input{#1}%
+  \end{adjustbox}
+  \endgroup
+}
+
+\title{Load-Dependent Sacroiliac Joint Micromotion in a Large Pelvic Cohort: Directional Re-routing, Between-Subject Variability and Scaling}
+\author{%
+Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
+\small $^{1}$Institute of New Technologies and Applied Informatics,\\
+\small Faculty of Mechatronics, Informatics and Interdisciplinary Studies,\\
+\small Technical University of Liberec, Studentsk\'a 1402/2, 461~17 Liberec, Czech Republic\\
+\small $^{2}$Division of Macroscopic and Clinical Anatomy,\\
+\small Gottfried Schatz Research Center, Medical University of Graz,\\
+\small Auenbruggerplatz~25, 8036~Graz, Austria\\
+\small $^{*}$Corresponding author: Petr Heny\v{s} (\texttt{petr.henys@tul.cz})%
+}
+\date{}
+
+\begin{document}
+\doublespacing
+\maketitle
+\linenumbers
+
+\begin{abstract}
+The human sacroiliac joint (SIJ) functions at the biomechanical interface between bipedal weight-bearing stability and cephalopelvic obstetric clearance. Under the paradigm of form and force closure, axial locomotor loads engage self-bracing nutation, but how multi-axial parturition-motivated forces re-route joint kinematics, the degree of sex-related mechanical compliance, and the relative contributions of skeletal geometry versus bone tissue material heterogeneity remain unresolved across population cohorts. We evaluated a precomputed finite-element cohort of 278 human pelves (150 female, 128 male; age 16--91 years) parameterized via an implicit subject-specific continuous displacement mapping on a shared reference template. Five standardized static loading regimes were analyzed with the superior S1 facet constrained via a Dirichlet penalty: bilateral standing (SP2leg; $+400$~N vertical ground reaction on each acetabular notch, 800~N total), unilateral standing (SP1leg; $+800$~N on the right acetabulum), and three parturition-motivated multi-axial expansion configurations (LAB1--LAB3; $\pm 400$~N internal ring compression, ischial distraction, and outlet distraction proxies). Kinematics were resolved in a local joint coordinate triad, tracking bilateral means of 3D resultant norms ($|\boldsymbol{\theta}|$, $|\mathbf{d}|$) and absolute component magnitudes. We tested directional contrasts relative to bilateral standing, assessed sex-related differences through nested multivariable linear regressions (M0: sex and age; M1: +pelvic volume; M2: +morphometric triad) with heteroskedasticity-consistent standard errors (HC3) and variance inflation factor screening, evaluated variance retention ratios ($V_{\text{shape}} / V_{\text{full}}$, $V_{\text{material}} / V_{\text{full}}$) with paired subject-level diagnostics, and explored allometric power-law scaling with false discovery rate control ($q < 0.05$). Stance regimes engaged physiological nutation (median $1.06^\circ$ in SP2leg, $1.16^\circ$ in SP1leg). Unilateral stance imposed the highest kinematic demand ($|\boldsymbol{\theta}| = 2.52^\circ$, $|\mathbf{d}| = 1.76$~mm), driving bilateral translation asymmetry from $0.21$~mm in SP2leg to $2.01$~mm. Under parturition proxies, sagittal nutation was suppressed ($0.41^\circ$--$0.43^\circ$ in LAB1/LAB2), and displacement shifted from vertical craniocaudal shear ($\Delta\text{CC} = -0.59$ to $-0.90$~mm) to transverse outward distraction ($\Delta\text{ML} = +0.09$ to $+0.15$~mm). In multivariable models, female pelves exhibited a significant translational surplus across labor regimes ($+0.19$ to $+0.23$~mm, $p \le 0.020$), which attenuated by approximately 38\% upon adjusting for volume and morphometric dimensions; transverse compliance was positively associated with subpubic arch angle ($r = 0.52, p < 10^{-19}$). Variance decomposition demonstrated geometric dominance: shape-only models retained 98.7\%--102.1\% (median 100.5\%) of full-model variance ($R^2 \ge 0.994$, $\text{RMSE} \le 0.031$~mm), whereas bone mineral density heterogeneity accounted for $<0.32\%$ (median 0.033\%). Negative allometric volume scaling was strongest in unilateral stance ($\beta_{\text{male}} = -0.57, \beta_{\text{female}} = -0.43, q \le 0.004$). Under standardized static loading, SIJ micromotion displays marked directional re-routing: locomotor loading reinforces self-bracing nutation, whereas parturition-motivated regimes direct compliance into transverse ring expansion. Between-subject kinematic variation is governed predominantly by pelvic geometry rather than bone mineralization, clarifying the passive mechanical compromise between bipedal stability and pelvic compliance.
+\end{abstract}
+
+\noindent\textbf{Keywords:} sacroiliac joint; pelvic functional anatomy; finite-element analysis; nutation; form and force closure; sex-related differences; pelvic architecture; variance channels
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\input{sections/appendix}
+
+\section*{Acknowledgements}
+We thank the BoneDat project for curating and providing the standardized imaging-derived dataset used in this study.
+
+\section*{Funding}
+This work was supported by the Czech Science Foundation (GA\v{C}R; Grant No.\ 24-10862S).
+
+\section*{Author contributions}
+CRediT authorship contribution statement. Petr Heny\v{s}: Conceptualization; Methodology; Software; Formal analysis; Investigation; Data curation; Visualization; Funding acquisition; Writing -- original draft; Writing -- review \& editing. Niels Hammer: Supervision; Writing -- review \& editing. All authors reviewed and approved the final manuscript.
+
+\section*{Conflict of interest statement}
+The authors declare no conflicts of interest.
+
+\section*{Supporting information}
+Supporting Information includes Supplementary Methods (implicit mapping, load pullback, SIJ kinematics, and size-scaling model details) and Supplementary Tables S1--S4.
+
+\section*{Data Availability Statement}
+The derived data supporting the findings of this study (summary tables and figures) are provided with the manuscript. Subject-level derived datasets and analysis outputs are available in a blinded repository for peer review and will be made publicly available upon publication.
+
+\section*{Code Availability Statement}
+All custom code used to post-process the finite-element outputs and perform the statistical analyses is available in the same blinded repository for peer review and will be made publicly available upon publication.
+
+\bibliographystyle{apalike}
+\bibliography{bib/refs}
+
+\end{document}

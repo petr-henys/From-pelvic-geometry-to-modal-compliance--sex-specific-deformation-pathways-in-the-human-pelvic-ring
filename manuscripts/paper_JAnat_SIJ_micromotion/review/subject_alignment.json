@@ -1,0 +1,8 @@
+{
+  "alignment_basis": "shared shape/density source arrays and the same sample-index iteration in simulation_dataset.py",
+  "independent_auxiliary_subject_ids_available": false,
+  "source_paths": {
+    "SHAPE_DATA_PATH": "data/X.npy",
+    "DENSITY_DATA_PATH": "data/HA.npy"
+  }
+}

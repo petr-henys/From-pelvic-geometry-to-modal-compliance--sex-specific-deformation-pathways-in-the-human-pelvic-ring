@@ -2,9 +2,9 @@
 
 ## Source files
 - `results/ref_S1P_fixed_new2/data/demography.xlsx`: patient-level age and sex metadata.
-- `results/ref_S1P_fixed_new2/data/anatomy_data.xlsx`: morphology sheet (8 pelvic dimensions) and SIJ kinematics sheets for 5 load cases x 2 sides.
+- `results/ref_S1P_fixed_new2/data/anatomy_data.xlsx`: morphology sheet (8 pelvic dimensions); legacy SIJ sheets are not used.
 - `results/ref_S1P_fixed_new2/data/allometry.xlsx`: true-size metrics (scale, surface, volume, mass).
-- `results/ref_S1P_fixed_new2[_shape_only|_material_only]/data/sij_angles_*.zarr`, `sij_trans_*.zarr`: variance-channel decomposition inputs.
+- `tables/corrected/kinematics.csv`: corrected unloaded-subject-reference endpoints for all three variants. The original sij Zarr arrays are superseded.
 
 ## Cohort
 - Subjects: 278

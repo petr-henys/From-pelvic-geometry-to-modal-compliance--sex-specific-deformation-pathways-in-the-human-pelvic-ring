@@ -23,6 +23,7 @@ from typing import Tuple
 
 import numpy as np
 import pyvista as pv
+from scipy.spatial import cKDTree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -132,15 +133,16 @@ def _euler_xyz_in_frame(R: np.ndarray, P_frame: np.ndarray) -> Tuple[float, floa
     r22 = float(np.clip(Rloc[2, 2], -1.0, 1.0))
     r10 = float(np.clip(Rloc[1, 0], -1.0, 1.0))
     r00 = float(np.clip(Rloc[0, 0], -1.0, 1.0))
-    if np.isclose(abs(r20), 1.0, atol=EUL_TOL):
+    cos_beta = float(np.hypot(r00, r10))
+    if cos_beta <= EPS:
         beta = -np.pi/2 if r20 > 0 else np.pi/2
         a = float(np.clip(-Rloc[0, 1], -1.0, 1.0))
         b = float(np.clip(Rloc[1, 1], -1.0, 1.0))
-        alpha = np.arctan2(a, b)
+        alpha = np.arctan2(np.sign(r20) * a, b)
         gamma = 0.0
     else:
         alpha = np.arctan2(r21, r22)
-        beta = np.arcsin(-r20)
+        beta = np.arctan2(-r20, cos_beta)
         gamma = np.arctan2(r10, r00)
     return (float(np.degrees(alpha)), float(np.degrees(beta)), float(np.degrees(gamma)))
 
@@ -175,18 +177,8 @@ def _chunked_min_dists(A: np.ndarray, B: np.ndarray) -> Tuple[np.ndarray, np.nda
     """For each point in A, find nearest point in B. Returns (distance, argmin_idx)."""
     m, n = A.shape[0], B.shape[0]
     if m == 0 or n == 0:
-        return np.zeros(m, float), np.full(m, -1, int)
-    min_d2 = np.full(m, np.inf)
-    arg = np.full(m, -1, int)
-    B2 = np.sum(B * B, axis=1)
-    for i in range(0, m, CHUNK_SIZE):
-        Ai = A[i:i+CHUNK_SIZE]
-        Ai2 = np.sum(Ai * Ai, axis=1, keepdims=True)
-        d2 = Ai2 + B2[None, :] - 2.0 * (Ai @ B.T)
-        jmin = np.argmin(d2, axis=1)
-        min_d2[i:i+CHUNK_SIZE] = d2[np.arange(d2.shape[0]), jmin]
-        arg[i:i+CHUNK_SIZE] = jmin
-    return np.sqrt(np.maximum(min_d2, 0.0)), arg
+        return np.full(m, np.inf), np.full(m, -1, int)
+    return cKDTree(B).query(A, k=1)
 
 def _sided_mask(pts: np.ndarray, P_frame: np.ndarray, origin: np.ndarray, side: str) -> np.ndarray:
     """Boolean mask by side: left (x<0), right (x>0) in pelvic frame."""
@@ -253,12 +245,14 @@ def _check_pairwise_counts(left0, left1, right0, right1, sac0, sac1):
     if errs:
         raise ValueError("Point counts must match pairwise:\n  - " + "\n  - ".join(errs))
 
-def sij_relative_angles(template_ref, template_def, sij_gap_mm: float = 5.0, trim_frac: float = 0.1) -> dict:
+def sij_relative_angles(template_ref, template_def, sij_gap_mm: float = 5.0, trim_frac: float = 0.1,
+                        sacrum_correction: str = "affine") -> dict:
     """Compute SIJ kinematics: rotation (Euler XYZ deg) and translation (mm) in pelvic frame.
     
     Parameters:
         sij_gap_mm: Distance threshold for ROI inclusion (mm)
         trim_frac: Outlier fraction for trimmed rigid fit (0..0.5)
+        sacrum_correction: "affine" (legacy convention) or "rigid" for sensitivity.
     
     Returns:
         Dictionary with SIJ_left and SIJ_right, each containing angles_deg and displacement_mm
@@ -279,7 +273,12 @@ def sij_relative_angles(template_ref, template_def, sij_gap_mm: float = 5.0, tri
     P_frame = _ensure_lr(P_frame, left0.points, right0.points, origin)
 
     # Remove global affine via sacrum fit, apply inverse to deformed
-    A_sac, b_sac = _affine_fit(sac0.points, sac1.points)
+    if sacrum_correction == "affine":
+        A_sac, b_sac = _affine_fit(sac0.points, sac1.points)
+    elif sacrum_correction == "rigid":
+        A_sac, b_sac = _rigid_from_kabsch(sac0.points, sac1.points)
+    else:
+        raise ValueError("sacrum_correction must be 'affine' or 'rigid'")
     sac1_aff = _apply_inv_affine(A_sac, b_sac, sac1.points)
     left1_aff = _apply_inv_affine(A_sac, b_sac, left1.points)
     right1_aff = _apply_inv_affine(A_sac, b_sac, right1.points)
