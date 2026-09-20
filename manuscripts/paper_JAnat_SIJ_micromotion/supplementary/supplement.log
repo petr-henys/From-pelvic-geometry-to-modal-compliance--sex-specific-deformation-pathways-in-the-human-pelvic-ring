@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  20 SEP 2026 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -647,7 +647,17 @@ ut line 64.
 (pdftex.def)             Requested size: 427.93057pt x 578.96689pt.
  [6
 
- <../figures/SuppFig1_allometry_scatter.pdf>] (./supplement.aux)
+ <../figures/SuppFig1_allometry_scatter.pdf>]
+<../figures/SuppFig2_measurement_conventions.pdf, id=146, 731.13103pt x 499.570
+59pt>
+File: ../figures/SuppFig2_measurement_conventions.pdf Graphic file (type pdf)
+<use ../figures/SuppFig2_measurement_conventions.pdf>
+Package pdftex.def Info: ../figures/SuppFig2_measurement_conventions.pdf  used 
+on input line 70.
+(pdftex.def)             Requested size: 455.24411pt x 311.05693pt.
+ [7
+
+ <../figures/SuppFig2_measurement_conventions.pdf>] (./supplement.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -656,13 +666,13 @@ Package rerunfilecheck Info: File `supplement.out' has not changed.
 (rerunfilecheck)             Checksum: B0CDC80DBA326D21F377155ED084D6D1;257.
  ) 
 Here is how much of TeX's memory you used:
- 15487 strings out of 476106
- 300220 string characters out of 5793933
+ 15496 strings out of 476106
+ 300637 string characters out of 5793933
  1952975 words of memory out of 5000000
- 37240 multiletter control sequences out of 15000+600000
+ 37247 multiletter control sequences out of 15000+600000
  625911 words of font info for 81 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,13n,80p,506b,898s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,858b,898s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/pu
@@ -673,10 +683,10 @@ m/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
 fb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmsy9.pfb>
-Output written on supplement.pdf (6 pages, 384978 bytes).
+Output written on supplement.pdf (7 pages, 701780 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 19 words of extra memory for PDF output out of 10000 (max. 10000000)
 

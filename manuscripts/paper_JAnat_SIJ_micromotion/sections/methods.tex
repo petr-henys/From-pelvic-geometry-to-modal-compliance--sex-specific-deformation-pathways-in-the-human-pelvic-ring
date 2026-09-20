@@ -8,6 +8,20 @@ The precomputed cohort comprised 278 pelvic models (150 female, 128 male), aged 
 \StdTableInput{tables/generated/table1_cohort.tex}
 \end{table}
 
+\subsection{Anatomical dimensions and their landmarks}
+Figure~\ref{fig:morphometry} shows all eight morphometric measures in Table~\ref{tab:cohort}, using the archived template landmarks from the measurement workflow. Each of the seven linear dimensions is the three-dimensional Euclidean distance $d=\|\mathbf p_2-\mathbf p_1\|$, rather than its projection into a display plane. The subpubic angle uses the second of three landmarks as its vertex:
+\begin{equation}
+\alpha_{sub}=\arccos\!\left[\frac{(\mathbf p_1-\mathbf p_2)\cdot(\mathbf p_3-\mathbf p_2)}{\|\mathbf p_1-\mathbf p_2\|\,\|\mathbf p_3-\mathbf p_2\|}\right],
+\end{equation}
+with numerical clipping to $[-1,1]$ and conversion to degrees. The landmark labels are local to each measurement. Subject landmarks were obtained by thin-plate-spline RBF interpolation of template-to-subject displacements (10 neighbors; smoothing parameter 100). These morphometric interpolation settings differ from those used for the FE surface reconstruction. Recomputing the eight measures for all 278 subjects reproduced the archived values within $10^{-8}$~mm or degrees. Supplementary Figure S2 illustrates the three rotational coordinates, the definition of point translation, and the three bone bodies included in volume and surface-area summaries.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.76\textheight,keepaspectratio]{figures/Fig_morphometric_landmarks.pdf}
+\caption{\textbf{Anatomical landmarks for all morphometric measures.} (A--G) Archived landmark pairs define the seven linear dimensions in Table~\ref{tab:cohort}. (H) The subpubic angle has vertex $p_2$ and arms toward $p_1$ and $p_3$; the view is normal to their plane. (I) Measurement definitions and landmark key. Markers and segments are overlaid on the reference pelvic geometry to keep internal landmarks visible. Values describe the template, not cohort averages. Lengths are measured in three dimensions; each camera direction is perpendicular to its measurement segment. Panels use different views and magnifications.}
+\label{fig:morphometry}
+\end{figure}
+
 \subsection{Finite-element model}
 The archived simulation metadata specify DOLFINx 0.10, 166,808 cells and 48,291 mesh nodes. Small-strain linear elasticity was solved with PETSc on a shared reference domain. Subject anatomy was represented by $\mathbf{x}=\mathbf{X}+\boldsymbol{\phi}_i(\mathbf{X})$; the displacement map was interpolated using radial basis functions (RBFs). Spatial gradients and integration measures were pulled back to the reference domain \citep{BonetWood1997}. This representation approximates individual anatomy on a shared discretization; it does not guarantee exact cortical boundaries or invertibility without Jacobian checks.
 

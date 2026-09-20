@@ -1,3 +1,7 @@
+## Complete measurement atlas — 20 September 2026
+
+Added main Figure 1 showing seven archived landmark distances and the subpubic angle; the former six figures are now Figures 2–7. Added Supplementary Figure S2 showing rotational coordinates, common-point translation, bone volume, surface area and scale. Documented morphometric interpolation and reproduced all 2,224 archived values (maximum discrepancy 1.99e-13). Added a reproducible atlas generator and landmark provenance record; updated methods, cross-references and reproduction instructions. Both PDFs rebuilt and new figure pages visually checked.
+
 ## Editorial reframing — 20 September 2026
 
 Current title: **Pelvic architecture shapes load-dependent sacroiliac motion**.

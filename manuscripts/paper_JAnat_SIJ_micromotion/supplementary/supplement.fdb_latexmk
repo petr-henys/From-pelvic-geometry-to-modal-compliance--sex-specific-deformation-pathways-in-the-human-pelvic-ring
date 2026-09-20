@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1789928771.69879 "supplement.tex" "supplement.pdf" "supplement" 1789928772.30528 0
+["pdflatex"] 1789929836.6814 "supplement.tex" "supplement.pdf" "supplement" 1789929837.30535 0
   "../figures/SuppFig1_allometry_scatter.pdf" 1789928733.26281 122468 09e8c166b8543bc28ba80ca07f6db223 ""
+  "../figures/SuppFig2_measurement_conventions.pdf" 1789929822.96116 322068 4f7c5ae5e486d316c1d207cd501dcb4b ""
   "../sections/appendix_math.tex" 1789910932.58325 1949 0899b5ba2cb5add166c091ce0fd57d64 ""
   "../tables/generated/supp_allometry_scale.tex" 1789910827.17946 932 bac15a9c979e5112e6a3f64b26554517 ""
   "../tables/generated/supp_directional_rerouting.tex" 1789910827.16384 903 130ec06c286f27b82429dd0ae72dc450 ""
@@ -148,9 +149,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771244779.23343 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771244812 6831138 e361f9c9db2e636eb064f6a4cc93ec74 ""
-  "supplement.aux" 1789928772.21122 337 2b48785fd9d9b9e1478ab11945f0b127 "pdflatex"
-  "supplement.out" 1789928772.21169 257 b0cdc80dba326d21f377155ed084d6d1 "pdflatex"
-  "supplement.tex" 1789928770.99329 2857 78f89c090adfc5cca4bac7da3ee4a84b ""
+  "supplement.aux" 1789929837.21305 337 9f5c9ccc1e82c8bd5e12036123c3aae5 "pdflatex"
+  "supplement.out" 1789929837.21353 257 b0cdc80dba326d21f377155ed084d6d1 "pdflatex"
+  "supplement.tex" 1789929807.193 3850 d46289e0a4682ad3fe189baac54931be ""
   (generated)
   "supplement.aux"
   "supplement.log"

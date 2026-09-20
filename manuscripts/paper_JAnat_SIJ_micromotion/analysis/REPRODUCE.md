@@ -12,6 +12,7 @@ python manuscripts/paper_JAnat_SIJ_micromotion/analysis/format_publication_table
 python manuscripts/paper_JAnat_SIJ_micromotion/analysis/format_corrected_supplement.py
 python manuscripts/paper_JAnat_SIJ_micromotion/analysis/write_corrected_results.py
 python manuscripts/paper_JAnat_SIJ_micromotion/analysis/generate_publication_figures.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/generate_measurement_atlas.py
 python -m pytest -q tests/test_sij_reference_configuration.py
 latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/main.tex
 latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/supplementary/supplement.tex
@@ -24,3 +25,5 @@ Extraction resumes from `tables/corrected/subject_*.npz`. These checkpoints must
 `review/environment.json` records the postprocessing environment. The FE runtime (DOLFINx 0.10) is described by the original simulation metadata; it was not rerun during this revision. The broader existing FE-dependent test module could not be collected because mpi4py is absent in the current postprocessing environment. The four added portable mathematical/extraction regression tests passed.
 
 Auxiliary archives share the indexed shape/density inputs and sample loop with the full archive but do not carry independent subject-ID manifests. Pairing is therefore based on the archived row order and common inputs; see `review/subject_alignment.json`.
+
+The measurement atlas reads the original `anatomy_data/palpace/*.mrk.json` landmarks and reproduces all 2,224 archived morphometric values using the original 10-neighbor, smoothing-100 interpolation. The check is stored in `review/measurement_landmark_validation.json`. It does not overwrite measurements.
