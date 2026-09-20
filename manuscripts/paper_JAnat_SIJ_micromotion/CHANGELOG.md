@@ -1,3 +1,10 @@
+## Editorial reframing — 20 September 2026
+
+Current title: **Pelvic architecture shapes load-dependent sacroiliac motion**.
+Rewrote the abstract, introduction, discussion and conclusion around the anatomical question and controlled mechanical comparisons. Results headings and figure captions now foreground findings; detailed component statistics remain in Supplementary Table S1. Corrected the H3 synthesis to evaluate its stated attenuation hypothesis. Preserved the corrected numerical results, constitutive limitations and retrospective status. Updated the prose generator so regeneration retains the new framing. Added an unsent editor-pitch draft. Rebuilt the main manuscript and supplement successfully.
+
+The entries below record earlier revision stages and may contain superseded titles or editorial descriptions.
+
 # Comprehensive Revision Changelog: Journal of Anatomy Submission
 
 **Manuscript Title:** Sex-Specific Sacroiliac Joint Micromotion Under Locomotor and Obstetric Loading Proxies: A Cohort Finite-Element Study  

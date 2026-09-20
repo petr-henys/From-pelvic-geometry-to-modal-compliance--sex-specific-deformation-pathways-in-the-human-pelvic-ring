@@ -1,15 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1789911066.6387 "main.aux" "main.bbl" "main" 1789911067.62162 0
+["bibtex main"] 1789912664.8496 "main.aux" "main.bbl" "main" 1789912693.49475 0
   "./bib/refs.bib" 1789910263.77386 5186 e68bfbe617ff93c11914b16d5f510cea ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1789911067.42584 13436 81dc49edfa4dfeacd34c2b92eadf0075 "pdflatex"
+  "main.aux" 1789912693.27988 13674 78bbc13f383bcbe4124c74de4548ef1a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1789911066.69364 "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/paper_JAnat_SIJ_micromotion/main.tex" "main.pdf" "main" 1789911067.622 0
+["pdflatex"] 1789912692.57246 "main.tex" "main.pdf" "main" 1789912693.49503 0
   "/etc/texmf/web2c/texmf.cnf" 1761816456.53967 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/paper_JAnat_SIJ_micromotion/main.tex" 1789911065.29785 3586 32819c7e7db3e8b364b49499e99b2753 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -189,17 +188,17 @@
   "figures/Fig4_sex_effects_lab.pdf" 1789910720.06302 37402 6935e3115195dec3c9156a9da3bbf061 ""
   "figures/Fig5_variance_channels.pdf" 1789910721.0724 65635 095b87d1a9d5b8ee6e1f4de627229e6a ""
   "figures/Fig6_allometry_loglog.pdf" 1789910724.53265 25190 23d6a208f0f1b8282fd1d413673a9d96 ""
-  "main.aux" 1789911067.42584 13436 81dc49edfa4dfeacd34c2b92eadf0075 "pdflatex"
-  "main.bbl" 1789911066.68935 3782 74933909a97f063a0632e143a536aa4d "bibtex main"
-  "main.out" 1789911067.42672 5055 fedeeb32c4fe42d4a94d03e476c6c352 "pdflatex"
-  "main.tex" 1789911065.29785 3586 32819c7e7db3e8b364b49499e99b2753 ""
-  "sections/abstract.tex" 1789910827.95372 1499 c701856fcaa3506e497a1461928f448e ""
+  "main.aux" 1789912693.27988 13674 78bbc13f383bcbe4124c74de4548ef1a "pdflatex"
+  "main.bbl" 1789912664.89949 3812 37babf56d6551cc0a9ef62510f6638cc "bibtex main"
+  "main.out" 1789912693.28079 6012 85c4e8deff8f28c05931056007cc700e "pdflatex"
+  "main.tex" 1789912692.47259 3558 c0c9efc748854bf7156fc7c03a7cb9b3 ""
+  "sections/abstract.tex" 1789912663.73785 1483 e4dac26da67ac8938496c50cf45c0a03 ""
   "sections/appendix.tex" 1789910932.583 8570 a2a5c0a69a898d0d7e65d46fcf6667bb ""
-  "sections/conclusion.tex" 1789910814.9787 772 ad970f7f8cccd14a363f590a175f0076 ""
-  "sections/discussion.tex" 1789910932.58276 8012 0d0859f375b3d0d8d3e48011ffb87bc1 ""
-  "sections/introduction.tex" 1789909455.81537 3840 04a7fcfe12d31bf15e2c8e8bf3ce7ea9 ""
-  "sections/methods.tex" 1789910778.51585 10733 c11e19aade43224916137e0181529f3b ""
-  "sections/results.tex" 1789910827.95309 10075 7b31d25d0be90a447a65d2ffbbc71dea ""
+  "sections/conclusion.tex" 1789912616.42638 705 ea771dc115705f2e91765240c138e0ec ""
+  "sections/discussion.tex" 1789912616.4261 9246 cce7d7785c5b899be4d7c33567744e76 ""
+  "sections/introduction.tex" 1789912616.42586 3579 a6a4eae356387fc32fee50aab6427044 ""
+  "sections/methods.tex" 1789912663.07445 10883 a94071041632913ff47f7ec6e8f88c9d ""
+  "sections/results.tex" 1789912663.73728 9970 ff75e03907f79fef345fa94b54352303 ""
   "tables/generated/table1_cohort.tex" 1789910784.95764 1134 e74a10e8206d28e3c077a6b4a2608b60 ""
   "tables/generated/table2_loads.tex" 1789910784.95978 725 981d97c30f09d0a236c8cd93009c599f ""
   "tables/generated/table3_micromotion_summary.tex" 1789910784.96231 887 80ac7b61674d43dfeee81eac5dfcd37b ""
