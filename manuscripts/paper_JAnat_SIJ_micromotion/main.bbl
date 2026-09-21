@@ -39,6 +39,20 @@ Efron, B. and Tibshirani, R.~J. (1994).
 \newblock Chapman \& Hall/CRC.
 \newblock DOI: \url{https://doi.org/10.1201/9780429246593}.
 
+\bibitem[Fischer and Mitteroecker, 2015]{Fischer2015}
+Fischer, B. and Mitteroecker, P. (2015).
+\newblock Covariation between human pelvis shape, stature, and head size
+  alleviates the obstetric dilemma.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  112(18):5655--5660.
+\newblock DOI: \url{https://doi.org/10.1073/pnas.1420325112}.
+
+\bibitem[Fischer and Mitteroecker, 2017]{Fischer2017}
+Fischer, B. and Mitteroecker, P. (2017).
+\newblock Allometry and sexual dimorphism in the human pelvis.
+\newblock {\em The Anatomical Record}, 300(4):698--705.
+\newblock DOI: \url{https://doi.org/10.1002/ar.23549}.
+
 \bibitem[Goode et~al., 2008]{Goode2008}
 Goode, A., Hegedus, E.~J., Sizer, P., Brismee, J.-M., Linberg, A., and Cook,
   C.~E. (2008).
@@ -86,6 +100,14 @@ Huseynov, A., Zollikofer, C. P.~E., Coudyzer, W., Gascho, D., Kellenberger, C.,
   113(19):5227--5232.
 \newblock DOI: \url{https://doi.org/10.1073/pnas.1517085113}.
 
+\bibitem[Joukar et~al., 2018]{Joukar2018}
+Joukar, A., Shah, A., Kiapour, A., Vosoughi, A.~S., Duhon, B., Agarwal, A.~K.,
+  Elgafy, H., Ebraheim, N., and Goel, V.~K. (2018).
+\newblock Sex specific sacroiliac joint biomechanics during standing upright: A
+  finite element study.
+\newblock {\em Spine}, 43(18):E1053--E1060.
+\newblock DOI: \url{https://doi.org/10.1097/brs.0000000000002623}.
+
 \bibitem[Kabsch, 1976]{Kabsch1976}
 Kabsch, W. (1976).
 \newblock A solution for the best rotation to relate two sets of vectors.
@@ -105,12 +127,30 @@ MacKinnon, J.~G. and White, H. (1985).
 \newblock {\em Journal of Econometrics}, 29(3):305--325.
 \newblock DOI: \url{https://doi.org/10.1016/0304-4076(85)90158-7}.
 
+\bibitem[Nishi et~al., 2020]{Nishi2020}
+Nishi, K., Saiki, K., Oyamada, J., Okamoto, K., Ogami-Takamura, K., Hasegawa,
+  T., Moriuchi, T., Sakamoto, J., Higashi, T., Tsurumoto, T., and Manabe, Y.
+  (2020).
+\newblock Sex-based differences in human sacroiliac joint shape: a
+  three-dimensional morphological analysis of the iliac auricular surface of
+  modern japanese macerated bones.
+\newblock {\em Anatomical Science International}, 95(2):219--229.
+\newblock DOI: \url{https://doi.org/10.1007/s12565-019-00513-2}.
+
 \bibitem[Pavli{\v c}ev et~al., 2020]{Pavlicev2020}
 Pavli{\v c}ev, M., Romero, R., and Mitteroecker, P. (2020).
 \newblock Evolution of the human pelvis and obstructed labor: new explanations
   of an old obstetrical dilemma.
 \newblock {\em American Journal of Obstetrics and Gynecology}, 222(1):3--16.
 \newblock DOI: \url{https://doi.org/10.1016/j.ajog.2019.06.043}.
+
+\bibitem[Poilliot et~al., 2023]{Poilliot2023}
+Poilliot, A., Hammer, N., Toranelli, M., Doyle, T., Gay-Dujak, M. H.-P., and
+  M{\"u}ller-Gerbl, M. (2023).
+\newblock Influence of size and shape of the auricular surfaces on subchondral
+  bone density distribution in the sacroiliac joint.
+\newblock {\em Journal of Anatomy}, 243(3):475--485.
+\newblock DOI: \url{https://doi.org/10.1111/joa.13857}.
 
 \bibitem[Snijders et~al., 1993]{Snijders1993}
 Snijders, C.~J., Vleeming, A., and Stoeckart, R. (1993).

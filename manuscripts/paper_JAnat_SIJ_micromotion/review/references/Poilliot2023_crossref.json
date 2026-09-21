@@ -1,0 +1,668 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        2,
+        27
+      ]
+    ],
+    "date-time": "2026-02-27T02:51:51Z",
+    "timestamp": 1772160711329,
+    "version": "3.50.1"
+  },
+  "reference-count": 55,
+  "publisher": "Wiley",
+  "issue": "3",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2023,
+            3,
+            9
+          ]
+        ],
+        "date-time": "2023-03-09T00:00:00Z",
+        "timestamp": 1678320000000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+    }
+  ],
+  "content-domain": {
+    "domain": [
+      "onlinelibrary.wiley.com"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [
+    "Journal of Anatomy"
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2023,
+        9
+      ]
+    ]
+  },
+  "abstract": "<jats:title>Abstract</jats:title>\n                  <jats:p>\n                    The sacroiliac auricular surface has a variable morphology and size. The impact of such variations on subchondral mineralization distribution has not been investigated. Sixty\u2010nine datasets were subjected to CT\u2010osteoabsorptiometry for the qualitative visualization of chronic loading conditions of the subchondral bone plate using color\u2010mapped densitograms based on Hounsfield Units in CT. Auricular surface morphologies were classified into three types based on posterior angle size: Type 1: &gt;160\u00b0, Type 2: 130\u2013160\u00b0 and Type 3: &lt;130\u00b0. Auricular surface size was categorized based on the mean value (15.4\u00a0cm\n                    <jats:sup>2</jats:sup>\n                    ) separating the group into \u2018small\u2019 and \u2018large\u2019 joint surfaces. Subchondral bone density patterns were qualitatively classified into four color patterns: two marginal patterns (M1 and M2) and two non\u2010marginal patterns (N1 and N2) and each iliac and sacral surface was subsequently categorized. \u2018Marginal\u2019 meant that 60\u201370% of the surface was less mineralized compared with the highly dense regions and vice versa for the \u2018non\u2010marginal\u2019 patterns. M1 had anterior border mineralization and M2 had mineralization scattered around the borders. N1 had mineralization spread over the whole superior region, N2 had mineralization spread over the superior and anterior regions. Auricular surface area averaged 15.4\u00a0\u00b1\u20093.6\u2009cm\n                    <jats:sup>2</jats:sup>\n                    , with a tendency for males to have larger joint surfaces. Type 2 was the most common (75%) and type 3 the least common morphology (9%). M1 was the most common pattern (62% of surfaces) by sex (males 60%, females 64%) with the anterior border as the densest region in all three morphologies. Sacra have a majority of surfaces with patterns from the marginal group (98%). Ilia have mineralization concentrated at the anterior border (patterns M1 and N2 combined: 83%). Load distribution differences related to auricular surface morphology seems to have little effect on long\u2010term stress\u2010related bone adaptation visualized with CT\u2010osteoabsorptiometry. Higher iliac side mineralization was observed in larger joint surfaces and age\u2010related morphomechanical size alterations were seen in males.\n                  </jats:p>",
+  "DOI": "10.1111/joa.13857",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2023,
+        3,
+        9
+      ]
+    ],
+    "date-time": "2023-03-09T18:29:15Z",
+    "timestamp": 1678386555000
+  },
+  "page": "475-485",
+  "update-policy": "https://doi.org/10.1002/crossmark_policy",
+  "source": "Crossref",
+  "is-referenced-by-count": 3,
+  "title": [
+    "Influence of size and shape of the auricular surfaces on subchondral bone density distribution in the sacroiliac joint"
+  ],
+  "prefix": "10.1111",
+  "volume": "243",
+  "author": [
+    {
+      "ORCID": "https://orcid.org/0000-0003-1835-4344",
+      "authenticated-orcid": false,
+      "given": "Am\u00e9lie",
+      "family": "Poilliot",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Anatomical Institute University of Basel  Basel Switzerland"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0001-8230-9383",
+      "authenticated-orcid": false,
+      "given": "Niels",
+      "family": "Hammer",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center Medical University of Graz  Graz Austria"
+        },
+        {
+          "name": "Department of Orthopedic and Trauma Surgery University of Leipzig  Leipzig Germany"
+        },
+        {
+          "name": "Division of Biomechatronics Fraunhofer Institute for Machine Tools and Forming Technology  Dresden Germany"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Mireille",
+      "family": "Toranelli",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Anatomical Institute University of Basel  Basel Switzerland"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Terence",
+      "family": "Doyle",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "University of Otago School of Medicine  Dunedin New Zealand"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0003-0959-0150",
+      "authenticated-orcid": false,
+      "given": "Max Hans\u2010Peter",
+      "family": "Gay\u2010Dujak",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Anatomical Institute University of Basel  Basel Switzerland"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Magdalena",
+      "family": "M\u00fcller\u2010Gerbl",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Anatomical Institute University of Basel  Basel Switzerland"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    }
+  ],
+  "member": "311",
+  "published-online": {
+    "date-parts": [
+      [
+        2023,
+        3,
+        9
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_2_11_2_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/j.1556-4029.2012.02282.x"
+    },
+    {
+      "key": "e_1_2_11_3_1",
+      "first-page": "667",
+      "article-title": "The sacroiliac problem: review of anatomy, mechanics, and diagnosis",
+      "volume": "81",
+      "author": "Beal M.C.",
+      "year": "1982",
+      "journal-title": "Journal of the American Osteopathic Association"
+    },
+    {
+      "key": "e_1_2_11_4_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0049-0172(83)90011-2"
+    },
+    {
+      "key": "e_1_2_11_5_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.forsciint.2018.10.031"
+    },
+    {
+      "key": "e_1_2_11_6_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.berh.2019.01.016"
+    },
+    {
+      "key": "e_1_2_11_7_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1097/00007632-198111000-00015"
+    },
+    {
+      "key": "e_1_2_11_8_1",
+      "first-page": "299",
+      "article-title": "The sacro\u2010iliac joint",
+      "volume": "58",
+      "author": "Brooke R.",
+      "year": "1923",
+      "journal-title": "Journal of Anatomy"
+    },
+    {
+      "key": "e_1_2_11_9_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1097/00007632-199109000-00017"
+    },
+    {
+      "key": "e_1_2_11_10_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1615/CritRevPhysRehabilMed.v8.i1-2.70"
+    },
+    {
+      "key": "e_1_2_11_11_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.spinee.2019.05.009"
+    },
+    {
+      "key": "e_1_2_11_12_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.emcrad.2004.12.002"
+    },
+    {
+      "key": "e_1_2_11_13_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0021-9290(94)00125-N"
+    },
+    {
+      "key": "e_1_2_11_14_1",
+      "first-page": "184",
+      "article-title": "The influence of sex on the position and composition of the human sacrum",
+      "volume": "46",
+      "author": "Derry D.E.",
+      "year": "1912",
+      "journal-title": "Journal of Anatomy and Physiology"
+    },
+    {
+      "key": "e_1_2_11_15_1",
+      "first-page": "61",
+      "article-title": "The sacroiliac joint: anatomy, physiology and clinical significance",
+      "volume": "9",
+      "author": "Forst S.L.",
+      "year": "2006",
+      "journal-title": "Pain Physician"
+    },
+    {
+      "key": "e_1_2_11_16_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.36076/ppj/2019.22.E615"
+    },
+    {
+      "key": "e_1_2_11_17_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1201/9781003348160"
+    },
+    {
+      "key": "e_1_2_11_18_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/joa.12924"
+    },
+    {
+      "key": "e_1_2_11_19_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.spinee.2013.03.050"
+    },
+    {
+      "key": "e_1_2_11_20_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.aanat.2015.02.007"
+    },
+    {
+      "key": "e_1_2_11_21_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1517085113"
+    },
+    {
+      "key": "e_1_2_11_22_1",
+      "first-page": "E701",
+      "article-title": "3D Morphometric Analysis of Normal Sacroiliac Joints: a New Classification of Surface Shape Variation and the Potential Implications in Pain Syndromes",
+      "volume": "20",
+      "author": "Jesse M.K.",
+      "year": "2017",
+      "journal-title": "Pain Physician"
+    },
+    {
+      "key": "e_1_2_11_23_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s00256-009-0835-2"
+    },
+    {
+      "key": "e_1_2_11_24_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/joa.12446"
+    },
+    {
+      "key": "e_1_2_11_25_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1053/j.jfas.2014.09.035"
+    },
+    {
+      "key": "e_1_2_11_26_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330680103"
+    },
+    {
+      "key": "e_1_2_11_27_1",
+      "first-page": "1",
+      "article-title": "The subchondral bone plate",
+      "volume": "141",
+      "author": "M\u00fcller\u2010Gerbl M.",
+      "year": "1998",
+      "journal-title": "Advances in Anatomy, Embryology, and Cell Biology"
+    },
+    {
+      "key": "e_1_2_11_28_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s12565-016-0354-x"
+    },
+    {
+      "key": "e_1_2_11_29_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s12565-019-00513-2"
+    },
+    {
+      "key": "e_1_2_11_30_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/joa.12765"
+    },
+    {
+      "key": "e_1_2_11_31_1",
+      "first-page": "675",
+      "article-title": "Morphological study of the sacroiliac joint of the aged Japanese and macroscopic and microscopic observations of its articular surface. [Japanese]",
+      "volume": "59",
+      "author": "Ohba S.",
+      "year": "1985",
+      "journal-title": "Journal of the Japanese Orthopaedic Association"
+    },
+    {
+      "key": "e_1_2_11_32_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.2106/JBJS.17.00245"
+    },
+    {
+      "key": "e_1_2_11_33_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1038/s41598-021-88049-2"
+    },
+    {
+      "issue": "14",
+      "key": "e_1_2_11_34_1",
+      "first-page": "935",
+      "article-title": "Quantification of fat in the posterior sacroiliac joint region: fat volume is sex and age dependant",
+      "volume": "9",
+      "author": "Poilliot A.",
+      "year": "2019",
+      "journal-title": "Scientific Reports"
+    },
+    {
+      "key": "e_1_2_11_35_1",
+      "first-page": "1",
+      "article-title": "Auricular surface morphology and surface area does not influence subchondral bone density distribution in the dysfunctional sacroiliac joint",
+      "author": "Poilliot A.",
+      "year": "2022",
+      "journal-title": "Clinical Anatomy"
+    },
+    {
+      "key": "e_1_2_11_36_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.36076/ppj.2021/24/E317"
+    },
+    {
+      "issue": "103",
+      "key": "e_1_2_11_37_1",
+      "first-page": "978",
+      "article-title": "Subchondral bone strength of the sacroiliac joint\u2010 a combined approach using computed tomography osteoabsorptiometry (CT\u2010OAM) imaging and biomechanical validation",
+      "volume": "111",
+      "author": "Poilliot A.",
+      "year": "2020",
+      "journal-title": "JMBBM"
+    },
+    {
+      "issue": "105",
+      "key": "e_1_2_11_38_1",
+      "first-page": "386",
+      "article-title": "Quantification of fat in the posterior sacroiliac joint region applying a semi\u2010automated segmentation method",
+      "volume": "191",
+      "author": "Poilliot A.",
+      "year": "2020",
+      "journal-title": "Computer Methods and Programs in Biomedicine"
+    },
+    {
+      "key": "e_1_2_11_39_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.36076/ppj/2019.22.E247"
+    },
+    {
+      "key": "e_1_2_11_40_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s00256-003-0691-4"
+    },
+    {
+      "key": "e_1_2_11_41_1",
+      "first-page": "583",
+      "article-title": "Anatomic evaluation of the sacroiliac joint: a radiographic study with implications for procedures",
+      "volume": "18",
+      "author": "Rana S.H.",
+      "year": "2015",
+      "journal-title": "Pain Physician"
+    },
+    {
+      "key": "e_1_2_11_42_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.legalmed.2017.03.004"
+    },
+    {
+      "key": "e_1_2_11_43_1",
+      "first-page": "135",
+      "article-title": "Der z\u00fcchtende Kampf der Teile Oder die \u201cTeilauslese\u201d im Organismus, zugleich eine Theorie der funktionellen Anpassung",
+      "volume": "1",
+      "author": "Roux W.",
+      "year": "1881",
+      "journal-title": "Ges. Abh."
+    },
+    {
+      "key": "e_1_2_11_44_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ar.1090720306"
+    },
+    {
+      "key": "e_1_2_11_45_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.36076/ppj.2001/4/143"
+    },
+    {
+      "key": "e_1_2_11_46_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0268-0033(93)90002-Y"
+    },
+    {
+      "key": "e_1_2_11_47_1",
+      "first-page": "1",
+      "article-title": "The sacroiliac joint in the light of anatomical, roentgenological and clinical studies",
+      "volume": "27",
+      "author": "Solonen K.A.",
+      "year": "1957",
+      "journal-title": "Acta Orthopaedica Scandinavica Supplementum"
+    },
+    {
+      "key": "e_1_2_11_48_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ca.980020203"
+    },
+    {
+      "key": "e_1_2_11_49_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/j.1469-7580.2012.01564.x"
+    },
+    {
+      "key": "e_1_2_11_50_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1097/00005131-199312000-00004"
+    },
+    {
+      "key": "e_1_2_11_51_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1097/00003086-198412000-00016"
+    },
+    {
+      "key": "e_1_2_11_52_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1159/000140945"
+    },
+    {
+      "key": "e_1_2_11_53_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/BF01944490"
+    },
+    {
+      "key": "e_1_2_11_54_1",
+      "volume-title": "Das Gesetz der Transformation der Knochen",
+      "author": "Wolff J.",
+      "year": "1892"
+    },
+    {
+      "key": "e_1_2_11_55_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1038/s41598-021-85303-5"
+    },
+    {
+      "key": "e_1_2_11_56_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1097/BTO.0000000000000379"
+    }
+  ],
+  "container-title": [
+    "Journal of Anatomy"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/joa.13857",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://onlinelibrary.wiley.com/doi/full-xml/10.1111/joa.13857",
+      "content-type": "application/xml",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/joa.13857",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2024,
+        7,
+        2
+      ]
+    ],
+    "date-time": "2024-07-02T07:18:45Z",
+    "timestamp": 1719904725000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://onlinelibrary.wiley.com/doi/10.1111/joa.13857"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2023,
+        3,
+        9
+      ]
+    ]
+  },
+  "references-count": 55,
+  "journal-issue": {
+    "issue": "3",
+    "published-print": {
+      "date-parts": [
+        [
+          2023,
+          9
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "10.1111/joa.13857"
+  ],
+  "URL": "https://doi.org/10.1111/joa.13857",
+  "archive": [
+    "Portico"
+  ],
+  "relation": {
+    "has-preprint": [
+      {
+        "id-type": "doi",
+        "id": "10.21203/rs.3.rs-1279953/v1",
+        "asserted-by": "object"
+      }
+    ]
+  },
+  "ISSN": [
+    "0021-8782",
+    "1469-7580"
+  ],
+  "issn-type": [
+    {
+      "value": "0021-8782",
+      "type": "print"
+    },
+    {
+      "value": "1469-7580",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2023,
+        3,
+        9
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2022-12-12",
+      "order": 0,
+      "name": "received",
+      "label": "Received",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2023-02-20",
+      "order": 1,
+      "name": "accepted",
+      "label": "Accepted",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2023-03-09",
+      "order": 2,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

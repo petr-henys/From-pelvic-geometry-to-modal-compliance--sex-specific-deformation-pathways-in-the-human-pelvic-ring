@@ -177,3 +177,7 @@ Zero finite-element models were rerun or recomputed; all adjustments rely strict
 - Rebuilt six figures and supplementary allometry scatterplots; regenerated numerical Results and abstract.
 - Revised hypotheses and conclusions: adjusted LAB sex surplus is unsupported; geometry/material comparisons are restricted and non-additive.
 - Removed demonstrably unrelated references and added prior cohort work. Added Czech review and reproduction instructions.
+
+## 2026-09-21 — Second conceptual revision
+
+Reorganized interpretation around anatomical scale, individual architecture and load path; promoted retrospective conditional size–motion scaling without new tests. Added five verified primary references, dimensional reference lines to manuscript Figure 7 from saved coefficients only, and explicit provenance/data-release TODOs. Linked the verified development repository without implying a manuscript release exists. See `review/second_conceptual_revision_2026-09-21.md` for claim audit, modified files and computation limits.

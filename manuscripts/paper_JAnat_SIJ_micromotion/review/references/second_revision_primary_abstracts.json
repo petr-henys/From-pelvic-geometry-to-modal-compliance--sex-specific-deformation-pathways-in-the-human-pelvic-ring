@@ -1,0 +1,1446 @@
+{
+  "29509655": {
+    "id": "29509655",
+    "source": "MED",
+    "pmid": "29509655",
+    "doi": "10.1097/brs.0000000000002623",
+    "title": "Sex Specific Sacroiliac Joint Biomechanics During Standing Upright: A Finite Element Study.",
+    "authorString": "Joukar A, Shah A, Kiapour A, Vosoughi AS, Duhon B, Agarwal AK, Elgafy H, Ebraheim N, Goel VK.",
+    "authorList": {
+      "author": [
+        {
+          "fullName": "Joukar A",
+          "lastName": "Joukar",
+          "firstName": "Amin",
+          "initials": "A",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Shah A",
+          "lastName": "Shah",
+          "firstName": "Anoli",
+          "initials": "A",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Kiapour A",
+          "lastName": "Kiapour",
+          "firstName": "Ali",
+          "initials": "A",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Vosoughi AS",
+          "lastName": "Vosoughi",
+          "firstName": "Ardalan Seyed",
+          "initials": "AS",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Duhon B",
+          "lastName": "Duhon",
+          "firstName": "Bradley",
+          "initials": "B",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "School of Medicine, University of Colorado, Denver, Colorado."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Agarwal AK",
+          "lastName": "Agarwal",
+          "firstName": "Anand K",
+          "initials": "AK",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Elgafy H",
+          "lastName": "Elgafy",
+          "firstName": "Hossein",
+          "initials": "H",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Ebraheim N",
+          "lastName": "Ebraheim",
+          "firstName": "Nabil",
+          "initials": "N",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Goel VK",
+          "lastName": "Goel",
+          "firstName": "Vijay K",
+          "initials": "VK",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dataLinksTagsList": {
+      "dataLinkstag": [
+        "altmetrics"
+      ]
+    },
+    "journalInfo": {
+      "issue": "18",
+      "volume": "43",
+      "journalIssueId": 2720151,
+      "dateOfPublication": "2018 Sep",
+      "monthOfPublication": 9,
+      "yearOfPublication": 2018,
+      "journal": {
+        "medlineAbbreviation": "Spine (Phila Pa 1976)",
+        "title": "Spine",
+        "essn": "1528-1159",
+        "issn": "0362-2436",
+        "nlmid": "7610646",
+        "isoabbreviation": "Spine (Phila Pa 1976)"
+      },
+      "printPublicationDate": "2018-09-01"
+    },
+    "pubYear": "2018",
+    "pageInfo": "E1053-E1060",
+    "abstractText": "<h4>Study design</h4>The comparison of sacroiliac joint (SIJ) angular motions, pelvis ligaments strain, load sharing, and stress distribution across the joint for male and female spine-pelvis-femur models using finite element analysis.<h4>Objective</h4>To quantify biomechanical parameters at SIJ for all motions for both male and female models.<h4>Summary of background data</h4>SIJ has been recognized as a main source of pain in 13% to 30% of patients with low back pain. It is shown that the SIJ rotation and translation in different planes are not exceeding 2\u00b0 to 3\u00b0 and 2\u200amm, respectively. Due to limitation of in vivo and in vitro studies, it is difficult to quantify certain biomechanical parameters such as load-sharing and stress distribution across the joint. Finite element analysis is a useful tool which can be utilized to understand the biomechanics of the SIJ.<h4>Methods</h4>The validated finite element models of a male and a female lumbar spine-pelvis-femur were developed from computer tomography (CT) scans. The models were used to simulate spine physiological motions. The range of motion, ligament strains, load sharing, and stress distribution across the left and right SIJs were compared between male and female models.<h4>Results</h4>Motions data at SIJs demonstrated that female model experienced 86% higher mobility in flexion, 264% in extension, 143% in left bending, and 228% in right bending compared with the male model. The stresses and loads on SIJs were higher on the female model compared with the male model. Female model ligaments underwent larger strains compared with the male model ligaments.<h4>Conclusion</h4>Female SIJ had higher mobility, stresses, loads, and pelvis ligament strains compared with the male SIJ which led to higher stress across the joint, especially on the sacrum under identical loading conditions. This could be a possible reason for higher incidence of SIJ pain and pelvic stress fracture in females.<h4>Level of evidence</h4>N/A.",
+    "affiliation": "Engineering Center for Orthopaedic Research Excellence (E-CORE), University of Toledo, Toledo, Ohio.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print",
+    "pubTypeList": {
+      "pubType": [
+        "Research Support, U.S. Gov't, Non-P.H.S.",
+        "Journal Article"
+      ]
+    },
+    "meshHeadingList": {
+      "meshHeading": [
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Lumbar Vertebrae",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "DG",
+                "qualifierName": "diagnostic imaging"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "PH",
+                "qualifierName": "physiology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Sacroiliac Joint",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "DG",
+                "qualifierName": "diagnostic imaging"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "PH",
+                "qualifierName": "physiology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Humans"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Low Back Pain",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "DG",
+                "qualifierName": "diagnostic imaging"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "PP",
+                "qualifierName": "physiopathology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Range of Motion, Articular",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "PH",
+                "qualifierName": "physiology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Sex Characteristics"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Posture",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "PH",
+                "qualifierName": "physiology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Finite Element Analysis"
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Models, Anatomic"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Middle Aged"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Female"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Male"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Biomechanical Phenomena",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "PH",
+                "qualifierName": "physiology"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "subsetList": {
+      "subset": [
+        {
+          "code": "IM",
+          "name": "Index Medicus"
+        }
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Subscription required",
+          "availabilityCode": "S",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1097/BRS.0000000000002623"
+        }
+      ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 60,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2018-12-11",
+    "dateOfCreation": "2018-03-07",
+    "dateOfRevision": "2021-01-15",
+    "firstPublicationDate": "2018-09-01",
+    "firstIndexDate": "2018-03-08",
+    "hasEvaluations": "N"
+  },
+  "28297185": {
+    "id": "28297185",
+    "source": "MED",
+    "pmid": "28297185",
+    "doi": "10.1002/ar.23549",
+    "title": "Allometry and Sexual Dimorphism in the Human Pelvis.",
+    "authorString": "Fischer B, Mitteroecker P.",
+    "authorList": {
+      "author": [
+        {
+          "fullName": "Fischer B",
+          "lastName": "Fischer",
+          "firstName": "Barbara",
+          "initials": "B",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0002-4492-8906"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Konrad Lorenz Institute for Evolution and Cognition Research, Martinstrasse 12, Klosterneuburg, 3400, Austria."
+              },
+              {
+                "affiliation": "Department of Theoretical Biology, University of Vienna, Althanstrasse 14, Wien, 1090, Austria."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Mitteroecker P",
+          "lastName": "Mitteroecker",
+          "firstName": "Philipp",
+          "initials": "P",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0002-5308-3837"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Theoretical Biology, University of Vienna, Althanstrasse 14, Wien, 1090, Austria."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "authorIdList": {
+      "authorId": [
+        {
+          "type": "ORCID",
+          "value": "0000-0002-4492-8906"
+        },
+        {
+          "type": "ORCID",
+          "value": "0000-0002-5308-3837"
+        }
+      ]
+    },
+    "journalInfo": {
+      "issue": "4",
+      "volume": "300",
+      "journalIssueId": 2536323,
+      "dateOfPublication": "2017 Apr",
+      "monthOfPublication": 4,
+      "yearOfPublication": 2017,
+      "journal": {
+        "medlineAbbreviation": "Anat Rec (Hoboken)",
+        "title": "Anatomical record (Hoboken, N.J. : 2007)",
+        "essn": "1932-8494",
+        "issn": "1932-8486",
+        "isoabbreviation": "Anat Rec (Hoboken)",
+        "nlmid": "101292775"
+      },
+      "printPublicationDate": "2017-04-01"
+    },
+    "pubYear": "2017",
+    "pageInfo": "698-705",
+    "abstractText": "Sexual dimorphism in the human pelvis has evolved in response to several jointly acting selection regimes that result from the pelvis' multiple roles in locomotion and childbirth, among others. Because human males are, on average, taller than females, some aspects of sexual dimorphism in pelvis shape might result from allometry, the association between stature and pelvis shape across individuals. In this study, they aimed to disentangle and quantify the two components contributing to pelvic sex differences: the allometric component, which emerges as a consequence of dimorphism in stature, and the remaining non-allometric sexual dimorphism component. A geometric morphometric analysis of a dense set of 3D landmarks, measured on 99 female and male adult individuals was conducted. While pelvis size was similar in both sexes, the average differences in pelvis shape reflected the well-documented pattern of sexual dimorphism. There was almost no overlap between females and males in shape space. Their analysis showed that pelvis size and shape were similarly associated with stature in both sexes. It was found that dimorphism in the height-to-width ratio of the pelvis and in the orientation of the iliac blades was largely allometric, whereas dimorphism in the subpubic angle and the relative size and distance of the acetabula was largely non-allometric. It was concluded that, in contrast to the overall pelvic proportions, sexual dimorphism in the birth-relevant pelvic dimensions was mainly of non-allometric origin and was presumably mediated via steroid hormone secretion during puberty. Anat Rec, 300:698-705, 2017. \u00a9 2017 Wiley Periodicals, Inc.",
+    "affiliation": "Konrad Lorenz Institute for Evolution and Cognition Research, Martinstrasse 12, Klosterneuburg, 3400, Austria.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print",
+    "pubTypeList": {
+      "pubType": [
+        "Research Support, Non-U.S. Gov't",
+        "Journal Article"
+      ]
+    },
+    "grantsList": {
+      "grant": [
+        {
+          "agency": "Austrian Science Fund FWF",
+          "acronym": "FWF_",
+          "grantId": "P 29397",
+          "orderIn": 0
+        },
+        {
+          "agency": "Austrian Science Fund FWF",
+          "grantId": "P 29397\u2010B27",
+          "orderIn": 0
+        }
+      ]
+    },
+    "meshHeadingList": {
+      "meshHeading": [
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Pelvic Bones",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Humans"
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Sex Characteristics"
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Sexual Maturation"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Adult"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Female"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Male"
+        }
+      ]
+    },
+    "keywordList": {
+      "keyword": [
+        "Human evolution",
+        "Morphometrics",
+        "Obstetric Dilemma"
+      ]
+    },
+    "subsetList": {
+      "subset": [
+        {
+          "code": "IM",
+          "name": "Index Medicus"
+        }
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Subscription required",
+          "availabilityCode": "S",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1002/ar.23549"
+        }
+      ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 77,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2017-11-03",
+    "dateOfCreation": "2017-03-16",
+    "dateOfRevision": "2025-05-30",
+    "firstPublicationDate": "2017-04-01",
+    "firstIndexDate": "2017-03-16",
+    "hasEvaluations": "N"
+  },
+  "25902498": {
+    "id": "25902498",
+    "source": "MED",
+    "pmid": "25902498",
+    "pmcid": "PMC4426453",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC4426453"
+      ]
+    },
+    "doi": "10.1073/pnas.1420325112",
+    "title": "Covariation between human pelvis shape, stature, and head size alleviates the obstetric dilemma.",
+    "authorString": "Fischer B, Mitteroecker P.",
+    "authorList": {
+      "author": [
+        {
+          "fullName": "Fischer B",
+          "lastName": "Fischer",
+          "firstName": "Barbara",
+          "initials": "B",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0002-4492-8906"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Centre for Ecological and Evolutionary Synthesis, Department of Biosciences, University of Oslo, NO-0316 Oslo, Norway; and Department of Theoretical Biology, University of Vienna, 1090 Vienna, Austria barbara.fischer@ibv.uio.no."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Mitteroecker P",
+          "lastName": "Mitteroecker",
+          "firstName": "Philipp",
+          "initials": "P",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0002-5308-3837"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Theoretical Biology, University of Vienna, 1090 Vienna, Austria."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "authorIdList": {
+      "authorId": [
+        {
+          "type": "ORCID",
+          "value": "0000-0002-4492-8906"
+        },
+        {
+          "type": "ORCID",
+          "value": "0000-0002-5308-3837"
+        }
+      ]
+    },
+    "dataLinksTagsList": {
+      "dataLinkstag": [
+        "supporting_data",
+        "related_data",
+        "wikipedia"
+      ]
+    },
+    "journalInfo": {
+      "issue": "18",
+      "volume": "112",
+      "journalIssueId": 2281644,
+      "dateOfPublication": "2015 May",
+      "monthOfPublication": 5,
+      "yearOfPublication": 2015,
+      "journal": {
+        "medlineAbbreviation": "Proc Natl Acad Sci U S A",
+        "title": "Proceedings of the National Academy of Sciences of the United States of America",
+        "essn": "1091-6490",
+        "issn": "0027-8424",
+        "nlmid": "7505876",
+        "isoabbreviation": "Proc Natl Acad Sci U S A"
+      },
+      "printPublicationDate": "2015-05-01"
+    },
+    "pubYear": "2015",
+    "pageInfo": "5655-5660",
+    "abstractText": "Compared with other primates, childbirth is remarkably difficult in humans because the head of a human neonate is large relative to the birth-relevant dimensions of the maternal pelvis. It seems puzzling that females have not evolved wider pelvises despite the high maternal mortality and morbidity risk connected to childbirth. Despite this seeming lack of change in average pelvic morphology, we show that humans have evolved a complex link between pelvis shape, stature, and head circumference that was not recognized before. The identified covariance patterns contribute to ameliorate the \"obstetric dilemma.\" Females with a large head, who are likely to give birth to neonates with a large head, possess birth canals that are shaped to better accommodate large-headed neonates. Short females with an increased risk of cephalopelvic mismatch possess a rounder inlet, which is beneficial for obstetrics. We suggest that these covariances have evolved by the strong correlational selection resulting from childbirth. Although males are not subject to obstetric selection, they also show part of these association patterns, indicating a genetic-developmental origin of integration.",
+    "affiliation": "Centre for Ecological and Evolutionary Synthesis, Department of Biosciences, University of Oslo, NO-0316 Oslo, Norway; and Department of Theoretical Biology, University of Vienna, 1090 Vienna, Austria barbara.fischer@ibv.uio.no.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+      "pubType": [
+        "Research Support, Non-U.S. Gov't",
+        "research-article",
+        "Journal Article"
+      ]
+    },
+    "meshHeadingList": {
+      "meshHeading": [
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Head",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Pelvis",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Humans"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Imaging, Three-Dimensional"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Body Height"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Regression Analysis"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Obstetrics",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "MT",
+                "qualifierName": "methods"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Pregnancy"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Parturition"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Sex Characteristics"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Anthropology, Physical"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Models, Anatomic"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Image Processing, Computer-Assisted"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Software"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Female"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Male"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Biological Evolution"
+        }
+      ]
+    },
+    "keywordList": {
+      "keyword": [
+        "Evolution",
+        "Morphometrics",
+        "Pelvis",
+        "Correlational Selection",
+        "Obstetric Dilemma"
+      ]
+    },
+    "subsetList": {
+      "subset": [
+        {
+          "code": "IM",
+          "name": "Index Medicus"
+        }
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Subscription required",
+          "availabilityCode": "S",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1073/pnas.1420325112"
+        },
+        {
+          "availability": "Free",
+          "availabilityCode": "F",
+          "documentStyle": "html",
+          "site": "Europe_PMC",
+          "url": "https://europepmc.org/articles/PMC4426453"
+        },
+        {
+          "availability": "Free",
+          "availabilityCode": "F",
+          "documentStyle": "pdf",
+          "site": "Europe_PMC",
+          "url": "https://europepmc.org/articles/PMC4426453?pdf=render"
+        },
+        {
+          "availability": "Free",
+          "availabilityCode": "F",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1073/pnas.1420325112"
+        }
+      ]
+    },
+    "commentCorrectionList": {
+      "commentCorrection": [
+        {
+          "source": "MED",
+          "id": "26755587",
+          "reference": "Proc Natl Acad Sci U S A. 2016 Jan 19;113(3):E259. doi: 10.1073/pnas.1520865113",
+          "type": "Comment in",
+          "orderIn": 1
+        },
+        {
+          "source": "MED",
+          "id": "26755595",
+          "reference": "Proc Natl Acad Sci U S A. 2016 Jan 19;113(3):E258. doi: 10.1073/pnas.1517524113",
+          "type": "Comment in",
+          "orderIn": 2
+        }
+      ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 80,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasData": "Y",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "doi"
+      ]
+    },
+    "dateOfCompletion": "2015-08-04",
+    "dateOfCreation": "2015-04-23",
+    "dateOfRevision": "2024-05-14",
+    "electronicPublicationDate": "2015-04-20",
+    "firstPublicationDate": "2015-04-20",
+    "firstIndexDate": "2015-04-27",
+    "fullTextReceivedDate": "2025-02-05",
+    "hasEvaluations": "N"
+  },
+  "31792910": {
+    "id": "31792910",
+    "source": "MED",
+    "pmid": "31792910",
+    "doi": "10.1007/s12565-019-00513-2",
+    "title": "Sex-based differences in human sacroiliac joint shape: a three-dimensional morphological analysis of the iliac auricular surface of modern Japanese macerated bones.",
+    "authorString": "Nishi K, Saiki K, Oyamada J, Okamoto K, Ogami-Takamura K, Hasegawa T, Moriuchi T, Sakamoto J, Higashi T, Tsurumoto T, Manabe Y.",
+    "authorList": {
+      "author": [
+        {
+          "fullName": "Nishi K",
+          "lastName": "Nishi",
+          "firstName": "Keita",
+          "initials": "K",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0001-6767-5801"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Oral Anatomy and Dental Anthropology, Graduate School of Biomedical Sciences, Nagasaki University, Sakamoto 1-7-1, Nagasaki, 852-8588, Japan. k-nishi@nagasaki-u.ac.jp."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Saiki K",
+          "lastName": "Saiki",
+          "firstName": "Kazunobu",
+          "initials": "K",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Macroscopic Anatomy, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Oyamada J",
+          "lastName": "Oyamada",
+          "firstName": "Joichi",
+          "initials": "J",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Oral Anatomy and Dental Anthropology, Graduate School of Biomedical Sciences, Nagasaki University, Sakamoto 1-7-1, Nagasaki, 852-8588, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Okamoto K",
+          "lastName": "Okamoto",
+          "firstName": "Keishi",
+          "initials": "K",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Macroscopic Anatomy, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Ogami-Takamura K",
+          "lastName": "Ogami-Takamura",
+          "firstName": "Keiko",
+          "initials": "K",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Macroscopic Anatomy, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Hasegawa T",
+          "lastName": "Hasegawa",
+          "firstName": "Takashi",
+          "initials": "T",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Community-Based Rehabilitation Sciences, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Moriuchi T",
+          "lastName": "Moriuchi",
+          "firstName": "Takefumi",
+          "initials": "T",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Occupational Therapy Science, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Sakamoto J",
+          "lastName": "Sakamoto",
+          "firstName": "Junya",
+          "initials": "J",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Physical Therapy Science, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Higashi T",
+          "lastName": "Higashi",
+          "firstName": "Toshio",
+          "initials": "T",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Community-Based Rehabilitation Sciences, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Tsurumoto T",
+          "lastName": "Tsurumoto",
+          "firstName": "Toshiyuki",
+          "initials": "T",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Macroscopic Anatomy, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, Japan."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Manabe Y",
+          "lastName": "Manabe",
+          "firstName": "Yoshitaka",
+          "initials": "Y",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Department of Oral Anatomy and Dental Anthropology, Graduate School of Biomedical Sciences, Nagasaki University, Sakamoto 1-7-1, Nagasaki, 852-8588, Japan."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "authorIdList": {
+      "authorId": [
+        {
+          "type": "ORCID",
+          "value": "0000-0001-6767-5801"
+        }
+      ]
+    },
+    "journalInfo": {
+      "issue": "2",
+      "volume": "95",
+      "journalIssueId": 2912484,
+      "dateOfPublication": "2020 Mar",
+      "monthOfPublication": 3,
+      "yearOfPublication": 2020,
+      "journal": {
+        "medlineAbbreviation": "Anat Sci Int",
+        "title": "Anatomical science international",
+        "essn": "1447-073X",
+        "issn": "1447-6959",
+        "isoabbreviation": "Anat Sci Int",
+        "nlmid": "101154140"
+      },
+      "printPublicationDate": "2020-03-01"
+    },
+    "pubYear": "2020",
+    "pageInfo": "219-229",
+    "abstractText": "The human pelvis is one of the skeletons where sex differences are expressed, but few detailed studies have been conducted on sex-related differences in the sacroiliac joint morphology. Therefore, we conducted a three-dimensional morphological analysis evaluation of the sacroiliac joints to clarify the sex-related difference of the joint's morphology. Right-side macerated innominate bones of Japanese males (n\u2009=\u2009100) and females (n\u2009=\u200970) whose ages at death were recorded were included in the study. Three-dimensional images were created from the subjects' iliac auricular surface images, and 16 measurement parameters were acquired on the basis of 11 defined measurement points. All measurement parameters were compared between the male and female groups. The values of the measurement parameters indicating the size of the iliac auricular surface were significantly larger in the male group than in the female group. In addition, the angle between the short and long arms of the auricular surface was larger in the male group. Furthermore, on the basis of the corrected values of the physical disparity, the long arm dimension of the iliac auricular surface was larger in the male group, while the short arm dimension was larger in the female group. The sex-based differences in the iliac auricular surface morphology that were confirmed in this study may reflect the sex-based differences in the sacroiliac joint function. The findings of this study may contribute to the elucidation of the pathophysiology of the sacroiliac joint dysfunction that frequently occurs in women.",
+    "affiliation": "Department of Oral Anatomy and Dental Anthropology, Graduate School of Biomedical Sciences, Nagasaki University, Sakamoto 1-7-1, Nagasaki, 852-8588, Japan. k-nishi@nagasaki-u.ac.jp.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+      "pubType": [
+        "Journal Article"
+      ]
+    },
+    "meshHeadingList": {
+      "meshHeading": [
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Ilium",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Sacroiliac Joint",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Humans"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Imaging, Three-Dimensional",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "MT",
+                "qualifierName": "methods"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Anatomy",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "Y",
+                "abbreviation": "MT",
+                "qualifierName": "methods"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Sex Characteristics"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Female"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Male"
+        }
+      ]
+    },
+    "keywordList": {
+      "keyword": [
+        "Sacroiliac Joint",
+        "Auricular Surface",
+        "Three-dimensional Morphological Analysis",
+        "Modern Japanese Macerated Bones",
+        "Morphological Sex Differences"
+      ]
+    },
+    "subsetList": {
+      "subset": [
+        {
+          "code": "IM",
+          "name": "Index Medicus"
+        }
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Subscription required",
+          "availabilityCode": "S",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1007/s12565-019-00513-2"
+        }
+      ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 11,
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2020-09-11",
+    "dateOfCreation": "2019-12-04",
+    "dateOfRevision": "2020-09-11",
+    "electronicPublicationDate": "2019-12-02",
+    "firstPublicationDate": "2019-12-02",
+    "firstIndexDate": "2019-12-04",
+    "hasEvaluations": "N"
+  },
+  "36893752": {
+    "id": "36893752",
+    "source": "MED",
+    "pmid": "36893752",
+    "pmcid": "PMC10439371",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC10439371"
+      ]
+    },
+    "doi": "10.1111/joa.13857",
+    "title": "Influence of size and shape of the auricular surfaces on subchondral bone density distribution in the sacroiliac joint.",
+    "authorString": "Poilliot A, Hammer N, Toranelli M, Doyle T, Gay-Dujak MH, M\u00fcller-Gerbl M.",
+    "authorList": {
+      "author": [
+        {
+          "fullName": "Poilliot A",
+          "lastName": "Poilliot",
+          "firstName": "Am\u00e9lie",
+          "initials": "A",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0003-1835-4344"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Anatomical Institute, University of Basel, Basel, Switzerland."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Hammer N",
+          "lastName": "Hammer",
+          "firstName": "Niels",
+          "initials": "N",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0001-8230-9383"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Division of Macroscopic and Clinical Anatomy, Gottfried Schatz Research Center, Medical University of Graz, Graz, Austria."
+              },
+              {
+                "affiliation": "Department of Orthopedic and Trauma Surgery, University of Leipzig, Leipzig, Germany."
+              },
+              {
+                "affiliation": "Division of Biomechatronics, Fraunhofer Institute for Machine Tools and Forming Technology, Dresden, Germany."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Toranelli M",
+          "lastName": "Toranelli",
+          "firstName": "Mireille",
+          "initials": "M",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Anatomical Institute, University of Basel, Basel, Switzerland."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Doyle T",
+          "lastName": "Doyle",
+          "firstName": "Terence",
+          "initials": "T",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "University of Otago School of Medicine, Dunedin, New Zealand."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "Gay-Dujak MH",
+          "lastName": "Gay-Dujak",
+          "firstName": "Max Hans-Peter",
+          "initials": "MH",
+          "authorId": {
+            "type": "ORCID",
+            "value": "0000-0003-0959-0150"
+          },
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Anatomical Institute, University of Basel, Basel, Switzerland."
+              }
+            ]
+          }
+        },
+        {
+          "fullName": "M\u00fcller-Gerbl M",
+          "lastName": "M\u00fcller-Gerbl",
+          "firstName": "Magdalena",
+          "initials": "M",
+          "authorAffiliationDetailsList": {
+            "authorAffiliation": [
+              {
+                "affiliation": "Anatomical Institute, University of Basel, Basel, Switzerland."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "authorIdList": {
+      "authorId": [
+        {
+          "type": "ORCID",
+          "value": "0000-0001-8230-9383"
+        },
+        {
+          "type": "ORCID",
+          "value": "0000-0003-0959-0150"
+        },
+        {
+          "type": "ORCID",
+          "value": "0000-0003-1835-4344"
+        }
+      ]
+    },
+    "dataLinksTagsList": {
+      "dataLinkstag": [
+        "altmetrics",
+        "supporting_data"
+      ]
+    },
+    "journalInfo": {
+      "issue": "3",
+      "volume": "243",
+      "journalIssueId": 3615961,
+      "dateOfPublication": "2023 Sep",
+      "monthOfPublication": 9,
+      "yearOfPublication": 2023,
+      "journal": {
+        "medlineAbbreviation": "J Anat",
+        "title": "Journal of anatomy",
+        "essn": "1469-7580",
+        "issn": "0021-8782",
+        "nlmid": "0137162",
+        "isoabbreviation": "J Anat"
+      },
+      "printPublicationDate": "2023-09-01"
+    },
+    "pubYear": "2023",
+    "pageInfo": "475-485",
+    "abstractText": "The sacroiliac auricular surface has a variable morphology and size. The impact of such variations on subchondral mineralization distribution has not been investigated. Sixty-nine datasets were subjected to CT-osteoabsorptiometry for the qualitative visualization of chronic loading conditions of the subchondral bone plate using color-mapped densitograms based on Hounsfield Units in CT. Auricular surface morphologies were classified into three types based on posterior angle size: Type 1: >160\u00b0, Type 2: 130-160\u00b0 and Type 3: <130\u00b0. Auricular surface size was categorized based on the mean value (15.4\u00a0cm<sup>2</sup> ) separating the group into 'small' and 'large' joint surfaces. Subchondral bone density patterns were qualitatively classified into four color patterns: two marginal patterns (M1 and M2) and two non-marginal patterns (N1 and N2) and each iliac and sacral surface was subsequently categorized. 'Marginal' meant that 60-70% of the surface was less mineralized compared with the highly dense regions and vice versa for the 'non-marginal' patterns. M1 had anterior border mineralization and M2 had mineralization scattered around the borders. N1 had mineralization spread over the whole superior region, N2 had mineralization spread over the superior and anterior regions. Auricular surface area averaged 15.4\u00a0\u00b1\u20093.6\u2009cm<sup>2</sup> , with a tendency for males to have larger joint surfaces. Type 2 was the most common (75%) and type 3 the least common morphology (9%). M1 was the most common pattern (62% of surfaces) by sex (males 60%, females 64%) with the anterior border as the densest region in all three morphologies. Sacra have a majority of surfaces with patterns from the marginal group (98%). Ilia have mineralization concentrated at the anterior border (patterns M1 and N2 combined: 83%). Load distribution differences related to auricular surface morphology seems to have little effect on long-term stress-related bone adaptation visualized with CT-osteoabsorptiometry. Higher iliac side mineralization was observed in larger joint surfaces and age-related morphomechanical size alterations were seen in males.",
+    "affiliation": "Anatomical Institute, University of Basel, Basel, Switzerland.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+      "pubType": [
+        "research-article",
+        "Journal Article"
+      ]
+    },
+    "meshHeadingList": {
+      "meshHeading": [
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Ilium"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Sacrum"
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Sacroiliac Joint",
+          "meshQualifierList": {
+            "meshQualifier": [
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "DG",
+                "qualifierName": "diagnostic imaging"
+              },
+              {
+                "majorTopic_YN": "N",
+                "abbreviation": "AH",
+                "qualifierName": "anatomy & histology"
+              }
+            ]
+          }
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Humans"
+        },
+        {
+          "majorTopic_YN": "Y",
+          "descriptorName": "Bone Density"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Female"
+        },
+        {
+          "majorTopic_YN": "N",
+          "descriptorName": "Male"
+        }
+      ]
+    },
+    "keywordList": {
+      "keyword": [
+        "Morphology",
+        "bone mineral density",
+        "computed tomography",
+        "Sacroiliac Joint",
+        "Bone Mineralization",
+        "Hounsfield Unit",
+        "Subchondral Bone Plate",
+        "Osteoabsorptiometry"
+      ]
+    },
+    "subsetList": {
+      "subset": [
+        {
+          "code": "IM",
+          "name": "Index Medicus"
+        }
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Subscription required",
+          "availabilityCode": "S",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1111/joa.13857"
+        },
+        {
+          "availability": "Open access",
+          "availabilityCode": "OA",
+          "documentStyle": "html",
+          "site": "Europe_PMC",
+          "url": "https://europepmc.org/articles/PMC10439371"
+        },
+        {
+          "availability": "Open access",
+          "availabilityCode": "OA",
+          "documentStyle": "pdf",
+          "site": "Europe_PMC",
+          "url": "https://europepmc.org/articles/PMC10439371?pdf=render"
+        }
+      ]
+    },
+    "commentCorrectionList": {
+      "commentCorrection": [
+        {
+          "source": "PPR",
+          "id": "PPR450659",
+          "type": "Preprint in",
+          "note": "CrossRef Pre-print loader",
+          "orderIn": 10002
+        }
+      ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 3,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasData": "Y",
+    "license": "cc by-nc-nd",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2023-08-21",
+    "dateOfCreation": "2023-03-09",
+    "dateOfRevision": "2023-08-23",
+    "electronicPublicationDate": "2023-03-09",
+    "firstPublicationDate": "2023-03-09",
+    "firstIndexDate": "2023-03-10",
+    "fullTextReceivedDate": "2023-08-24",
+    "hasEvaluations": "N"
+  }
+}

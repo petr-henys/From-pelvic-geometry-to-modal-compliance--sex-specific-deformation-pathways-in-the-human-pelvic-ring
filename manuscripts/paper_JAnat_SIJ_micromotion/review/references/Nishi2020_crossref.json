@@ -1,0 +1,966 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        7,
+        16
+      ]
+    ],
+    "date-time": "2026-07-16T18:42:04Z",
+    "timestamp": 1784227324955,
+    "version": "3.55.0"
+  },
+  "reference-count": 55,
+  "publisher": "Springer Science and Business Media LLC",
+  "issue": "2",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2019,
+            12,
+            2
+          ]
+        ],
+        "date-time": "2019-12-02T00:00:00Z",
+        "timestamp": 1575244800000
+      },
+      "content-version": "tdm",
+      "delay-in-days": 0,
+      "URL": "http://www.springer.com/tdm"
+    },
+    {
+      "start": {
+        "date-parts": [
+          [
+            2019,
+            12,
+            2
+          ]
+        ],
+        "date-time": "2019-12-02T00:00:00Z",
+        "timestamp": 1575244800000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://www.springer.com/tdm"
+    }
+  ],
+  "content-domain": {
+    "domain": [
+      "link.springer.com"
+    ],
+    "crossmark-restriction": false
+  },
+  "short-container-title": [
+    "Anat Sci Int"
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2020,
+        3
+      ]
+    ]
+  },
+  "DOI": "10.1007/s12565-019-00513-2",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2019,
+        12,
+        2
+      ]
+    ],
+    "date-time": "2019-12-02T12:22:31Z",
+    "timestamp": 1575289351000
+  },
+  "page": "219-229",
+  "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+  "source": "Crossref",
+  "is-referenced-by-count": 11,
+  "title": [
+    "Sex-based differences in human sacroiliac joint shape: a three-dimensional morphological analysis of the iliac auricular surface of modern Japanese macerated bones"
+  ],
+  "prefix": "10.1007",
+  "volume": "95",
+  "author": [
+    {
+      "ORCID": "https://orcid.org/0000-0001-6767-5801",
+      "authenticated-orcid": false,
+      "given": "Keita",
+      "family": "Nishi",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Kazunobu",
+      "family": "Saiki",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Joichi",
+      "family": "Oyamada",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Keishi",
+      "family": "Okamoto",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Keiko",
+      "family": "Ogami-Takamura",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Takashi",
+      "family": "Hasegawa",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Takefumi",
+      "family": "Moriuchi",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Junya",
+      "family": "Sakamoto",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Toshio",
+      "family": "Higashi",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Toshiyuki",
+      "family": "Tsurumoto",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yoshitaka",
+      "family": "Manabe",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "297",
+  "published-online": {
+    "date-parts": [
+      [
+        2019,
+        12,
+        2
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "513_CR1",
+      "first-page": "242",
+      "volume": "41",
+      "author": "MM Abitbol",
+      "year": "1996",
+      "unstructured": "Abitbol MM (1996) The shapes of the female pelvis. Contributing factors. J Reprod Med 41:242\u2013250",
+      "journal-title": "J Reprod Med"
+    },
+    {
+      "key": "513_CR2",
+      "first-page": "244",
+      "volume-title": "an introduction to human evolutionary anatomy",
+      "author": "LC Aiello",
+      "year": "1990",
+      "unstructured": "Aiello LC, Dean C (1990) Bipedal locomotion and the postcranial skeleton. an introduction to human evolutionary anatomy. Elsevier, San Diego, pp 244\u2013274"
+    },
+    {
+      "key": "513_CR3",
+      "doi-asserted-by": "publisher",
+      "first-page": "234",
+      "DOI": "10.1002/ca.22233",
+      "volume": "27",
+      "author": "PJ Barker",
+      "year": "2014",
+      "unstructured": "Barker PJ, Hapuarachchi KS, Ross JA et al (2014) Anatomy and biomechanics of gluteus maximus and the thoracolumbar fascia at the sacroiliac joint. Clin Anat 27:234\u2013240. https://doi.org/10.1002/ca.22233",
+      "journal-title": "Clin Anat"
+    },
+    {
+      "key": "513_CR4",
+      "doi-asserted-by": "publisher",
+      "first-page": "282",
+      "DOI": "10.1016/0049-0172(83)90011-2",
+      "volume": "12",
+      "author": "N Bellamy",
+      "year": "1983",
+      "unstructured": "Bellamy N, Parl W, Rooney P (1983) What do we know about the sacroiliac joint? Semin Arthritis Rheum 12:282\u2013313",
+      "journal-title": "Semin Arthritis Rheum"
+    },
+    {
+      "key": "513_CR5",
+      "doi-asserted-by": "publisher",
+      "first-page": "620",
+      "DOI": "10.1097/00007632-198111000-00015",
+      "volume": "6",
+      "author": "V Bowen",
+      "year": "1981",
+      "unstructured": "Bowen V, Cassidy J (1981) Macroscopic and microscopic anatomy of the sacroiliac joint from embryonic life to the eighth decade. Spine 6:620\u2013628 (Phila Pa 1976)",
+      "journal-title": "Spine"
+    },
+    {
+      "key": "513_CR6",
+      "first-page": "409",
+      "volume": "18",
+      "author": "C Braune",
+      "year": "1892",
+      "unstructured": "Braune C, Fischer O (1892) Bestimmung der Tragheitsmomente des menschlichen Korpers und seine Glieder. Abhandl Math Phys Kl Sachs Ges Wiss 18:409",
+      "journal-title": "Abhandl Math Phys Kl Sachs Ges Wiss"
+    },
+    {
+      "key": "513_CR7",
+      "first-page": "299",
+      "volume": "58",
+      "author": "R Brooke",
+      "year": "1924",
+      "unstructured": "Brooke R (1924) The sacro-iliac joint. J Anat 58:299\u2013305",
+      "journal-title": "J Anat"
+    },
+    {
+      "key": "513_CR8",
+      "doi-asserted-by": "publisher",
+      "first-page": "231",
+      "DOI": "10.1002/ajpa.10130",
+      "volume": "119",
+      "author": "JL Buckberry",
+      "year": "2002",
+      "unstructured": "Buckberry JL, Chamberlain AT (2002) Age estimation from the auricular surface of the ilium: a revised method. Am J Phys Anthropol 119:231\u2013239. https://doi.org/10.1002/ajpa.10130",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR9",
+      "doi-asserted-by": "publisher",
+      "first-page": "121",
+      "DOI": "10.1136/ard.21.2.121",
+      "volume": "21",
+      "author": "M Carter",
+      "year": "1962",
+      "unstructured": "Carter M, Loewi G (1962) Anatomical changes in normal sacroiliac joints during childhood and comparison with the changes in Still\u2019s disease. Ann Rheum Dis 21:121\u2013134",
+      "journal-title": "Ann Rheum Dis"
+    },
+    {
+      "key": "513_CR10",
+      "doi-asserted-by": "publisher",
+      "first-page": "715",
+      "DOI": "10.1016/0021-9290(94)00125-N",
+      "volume": "28",
+      "author": "M Dalstra",
+      "year": "1995",
+      "unstructured": "Dalstra M, Huiskes R (1995) Load transfer across the pelvic bone. J Biomech 28:715\u2013724. https://doi.org/10.1016/0021-9290(94)00125-N",
+      "journal-title": "J Biomech"
+    },
+    {
+      "key": "513_CR11",
+      "doi-asserted-by": "publisher",
+      "first-page": "635",
+      "DOI": "10.1055/s-2008-1047093",
+      "volume": "150",
+      "author": "PF Dijkstra",
+      "year": "1989",
+      "unstructured": "Dijkstra PF, Vleeming A, Stoeckart R (1989) Complex motion tomography of the sacroiliac joint. An anatomical and roentgenological study. Rofo 150:635\u2013642. https://doi.org/10.1055/s-2008-1047093",
+      "journal-title": "Rofo"
+    },
+    {
+      "key": "513_CR12",
+      "doi-asserted-by": "publisher",
+      "first-page": "55",
+      "DOI": "10.1146/annurev-anthro-102214-013918",
+      "volume": "44",
+      "author": "H Dunsworth",
+      "year": "2015",
+      "unstructured": "Dunsworth H, Eccleston L (2015) The evolution of difficult childbirth and helpless hominin infants. Annu Rev Anthropol 44:55\u201369. https://doi.org/10.1146/annurev-anthro-102214-013918",
+      "journal-title": "Annu Rev Anthropol"
+    },
+    {
+      "key": "513_CR13",
+      "doi-asserted-by": "publisher",
+      "first-page": "252",
+      "DOI": "10.1097/00003086-200303000-00033",
+      "volume": "408",
+      "author": "NA Ebraheim",
+      "year": "2003",
+      "unstructured": "Ebraheim NA, Biyani A (2003) Percutaneous computed tomographic stabilization of the pathologic sacroiliac joint. Clin Orthop Relat Res 408:252\u2013255. https://doi.org/10.1097/00003086-200303000-00033",
+      "journal-title": "Clin Orthop Relat Res"
+    },
+    {
+      "key": "513_CR14",
+      "doi-asserted-by": "publisher",
+      "first-page": "E1446",
+      "DOI": "10.1097/BRS.0b013e31820bc705",
+      "volume": "36",
+      "author": "PH Eichenseer",
+      "year": "2011",
+      "unstructured": "Eichenseer PH, Sybert DR, Cotton JR (2011) A finite element analysis of sacroiliac joint ligaments in response to different loading conditions. Spine 36:E1446\u2013E1452. https://doi.org/10.1097/BRS.0b013e31820bc705(Phila Pa 1976)",
+      "journal-title": "Spine"
+    },
+    {
+      "key": "513_CR15",
+      "doi-asserted-by": "publisher",
+      "first-page": "698",
+      "DOI": "10.1002/ar.23549",
+      "volume": "300",
+      "author": "B Fischer",
+      "year": "2017",
+      "unstructured": "Fischer B, Mitteroecker P (2017) Allometry and sexual dimorphism in the human pelvis. Anat Rec 300:698\u2013705. https://doi.org/10.1002/ar.23549",
+      "journal-title": "Anat Rec"
+    },
+    {
+      "key": "513_CR16",
+      "doi-asserted-by": "publisher",
+      "first-page": "324",
+      "DOI": "10.1002/ajpa.20081",
+      "volume": "128",
+      "author": "Y Igarashi",
+      "year": "2005",
+      "unstructured": "Igarashi Y, Uesu K, Wakebe T, Kanazawa E (2005) New method for estimation of adult skeletal age at death from the morphology of the auricular surface of the ilium. Am J Phys Anthropol 128:324\u2013339. https://doi.org/10.1002/ajpa.20081",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR17",
+      "first-page": "E701",
+      "volume": "20",
+      "author": "MK Jesse",
+      "year": "2017",
+      "unstructured": "Jesse MK, Kleck C, Williams A et al (2017) 3D morphometric analysis of normal sacroiliac joints: a new classification of surface shape variation and the potential implications in pain syndromes. Pain Physician 20:E701\u2013e709",
+      "journal-title": "Pain Physician"
+    },
+    {
+      "issue": "18",
+      "key": "513_CR18",
+      "doi-asserted-by": "publisher",
+      "first-page": "E1053",
+      "DOI": "10.1097/BRS.0000000000002623",
+      "volume": "43",
+      "author": "A Joukar",
+      "year": "2018",
+      "unstructured": "Joukar A, Shah A, Kiapour A et al (2018) Gender specific sacroiliac joint biomechanics during standing upright. Spine 43(18):E1053\u2013E1060. https://doi.org/10.1097/BRS.0000000000002623(Phila Pa 1976)",
+      "journal-title": "Spine"
+    },
+    {
+      "key": "513_CR19",
+      "doi-asserted-by": "publisher",
+      "first-page": "1577",
+      "DOI": "10.1002/jor.22119",
+      "volume": "30",
+      "author": "A Kiapour",
+      "year": "2012",
+      "unstructured": "Kiapour A, Abdelgawad AA, Goel VK et al (2012) Relationship between limb length discrepancy and load distribution across the sacroiliac joint\u2014a finite element study. J Orthop Res 30:1577\u20131580. https://doi.org/10.1002/jor.22119",
+      "journal-title": "J Orthop Res"
+    },
+    {
+      "key": "513_CR20",
+      "doi-asserted-by": "publisher",
+      "first-page": "631",
+      "DOI": "10.1016/j.jhevol.2011.07.006",
+      "volume": "61",
+      "author": "HK Kurki",
+      "year": "2011",
+      "unstructured": "Kurki HK (2011) Pelvic dimorphism in relation to body size and body size dimorphism in humans. J Hum Evol 61:631\u2013643. https://doi.org/10.1016/j.jhevol.2011.07.006",
+      "journal-title": "J Hum Evol"
+    },
+    {
+      "key": "513_CR21",
+      "doi-asserted-by": "publisher",
+      "first-page": "633",
+      "DOI": "10.1002/ar.23552",
+      "volume": "300",
+      "author": "CL Lewis",
+      "year": "2017",
+      "unstructured": "Lewis CL, Laudicina NM, Khuu A, Loverro KL (2017) The human pelvis: variation in structure and function during gait. Anat Rec 300:633\u2013642. https://doi.org/10.1002/ar.23552",
+      "journal-title": "Anat Rec"
+    },
+    {
+      "key": "513_CR22",
+      "first-page": "118",
+      "volume": "259",
+      "author": "CO Lovejoy",
+      "year": "1988",
+      "unstructured": "Lovejoy CO (1988) Evolution of human walking. SciAm 259:118\u2013125",
+      "journal-title": "SciAm"
+    },
+    {
+      "key": "513_CR23",
+      "doi-asserted-by": "publisher",
+      "first-page": "95",
+      "DOI": "10.1016/j.gaitpost.2004.01.001",
+      "volume": "21",
+      "author": "CO Lovejoy",
+      "year": "2005",
+      "unstructured": "Lovejoy CO (2005) The natural history of human gait and posture Part 1. Spine and pelvis. Gait Posture 21:95\u2013112. https://doi.org/10.1016/j.gaitpost.2004.01.001",
+      "journal-title": "Gait Posture"
+    },
+    {
+      "key": "513_CR24",
+      "doi-asserted-by": "publisher",
+      "first-page": "15",
+      "DOI": "10.1002/ajpa.1330680103",
+      "volume": "68",
+      "author": "CO Lovejoy",
+      "year": "1985",
+      "unstructured": "Lovejoy CO, Meindl RS, Pryzbeck TR, Mensforth RP (1985) Chronological metamorphosis of the auricular surface of the ilium: a new method for the determination of adult skeletal age at death. Am J Phys Anthropol 68:15\u201328. https://doi.org/10.1002/ajpa.1330680103",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR25",
+      "first-page": "157",
+      "volume": "66",
+      "author": "GR MacDonald",
+      "year": "1952",
+      "unstructured": "MacDonald GR, Hunt TE (1952) Sacroiliac joints: observations on the gross histological changes in the various age groups. Can Med Assoc J 66:157\u2013163",
+      "journal-title": "Can Med Assoc J"
+    },
+    {
+      "key": "513_CR26",
+      "doi-asserted-by": "publisher",
+      "first-page": "201",
+      "DOI": "10.1111/1556-4029.13478",
+      "volume": "63",
+      "author": "C McFadden",
+      "year": "2018",
+      "unstructured": "McFadden C, Oxenham MF (2018) Sex, parity, and scars: a meta-analytic review. J Forensic Sci 63:201\u2013206. https://doi.org/10.1111/1556-4029.13478",
+      "journal-title": "J Forensic Sci"
+    },
+    {
+      "key": "513_CR27",
+      "doi-asserted-by": "publisher",
+      "first-page": "79",
+      "DOI": "10.1002/ajpa.1330680108",
+      "volume": "68",
+      "author": "RS Meindl",
+      "year": "1985",
+      "unstructured": "Meindl RS, Lovejoy CO, Mensforth RP, Carlos LD (1985) Accuracy and direction of error in the sexing of the skeleton: implications for paleodemography. Am J Phys Anthropol 68:79\u201385. https://doi.org/10.1002/ajpa.1330680108",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR28",
+      "doi-asserted-by": "publisher",
+      "first-page": "92",
+      "DOI": "10.1002/jor.1100050112",
+      "volume": "5",
+      "author": "JAA Miller",
+      "year": "1987",
+      "unstructured": "Miller JAA, Schultz AB, Andersson GBJ (1987) Load\u2013displacement behavior of sacroiliac joints. J Orthop Res 5:92\u2013101. https://doi.org/10.1002/jor.1100050112",
+      "journal-title": "J Orthop Res"
+    },
+    {
+      "key": "513_CR29",
+      "doi-asserted-by": "publisher",
+      "first-page": "188",
+      "DOI": "10.1111/1556-4029.12303",
+      "volume": "59",
+      "author": "K Moraitis",
+      "year": "2014",
+      "unstructured": "Moraitis K, Zorba E, Eliopoulos C, Fox SC (2014) A test of the revised auricular surface aging method on a modern European population. J Forensic Sci 59:188\u2013194. https://doi.org/10.1111/1556-4029.12303",
+      "journal-title": "J Forensic Sci"
+    },
+    {
+      "key": "513_CR30",
+      "doi-asserted-by": "publisher",
+      "first-page": "61",
+      "DOI": "10.1002/ajpa.10410",
+      "volume": "126",
+      "author": "D Mulhern",
+      "year": "2005",
+      "unstructured": "Mulhern D, Jones E (2005) Test of revised method of age estimation from the auricular surface of the ilium. Am J Phys Anthropol 126:61\u201365",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR31",
+      "doi-asserted-by": "publisher",
+      "first-page": "1370",
+      "DOI": "10.1016/j.jas.2007.10.002",
+      "volume": "35",
+      "author": "T Nagaoka",
+      "year": "2008",
+      "unstructured": "Nagaoka T, Hirata K (2008) Demographic structure of skeletal populations in historic Japan: a new estimation of adult age-at-death distributions based on the auricular surface of the ilium. J Archaeol Sci 35:1370\u20131377. https://doi.org/10.1016/j.jas.2007.10.002",
+      "journal-title": "J Archaeol Sci"
+    },
+    {
+      "key": "513_CR32",
+      "doi-asserted-by": "publisher",
+      "first-page": "530",
+      "DOI": "10.1007/s12565-016-0354-x",
+      "volume": "92",
+      "author": "K Nishi",
+      "year": "2017",
+      "unstructured": "Nishi K, Saiki K, Imamura T et al (2017) Degenerative changes of the sacroiliac auricular joint surface\u2014validation of influential factors. Anat Sci Int 92:530\u2013538. https://doi.org/10.1007/s12565-016-0354-x",
+      "journal-title": "Anat Sci Int"
+    },
+    {
+      "key": "513_CR33",
+      "doi-asserted-by": "publisher",
+      "first-page": "238",
+      "DOI": "10.1111/joa.12765",
+      "volume": "232",
+      "author": "K Nishi",
+      "year": "2018",
+      "unstructured": "Nishi K, Tsurumoto T, Okamoto K et al (2018) Three-dimensional morphological analysis of the human sacroiliac joint: influences on the degenerative changes of the auricular surfaces. J Anat 232:238\u2013249. https://doi.org/10.1111/joa.12765",
+      "journal-title": "J Anat"
+    },
+    {
+      "key": "513_CR34",
+      "doi-asserted-by": "publisher",
+      "first-page": "633",
+      "DOI": "10.1016/j.jbmt.2014.05.005",
+      "volume": "18",
+      "author": "H Pardehshenas",
+      "year": "2014",
+      "unstructured": "Pardehshenas H, Maroufi N, Sanjari MA et al (2014) Lumbopelvic muscle activation patterns in three stances under graded loading conditions: proposing a tensegrity model for load transfer through the sacroiliac joints. J Bodyw Mov Ther 18:633\u2013642. https://doi.org/10.1016/j.jbmt.2014.05.005",
+      "journal-title": "J Bodyw Mov Ther"
+    },
+    {
+      "key": "513_CR35",
+      "doi-asserted-by": "publisher",
+      "first-page": "255",
+      "DOI": "10.1111/j.1556-4029.2008.00977.x",
+      "volume": "209",
+      "author": "NV Passalacqua",
+      "year": "2009",
+      "unstructured": "Passalacqua NV (2009) Forensic age-at-death estimation from the human sacrum. J Forensic Sci 209:255\u2013262",
+      "journal-title": "J Forensic Sci"
+    },
+    {
+      "key": "513_CR36",
+      "doi-asserted-by": "publisher",
+      "first-page": "197",
+      "DOI": "10.1002/ajpa.1330970209",
+      "volume": "97",
+      "author": "M Ridley",
+      "year": "1995",
+      "unstructured": "Ridley M (1995) Pelvic sexual dimorphism and relative neonatal brain size really are related. Am J Phys Anthropol 97:197\u2013200. https://doi.org/10.1002/ajpa.1330970209",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR37",
+      "first-page": "891",
+      "volume": "12",
+      "author": "D Sashin",
+      "year": "1930",
+      "unstructured": "Sashin D (1930) A critical analysis of the anatomy and the pathological changes of the sacroiliac joints. J Bone Jt Surg 12:891\u2013910",
+      "journal-title": "J Bone Jt Surg"
+    },
+    {
+      "key": "513_CR38",
+      "doi-asserted-by": "publisher",
+      "first-page": "1",
+      "DOI": "10.1002/oa.693",
+      "volume": "14",
+      "author": "A Schmitt",
+      "year": "2004",
+      "unstructured": "Schmitt A (2004) Age-at-death assessment using the os pubis and the auricular surface of the ilium: a test on an identified Asian sample. Int J Osteoarchaeol 14:1\u20136",
+      "journal-title": "Int J Osteoarchaeol"
+    },
+    {
+      "key": "513_CR39",
+      "doi-asserted-by": "publisher",
+      "first-page": "313",
+      "DOI": "10.1002/ar.1090720306",
+      "volume": "72",
+      "author": "GB Schunke",
+      "year": "1938",
+      "unstructured": "Schunke GB (1938) The anatomy and development of the sacro-iliac joint in man. Anat Rec 72:313\u2013331",
+      "journal-title": "Anat Rec"
+    },
+    {
+      "key": "513_CR40",
+      "doi-asserted-by": "publisher",
+      "first-page": "239",
+      "DOI": "10.1002/ajpa.1330280313",
+      "volume": "28",
+      "author": "CARD Snell",
+      "year": "1968",
+      "unstructured": "Snell CARD, Donhuysen HWA (1968) The pelvis in the bipedalism of primates. Am J Phys Anthropol 28:239\u2013246. https://doi.org/10.1002/ajpa.1330280313",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "issue": "Suppl",
+      "key": "513_CR41",
+      "first-page": "1",
+      "volume": "28",
+      "author": "K Solonen",
+      "year": "1957",
+      "unstructured": "Solonen K (1957) The sacroiliac joint in the light of anatomical, roentgenological and clinical studies. Acta Orthop Scand 28(Suppl):1\u2013127",
+      "journal-title": "Acta Orthop Scand"
+    },
+    {
+      "key": "513_CR42",
+      "doi-asserted-by": "publisher",
+      "first-page": "247",
+      "DOI": "10.1002/ajpa.1330790212",
+      "volume": "79",
+      "author": "DB Spring",
+      "year": "1989",
+      "unstructured": "Spring DB, Lovejoy CO, Bender GN, Duerr M (1989) The radiographic preauricular groove: its non-relationship to past parity. Am J Phys Anthropol 79:247\u2013252. https://doi.org/10.1002/ajpa.1330790212",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR43",
+      "doi-asserted-by": "publisher",
+      "first-page": "602",
+      "DOI": "10.3171/2012.2.PEDS11220",
+      "volume": "9",
+      "author": "I Stoev",
+      "year": "2012",
+      "unstructured": "Stoev I, Powers AK, Puglisi JA et al (2012) Sacroiliac joint pain in the pediatric population. J Neurosurg Pediatr 9:602\u2013607. https://doi.org/10.3171/2012.2.PEDS11220",
+      "journal-title": "J Neurosurg Pediatr"
+    },
+    {
+      "key": "513_CR44",
+      "doi-asserted-by": "publisher",
+      "first-page": "349",
+      "DOI": "10.1016/j.jmpt.2010.05.008",
+      "volume": "33",
+      "author": "M Stupar",
+      "year": "2010",
+      "unstructured": "Stupar M, C\u00f4t\u00e9 P, French MR, Hawker GA (2010) The association between low back pain and osteoarthritis of the hip and knee: a population-based cohort study. J Manip Physiol Ther 33:349\u2013354. https://doi.org/10.1016/j.jmpt.2010.05.008",
+      "journal-title": "J Manip Physiol Ther"
+    },
+    {
+      "key": "513_CR45",
+      "doi-asserted-by": "publisher",
+      "first-page": "1",
+      "DOI": "10.1002/ajpa.1330880102",
+      "volume": "88",
+      "author": "RG Tague",
+      "year": "1992",
+      "unstructured": "Tague RG (1992) Sexual dimorphism in the human bony pelvis, with a consideration of the Neandertal pelvis from Kebara cave, Israel. Am J Phys Anthropol 88:1\u201321. https://doi.org/10.1002/ajpa.1330880102",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "513_CR46",
+      "doi-asserted-by": "publisher",
+      "first-page": "1",
+      "DOI": "10.1080/0002889738506800",
+      "volume": "1",
+      "author": "E Tischauer",
+      "year": "1973",
+      "unstructured": "Tischauer E, Miller M, Nathan I (1973) Lordosimetry: a new technique for the measurement of postural response to materials handling. Am Ind Hyg Assoc J 1:1\u201312",
+      "journal-title": "Am Ind Hyg Assoc J"
+    },
+    {
+      "key": "513_CR47",
+      "doi-asserted-by": "publisher",
+      "first-page": "e57049",
+      "DOI": "10.1371/journal.pone.0057049",
+      "volume": "8",
+      "author": "T Tsurumoto",
+      "year": "2013",
+      "unstructured": "Tsurumoto T, Saiki K, Okamoto K et al (2013) Periarticular osteophytes as an appendicular joint stress marker (JSM): analysis in a contemporary Japanese skeletal collection. PLoS ONE 8:e57049. https://doi.org/10.1371/journal.pone.0057049",
+      "journal-title": "PLoS ONE"
+    },
+    {
+      "key": "513_CR48",
+      "doi-asserted-by": "publisher",
+      "first-page": "199",
+      "DOI": "10.1007/s00586-003-0575-2",
+      "volume": "13",
+      "author": "JP Van Wingerden",
+      "year": "2004",
+      "unstructured": "Van Wingerden JP, Vleeming A, Buyruk HM, Raissadat K (2004) Stabilization of the sacroiliac joint in vivo: verification of muscular contribution to force closure of the pelvis. Eur Spine J 13:199\u2013205. https://doi.org/10.1007/s00586-003-0575-2",
+      "journal-title": "Eur Spine J"
+    },
+    {
+      "key": "513_CR49",
+      "first-page": "113",
+      "volume-title": "Movement, stability and lumbopelvic pain: integration and research",
+      "author": "A Vleeming",
+      "year": "2007",
+      "unstructured": "Vleeming A, Stoeckart R (2007) The role of the pelvic girdle in coupling the spine and the legs: a cinical-anatomical perspective on pelvic stability. In: Vleeming A, Mooney V, Stoeckart R (eds) Movement, stability and lumbopelvic pain: integration and research. Churchill Livingstone, Edinburgh, pp 113\u2013137"
+    },
+    {
+      "key": "513_CR50",
+      "doi-asserted-by": "publisher",
+      "first-page": "130",
+      "DOI": "10.1097/00007632-199002000-00016",
+      "volume": "15",
+      "author": "A Vleeming",
+      "year": "1990",
+      "unstructured": "Vleeming A, Stoeckart R, Volkers AC, Snijders CJ (1990a) Relation between form and function in the sacroiliac joint. Part I: Clinical anatomical aspects. Spine 15:130\u2013132 (Phila Pa 1976)",
+      "journal-title": "Spine"
+    },
+    {
+      "key": "513_CR51",
+      "doi-asserted-by": "publisher",
+      "first-page": "133",
+      "DOI": "10.1097/00007632-199002000-00017",
+      "volume": "15",
+      "author": "A Vleeming",
+      "year": "1990",
+      "unstructured": "Vleeming A, Volkers A, Snijders C, Stoeckart R (1990b) Relation between form and function in the sacroiliac joint. Part II: Biomechanical aspects. Spine 15:133\u2013136 (Phila Pa 1976)",
+      "journal-title": "Spine"
+    },
+    {
+      "key": "513_CR52",
+      "doi-asserted-by": "publisher",
+      "first-page": "537",
+      "DOI": "10.1111/j.1469-7580.2012.01564.x",
+      "volume": "221",
+      "author": "A Vleeming",
+      "year": "2012",
+      "unstructured": "Vleeming A, Schuenke MD, Masi AT et al (2012) The sacroiliac joint: an overview of its anatomy, function and potential clinical implications. J Anat 221:537\u2013567. https://doi.org/10.1111/j.1469-7580.2012.01564.x",
+      "journal-title": "J Anat"
+    },
+    {
+      "key": "513_CR53",
+      "doi-asserted-by": "publisher",
+      "first-page": "63",
+      "DOI": "10.1038/scientificamerican0960-62",
+      "volume": "203",
+      "author": "SL Washburn",
+      "year": "1960",
+      "unstructured": "Washburn SL (1960) Tools and human evolution. Sci Am 203:63\u201375",
+      "journal-title": "Sci Am"
+    },
+    {
+      "key": "513_CR54",
+      "doi-asserted-by": "publisher",
+      "first-page": "40",
+      "DOI": "10.1002/ajpa.22160",
+      "volume": "149",
+      "author": "JCK Wells",
+      "year": "2012",
+      "unstructured": "Wells JCK, DeSilva JM, Stock JT (2012) The obstetric dilemma: an ancient game of russian roulette, or a variable dilemma sensitive to ecology? Yearb Phys Anthropol 149:40\u201371. https://doi.org/10.1002/ajpa.22160",
+      "journal-title": "Yearb Phys Anthropol"
+    },
+    {
+      "key": "513_CR55",
+      "doi-asserted-by": "publisher",
+      "first-page": "1",
+      "DOI": "10.1186/s13018-018-0858-2",
+      "volume": "13",
+      "author": "T Wu",
+      "year": "2018",
+      "unstructured": "Wu T, Ren X, Cui Y et al (2018) Biomechanical study of three kinds of internal fixation for the treatment of sacroiliac joint disruption using biomechanical test and finite element analysis. J Orthop Surg Res 13:1\u20138. https://doi.org/10.1186/s13018-018-0858-2",
+      "journal-title": "J Orthop Surg Res"
+    }
+  ],
+  "container-title": [
+    "Anatomical Science International"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "http://link.springer.com/content/pdf/10.1007/s12565-019-00513-2.pdf",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "http://link.springer.com/article/10.1007/s12565-019-00513-2/fulltext.html",
+      "content-type": "text/html",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "http://link.springer.com/content/pdf/10.1007/s12565-019-00513-2.pdf",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2020,
+        11,
+        30
+      ]
+    ],
+    "date-time": "2020-11-30T20:12:42Z",
+    "timestamp": 1606767162000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "http://link.springer.com/10.1007/s12565-019-00513-2"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2019,
+        12,
+        2
+      ]
+    ]
+  },
+  "references-count": 55,
+  "journal-issue": {
+    "issue": "2",
+    "published-print": {
+      "date-parts": [
+        [
+          2020,
+          3
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "513"
+  ],
+  "URL": "https://doi.org/10.1007/s12565-019-00513-2",
+  "relation": {},
+  "ISSN": [
+    "1447-6959",
+    "1447-073X"
+  ],
+  "issn-type": [
+    {
+      "value": "1447-6959",
+      "type": "print"
+    },
+    {
+      "value": "1447-073X",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2019,
+        12,
+        2
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "29 August 2019",
+      "order": 1,
+      "name": "received",
+      "label": "Received",
+      "group": {
+        "name": "ArticleHistory",
+        "label": "Article History"
+      }
+    },
+    {
+      "value": "25 November 2019",
+      "order": 2,
+      "name": "accepted",
+      "label": "Accepted",
+      "group": {
+        "name": "ArticleHistory",
+        "label": "Article History"
+      }
+    },
+    {
+      "value": "2 December 2019",
+      "order": 3,
+      "name": "first_online",
+      "label": "First Online",
+      "group": {
+        "name": "ArticleHistory",
+        "label": "Article History"
+      }
+    },
+    {
+      "order": 1,
+      "name": "Ethics",
+      "group": {
+        "name": "EthicsHeading",
+        "label": "Compliance with ethical standards"
+      }
+    },
+    {
+      "value": "The authors declare no conflict of interest.",
+      "order": 2,
+      "name": "Ethics",
+      "group": {
+        "name": "EthicsHeading",
+        "label": "Conflict of interest"
+      }
+    }
+  ]
+}

@@ -1,0 +1,855 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        9,
+        19
+      ]
+    ],
+    "date-time": "2026-09-19T04:09:22Z",
+    "timestamp": 1789790962558,
+    "version": "4.0.1"
+  },
+  "reference-count": 59,
+  "publisher": "National Academy of Sciences",
+  "issue": "18",
+  "content-domain": {
+    "domain": [
+      "www.pnas.org"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [
+    "Proc. Natl. Acad. Sci. U.S.A."
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2015,
+        5,
+        5
+      ]
+    ]
+  },
+  "abstract": "<jats:title>Significance</jats:title>\n                  <jats:p>Because of the tight fit of the large human neonate through the narrow maternal birth canal, childbirth is remarkably difficult. In this study we show that the dimensions of head, stature, and pelvis in a human body are linked in a complex way that was not recognized before and that contributes to ameliorate this tight fit. We show that females with a large head possess a birth canal that can better accommodate large-headed neonates. Because mothers with large heads usually give birth to neonates with large heads, the detected pattern of covariation contributes to ease childbirth and has likely evolved in response to strong selection.</jats:p>",
+  "DOI": "10.1073/pnas.1420325112",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2015,
+        4,
+        20
+      ]
+    ],
+    "date-time": "2015-04-20T22:51:43Z",
+    "timestamp": 1429570303000
+  },
+  "page": "5655-5660",
+  "update-policy": "https://doi.org/10.1073/pnas.cm10313",
+  "source": "Crossref",
+  "is-referenced-by-count": 115,
+  "title": [
+    "Covariation between human pelvis shape, stature, and head size alleviates the obstetric dilemma"
+  ],
+  "prefix": "10.1073",
+  "volume": "112",
+  "author": [
+    {
+      "given": "Barbara",
+      "family": "Fischer",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Centre for Ecological and Evolutionary Synthesis, Department of Biosciences, University of Oslo, NO-0316 Oslo, Norway; and"
+        },
+        {
+          "name": "Department of Theoretical Biology, University of Vienna, 1090 Vienna, Austria"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Philipp",
+      "family": "Mitteroecker",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Theoretical Biology, University of Vienna, 1090 Vienna, Austria"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "341",
+  "published-online": {
+    "date-parts": [
+      [
+        2015,
+        4,
+        20
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_3_4_1_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "739",
+      "DOI": "10.1097/01.ogx.0000286584.04310.5c",
+      "article-title": "The evolutionary origins of obstructed labor: Bipedalism, encephalization, and the human obstetric dilemma",
+      "volume": "62",
+      "author": "Wittman AB",
+      "year": "2007",
+      "unstructured": "AB Wittman, LL Wall, The evolutionary origins of obstructed labor: Bipedalism, encephalization, and the human obstetric dilemma. Obstet Gynecol Surv 62, 739\u2013748 (2007).",
+      "journal-title": "Obstet Gynecol Surv"
+    },
+    {
+      "key": "e_1_3_4_2_2",
+      "volume-title": "The Life of Primates",
+      "author": "Schultz AH",
+      "year": "1969",
+      "unstructured": "AH Schultz The Life of Primates (Universe Books, New York, 1969)."
+    },
+    {
+      "key": "e_1_3_4_3_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "e323",
+      "DOI": "10.1016/S2214-109X(14)70227-X",
+      "article-title": "Global causes of maternal death: A WHO systematic analysis",
+      "volume": "2",
+      "author": "Say L",
+      "year": "2014",
+      "unstructured": "L Say, , Global causes of maternal death: A WHO systematic analysis. Lancet Glob Health 2, e323\u2013e333 (2014).",
+      "journal-title": "Lancet Glob Health"
+    },
+    {
+      "key": "e_1_3_4_4_2",
+      "volume-title": "The Global Burden of Disease. A Comprehensive Assessment of Mortality and Disability From Diseases, Injuries and Risk Factors in 1990 and Projected to 2020",
+      "author": "Murray CJL",
+      "year": "1996",
+      "unstructured": ", eds CJL Murray, AD Lopez (World Health Organization, Geneva, Switzerland The Global Burden of Disease. A Comprehensive Assessment of Mortality and Disability From Diseases, Injuries and Risk Factors in 1990 and Projected to 2020, 1996)."
+    },
+    {
+      "key": "e_1_3_4_5_2",
+      "volume-title": "Global Burden of Obstructed Labour in the Year 2000",
+      "author": "Dolea C",
+      "year": "2003",
+      "unstructured": "C Dolea, C AbouZhar Global Burden of Obstructed Labour in the Year 2000 (World Health Organisation, Geneva, Switzerland, 2003)."
+    },
+    {
+      "key": "e_1_3_4_6_2",
+      "first-page": "1",
+      "volume-title": "Safe Motherhood Strategies: A Review of the Evidence, Studies in Health Services Organisation & Policy",
+      "author": "Van Lerberghe W",
+      "year": "2001",
+      "unstructured": "W Van Lerberghe, V De Brouwere, Reducing maternal mortality in a context of poverty. Safe Motherhood Strategies: A Review of the Evidence, Studies in Health Services Organisation & Policy, eds V De Brouwere, W Van Lerberghe (ITG Press, Antwerp, Belgium), pp. 1\u20135 (2001)."
+    },
+    {
+      "key": "e_1_3_4_7_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "191",
+      "DOI": "10.1093/bmb/ldg018",
+      "article-title": "Obstructed labour",
+      "volume": "67",
+      "author": "Neilson JP",
+      "year": "2003",
+      "unstructured": "JP Neilson, T Lavender, S Quenby, S Wray, Obstructed labour. Br Med Bull 67, 191\u2013204 (2003).",
+      "journal-title": "Br Med Bull"
+    },
+    {
+      "key": "e_1_3_4_8_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "63",
+      "DOI": "10.1038/scientificamerican0960-62",
+      "article-title": "Tools and human evolution",
+      "volume": "203",
+      "author": "Washburn SL",
+      "year": "1960",
+      "unstructured": "SL Washburn, Tools and human evolution. Sci Am 203, 63\u201375 (1960).",
+      "journal-title": "Sci Am"
+    },
+    {
+      "key": "e_1_3_4_9_2",
+      "first-page": "95",
+      "article-title": "The natural history of human gait and posture. Part 1. Spine and pelvis",
+      "volume": "21",
+      "author": "Lovejoy CO",
+      "year": "2005",
+      "unstructured": "CO Lovejoy, The natural history of human gait and posture. Part 1. Spine and pelvis. Gait Posture 21, 95\u2013112 (2005).",
+      "journal-title": "Gait Posture"
+    },
+    {
+      "key": "e_1_3_4_10_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "161",
+      "DOI": "10.1002/evan.1360040506",
+      "article-title": "Bipedalism and human birth: The obstetrical dilemma revisited",
+      "volume": "4",
+      "author": "Rosenberg K",
+      "year": "1995",
+      "unstructured": "K Rosenberg, W Trevathan, Bipedalism and human birth: The obstetrical dilemma revisited. Evol Anthropol Issues News Rev 4, 161\u2013168 (1995).",
+      "journal-title": "Evol Anthropol Issues News Rev"
+    },
+    {
+      "key": "e_1_3_4_11_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "54",
+      "DOI": "10.1038/scientificamerican1251-54",
+      "article-title": "The scars of human evolution",
+      "volume": "185",
+      "author": "Krogman WM",
+      "year": "1951",
+      "unstructured": "WM Krogman, The scars of human evolution. Sci Am 185, 54\u201357 (1951).",
+      "journal-title": "Sci Am"
+    },
+    {
+      "key": "e_1_3_4_12_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "88",
+      "DOI": "10.1002/ajpa.22243",
+      "article-title": "Bony pelvic canal size and shape in relation to body proportionality in humans",
+      "volume": "151",
+      "author": "Kurki HK",
+      "year": "2013",
+      "unstructured": "HK Kurki, Bony pelvic canal size and shape in relation to body proportionality in humans. Am J Phys Anthropol 151, 88\u2013101 (2013).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_13_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "173",
+      "DOI": "10.1038/387173a0",
+      "article-title": "Body mass and encephalization in Pleistocene Homo",
+      "volume": "387",
+      "author": "Ruff CB",
+      "year": "1997",
+      "unstructured": "CB Ruff, E Trinkaus, TW Holliday, Body mass and encephalization in Pleistocene Homo. Nature 387, 173\u2013176 (1997).",
+      "journal-title": "Nature"
+    },
+    {
+      "key": "e_1_3_4_14_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "1336",
+      "DOI": "10.1111/j.1558-5646.2011.01226.x",
+      "article-title": "Divergent patterns of integration and reduced constraint in the human hip and the origins of bipedalism",
+      "volume": "65",
+      "author": "Grabowski MW",
+      "year": "2011",
+      "unstructured": "MW Grabowski, JD Polk, CC Roseman, Divergent patterns of integration and reduced constraint in the human hip and the origins of bipedalism. Evolution 65, 1336\u20131356 (2011).",
+      "journal-title": "Evolution"
+    },
+    {
+      "key": "e_1_3_4_15_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "257",
+      "DOI": "10.1177/014107689108400505",
+      "article-title": "Are our babies becoming bigger?",
+      "volume": "84",
+      "author": "Alberman E",
+      "year": "1991",
+      "unstructured": "E Alberman, Are our babies becoming bigger? J R Soc Med 84, 257\u2013260 (1991).",
+      "journal-title": "J R Soc Med"
+    },
+    {
+      "key": "e_1_3_4_16_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "15212",
+      "DOI": "10.1073/pnas.1205282109",
+      "article-title": "Metabolic hypothesis for human altriciality",
+      "volume": "109",
+      "author": "Dunsworth HM",
+      "year": "2012",
+      "unstructured": "HM Dunsworth, AG Warrener, T Deacon, PT Ellison, H Pontzer, Metabolic hypothesis for human altriciality. Proc Natl Acad Sci USA 109, 15212\u201315216 (2012).",
+      "journal-title": "Proc Natl Acad Sci USA"
+    },
+    {
+      "key": "e_1_3_4_17_2",
+      "first-page": "62",
+      "article-title": "The role of nutrition in pelvic variation",
+      "volume": "54",
+      "author": "Thoms H",
+      "year": "1947",
+      "unstructured": "H Thoms, The role of nutrition in pelvic variation. Am J Obstet Gynecol 54, 62\u201373 (1947).",
+      "journal-title": "Am J Obstet Gynecol"
+    },
+    {
+      "key": "e_1_3_4_18_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "40",
+      "DOI": "10.1002/ajpa.22160",
+      "article-title": "The obstetric dilemma: An ancient game of Russian roulette, or a variable dilemma sensitive to ecology?",
+      "volume": "149",
+      "author": "Wells JCK",
+      "year": "2012",
+      "unstructured": "JCK Wells, JM DeSilva, JT Stock, The obstetric dilemma: An ancient game of Russian roulette, or a variable dilemma sensitive to ecology? Am J Phys Anthropol 149, 40\u201371 (2012).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_19_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "199",
+      "DOI": "10.1002/ajpa.1330740208",
+      "article-title": "Life stresses of slavery",
+      "volume": "74",
+      "author": "Kelley JO",
+      "year": "1987",
+      "unstructured": "JO Kelley, JL Angel, Life stresses of slavery. Am J Phys Anthropol 74, 199\u2013211 (1987).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_20_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "327",
+      "DOI": "10.1002/ajpa.10055",
+      "article-title": "Genetic basis of human female pelvic morphology: A twin study",
+      "volume": "117",
+      "author": "Sharma K",
+      "year": "2002",
+      "unstructured": "K Sharma, Genetic basis of human female pelvic morphology: A twin study. Am J Phys Anthropol 117, 327\u2013333 (2002).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_21_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "57",
+      "DOI": "10.1007/s11692-012-9174-7",
+      "article-title": "Hominin obstetrics and the evolution of constraints",
+      "volume": "40",
+      "author": "Grabowski MW",
+      "year": "2012",
+      "unstructured": "MW Grabowski, Hominin obstetrics and the evolution of constraints. Evol Biol 40, 57\u201375 (2012).",
+      "journal-title": "Evol Biol"
+    },
+    {
+      "key": "e_1_3_4_22_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "126",
+      "DOI": "10.1007/s11692-011-9143-6",
+      "article-title": "Evolvability of the primate pelvic girdle",
+      "volume": "39",
+      "author": "Lewton KL",
+      "year": "2011",
+      "unstructured": "KL Lewton, Evolvability of the primate pelvic girdle. Evol Biol 39, 126\u2013139 (2011).",
+      "journal-title": "Evol Biol"
+    },
+    {
+      "key": "e_1_3_4_23_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "1174",
+      "DOI": "10.1002/hbm.20926",
+      "article-title": "Genetic and environmental contributions to neonatal brain structure: A twin study",
+      "volume": "31",
+      "author": "Gilmore JH",
+      "year": "2010",
+      "unstructured": "JH Gilmore, , Genetic and environmental contributions to neonatal brain structure: A twin study. Hum Brain Mapp 31, 1174\u20131182 (2010).",
+      "journal-title": "Hum Brain Mapp"
+    },
+    {
+      "key": "e_1_3_4_24_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "370",
+      "DOI": "10.1375/twin.13.4.370",
+      "article-title": "Heritability of head size in Dutch and Australian twin families at ages 0-50 years",
+      "volume": "13",
+      "author": "Smit DJA",
+      "year": "2010",
+      "unstructured": "DJA Smit, , Heritability of head size in Dutch and Australian twin families at ages 0-50 years. Twin Res Hum Genet 13, 370\u2013380 (2010).",
+      "journal-title": "Twin Res Hum Genet"
+    },
+    {
+      "key": "e_1_3_4_25_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "e20497",
+      "DOI": "10.1371/journal.pone.0020497",
+      "article-title": "Parental height differences predict the need for an emergency caesarean section",
+      "volume": "6",
+      "author": "Stulp G",
+      "year": "2011",
+      "unstructured": "G Stulp, S Verhulst, TV Pollet, D Nettle, AP Buunk, Parental height differences predict the need for an emergency caesarean section. PLoS ONE 6, e20497 (2011).",
+      "journal-title": "PLoS ONE"
+    },
+    {
+      "key": "e_1_3_4_26_2",
+      "first-page": "1200",
+      "article-title": "The cause and prevention of difficult labour",
+      "volume": "63",
+      "author": "Baird D",
+      "year": "1952",
+      "unstructured": "D Baird, The cause and prevention of difficult labour. Am J Obstet Gynecol 63, 1200\u20131212 (1952).",
+      "journal-title": "Am J Obstet Gynecol"
+    },
+    {
+      "key": "e_1_3_4_27_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "515",
+      "DOI": "10.1002/ajpa.1330200412",
+      "article-title": "Maternal height and the prevalence of stillbirths",
+      "volume": "20",
+      "author": "Bresler JB",
+      "year": "1962",
+      "unstructured": "JB Bresler, Maternal height and the prevalence of stillbirths. Am J Phys Anthropol 20, 515\u2013517 (1962).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_28_2",
+      "first-page": "330",
+      "article-title": "Labor in short women",
+      "volume": "34",
+      "author": "Molloy WB",
+      "year": "1969",
+      "unstructured": "WB Molloy, Labor in short women. Obstet Gynecol 34, 330\u2013334 (1969).",
+      "journal-title": "Obstet Gynecol"
+    },
+    {
+      "key": "e_1_3_4_29_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "347",
+      "DOI": "10.1016/0028-2243(81)90080-0",
+      "article-title": "The obstetric significance of short stature",
+      "volume": "12",
+      "author": "Camilleri AP",
+      "year": "1981",
+      "unstructured": "AP Camilleri, The obstetric significance of short stature. Eur J Obstet Gynecol Reprod Biol 12, 347\u2013356 (1981).",
+      "journal-title": "Eur J Obstet Gynecol Reprod Biol"
+    },
+    {
+      "key": "e_1_3_4_30_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "470",
+      "DOI": "10.1016/0002-9378(88)90006-3",
+      "article-title": "Obstetric management and outcome related to maternal characteristics",
+      "volume": "158",
+      "author": "Dougherty CRS",
+      "year": "1988",
+      "unstructured": "CRS Dougherty, AD Jones, Obstetric management and outcome related to maternal characteristics. Am J Obstet Gynecol 158, 470\u2013474 (1988).",
+      "journal-title": "Am J Obstet Gynecol"
+    },
+    {
+      "key": "e_1_3_4_31_2",
+      "first-page": "246",
+      "article-title": "Regression towards mediocrity in hereditary stature",
+      "volume": "15",
+      "author": "Galton F",
+      "year": "1886",
+      "unstructured": "F Galton, Regression towards mediocrity in hereditary stature. J Anthropol Inst GB Ireland 15, 246\u2013263 (1886).",
+      "journal-title": "J Anthropol Inst GB Ireland"
+    },
+    {
+      "key": "e_1_3_4_32_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "832",
+      "DOI": "10.1038/nature09410",
+      "article-title": "Hundreds of variants clustered in genomic loci and biological pathways affect human height",
+      "volume": "467",
+      "author": "Lango Allen H",
+      "year": "2010",
+      "unstructured": "H Lango Allen, , Hundreds of variants clustered in genomic loci and biological pathways affect human height. Nature 467, 832\u2013838 (2010).",
+      "journal-title": "Nature"
+    },
+    {
+      "key": "e_1_3_4_33_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "213",
+      "DOI": "10.1159/000321192",
+      "article-title": "Association between head circumference and body size",
+      "volume": "75",
+      "author": "Geraedts EJ",
+      "year": "2011",
+      "unstructured": "EJ Geraedts, , Association between head circumference and body size. Horm Res Paediatr 75, 213\u2013219 (2011).",
+      "journal-title": "Horm Res Paediatr"
+    },
+    {
+      "key": "e_1_3_4_34_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "257",
+      "DOI": "10.1016/S0047-2484(86)80053-7",
+      "article-title": "The primate pelvis: Allometry or sexual dimorphism?",
+      "volume": "15",
+      "author": "Wood BA",
+      "year": "1986",
+      "unstructured": "BA Wood, AT Chamberlain, The primate pelvis: Allometry or sexual dimorphism? J Hum Evol 15, 257\u2013263 (1986).",
+      "journal-title": "J Hum Evol"
+    },
+    {
+      "key": "e_1_3_4_35_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "241",
+      "DOI": "10.1002/ajpa.1330930208",
+      "article-title": "Multivariate analysis of the sexual dimorphism of the hip bone in a modern human population and in early hominids",
+      "volume": "93",
+      "author": "Arsuaga JL",
+      "year": "1994",
+      "unstructured": "JL Arsuaga, JM Carretero, Multivariate analysis of the sexual dimorphism of the hip bone in a modern human population and in early hominids. Am J Phys Anthropol 93, 241\u2013257 (1994).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_36_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "59",
+      "DOI": "10.1002/ajpa.1330980106",
+      "article-title": "Natural selection and developmental sexual variation in the human pelvis",
+      "volume": "98",
+      "author": "LaVelle M",
+      "year": "1995",
+      "unstructured": "M LaVelle, Natural selection and developmental sexual variation in the human pelvis. Am J Phys Anthropol 98, 59\u201372 (1995).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_37_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "377",
+      "DOI": "10.1002/1096-8644(200007)112:3<377::AID-AJPA8>3.0.CO;2-O",
+      "article-title": "Do big females have big pelves?",
+      "volume": "112",
+      "author": "Tague RG",
+      "year": "2000",
+      "unstructured": "RG Tague, Do big females have big pelves? Am J Phys Anthropol 112, 377\u2013393 (2000).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_38_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "1",
+      "DOI": "10.1002/ajpa.1330880102",
+      "article-title": "Sexual dimorphism in the human bony pelvis, with a consideration of the Neandertal pelvis from Kebara Cave, Israel",
+      "volume": "88",
+      "author": "Tague RG",
+      "year": "1992",
+      "unstructured": "RG Tague, Sexual dimorphism in the human bony pelvis, with a consideration of the Neandertal pelvis from Kebara Cave, Israel. Am J Phys Anthropol 88, 1\u201321 (1992).",
+      "journal-title": "Am J Phys Anthropol"
+    },
+    {
+      "key": "e_1_3_4_39_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "631",
+      "DOI": "10.1016/j.jhevol.2011.07.006",
+      "article-title": "Pelvic dimorphism in relation to body size and body size dimorphism in humans",
+      "volume": "61",
+      "author": "Kurki HK",
+      "year": "2011",
+      "unstructured": "HK Kurki, Pelvic dimorphism in relation to body size and body size dimorphism in humans. J Hum Evol 61, 631\u2013643 (2011).",
+      "journal-title": "J Hum Evol"
+    },
+    {
+      "key": "e_1_3_4_40_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "795",
+      "DOI": "10.1002/ajhb.22455",
+      "article-title": "Skeletal variability in the pelvis and limb skeleton of humans: Does stabilizing selection limit female pelvic variation?",
+      "volume": "25",
+      "author": "Kurki HK",
+      "year": "2013",
+      "unstructured": "HK Kurki, Skeletal variability in the pelvis and limb skeleton of humans: Does stabilizing selection limit female pelvic variation? Am J Hum Biol 25, 795\u2013802 (2013).",
+      "journal-title": "Am J Hum Biol"
+    },
+    {
+      "key": "e_1_3_4_41_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "113",
+      "DOI": "10.1080/03014468200005581",
+      "article-title": "Associations between pelvic anatomy, height and year of birth of men and women in Belfast",
+      "volume": "9",
+      "author": "Holland EL",
+      "year": "1982",
+      "unstructured": "EL Holland, GW Cran, JH Elwood, JH Pinkerton, W Thompson, Associations between pelvic anatomy, height and year of birth of men and women in Belfast. Ann Hum Biol 9, 113\u2013120 (1982).",
+      "journal-title": "Ann Hum Biol"
+    },
+    {
+      "key": "e_1_3_4_42_2",
+      "first-page": "1",
+      "article-title": "The shape and size of the female pelvis",
+      "volume": "59",
+      "author": "Bernard RM",
+      "year": "1952",
+      "unstructured": "RM Bernard, The shape and size of the female pelvis. Edinburgh Med J 59, 1\u201315 (1952).",
+      "journal-title": "Edinburgh Med J"
+    },
+    {
+      "key": "e_1_3_4_43_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "130",
+      "DOI": "10.1111/j.1471-0528.1940.tb08814.x",
+      "article-title": "The bony pelvis and its influence on labour: A radiological and clinical study of 500 women",
+      "volume": "47",
+      "author": "Ince JGH",
+      "year": "1940",
+      "unstructured": "JGH Ince, M Young, The bony pelvis and its influence on labour: A radiological and clinical study of 500 women. Int J Obstet Gynaecol 47, 130\u2013190 (1940).",
+      "journal-title": "Int J Obstet Gynaecol"
+    },
+    {
+      "key": "e_1_3_4_44_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "479",
+      "DOI": "10.1016/S0002-9378(33)90194-5",
+      "article-title": "Anatomical variations in the female pelvis and their effect in labor with a suggested classification",
+      "volume": "26",
+      "author": "Caldwell WE",
+      "year": "1933",
+      "unstructured": "WE Caldwell, HC Moloy, Anatomical variations in the female pelvis and their effect in labor with a suggested classification. Am J Obstet Gynecol 26, 479\u2013505 (1933).",
+      "journal-title": "Am J Obstet Gynecol"
+    },
+    {
+      "key": "e_1_3_4_45_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "387",
+      "DOI": "10.1097/OGX.0b013e3181ecdf0c",
+      "article-title": "Assessing cephalopelvic disproportion: Back to the basics",
+      "volume": "65",
+      "author": "Maharaj D",
+      "year": "2010",
+      "unstructured": "D Maharaj, Assessing cephalopelvic disproportion: Back to the basics. Obstet Gynecol Surv 65, 387\u2013395 (2010).",
+      "journal-title": "Obstet Gynecol Surv"
+    },
+    {
+      "key": "e_1_3_4_46_2",
+      "first-page": "847",
+      "article-title": "Pelvic dimensions and the outcome of trial labour in Shona and Zulu primigravidas",
+      "volume": "55",
+      "author": "Stewart KS",
+      "year": "1979",
+      "unstructured": "KS Stewart, DB Cowan, RH Philpott, Pelvic dimensions and the outcome of trial labour in Shona and Zulu primigravidas. S Afr Med J 55, 847\u2013851 (1979).",
+      "journal-title": "S Afr Med J"
+    },
+    {
+      "key": "e_1_3_4_47_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "821",
+      "DOI": "10.1080/00016340600593521",
+      "article-title": "A narrow pelvic outlet increases the risk for emergency cesarean section",
+      "volume": "85",
+      "author": "St\u00e5lberg K",
+      "year": "2006",
+      "unstructured": "K St\u00e5lberg, A Bodestedt, S Lyren\u00e4s, O Axelsson, A narrow pelvic outlet increases the risk for emergency cesarean section. Acta Obstet Gynecol Scand 85, 821\u2013824 (2006).",
+      "journal-title": "Acta Obstet Gynecol Scand"
+    },
+    {
+      "key": "e_1_3_4_48_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "329",
+      "DOI": "10.1038/sj.hdy.6800148",
+      "article-title": "Correlational selection and the evolution of genomic architecture",
+      "volume": "89",
+      "author": "Sinervo B",
+      "year": "2002",
+      "unstructured": "B Sinervo, E Svensson, Correlational selection and the evolution of genomic architecture. Heredity (Edinb) 89, 329\u2013338 (2002).",
+      "journal-title": "Heredity (Edinb)"
+    },
+    {
+      "key": "e_1_3_4_49_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "1747",
+      "DOI": "10.1111/j.0014-3820.2003.tb00583.x",
+      "article-title": "Stability of the G-matrix in a population experiencing pleiotropic mutation, stabilizing selection, and genetic drift",
+      "volume": "57",
+      "author": "Jones AG",
+      "year": "2003",
+      "unstructured": "AG Jones, SJ Arnold, R B\u00fcrger, Stability of the G-matrix in a population experiencing pleiotropic mutation, stabilizing selection, and genetic drift. Evolution 57, 1747\u20131760 (2003).",
+      "journal-title": "Evolution"
+    },
+    {
+      "key": "e_1_3_4_50_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "2451",
+      "DOI": "10.1111/j.1558-5646.2008.00472.x",
+      "article-title": "Understanding the evolution and stability of the G-matrix",
+      "volume": "62",
+      "author": "Arnold SJ",
+      "year": "2008",
+      "unstructured": "SJ Arnold, R B\u00fcrger, PA Hohenlohe, BC Ajie, AG Jones, Understanding the evolution and stability of the G-matrix. Evolution 62, 2451\u20132461 (2008).",
+      "journal-title": "Evolution"
+    },
+    {
+      "key": "e_1_3_4_51_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "967",
+      "DOI": "10.1111/j.1558-5646.1996.tb02339.x",
+      "article-title": "Perspective: Complex adaptations and the evolution of evolvability",
+      "volume": "50",
+      "author": "Wagner GP",
+      "year": "1996",
+      "unstructured": "GP Wagner, L Altenberg, Perspective: Complex adaptations and the evolution of evolvability. Evolution 50, 967\u2013976 (1996).",
+      "journal-title": "Evolution"
+    },
+    {
+      "key": "e_1_3_4_52_2",
+      "first-page": "1903",
+      "article-title": "Evolution of adaptive phenotypic variation patterns by direct selection for evolvability",
+      "volume": "278",
+      "author": "Pavlicev M",
+      "year": "2011",
+      "unstructured": "M Pavlicev, JM Cheverud, GP Wagner, Evolution of adaptive phenotypic variation patterns by direct selection for evolvability. Proc Biol Sci 278, 1903\u20131912 (2011).",
+      "journal-title": "Proc Biol Sci"
+    },
+    {
+      "key": "e_1_3_4_53_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "108",
+      "DOI": "10.1016/S0169-5347(98)01501-8",
+      "article-title": "The evolution of genomic anatomy",
+      "volume": "14",
+      "author": "Hurst LD",
+      "year": "1999",
+      "unstructured": "LD Hurst, The evolution of genomic anatomy. Trends Ecol Evol 14, 108\u2013112 (1999).",
+      "journal-title": "Trends Ecol Evol"
+    },
+    {
+      "key": "e_1_3_4_54_2",
+      "unstructured": "HM Reynolds CC Snow JW Young Spatial Geometry of the Human Pelvis memorandum report prepared for the U.S. Department of Transportation Federal Aviation Administration Office of Aviation Medicine (National Technical Information Service Washington DC). (1982)."
+    },
+    {
+      "key": "e_1_3_4_55_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "235",
+      "DOI": "10.1007/s11692-009-9055-x",
+      "article-title": "Advances in geometric morphometrics",
+      "volume": "36",
+      "author": "Mitteroecker P",
+      "year": "2009",
+      "unstructured": "P Mitteroecker, P Gunz, Advances in geometric morphometrics. Evol Biol 36, 235\u2013247 (2009).",
+      "journal-title": "Evol Biol"
+    },
+    {
+      "key": "e_1_3_4_56_2",
+      "doi-asserted-by": "crossref",
+      "first-page": "567",
+      "DOI": "10.1109/34.24792",
+      "article-title": "Principal warps: Thin-plate splines and the decomposition of deformations",
+      "volume": "11",
+      "author": "Bookstein FL",
+      "year": "1989",
+      "unstructured": "FL Bookstein, Principal warps: Thin-plate splines and the decomposition of deformations. IEEE Trans Pattern Anal Mach Intell 11, 567\u2013585 (1989).",
+      "journal-title": "IEEE Trans Pattern Anal Mach Intell"
+    },
+    {
+      "key": "e_1_3_4_57_2",
+      "first-page": "40",
+      "article-title": "Extensions of the Procrustes method for the optimal superimposition of landmarks",
+      "volume": "39",
+      "author": "Rohlf FJ",
+      "year": "1990",
+      "unstructured": "FJ Rohlf, D Slice, Extensions of the Procrustes method for the optimal superimposition of landmarks. Syst Biol 39, 40\u201359 (1990).",
+      "journal-title": "Syst Biol"
+    },
+    {
+      "key": "e_1_3_4_58_2",
+      "unstructured": "FL Bookstein Morphometric Tools for Landmark Data: Geometry and Biology reprint edition (Cambridge Univ Press Cambridge UK). (1997)."
+    },
+    {
+      "key": "e_1_3_4_59_2",
+      "first-page": "15",
+      "article-title": "Visualizations in geometric morphometrics: How to read and how to make graphs showing shape changes",
+      "volume": "24",
+      "author": "Klingenberg CP",
+      "year": "2013",
+      "unstructured": "CP Klingenberg, Visualizations in geometric morphometrics: How to read and how to make graphs showing shape changes. Hystrix 24, 15\u201324 (2013).",
+      "journal-title": "Hystrix"
+    }
+  ],
+  "container-title": [
+    "Proceedings of the National Academy of Sciences"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://pnas.org/doi/pdf/10.1073/pnas.1420325112",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        8
+      ]
+    ],
+    "date-time": "2024-06-08T10:16:44Z",
+    "timestamp": 1717841804000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://pnas.org/doi/full/10.1073/pnas.1420325112"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2015,
+        4,
+        20
+      ]
+    ]
+  },
+  "references-count": 59,
+  "journal-issue": {
+    "issue": "18",
+    "published-print": {
+      "date-parts": [
+        [
+          2015,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "10.1073/pnas.1420325112"
+  ],
+  "URL": "https://doi.org/10.1073/pnas.1420325112",
+  "relation": {},
+  "ISSN": [
+    "0027-8424",
+    "1091-6490"
+  ],
+  "issn-type": [
+    {
+      "value": "0027-8424",
+      "type": "print"
+    },
+    {
+      "value": "1091-6490",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2015,
+        4,
+        20
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2015-04-20",
+      "order": 2,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

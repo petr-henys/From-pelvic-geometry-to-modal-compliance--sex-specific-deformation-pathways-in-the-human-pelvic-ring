@@ -1,0 +1,565 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        9,
+        21
+      ]
+    ],
+    "date-time": "2026-09-21T08:52:57Z",
+    "timestamp": 1789980777881,
+    "version": "4.0.1"
+  },
+  "reference-count": 61,
+  "publisher": "Wiley",
+  "issue": "4",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2017,
+            3,
+            15
+          ]
+        ],
+        "date-time": "2017-03-15T00:00:00Z",
+        "timestamp": 1489536000000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+    }
+  ],
+  "funder": [
+    {
+      "DOI": "10.13039/501100002428",
+      "name": "Austrian Science Fund",
+      "doi-asserted-by": "publisher",
+      "award": [
+        "P 29397\u2010B27"
+      ],
+      "award-info": [
+        {
+          "award-number": [
+            "P 29397\u2010B27"
+          ]
+        }
+      ],
+      "id": [
+        {
+          "id": "10.13039/501100002428",
+          "id-type": "DOI",
+          "asserted-by": "publisher"
+        }
+      ]
+    }
+  ],
+  "content-domain": {
+    "domain": [],
+    "crossmark-restriction": false
+  },
+  "short-container-title": [
+    "The Anatomical Record"
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2017,
+        4
+      ]
+    ]
+  },
+  "abstract": "<jats:title>ABSTRACT</jats:title><jats:p>Sexual dimorphism in the human pelvis has evolved in response to several jointly acting selection regimes that result from the pelvis\u2019 multiple roles in locomotion and childbirth, among others. Because human males are, on average, taller than females, some aspects of sexual dimorphism in pelvis shape might result from allometry, the association between stature and pelvis shape across individuals. In this study, they aimed to disentangle and quantify the two components contributing to pelvic sex differences: the allometric component, which emerges as a consequence of dimorphism in stature, and the remaining non\u2010allometric sexual dimorphism component. A geometric morphometric analysis of a dense set of 3D landmarks, measured on 99 female and male adult individuals was conducted. While pelvis size was similar in both sexes, the average differences in pelvis shape reflected the well\u2010documented pattern of sexual dimorphism. There was almost no overlap between females and males in shape space. Their analysis showed that pelvis size and shape were similarly associated with stature in both sexes. It was found that dimorphism in the height\u2010to\u2010width ratio of the pelvis and in the orientation of the iliac blades was largely allometric, whereas dimorphism in the subpubic angle and the relative size and distance of the acetabula was largely non\u2010allometric. It was concluded that, in contrast to the overall pelvic proportions, sexual dimorphism in the birth\u2010relevant pelvic dimensions was mainly of non\u2010allometric origin and was presumably mediated via steroid hormone secretion during puberty. Anat Rec, 300:698\u2013705, 2017. \u00a9 2017 Wiley Periodicals, Inc.</jats:p>",
+  "DOI": "10.1002/ar.23549",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2017,
+        3,
+        15
+      ]
+    ],
+    "date-time": "2017-03-15T01:25:30Z",
+    "timestamp": 1489541130000
+  },
+  "page": "698-705",
+  "source": "Crossref",
+  "is-referenced-by-count": 108,
+  "title": [
+    "Allometry and Sexual Dimorphism in the Human Pelvis"
+  ],
+  "prefix": "10.1002",
+  "volume": "300",
+  "author": [
+    {
+      "given": "Barbara",
+      "family": "Fischer",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Konrad Lorenz Institute for Evolution and Cognition Research Martinstrasse 12 Klosterneuburg 3400 Austria"
+        },
+        {
+          "name": "Department of Theoretical Biology University of Vienna Althanstrasse 14 Wien 1090 Austria"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Philipp",
+      "family": "Mitteroecker",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Theoretical Biology University of Vienna Althanstrasse 14 Wien 1090 Austria"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "311",
+  "published-online": {
+    "date-parts": [
+      [
+        2017,
+        3,
+        15
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_2_6_2_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1023/A:1013373907708"
+    },
+    {
+      "key": "e_1_2_6_3_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330930208"
+    },
+    {
+      "key": "e_1_2_6_4_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S0002-9378(16)38914-1"
+    },
+    {
+      "key": "e_1_2_6_5_1",
+      "volume-title": "Morphometric tools for landmark data: geometry and biology",
+      "author": "Bookstein FL.",
+      "year": "1991"
+    },
+    {
+      "key": "e_1_2_6_6_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/34.24792"
+    },
+    {
+      "key": "e_1_2_6_7_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.10012"
+    },
+    {
+      "key": "e_1_2_6_8_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.2307/2528217"
+    },
+    {
+      "key": "e_1_2_6_9_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0028-2243(81)90080-0"
+    },
+    {
+      "key": "e_1_2_6_10_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330310202"
+    },
+    {
+      "key": "e_1_2_6_11_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330210403"
+    },
+    {
+      "key": "e_1_2_6_12_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0002-9378(88)90006-3"
+    },
+    {
+      "key": "e_1_2_6_13_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1146/annurev-anthro-102214-013918"
+    },
+    {
+      "key": "e_1_2_6_14_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1205282109"
+    },
+    {
+      "key": "e_1_2_6_15_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1420325112"
+    },
+    {
+      "key": "e_1_2_6_16_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajhb.21217"
+    },
+    {
+      "key": "e_1_2_6_17_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/j.1469-185X.1966.tb01624.x"
+    },
+    {
+      "key": "e_1_2_6_18_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.jhevol.2015.05.008"
+    },
+    {
+      "key": "e_1_2_6_19_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s11692-012-9174-7"
+    },
+    {
+      "key": "e_1_2_6_20_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.jhevol.2009.04.004"
+    },
+    {
+      "key": "e_1_2_6_21_1",
+      "first-page": "21",
+      "article-title": "Determination of the sex of skeletons, as illustrated by a study of the eskimo pelvis",
+      "volume": "25",
+      "author": "Hanna RE",
+      "year": "1953",
+      "journal-title": "Hum Biol"
+    },
+    {
+      "key": "e_1_2_6_22_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1517085113"
+    },
+    {
+      "key": "e_1_2_6_23_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s11692-011-9123-x"
+    },
+    {
+      "key": "e_1_2_6_24_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.5962/bhl.title.6427"
+    },
+    {
+      "key": "e_1_2_6_25_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.forsciint.2004.09.069"
+    },
+    {
+      "key": "e_1_2_6_26_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1520/JFS10802J"
+    },
+    {
+      "key": "e_1_2_6_27_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1111/j.1469-185X.1997.tb00026.x"
+    },
+    {
+      "key": "e_1_2_6_28_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s00427-016-0539-2"
+    },
+    {
+      "key": "e_1_2_6_29_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.22243"
+    },
+    {
+      "key": "e_1_2_6_30_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.jhevol.2011.07.006"
+    },
+    {
+      "key": "e_1_2_6_31_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330980106"
+    },
+    {
+      "key": "e_1_2_6_32_1",
+      "first-page": "1",
+      "article-title": "Das Becken der rezenten Primaten",
+      "volume": "115",
+      "author": "Leutenegger W.",
+      "year": "1970",
+      "journal-title": "Morphol Jahrb"
+    },
+    {
+      "key": "e_1_2_6_33_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0047-2484(74)90179-1"
+    },
+    {
+      "key": "e_1_2_6_34_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1607066113"
+    },
+    {
+      "key": "e_1_2_6_35_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s11692-009-9055-x"
+    },
+    {
+      "key": "e_1_2_6_36_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.jhevol.2004.03.006"
+    },
+    {
+      "key": "e_1_2_6_37_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S0940-9602(04)80085-2"
+    },
+    {
+      "key": "e_1_2_6_38_1",
+      "first-page": "59",
+      "article-title": "A brief review of shape, form, and allometry in geometric morphometrics, with applications to human facial morphology",
+      "volume": "24",
+      "author": "Mitteroecker P",
+      "year": "2013",
+      "journal-title": "Hystrix Ital J Mamm"
+    },
+    {
+      "key": "e_1_2_6_39_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1162/biot.2009.4.1.54"
+    },
+    {
+      "key": "e_1_2_6_40_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1073/pnas.1612410113"
+    },
+    {
+      "key": "e_1_2_6_41_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/aja.1001500403"
+    },
+    {
+      "key": "e_1_2_6_42_1",
+      "first-page": "330",
+      "article-title": "Labor in short women",
+      "volume": "34",
+      "author": "Molloy WB.",
+      "year": "1969",
+      "journal-title": "Obstet Gynecol"
+    },
+    {
+      "key": "e_1_2_6_43_1",
+      "first-page": "357",
+      "article-title": "Pregnancy outcomes in short women",
+      "volume": "34",
+      "author": "Parsons MT",
+      "year": "1989",
+      "journal-title": "J Reprod Med"
+    },
+    {
+      "key": "e_1_2_6_44_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1078/0018-442X-00049"
+    },
+    {
+      "key": "e_1_2_6_45_1",
+      "unstructured": "ReynoldsHM SnowCC YoungJW.1982. Spatial Geometry of the Human Pelvis memorandum report prepared for the U.S. Department of Transportation Federal Aviation Administration Office of Aviation Medicine (National Technical Information Service Washington DC)."
+    },
+    {
+      "key": "e_1_2_6_46_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330970209"
+    },
+    {
+      "key": "e_1_2_6_47_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S1054-139X(02)00485-8"
+    },
+    {
+      "key": "e_1_2_6_48_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330350605"
+    },
+    {
+      "key": "e_1_2_6_49_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/evan.1360040506"
+    },
+    {
+      "key": "e_1_2_6_50_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330070307"
+    },
+    {
+      "key": "e_1_2_6_51_1",
+      "first-page": "303",
+      "article-title": "The skeleton of the trunk and limbs of higher primates",
+      "volume": "2",
+      "author": "Schultz AH.",
+      "year": "1930",
+      "journal-title": "Hum Biol"
+    },
+    {
+      "key": "e_1_2_6_52_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0047-2484(80)90088-3"
+    },
+    {
+      "key": "e_1_2_6_53_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330550208"
+    },
+    {
+      "key": "e_1_2_6_54_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330120312"
+    },
+    {
+      "key": "e_1_2_6_55_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.forsciint.2008.04.022"
+    },
+    {
+      "key": "e_1_2_6_56_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1159/000071222"
+    },
+    {
+      "key": "e_1_2_6_57_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330880102"
+    },
+    {
+      "key": "e_1_2_6_58_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1371/journal.pone.0118903"
+    },
+    {
+      "key": "e_1_2_6_59_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.1330060210"
+    },
+    {
+      "key": "e_1_2_6_60_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1038/scientificamerican0960-62"
+    },
+    {
+      "key": "e_1_2_6_61_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/ajpa.22160"
+    },
+    {
+      "key": "e_1_2_6_62_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S0047-2484(86)80053-7"
+    }
+  ],
+  "container-title": [
+    "The Anatomical Record"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Far.23549",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.23549",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2025,
+        10,
+        8
+      ]
+    ],
+    "date-time": "2025-10-08T12:11:37Z",
+    "timestamp": 1759925497000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://anatomypubs.onlinelibrary.wiley.com/doi/10.1002/ar.23549"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2017,
+        3,
+        15
+      ]
+    ]
+  },
+  "references-count": 61,
+  "journal-issue": {
+    "issue": "4",
+    "published-print": {
+      "date-parts": [
+        [
+          2017,
+          4
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "10.1002/ar.23549"
+  ],
+  "URL": "https://doi.org/10.1002/ar.23549",
+  "archive": [
+    "Portico"
+  ],
+  "relation": {},
+  "ISSN": [
+    "1932-8486",
+    "1932-8494"
+  ],
+  "issn-type": [
+    {
+      "value": "1932-8486",
+      "type": "print"
+    },
+    {
+      "value": "1932-8494",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2017,
+        3,
+        15
+      ]
+    ]
+  }
+}

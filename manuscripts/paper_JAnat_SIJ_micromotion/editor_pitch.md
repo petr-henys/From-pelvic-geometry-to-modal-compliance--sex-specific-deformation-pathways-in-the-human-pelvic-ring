@@ -1,14 +1,14 @@
 # Draft editorial pitch
 
-**Manuscript:** Pelvic architecture shapes load-dependent sacroiliac motion
+**Manuscript:** Anatomical scale and architecture organize load-dependent sacroiliac motion
 
 Dear Editor,
 
-The pelvis transmits substantial loads through joints that move only slightly. Our study asks how these small movements depend on the architecture of the pelvic ring, and whether apparent sex differences remain when that architecture is described explicitly.
+The pelvis transmits load through a jointed ring whose mechanical response depends on overall scale, individual architecture and the route of applied force. Using 278 imaging-derived pelves and five standardized loading configurations, we examined how these anatomical levels are expressed in sacroiliac motion.
 
-Using imaging-derived anatomy from 278 pelves, we tested how explicit pelvic dimensions change the interpretation of sex-associated sacroiliac response. Positive age-adjusted female translation coefficients under localized loading were substantially attenuated after volume and selected dimensions entered the models; all fully adjusted translation intervals spanned zero. This does not establish sex equivalence or causal mediation. A complementary matched comparison retained individual translation closely when geometry was preserved and bone density standardized (maximum RMSE 0.028 mm).
+All 20 sex-specific conditional volume–motion slopes were negative after multiplicity correction. Bilateral standing-like exponents approached simple fixed-force dimensional benchmarks, while several localized responses showed steeper size dependence. These retrospective relations concern standardized prescribed forces, not organismal scaling under body-mass-dependent loading. Preserving individual geometry under standardized bone density retained translation closely (maximum RMSE 0.028 mm), and explicit pelvic dimensions substantially attenuated sex-associated differences. Redistributing total force or changing its application site altered motion and asymmetry.
 
-The anatomical contribution is that a sex category alone misses mechanical information represented by individual architecture and loading. Matched force comparisons establish why this matters: redistributing the same total acetabular force altered joint response and asymmetry, while transverse forces at different sites produced distinct component patterns. The bone-density comparison is conditional on the implemented constitutive law and fixed cartilage, ligament and pretension parameters. The study addresses passive static mechanics and defines contrasts for independent experimental testing; it does not simulate childbirth or establish clinical thresholds.
+The functional-anatomy contribution is a linked description of scale, architecture and load path. Sex remains a population descriptor of anatomical variation; coefficient attenuation does not establish equivalence or mediation. The geometry–density comparison is conditional on the implemented constitutive law and fixed soft-tissue properties. The study concerns passive static mechanics and does not simulate childbirth or establish clinical thresholds.
 
 We believe this link between anatomical diversity and mechanical function is relevant to the readership of Journal of Anatomy.
 

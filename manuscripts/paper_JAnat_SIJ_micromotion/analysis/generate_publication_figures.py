@@ -600,6 +600,10 @@ def build_supplementary_scatter(subject_df: pd.DataFrame) -> None:
 
 def build_figure_6(subject_df):
     build_supplementary_scatter(subject_df)
+    build_scaling_benchmarks()
+
+def build_scaling_benchmarks():
+    """Render only saved coefficients; no regression fitting or FE work."""
     data=pd.read_csv(TABLE_DIR/'allometry_models.csv')
     fig,axes=plt.subplots(1,2,figsize=(10.5,4.2),constrained_layout=True)
     for ax,outcome,title in zip(axes,['rot_mag_deg','trans_mag_mm'],['A. Rotation','B. Translation']):
@@ -612,8 +616,12 @@ def build_figure_6(subject_df):
                 ax.text(1.01,yi,f'q={q:.3g}',transform=ax.get_yaxis_transform(),va='center',fontsize=8,color=color)
         ax.set_yticks(range(5),[LOAD_SHORT[l] for l in LOAD_ORDER]);ax.invert_yaxis()
         ax.axvline(0,color='.3',ls='--',lw=.8);ax.grid(axis='x',alpha=.2)
+        benchmark = -2/3 if outcome == 'rot_mag_deg' else -1/3
+        fraction = '-2/3' if outcome == 'rot_mag_deg' else '-1/3'
+        ax.axvline(benchmark, color='.55', ls='--', lw=.9, zorder=0,
+                   label=f'Dimensional benchmark b = {fraction}')
         ax.set_xlabel('Conditional volume exponent (95% CI)')
-        ax.set_title(title,loc='left',fontweight='bold');ax.legend(frameon=False,loc='best')
+        ax.set_title(title,loc='left',fontweight='bold');ax.legend(frameon=False,loc='upper center',bbox_to_anchor=(.5,-.18),fontsize=7)
     for ext in ['pdf','png']:fig.savefig(FIG_DIR/f'Fig6_allometry_loglog.{ext}',dpi=300,bbox_inches='tight')
     plt.close(fig)
 
