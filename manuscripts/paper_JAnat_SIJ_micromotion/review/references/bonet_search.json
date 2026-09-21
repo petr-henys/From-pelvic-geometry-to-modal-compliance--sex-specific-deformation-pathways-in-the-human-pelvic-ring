@@ -1,0 +1,657 @@
+[
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          19
+        ]
+      ],
+      "date-time": "2026-09-19T14:29:18Z",
+      "timestamp": 1789828158739,
+      "version": "4.0.1"
+    },
+    "edition-number": "2",
+    "reference-count": 0,
+    "publisher": "Cambridge University Press",
+    "isbn-type": [
+      {
+        "value": "9780521838702",
+        "type": "print"
+      },
+      {
+        "value": "9780511755446",
+        "type": "electronic"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2010,
+              7,
+              6
+            ]
+          ],
+          "date-time": "2010-07-06T00:00:00Z",
+          "timestamp": 1278374400000
+        },
+        "content-version": "unspecified",
+        "delay-in-days": 845,
+        "URL": "https://www.cambridge.org/core/terms"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2008,
+          3,
+          13
+        ]
+      ]
+    },
+    "abstract": "<jats:p>Designing engineering components that make optimal use of materials requires consideration of the nonlinear characteristics associated with both manufacturing and working environments. The modeling of these characteristics can only be done through numerical formulation and simulation, and this requires an understanding of both the theoretical background and associated computer solution techniques. By presenting both nonlinear continuum analysis and associated finite element techniques under one roof, Bonet and Wood provide, in this edition of this successful text, a complete, clear, and unified treatment of these important subjects. New chapters dealing with hyperelastic plastic behavior are included, and the authors have thoroughly updated the FLagSHyP program, freely accessible at www.flagshyp.com. Worked examples and exercises complete each chapter, making the text an essential resource for postgraduates studying nonlinear continuum mechanics. It is also ideal for those in industry requiring an appreciation of the way in which their computer simulation programs work.</jats:p>",
+    "DOI": "10.1017/cbo9780511755446",
+    "type": "monograph",
+    "created": {
+      "date-parts": [
+        [
+          2010,
+          7,
+          2
+        ]
+      ],
+      "date-time": "2010-07-02T12:53:22Z",
+      "timestamp": 1278075202000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 528,
+    "title": [
+      "Nonlinear Continuum Mechanics for Finite Element Analysis"
+    ],
+    "prefix": "10.1017",
+    "author": [
+      {
+        "given": "Javier",
+        "family": "Bonet",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Richard D.",
+        "family": "Wood",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "56",
+    "published-online": {
+      "date-parts": [
+        [
+          2010,
+          7,
+          6
+        ]
+      ]
+    },
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          10
+        ]
+      ],
+      "date-time": "2022-06-10T22:54:35Z",
+      "timestamp": 1654901675000
+    },
+    "score": 64.66208,
+    "resource": {
+      "primary": {
+        "URL": "https://www.cambridge.org/core/product/identifier/9780511755446/type/book"
+      }
+    },
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          3,
+          13
+        ]
+      ]
+    },
+    "ISBN": [
+      "9780521838702",
+      "9780511755446"
+    ],
+    "references-count": 0,
+    "URL": "https://doi.org/10.1017/cbo9780511755446",
+    "published": {
+      "date-parts": [
+        [
+          2008,
+          3,
+          13
+        ]
+      ]
+    }
+  },
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2024,
+          9,
+          15
+        ]
+      ],
+      "date-time": "2024-09-15T18:40:15Z",
+      "timestamp": 1726425615071
+    },
+    "edition-number": "1",
+    "reference-count": 0,
+    "publisher": "Cambridge University Press",
+    "isbn-type": [
+      {
+        "type": "electronic",
+        "value": "9781139088046"
+      },
+      {
+        "type": "print",
+        "value": "9781107603615"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2012,
+              10,
+              5
+            ]
+          ],
+          "date-time": "2012-10-05T00:00:00Z",
+          "timestamp": 1349395200000
+        },
+        "content-version": "unspecified",
+        "delay-in-days": 64,
+        "URL": "https://www.cambridge.org/core/terms"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2012,
+          8,
+          2
+        ]
+      ]
+    },
+    "abstract": "<jats:p>Many processes in materials science and engineering, such as the load deformation behaviour of certain structures, exhibit nonlinear characteristics. The computer simulation of such processes therefore requires a deep understanding of both the theoretical aspects of nonlinearity and the associated computational techniques. This book provides a complete set of exercises and solutions in the field of theoretical and computational nonlinear continuum mechanics and is the perfect companion to Nonlinear Continuum Mechanics for Finite Element Analysis, where the authors set out the theoretical foundations of the subject. It employs notation consistent with the theory book and serves as a great resource to students, researchers and those in industry interested in gaining confidence by practising through examples. Instructors of the subject will also find the book indispensable in aiding student learning.</jats:p>",
+    "DOI": "10.1017/cbo9781139088046",
+    "type": "monograph",
+    "created": {
+      "date-parts": [
+        [
+          2012,
+          10,
+          6
+        ]
+      ],
+      "date-time": "2012-10-06T15:03:12Z",
+      "timestamp": 1349535792000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 3,
+    "title": [
+      "Worked Examples in Nonlinear Continuum Mechanics for Finite Element Analysis"
+    ],
+    "prefix": "10.1017",
+    "author": [
+      {
+        "given": "Javier",
+        "family": "Bonet",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Antonio J.",
+        "family": "Gil",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Richard D.",
+        "family": "Wood",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "member": "56",
+    "published-online": {
+      "date-parts": [
+        [
+          2012,
+          10,
+          5
+        ]
+      ]
+    },
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          10,
+          11
+        ]
+      ],
+      "date-time": "2022-10-11T20:21:58Z",
+      "timestamp": 1665519718000
+    },
+    "score": 59.110947,
+    "resource": {
+      "primary": {
+        "URL": "https://www.cambridge.org/core/product/identifier/9781139088046/type/book"
+      }
+    },
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          8,
+          2
+        ]
+      ]
+    },
+    "ISBN": [
+      "9781139088046",
+      "9781107603615"
+    ],
+    "references-count": 0,
+    "URL": "https://doi.org/10.1017/cbo9781139088046",
+    "published": {
+      "date-parts": [
+        [
+          2012,
+          8,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          7,
+          2
+        ]
+      ],
+      "date-time": "2026-07-02T09:21:44Z",
+      "timestamp": 1782984104393,
+      "version": "3.54.5"
+    },
+    "edition-number": "1",
+    "reference-count": 0,
+    "publisher": "Cambridge University Press",
+    "isbn-type": [
+      {
+        "value": "9781316336083",
+        "type": "electronic"
+      },
+      {
+        "value": "9781107115620",
+        "type": "print"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2021,
+              2,
+              26
+            ]
+          ],
+          "date-time": "2021-02-26T00:00:00Z",
+          "timestamp": 1614297600000
+        },
+        "content-version": "unspecified",
+        "delay-in-days": 0,
+        "URL": "https://www.cambridge.org/core/terms"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2021,
+          3,
+          18
+        ]
+      ]
+    },
+    "abstract": "<jats:p>Designing engineering components that make optimal use of materials requires consideration of the nonlinear static and dynamic characteristics associated with both manufacturing and working environments. The modeling of these characteristics can only be done through numerical formulation and simulation, which requires an understanding of both the theoretical background and associated computer solution techniques. By presenting nonlinear solid mechanics, dynamic conservation laws and principles, and the associated finite element techniques together, the authors provide in this second book a unified treatment of the dynamic simulation of nonlinear solids. Alongside a number of worked examples and exercises are user instructions, program descriptions, and examples for two MATLAB computer implementations for which source codes are available online. While this book is designed to complement postgraduate courses, it is also relevant to those in industry requiring an appreciation of the way their computer simulation programs work.</jats:p>",
+    "DOI": "10.1017/9781316336083",
+    "type": "monograph",
+    "created": {
+      "date-parts": [
+        [
+          2021,
+          2,
+          26
+        ]
+      ],
+      "date-time": "2021-02-26T00:05:33Z",
+      "timestamp": 1614297933000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 20,
+    "title": [
+      "Nonlinear Solid Mechanics for Finite Element Analysis: Dynamics"
+    ],
+    "prefix": "10.1017",
+    "author": [
+      {
+        "given": "Javier",
+        "family": "Bonet",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Antonio J.",
+        "family": "Gil",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Richard D.",
+        "family": "Wood",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "56",
+    "published-online": {
+      "date-parts": [
+        [
+          2021,
+          2,
+          26
+        ]
+      ]
+    },
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          10
+        ]
+      ],
+      "date-time": "2022-06-10T21:31:05Z",
+      "timestamp": 1654896665000
+    },
+    "score": 51.681587,
+    "resource": {
+      "primary": {
+        "URL": "https://www.cambridge.org/core/product/identifier/9781316336083/type/book"
+      }
+    },
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          2,
+          26
+        ]
+      ]
+    },
+    "ISBN": [
+      "9781316336083",
+      "9781107115620"
+    ],
+    "references-count": 0,
+    "URL": "https://doi.org/10.1017/9781316336083",
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          2,
+          26
+        ]
+      ]
+    }
+  },
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          8,
+          4
+        ]
+      ],
+      "date-time": "2026-08-04T00:22:32Z",
+      "timestamp": 1785802952948,
+      "version": "3.56.0"
+    },
+    "edition-number": "1",
+    "reference-count": 0,
+    "publisher": "Cambridge University Press",
+    "isbn-type": [
+      {
+        "value": "9781107115798",
+        "type": "print"
+      },
+      {
+        "value": "9781316336144",
+        "type": "electronic"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2016,
+              6,
+              5
+            ]
+          ],
+          "date-time": "2016-06-05T00:00:00Z",
+          "timestamp": 1465084800000
+        },
+        "content-version": "unspecified",
+        "delay-in-days": 0,
+        "URL": "https://www.cambridge.org/core/terms"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2016,
+          6,
+          23
+        ]
+      ]
+    },
+    "abstract": "<jats:p>Designing engineering components that make optimal use of materials requires consideration of the nonlinear static and dynamic characteristics associated with both manufacturing and working environments. The modeling of these characteristics can only be done through numerical formulation and simulation, which requires an understanding of both the theoretical background and associated computer solution techniques. By presenting both the nonlinear solid mechanics and the associated finite element techniques together, the authors provide, in the first of two books in this series, a complete, clear, and unified treatment of the static aspects of nonlinear solid mechanics. Alongside a range of worked examples and exercises are user instructions, program descriptions, and examples for the FLagSHyP MATLAB computer implementation, for which the source code is available online. While this book is designed to complement postgraduate courses, it is also relevant to those in industry requiring an appreciation of the way their computer simulation programs work.</jats:p>",
+    "DOI": "10.1017/cbo9781316336144",
+    "type": "monograph",
+    "created": {
+      "date-parts": [
+        [
+          2016,
+          6,
+          5
+        ]
+      ],
+      "date-time": "2016-06-05T08:38:35Z",
+      "timestamp": 1465115915000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 57,
+    "title": [
+      "Nonlinear Solid Mechanics for Finite Element Analysis: Statics"
+    ],
+    "prefix": "10.1017",
+    "author": [
+      {
+        "given": "Javier",
+        "family": "Bonet",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Antonio J.",
+        "family": "Gil",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Richard D.",
+        "family": "Wood",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "56",
+    "published-online": {
+      "date-parts": [
+        [
+          2016,
+          6,
+          5
+        ]
+      ]
+    },
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          11
+        ]
+      ],
+      "date-time": "2022-06-11T19:19:08Z",
+      "timestamp": 1654975148000
+    },
+    "score": 51.612885,
+    "resource": {
+      "primary": {
+        "URL": "https://www.cambridge.org/core/product/identifier/9781316336144/type/book"
+      }
+    },
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          6,
+          5
+        ]
+      ]
+    },
+    "ISBN": [
+      "9781107115798",
+      "9781316336144"
+    ],
+    "references-count": 0,
+    "URL": "https://doi.org/10.1017/cbo9781316336144",
+    "published": {
+      "date-parts": [
+        [
+          2016,
+          6,
+          5
+        ]
+      ]
+    }
+  }
+]

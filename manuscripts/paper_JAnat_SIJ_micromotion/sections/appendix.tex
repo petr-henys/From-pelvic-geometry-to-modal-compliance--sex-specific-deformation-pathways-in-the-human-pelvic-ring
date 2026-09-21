@@ -2,6 +2,12 @@
 \section{Mathematical formulation and verification}
 \label{app:mathematical_formulation}
 
+\subsection{Archived implementation and correspondence checks}
+\label{app:implementation_checks}
+Subject landmarks were obtained by thin-plate-spline RBF interpolation of template-to-subject displacements (10 neighbors; smoothing parameter 100). These morphometric interpolation settings differ from those used for the FE surface reconstruction. Recomputing the eight measures for all 278 subjects reproduced the archived values within $10^{-8}$~mm or degrees.
+
+Archived displacement fields were reprocessed without new equilibrium solves. Reference-to-reference checks were below $10^{-8}$ in degrees and mm for every subject. Node ordering was checked against all five archived reference displacement fields. Geometry and displacement were evaluated with the same RBF parameters used by the original workflow. Checkpoints preserve subject row indices consistently across the three variants. Pairing follows the common indexed shape/density inputs and the archived processing order; the auxiliary archives do not contain an independent subject-ID manifest.
+
 \subsection{Reference mapping and equilibrium}
 Let $\Omega_0$ be the FE template and $\boldsymbol\chi_i(\mathbf X)=\mathbf X+\boldsymbol\phi_i(\mathbf X)$ the unloaded subject geometry. The anatomical mapping and the elastic displacement are different fields. With $\mathbf F_i=\mathbf I+\nabla_X\boldsymbol\phi_i$ and $J_i=\det\mathbf F_i$, the physical small-strain tensor is
 \begin{equation}
@@ -33,7 +39,7 @@ Let $\mathbf X_j$ be surface template nodes. The two point clouds used for kinem
 \mathbf p^0_{ij}=\mathbf X_j+\boldsymbol\phi_i(\mathbf X_j),\qquad
 \mathbf p^1_{i\ell j}=\mathbf p^0_{ij}+\mathbf u_{i\ell}(\mathbf X_j).
 \end{equation}
-Both use identical topology and point correspondence. Here ``unloaded denotes the geometric reference with zero stored elastic displacement, not a separately equilibrated pretension-only state. The loaded field includes both the prescribed external load and the ligament pretension right-hand side. Comparing $\mathbf X_j$ with $\mathbf p^1_{i\ell j}$ would incorrectly include subject morphology in the measured motion. Geometry was reconstructed with the original two-stage interpolation: template-to-FE mapping (10 neighbors, smoothing 50) followed by FE-to-surface mapping (10 neighbors, zero smoothing). Saved elastic fields use the latter interpolation. Cached sparse interpolation weights implement the same linear RBF evaluation; numerical comparisons against direct RBF evaluation check this equivalence.
+Both use identical topology and point correspondence. Here ``unloaded'' denotes the geometric reference with zero stored elastic displacement, not a separately equilibrated pretension-only state. The loaded field includes both the prescribed external load and the ligament pretension right-hand side. Comparing $\mathbf X_j$ with $\mathbf p^1_{i\ell j}$ would incorrectly include subject morphology in the measured motion. Geometry was reconstructed with the original two-stage interpolation: template-to-FE mapping (10 neighbors, smoothing 50) followed by FE-to-surface mapping (10 neighbors, zero smoothing). Saved elastic fields use the latter interpolation. Cached sparse interpolation weights implement the same linear RBF evaluation; numerical comparisons against direct RBF evaluation check this equivalence.
 
 \subsection{Pelvis-aligned reporting frame}
 The origin $\mathbf o$ is the centroid of the unloaded surface. The initial ML axis is the dominant eigenvector of the point-cloud covariance, with deterministic sign. The symmetry-plane routine uses this PCA approximation; it does not optimize reflection symmetry. Project the centered points onto its orthogonal plane and take the leading in-plane singular vector. Orthogonalization gives $\hat{\mathbf z}$, followed by

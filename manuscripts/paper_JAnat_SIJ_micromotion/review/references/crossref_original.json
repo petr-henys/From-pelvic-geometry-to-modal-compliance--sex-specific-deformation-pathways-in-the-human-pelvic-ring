@@ -1,0 +1,2916 @@
+[
+  {
+    "key": "Goode2008",
+    "doi": "10.1179/106698108790818639",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            8,
+            30
+          ]
+        ],
+        "date-time": "2026-08-30T02:22:55Z",
+        "timestamp": 1788056575034,
+        "version": "build-2784847793"
+      },
+      "reference-count": 29,
+      "publisher": "Informa UK Limited",
+      "issue": "1",
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [
+        "Journal of Manual &amp; Manipulative Therapy"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2008,
+            1
+          ]
+        ]
+      },
+      "DOI": "10.1179/106698108790818639",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2010,
+            9,
+            24
+          ]
+        ],
+        "date-time": "2010-09-24T03:55:38Z",
+        "timestamp": 1285300538000
+      },
+      "page": "25-38",
+      "source": "Crossref",
+      "is-referenced-by-count": 64,
+      "title": [
+        "Three-Dimensional Movements of the Sacroiliac Joint: A Systematic Review of the Literature and Assessment of Clinical Utility"
+      ],
+      "prefix": "10.1080",
+      "volume": "16",
+      "author": [
+        {
+          "given": "Adam",
+          "family": "Goode",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eric J",
+          "family": "Hegedus",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Philip",
+          "family": "Sizer",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jean-Michel",
+          "family": "Brismee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alison",
+          "family": "Linberg",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chad E",
+          "family": "Cook",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "301",
+      "published-online": {
+        "date-parts": [
+          [
+            2013,
+            7,
+            18
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "key": "CIT0001",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-199505000-00011"
+        },
+        {
+          "key": "CIT0002",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-198902000-00004"
+        },
+        {
+          "key": "CIT0003",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.clinbiomech.2003.09.005"
+        },
+        {
+          "key": "CIT0004",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1177/028418517801900513"
+        },
+        {
+          "key": "CIT0005",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.clinbiomech.2004.02.004"
+        },
+        {
+          "key": "CIT0006",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.3109/17453679909000956"
+        },
+        {
+          "key": "CIT0007",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-200002010-00018"
+        },
+        {
+          "key": "CIT0008",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-200001150-00012"
+        },
+        {
+          "key": "CIT0009",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/jor.1100050112"
+        },
+        {
+          "key": "CIT0010",
+          "volume-title": "Kinesiology of the Musculoskeletal System: Foundations for Physical Rehabilitation",
+          "author": "Neumann DA",
+          "year": "2002"
+        },
+        {
+          "key": "CIT0011",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.2519/jospt.1999.29.2.83"
+        },
+        {
+          "key": "CIT0012",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1053/apmr.2001.18217"
+        },
+        {
+          "key": "CIT0013",
+          "doi-asserted-by": "crossref",
+          "first-page": "772",
+          "DOI": "10.1093/ptj/82.8.772",
+          "volume": "82",
+          "author": "Riddle DL",
+          "year": "2002",
+          "journal-title": "Phys Ther"
+        },
+        {
+          "key": "CIT0014",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/B978-044310178-6.50025-6"
+        },
+        {
+          "key": "CIT0015",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-200106150-00034"
+        },
+        {
+          "key": "CIT0016",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-199611150-00009"
+        },
+        {
+          "key": "CIT0017",
+          "volume-title": "Orthopedic Physical Examination Tests: An Evidence-Based Approach",
+          "author": "Cook C",
+          "year": "2007"
+        },
+        {
+          "key": "CIT0018",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.math.2005.09.004"
+        },
+        {
+          "key": "CIT0020",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1054/math.1999.0228"
+        },
+        {
+          "key": "CIT0021",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1054/math.1999.0229"
+        },
+        {
+          "key": "CIT0022",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jmpt.2007.04.009"
+        },
+        {
+          "key": "CIT0023",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/00007632-199709150-00003"
+        },
+        {
+          "key": "CIT0024",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/0268-0033(95)00003-4"
+        },
+        {
+          "key": "CIT0025",
+          "doi-asserted-by": "crossref",
+          "first-page": "1135",
+          "DOI": "10.1093/ptj/81.5.1135",
+          "volume": "81",
+          "author": "Freburger JK",
+          "year": "2001",
+          "journal-title": "Phys Ther"
+        },
+        {
+          "key": "CIT0026",
+          "doi-asserted-by": "crossref",
+          "first-page": "1043",
+          "DOI": "10.1093/ptj/79.11.1043",
+          "volume": "79",
+          "author": "Levangie PK",
+          "year": "1999",
+          "journal-title": "Phys Ther"
+        },
+        {
+          "key": "CIT0027",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1054/math.1999.0203"
+        },
+        {
+          "key": "CIT0028",
+          "doi-asserted-by": "crossref",
+          "first-page": "1671",
+          "DOI": "10.1093/ptj/65.11.1671",
+          "volume": "65",
+          "author": "Potter NA",
+          "year": "1985",
+          "journal-title": "Phys Ther"
+        },
+        {
+          "key": "CIT0029",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jmpt.2007.03.008"
+        },
+        {
+          "key": "CIT0030",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1055/s-2008-1039744"
+        }
+      ],
+      "container-title": [
+        "Journal of Manual &amp; Manipulative Therapy"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "http://www.tandfonline.com/doi/pdf/10.1179/106698108790818639",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2020,
+            6,
+            12
+          ]
+        ],
+        "date-time": "2020-06-12T03:22:15Z",
+        "timestamp": 1591932135000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "http://www.tandfonline.com/doi/full/10.1179/106698108790818639"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2008,
+            1
+          ]
+        ]
+      },
+      "references-count": 29,
+      "journal-issue": {
+        "issue": "1",
+        "published-online": {
+          "date-parts": [
+            [
+              2013,
+              7,
+              18
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2008,
+              1
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "10.1179/106698108790818639"
+      ],
+      "URL": "https://doi.org/10.1179/106698108790818639",
+      "relation": {},
+      "ISSN": [
+        "1066-9817",
+        "2042-6186"
+      ],
+      "issn-type": [
+        {
+          "value": "1066-9817",
+          "type": "print"
+        },
+        {
+          "value": "2042-6186",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2008,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "Vleeming2012",
+    "doi": "10.1111/j.1469-7580.2012.01564.x",
+    "status": 429
+  },
+  {
+    "key": "Snijders1993",
+    "doi": "10.1016/0268-0033(93)90002-Y",
+    "status": 429
+  },
+  {
+    "key": "Keller1994",
+    "doi": "10.1016/0021-9290(94)90056-6",
+    "status": 429
+  },
+  {
+    "key": "ChenGrimm2021",
+    "doi": "10.1115/1.4049226",
+    "status": 429
+  },
+  {
+    "key": "HenyssKuchar2025BoneDat",
+    "doi": "10.1038/s41597-025-05161-y",
+    "status": 429
+  },
+  {
+    "key": "BonetWood1997",
+    "doi": null
+  },
+  {
+    "key": "Wilcoxon1945",
+    "doi": "10.2307/3001968",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            20
+          ]
+        ],
+        "date-time": "2026-09-20T15:10:39Z",
+        "timestamp": 1789917039213,
+        "version": "4.0.1"
+      },
+      "reference-count": 0,
+      "publisher": "JSTOR",
+      "issue": "6",
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [
+        "Biometrics Bulletin"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            1945,
+            12
+          ]
+        ]
+      },
+      "DOI": "10.2307/3001968",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2006,
+            6,
+            18
+          ]
+        ],
+        "date-time": "2006-06-18T06:48:17Z",
+        "timestamp": 1150613297000
+      },
+      "page": "80",
+      "source": "Crossref",
+      "is-referenced-by-count": 12891,
+      "title": [
+        "Individual Comparisons by Ranking Methods"
+      ],
+      "prefix": "10.2307",
+      "volume": "1",
+      "author": [
+        {
+          "given": "Frank",
+          "family": "Wilcoxon",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "1121",
+      "container-title": [
+        "Biometrics Bulletin"
+      ],
+      "original-title": [],
+      "deposited": {
+        "date-parts": [
+          [
+            2018,
+            4,
+            18
+          ]
+        ],
+        "date-time": "2018-04-18T15:52:25Z",
+        "timestamp": 1524066745000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://www.jstor.org/stable/10.2307/3001968?origin=crossref"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            1945,
+            12
+          ]
+        ]
+      },
+      "references-count": 0,
+      "journal-issue": {
+        "issue": "6",
+        "published-print": {
+          "date-parts": [
+            [
+              1945,
+              12
+            ]
+          ]
+        }
+      },
+      "URL": "https://doi.org/10.2307/3001968",
+      "relation": {},
+      "ISSN": [
+        "0099-4987"
+      ],
+      "issn-type": [
+        {
+          "value": "0099-4987",
+          "type": "print"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            1945,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "EfronTibshirani1994",
+    "doi": null
+  },
+  {
+    "key": "MacKinnonWhite1985",
+    "doi": "10.1016/0304-4076(85)90158-7",
+    "status": 429
+  },
+  {
+    "key": "BenjaminiHochberg1995",
+    "doi": null
+  },
+  {
+    "key": "Hammer2013",
+    "doi": "10.1016/j.spinee.2013.03.050",
+    "status": 429
+  },
+  {
+    "key": "Pavlicev2020",
+    "doi": "10.1016/j.ajog.2019.06.043",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            14
+          ]
+        ],
+        "date-time": "2026-09-14T15:30:28Z",
+        "timestamp": 1789399828722,
+        "version": "build-2803163510"
+      },
+      "reference-count": 110,
+      "publisher": "Elsevier BV",
+      "issue": "1",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2020,
+                1,
+                1
+              ]
+            ],
+            "date-time": "2020-01-01T00:00:00Z",
+            "timestamp": 1577836800000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2020,
+                1,
+                1
+              ]
+            ],
+            "date-time": "2020-01-01T00:00:00Z",
+            "timestamp": 1577836800000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://www.elsevier.com/legal/tdmrep-license"
+        }
+      ],
+      "funder": [
+        {
+          "DOI": "10.13039/501100002428",
+          "name": "Austrian Science Fund",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "29397"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "29397"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100002428",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100000002",
+          "name": "National Institutes of Health",
+          "doi-asserted-by": "publisher",
+          "id": [
+            {
+              "id": "10.13039/100000002",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100011636",
+          "name": "March of Dimes Prematurity Research Center Ohio Collaborative",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "22-FY14-470"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "22-FY14-470"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/100011636",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100009633",
+          "name": "Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+          "doi-asserted-by": "publisher",
+          "id": [
+            {
+              "id": "10.13039/100009633",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100000016",
+          "name": "U.S. Department of Health and Human Services",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "HSN275201300006C"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "HSN275201300006C"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/100000016",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        }
+      ],
+      "content-domain": {
+        "domain": [
+          "ajog.org",
+          "clinicalkey.com",
+          "clinicalkey.com.au",
+          "clinicalkey.es",
+          "clinicalkey.fr",
+          "clinicalkey.jp",
+          "elsevier.com",
+          "sciencedirect.com"
+        ],
+        "crossmark-restriction": true
+      },
+      "short-container-title": [
+        "American Journal of Obstetrics and Gynecology"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2020,
+            1
+          ]
+        ]
+      },
+      "DOI": "10.1016/j.ajog.2019.06.043",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2019,
+            6,
+            25
+          ]
+        ],
+        "date-time": "2019-06-25T09:52:50Z",
+        "timestamp": 1561456370000
+      },
+      "page": "3-16",
+      "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+      "source": "Crossref",
+      "is-referenced-by-count": 116,
+      "title": [
+        "Evolution of the human pelvis and obstructed labor: new explanations of an old obstetrical dilemma"
+      ],
+      "prefix": "10.1016",
+      "volume": "222",
+      "author": [
+        {
+          "given": "Mihaela",
+          "family": "Pavli\u010dev",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-4448-5121",
+          "authenticated-orcid": false,
+          "given": "Roberto",
+          "family": "Romero",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Philipp",
+          "family": "Mitteroecker",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "78",
+      "reference": [
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib1",
+          "series-title": "The life of primates",
+          "author": "Schultz",
+          "year": "1969"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib2",
+          "doi-asserted-by": "crossref",
+          "first-page": "19",
+          "DOI": "10.1016/j.ijgo.2010.05.019",
+          "article-title": "Levator ani injury in primiparous women with forceps delivery for fetal distress, forceps for second stage arrest, and spontaneous delivery",
+          "volume": "111",
+          "author": "Kearney",
+          "year": "2010",
+          "journal-title": "Int J Gynaecol Obstet"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib3",
+          "doi-asserted-by": "crossref",
+          "first-page": "488.e481",
+          "DOI": "10.1016/j.ajog.2010.01.002",
+          "article-title": "Correlation between levator ani muscle injuries on magnetic resonance imaging and fecal incontinence, pelvic organ prolapse, and urinary incontinence in primiparous women",
+          "volume": "202",
+          "author": "Heilbrun",
+          "year": "2010",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib4",
+          "doi-asserted-by": "crossref",
+          "first-page": "924",
+          "DOI": "10.1016/S0029-7844(97)00472-9",
+          "article-title": "Internal and external anal sphincter anatomy as it relates to midline obstetric lacerations",
+          "volume": "90",
+          "author": "Delancey",
+          "year": "1997",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib5",
+          "series-title": "Global burden of obstructed labour in the year 2000",
+          "author": "Dolea",
+          "year": "2000"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib6",
+          "doi-asserted-by": "crossref",
+          "first-page": "625",
+          "DOI": "10.1016/S0306-3356(21)00535-5",
+          "article-title": "Obstructed labour",
+          "volume": "9",
+          "author": "Philpott",
+          "year": "1982",
+          "journal-title": "Clin Obstet Gynaecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib7",
+          "doi-asserted-by": "crossref",
+          "first-page": "15",
+          "DOI": "10.1016/0002-9378(80)90378-6",
+          "article-title": "An evaluation of the usefulness of x-ray pelvimetry\u2014a comparison of the Thoms and modified ball methods with manual pelvimetry",
+          "volume": "137",
+          "author": "Fine",
+          "year": "1980",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib8",
+          "first-page": "129",
+          "article-title": "Station of the fetal presenting part. VI. Arrest of descent in nulliparas",
+          "volume": "47",
+          "author": "Friedman",
+          "year": "1976",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib9",
+          "doi-asserted-by": "crossref",
+          "first-page": "293",
+          "DOI": "10.1016/j.clp.2008.03.007",
+          "article-title": "Cesarean birth in the United States: epidemiology, trends, and outcomes",
+          "volume": "35",
+          "author": "MacDorman",
+          "year": "2008",
+          "journal-title": "Clin Perinatol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib10",
+          "doi-asserted-by": "crossref",
+          "first-page": "e276",
+          "DOI": "10.1371/journal.pmed.0030276",
+          "article-title": "Insights into the physiology of childbirth using transcriptomics",
+          "volume": "3",
+          "author": "Romero",
+          "year": "2006",
+          "journal-title": "PLoS Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib11",
+          "doi-asserted-by": "crossref",
+          "first-page": "191",
+          "DOI": "10.1093/bmb/ldg018",
+          "article-title": "Obstructed labour",
+          "volume": "67",
+          "author": "Neilson",
+          "year": "2003",
+          "journal-title": "Br Med Bull"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib12",
+          "doi-asserted-by": "crossref",
+          "first-page": "1358",
+          "DOI": "10.1016/S0140-6736(18)31927-5",
+          "article-title": "Interventions to reduce unnecessary caesarean sections in healthy women and babies",
+          "volume": "392",
+          "author": "Betran",
+          "year": "2018",
+          "journal-title": "Lancet"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib13",
+          "doi-asserted-by": "crossref",
+          "first-page": "1341",
+          "DOI": "10.1016/S0140-6736(18)31928-7",
+          "article-title": "Global epidemiology of use of and disparities in caesarean sections",
+          "volume": "392",
+          "author": "Boerma",
+          "year": "2018",
+          "journal-title": "Lancet"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib14",
+          "doi-asserted-by": "crossref",
+          "first-page": "e1002672",
+          "DOI": "10.1371/journal.pmed.1002672",
+          "article-title": "Prevalence of and reasons for women's, family members', and health professionals' preferences for cesarean section in China: a mixed-methods systematic review",
+          "volume": "15",
+          "author": "Long",
+          "year": "2018",
+          "journal-title": "PLoS Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib15",
+          "doi-asserted-by": "crossref",
+          "first-page": "5",
+          "DOI": "10.1016/j.ijoa.2017.09.005",
+          "article-title": "Cesarean birth\u2014what's in a name?",
+          "volume": "34",
+          "author": "Ni",
+          "year": "2018",
+          "journal-title": "Int J Obstet Anesth"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib16",
+          "doi-asserted-by": "crossref",
+          "first-page": "109",
+          "DOI": "10.1111/birt.12319",
+          "article-title": "Why do women request an elective cesarean delivery for non-medical reasons? A systematic review of the qualitative literature",
+          "volume": "45",
+          "author": "O'Donovan",
+          "year": "2018",
+          "journal-title": "Birth"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib17",
+          "doi-asserted-by": "crossref",
+          "first-page": "356",
+          "DOI": "10.1016/j.ajog.2018.06.006",
+          "article-title": "A\u00a0conceptual framework for the impact of obesity on risk of cesarean delivery",
+          "volume": "219",
+          "author": "Rogers",
+          "year": "2018",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib18",
+          "doi-asserted-by": "crossref",
+          "first-page": "9",
+          "DOI": "10.1007/s00404-018-4742-4",
+          "article-title": "Non-obstetrical indications for cesarean section: a state-of-the-art review",
+          "volume": "298",
+          "author": "Venturella",
+          "year": "2018",
+          "journal-title": "Arch Gynecol Obstet"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib19",
+          "doi-asserted-by": "crossref",
+          "first-page": "199",
+          "DOI": "10.1016/j.clp.2018.01.004",
+          "article-title": "Delivery at Term: When, How, and Why",
+          "volume": "45",
+          "author": "Walker",
+          "year": "2018",
+          "journal-title": "Clin Perinatol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib20",
+          "doi-asserted-by": "crossref",
+          "first-page": "757",
+          "DOI": "10.1002/ajpa.1330380315",
+          "article-title": "The gait of Australopithecus",
+          "volume": "38",
+          "author": "Lovejoy",
+          "year": "1973",
+          "journal-title": "Am J Phys Anthropol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib21",
+          "doi-asserted-by": "crossref",
+          "first-page": "789",
+          "DOI": "10.1002/ar.23580",
+          "article-title": "Evolution of the human pelvis",
+          "volume": "300",
+          "author": "Rosenberg",
+          "year": "2017",
+          "journal-title": "Anatom Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib22",
+          "doi-asserted-by": "crossref",
+          "first-page": "94",
+          "DOI": "10.1016/j.jhevol.2015.05.008",
+          "article-title": "Complex and changing patterns of natural selection explain the evolution of the human hip",
+          "volume": "85",
+          "author": "Grabowski",
+          "year": "2015",
+          "journal-title": "J\u00a0Hum Evol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib23",
+          "doi-asserted-by": "crossref",
+          "first-page": "1336",
+          "DOI": "10.1111/j.1558-5646.2011.01226.x",
+          "article-title": "Divergent patterns of integration and reduced constraint in the human hip and the origins of bipedalism",
+          "volume": "65",
+          "author": "Grabowski",
+          "year": "2011",
+          "journal-title": "Evolution"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib24",
+          "doi-asserted-by": "crossref",
+          "first-page": "964",
+          "DOI": "10.1002/ar.23576",
+          "article-title": "Pelvic morphology in Homo erectus and early Homo",
+          "volume": "300",
+          "author": "Churchill",
+          "year": "2017",
+          "journal-title": "Anatom Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib25",
+          "first-page": "20140063",
+          "article-title": "The evolution of the human pelvis: changing adaptations to bipedalism, obstetrics and thermoregulation",
+          "volume": "370",
+          "author": "Gruss",
+          "year": "2015",
+          "journal-title": "Philosoph Trans R Soc London Series B, Biol Sci"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib26",
+          "first-page": "1",
+          "article-title": "Anatomical variations in the female pelvis: their classification and obstetrical significance: (section of obstetrics and gynaecology)",
+          "volume": "32",
+          "author": "Caldwell",
+          "year": "1938",
+          "journal-title": "Proc R Soc Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib27",
+          "doi-asserted-by": "crossref",
+          "first-page": "479",
+          "DOI": "10.1016/S0002-9378(33)90194-5",
+          "article-title": "Anatomical variations in the female pelvis and their effect in labor with a suggested classification",
+          "volume": "26",
+          "author": "Caldwell",
+          "year": "1933",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib28",
+          "doi-asserted-by": "crossref",
+          "first-page": "687",
+          "DOI": "10.1002/ar.23542",
+          "article-title": "Human variation in pelvic shape and the effects of climate and past population history",
+          "volume": "300",
+          "author": "Betti",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib29",
+          "doi-asserted-by": "crossref",
+          "first-page": "63",
+          "DOI": "10.1038/scientificamerican0960-62",
+          "article-title": "Tools and human evolution",
+          "volume": "203",
+          "author": "Washburn",
+          "year": "1960",
+          "journal-title": "Sci Am"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib30",
+          "series-title": "Biologische fragmente zu einer lehre vom menschen",
+          "author": "Portmann",
+          "year": "1944"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib31",
+          "doi-asserted-by": "crossref",
+          "first-page": "56",
+          "DOI": "10.1001/jama.1961.73040400014011",
+          "article-title": "Neonatal and infant immaturity in man",
+          "volume": "178",
+          "author": "Montagu",
+          "year": "1961",
+          "journal-title": "JAMA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib32",
+          "doi-asserted-by": "crossref",
+          "first-page": "698",
+          "DOI": "10.1002/ar.23549",
+          "article-title": "Allometry and sexual dimorphism in the human pelvis",
+          "volume": "300",
+          "author": "Fischer",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib33",
+          "doi-asserted-by": "crossref",
+          "first-page": "932",
+          "DOI": "10.1002/ar.23558",
+          "article-title": "Hominin hip biomechanics: changing perspectives",
+          "volume": "300",
+          "author": "Warrener",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib34",
+          "doi-asserted-by": "crossref",
+          "first-page": "e0118903",
+          "DOI": "10.1371/journal.pone.0118903",
+          "article-title": "A\u00a0wider pelvis does not increase locomotor cost in humans, with implications for the evolution of childbirth",
+          "author": "Warrener",
+          "year": "2015",
+          "journal-title": "PloS One"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib35",
+          "doi-asserted-by": "crossref",
+          "first-page": "752",
+          "DOI": "10.1002/ar.23551",
+          "article-title": "Pelvic rotation effect on human stride length: releasing the constraint of obstetric selection",
+          "volume": "300",
+          "author": "Whitcome",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib36",
+          "doi-asserted-by": "crossref",
+          "first-page": "739",
+          "DOI": "10.1002/ar.23550",
+          "article-title": "Pelvic breadth and locomotor kinematics in human evolution",
+          "volume": "300",
+          "author": "Gruss",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib37",
+          "doi-asserted-by": "crossref",
+          "first-page": "53",
+          "DOI": "10.1002/ajpa.1330750107",
+          "article-title": "Evolution of the ischial spine and of the pelvic floor in the Hominoidea",
+          "volume": "75",
+          "author": "Abitbol",
+          "year": "1988",
+          "journal-title": "Am J Phys Anthropol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib38",
+          "doi-asserted-by": "crossref",
+          "first-page": "266",
+          "DOI": "10.1196/annals.1389.034",
+          "article-title": "Functional anatomy of the female pelvic floor",
+          "volume": "1101",
+          "author": "Ashton-Miller",
+          "year": "2007",
+          "journal-title": "Ann N Y Acad Sci"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib39",
+          "doi-asserted-by": "crossref",
+          "first-page": "5",
+          "DOI": "10.1007/s00192-009-0976-9",
+          "article-title": "An International Urogynecological Association (IUGA)/International Continence Society (ICS) joint report on the terminology for female pelvic floor dysfunction",
+          "volume": "21",
+          "author": "Haylen",
+          "year": "2010",
+          "journal-title": "Int Urogynecol J"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib40",
+          "doi-asserted-by": "crossref",
+          "first-page": "568",
+          "DOI": "10.1097/00006254-199609000-00024",
+          "article-title": "Obstructed labor injury complex: obstetric fistula formation and the multifaceted morbidity of maternal birth trauma in the developing world",
+          "volume": "51",
+          "author": "Arrowsmith",
+          "year": "1996",
+          "journal-title": "Obstet Gynecol Surv"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib41",
+          "first-page": "1283",
+          "article-title": "Architectural differences in the bony pelvis of women with and without pelvic floor disorders",
+          "volume": "102",
+          "author": "Handa",
+          "year": "2003",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib42",
+          "first-page": "229",
+          "article-title": "Computed tomography comparison of bony pelvis dimensions between women with and without genital prolapse",
+          "volume": "93",
+          "author": "Sze",
+          "year": "1999",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib43",
+          "doi-asserted-by": "crossref",
+          "first-page": "37",
+          "DOI": "10.1002/nau.22275",
+          "article-title": "Bony pelvis dimensions in women with and without stress urinary incontinence",
+          "volume": "32",
+          "author": "Berger",
+          "year": "2013",
+          "journal-title": "Neurourol Urodyn"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib44",
+          "doi-asserted-by": "crossref",
+          "first-page": "239",
+          "DOI": "10.1016/j.eururo.2006.12.026",
+          "article-title": "Pelvis architecture and urinary incontinence in women",
+          "volume": "52",
+          "author": "Stav",
+          "year": "2007",
+          "journal-title": "Eur Urol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib45",
+          "doi-asserted-by": "crossref",
+          "first-page": "241.e241",
+          "DOI": "10.1016/j.ajog.2008.10.040",
+          "article-title": "Comparison of bony dimensions at the level of the pelvic floor in women with and without pelvic organ prolapse",
+          "volume": "200",
+          "author": "Stein",
+          "year": "2009",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib46",
+          "doi-asserted-by": "crossref",
+          "first-page": "813",
+          "DOI": "10.1002/ca.22536",
+          "article-title": "Relationship between levator ani and bony pelvis morphology and clinical grade of prolapse in women",
+          "volume": "28",
+          "author": "Li",
+          "year": "2015",
+          "journal-title": "Clin Anat"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib47",
+          "doi-asserted-by": "crossref",
+          "first-page": "e23227",
+          "DOI": "10.1002/ajhb.23227",
+          "article-title": "Humans as inverted bats: a comparative approach to the obstetric conundrum",
+          "volume": "31",
+          "author": "Grunstra",
+          "year": "2019",
+          "journal-title": "Am J Hum Biol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib48",
+          "doi-asserted-by": "crossref",
+          "first-page": "15",
+          "DOI": "10.1016/0305-0491(90)90335-Q",
+          "volume": "96",
+          "author": "Schwabe",
+          "year": "1990",
+          "journal-title": "Relaxin. Comp Biochem Physiol B"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib49",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1002/ajpa.1330040102",
+          "article-title": "Age changes in the pubic bone",
+          "volume": "4",
+          "author": "Todd",
+          "year": "1921",
+          "journal-title": "Am J Phys Anthropol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib50",
+          "series-title": "Laboratory animal management: Rodents",
+          "year": "1996"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib51",
+          "first-page": "123",
+          "article-title": "Relaxin",
+          "volume": "34",
+          "author": "Schwabe",
+          "year": "1978",
+          "journal-title": "Recent Prog Horm Res"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib52",
+          "doi-asserted-by": "crossref",
+          "first-page": "105",
+          "DOI": "10.1159/000068947",
+          "article-title": "Morphological characteristics of the interpubic joint (Symphysis pubica) of rats, guinea pigs and mice in different physiological situations. A comparative study",
+          "volume": "173",
+          "author": "Ortega",
+          "year": "2003",
+          "journal-title": "Cells Tissues Organs"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib53",
+          "first-page": "475",
+          "article-title": "The adult human pubic symphysis: a systematic review",
+          "volume": "217",
+          "author": "Becker",
+          "year": "2010",
+          "journal-title": "J\u00a0Anat"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib54",
+          "doi-asserted-by": "crossref",
+          "first-page": "151",
+          "DOI": "10.1016/S0083-6729(08)60670-6",
+          "article-title": "The physiology of relaxin",
+          "volume": "8",
+          "author": "Hisaw",
+          "year": "1950",
+          "journal-title": "Vitam Horm"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib55",
+          "doi-asserted-by": "crossref",
+          "first-page": "125",
+          "DOI": "10.1034/j.1600-0412.1999.780210.x",
+          "article-title": "Sonographic assessment of symphyseal joint distention during pregnancy and post partum with special reference to pelvic pain",
+          "volume": "78",
+          "author": "Bjorklund",
+          "year": "1999",
+          "journal-title": "Acta Obstet Gynecol Scand"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib56",
+          "doi-asserted-by": "crossref",
+          "first-page": "e3317",
+          "DOI": "10.1371/journal.pone.0003317",
+          "article-title": "Symphysiotomy in Zimbabwe: postoperative outcome, width of the symphysis joint, and knowledge, attitudes and practice among doctors and midwives",
+          "volume": "3",
+          "author": "Ersdal",
+          "year": "2008",
+          "journal-title": "PloS One"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib57",
+          "doi-asserted-by": "crossref",
+          "first-page": "E145",
+          "DOI": "10.1097/BRS.0b013e3181657f03",
+          "article-title": "Physical characteristics of women with severe pelvic girdle pain after pregnancy: a descriptive cohort study",
+          "volume": "33",
+          "author": "Ronchetti",
+          "year": "2008",
+          "journal-title": "Spine (Phila Pa 1976)"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib58",
+          "doi-asserted-by": "crossref",
+          "first-page": "153",
+          "DOI": "10.1576/toag.8.3.153.27250",
+          "article-title": "Review: Symphysis pubis dysfunction: a practical approach to management",
+          "volume": "8",
+          "author": "Jain",
+          "year": "2006",
+          "journal-title": "The Obstetrician & Gynecologist"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib59",
+          "doi-asserted-by": "crossref",
+          "first-page": "870",
+          "DOI": "10.1002/ar.23572",
+          "article-title": "Dimorphism in the size and shape of the birth canal across anthropoid primates",
+          "volume": "300",
+          "author": "Moffett",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib60",
+          "doi-asserted-by": "crossref",
+          "first-page": "859",
+          "DOI": "10.1002/ar.23556",
+          "article-title": "Development of pelvic sexual dimorphism in hylobatids: testing the obstetric constraints hypothesis",
+          "volume": "300",
+          "author": "Zollikofer",
+          "year": "2017",
+          "journal-title": "Anat Rec"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib61",
+          "doi-asserted-by": "crossref",
+          "first-page": "53",
+          "DOI": "10.1016/j.sxmr.2015.10.001",
+          "article-title": "The role of pelvic floor muscles in male sexual dysfunction and pelvic pain",
+          "volume": "4",
+          "author": "Cohen",
+          "year": "2016",
+          "journal-title": "Sex Med Rev"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib62",
+          "series-title": "Primate sexuality: comparative studies of the prosimians, monkeys, apes, and humans",
+          "author": "Dixson",
+          "year": "2012"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib63",
+          "doi-asserted-by": "crossref",
+          "first-page": "328",
+          "DOI": "10.1006/pmed.2000.0643",
+          "article-title": "Erectile dysfunction and coronary risk factors: prospective results from the Massachusetts male aging study",
+          "volume": "30",
+          "author": "Feldman",
+          "year": "2000",
+          "journal-title": "Prev Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib64",
+          "first-page": "460",
+          "article-title": "Incidence of erectile dysfunction in men 40 to 69 years old: longitudinal results from the Massachusetts male aging study",
+          "volume": "163",
+          "author": "Johannes",
+          "year": "2000",
+          "journal-title": "J\u00a0Urol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib65",
+          "first-page": "241",
+          "article-title": "The natural progression and remission of erectile dysfunction: results from the Massachusetts Male Aging Study",
+          "volume": "177",
+          "author": "Travison",
+          "year": "2007",
+          "journal-title": "J\u00a0Urol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib66",
+          "doi-asserted-by": "crossref",
+          "first-page": "238",
+          "DOI": "10.1016/0002-9378(48)90266-X",
+          "article-title": "Progressive resistance exercise in the functional restoration of the perineal muscles",
+          "volume": "56",
+          "author": "Kegel",
+          "year": "1948",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib67",
+          "first-page": "521",
+          "article-title": "Sexual functions of the pubococcygeus muscle",
+          "volume": "60",
+          "author": "Kegel",
+          "year": "1952",
+          "journal-title": "West J Surg Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib68",
+          "doi-asserted-by": "crossref",
+          "first-page": "595",
+          "DOI": "10.1111/j.1464-410X.2005.05690.x",
+          "article-title": "Pelvic floor exercises for erectile dysfunction",
+          "volume": "96",
+          "author": "Dorey",
+          "year": "2005",
+          "journal-title": "BJU Int"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib69",
+          "doi-asserted-by": "crossref",
+          "first-page": "174",
+          "DOI": "10.1038/ijir.2012.11",
+          "article-title": "Early postoperative pelvic-floor biofeedback improves erectile function in men undergoing radical prostatectomy: a prospective, randomized, controlled trial",
+          "volume": "24",
+          "author": "Prota",
+          "year": "2012",
+          "journal-title": "Int J Impot Res"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib70",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1016/j.urology.2014.03.016",
+          "article-title": "Pelvic floor muscle training in males: practical applications",
+          "volume": "84",
+          "author": "Siegel",
+          "year": "2014",
+          "journal-title": "Urology"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib71",
+          "doi-asserted-by": "crossref",
+          "first-page": "31",
+          "DOI": "10.2522/ptj.20130354",
+          "article-title": "Pelvic-floor muscle rehabilitation in erectile dysfunction and premature ejaculation",
+          "volume": "94",
+          "author": "Lavoisier",
+          "year": "2014",
+          "journal-title": "Phys Ther"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib72",
+          "doi-asserted-by": "crossref",
+          "first-page": "201",
+          "DOI": "10.1016/S0090-4295(02)02102-7",
+          "article-title": "Epidemiology of erectile dysfunction in four countries: cross-national study of the prevalence and correlates of erectile dysfunction",
+          "volume": "61",
+          "author": "Nicolosi",
+          "year": "2003",
+          "journal-title": "Urology"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib73",
+          "doi-asserted-by": "crossref",
+          "first-page": "207",
+          "DOI": "10.1001/archinte.166.2.207",
+          "article-title": "Urologic Diseases in America Project. Predictors and prevalence of erectile dysfunction in a racially diverse population",
+          "volume": "166",
+          "author": "Saigal",
+          "year": "2006",
+          "journal-title": "Arch Intern Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib74",
+          "first-page": "57",
+          "article-title": "Prevalence and correlates of erectile dysfunction by race and ethnicity among men aged 40 or older in the United States: from the male attitudes regarding sexual health survey",
+          "volume": "4",
+          "author": "Laumann",
+          "year": "2007",
+          "journal-title": "J\u00a0Sex Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib75",
+          "doi-asserted-by": "crossref",
+          "first-page": "743",
+          "DOI": "10.1016/j.urology.2006.12.019",
+          "article-title": "Comparison of prevalence between self-reported erectile dysfunction and erectile dysfunction as defined by five-item International Index of Erectile Function in Taiwanese men older than 40 years",
+          "volume": "69",
+          "author": "Wu",
+          "year": "2007",
+          "journal-title": "Urology"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib76",
+          "doi-asserted-by": "crossref",
+          "first-page": "229",
+          "DOI": "10.1038/sj.ijir.3901517",
+          "article-title": "Prevalence of erectile dysfunction in Asian populations: a meta-analysis",
+          "volume": "19",
+          "author": "Cheng",
+          "year": "2007",
+          "journal-title": "Int J Impot Res"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib77",
+          "doi-asserted-by": "crossref",
+          "first-page": "14680",
+          "DOI": "10.1073/pnas.1612410113",
+          "article-title": "Cliff-edge model of obstetric selection in humans",
+          "volume": "113",
+          "author": "Mitteroecker",
+          "year": "2016",
+          "journal-title": "Proc Natl Acad Sci USA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib78",
+          "doi-asserted-by": "crossref",
+          "first-page": "E1305",
+          "DOI": "10.1073/pnas.1621176114",
+          "article-title": "Reply to Grossman: the role of natural selection for the increase of caesarean section rates",
+          "volume": "114",
+          "author": "Mitteroecker",
+          "year": "2017",
+          "journal-title": "Proc Natl Acad Sci USA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib79",
+          "doi-asserted-by": "crossref",
+          "first-page": "11669",
+          "DOI": "10.1073/pnas.1712203114",
+          "article-title": "Cliff-edge model predicts intergenerational predisposition to dystocia and caesarean delivery",
+          "volume": "114",
+          "author": "Mitteroecker",
+          "year": "2017",
+          "journal-title": "Proc Natl Acad Sci USA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib80",
+          "doi-asserted-by": "crossref",
+          "first-page": "1233",
+          "DOI": "10.1093/ije/30.6.1233",
+          "article-title": "On the importance\u2014and the unimportance\u2014of birthweight",
+          "volume": "30",
+          "author": "Wilcox",
+          "year": "2001",
+          "journal-title": "Int J Epidemiol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib81",
+          "doi-asserted-by": "crossref",
+          "first-page": "257",
+          "DOI": "10.1177/014107689108400505",
+          "article-title": "Are our babies becoming bigger?",
+          "volume": "84",
+          "author": "Alberman",
+          "year": "1991",
+          "journal-title": "J\u00a0R Soc Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib82",
+          "doi-asserted-by": "crossref",
+          "first-page": "1201",
+          "DOI": "10.1016/S0140-6736(06)69476-2",
+          "article-title": "Obstetric vesicovaginal fistula as an international public-health problem",
+          "volume": "368",
+          "author": "Wall",
+          "year": "2006",
+          "journal-title": "Lancet"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib83",
+          "doi-asserted-by": "crossref",
+          "first-page": "149",
+          "DOI": "10.1089/jwh.1999.8.149",
+          "article-title": "Birth trauma and the pelvic floor: lessons from the developing world",
+          "volume": "8",
+          "author": "Wall",
+          "year": "1999",
+          "journal-title": "J\u00a0Womens Health"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib84",
+          "doi-asserted-by": "crossref",
+          "first-page": "375",
+          "DOI": "10.1111/j.1471-0528.2000.tb13234.x",
+          "article-title": "Genetic influence on birthweight and gestational length determined by studies in offspring of twins",
+          "volume": "107",
+          "author": "Clausson",
+          "year": "2000",
+          "journal-title": "BJOG"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib85",
+          "doi-asserted-by": "crossref",
+          "first-page": "327",
+          "DOI": "10.1002/ajpa.10055",
+          "article-title": "Genetic basis of human female pelvic morphology: a twin study",
+          "volume": "117",
+          "author": "Sharma",
+          "year": "2002",
+          "journal-title": "Am J Phys Anthropol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib86",
+          "doi-asserted-by": "crossref",
+          "first-page": "734",
+          "DOI": "10.1093/aje/kwk107",
+          "article-title": "Genetic and environmental influences on birth weight, birth length, head circumference, and gestational age by use of population-based parent-offspring data",
+          "volume": "165",
+          "author": "Lunde",
+          "year": "2007",
+          "journal-title": "Am J Epidemiol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib87",
+          "doi-asserted-by": "crossref",
+          "first-page": "1174",
+          "DOI": "10.1002/hbm.20926",
+          "article-title": "Genetic and environmental contributions to neonatal brain structure: a twin study",
+          "volume": "31",
+          "author": "Gilmore",
+          "year": "2010",
+          "journal-title": "Hum Brain Mapp"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib88",
+          "doi-asserted-by": "crossref",
+          "first-page": "1341",
+          "DOI": "10.1093/ije/dyn100",
+          "article-title": "Caesarean section among relatives",
+          "volume": "37",
+          "author": "Tollanes",
+          "year": "2008",
+          "journal-title": "Int J Epidemiol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib89",
+          "doi-asserted-by": "crossref",
+          "first-page": "832",
+          "DOI": "10.1111/j.0001-6349.2004.00544.x",
+          "article-title": "Genetic influence on dystocia",
+          "volume": "83",
+          "author": "Algovik",
+          "year": "2004",
+          "journal-title": "Acta Obstet Gynecol Scand"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib90",
+          "doi-asserted-by": "crossref",
+          "first-page": "117",
+          "DOI": "10.1016/S0002-9378(98)70260-1",
+          "article-title": "Familial occurrence of dystocia",
+          "volume": "179",
+          "author": "Berg-Lekas",
+          "year": "1998",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib91",
+          "doi-asserted-by": "crossref",
+          "first-page": "905",
+          "DOI": "10.1016/0029-7844(96)00064-6",
+          "article-title": "The intergenerational predisposition to operative delivery",
+          "volume": "87",
+          "author": "Varner",
+          "year": "1996",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib92",
+          "doi-asserted-by": "crossref",
+          "first-page": "E1304",
+          "DOI": "10.1073/pnas.1620160114",
+          "article-title": "Are human heads getting larger?",
+          "volume": "114",
+          "author": "Grossman",
+          "year": "2017",
+          "journal-title": "Proc Natl Acad Sci USA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib93",
+          "doi-asserted-by": "crossref",
+          "first-page": "324",
+          "DOI": "10.1038/s41559-018-0773-2",
+          "article-title": "How human bodies are evolving in modern societies",
+          "volume": "3",
+          "author": "Mitteroecker",
+          "year": "2019",
+          "journal-title": "Nat Ecol Evol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib94",
+          "article-title": "Secular changes in body height predict global rates of cesarean section",
+          "author": "Zaffarini",
+          "year": "2019",
+          "journal-title": "P\u00a0Roy Soc B-Biol Sci"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib95",
+          "doi-asserted-by": "crossref",
+          "first-page": "15212",
+          "DOI": "10.1073/pnas.1205282109",
+          "article-title": "Metabolic hypothesis for human altriciality",
+          "volume": "109",
+          "author": "Dunsworth",
+          "year": "2012",
+          "journal-title": "Proc Natl Acad Sci USA"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib96",
+          "series-title": "Evolutionary medicine",
+          "author": "Stearns",
+          "year": "2016"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib97",
+          "doi-asserted-by": "crossref",
+          "first-page": "116",
+          "DOI": "10.1186/1741-7015-11-116",
+          "article-title": "Evolutionary medicine\u2014the quest for a better understanding of health, disease and prevention",
+          "volume": "11",
+          "author": "Brune",
+          "year": "2013",
+          "journal-title": "BMC Med"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib98",
+          "first-page": "392",
+          "article-title": "Evolutionary medicine: the ongoing evolution of human physiology and metabolism",
+          "volume": "31",
+          "author": "Ruhli",
+          "year": "2016",
+          "journal-title": "Physiology (Bethesda)"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib99",
+          "unstructured": "Wagner G, Pavlicev M, Romero R. Evolutionary approaches in reproductive biology I: inferences from the tree of life and the comparative method. Am J Obstet Gynecol, in\u00a0press."
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib100",
+          "doi-asserted-by": "crossref",
+          "first-page": "616",
+          "DOI": "10.1016/j.ajog.2004.07.004",
+          "article-title": "On prediction of the cesarean delivery risk in a large private practice",
+          "volume": "191",
+          "author": "Chen",
+          "year": "2004",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib101",
+          "doi-asserted-by": "crossref",
+          "first-page": "824",
+          "DOI": "10.1067/mob.2003.186",
+          "article-title": "The effect of birth weight on vaginal birth after cesarean delivery success rates",
+          "volume": "188",
+          "author": "Elkousy",
+          "year": "2003",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib102",
+          "doi-asserted-by": "crossref",
+          "first-page": "1679",
+          "DOI": "10.1016/j.ajog.2004.02.044",
+          "article-title": "The magnetic resonance imaging-based fetal-pelvic index: a pilot study in the community hospital",
+          "volume": "190",
+          "author": "Fox",
+          "year": "2004",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib103",
+          "doi-asserted-by": "crossref",
+          "first-page": "515.e511",
+          "DOI": "10.1016/j.ajog.2016.05.023",
+          "article-title": "Indications for primary cesarean delivery relative to body mass index",
+          "volume": "215",
+          "author": "Kawakita",
+          "year": "2016",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib104",
+          "doi-asserted-by": "crossref",
+          "first-page": "851",
+          "DOI": "10.1016/j.ajog.2006.06.070",
+          "article-title": "Obstetric outcomes in overweight and obese adolescents",
+          "volume": "195",
+          "author": "Sukalich",
+          "year": "2006",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib105",
+          "doi-asserted-by": "crossref",
+          "first-page": "R791",
+          "DOI": "10.1016/j.cub.2012.06.062",
+          "article-title": "Fetal brain development in chimpanzees versus humans",
+          "volume": "22",
+          "author": "Sakai",
+          "year": "2012",
+          "journal-title": "Cur Biol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib106",
+          "doi-asserted-by": "crossref",
+          "first-page": "292",
+          "DOI": "10.1111/j.1558-5646.1980.tb04817.x",
+          "article-title": "Sexual dimorphism, sexual selection, and adaptation in polygenic characters",
+          "volume": "34",
+          "author": "Lande",
+          "year": "1980",
+          "journal-title": "Evolution"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib107",
+          "doi-asserted-by": "crossref",
+          "first-page": "739",
+          "DOI": "10.1097/01.ogx.0000286584.04310.5c",
+          "article-title": "The evolutionary origins of obstructed labor: bipedalism, encephalization, and the human obstetric dilemma",
+          "volume": "62",
+          "author": "Wittman",
+          "year": "2007",
+          "journal-title": "Obstet Gynecol Surv"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib108",
+          "first-page": "8",
+          "article-title": "Overview of hominin evolution",
+          "volume": "3",
+          "author": "Pontzer",
+          "year": "2012",
+          "journal-title": "Nat Educ Knowl"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib109",
+          "doi-asserted-by": "crossref",
+          "first-page": "482",
+          "DOI": "10.1016/S0002-9378(16)41571-1",
+          "article-title": "Further studies on the pelvic architecture",
+          "volume": "28",
+          "author": "Caldwell",
+          "year": "1934",
+          "journal-title": "Am J Obstet Gynecol"
+        },
+        {
+          "key": "10.1016/j.ajog.2019.06.043_bib110",
+          "first-page": "471",
+          "article-title": "On the relations of man to lower animals",
+          "volume": "2",
+          "author": "Huxley",
+          "year": "1961",
+          "journal-title": "Scientific Memoirs"
+        }
+      ],
+      "container-title": [
+        "American Journal of Obstetrics and Gynecology"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0002937819308191?httpAccept=text/xml",
+          "content-type": "text/xml",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://api.elsevier.com/content/article/PII:S0002937819308191?httpAccept=text/plain",
+          "content-type": "text/plain",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2026,
+            4,
+            28
+          ]
+        ],
+        "date-time": "2026-04-28T15:14:00Z",
+        "timestamp": 1777389240000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0002937819308191"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2020,
+            1
+          ]
+        ]
+      },
+      "references-count": 110,
+      "journal-issue": {
+        "issue": "1",
+        "published-print": {
+          "date-parts": [
+            [
+              2020,
+              1
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "S0002937819308191"
+      ],
+      "URL": "https://doi.org/10.1016/j.ajog.2019.06.043",
+      "relation": {},
+      "ISSN": [
+        "0002-9378"
+      ],
+      "issn-type": [
+        {
+          "value": "0002-9378",
+          "type": "print"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            1
+          ]
+        ]
+      },
+      "assertion": [
+        {
+          "value": "Elsevier",
+          "name": "publisher",
+          "label": "This article is maintained by"
+        },
+        {
+          "value": "Evolution of the human pelvis and obstructed labor: new explanations of an old obstetrical dilemma",
+          "name": "articletitle",
+          "label": "Article Title"
+        },
+        {
+          "value": "American Journal of Obstetrics and Gynecology",
+          "name": "journaltitle",
+          "label": "Journal Title"
+        },
+        {
+          "value": "https://doi.org/10.1016/j.ajog.2019.06.043",
+          "name": "articlelink",
+          "label": "CrossRef DOI link to publisher maintained version"
+        },
+        {
+          "value": "article",
+          "name": "content_type",
+          "label": "Content Type"
+        },
+        {
+          "value": "\u00a9 2019 Elsevier Inc. All rights reserved.",
+          "name": "copyright",
+          "label": "Copyright"
+        }
+      ]
+    }
+  },
+  {
+    "key": "HenysHammer2025",
+    "doi": "10.1111/joa.14160",
+    "status": 429
+  },
+  {
+    "key": "Heyland2025",
+    "doi": "10.1007/s11517-025-03396-w",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            7,
+            13
+          ]
+        ],
+        "date-time": "2026-07-13T15:11:07Z",
+        "timestamp": 1783955467447,
+        "version": "3.55.0"
+      },
+      "reference-count": 31,
+      "publisher": "Springer Science and Business Media LLC",
+      "issue": "11",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                6,
+                17
+              ]
+            ],
+            "date-time": "2025-06-17T00:00:00Z",
+            "timestamp": 1750118400000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                6,
+                17
+              ]
+            ],
+            "date-time": "2025-06-17T00:00:00Z",
+            "timestamp": 1750118400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://creativecommons.org/licenses/by/4.0"
+        }
+      ],
+      "funder": [
+        {
+          "DOI": "10.13039/501100001659",
+          "name": "German Research Foundation",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "427826188"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "427826188"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100001659",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/501100001659",
+          "name": "Deutsche Forschungsgemeinschaft",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "439742772"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "439742772"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100001659",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/501100001659",
+          "name": "Deutsche Forschungsgemeinschaft",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "430577036"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "430577036"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100001659",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/501100001659",
+          "name": "Deutsche Forschungsgemeinschaft",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "467867720"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "467867720"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100001659",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "DOI": "10.13039/100019016",
+          "name": "Assessment of SpondyloArthritis international Society",
+          "doi-asserted-by": "publisher",
+          "id": [
+            {
+              "id": "10.13039/100019016",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "name": "Rahel Hirsch programme of the Charit\u00e9 Universit\u00e4tsmedizin Berlin"
+        },
+        {
+          "DOI": "10.13039/501100002839",
+          "name": "Charit\u00e9 - Universit\u00e4tsmedizin Berlin",
+          "doi-asserted-by": "crossref",
+          "id": [
+            {
+              "id": "10.13039/501100002839",
+              "id-type": "DOI",
+              "asserted-by": "crossref"
+            }
+          ]
+        }
+      ],
+      "content-domain": {
+        "domain": [
+          "link.springer.com"
+        ],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [
+        "Med Biol Eng Comput"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2025,
+            11
+          ]
+        ]
+      },
+      "abstract": "<jats:title>Abstract</jats:title>\n                  <jats:p>\n                    Biomechanical analyses of the sacroiliac joint (SIJ) are limited. We hypothesize that influence of ligament pre-tension on strain and relative joint movement is morphologically sex-specific and more pronounced than effects of body weight. Finite element models were developed from CTs of a larger cohort (\n                    <jats:italic>N</jats:italic>\n                    \u2009=\u2009818) for typical male (TMJ) and typical female joint (TFJ) geometries. For different loading scenarios, stresses were higher in TFJ than TMJ for same pre-tension, only considering sex-specific morphology. Loading in antero-posterior direction caused highest stresses and relative movement. Ligament pre-tension was most sensitive with mean sensitivity factor (change output [%]/change input [%]): 71.04/33.64 for translation, 43.09/4.02 for rotation, 2.11/\u2009\u2212\u20098.97 for stress for TFJ/TMJ respectively. Mean sensitivity factor of ligament stiffness was\u2009\u2212\u20091.14/\u2009\u2212\u20091.06 for translation,\u2009\u2212\u20090.90/\u2009\u2212\u20090.89 for rotation and 0.17/0.13 for stress, while mean sensitivity of load intensity was 1.09/1.10 for translation, 0.91/0.88 for rotation and 0.54/0.58 for stress for TFJ/TMJ respectively. Relative motion was more sensitive to parameter variations than stress. The hypothesis was confirmed: influence of ligament pre-tension on stress but especially relative joint movement of SIJ is morphologically sex-specific and larger than body weight effects. As this may play a crucial role in pain development, ligament pre-tension must be verified in situ in the future.\n                  </jats:p>\n                  <jats:p>\n                    <jats:bold>Graphical abstract</jats:bold>\n                  </jats:p>\n                  <jats:p>Sacro-iliac joint models are determined by ligament laxity: stiffness &amp; pretension. Our analyses show the relative effect of parameter assumptions on modeling results. A substantial preload or pretension changes joint stability / mobility and stress. The influence of ligament pre-tension on stress and relative joint mobility of the sacro-iliac joint was larger than load intensity (bodyweight of patient) in our modelling set-up. Evaluation of the specific ligament pretension is imperative for patient-specific finite element models.</jats:p>",
+      "DOI": "10.1007/s11517-025-03396-w",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2025,
+            6,
+            17
+          ]
+        ],
+        "date-time": "2025-06-17T06:51:03Z",
+        "timestamp": 1750143063000
+      },
+      "page": "3321-3333",
+      "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+      "source": "Crossref",
+      "is-referenced-by-count": 1,
+      "title": [
+        "Ligament pre-tension determines outcome in sacroiliac joint in silicon modelling"
+      ],
+      "prefix": "10.1007",
+      "volume": "63",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0001-7474-3948",
+          "authenticated-orcid": false,
+          "given": "Mark",
+          "family": "Heyland",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hendrik",
+          "family": "Schmidt",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Friederike",
+          "family": "Sch\u00f6mig",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Daven",
+          "family": "Maikath",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dominik",
+          "family": "Deppe",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Matthias",
+          "family": "Pumberger",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Georg N.",
+          "family": "Duda",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Katharina",
+          "family": "Ziegeler",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Philipp",
+          "family": "Damm",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "297",
+      "published-online": {
+        "date-parts": [
+          [
+            2025,
+            6,
+            17
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "key": "3396_CR1",
+          "doi-asserted-by": "publisher",
+          "first-page": "789629",
+          "DOI": "10.3389/fbioe.2022.789629",
+          "volume": "10",
+          "author": "A Bender",
+          "year": "2022",
+          "unstructured": "Bender A, Damm P, Hommel H, Duda GN (2022) Overstretching expectations may endanger the success of the \u201cMillennium Surgery.\u201d Front Bioeng Biotechnol 10:789629",
+          "journal-title": "Front Bioeng Biotechnol"
+        },
+        {
+          "issue": "5",
+          "key": "3396_CR2",
+          "doi-asserted-by": "publisher",
+          "first-page": "e0155612",
+          "DOI": "10.1371/journal.pone.0155612",
+          "volume": "11",
+          "author": "G Bergmann",
+          "year": "2016",
+          "unstructured": "Bergmann G, Bender A, Dymke J, Duda G, Damm P (2016) Standardized loads acting in hip implants. PLoS ONE 11(5):e0155612",
+          "journal-title": "PLoS ONE"
+        },
+        {
+          "key": "3396_CR3",
+          "unstructured": "Bernard Jr T (1991) The sacroiliac joint syndrome. The adult spine: principles and practice, 2107\u20132130."
+        },
+        {
+          "issue": "4",
+          "key": "3396_CR4",
+          "doi-asserted-by": "publisher",
+          "first-page": "376",
+          "DOI": "10.1097/01.BRS.0000090820.99182.2D",
+          "volume": "29",
+          "author": "K Brolin",
+          "year": "2004",
+          "unstructured": "Brolin K, Halldin P (2004) Development of a finite element model of the upper cervical spine and a parameter study of ligament characteristics. Spine 29(4):376\u2013385",
+          "journal-title": "Spine"
+        },
+        {
+          "issue": "5",
+          "key": "3396_CR5",
+          "doi-asserted-by": "publisher",
+          "first-page": "1440",
+          "DOI": "10.1213/01.ANE.0000180831.60169.EA",
+          "volume": "101",
+          "author": "SP Cohen",
+          "year": "2005",
+          "unstructured": "Cohen SP (2005) Sacroiliac joint pain: a comprehensive review of anatomy, diagnosis, and treatment. Anesth Analg 101(5):1440\u20131453",
+          "journal-title": "Anesth Analg"
+        },
+        {
+          "issue": "3",
+          "key": "3396_CR6",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1371/journal.pone.0120438",
+          "volume": "10",
+          "author": "P Damm",
+          "year": "2015",
+          "unstructured": "Damm P, Bender A, Bergmann G (2015) Postoperative changes in in vivo measured friction in total hip joint prosthesis during walking. PLoS ONE 10(3):e0120438",
+          "journal-title": "PLoS ONE"
+        },
+        {
+          "issue": "1",
+          "key": "3396_CR7",
+          "doi-asserted-by": "publisher",
+          "first-page": "95",
+          "DOI": "10.1016/j.medengphy.2009.10.003",
+          "volume": "32",
+          "author": "P Damm",
+          "year": "2010",
+          "unstructured": "Damm P, Graichen F, Rohlmann A, Bender A, Bergmann G (2010) Total hip joint prosthesis for in vivo measurement of forces and moments. Med Eng Phys 32(1):95\u2013100",
+          "journal-title": "Med Eng Phys"
+        },
+        {
+          "key": "3396_CR8",
+          "doi-asserted-by": "publisher",
+          "first-page": "128",
+          "DOI": "10.1016/j.jbiomech.2016.11.060",
+          "volume": "51",
+          "author": "P Damm",
+          "year": "2017",
+          "unstructured": "Damm P, Kutzner I, Bergmann G, Rohlmann A, Schmidt H (2017) Comparison of in vivo measured loads in knee, hip and spinal implants during level walking. J Biomech 51:128\u2013132",
+          "journal-title": "J Biomech"
+        },
+        {
+          "issue": "22",
+          "key": "3396_CR9",
+          "doi-asserted-by": "publisher",
+          "first-page": "E1446",
+          "DOI": "10.1097/BRS.0b013e31820bc705",
+          "volume": "36",
+          "author": "PH Eichenseer",
+          "year": "2011",
+          "unstructured": "Eichenseer PH, Sybert DR, Cotton JR (2011) A finite element analysis of sacroiliac joint ligaments in response to different loading conditions. Spine 36(22):E1446\u2013E1452",
+          "journal-title": "Spine"
+        },
+        {
+          "issue": "2",
+          "key": "3396_CR10",
+          "doi-asserted-by": "publisher",
+          "first-page": "231",
+          "DOI": "10.1002/ca.23291",
+          "volume": "32",
+          "author": "N Hammer",
+          "year": "2019",
+          "unstructured": "Hammer N, H\u00f6ch A, Klima S, Le Joncour JB, Rouquette C, Ramezani M (2019) Effects of cutting the sacrospinous and sacrotuberous ligaments. Clin Anat 32(2):231\u2013237",
+          "journal-title": "Clin Anat"
+        },
+        {
+          "issue": "10",
+          "key": "3396_CR11",
+          "doi-asserted-by": "publisher",
+          "first-page": "1321",
+          "DOI": "10.1016/j.spinee.2013.03.050",
+          "volume": "13",
+          "author": "N Hammer",
+          "year": "2013",
+          "unstructured": "Hammer N, Steinke H, Lingslebe U, Bechmann I, Josten C, Slowik V, B\u00f6hme J (2013) Ligamentous influence in pelvic load distribution. Spine J 13(10):1321\u20131330",
+          "journal-title": "Spine J"
+        },
+        {
+          "issue": "2",
+          "key": "3396_CR12",
+          "doi-asserted-by": "publisher",
+          "first-page": "258",
+          "DOI": "10.1111/joa.14160",
+          "volume": "246",
+          "author": "P Heny\u0161",
+          "year": "2025",
+          "unstructured": "Heny\u0161 P, Hammer N (2025) Sacroiliac joint auricular surface morphology modulates its mechanical environment. J Anat 246(2):258\u2013271",
+          "journal-title": "J Anat"
+        },
+        {
+          "issue": "4",
+          "key": "3396_CR13",
+          "doi-asserted-by": "publisher",
+          "first-page": "928",
+          "DOI": "10.1111/joa.13739",
+          "volume": "241",
+          "author": "P Heny\u0161",
+          "year": "2022",
+          "unstructured": "Heny\u0161 P, Ramezani M, Schewitz D, H\u00f6ch A, M\u00f6bius D, Ondruschka B, Hammer N (2022) Sacrospinous and sacrotuberous ligaments influence in pelvis kinematics. J Anat 241(4):928\u2013937",
+          "journal-title": "J Anat"
+        },
+        {
+          "issue": "12",
+          "key": "3396_CR14",
+          "doi-asserted-by": "publisher",
+          "first-page": "1180",
+          "DOI": "10.1016/j.medengphy.2015.10.002",
+          "volume": "37",
+          "author": "M Heyland",
+          "year": "2015",
+          "unstructured": "Heyland M, Trepczynski A, Duda GN, Zehn M, Schaser K-D, M\u00e4rdian S (2015) Selecting boundary conditions in physiological strain analysis of the femur: balanced loads, inertia relief method and follower load. Med Eng Phys 37(12):1180\u20131185",
+          "journal-title": "Med Eng Phys"
+        },
+        {
+          "issue": "3",
+          "key": "3396_CR15",
+          "doi-asserted-by": "publisher",
+          "first-page": "153",
+          "DOI": "10.1576/toag.8.3.153.27250",
+          "volume": "8",
+          "author": "S Jain",
+          "year": "2006",
+          "unstructured": "Jain S, Eedarapalli P, Jamjute P, Sawdy R (2006) Symphysis pubis dysfunction: a practical approach to management. Obstet Gynaecol 8(3):153\u2013158",
+          "journal-title": "Obstet Gynaecol"
+        },
+        {
+          "key": "3396_CR16",
+          "doi-asserted-by": "publisher",
+          "first-page": "505",
+          "DOI": "10.1007/s004290050200",
+          "volume": "198",
+          "author": "WU Kampen",
+          "year": "1998",
+          "unstructured": "Kampen WU, Tillmann B (1998) Age-related changes in the articular cartilage of human sacroiliac joint. Anat Embryol 198:505\u2013513",
+          "journal-title": "Anat Embryol"
+        },
+        {
+          "issue": "s1",
+          "key": "3396_CR17",
+          "doi-asserted-by": "publisher",
+          "first-page": "S3",
+          "DOI": "10.14444/6077",
+          "volume": "14",
+          "author": "A Kiapour",
+          "year": "2020",
+          "unstructured": "Kiapour A, Joukar A, Elgafy H, Erbulut DU, Agarwal AK, Goel VK (2020) Biomechanics of the sacroiliac joint: anatomy, function, biomechanics, sexual dimorphism, and causes of pain. Int J Spine Surg 14(s1):S3\u2013S13",
+          "journal-title": "Int J Spine Surg"
+        },
+        {
+          "issue": "7",
+          "key": "3396_CR18",
+          "doi-asserted-by": "publisher",
+          "first-page": "897",
+          "DOI": "10.1016/S0021-9290(03)00071-X",
+          "volume": "36",
+          "author": "EF Morgan",
+          "year": "2003",
+          "unstructured": "Morgan EF, Bayraktar HH, Keaveny TM (2003) Trabecular bone modulus\u2013density relationships depend on anatomic site. J Biomech 36(7):897\u2013904",
+          "journal-title": "J Biomech"
+        },
+        {
+          "issue": "2",
+          "key": "3396_CR19",
+          "doi-asserted-by": "publisher",
+          "first-page": "275",
+          "DOI": "10.3390/diagnostics12020275",
+          "volume": "12",
+          "author": "M Muellner",
+          "year": "2022",
+          "unstructured": "Muellner M, Kreutzinger V, Becker L, Diekhoff T, Pumberger M, Sch\u00f6mig F, Heyland M, Ziegeler K (2022) Unexpected sex differences in the relationship of sacroiliac joint and lumbar spine degeneration. Diagnostics 12(2):275",
+          "journal-title": "Diagnostics"
+        },
+        {
+          "issue": "2",
+          "key": "3396_CR20",
+          "doi-asserted-by": "publisher",
+          "first-page": "209",
+          "DOI": "10.3171/2014.12.SPINE14590",
+          "volume": "23",
+          "author": "Y Nagamoto",
+          "year": "2015",
+          "unstructured": "Nagamoto Y, Iwasaki M, Sakaura H, Sugiura T, Fujimori T, Matsuo Y, Kashii M, Murase T, Yoshikawa H, Sugamoto K (2015) Sacroiliac joint motion in patients with degenerative lumbar spine disorders. J Neurosurg Spine 23(2):209\u2013216",
+          "journal-title": "J Neurosurg Spine"
+        },
+        {
+          "issue": "23",
+          "key": "3396_CR21",
+          "doi-asserted-by": "publisher",
+          "first-page": "2027",
+          "DOI": "10.2106/JBJS.17.00245",
+          "volume": "99",
+          "author": "DC Ou-Yang",
+          "year": "2017",
+          "unstructured": "Ou-Yang DC, York PJ, Kleck CJ, Patel VV (2017) Diagnosis and management of sacroiliac joint dysfunction. JBJS 99(23):2027\u20132036. https://doi.org/10.2106/JBJS.17.00245",
+          "journal-title": "JBJS"
+        },
+        {
+          "issue": "7",
+          "key": "3396_CR22",
+          "doi-asserted-by": "publisher",
+          "first-page": "739",
+          "DOI": "10.1016/j.medengphy.2006.08.010",
+          "volume": "29",
+          "author": "A Phillips",
+          "year": "2007",
+          "unstructured": "Phillips A, Pankaj P, Howie C, Usmani AS, Simpson A (2007) Finite element modelling of the pelvis: inclusion of muscular and ligamentous boundary conditions. Med Eng Phys 29(7):739\u2013748",
+          "journal-title": "Med Eng Phys"
+        },
+        {
+          "issue": "6",
+          "key": "3396_CR23",
+          "doi-asserted-by": "publisher",
+          "first-page": "745",
+          "DOI": "10.1016/j.medengphy.2014.01.002",
+          "volume": "36",
+          "author": "D Shi",
+          "year": "2014",
+          "unstructured": "Shi D, Wang F, Wang D, Li X, Wang Q (2014) 3-D finite element analysis of the influence of synovial condition in sacroiliac joint on the load transmission in human pelvic system. Med Eng Phys 36(6):745\u2013753",
+          "journal-title": "Med Eng Phys"
+        },
+        {
+          "key": "3396_CR24",
+          "doi-asserted-by": "publisher",
+          "first-page": "105368",
+          "DOI": "10.1016/j.jmbbm.2022.105368",
+          "volume": "134",
+          "author": "H Steinke",
+          "year": "2022",
+          "unstructured": "Steinke H, Kurz S, Fischer B, Schuberth S, Hobusch C, Heyde C-E (2022) The sacrotuberous ligament is preloaded in situ. J Mech Behav Biomed Mater 134:105368",
+          "journal-title": "J Mech Behav Biomed Mater"
+        },
+        {
+          "issue": "2",
+          "key": "3396_CR25",
+          "doi-asserted-by": "publisher",
+          "first-page": "162",
+          "DOI": "10.1097/00007632-198902000-00004",
+          "volume": "14",
+          "author": "B Sturesson",
+          "year": "1989",
+          "unstructured": "Sturesson B, Selvik G, UD\u00c9N, A. (1989) Movements of the sacroiliac joints: a roentgen stereophotogrammetric analysis. Spine 14(2):162\u2013165",
+          "journal-title": "Spine"
+        },
+        {
+          "issue": "4",
+          "key": "3396_CR26",
+          "doi-asserted-by": "publisher",
+          "first-page": "354",
+          "DOI": "10.1016/j.jpain.2008.09.014",
+          "volume": "10",
+          "author": "KM Szadek",
+          "year": "2009",
+          "unstructured": "Szadek KM, van der Wurff P, van Tulder MW, Zuurmond WW, Perez RS (2009) Diagnostic validity of criteria for sacroiliac joint pain: a systematic review. J Pain 10(4):354\u2013368",
+          "journal-title": "J Pain"
+        },
+        {
+          "issue": "1",
+          "key": "3396_CR27",
+          "doi-asserted-by": "publisher",
+          "first-page": "13683",
+          "DOI": "10.1038/s41598-020-70676-w",
+          "volume": "10",
+          "author": "R Toyohara",
+          "year": "2020",
+          "unstructured": "Toyohara R, Kurosawa D, Hammer N, Werner M, Honda K, Sekiguchi Y, Izumi S-I, Murakami E, Ozawa H, Ohashi T (2020) Finite element analysis of load transition on sacroiliac joint during bipedal walking. Sci Rep 10(1):13683",
+          "journal-title": "Sci Rep"
+        },
+        {
+          "issue": "6",
+          "key": "3396_CR28",
+          "doi-asserted-by": "publisher",
+          "first-page": "537",
+          "DOI": "10.1111/j.1469-7580.2012.01564.x",
+          "volume": "221",
+          "author": "A Vleeming",
+          "year": "2012",
+          "unstructured": "Vleeming A, Schuenke M, Masi A, Carreiro J, Danneels L, Willard F (2012) The sacroiliac joint: an overview of its anatomy, function and potential clinical implications. J Anat 221(6):537\u2013567",
+          "journal-title": "J Anat"
+        },
+        {
+          "issue": "1",
+          "key": "3396_CR29",
+          "doi-asserted-by": "publisher",
+          "first-page": "1",
+          "DOI": "10.1186/s12891-020-03735-y",
+          "volume": "21",
+          "author": "Z Xu",
+          "year": "2020",
+          "unstructured": "Xu Z, Li Y, Zhang S, Liao L, Wu K, Feng Z, Li D (2020) A finite element analysis of sacroiliac joint displacements and ligament strains in response to three manipulations. BMC Musculoskelet Disord 21(1):1\u201310",
+          "journal-title": "BMC Musculoskelet Disord"
+        },
+        {
+          "key": "3396_CR30",
+          "doi-asserted-by": "publisher",
+          "first-page": "108648",
+          "DOI": "10.1016/j.cmpb.2025.108648",
+          "volume": "261",
+          "author": "K Zhang",
+          "year": "2025",
+          "unstructured": "Zhang K, Chen Y, Feng C, Xiang X, Zhang X, Dai Y, Niu W (2025) Machine learning based finite element analysis for personalized prediction of pressure injury risk in patients with spinal cord injury. Comput Methods Programs Biomed 261:108648",
+          "journal-title": "Comput Methods Programs Biomed"
+        },
+        {
+          "issue": "1",
+          "key": "3396_CR31",
+          "doi-asserted-by": "publisher",
+          "first-page": "5903",
+          "DOI": "10.1038/s41598-021-85303-5",
+          "volume": "11",
+          "author": "K Ziegeler",
+          "year": "2021",
+          "unstructured": "Ziegeler K, Kreutzinger V, Diekhoff T, Roehle R, Poddubnyy D, Pumberger M, Hamm B, Hermann KGA (2021) Impact of age, sex, and joint form on degenerative lesions of the sacroiliac joints on CT in the normal population. Sci Rep 11(1):5903",
+          "journal-title": "Sci Rep"
+        }
+      ],
+      "container-title": [
+        "Medical &amp; Biological Engineering &amp; Computing"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "https://link.springer.com/content/pdf/10.1007/s11517-025-03396-w.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://link.springer.com/article/10.1007/s11517-025-03396-w/fulltext.html",
+          "content-type": "text/html",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://link.springer.com/content/pdf/10.1007/s11517-025-03396-w.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2025,
+            11,
+            20
+          ]
+        ],
+        "date-time": "2025-11-20T07:32:37Z",
+        "timestamp": 1763623957000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://link.springer.com/10.1007/s11517-025-03396-w"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2025,
+            6,
+            17
+          ]
+        ]
+      },
+      "references-count": 31,
+      "journal-issue": {
+        "issue": "11",
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              11
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "3396"
+      ],
+      "URL": "https://doi.org/10.1007/s11517-025-03396-w",
+      "relation": {},
+      "ISSN": [
+        "0140-0118",
+        "1741-0444"
+      ],
+      "issn-type": [
+        {
+          "value": "0140-0118",
+          "type": "print"
+        },
+        {
+          "value": "1741-0444",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            6,
+            17
+          ]
+        ]
+      },
+      "assertion": [
+        {
+          "value": "27 February 2025",
+          "order": 1,
+          "name": "received",
+          "label": "Received",
+          "group": {
+            "name": "ArticleHistory",
+            "label": "Article History"
+          }
+        },
+        {
+          "value": "29 May 2025",
+          "order": 2,
+          "name": "accepted",
+          "label": "Accepted",
+          "group": {
+            "name": "ArticleHistory",
+            "label": "Article History"
+          }
+        },
+        {
+          "value": "17 June 2025",
+          "order": 3,
+          "name": "first_online",
+          "label": "First Online",
+          "group": {
+            "name": "ArticleHistory",
+            "label": "Article History"
+          }
+        },
+        {
+          "order": 1,
+          "name": "Ethics",
+          "group": {
+            "name": "EthicsHeading",
+            "label": "Declarations"
+          }
+        },
+        {
+          "value": "The authors declare no competing interests.",
+          "order": 2,
+          "name": "Ethics",
+          "group": {
+            "name": "EthicsHeading",
+            "label": "Competing interests"
+          }
+        }
+      ]
+    }
+  }
+]

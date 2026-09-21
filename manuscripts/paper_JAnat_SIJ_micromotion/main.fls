@@ -302,6 +302,7 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT ./figures/Fig_morphometric_landmarks.pdf
 INPUT ./figures/Fig_morphometric_landmarks.pdf
 INPUT ./figures/Fig_morphometric_landmarks.pdf
@@ -313,7 +314,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/lmmib7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmbsy7.tfm
-INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT ./tables/generated/table2_loads.tex
 INPUT ./tables/generated/table2_loads.tex
 INPUT tables/generated/table2_loads.tex
@@ -360,7 +360,6 @@ INPUT ./figures/Fig6_allometry_loglog.pdf
 INPUT ./tables/generated/table4b_allometry.tex
 INPUT ./tables/generated/table4b_allometry.tex
 INPUT tables/generated/table4b_allometry.tex
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT ./sections/discussion.tex
 INPUT ./sections/discussion.tex
 INPUT ./sections/discussion.tex
@@ -380,6 +379,7 @@ INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt10.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

@@ -1,6 +1,18 @@
 # Reproduction of the corrected manuscript
 
-Run from the repository root. Original FE displacement archives are inputs and are not overwritten.
+## Editorial build (no analysis)
+
+The 2026-09-21 narrative revision uses the existing numerical outputs. To build that version, run only the following serial command from the repository root:
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/main.tex
+```
+
+The edited `sections/abstract.tex` and `sections/results.tex` are now the authoritative prose. The historical `write_corrected_results.py` predates this restructuring and would overwrite it; do not run that generator to build the revised manuscript. Its numerical outputs have not been recomputed.
+
+## Historical numerical reproduction workflow
+
+The following is an analysis workflow, not an editorial build command. Run only when numerical recomputation is explicitly intended. Original FE displacement archives are inputs and are not overwritten.
 
 ```bash
 export OPENBLAS_NUM_THREADS=1
@@ -20,7 +32,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat
 
 Extraction resumes from `tables/corrected/subject_*.npz`. These checkpoints must be moved aside and regenerated if source fields, interpolation settings, or extraction definitions change. The `--limit` option is for diagnostics only; the statistical pipeline requires the complete cohort.
 
-`write_corrected_results.py` regenerates the abstract and numerical Results section; edit that script when changing generated prose. Discussion, hypotheses and methods remain manually maintained. The pipeline intentionally refuses to substitute the legacy SIJ endpoints for missing corrected data.
+`write_corrected_results.py` generates the earlier abstract and Results narrative. After any future numerical recomputation, reconcile changed estimates with the manually revised manuscript rather than overwriting its prose. Discussion, hypotheses and methods remain manually maintained. The pipeline intentionally refuses to substitute the legacy SIJ endpoints for missing corrected data.
 
 `review/environment.json` records the postprocessing environment. The FE runtime (DOLFINx 0.10) is described by the original simulation metadata; it was not rerun during this revision. The broader existing FE-dependent test module could not be collected because mpi4py is absent in the current postprocessing environment. The four added portable mathematical/extraction regression tests passed.
 

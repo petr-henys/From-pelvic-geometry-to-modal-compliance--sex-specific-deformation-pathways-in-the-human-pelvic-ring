@@ -1,3 +1,11 @@
+## 2026-09-21 — Anatomical narrative restructuring
+
+Rewrote the abstract, introduction, discussion and conclusion around attenuation of sex-associated translation differences after explicit anatomy is included. Retained load dependence as context, geometry–density agreement as model support, and allometry as supporting evidence. Revised Results topic sentences/captions while preserving numerical estimates and null findings. Moved archived correspondence/interpolation checks to the Appendix and retained retrospective H1–H4 definitions in Methods. Kept all figure/table labels and existing assets; added float barriers to keep anatomical and primary sex-effect figures near their sections. Updated the unsent editorial pitch and distinguished editorial compilation from the historical prose generator in reproduction instructions. No numerical pipeline or simulation was run.
+
+## 2026-09-20 — Reference audit
+
+Checked all 15 original references; corrected metadata and citation scope, added four targeted sources, and supplied registered DOI links for all 19 cited entries. Details and source-access limitations are in `review/reference_audit_cs.md`.
+
 ## Complete measurement atlas — 20 September 2026
 
 Added main Figure 1 showing seven archived landmark distances and the subpubic angle; the former six figures are now Figures 2–7. Added Supplementary Figure S2 showing rotational coordinates, common-point translation, bone volume, surface area and scale. Documented morphometric interpolation and reproduced all 2,224 archived values (maximum discrepancy 1.99e-13). Added a reproducible atlas generator and landmark provenance record; updated methods, cross-references and reproduction instructions. Both PDFs rebuilt and new figure pages visually checked.

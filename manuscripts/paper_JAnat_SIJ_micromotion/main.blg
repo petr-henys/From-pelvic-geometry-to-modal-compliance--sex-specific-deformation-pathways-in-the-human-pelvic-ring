@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: apalike.bst
+The style file: bib/apalike-doi.bst
 Database file #1: bib/refs.bib
-You've used 14 entries,
-            1935 wiz_defined-function locations,
-            579 strings with 6735 characters,
-and the built_in function-call counts, 6016 in all, are:
-= -- 583
-> -- 286
-< -- 8
-+ -- 102
-- -- 98
-* -- 560
-:= -- 1054
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 118
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 195
-empty$ -- 397
-format.name$ -- 126
-if$ -- 1144
+You've used 19 entries,
+            1950 wiz_defined-function locations,
+            642 strings with 8221 characters,
+and the built_in function-call counts, 8330 in all, are:
+= -- 801
+> -- 374
+< -- 11
++ -- 136
+- -- 128
+* -- 808
+:= -- 1429
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 158
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 266
+empty$ -- 573
+format.name$ -- 163
+if$ -- 1584
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 16
-newline$ -- 73
-num.names$ -- 42
-pop$ -- 92
+missing$ -- 21
+newline$ -- 117
+num.names$ -- 57
+pop$ -- 119
 preamble$ -- 1
-purify$ -- 119
+purify$ -- 159
 quote$ -- 0
-skip$ -- 148
+skip$ -- 200
 stack$ -- 0
-substring$ -- 443
-swap$ -- 14
+substring$ -- 644
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 80
+type$ -- 110
 warning$ -- 0
-while$ -- 49
+while$ -- 70
 width$ -- 0
-write$ -- 183
+write$ -- 267

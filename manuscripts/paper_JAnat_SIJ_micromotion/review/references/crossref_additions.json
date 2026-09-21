@@ -1,0 +1,2656 @@
+[
+  {
+    "key": "BonetWood2008",
+    "doi": "10.1017/CBO9780511755446",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            19
+          ]
+        ],
+        "date-time": "2026-09-19T14:29:18Z",
+        "timestamp": 1789828158739,
+        "version": "4.0.1"
+      },
+      "edition-number": "2",
+      "reference-count": 0,
+      "publisher": "Cambridge University Press",
+      "isbn-type": [
+        {
+          "value": "9780521838702",
+          "type": "print"
+        },
+        {
+          "value": "9780511755446",
+          "type": "electronic"
+        }
+      ],
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2010,
+                7,
+                6
+              ]
+            ],
+            "date-time": "2010-07-06T00:00:00Z",
+            "timestamp": 1278374400000
+          },
+          "content-version": "unspecified",
+          "delay-in-days": 845,
+          "URL": "https://www.cambridge.org/core/terms"
+        }
+      ],
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [],
+      "published-print": {
+        "date-parts": [
+          [
+            2008,
+            3,
+            13
+          ]
+        ]
+      },
+      "abstract": "<jats:p>Designing engineering components that make optimal use of materials requires consideration of the nonlinear characteristics associated with both manufacturing and working environments. The modeling of these characteristics can only be done through numerical formulation and simulation, and this requires an understanding of both the theoretical background and associated computer solution techniques. By presenting both nonlinear continuum analysis and associated finite element techniques under one roof, Bonet and Wood provide, in this edition of this successful text, a complete, clear, and unified treatment of these important subjects. New chapters dealing with hyperelastic plastic behavior are included, and the authors have thoroughly updated the FLagSHyP program, freely accessible at www.flagshyp.com. Worked examples and exercises complete each chapter, making the text an essential resource for postgraduates studying nonlinear continuum mechanics. It is also ideal for those in industry requiring an appreciation of the way in which their computer simulation programs work.</jats:p>",
+      "DOI": "10.1017/cbo9780511755446",
+      "type": "monograph",
+      "created": {
+        "date-parts": [
+          [
+            2010,
+            7,
+            2
+          ]
+        ],
+        "date-time": "2010-07-02T12:53:22Z",
+        "timestamp": 1278075202000
+      },
+      "source": "Crossref",
+      "is-referenced-by-count": 528,
+      "title": [
+        "Nonlinear Continuum Mechanics for Finite Element Analysis"
+      ],
+      "prefix": "10.1017",
+      "author": [
+        {
+          "given": "Javier",
+          "family": "Bonet",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Richard D.",
+          "family": "Wood",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "56",
+      "published-online": {
+        "date-parts": [
+          [
+            2010,
+            7,
+            6
+          ]
+        ]
+      },
+      "container-title": [],
+      "original-title": [],
+      "deposited": {
+        "date-parts": [
+          [
+            2022,
+            6,
+            10
+          ]
+        ],
+        "date-time": "2022-06-10T22:54:35Z",
+        "timestamp": 1654901675000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://www.cambridge.org/core/product/identifier/9780511755446/type/book"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2008,
+            3,
+            13
+          ]
+        ]
+      },
+      "ISBN": [
+        "9780521838702",
+        "9780511755446"
+      ],
+      "references-count": 0,
+      "URL": "https://doi.org/10.1017/cbo9780511755446",
+      "relation": {},
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2008,
+            3,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "EfronTibshirani1994",
+    "doi": "10.1201/9780429246593",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            20
+          ]
+        ],
+        "date-time": "2026-09-20T12:19:55Z",
+        "timestamp": 1789906795017,
+        "version": "4.0.1"
+      },
+      "edition-number": "0",
+      "reference-count": 0,
+      "publisher": "Chapman and Hall/CRC",
+      "isbn-type": [
+        {
+          "value": "9780429246593",
+          "type": "electronic"
+        }
+      ],
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [],
+      "DOI": "10.1201/9780429246593",
+      "type": "book",
+      "created": {
+        "date-parts": [
+          [
+            2020,
+            4,
+            24
+          ]
+        ],
+        "date-time": "2020-04-24T10:33:33Z",
+        "timestamp": 1587724413000
+      },
+      "source": "Crossref",
+      "is-referenced-by-count": 6117,
+      "title": [
+        "An Introduction to the Bootstrap"
+      ],
+      "prefix": "10.1201",
+      "author": [
+        {
+          "given": "Bradley",
+          "family": "Efron",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R.J.",
+          "family": "Tibshirani",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "301",
+      "published-online": {
+        "date-parts": [
+          [
+            1994,
+            5,
+            15
+          ]
+        ]
+      },
+      "container-title": [],
+      "original-title": [],
+      "language": "en",
+      "deposited": {
+        "date-parts": [
+          [
+            2021,
+            1,
+            13
+          ]
+        ],
+        "date-time": "2021-01-13T09:49:46Z",
+        "timestamp": 1610531386000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://www.taylorfrancis.com/books/9781000064988"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            1994,
+            5,
+            15
+          ]
+        ]
+      },
+      "ISBN": [
+        "9780429246593"
+      ],
+      "references-count": 0,
+      "URL": "https://doi.org/10.1201/9780429246593",
+      "relation": {},
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            1994,
+            5,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "BenjaminiHochberg1995",
+    "doi": "10.1111/j.2517-6161.1995.tb02031.x",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            20
+          ]
+        ],
+        "date-time": "2026-09-20T15:16:21Z",
+        "timestamp": 1789917381890,
+        "version": "4.0.1"
+      },
+      "reference-count": 14,
+      "publisher": "Oxford University Press (OUP)",
+      "issue": "1",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1995,
+                1,
+                1
+              ]
+            ],
+            "date-time": "1995-01-01T00:00:00Z",
+            "timestamp": 788918400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model"
+        }
+      ],
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [],
+      "published-print": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      },
+      "abstract": "<jats:title>SUMMARY</jats:title>\n                  <jats:p>The common approach to the multiplicity problem calls for controlling the familywise error rate (FWER). This approach, though, has faults, and we point out a few. A different approach to problems of multiple significance testing is presented. It calls for controlling the expected proportion of falsely rejected hypotheses \u2014 the false discovery rate. This error rate is equivalent to the FWER when all hypotheses are true but is smaller otherwise. Therefore, in problems where the control of the false discovery rate rather than that of the FWER is desired, there is potential for a gain in power. A simple sequential Bonferronitype procedure is proved to control the false discovery rate for independent test statistics, and a simulation study shows that the gain in power is substantial. The use of the new procedure and the appropriateness of the criterion are illustrated with examples.</jats:p>",
+      "DOI": "10.1111/j.2517-6161.1995.tb02031.x",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2018,
+            12,
+            7
+          ]
+        ],
+        "date-time": "2018-12-07T01:30:39Z",
+        "timestamp": 1544146239000
+      },
+      "page": "289-300",
+      "source": "Crossref",
+      "is-referenced-by-count": 94319,
+      "title": [
+        "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+      ],
+      "prefix": "10.1093",
+      "volume": "57",
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yosef",
+          "family": "Hochberg",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "286",
+      "published-online": {
+        "date-parts": [
+          [
+            2018,
+            12,
+            5
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "key": "2024090922052288200_rssb02031-cit-0001",
+          "doi-asserted-by": "crossref",
+          "first-page": "1450",
+          "DOI": "10.1056/NEJM198512053132305",
+          "article-title": "Comparing the means of several groups",
+          "volume": "311",
+          "author": "Godfrey",
+          "year": "1985",
+          "journal-title": "New Engl. J. Med."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0002",
+          "doi-asserted-by": "crossref",
+          "first-page": "800",
+          "DOI": "10.1093/biomet/75.4.800",
+          "article-title": "A sharper Bonferroni procedure for multiple tests of significance",
+          "volume": "75",
+          "author": "Hochberg",
+          "year": "1988",
+          "journal-title": "Biometrika"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0003",
+          "doi-asserted-by": "crossref",
+          "first-page": "811",
+          "DOI": "10.1002/sim.4780090710",
+          "article-title": "More powerful procedures for multiple significance testing",
+          "volume": "9",
+          "author": "Hochberg",
+          "year": "1990",
+          "journal-title": "Statist. Med."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0004",
+          "doi-asserted-by": "crossref",
+          "DOI": "10.1002/9780470316672",
+          "volume-title": "Multiple Comparison Procedures.",
+          "author": "Hochberg",
+          "year": "1987"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0005",
+          "first-page": "65",
+          "article-title": "A simple sequentially rejective multiple test procedure",
+          "volume": "6",
+          "author": "Holm",
+          "year": "1979",
+          "journal-title": "Scand. J. Statist."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0006",
+          "doi-asserted-by": "crossref",
+          "first-page": "383",
+          "DOI": "10.1093/biomet/75.2.383",
+          "article-title": "A stagewise rejective multiple test procedure based on a modified Bonferroni test",
+          "volume": "75",
+          "author": "Hommel",
+          "year": "1988",
+          "journal-title": "Biometrika"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0007",
+          "doi-asserted-by": "crossref",
+          "first-page": "885",
+          "DOI": "10.1016/0735-1097(92)90265-O",
+          "article-title": "Improved thrombolysis in acute myocardial infarction front-loaded administration of Alteplase: results of the rt-PA-APSAC patency study (TAPS)",
+          "volume": "19",
+          "author": "Neuhaus",
+          "year": "1992",
+          "journal-title": "J. Am. Coll. Card."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0008",
+          "first-page": "381",
+          "article-title": "Statistical problems in reporting of clinical trials",
+          "volume": "84",
+          "author": "Pocock",
+          "year": "1987",
+          "journal-title": "J. Am. Statist. Ass."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0009",
+          "doi-asserted-by": "crossref",
+          "first-page": "663",
+          "DOI": "10.1093/biomet/77.3.663",
+          "article-title": "A sequentially rejective test procedure based on a modified Bonferroni inequality",
+          "volume": "77",
+          "author": "Rom",
+          "year": "1990",
+          "journal-title": "Biometrika"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0010",
+          "doi-asserted-by": "crossref",
+          "first-page": "174",
+          "DOI": "10.1080/00031305.1990.10475712",
+          "article-title": "Multiple comparison procedures: the practical solution",
+          "volume": "44",
+          "author": "Saville",
+          "year": "1990",
+          "journal-title": "Am. Statistn"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0011",
+          "doi-asserted-by": "crossref",
+          "first-page": "751",
+          "DOI": "10.1093/biomet/73.3.751",
+          "article-title": "An improved Bonferroni procedure for multiple tests of significance",
+          "volume": "73",
+          "author": "Simes",
+          "year": "1986",
+          "journal-title": "Biometrika"
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0012",
+          "doi-asserted-by": "crossref",
+          "first-page": "545",
+          "DOI": "10.1016/0002-9343(87)90768-6",
+          "article-title": "Impact of multiple comparisons in randomized clinical trials",
+          "volume": "83",
+          "author": "Smith",
+          "year": "1987",
+          "journal-title": "Am. J. Med."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0013",
+          "first-page": "608",
+          "article-title": "Statistical \u201cdiscoveries\u201d and effect size estimation",
+          "volume": "84",
+          "author": "Sori\u00e7",
+          "year": "1989",
+          "journal-title": "J. Am. Statist. Ass."
+        },
+        {
+          "key": "2024090922052288200_rssb02031-cit-0014",
+          "doi-asserted-by": "crossref",
+          "first-page": "398",
+          "DOI": "10.1214/aoms/1177692621",
+          "article-title": "On the optimality of some multiple comparison procedure",
+          "volume": "43",
+          "author": "Spj\u00f8tvoll",
+          "year": "1972",
+          "journal-title": "Ann. Math. Statist."
+        }
+      ],
+      "container-title": [
+        "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.2517-6161.1995.tb02031.x",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "https://academic.oup.com/jrsssb/article-pdf/57/1/289/49173396/jrsssb_57_1_289.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "syndication"
+        },
+        {
+          "URL": "https://academic.oup.com/jrsssb/article-pdf/57/1/289/49173396/jrsssb_57_1_289.pdf",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2024,
+            9,
+            9
+          ]
+        ],
+        "date-time": "2024-09-09T18:39:10Z",
+        "timestamp": 1725907150000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://academic.oup.com/jrsssb/article/57/1/289/7035855"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      },
+      "references-count": 14,
+      "journal-issue": {
+        "issue": "1",
+        "published-online": {
+          "date-parts": [
+            [
+              2018,
+              12,
+              5
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              1995,
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "URL": "https://doi.org/10.1111/j.2517-6161.1995.tb02031.x",
+      "relation": {},
+      "ISSN": [
+        "1369-7412",
+        "1467-9868"
+      ],
+      "issn-type": [
+        {
+          "value": "1369-7412",
+          "type": "print"
+        },
+        {
+          "value": "1467-9868",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published-other": {
+        "date-parts": [
+          [
+            1995,
+            1
+          ]
+        ]
+      },
+      "published": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "Huseynov2016",
+    "doi": "10.1073/pnas.1517085113",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            20
+          ]
+        ],
+        "date-time": "2026-09-20T05:13:51Z",
+        "timestamp": 1789881231591,
+        "version": "4.0.1"
+      },
+      "reference-count": 74,
+      "publisher": "National Academy of Sciences",
+      "issue": "19",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                2016,
+                4,
+                25
+              ]
+            ],
+            "date-time": "2016-04-25T00:00:00Z",
+            "timestamp": 1461542400000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://www.pnas.org/preview_site/misc/userlicense.xhtml"
+        }
+      ],
+      "funder": [
+        {
+          "DOI": "10.13039/501100001711",
+          "name": "Swiss National Science Foundation",
+          "doi-asserted-by": "publisher",
+          "award": [
+            "31003A_135470/1"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "31003A_135470/1"
+              ]
+            }
+          ],
+          "id": [
+            {
+              "id": "10.13039/501100001711",
+              "id-type": "DOI",
+              "asserted-by": "publisher"
+            }
+          ]
+        },
+        {
+          "name": "A. H. Schultz Foundation",
+          "award": [
+            "AH-2012"
+          ],
+          "award-info": [
+            {
+              "award-number": [
+                "AH-2012"
+              ]
+            }
+          ]
+        }
+      ],
+      "content-domain": {
+        "domain": [
+          "www.pnas.org"
+        ],
+        "crossmark-restriction": true
+      },
+      "short-container-title": [
+        "Proc. Natl. Acad. Sci. U.S.A."
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2016,
+            5,
+            10
+          ]
+        ]
+      },
+      "abstract": "<jats:title>Significance</jats:title>\n                  <jats:p>The obstetrical dilemma hypothesis states that the human female pelvis represents a compromise between designs most suitable for childbirth and bipedal locomotion, respectively. This hypothesis has been challenged recently on biomechanical, metabolic, and biocultural grounds. Here we provide evidence for the pelvis\u2019 developmental adaptation to the problem of birthing large-headed/large-bodied babies. We show that the female pelvis reaches its obstetrically most adequate morphology around the time of maximum fertility but later reverts to a mode of development similar to that of males, which significantly reduces the dimensions of the birth canal. These developmental changes are likely mediated by hormonal changes during puberty and menopause, indicating \u201con-demand\u201d adjustment of pelvic shape to the needs of childbirth.</jats:p>",
+      "DOI": "10.1073/pnas.1517085113",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            26
+          ]
+        ],
+        "date-time": "2016-04-26T00:24:39Z",
+        "timestamp": 1461630279000
+      },
+      "page": "5227-5232",
+      "update-policy": "https://doi.org/10.1073/pnas.cm10313",
+      "source": "Crossref",
+      "is-referenced-by-count": 157,
+      "title": [
+        "Developmental evidence for obstetric adaptation of the human female pelvis"
+      ],
+      "prefix": "10.1073",
+      "volume": "113",
+      "author": [
+        {
+          "given": "Alik",
+          "family": "Huseynov",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Anthropological Institute and Museum, University of Zurich, 8057 Zurich, Switzerland;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christoph P. E.",
+          "family": "Zollikofer",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Anthropological Institute and Museum, University of Zurich, 8057 Zurich, Switzerland;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Walter",
+          "family": "Coudyzer",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Radiology, University Hospitals, Katholieke Universiteit Leuven, 3000 Leuven, Belgium;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dominic",
+          "family": "Gascho",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Forensic Medicine and Imaging, Institute of Forensic Medicine, University of Zurich, 8057 Zurich, Switzerland;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christian",
+          "family": "Kellenberger",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Diagnostic Imaging, University Children's Hospital Zurich, 8032 Zurich, Switzerland;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ricarda",
+          "family": "Hinzpeter",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Institute of Diagnostic and Interventional Radiology, University Hospital Zurich, 8091 Zurich, Switzerland"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marcia S.",
+          "family": "Ponce de Le\u00f3n",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Anthropological Institute and Museum, University of Zurich, 8057 Zurich, Switzerland;"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "341",
+      "published-online": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            25
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "key": "e_1_3_3_1_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.anireprosci.2012.02.007"
+        },
+        {
+          "key": "e_1_3_3_2_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330070307"
+        },
+        {
+          "key": "e_1_3_3_3_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1159/000155292"
+        },
+        {
+          "key": "e_1_3_3_4_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ar.1091720312"
+        },
+        {
+          "key": "e_1_3_3_5_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330350605"
+        },
+        {
+          "key": "e_1_3_3_6_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330970302"
+        },
+        {
+          "key": "e_1_3_3_7_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330980106"
+        },
+        {
+          "key": "e_1_3_3_8_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.gaitpost.2004.01.001"
+        },
+        {
+          "key": "e_1_3_3_9_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1097/01.ogx.0000286584.04310.5c"
+        },
+        {
+          "key": "e_1_3_3_10_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1098/rstb.2014.0063"
+        },
+        {
+          "key": "e_1_3_3_11_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1098/rstb.2014.0067"
+        },
+        {
+          "key": "e_1_3_3_12_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.1205282109"
+        },
+        {
+          "key": "e_1_3_3_13_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1371/journal.pone.0118903"
+        },
+        {
+          "key": "e_1_3_3_14_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/scientificamerican0960-62"
+        },
+        {
+          "key": "e_1_3_3_15_2",
+          "first-page": "511",
+          "article-title": "Die Tragzeiten der Primaten und die Dauer der Schwangerschaft beim Menschen: Ein Problem der vergleichenden Biologie",
+          "volume": "48",
+          "author": "Portmann A",
+          "year": "1941",
+          "unstructured": "A Portmann, Die Tragzeiten der Primaten und die Dauer der Schwangerschaft beim Menschen: Ein Problem der vergleichenden Biologie. Rev Suisse Zool 48, 511\u2013518 (1941).",
+          "journal-title": "Rev Suisse Zool"
+        },
+        {
+          "key": "e_1_3_3_16_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.ijgo.2004.01.011"
+        },
+        {
+          "key": "e_1_3_3_17_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.ijgo.2006.10.010"
+        },
+        {
+          "key": "e_1_3_3_18_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1186/1742-4755-12-S2-S9"
+        },
+        {
+          "key": "e_1_3_3_19_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jhevol.2011.07.006"
+        },
+        {
+          "key": "e_1_3_3_20_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1146/annurev-anthro-102214-013918"
+        },
+        {
+          "key": "e_1_3_3_21_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.22734"
+        },
+        {
+          "key": "e_1_3_3_22_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.22906"
+        },
+        {
+          "key": "e_1_3_3_23_2",
+          "first-page": "172",
+          "article-title": "Energetics, reproductive ecology, and human evolution",
+          "volume": "2008",
+          "author": "Ellison P",
+          "year": "2008",
+          "unstructured": "P Ellison, Energetics, reproductive ecology, and human evolution. PaleoAnthropology 2008, 172\u2013200 (2008).",
+          "journal-title": "PaleoAnthropology"
+        },
+        {
+          "key": "e_1_3_3_24_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.0605488103"
+        },
+        {
+          "key": "e_1_3_3_25_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.1420325112"
+        },
+        {
+          "key": "e_1_3_3_26_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/nrg2687"
+        },
+        {
+          "key": "e_1_3_3_27_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/nrg3376"
+        },
+        {
+          "key": "e_1_3_3_28_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ar.1091570311"
+        },
+        {
+          "key": "e_1_3_3_29_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ar.1092240406"
+        },
+        {
+          "key": "e_1_3_3_30_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ar.1092340409"
+        },
+        {
+          "key": "e_1_3_3_31_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.20226"
+        },
+        {
+          "key": "e_1_3_3_32_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/jmor.10476"
+        },
+        {
+          "key": "e_1_3_3_33_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.0708024105"
+        },
+        {
+          "key": "e_1_3_3_34_2",
+          "first-page": "1",
+          "article-title": "Births: Final data for 2013",
+          "volume": "64",
+          "author": "Martin JA",
+          "year": "2015",
+          "unstructured": "JA Martin, BE Hamilton, MJ Osterman, SC Curtin, TJ Matthews, Births: Final data for 2013. Natl Vital Stat Rep 64, 1\u201365 (2015).",
+          "journal-title": "Natl Vital Stat Rep"
+        },
+        {
+          "key": "e_1_3_3_35_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330150409"
+        },
+        {
+          "key": "e_1_3_3_36_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.22625"
+        },
+        {
+          "key": "e_1_3_3_37_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1111/1556-4029.12761"
+        },
+        {
+          "key": "e_1_3_3_38_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.10422"
+        },
+        {
+          "key": "e_1_3_3_39_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330310202"
+        },
+        {
+          "key": "e_1_3_3_40_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330950103"
+        },
+        {
+          "key": "e_1_3_3_41_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/jmor.10723"
+        },
+        {
+          "key": "e_1_3_3_42_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1677/JOE-10-0209"
+        },
+        {
+          "key": "e_1_3_3_43_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/evan.20299"
+        },
+        {
+          "key": "e_1_3_3_44_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1111/j.1749-6632.2011.06360.x"
+        },
+        {
+          "key": "e_1_3_3_45_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.tem.2012.03.008"
+        },
+        {
+          "key": "e_1_3_3_46_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/nrg2415"
+        },
+        {
+          "key": "e_1_3_3_47_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1111/cen.12682"
+        },
+        {
+          "key": "e_1_3_3_48_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1080/00016340701823959"
+        },
+        {
+          "key": "e_1_3_3_49_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1111/sms.12149"
+        },
+        {
+          "key": "e_1_3_3_50_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.ajog.2014.06.029"
+        },
+        {
+          "key": "e_1_3_3_51_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1093/ejo/21.2.137"
+        },
+        {
+          "key": "e_1_3_3_52_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1371/journal.pone.0047282"
+        },
+        {
+          "key": "e_1_3_3_53_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.evolhumbehav.2013.03.005"
+        },
+        {
+          "key": "e_1_3_3_54_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.tree.2005.08.001"
+        },
+        {
+          "key": "e_1_3_3_55_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1098/rstb.2014.0065"
+        },
+        {
+          "key": "e_1_3_3_56_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1098/rstb.2014.0071"
+        },
+        {
+          "key": "e_1_3_3_57_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajhb.20462"
+        },
+        {
+          "key": "e_1_3_3_58_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/sj.ejcn.1600547"
+        },
+        {
+          "key": "e_1_3_3_59_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1093/jnci/88.19.1369"
+        },
+        {
+          "key": "e_1_3_3_60_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jsbmb.2008.08.002"
+        },
+        {
+          "key": "e_1_3_3_61_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1093/oxfordjournals.humrep.a019055"
+        },
+        {
+          "key": "e_1_3_3_62_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1002/ajpa.1330750107"
+        },
+        {
+          "key": "e_1_3_3_63_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1196/annals.1389.034"
+        },
+        {
+          "key": "e_1_3_3_64_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jhevol.2013.06.002"
+        },
+        {
+          "key": "e_1_3_3_65_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1111/j.1748-1716.1978.tb06215.x"
+        },
+        {
+          "key": "e_1_3_3_66_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1016/j.jbiomech.2004.08.016"
+        },
+        {
+          "key": "e_1_3_3_67_2",
+          "first-page": "1283",
+          "article-title": "Architectural differences in the bony pelvis of women with and without pelvic floor disorders",
+          "volume": "102",
+          "author": "Handa VL",
+          "year": "2003",
+          "unstructured": "VL Handa, , Architectural differences in the bony pelvis of women with and without pelvic floor disorders. Obstet Gynecol 102, 1283\u20131290 (2003).",
+          "journal-title": "Obstet Gynecol"
+        },
+        {
+          "key": "e_1_3_3_68_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.95.3.1336"
+        },
+        {
+          "key": "e_1_3_3_69_2",
+          "volume-title": "Virtual Reconstruction: A Primer in Computer-Assisted Paleontology and Biomedicine",
+          "author": "Zollikofer CPE",
+          "year": "2005",
+          "unstructured": "CPE Zollikofer, MS Ponce de Le\u00f3n Virtual Reconstruction: A Primer in Computer-Assisted Paleontology and Biomedicine (Wiley-Liss, Hoboken, NJ, 2005)."
+        },
+        {
+          "key": "e_1_3_3_70_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1073/pnas.0803917105"
+        },
+        {
+          "key": "e_1_3_3_71_2",
+          "doi-asserted-by": "crossref",
+          "first-page": "73",
+          "DOI": "10.1007/0-387-27614-9_3",
+          "volume-title": "Semilandmarks in Three Dimensions. Modern Morphometrics in Physical Anthropology, Developments in Primatology: Progress and Prospects",
+          "author": "Gunz P",
+          "year": "2005",
+          "unstructured": "P Gunz, P Mitteroecker, FL Bookstein Semilandmarks in Three Dimensions. Modern Morphometrics in Physical Anthropology, Developments in Primatology: Progress and Prospects, ed DE Slice (Kluwer Academic Publishers, New York), pp. 73\u201398 (2005)."
+        },
+        {
+          "key": "e_1_3_3_72_2",
+          "unstructured": "S Schlager Morpho: Calculations and visualisations related to geometric morphometrics. R package version 2.3.1.1. Available at cran.r-project.org/web/packages/Morpho/index.html. Accessed February 28 2016. (2016)."
+        },
+        {
+          "key": "e_1_3_3_73_2",
+          "unstructured": "DC Adams ML Collyer E Sherratt geomorph: Software for geometric morphometric analyses. R package version 2.1.7. Available at cran.r-project.org/web/packages/geomorph/index.html. Accessed February 28 2016. (2015)."
+        },
+        {
+          "key": "e_1_3_3_74_2",
+          "doi-asserted-by": "publisher",
+          "DOI": "10.1038/hdy.2014.75"
+        }
+      ],
+      "container-title": [
+        "Proceedings of the National Academy of Sciences"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "http://www.pnas.org/syndication/doi/10.1073/pnas.1517085113",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "syndication"
+        },
+        {
+          "URL": "https://pnas.org/doi/pdf/10.1073/pnas.1517085113",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2022,
+            4,
+            13
+          ]
+        ],
+        "date-time": "2022-04-13T01:56:04Z",
+        "timestamp": 1649814964000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://pnas.org/doi/full/10.1073/pnas.1517085113"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            25
+          ]
+        ]
+      },
+      "references-count": 74,
+      "journal-issue": {
+        "issue": "19",
+        "published-print": {
+          "date-parts": [
+            [
+              2016,
+              5,
+              10
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "10.1073/pnas.1517085113"
+      ],
+      "URL": "https://doi.org/10.1073/pnas.1517085113",
+      "relation": {},
+      "ISSN": [
+        "0027-8424",
+        "1091-6490"
+      ],
+      "issn-type": [
+        {
+          "value": "0027-8424",
+          "type": "print"
+        },
+        {
+          "value": "1091-6490",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            25
+          ]
+        ]
+      },
+      "assertion": [
+        {
+          "value": "2016-04-25",
+          "order": 2,
+          "name": "published",
+          "label": "Published",
+          "group": {
+            "name": "publication_history",
+            "label": "Publication History"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "key": "Anderson2005",
+    "doi": "10.1115/1.1894148",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            7,
+            14
+          ]
+        ],
+        "date-time": "2026-07-14T13:25:59Z",
+        "timestamp": 1784035559454,
+        "version": "3.55.0"
+      },
+      "reference-count": 59,
+      "publisher": "ASME International",
+      "issue": "3",
+      "content-domain": {
+        "domain": [
+          "asmedigitalcollection.asme.org"
+        ],
+        "crossmark-restriction": true
+      },
+      "short-container-title": [],
+      "published-print": {
+        "date-parts": [
+          [
+            2005,
+            6,
+            1
+          ]
+        ]
+      },
+      "abstract": "<jats:p>A better understanding of the three-dimensional mechanics of the pelvis, at the patient-specific level, may lead to improved treatment modalities. Although finite element (FE) models of the pelvis have been developed, validation by direct comparison with subject-specific strains has not been performed, and previous models used simplifying assumptions regarding geometry and material properties. The objectives of this study were to develop and validate a realistic FE model of the pelvis using subject-specific estimates of bone geometry, location-dependent cortical thickness and trabecular bone elastic modulus, and to assess the sensitivity of FE strain predictions to assumptions regarding cortical bone thickness as well as bone and cartilage material properties. A FE model of a cadaveric pelvis was created using subject-specific computed tomography image data. Acetabular loading was applied to the same pelvis using a prosthetic femoral stem in a fashion that could be easily duplicated in the computational model. Cortical bone strains were monitored with rosette strain gauges in ten locations on the left hemipelvis. FE strain predictions were compared directly with experimental results for validation. Overall, baseline FE predictions were strongly correlated with experimental results (r2=0.824), with a best-fit line that was not statistically different than the line y=x(experimental strains=FEpredicted strains). Changes to cortical bone thickness and elastic modulus had the largest effect on cortical bone strains. The FE model was less sensitive to changes in all other parameters. The methods developed and validated in this study will be useful for creating and analyzing patient-specific FE models to better understand the biomechanics of the pelvis.</jats:p>",
+      "DOI": "10.1115/1.1894148",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2005,
+            5,
+            20
+          ]
+        ],
+        "date-time": "2005-05-20T22:13:17Z",
+        "timestamp": 1116627197000
+      },
+      "page": "364-373",
+      "update-policy": "https://doi.org/10.1115/crossmarkpolicy-asme",
+      "source": "Crossref",
+      "is-referenced-by-count": 283,
+      "title": [
+        "Subject-Specific Finite Element Model of the Pelvis: Development, Validation and Sensitivity Studies"
+      ],
+      "prefix": "10.1115",
+      "volume": "127",
+      "author": [
+        {
+          "given": "Andrew E.",
+          "family": "Anderson",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Bioengineering, University of Utah, 50 South Central Campus Drive, Room 2480, Salt Lake City, UT"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christopher L.",
+          "family": "Peters",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Orthopedics, University of Utah Medical Center, Salt Lake City, UT"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Benjamin D.",
+          "family": "Tuttle",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Bioengineering, University of Utah, 50 South Central Campus Drive, Room 2480, Salt Lake City, UT"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jeffrey A.",
+          "family": "Weiss",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Bioengineering, University of Utah, 50 South Central Campus Drive, Room 2480, Salt Lake City, UT and Department of Orthopedics, University of Utah Medical Center, Salt Lake City, UT"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "33",
+      "published-online": {
+        "date-parts": [
+          [
+            2005,
+            2,
+            4
+          ]
+        ]
+      },
+      "reference": [
+        {
+          "key": "2019100514083214100_c1",
+          "doi-asserted-by": "publisher",
+          "first-page": "969",
+          "DOI": "10.1016/0021-9290(93)90058-M",
+          "article-title": "Hip Joint Loading During Walking and Running, Measured in Two Patients",
+          "volume": "26",
+          "author": "Bergmann",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c2",
+          "doi-asserted-by": "publisher",
+          "first-page": "859",
+          "DOI": "10.1016/S0021-9290(01)00040-9",
+          "article-title": "Hip Contact Forces and Gait Patterns from Routine Activities",
+          "volume": "34",
+          "author": "Bergmann",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c3",
+          "doi-asserted-by": "crossref",
+          "first-page": "180",
+          "DOI": "10.1016/S1350-4533(96)00051-3",
+          "article-title": "Comparison of Predicted and Measured Contact Pressures in Normal and Dysplastic Hips",
+          "volume": "19",
+          "author": "Michaeli",
+          "journal-title": "Med. Eng. Phys.",
+          "ISSN": "https://id.crossref.org/issn/1350-4533",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c4",
+          "doi-asserted-by": "crossref",
+          "first-page": "429",
+          "DOI": "10.1097/00005373-199209000-00016",
+          "article-title": "Associated Aortic Rupture-Pelvic Fracture: An Alert for Orthopedic and General Surgeons",
+          "volume": "33",
+          "author": "Ochsner",
+          "journal-title": "J. Trauma",
+          "ISSN": "https://id.crossref.org/issn/0022-5282",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c5",
+          "first-page": "356",
+          "article-title": "The Mortality Associated with Pelvic Fractures",
+          "volume": "84",
+          "author": "Rothenberger",
+          "journal-title": "Surgery"
+        },
+        {
+          "key": "2019100514083214100_c6",
+          "first-page": "1201",
+          "article-title": "Cortical Bone-Loss with Age",
+          "volume": "2",
+          "author": "Adams",
+          "journal-title": "Lancet",
+          "ISSN": "https://id.crossref.org/issn/0140-6736",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c7",
+          "volume-title": "Osteoarthritis of the Hip",
+          "author": "Bombelli"
+        },
+        {
+          "key": "2019100514083214100_c8",
+          "doi-asserted-by": "crossref",
+          "first-page": "308",
+          "DOI": "10.1136/ard.50.5.308",
+          "article-title": "Osteoarthritis of the Hip and Acetabular Dysplasia",
+          "volume": "50",
+          "author": "Croft",
+          "journal-title": "Ann. Rheum. Dis.",
+          "ISSN": "https://id.crossref.org/issn/0003-4967",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c9",
+          "doi-asserted-by": "crossref",
+          "first-page": "S123",
+          "DOI": "10.1007/BF02406145",
+          "article-title": "Age-Related Structural Changes in Trabecular and Cortical Bone: Cellular Mechanisms and Biomechanical Consequences",
+          "volume": "36",
+          "author": "Parfitt",
+          "journal-title": "Calcif. Tissue Int.",
+          "ISSN": "https://id.crossref.org/issn/0171-967X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c10",
+          "first-page": "176",
+          "article-title": "Patterns of Osteoarthritis of the Hip",
+          "volume": "58",
+          "author": "Solomon",
+          "journal-title": "J. Bone Joint Surg. Br.",
+          "ISSN": "https://id.crossref.org/issn/0301-620X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c11",
+          "first-page": "82",
+          "article-title": "Acetabular Dysplasia and Development of Osteoarthritis of the Hip",
+          "volume-title": "Proceedings of the Second Open Scientific Meeting of the Hip Society",
+          "author": "Stulberg"
+        },
+        {
+          "key": "2019100514083214100_c12",
+          "first-page": "20",
+          "article-title": "Etiology of Osteoarthritis of the Hip",
+          "author": "Harris",
+          "journal-title": "Clin. Orthop.",
+          "ISSN": "https://id.crossref.org/issn/0009-921X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c13",
+          "doi-asserted-by": "crossref",
+          "first-page": "810",
+          "DOI": "10.1259/0007-1285-38-455-810",
+          "article-title": "The Aetiology of Primary Osteoarthritis of the Hip",
+          "volume": "38",
+          "author": "Murray",
+          "journal-title": "Br. J. Radiol.",
+          "ISSN": "https://id.crossref.org/issn/0007-1285",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c14",
+          "first-page": "536",
+          "article-title": "Contact Pressures in the Human Hip Joint",
+          "volume": "69",
+          "author": "Afoke",
+          "journal-title": "J. Bone Joint Surg. Br.",
+          "ISSN": "https://id.crossref.org/issn/0301-620X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c15",
+          "doi-asserted-by": "crossref",
+          "first-page": "373",
+          "DOI": "10.1016/0021-9290(83)90071-4",
+          "article-title": "In Vitro Contact Stress Distributions in the Natural Human Hip",
+          "volume": "16",
+          "author": "Brown",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c16",
+          "first-page": "302",
+          "article-title": "Contact Pressures in the Loaded Human Cadaver Hip",
+          "volume": "57",
+          "author": "Day",
+          "journal-title": "J. Bone Joint Surg. Br.",
+          "ISSN": "https://id.crossref.org/issn/0301-620X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c17",
+          "doi-asserted-by": "crossref",
+          "first-page": "2879",
+          "DOI": "10.1073/pnas.83.9.2879",
+          "article-title": "Contact Pressures in the Human Hip Joint Measured in Vivo",
+          "volume": "83",
+          "author": "Hodge",
+          "journal-title": "Proc. Natl. Acad. Sci. U.S.A.",
+          "ISSN": "https://id.crossref.org/issn/0027-8424",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c18",
+          "doi-asserted-by": "crossref",
+          "first-page": "1229",
+          "DOI": "10.1016/S0021-9290(99)00119-0",
+          "article-title": "Mathematical Modeling of Stress in the Hip During Gait",
+          "volume": "32",
+          "author": "Ipavec",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c19",
+          "doi-asserted-by": "crossref",
+          "first-page": "R275",
+          "DOI": "10.1007/BF02346375",
+          "article-title": "Stress Distribution on the Hip Joint Articular Surface During Gait",
+          "volume": "431",
+          "author": "Ipavec",
+          "journal-title": "Pfluegers Arch.",
+          "ISSN": "https://id.crossref.org/issn/0031-6768",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c20",
+          "doi-asserted-by": "crossref",
+          "first-page": "R177",
+          "DOI": "10.1007/s004240000054",
+          "article-title": "Peak Contact Stress in Human Hip During Gait",
+          "volume": "440",
+          "author": "Mavcic",
+          "journal-title": "Pfluegers Arch.",
+          "ISSN": "https://id.crossref.org/issn/0031-6768",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c21",
+          "doi-asserted-by": "crossref",
+          "first-page": "1025",
+          "DOI": "10.1016/S0736-0266(02)00014-1",
+          "article-title": "Mathematical Estimation of Stress Distribution in Normal and Dysplastic Hips",
+          "volume": "20",
+          "author": "Mavcic",
+          "journal-title": "J. Orthop. Res.",
+          "ISSN": "https://id.crossref.org/issn/0736-0266",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c22",
+          "doi-asserted-by": "crossref",
+          "first-page": "463",
+          "DOI": "10.1053/joca.2001.0413",
+          "article-title": "High-Resolution MRI Detects Cartilage Swelling at the Early Stages of Experimental Osteoarthritis",
+          "volume": "9",
+          "author": "Calvo",
+          "journal-title": "Osteoarthritis Cartilage",
+          "ISSN": "https://id.crossref.org/issn/1063-4584",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c23",
+          "doi-asserted-by": "crossref",
+          "first-page": "11",
+          "DOI": "10.1016/S0033-8389(03)00169-6",
+          "article-title": "Radiographic Evaluation of Osteoarthritis",
+          "volume": "42",
+          "author": "Gupta",
+          "journal-title": "Radiol. Clin. North Am.",
+          "ISSN": "https://id.crossref.org/issn/0033-8389",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c24",
+          "doi-asserted-by": "crossref",
+          "first-page": "331",
+          "DOI": "10.1016/8756-3282(92)90079-C",
+          "article-title": "Comparative Study of Iliac Crest and Subchondral Femoral Bone in Osteoarthritic Patients",
+          "volume": "13",
+          "author": "Fazzalari",
+          "journal-title": "Bone (N.Y.)",
+          "ISSN": "https://id.crossref.org/issn/8756-3282",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c25",
+          "doi-asserted-by": "publisher",
+          "first-page": "377",
+          "DOI": "10.1016/S0021-9290(00)00195-0",
+          "article-title": "A Method for Measuring Joint Kinematics Designed for Accurate Registration of Kinematic Data to Models Constructed from CT Data",
+          "volume": "34",
+          "author": "Fischer",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c26",
+          "doi-asserted-by": "crossref",
+          "first-page": "272",
+          "DOI": "10.1115/1.2794181",
+          "article-title": "Development and Validation of a Three-Dimensional Finite Element Model of the Pelvic Bone",
+          "volume": "117",
+          "author": "Dalstra",
+          "journal-title": "ASME J. Biomech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0148-0731",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c27",
+          "volume-title": "Mechanics of Materials",
+          "author": "Pytel"
+        },
+        {
+          "key": "2019100514083214100_c28",
+          "doi-asserted-by": "crossref",
+          "first-page": "1",
+          "DOI": "10.1016/S0734-189X(88)80028-8",
+          "article-title": "Shape Reconstruction from Planar Cross-Sections",
+          "volume": "44",
+          "author": "Boissonnat",
+          "journal-title": "Comput. Vis. Graph. Image Process.",
+          "ISSN": "https://id.crossref.org/issn/0734-189X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c29",
+          "doi-asserted-by": "crossref",
+          "first-page": "65",
+          "DOI": "10.1145/142920.134010",
+          "article-title": "Decimation of Triangle Meshes",
+          "volume": "26",
+          "author": "Schroeder",
+          "journal-title": "ACM SIGGRAPH Computer Graphics"
+        },
+        {
+          "key": "2019100514083214100_c30",
+          "doi-asserted-by": "crossref",
+          "unstructured": "Taubin, G., Zhang, T., and Golub, G., 1996. \u201cOptimal Surface Smoothing as Filter Design,\u201d Stanford University IBM RC-20404.",
+          "DOI": "10.1007/BFb0015544"
+        },
+        {
+          "key": "2019100514083214100_c31",
+          "volume-title": "The Visualization Toolkit: An Object Oriented Approach to Computer Graphics",
+          "author": "Schroeder",
+          "edition": "3rd ed."
+        },
+        {
+          "key": "2019100514083214100_c32",
+          "doi-asserted-by": "crossref",
+          "first-page": "593",
+          "DOI": "10.1002/nme.1620310311",
+          "article-title": "Solid Elements with Rotational Degrees of Freedom: Part II. Tetrahedron Elements",
+          "volume": "31",
+          "author": "Pawlak",
+          "journal-title": "Int. J. Numer. Methods Eng.",
+          "ISSN": "https://id.crossref.org/issn/0029-5981",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c33",
+          "doi-asserted-by": "crossref",
+          "first-page": "419",
+          "DOI": "10.1002/nme.1620020310",
+          "article-title": "Analysis of Thick and Thin Shell Structures",
+          "volume": "2",
+          "author": "Ahmad",
+          "journal-title": "Int. J. Numer. Methods Eng.",
+          "ISSN": "https://id.crossref.org/issn/0029-5981",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c34",
+          "doi-asserted-by": "publisher",
+          "first-page": "167",
+          "DOI": "10.1016/0045-7825(81)90148-1",
+          "article-title": "Nonlinear Finite Element Analysis of Shells: Part I. Two Dimensional Shells",
+          "volume": "27",
+          "author": "Hughes",
+          "journal-title": "Comput. Methods Appl. Mech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0045-7825",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c35",
+          "first-page": "331",
+          "article-title": "Nonlinear Finite Element Analysis of Shells: Part II. Three Dimensional Shells",
+          "volume": "27",
+          "author": "Hughes",
+          "journal-title": "Comput. Methods Appl. Mech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0045-7825",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c36",
+          "doi-asserted-by": "crossref",
+          "first-page": "1413",
+          "DOI": "10.1002/nme.1620150914",
+          "article-title": "Generalization of Selective Integration Procedures to Anisotropic and Nonlinear Media",
+          "volume": "15",
+          "author": "Hughes",
+          "journal-title": "Int. J. Numer. Methods Eng.",
+          "ISSN": "https://id.crossref.org/issn/0029-5981",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c37",
+          "doi-asserted-by": "publisher",
+          "first-page": "751",
+          "DOI": "10.1088/0031-9155/44/3/017",
+          "article-title": "Accuracy Limits for the Determination of Cortical Width and Density: The Influence of Object Size and CT Imaging Parameters",
+          "volume": "44",
+          "author": "Prevrhal",
+          "journal-title": "Phys. Med. Biol.",
+          "ISSN": "https://id.crossref.org/issn/0031-9155",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c38",
+          "doi-asserted-by": "publisher",
+          "first-page": "395",
+          "DOI": "10.1118/1.1543149",
+          "article-title": "Influence of Phantom Diameter, Kvp and Scan Mode Upon Computed Tomography Dose Index",
+          "volume": "30",
+          "author": "Nickoloff",
+          "journal-title": "Med. Phys.",
+          "ISSN": "https://id.crossref.org/issn/0094-2405",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c39",
+          "doi-asserted-by": "crossref",
+          "first-page": "1001",
+          "DOI": "10.1259/0007-1285-64-767-1001",
+          "article-title": "Quantitative Computed Tomography: Comparative Study Using Different Scanners with Two Calibration Phantoms",
+          "volume": "64",
+          "author": "Suzuki",
+          "journal-title": "Br. J. Radiol.",
+          "ISSN": "https://id.crossref.org/issn/0007-1285",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c40",
+          "doi-asserted-by": "publisher",
+          "first-page": "523",
+          "DOI": "10.1016/0021-9290(93)90014-6",
+          "article-title": "Mechanical and Textural Properties of Pelvic Trabecular Bone",
+          "volume": "26",
+          "author": "Dalstra",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c41",
+          "doi-asserted-by": "publisher",
+          "first-page": "582",
+          "DOI": "10.1063/1.1712836",
+          "article-title": "A Theory of Large Elastic Deformation",
+          "volume": "11",
+          "author": "Mooney",
+          "journal-title": "J. Appl. Phys.",
+          "ISSN": "https://id.crossref.org/issn/0021-8979",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c42",
+          "doi-asserted-by": "crossref",
+          "first-page": "111",
+          "DOI": "10.1115/1.3138589",
+          "article-title": "A Three-Dimensional Finite Element Analysis of the Upper Tibia",
+          "volume": "108",
+          "author": "Little",
+          "journal-title": "ASME J. Biomech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0148-0731",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c43",
+          "volume-title": "Applied Multiple Regression Analysis for the Behavioral Sciences",
+          "author": "Cohen",
+          "edition": "3rd ed."
+        },
+        {
+          "key": "2019100514083214100_c44",
+          "volume-title": "Mechanical Properties of Bone",
+          "author": "Evans"
+        },
+        {
+          "key": "2019100514083214100_c45",
+          "first-page": "468",
+          "article-title": "Total Hip Reconstruction in Acetabular Dysplasia. A Finite Element Study",
+          "volume": "75",
+          "author": "Schuller",
+          "journal-title": "J. Bone Joint Surg. Br.",
+          "ISSN": "https://id.crossref.org/issn/0301-620X",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c46",
+          "doi-asserted-by": "crossref",
+          "first-page": "155",
+          "DOI": "10.1016/0021-9290(82)90247-0",
+          "article-title": "Stress Distributions in the Acetabular Region--I. Before and after Total Joint Replacement",
+          "volume": "15",
+          "author": "Vasu",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c47",
+          "doi-asserted-by": "crossref",
+          "first-page": "165",
+          "DOI": "10.1016/0021-9290(82)90248-2",
+          "article-title": "Stress Distributions in the Acetabular Region--II. Effects of Cement Thickness and Metal Backing of the Total Hip Acetabular Component",
+          "volume": "15",
+          "author": "Carter",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c48",
+          "doi-asserted-by": "crossref",
+          "first-page": "435",
+          "DOI": "10.1002/jor.1100030406",
+          "article-title": "Contact Finite Element Stress Analysis of the Hip Joint",
+          "volume": "3",
+          "author": "Rapperport",
+          "journal-title": "J. Orthop. Res.",
+          "ISSN": "https://id.crossref.org/issn/0736-0266",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c49",
+          "doi-asserted-by": "crossref",
+          "first-page": "305",
+          "DOI": "10.1016/0021-9290(82)90176-2",
+          "article-title": "An Axisymmetric Model of Acetabular Components in Total Hip Arthroplasty",
+          "volume": "15",
+          "author": "Pedersen",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c50",
+          "doi-asserted-by": "crossref",
+          "first-page": "620",
+          "DOI": "10.3109/17453678709146499",
+          "article-title": "Finite Element Analysis of Acetabular Reconstruction. Noncemented Threaded Cups",
+          "volume": "58",
+          "author": "Huiskes",
+          "journal-title": "Acta Orthop. Scand.",
+          "ISSN": "https://id.crossref.org/issn/0001-6470",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c51",
+          "doi-asserted-by": "publisher",
+          "first-page": "715",
+          "DOI": "10.1016/0021-9290(94)00125-N",
+          "article-title": "Load Transfer across the Pelvic Bone",
+          "volume": "28",
+          "author": "Dalstra",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c52",
+          "doi-asserted-by": "crossref",
+          "first-page": "113",
+          "DOI": "10.1016/S0021-9290(00)00112-3",
+          "article-title": "The Effect of Interfacial Parameters on Cup-Bone Relative Micromotions. A Finite Element Investigation",
+          "volume": "34",
+          "author": "Spears",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c53",
+          "doi-asserted-by": "publisher",
+          "first-page": "516",
+          "DOI": "10.1115/1.1289995",
+          "article-title": "Three-Dimensional Finite Element Analysis of Several Internal and External Pelvis Fixations",
+          "volume": "122",
+          "author": "Garcia",
+          "journal-title": "ASME J. Biomech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0148-0731",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c54",
+          "first-page": "85",
+          "article-title": "Development of a Biofidelic Human Pelvic Fe-Model with Several Modifications onto a Commercial Use Model for Lateral Loading Conditions",
+          "volume-title": "SAE International",
+          "author": "Konosu"
+        },
+        {
+          "key": "2019100514083214100_c55",
+          "doi-asserted-by": "publisher",
+          "first-page": "427",
+          "DOI": "10.1016/0021-9290(83)90075-1",
+          "article-title": "Mechanical Analysis of the Human Pelvis and Its Application to the Artificial Hip Joint--by Means of the Three Dimensional Finite Element Method",
+          "volume": "16",
+          "author": "Oonishi",
+          "journal-title": "J. Biomech.",
+          "ISSN": "https://id.crossref.org/issn/0021-9290",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c56",
+          "doi-asserted-by": "crossref",
+          "first-page": "109",
+          "DOI": "10.1016/S0001-4575(98)00052-9",
+          "article-title": "Analysis of the Structural Behavior of the Pelvis During Lateral Impact Using the Finite Element Method",
+          "volume": "31",
+          "author": "Dawson",
+          "journal-title": "Accid. Anal Prev.",
+          "ISSN": "https://id.crossref.org/issn/0001-4575",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c57",
+          "doi-asserted-by": "crossref",
+          "first-page": "193",
+          "DOI": "10.1115/1.3426244",
+          "article-title": "Determination of Elastic Constants for Human Femurs",
+          "volume": "101",
+          "author": "Lappi",
+          "journal-title": "ASME J. Biomech. Eng.",
+          "ISSN": "https://id.crossref.org/issn/0148-0731",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c58",
+          "doi-asserted-by": "crossref",
+          "first-page": "422",
+          "DOI": "10.1002/jor.1100090315",
+          "article-title": "Estimation of Mechanical Properties of Cortical Bone by Computed Tomography",
+          "volume": "9",
+          "author": "Snyder",
+          "journal-title": "J. Orthop. Res.",
+          "ISSN": "https://id.crossref.org/issn/0736-0266",
+          "issn-type": "print"
+        },
+        {
+          "key": "2019100514083214100_c59",
+          "doi-asserted-by": "crossref",
+          "first-page": "744",
+          "DOI": "10.2106/00004623-197961050-00016",
+          "article-title": "In Vitro Measurement of Articular Cartilage Deformations in the Intact Human Hip Joint under Load",
+          "volume": "61",
+          "author": "Armstrong",
+          "journal-title": "J. Bone Joint Surg. Br.",
+          "ISSN": "https://id.crossref.org/issn/0301-620X",
+          "issn-type": "print"
+        }
+      ],
+      "container-title": [
+        "Journal of Biomechanical Engineering"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "http://asmedigitalcollection.asme.org/biomechanical/article-pdf/127/3/364/5499877/364_1.pdf",
+          "content-type": "application/pdf",
+          "content-version": "vor",
+          "intended-application": "syndication"
+        },
+        {
+          "URL": "http://asmedigitalcollection.asme.org/biomechanical/article-pdf/127/3/364/5499877/364_1.pdf",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2019,
+            10,
+            5
+          ]
+        ],
+        "date-time": "2019-10-05T18:08:43Z",
+        "timestamp": 1570298923000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://asmedigitalcollection.asme.org/biomechanical/article/127/3/364/466377/SubjectSpecific-Finite-Element-Model-of-the-Pelvis"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2005,
+            2,
+            4
+          ]
+        ]
+      },
+      "references-count": 59,
+      "journal-issue": {
+        "issue": "3",
+        "published-print": {
+          "date-parts": [
+            [
+              2005,
+              6,
+              1
+            ]
+          ]
+        }
+      },
+      "URL": "https://doi.org/10.1115/1.1894148",
+      "relation": {},
+      "ISSN": [
+        "0148-0731",
+        "1528-8951"
+      ],
+      "issn-type": [
+        {
+          "value": "0148-0731",
+          "type": "print"
+        },
+        {
+          "value": "1528-8951",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2005,
+            2,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "Kabsch1976",
+    "doi": "10.1107/S0567739476001873",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            19
+          ]
+        ],
+        "date-time": "2026-09-19T15:01:34Z",
+        "timestamp": 1789830094003,
+        "version": "4.0.1"
+      },
+      "reference-count": 0,
+      "publisher": "International Union of Crystallography (IUCr)",
+      "issue": "5",
+      "license": [
+        {
+          "start": {
+            "date-parts": [
+              [
+                1976,
+                9,
+                1
+              ]
+            ],
+            "date-time": "1976-09-01T00:00:00Z",
+            "timestamp": 210384000000
+          },
+          "content-version": "vor",
+          "delay-in-days": 0,
+          "URL": "http://journals.iucr.org/services/copyrightpolicy.html"
+        },
+        {
+          "start": {
+            "date-parts": [
+              [
+                1976,
+                9,
+                1
+              ]
+            ],
+            "date-time": "1976-09-01T00:00:00Z",
+            "timestamp": 210384000000
+          },
+          "content-version": "tdm",
+          "delay-in-days": 0,
+          "URL": "http://journals.iucr.org/services/copyrightpolicy.html#TDM"
+        }
+      ],
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [
+        "Acta Cryst A",
+        "Acta Cryst Sect A",
+        "Acta Crystallogr A",
+        "Acta Crystallogr Sect A",
+        "Acta Crystallogr Sect A Cryst Phys Diffr Theor Gen Crystallogr'"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            1976,
+            9,
+            1
+          ]
+        ]
+      },
+      "DOI": "10.1107/s0567739476001873",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2002,
+            7,
+            27
+          ]
+        ],
+        "date-time": "2002-07-27T01:19:53Z",
+        "timestamp": 1027732793000
+      },
+      "page": "922-923",
+      "source": "Crossref",
+      "is-referenced-by-count": 2854,
+      "title": [
+        "A solution for the best rotation to relate two sets of vectors"
+      ],
+      "prefix": "10.1107",
+      "volume": "32",
+      "author": [
+        {
+          "given": "W.",
+          "family": "Kabsch",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "329",
+      "container-title": [
+        "Acta Crystallographica Section A"
+      ],
+      "original-title": [],
+      "link": [
+        {
+          "URL": "http://journals.iucr.org/a/issues/1976/05/00/a12999/a12999.pdf",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "text-mining"
+        },
+        {
+          "URL": "http://journals.iucr.org/a/issues/1976/05/00/a12999/a12999.pdf",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2025,
+            1,
+            11
+          ]
+        ],
+        "date-time": "2025-01-11T09:17:01Z",
+        "timestamp": 1736587021000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "https://journals.iucr.org/paper?S0567739476001873"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            1976,
+            9,
+            1
+          ]
+        ]
+      },
+      "references-count": 0,
+      "journal-issue": {
+        "issue": "5",
+        "published-print": {
+          "date-parts": [
+            [
+              1976,
+              9
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "S0567739476001873"
+      ],
+      "URL": "https://doi.org/10.1107/s0567739476001873",
+      "relation": {},
+      "ISSN": [
+        "0567-7394"
+      ],
+      "issn-type": [
+        {
+          "value": "0567-7394",
+          "type": "print"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            1976,
+            9,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "key": "CameronMiller2015",
+    "doi": "10.3368/jhr.50.2.317",
+    "status": 200,
+    "metadata": {
+      "indexed": {
+        "date-parts": [
+          [
+            2026,
+            9,
+            20
+          ]
+        ],
+        "date-time": "2026-09-20T00:55:28Z",
+        "timestamp": 1789865728622,
+        "version": "4.0.1"
+      },
+      "reference-count": 0,
+      "publisher": "University of Wisconsin Press",
+      "issue": "2",
+      "content-domain": {
+        "domain": [],
+        "crossmark-restriction": false
+      },
+      "short-container-title": [
+        "J. Human Resources"
+      ],
+      "published-print": {
+        "date-parts": [
+          [
+            2015
+          ]
+        ]
+      },
+      "DOI": "10.3368/jhr.50.2.317",
+      "type": "journal-article",
+      "created": {
+        "date-parts": [
+          [
+            2015,
+            10,
+            9
+          ]
+        ],
+        "date-time": "2015-10-09T14:25:00Z",
+        "timestamp": 1444400700000
+      },
+      "page": "317-372",
+      "source": "Crossref",
+      "is-referenced-by-count": 4142,
+      "title": [
+        "A Practitioner\u2019s Guide to Cluster-Robust Inference"
+      ],
+      "prefix": "10.3368",
+      "volume": "50",
+      "author": [
+        {
+          "given": "A.",
+          "family": "Colin Cameron",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Douglas L.",
+          "family": "Miller",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "member": "1939",
+      "published-online": {
+        "date-parts": [
+          [
+            2015,
+            4,
+            28
+          ]
+        ]
+      },
+      "container-title": [
+        "Journal of Human Resources"
+      ],
+      "original-title": [],
+      "language": "en",
+      "link": [
+        {
+          "URL": "https://syndication.highwire.org/content/doi/10.3368/jhr.50.2.317",
+          "content-type": "unspecified",
+          "content-version": "vor",
+          "intended-application": "similarity-checking"
+        }
+      ],
+      "deposited": {
+        "date-parts": [
+          [
+            2024,
+            1,
+            17
+          ]
+        ],
+        "date-time": "2024-01-17T09:15:23Z",
+        "timestamp": 1705482923000
+      },
+      "score": 1,
+      "resource": {
+        "primary": {
+          "URL": "http://jhr.uwpress.org/lookup/doi/10.3368/jhr.50.2.317"
+        }
+      },
+      "subtitle": [],
+      "short-title": [],
+      "issued": {
+        "date-parts": [
+          [
+            2015
+          ]
+        ]
+      },
+      "references-count": 0,
+      "journal-issue": {
+        "issue": "2",
+        "published-online": {
+          "date-parts": [
+            [
+              2015,
+              4,
+              28
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2015
+            ]
+          ]
+        }
+      },
+      "alternative-id": [
+        "10.3368/jhr.50.2.317"
+      ],
+      "URL": "https://doi.org/10.3368/jhr.50.2.317",
+      "relation": {},
+      "ISSN": [
+        "0022-166X",
+        "1548-8004"
+      ],
+      "issn-type": [
+        {
+          "value": "0022-166X",
+          "type": "print"
+        },
+        {
+          "value": "1548-8004",
+          "type": "electronic"
+        }
+      ],
+      "subject": [],
+      "published": {
+        "date-parts": [
+          [
+            2015
+          ]
+        ]
+      }
+    }
+  }
+]
