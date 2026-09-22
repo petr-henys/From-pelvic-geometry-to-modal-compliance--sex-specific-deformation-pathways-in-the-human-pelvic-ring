@@ -22,5 +22,5 @@ def main():
     d['rotation_delta']=d.rigid_rotation-d.affine_rotation;d['translation_delta']=d.rigid_translation-d.affine_translation
     write([{'Load':loads[l],'Number':len(a),'Max $|\\Delta$ rotation$|$ (deg)':f'{a.rotation_delta.abs().max():.4f}','Max $|\\Delta$ translation$|$ (mm)':f'{a.translation_delta.abs().max():.4f}'} for l,a in d.groupby('load_case',sort=False)],'supp_extraction_sensitivity.tex')
     a=pd.read_csv(T/'allometry_models.csv')
-    write([{'Load':loads[r.load_case],'Outcome':metrics[r.outcome],'Male exponent [95\\% CI]':ci(r,'male_exponent','male_ci95_low','male_ci95_high'),'Male $q$':q(r.male_q),'Female exponent [95\\% CI]':ci(r,'female_exponent','female_ci95_low','female_ci95_high'),'Female $q$':q(r.female_q),'Interaction $q$':q(r.interaction_p_fdr_bh)} for _,r in a.iterrows()],'table4b_allometry.tex')
+    write([{'Load':loads[r.load_case],'Outcome':metrics[r.outcome],'Male slope [95\\% CI]':ci(r,'male_exponent','male_ci95_low','male_ci95_high'),'Male $q$':q(r.male_q),'Female slope [95\\% CI]':ci(r,'female_exponent','female_ci95_low','female_ci95_high'),'Female $q$':q(r.female_q),'Interaction $q$':q(r.interaction_p_fdr_bh)} for _,r in a.iterrows()],'table4b_allometry.tex')
 if __name__=='__main__':main()

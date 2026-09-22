@@ -75,7 +75,7 @@ with open(GEN_DIR / "table4a_primary_models.tex", "w") as f:
 lines_4b = [
     r"\begin{tabular}{llccccc}",
     r"\toprule",
-    r"Load case & Outcome & Male exponent [95\% CI] & Female exponent [95\% CI] & Interaction $\beta$ & $q_{\text{FDR}}$ & Adj.\ $R^2$ \\",
+    r"Load case & Outcome & Male slope [95\% CI] & Female slope [95\% CI] & Interaction $\beta$ & $q_{\text{FDR}}$ & Adj.\ $R^2$ \\",
     r"\midrule",
 ]
 

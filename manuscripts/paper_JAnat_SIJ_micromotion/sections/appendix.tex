@@ -101,8 +101,8 @@ A_d&=\big|\|\mathbf d_L\|-\|\mathbf d_R\|\big|.
 \end{align}
 Angles are converted to degrees before reporting. The exact principal rotation angle would instead be $\arccos[(\operatorname{tr}\mathbf R_{rel}-1)/2]$ with numerical clipping. The Cardan norm approximates it at small angles and depends on the chosen axes and sequence.
 
-\subsection{Size and conditional scaling}
-The archived allometry workflow sums volumes of the selected left ilium, right ilium and sacrum surface bodies, using mapped surface geometry and converting mm$^3$ to cm$^3$. These are whole-bone geometric volumes, not birth-canal volume or a direct integral of cortical tissue. The size factor is $s_i=(V_i/V_{template})^{1/3}$. Therefore a log-volume slope $b$ becomes $3b$ under log scale, with identical fitted responses and tests.
+\subsection{Conditional size scaling}
+The archived size-measurement workflow sums volumes of the selected left ilium, right ilium and sacrum surface bodies, using mapped surface geometry and converting mm$^3$ to cm$^3$. These are whole-bone geometric volumes, not birth-canal volume or a direct integral of cortical tissue. The size factor is $s_i=(V_i/V_{template})^{1/3}$. Therefore a log-volume slope $b$ becomes $3b$ under log scale, with identical fitted responses and tests.
 
 For the sex-interaction log model, $b_M=\beta_v$ and $b_F=\beta_v+\beta_{v:s}$. The female slope variance is
 \begin{equation}
@@ -111,7 +111,7 @@ For the sex-interaction log model, $b_M=\beta_v$ and $b_F=\beta_v+\beta_{v:s}$. 
 Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Figure~\ref{fig:allometry} reports slopes from this model. Supplementary Figure S1 shows its conditional geometric-mean curves with age and the morphometric covariates set to their cohort means.
 
 \subsection{Statistical estimands and uncertainty}
-All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume exponents. Standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization.
+All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume slopes. Standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization.
 
 For design matrix $\mathbf Z$, OLS residuals $e_i$ and leverage $h_{ii}$, the HC3 covariance estimator is
 \begin{equation}

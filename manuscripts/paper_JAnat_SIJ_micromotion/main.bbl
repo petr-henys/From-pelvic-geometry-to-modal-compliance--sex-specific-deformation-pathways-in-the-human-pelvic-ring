@@ -39,6 +39,14 @@ Efron, B. and Tibshirani, R.~J. (1994).
 \newblock Chapman \& Hall/CRC.
 \newblock DOI: \url{https://doi.org/10.1201/9780429246593}.
 
+\bibitem[Fan et~al., 2026]{Fan2026}
+Fan, W., Chen, Z.-X., Yang, S., Liu, S.-N., Sun, Z.-Y., and Chen, J. (2026).
+\newblock Osteoporosis-induced biomechanical alterations in the sacroiliac
+  joint.
+\newblock {\em International Journal for Numerical Methods in Biomedical
+  Engineering}, 42(4):e70171.
+\newblock DOI: \url{https://doi.org/10.1002/cnm.70171}.
+
 \bibitem[Fischer and Mitteroecker, 2015]{Fischer2015}
 Fischer, B. and Mitteroecker, P. (2015).
 \newblock Covariation between human pelvis shape, stature, and head size
@@ -60,6 +68,14 @@ Goode, A., Hegedus, E.~J., Sizer, P., Brismee, J.-M., Linberg, A., and Cook,
   review of the literature and assessment of clinical utility.
 \newblock {\em Journal of Manual \& Manipulative Therapy}, 16(1):25--38.
 \newblock DOI: \url{https://doi.org/10.1179/106698108790818639}.
+
+\bibitem[Hammer et~al., 2019]{Hammer2019}
+Hammer, N., Scholze, M., Kibsg{\aa}rd, T., Klima, S., Schleifenbaum, S.,
+  Seidel, T., Werner, M., and Grunert, R. (2019).
+\newblock Physiological in vitro sacroiliac joint motion: a study on
+  three-dimensional posterior pelvic ring kinematics.
+\newblock {\em Journal of Anatomy}, 234(3):346--358.
+\newblock DOI: \url{https://doi.org/10.1111/joa.12924}.
 
 \bibitem[Hammer et~al., 2013]{Hammer2013}
 Hammer, N., Steinke, H., Lingslebe, U., Bechmann, I., Josten, C., Slowik, V.,
@@ -152,6 +168,13 @@ Poilliot, A., Hammer, N., Toranelli, M., Doyle, T., Gay-Dujak, M. H.-P., and
 \newblock {\em Journal of Anatomy}, 243(3):475--485.
 \newblock DOI: \url{https://doi.org/10.1111/joa.13857}.
 
+\bibitem[Shin et~al., 2024]{Shin2024}
+Shin, S., Kwak, D.-S., and Lee, U.-Y. (2024).
+\newblock Mobility and anthropometry of the sacroiliac joint: range of motion
+  and morphological characteristics.
+\newblock {\em Biomedical Engineering Letters}, 14(4):867--876.
+\newblock DOI: \url{https://doi.org/10.1007/s13534-024-00382-3}.
+
 \bibitem[Snijders et~al., 1993]{Snijders1993}
 Snijders, C.~J., Vleeming, A., and Stoeckart, R. (1993).
 \newblock Transfer of lumbosacral load to iliac bones and legs. part 1:
@@ -159,6 +182,23 @@ Snijders, C.~J., Vleeming, A., and Stoeckart, R. (1993).
   for treatment and exercise.
 \newblock {\em Clinical Biomechanics}, 8(6):285--294.
 \newblock DOI: \url{https://doi.org/10.1016/0268-0033(93)90002-Y}.
+
+\bibitem[Stansfield et~al., 2021]{Stansfield2021}
+Stansfield, E., Kumar, K., Mitteroecker, P., and Grunstra, N. D.~S. (2021).
+\newblock Biomechanical trade-offs in the pelvic floor constrain the evolution
+  of the human birth canal.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  118(16):e2022159118.
+\newblock DOI: \url{https://doi.org/10.1073/pnas.2022159118}.
+
+\bibitem[Tani et~al., 2023]{Tani2023}
+Tani, T., Takao, M., Soufi, M., Otake, Y., Fukuda, N., Hamada, H., Uemura, K.,
+  Sato, Y., and Sugano, N. (2023).
+\newblock Rotational-motion measurement of the sacroiliac joint using upright
+  {MRI} scanning and intensity-based registration: is there a sex difference?
+\newblock {\em International Journal of Computer Assisted Radiology and
+  Surgery}, 18(1):79--84.
+\newblock DOI: \url{https://doi.org/10.1007/s11548-022-02806-w}.
 
 \bibitem[Vleeming et~al., 2012]{Vleeming2012}
 Vleeming, A., Schuenke, M.~D., Masi, A.~T., Carreiro, J.~E., Danneels, L., and
