@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1790066678.17613 "main.aux" "main.bbl" "main" 1790066679.26921 0
+["bibtex main"] 1790068722.28656 "main.aux" "main.bbl" "main" 1790068723.49645 0
   "./bib/apalike-doi.bst" 1789932600.02811 24846 2f354a2bb164f1575c3c3b9f7d7c80f2 ""
   "./bib/refs.bib" 1790063147.39338 11042 8b58c7bc4a9b660e8d8bf43bdfa29fc0 ""
-  "main.aux" 1790066679.03234 18444 a3a60281df3e54dcd79f55028ec9e36f "pdflatex"
+  "main.aux" 1790068723.2293 18444 a3a60281df3e54dcd79f55028ec9e36f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1790066678.23767 "main.tex" "main.pdf" "main" 1790066679.26956 0
+["pdflatex"] 1790068722.34625 "main.tex" "main.pdf" "main" 1790068723.49686 0
   "/etc/texmf/web2c/texmf.cnf" 1761816456.53967 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
@@ -189,9 +189,9 @@
   "figures/Fig5_variance_channels.pdf" 1789928590.86354 64070 bf75afd156f047e5008e3debc88797ce ""
   "figures/Fig6_allometry_loglog.pdf" 1790058820.77419 26349 d9e39307f458f5c3109428197911bc0b ""
   "figures/Fig_morphometric_landmarks.pdf" 1789930184.45873 1594849 6b6f0588509a80c1947d80f9ff4948de ""
-  "main.aux" 1790066679.03234 18444 a3a60281df3e54dcd79f55028ec9e36f "pdflatex"
-  "main.bbl" 1790066678.23295 10127 57ce7177a91fa4476169e6840c4a8d23 "bibtex main"
-  "main.out" 1790066679.03361 6358 356078c2f5afc0bf1944b014f3388044 "pdflatex"
+  "main.aux" 1790068723.2293 18444 a3a60281df3e54dcd79f55028ec9e36f "pdflatex"
+  "main.bbl" 1790068722.34423 10127 57ce7177a91fa4476169e6840c4a8d23 "bibtex main"
+  "main.out" 1790068723.23061 6358 356078c2f5afc0bf1944b014f3388044 "pdflatex"
   "main.tex" 1789993124.84442 3865 740d467deb9cf628c57e0a4ab80a7af7 ""
   "sections/abstract.tex" 1790063780.89618 1701 de4048a564a23cb34523ec198c66df84 ""
   "sections/appendix.tex" 1790063780.89666 13412 224cd9855cbcfc0066b7ec8832c33836 ""
