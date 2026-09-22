@@ -612,15 +612,13 @@ def build_scaling_benchmarks():
             beta=d[sex+'_exponent'].to_numpy();lo=d[sex+'_ci95_low'].to_numpy();hi=d[sex+'_ci95_high'].to_numpy()
             y=np.arange(5)+offset
             ax.errorbar(beta,y,xerr=[beta-lo,hi-beta],fmt='o',capsize=3,color=color,label=sex.capitalize())
-            for yi,q in zip(y,d[sex+'_q']):
-                ax.text(1.01,yi,f'q={q:.3g}',transform=ax.get_yaxis_transform(),va='center',fontsize=8,color=color)
         ax.set_yticks(range(5),[LOAD_SHORT[l] for l in LOAD_ORDER]);ax.invert_yaxis()
         ax.axvline(0,color='.3',ls='--',lw=.8);ax.grid(axis='x',alpha=.2)
         benchmark = -2/3 if outcome == 'rot_mag_deg' else -1/3
         fraction = '-2/3' if outcome == 'rot_mag_deg' else '-1/3'
         ax.axvline(benchmark, color='.55', ls='--', lw=.9, zorder=0,
-                   label=f'Dimensional benchmark b = {fraction}')
-        ax.set_xlabel('Conditional volume exponent (95% CI)')
+                   label=f'Heuristic dimensional reference b = {fraction}')
+        ax.set_xlabel('Conditional volume slope (95% CI)')
         ax.set_title(title,loc='left',fontweight='bold');ax.legend(frameon=False,loc='upper center',bbox_to_anchor=(.5,-.18),fontsize=7)
     for ext in ['pdf','png']:fig.savefig(FIG_DIR/f'Fig6_allometry_loglog.{ext}',dpi=300,bbox_inches='tight')
     plt.close(fig)

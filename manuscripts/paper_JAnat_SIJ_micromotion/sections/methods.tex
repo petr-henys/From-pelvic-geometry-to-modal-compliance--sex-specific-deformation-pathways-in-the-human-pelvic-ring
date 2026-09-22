@@ -23,7 +23,7 @@ with numerical clipping to $[-1,1]$ and conversion to degrees. The landmark labe
 \end{figure}
 
 \subsection{Finite-element model}
-The archived simulation metadata specify DOLFINx 0.10, 166,808 cells and 48,291 mesh nodes. Small-strain linear elasticity was solved with PETSc on a shared reference domain. Subject anatomy was represented by $\mathbf{x}=\mathbf{X}+\boldsymbol{\phi}_i(\mathbf{X})$; the displacement map was interpolated using radial basis functions (RBFs). Spatial gradients and integration measures were pulled back to the reference domain \citep{BonetWood2008}. This representation approximates individual anatomy on a shared discretization; it does not guarantee exact cortical boundaries or invertibility without Jacobian checks.
+The archived simulation metadata specify DOLFINx 0.10, 166,808 cells and 48,291 mesh nodes. Small-strain linear elasticity was solved with PETSc on a shared reference domain. Subject anatomy was established by bijective anatomical registration and represented on the FE discretization by $\mathbf{x}=\mathbf{X}+\boldsymbol{\phi}_i(\mathbf{X})$, using radial basis function (RBF) interpolation of the established registration displacement map. Spatial gradients and integration measures were pulled back to the reference domain \citep{BonetWood2008}. This interpolation approximates individual anatomy on a shared discretization and does not reproduce cortical boundaries exactly.
 
 Experimental relationships between bone density and stiffness motivate density-dependent material assignment \citep{Keller1994}. The archived implementation used the following bone-modulus approximation:
 \begin{equation}

@@ -55,23 +55,23 @@ Preserving individual geometry while standardizing the bone-density field retain
 \caption{\textbf{Retaining individual geometry preserves between-subject variation.} (A) Shape-only/full and (B) material-only/full sample-variance ratios, in percent. Five endpoints are shown. Color scales differ between panels and follow their actual data ranges. Values above 100\% are allowed. Subject-level agreement complements these variance summaries (translation RMSE $\leq0.0280$~mm; minimum identity-line $R^2=0.9457$). Bootstrap intervals and agreement diagnostics are provided in Supplementary Table S2; neither panel represents variance explained by an independent causal factor.}
 \label{fig:variance}
 \end{figure}
-\subsection{Conditional size--motion scaling differs across loading configurations}
-Pelvic volume showed a consistent inverse conditional association with motion in the retrospective scaling analysis: all 20 sex-specific slopes were negative and survived FDR correction. Exponents ranged from -1.062 to -0.366; the largest adjusted slope $q$ was 0.002. These estimates describe mechanical response versus pelvic size under identical prescribed forces across subjects within each load configuration, conditional on the other model covariates.
+\subsection{Conditional size--motion scaling across loading configurations}
+Pelvic volume showed a consistent inverse conditional association with motion in the retrospective scaling analysis: all 20 sex-specific slopes were negative and survived FDR correction. Slopes ranged from -1.062 to -0.366; the largest adjusted slope $q$ was 0.002. These estimates describe mechanical response versus pelvic size under identical prescribed forces across subjects within each load configuration, conditional on the other model covariates.
 
-The numerical magnitude depended on loading configuration. Under bilateral standing-like SP2leg loading, translation exponents were -0.366 in males and -0.402 in females, numerically close to the fixed-force dimensional benchmark of $-1/3$; rotation exponents were -0.679 and -0.605, close to $-2/3$. Several localized responses showed steeper conditional size dependence: LAB1 rotation exponents were -0.916 and -1.062, and LAB2 translation exponents were -0.818 and -0.947. These are descriptive comparisons with mechanical reference values, not tests of agreement with them or formal between-load slope contrasts. Full estimates and intervals are in Table~\ref{tab:allometry}.
+Slope magnitudes varied numerically across load cases (Fig.~\ref{fig:allometry}). SP2leg estimates lay numerically near the simple fixed-force dimensional reference values of $-1/3$ for translation and $-2/3$ for rotation; several localized-load estimates were numerically steeper. This comparison is descriptive: the fitted slopes condition on other pelvic dimensions, whereas the references describe uniform geometric scaling. Direct equivalence is therefore not expected, and no formal between-load slope comparison is claimed here. Table~\ref{tab:allometry} retains the full estimates, intervals and adjusted probabilities.
 
-Sex-by-volume interaction $q$ values ranged from 0.343 to 0.699; nonsignificance does not establish identical scaling. Figure~\ref{fig:allometry} and Table~\ref{tab:allometry} use the same adjusted models. Pooled cluster-robust coefficients are reported in Supplementary Table S5.
+Sex-by-volume interaction $q$ values ranged from 0.343 to 0.699; nonsignificance does not establish identical conditional slopes. Pooled cluster-robust coefficients are reported in Supplementary Table S5.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/Fig6_allometry_loglog.pdf}
-\caption{\textbf{Conditional log-volume slopes.} Male and female exponents with HC3 95\% CIs from the same adjusted log--log models as Table~\ref{tab:allometry}. The subtle dashed reference lines at $b=-2/3$ (rotation) and $b=-1/3$ (translation) are dimensional benchmarks for geometrically similar linear-elastic structures under fixed force and modulus, not null hypotheses, fitted values or expected biological allometric exponents. Reference lines are vertical because exponent is plotted on the horizontal axis. The zero line indicates no conditional association. Confidence intervals are pointwise; labels give slope $q$ values from the 20-test family. Raw scatterplots and adjusted conditional geometric-mean curves are supplied as Supplementary Figure S1.}
+\caption{\textbf{Conditional log-volume slopes.} Male and female slopes with HC3 95\% CIs from the same adjusted log--log models as Table~\ref{tab:allometry}. The dashed lines at $b=-2/3$ (rotation) and $b=-1/3$ (translation) are heuristic dimensional references for uniform scaling of geometrically similar linear-elastic structures under fixed force and modulus. They are not fitted values, null hypotheses, expected coefficients of the conditional regression or biological allometric exponents. The regression holds other pelvic dimensions fixed, so numerical proximity to these references is descriptive and does not validate geometric similarity or a scaling law. The zero line indicates no conditional association. Confidence intervals are pointwise; slope $q$ values from the 20-test family are given in Table~\ref{tab:allometry}. Raw scatterplots and adjusted conditional geometric-mean curves are supplied as Supplementary Figure S1.}
 \label{fig:allometry}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\caption{Adjusted log--log exponents by load and sex. Slope $q$ values use the 20-test family; interaction $q$ values use a separate ten-test family.}
+\caption{Conditional log-volume slopes by load and sex. Slope $q$ values use the 20-test family; interaction $q$ values use a separate ten-test family.}
 \label{tab:allometry}
 \StdTableInput{tables/generated/table4b_allometry.tex}
 \end{table}
