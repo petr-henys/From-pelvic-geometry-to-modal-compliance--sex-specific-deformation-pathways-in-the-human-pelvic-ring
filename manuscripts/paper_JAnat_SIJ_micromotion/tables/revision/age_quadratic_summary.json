@@ -1,0 +1,12 @@
+{
+  "n_subjects": 278,
+  "n_rows": 1390,
+  "M2_intervals_include_zero": 6,
+  "n_M2": 6,
+  "max_abs_change_M2_translation": 0.0003334040129582064,
+  "n_negative_slopes": 20,
+  "n_slopes_q_below_05": 20,
+  "max_slope_q": 0.0019023166046277992,
+  "max_abs_slope_change": 0.019583175140503672,
+  "baseline_reproduction_atol": 1e-10
+}

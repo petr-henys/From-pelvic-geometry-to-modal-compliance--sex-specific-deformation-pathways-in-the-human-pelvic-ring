@@ -50,3 +50,33 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
 This function reads only `tables/generated/allometry_models.csv` and writes the historical `Fig6_allometry_loglog` PDF/PNG assets (Figure 7 in manuscript numbering). Do not invoke the full generator or `build_figure_6` for this task: its supplementary-scatter path fits models. No numerical regeneration is needed for the second conceptual revision. `write_corrected_results.py` is a historical numerical-text generator and must not overwrite the revised Results narrative/caption.
+
+## Submission revision (23 September 2026)
+
+The current prose and primary statistics remain authoritative. Do not run the historical text generator or rerun the FE cohort to reproduce editorial changes.
+
+The lightweight revision diagnostics run serially from the manuscript directory:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python analysis/check_mapping_quality.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python analysis/check_age_function.py
+python analysis/format_revision_tables.py
+```
+
+The mapping script has a five-minute time cap. Its actual result includes negative Jacobians; see `review/submission_revision.md`. The three-subject extraction pilot (`analysis/submission_diagnostics.py --limit 3 --max-seconds 120`) is optional and is not the source for manuscript Table S6. Do not automatically extend it to the full cohort.
+
+Figure-label-only regeneration:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -c "import pandas as pd; from analysis.generate_publication_figures import build_figure_1, build_figure_5, TABLE_DIR; build_figure_1(); build_figure_5(pd.read_csv(TABLE_DIR/'variance_channels.csv'))"
+```
+
+Then build the manuscript and Supporting Information serially and export DOCX:
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error -cd supplementary/supplement.tex
+python analysis/export_docx.py
+```
+
+If an editor is already compiling the same files, use distinct `-outdir` directories and pass their `.aux` paths with `--main-aux` and `--supp-aux` to the DOCX exporter. This avoids concurrent writers to LaTeX auxiliary files. The exporter requires `pandoc` and `pdftoppm`; equations remain native Word mathematics and figure PDFs are embedded as high-resolution PNGs.

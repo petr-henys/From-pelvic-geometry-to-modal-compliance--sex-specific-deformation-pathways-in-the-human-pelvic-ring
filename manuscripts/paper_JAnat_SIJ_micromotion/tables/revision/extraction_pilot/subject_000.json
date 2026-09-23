@@ -1,0 +1,56 @@
+{
+  "mapping": {
+    "subject_idx": 0,
+    "n_cells": 166808,
+    "min_J": -0.2791141170534231,
+    "p01_J": 0.5370694871379191,
+    "median_J": 1.1525103119876199,
+    "max_J": 4.512396460060069,
+    "n_nonpositive": 1,
+    "n_nonfinite": 0,
+    "direct_min_cell_J": -0.27911411705342254
+  },
+  "sensitivity": [
+    {
+      "subject_idx": 0,
+      "load_case": "SP2leg",
+      "affine_rotation": 0.7464839286479218,
+      "rigid_rotation": 0.7627998208300457,
+      "affine_translation": 0.8569847515167899,
+      "rigid_translation": 0.8594418587970369
+    },
+    {
+      "subject_idx": 0,
+      "load_case": "SP1leg",
+      "affine_rotation": 1.450348977635067,
+      "rigid_rotation": 1.452334535875836,
+      "affine_translation": 1.141020571550595,
+      "rigid_translation": 1.1418900875961029
+    },
+    {
+      "subject_idx": 0,
+      "load_case": "LAB_phase1",
+      "affine_rotation": 0.15130871602509754,
+      "rigid_rotation": 0.15198510003486448,
+      "affine_translation": 0.15134893899924012,
+      "rigid_translation": 0.15151177253216408
+    },
+    {
+      "subject_idx": 0,
+      "load_case": "LAB_phase2",
+      "affine_rotation": 0.6440990601014833,
+      "rigid_rotation": 0.6422533997143016,
+      "affine_translation": 0.2400225492061896,
+      "rigid_translation": 0.24014057449953036
+    },
+    {
+      "subject_idx": 0,
+      "load_case": "LAB_phase3",
+      "affine_rotation": 0.6663574551960638,
+      "rigid_rotation": 0.6527168764190362,
+      "affine_translation": 0.484317813519882,
+      "rigid_translation": 0.48541405601320664
+    }
+  ],
+  "seconds": 17.979208080039825
+}

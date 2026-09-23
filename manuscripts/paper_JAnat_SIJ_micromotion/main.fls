@@ -3,7 +3,7 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT main.tex
+INPUT /mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/paper_JAnat_SIJ_micromotion/main.tex
 OUTPUT main.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -375,11 +375,11 @@ INPUT ./sections/appendix.tex
 INPUT ./sections/appendix.tex
 INPUT ./sections/appendix.tex
 INPUT sections/appendix.tex
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt10.tfm
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt10.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

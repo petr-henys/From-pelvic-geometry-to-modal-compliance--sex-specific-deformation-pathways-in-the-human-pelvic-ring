@@ -225,7 +225,7 @@ def build_figure_1() -> None:
         ax.imshow(_load_crop_and_pad_to_aspect(cache/filename, target_aspect=1.1, pad=12))
         ax.axis('off');ax.set_title(title,loc='left',fontweight='bold')
         if j==0:
-            note='Green: S1 constraint   Orange: SIJ cartilage\nPurple: pubic symphysis'
+            note='Green: superior S1 endplate   Orange: SIJ cartilage\nPurple: pubic symphysis'
         else:
             note='Exploded view; arrows illustrate axis directions\nGreen: ML   Blue: AP   Red: CC'
         ax.text(.5,-.02,note,transform=ax.transAxes,ha='center',va='top',fontsize=8)
@@ -486,9 +486,9 @@ def build_figure_5(variance_df: pd.DataFrame) -> None:
 
     fig, axes = plt.subplots(1, 2, figsize=(12.0, 5.0), constrained_layout=True)
 
-    # Panel A: Shape-only / Full variance (%)
+    # Panel A: Geometry-preserved / standardized-density / Full variance (%)
     im0 = axes[0].imshow(shape_mat, aspect="auto", cmap="Blues", vmin=min(100.0, float(shape_mat.min())), vmax=max(100.0, float(shape_mat.max())))
-    axes[0].set_title("A. Shape-only / Full model variance (%)", loc="left", fontweight="bold", fontsize=10.5)
+    axes[0].set_title("A. Geometry / standardized density\nVariance relative to full model (%)", loc="left", fontweight="bold", fontsize=10.5)
     axes[0].set_xticks(np.arange(len(LOAD_ORDER)))
     axes[0].set_xticklabels([LOAD_SHORT[l] for l in LOAD_ORDER], fontsize=9.0)
     axes[0].set_yticks(np.arange(len(avail_metrics)))
@@ -505,9 +505,9 @@ def build_figure_5(variance_df: pd.DataFrame) -> None:
     cbar0 = fig.colorbar(im0, ax=axes[0], fraction=0.046, pad=0.04)
     cbar0.set_label("Variance ratio (%)", fontsize=8.5)
 
-    # Panel B: Material-only / Full variance (%)
+    # Panel B: Density-preserved / template-geometry / Full variance (%)
     im1 = axes[1].imshow(mat_mat, aspect="auto", cmap="OrRd", vmin=0.0, vmax=float(mat_mat.max()))
-    axes[1].set_title("B. Material-only / Full model variance (%)", loc="left", fontweight="bold", fontsize=10.5)
+    axes[1].set_title("B. Density / template geometry\nVariance relative to full model (%)", loc="left", fontweight="bold", fontsize=10.5)
     axes[1].set_xticks(np.arange(len(LOAD_ORDER)))
     axes[1].set_xticklabels([LOAD_SHORT[l] for l in LOAD_ORDER], fontsize=9.0)
     axes[1].set_yticks(np.arange(len(avail_metrics)))

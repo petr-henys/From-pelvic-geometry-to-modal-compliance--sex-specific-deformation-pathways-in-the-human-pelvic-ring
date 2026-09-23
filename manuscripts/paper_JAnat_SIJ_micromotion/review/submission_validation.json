@@ -1,0 +1,17 @@
+{
+  "unchanged_primary_csv_files": 14,
+  "cohort_table_change": "labels only; all other cells identical",
+  "docx": {
+    "main.docx": {
+      "tables": 4,
+      "images": 7,
+      "native_math_elements": 226
+    },
+    "supplementary/supplement.docx": {
+      "tables": 9,
+      "images": 2,
+      "native_math_elements": 96
+    }
+  },
+  "latex": "Both clean builds successful; no undefined references, duplicate labels or overfull boxes"
+}

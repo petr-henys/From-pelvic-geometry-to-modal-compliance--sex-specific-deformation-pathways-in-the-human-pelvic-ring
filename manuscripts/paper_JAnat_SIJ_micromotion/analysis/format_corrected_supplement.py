@@ -12,7 +12,7 @@ def main():
     d=pd.read_csv(T/'directional_rerouting.csv')
     write([{'Load':loads[r.load_case],'Component':metrics[r.metric],'Median difference [95\\% CI]':ci(r,'median_delta'),'Raw $p$':q(r.p_value),'BH $q$':q(r.p_fdr_bh)} for _,r in d.iterrows()],'supp_directional_rerouting.tex')
     d=pd.read_csv(T/'variance_channels.csv')
-    write([{'Load':loads[r.load_case],'Endpoint':metrics[r.metric],'Shape/full \\% [95\\% CI]':ci(r,'shape_over_full_pct','shape_over_full_ci95_low','shape_over_full_ci95_high',2),'Material/full \\% [95\\% CI]':ci(r,'material_over_full_pct','material_over_full_ci95_low','material_over_full_ci95_high',3)} for _,r in d.iterrows()],'supp_variance_channels.tex')
+    write([{'Load':loads[r.load_case],'Endpoint':metrics[r.metric],'G/full \\% [95\\% CI]':ci(r,'shape_over_full_pct','shape_over_full_ci95_low','shape_over_full_ci95_high',2),'D/full \\% [95\\% CI]':ci(r,'material_over_full_pct','material_over_full_ci95_low','material_over_full_ci95_high',3)} for _,r in d.iterrows()],'supp_variance_channels.tex')
     write([{'Load':loads[r.load_case],'Endpoint':metrics[r.metric],'Identity $R^2$':f'{r.identity_r2:.4f}','RMSE':f'{r.rmse:.4f}','MAE':f'{r.mae:.4f}'} for _,r in d.iterrows()],'supp_variant_agreement.tex')
     d=pd.read_csv(T/'sex_models_lab.csv')
     write([{'Load':loads[r.load_case],'Outcome':metrics[r.outcome],'Female minus male [95\\% CI]':ci(r,'beta_female_minus_male'),'Raw $p$':q(r.p_value),'BH $q$':q(r.p_fdr_bh)} for _,r in d.iterrows()],'supp_sex_models.tex')

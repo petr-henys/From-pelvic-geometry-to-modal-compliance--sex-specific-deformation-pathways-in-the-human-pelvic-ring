@@ -88,7 +88,7 @@ def atlas(mesh):
  ax.set_title('I. Measurement key',loc='left',fontsize=10,fontweight='bold',pad=3)
  ax.text(.04,.81,r'$d=\|p_2-p_1\|$',fontsize=14,transform=ax.transAxes)
  ax.text(.04,.60,r'$\alpha_{sub}=\angle(p_1,p_2,p_3)$',fontsize=13,transform=ax.transAxes)
- ax.text(.04,.38,'Points: archived landmarks\nLengths: 3D distances\nAngle vertex: '+r'$p_2$',fontsize=9,linespacing=1.8,transform=ax.transAxes,va='top')
+ ax.text(.04,.38,'Points: anatomical landmarks\nLengths: 3D distances\nAngle vertex: '+r'$p_2$',fontsize=9,linespacing=1.8,transform=ax.transAxes,va='top')
  ax.text(.04,.02,'Numbers refer to the template.',fontsize=9,transform=ax.transAxes)
  for ext in ['pdf','png']:fig.savefig(F/f'Fig_morphometric_landmarks.{ext}',dpi=300,bbox_inches='tight')
  plt.close(fig)

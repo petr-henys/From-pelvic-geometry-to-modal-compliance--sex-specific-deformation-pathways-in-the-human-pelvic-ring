@@ -41,7 +41,7 @@
 \section*{Table S2: Variance ratios and paired agreement}
 \SuppTableInput{../tables/generated/supp_variance_channels.tex}
 \clearpage
-\subsection*{Table S2 continued: shape/full agreement}
+\subsection*{Table S2 continued: geometry-preserved/full agreement}
 \SuppTableInput{../tables/generated/supp_variant_agreement.tex}
 
 \section*{Table S3: Fully adjusted LAB sex models}
@@ -57,8 +57,21 @@ Coefficients with interaction terms are conditional: the volume main effect refe
 \SuppTableInput{../tables/generated/table4a_primary_models.tex}
 \clearpage
 \section*{Table S6: Extraction sensitivity}
-Absolute differences between rigid-only and affine sacral correction in six subjects at archive indices 0, 55, 110, 165, 220 and 277. Each contributes five loads. These are subset maxima, not cohort-wide bounds.
+Absolute differences between rigid-only and affine sacral correction in six subjects at cohort row indices 0, 55, 110, 165, 220 and 277. Each contributes five loads. These are subset maxima, not cohort-wide bounds.
 \SuppTableInput{../tables/generated/supp_extraction_sensitivity.tex}
+\clearpage
+\section*{Age functional-form sensitivity}
+A squared standardized-age term was added to each nested sex model (M0--M2) and each load-specific conditional log-volume model, retaining all other terms and HC3 covariance. This diagnostic used the same 278 subjects and did not replace the primary linear-age estimates. Adjustment for pelvic volume and the selected morphometric triad continued to attenuate translation contrasts: the maximum change in an M2 translation coefficient was 0.000334~mm, and all six M2 intervals included zero. All 20 conditional volume slopes remained negative with BH-adjusted $q\leq0.002$; the largest absolute slope change was 0.0196. Multiplicity correction used the same six-coefficient and 20-slope families as the primary analyses. These checks address age functional form, not causal mediation or equivalence.
+
+\section*{Table S7: Sex contrasts with quadratic age adjustment}
+Coefficients are female-minus-male differences in the outcome units. The M0 and M2 quadratic-age columns show the selected morphometric adjustment; the linear-age M2 column reproduces the primary model for comparison.
+\SuppTableInput{../tables/generated/supp_age_sex.tex}
+
+\clearpage
+\section*{Table S8: Conditional volume slopes with quadratic age adjustment}
+Slopes are dimensionless coefficients for log motion versus log total mapped bony pelvic volume. Sex-specific slopes include the sex--volume interaction and are conditional on the selected morphometric triad.
+\SuppTableInput{../tables/generated/supp_age_volume.tex}
+
 \clearpage
 \section*{Supplementary Figure S1: Raw data and adjusted curves}
 \begin{center}\includegraphics[width=0.94\textwidth]{../figures/SuppFig1_allometry_scatter.pdf}\end{center}

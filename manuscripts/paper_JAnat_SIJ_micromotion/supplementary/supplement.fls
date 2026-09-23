@@ -261,6 +261,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/lmbsy5.tfm
 INPUT ../tables/generated/supp_extraction_sensitivity.tex
 INPUT ../tables/generated/supp_extraction_sensitivity.tex
 INPUT ../tables/generated/supp_extraction_sensitivity.tex
+INPUT ../tables/generated/supp_age_sex.tex
+INPUT ../tables/generated/supp_age_sex.tex
+INPUT ../tables/generated/supp_age_sex.tex
+INPUT ../tables/generated/supp_age_volume.tex
+INPUT ../tables/generated/supp_age_volume.tex
+INPUT ../tables/generated/supp_age_volume.tex
 INPUT ../figures/SuppFig1_allometry_scatter.pdf
 INPUT ../figures/SuppFig1_allometry_scatter.pdf
 INPUT ../figures/SuppFig1_allometry_scatter.pdf

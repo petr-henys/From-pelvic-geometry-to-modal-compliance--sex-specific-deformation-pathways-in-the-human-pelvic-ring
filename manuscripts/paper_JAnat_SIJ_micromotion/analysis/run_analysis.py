@@ -254,8 +254,8 @@ def create_table_1_cohort(base_subject: pd.DataFrame) -> pd.DataFrame:
         ("SacralWidth", "Sacral width (mm)"),
         ("SubpubicAngle", "Subpubic angle (deg)"),
         ("scale", "Global scale factor (-)"),
-        ("total_volume", "Total pelvic volume (cm$^3$)"),
-        ("total_surface", "Total pelvic surface (cm$^2$)"),
+        ("total_volume", "Total mapped bony pelvic volume (cm$^3$)"),
+        ("total_surface", "Total mapped bony pelvic surface (cm$^2$)"),
     ]
 
     for col, label in summary_vars:
@@ -734,8 +734,8 @@ def write_data_dictionary(base_subject: pd.DataFrame, subject_df: pd.DataFrame, 
         [
             "",
             "## Variance-channel metrics",
-            "- `shape_over_full_pct`: variance ratio (%) using shape-only model relative to full model",
-            "- `material_over_full_pct`: variance ratio (%) using material-only model relative to full model",
+            "- `shape_over_full_pct`: variance ratio (%) using geometry-preserved / standardized-density model relative to full model",
+            "- `material_over_full_pct`: variance ratio (%) using density-preserved / template-geometry model relative to full model",
             "- 95% CIs estimated by bootstrap resampling across subjects",
         ]
     )
@@ -930,7 +930,7 @@ def plot_figure_5_variance_channels(variance_df: pd.DataFrame) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(11.5, 5.2), constrained_layout=True)
 
     im0 = axes[0].imshow(shape_mat, aspect="auto", cmap="YlGnBu", vmin=np.nanmin(shape_mat), vmax=np.nanmax(shape_mat))
-    axes[0].set_title("A. Shape-only / full variance (%)", loc="left", fontsize=11)
+    axes[0].set_title("A. Geometry / standardized density\nVariance relative to full model (%)", loc="left", fontsize=11)
     axes[0].set_xticks(np.arange(len(LOAD_ORDER)))
     axes[0].set_xticklabels([LOAD_LABEL[l] for l in LOAD_ORDER])
     axes[0].set_yticks(np.arange(len(metrics)))
@@ -938,7 +938,7 @@ def plot_figure_5_variance_channels(variance_df: pd.DataFrame) -> None:
     fig.colorbar(im0, ax=axes[0], fraction=0.046, pad=0.04)
 
     im1 = axes[1].imshow(material_mat, aspect="auto", cmap="OrRd", vmin=np.nanmin(material_mat), vmax=np.nanmax(material_mat))
-    axes[1].set_title("B. Material-only / full variance (%)", loc="left", fontsize=11)
+    axes[1].set_title("B. Density / template geometry\nVariance relative to full model (%)", loc="left", fontsize=11)
     axes[1].set_xticks(np.arange(len(LOAD_ORDER)))
     axes[1].set_xticklabels([LOAD_LABEL[l] for l in LOAD_ORDER])
     axes[1].set_yticks(np.arange(len(metrics)))
@@ -993,7 +993,7 @@ def plot_figure_6_allometry(subject_df: pd.DataFrame, models: dict[tuple[str, st
             if i_col == 0:
                 ax.set_ylabel(METRIC_LABELS[outcome], fontsize=9)
             if i_row == 1:
-                ax.set_xlabel("Total pelvic volume (cm$^3$)", fontsize=8)
+                ax.set_xlabel("Total mapped bony pelvic volume (cm$^3$)", fontsize=8)
             ax.grid(alpha=0.18)
 
     handles, labels = axes[0, 0].get_legend_handles_labels()

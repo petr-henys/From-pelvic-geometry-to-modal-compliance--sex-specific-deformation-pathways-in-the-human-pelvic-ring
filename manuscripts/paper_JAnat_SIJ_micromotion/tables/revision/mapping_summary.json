@@ -1,0 +1,18 @@
+{
+  "n_subjects": 278,
+  "n_cells_per_subject": 166808,
+  "n_subject_cell_pairs": 46372624,
+  "min_J": -2.5834614972664,
+  "max_J": 5.101534330413125,
+  "n_subjects_nonpositive": 224,
+  "n_nonpositive": 425,
+  "n_distinct_cells_nonpositive": 97,
+  "max_nonpositive_cells_per_subject": 7,
+  "n_nonfinite": 0,
+  "min_subject_p01_J": 0.20597206749970773,
+  "max_subject_p01_J": 0.9015638698155769,
+  "max_reference_volume_fraction_nonpositive": 5.273062126981273e-06,
+  "elapsed_seconds": 17.140912113012746,
+  "verification": "Every subject: direct scipy RBF at worst-cell vertices; independent det(I+grad phi) check",
+  "scope": "Full and geometry-preserved variants share these maps; density-preserved/template-geometry J=1"
+}
