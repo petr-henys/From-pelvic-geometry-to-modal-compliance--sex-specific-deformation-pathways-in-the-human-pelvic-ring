@@ -1,0 +1,91 @@
+{
+  "source_hash_matches": {
+    "analysis/plos_revision.py": true,
+    "analysis/spectral_data.py": true,
+    "analysis/spectral_metrics.py": true,
+    "results/ref_S1P_fixed_new2/simulation_metadata.json": true,
+    "anatomy_data/full_model_new.feb": true,
+    "anatomy_data/birth_canal/anterior_posterior_inlet_diameter.mrk.json": true,
+    "anatomy_data/birth_canal/pelvis_inlet_transverse.mrk.json": true
+  },
+  "demography": {
+    "n": 278,
+    "female": 150,
+    "min_age": 16.0,
+    "max_age": 91.0,
+    "mean_age": 53.89568345323741,
+    "sd_age": 19.334969985305108
+  },
+  "spectra": {
+    "all_positive": true,
+    "all_sorted": true,
+    "threshold": 0.13148046957961973,
+    "cluster_9_10": 152
+  },
+  "label_effects_recomputed": [
+    {
+      "metric": "rank9",
+      "n0": 95,
+      "n1": 57,
+      "median0": 0.4542171323193112,
+      "median1": 0.1392226338140912,
+      "p": 2.6637819173885866e-23,
+      "ci_lo": -0.35985016876190107,
+      "ci_hi": -0.2619717653661755,
+      "rank_biserial": -0.9652816251154201
+    },
+    {
+      "metric": "rank10",
+      "n0": 95,
+      "n1": 57,
+      "median0": 0.162811338843738,
+      "median1": 0.4362060838773743,
+      "p": 1.7037515927977753e-22,
+      "ci_lo": 0.2253979468520787,
+      "ci_hi": 0.335481468818434,
+      "rank_biserial": 0.9471837488457987
+    },
+    {
+      "metric": "AP",
+      "n0": 95,
+      "n1": 57,
+      "median0": 0.551076561586924,
+      "median1": 0.5253852351181243,
+      "p": 0.030349508674179376,
+      "ci_lo": -0.08358665915213576,
+      "ci_hi": 0.01461616867457749,
+      "rank_biserial": -0.21034164358264085
+    },
+    {
+      "metric": "AP_pair",
+      "n0": 95,
+      "n1": 57,
+      "median0": 0.0770014285364884,
+      "median1": 0.0752659746727386,
+      "p": 0.84014558050691,
+      "ci_lo": -0.019881221158728105,
+      "ci_hi": 0.011657311565843306,
+      "rank_biserial": -0.01975992613111721
+    }
+  ],
+  "q_recomputed": [
+    1.0655127669554346e-22,
+    3.4075031855955506e-22,
+    0.0404660115655725,
+    0.84014558050691
+  ],
+  "energy": {
+    "max_sum_error": 5.551115123125783e-16,
+    "SP2_mode2": 0.8449410694935121,
+    "SP1_modes1_3": 0.9204355043962151,
+    "LAB1_modes9_10": 0.5089044578061087
+  },
+  "geometry_size": {
+    "rms_min_mm": 81.28457641601562,
+    "rms_max_mm": 101.8870849609375,
+    "rms_cv": 0.04123060405254364,
+    "rms_scale_correlation": 0.6425638753578607,
+    "scale_min": 0.7510980498627743,
+    "scale_max": 1.134998810019885
+  }
+}

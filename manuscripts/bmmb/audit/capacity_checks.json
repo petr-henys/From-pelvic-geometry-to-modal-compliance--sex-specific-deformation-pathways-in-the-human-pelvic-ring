@@ -1,0 +1,82 @@
+[
+  {
+    "subject": 0,
+    "block": "9-10",
+    "implementation": 0.6131399139993727,
+    "convex_primal": 0.6131399969555935,
+    "dual_upper": 0.6131399969555934,
+    "constraint_min": -2.220446049250313e-16,
+    "success": true,
+    "absolute_difference": 8.29562207815826e-08
+  },
+  {
+    "subject": 0,
+    "block": "12-15",
+    "implementation": 0.5792673380361859,
+    "convex_primal": 0.5808678947406293,
+    "dual_upper": 0.5808678947404502,
+    "constraint_min": -7.0885519676266995e-12,
+    "success": true,
+    "absolute_difference": 0.0016005567044433677
+  },
+  {
+    "subject": 101,
+    "block": "9-10",
+    "implementation": 0.6027525708026347,
+    "convex_primal": 0.6027525849432108,
+    "dual_upper": 0.6027525849432108,
+    "constraint_min": -6.661338147750939e-16,
+    "success": true,
+    "absolute_difference": 1.41405761544533e-08
+  },
+  {
+    "subject": 101,
+    "block": "12-15",
+    "implementation": 0.4999835900319797,
+    "convex_primal": 0.4999835900347779,
+    "dual_upper": 0.4999835900347779,
+    "constraint_min": -1.3322676295501878e-15,
+    "success": true,
+    "absolute_difference": 2.7982061112652445e-12
+  },
+  {
+    "subject": 120,
+    "block": "9-10",
+    "implementation": 0.395136274983044,
+    "convex_primal": 0.39513629178580445,
+    "dual_upper": 0.39513629178569676,
+    "constraint_min": -5.584421813864537e-13,
+    "success": true,
+    "absolute_difference": 1.680276046078788e-08
+  },
+  {
+    "subject": 120,
+    "block": "12-15",
+    "implementation": 0.31758437026957076,
+    "convex_primal": 0.32503674205143634,
+    "dual_upper": 0.3250367420514362,
+    "constraint_min": -7.771561172376096e-15,
+    "success": true,
+    "absolute_difference": 0.0074523717818655855
+  },
+  {
+    "subject": 206,
+    "block": "9-10",
+    "implementation": 0.4648760052578787,
+    "convex_primal": 0.46487617918025376,
+    "dual_upper": 0.4648761791802537,
+    "constraint_min": -2.220446049250313e-16,
+    "success": true,
+    "absolute_difference": 1.7392237505742258e-07
+  },
+  {
+    "subject": 206,
+    "block": "12-15",
+    "implementation": 0.40993310196829147,
+    "convex_primal": 0.40994013517432104,
+    "dual_upper": 0.4099401351743198,
+    "constraint_min": -7.571721027943568e-14,
+    "success": true,
+    "absolute_difference": 7.0332060295719145e-06
+  }
+]

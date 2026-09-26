@@ -1,14 +1,15 @@
 # Fdb version 4
-["bibtex main_bmmb"] 1790411788.89862 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790411832.17808 0
+["bibtex main_bmmb"] 1790413926.56511 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790413961.63101 0
   "./references.bib" 1790411786.66543 11587 d8a928853c654924c65e2cb9c852ae7d ""
   "./sn-basic.bst" 1790330541.81112 35515 7cc706cef7829df727b1420a5d0e9fe4 ""
-  "main_bmmb.aux" 1790411831.93467 41767 10679c8d7a05bf9bc1b7eccccaab293f "pdflatex"
+  "main_bmmb.aux" 1790413961.41086 41857 b96d043b2c9bb69d0833de8534ab3d13 "pdflatex"
   (generated)
   "main_bmmb.bbl"
   "main_bmmb.blg"
   (rewritten before read)
-["pdflatex"] 1790411831.20359 "main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790411832.17859 0
+["pdflatex"] 1790413960.58678 "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/bmmb/main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790413961.63143 0
   "/etc/texmf/web2c/texmf.cnf" 1761816456.53967 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/bmmb/main_bmmb.tex" 1790413960.10034 121946 873cdbe5bc1f088169ba5303ac8070ae ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -196,10 +197,10 @@
   "global_deformation_synthetic_table.tex" 1789793021.63481 1818 e69828fd83928050405283cdbbf871ea ""
   "label_effects_compact.tex" 1790330926.18158 539 d086c9d2b83d2c55c710d6ef86eecace ""
   "label_effects_full_cohort_compact.tex" 1790330926.18242 538 431f1604436dc94809d66058b08a5fad ""
-  "main_bmmb.aux" 1790411831.93467 41767 10679c8d7a05bf9bc1b7eccccaab293f "pdflatex"
-  "main_bmmb.bbl" 1790411788.95257 9179 a9345df227eb8d97b885608963824197 "bibtex main_bmmb"
-  "main_bmmb.out" 1790411831.94203 13288 c578661910f7f2f5ae454a438be3a30b "pdflatex"
-  "main_bmmb.tex" 1790411831.10216 119260 c188350f4a3c92ea6420ad8487a0e02f ""
+  "main_bmmb.aux" 1790413961.41086 41857 b96d043b2c9bb69d0833de8534ab3d13 "pdflatex"
+  "main_bmmb.bbl" 1790413926.61733 9179 a9345df227eb8d97b885608963824197 "bibtex main_bmmb"
+  "main_bmmb.out" 1790413961.41267 13240 6109c25c22559b4d48406752ac093b06 "pdflatex"
+  "main_bmmb.tex" 1790413960.10034 121946 873cdbe5bc1f088169ba5303ac8070ae ""
   "mode_activation_dominant_sets.tex" 1789712795.76272 568 b827c061cf6cdd5c85c8b57436fa25e7 ""
   "mode_activation_overlap.tex" 1789712795.76324 582 105098a574986733242654bc7d81004e ""
   "rank_cluster_ref_mapping.tex" 1789746520.15953 1011 99a2e5831f9c2f5463ed937f4077183c ""

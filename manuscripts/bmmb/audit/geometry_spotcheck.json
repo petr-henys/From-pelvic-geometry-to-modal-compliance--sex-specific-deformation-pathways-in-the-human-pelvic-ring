@@ -1,0 +1,38 @@
+[
+  {
+    "subject": 0,
+    "old_inverted": 1,
+    "ufl_inverted": 1,
+    "min_J": -0.27911411705344075
+  },
+  {
+    "subject": 101,
+    "old_inverted": 4,
+    "ufl_inverted": 4,
+    "min_J": -0.4682235510002735
+  },
+  {
+    "subject": 120,
+    "old_inverted": 1,
+    "ufl_inverted": 1,
+    "min_J": -1.266979537900693
+  },
+  {
+    "subject": 206,
+    "old_inverted": 2,
+    "ufl_inverted": 2,
+    "min_J": -0.33483170320333294
+  },
+  {
+    "subject": 258,
+    "old_inverted": 7,
+    "ufl_inverted": 7,
+    "min_J": -0.2007740691735128
+  },
+  {
+    "subject": 79,
+    "old_inverted": 3,
+    "ufl_inverted": 3,
+    "min_J": -2.5834614972513967
+  }
+]

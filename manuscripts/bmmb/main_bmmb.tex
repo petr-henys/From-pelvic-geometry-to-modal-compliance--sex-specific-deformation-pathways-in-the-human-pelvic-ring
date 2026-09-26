@@ -63,8 +63,9 @@ Wherever possible, we use notation that separates three distinct objects: the so
 We analysed a precomputed set of $N{=}278$ CT-derived pelvic finite-element models assembled on a common reference domain ($n_F{=}150$, $n_M{=}128$; age 16--91~yr, mean $54\pm19$).
 No new cohort was recruited.
 The source repository provides standardised pelvic geometries suitable for in silico analysis~\citep{HenyssKuchar2025BoneDat}.
-The reference pelvic domain $\Omega_{\rm ref}$ was discretized using a conforming volumetric mesh comprising $\approx 410\,000$ linear four-node tetrahedral elements (Lagrange $P_1$, totaling $\approx 1.2\times 10^6$ displacement degrees of freedom), with conforming interfaces between the bony segments (sacrum, left and right ossa coxae) and the joint cartilage domains (bilateral sacroiliac articular cartilage and the pubic symphysis disc).
-A diffeomorphic registration $\chi_s: \Omega_{\rm ref}\to\Omega_s$ with deformation gradient $F_s(X)=\nabla_X\chi_s(X)$ and Jacobian $J_s=\det F_s>0$ maps the template domain $\Omega_{\rm ref}$ onto each subject domain $\Omega_s$.
+The reference pelvic domain $\Omega_{\rm ref}$ was discretized using a conforming volumetric mesh comprising $166\,808$ linear four-node tetrahedral elements (Lagrange $P_1$, $48\,291$ nodes, totaling $144\,873$ displacement degrees of freedom), with conforming interfaces between the bony segments (sacrum, left and right ossa coxae) and the joint cartilage domains (bilateral sacroiliac articular cartilage and the pubic symphysis disc).
+A nonrigid volumetric registration $\chi_s: \Omega_{\rm ref}\to\Omega_s$ with deformation gradient $F_s(X)=\nabla_X\chi_s(X)$ and Jacobian $J_s=\det F_s$ maps the template domain $\Omega_{\rm ref}$ onto each subject domain $\Omega_s$.
+Across the cohort, the transformation is regular with strictly positive Jacobian ($J_s > 0$) over $>99.999\%$ of the domain volume, although independent geometric audits identified minor localized element inversions at thin cartilage interfaces (at most 7 of $166\,808$ elements in any subject, cohort mean 1.5 elements, $<0.0006\%$ volume; see Limitations).
 The pipeline standardises bulk pelvic size so that the main population analysis isolates shape-driven and material-driven variability rather than absolute scale.
 Fig.~\ref{fig:model-setup} summarises the anatomical dimensions, ligament representation, and boundary-condition layout used to define the pelvic models analysed here.
 
@@ -81,7 +82,7 @@ Fig.~\ref{fig:model-setup} summarises the anatomical dimensions, ligament repres
 \subsection{Pullback-assembled linear elasticity on a common reference domain}
 \label{sec:pullback}
 
-Let $\Omega_{\rm ref}\subset\mathbb R^3$ be the template domain and $\Omega_s$ the subject domain, related by a fixed diffeomorphic registration $x=\chi_s(X)$ with deformation gradient $F_s(X)=\nabla_X\chi_s(X)$ and Jacobian $J_s(X)=\det F_s>0$.
+Let $\Omega_{\rm ref}\subset\mathbb R^3$ be the template domain and $\Omega_s$ the subject domain, related by a fixed volumetric registration $x=\chi_s(X)$ with deformation gradient $F_s(X)=\nabla_X\chi_s(X)$ and local Jacobian $J_s(X)=\det F_s$.
 Writing $\chi_s(X)=X+\varphi_s(X)$, so $F_s=I+\nabla_X\varphi_s$, small-strain linear elasticity is solved on $\Omega_s$ but integrated on $\Omega_{\rm ref}$ through the standard change of variables~\citep{MarsdenHughes1983,BonetWood1997}.
 For trial and test fields $\widehat{\mathbf u},\widehat{\mathbf v}\in V\subset[H^1(\Omega_{\rm ref})]^3$, the physical strain tensor at $x=\chi_s(X)$ is
 \begin{equation}
@@ -151,9 +152,9 @@ f=f_{\rm ext}+f_{\rm pret}(T),
 \label{eq:K-assembled}
 \end{equation}
 where geometric stiffness $K^{\rm geo}_s(T)$ incorporates the stabilizing effect of initial ligament pretension $T$. In our linearised modal framework, incremental perturbations are evaluated directly about this prestressed configuration without requiring iterative non-linear equilibrium updates.
-The term $K_{\Gamma,s}$ implements Dirichlet penalties on $\Gamma_{\rm ref}$,
-$a_\Gamma(\widehat{\mathbf u},\widehat{\mathbf v})=\gamma\int_{\Gamma_{\rm ref}} \widehat{\mathbf u}\cdot\widehat{\mathbf v}\,J_{\Gamma,s}\,\mathrm dS_X$ with $J_{\Gamma,s}=J_s\|F_s^{-T}N\|$ and $\gamma=\alpha_\Gamma\bar E/h$, $\alpha_\Gamma\in[10^3,10^5]$.
-A decade sweep of $\gamma$ left the reported cluster classification unchanged.
+The term $K_{\Gamma,s}$ implements Dirichlet penalties on the restrained superior sacral facet $\Gamma_{\rm ref}$,
+$a_\Gamma(\widehat{\mathbf u},\widehat{\mathbf v})=\gamma\int_{\Gamma_{\rm ref}} \widehat{\mathbf u}\cdot\widehat{\mathbf v}\,J_{\Gamma,s}\,\mathrm dS_X$ with $J_{\Gamma,s}=J_s\|F_s^{-T}N\|$, using a fixed penalty parameter $\gamma = 10^6\,\mathrm{N/mm^3}$ prescribed directly without element-size or modulus scaling.
+A decade sweep of $\gamma$ across $[10^5, 10^7]\,\mathrm{N/mm^3}$ left the reported cluster classification and modal subspace capacities unchanged.
 
 \noindent\textbf{Force-controlled loading.}
 Neumann terms are pulled back to $\Gamma_{\rm ref}$ so that physical resultants are invariant under $\chi_s$:
@@ -326,7 +327,7 @@ Furthermore, modeling the human pelvis as a one-dimensional beam conditioned alo
 For complex three-dimensional deformation pathways involving coupled out-of-plane flexure and transverse shearing (such as Mode~2), 1D axis conditioning artificially drives the unexplained residual up to 84\%, distorting biological interpretation.
 To overcome both limitations, our framework evaluates the overall shape change across the entire three-dimensional pelvic continuum without anatomical partitioning and without imposing artificial 1D beam axes, removing infinitesimal rigid-body motion upfront before decomposing the remaining shape change into four canonical 3D polynomial deformation families.
 
-\subsubsection{Continuum inner product and 14-point tetrahedral quadrature}
+\subsubsection{Continuum inner product and tetrahedral quadrature}
 Let $\Omega \subset \mathbb{R}^3$ denote the reference pelvic continuum domain with volume $V = \int_\Omega \mathrm{d}V$.
 The natural inner product on the displacement space $[L^2(\Omega)]^3$ weighted by volume is
 \begin{equation}
@@ -339,19 +340,20 @@ The natural inner product on the displacement space $[L^2(\Omega)]^3$ weighted b
 The continuous reference domain $\Omega$ is discretized into an unstructured tetrahedral mesh $\mathcal{T}_h = \{K_e\}_{e=1}^{N_e}$ using piecewise-linear ($P_1$) Lagrange continuous finite elements.
 Within any tetrahedron $K$, a $P_1$ displacement field $\mathbf u_h(\mathbf x)$ is an affine vector function of position ($\mathbf u_h|_K \in \mathcal{P}_1(K)$).
 When computing projections against quadratic deformation modes $\mathbf p_2 \in \mathcal{P}_2(K)$, the modal cross-product integrand $\mathbf u_h \cdot \mathbf p_2$ is a cubic polynomial ($\mathcal{P}_3(K)$), and the dictionary Gram matrix integrand $\mathbf p_2 \cdot \mathbf p_2$ is a quartic polynomial ($\mathcal{P}_4(K)$).
-Standard 4-point linear tetrahedral quadrature rules (precision degree 2) incur quadrature truncation errors when integrating degree-3 and degree-4 polynomials.
 
-To evaluate all continuum inner products with exact polynomial precision and zero quadrature truncation error, we employ a symmetric, positive degree-4 tetrahedral quadrature rule with 14 points per tetrahedron (constructed via Basix).
-For each tetrahedron $K$, the 14 quadrature points $\mathbf x_{K,q}$ and strictly positive weights $w_{K,q} > 0$ satisfy $\sum_{q=1}^{14} w_{K,q} = |K|$ and integrate all polynomials up to degree 4 exactly:
+For the target $P_1$ displacement fields, positive 4-point tetrahedral quadrature is exact for squared displacement norms ($\mathcal{P}_2(K)$) and was employed in the archived reference deformation profiles (Table~\ref{tab:detail-E1}).
+To evaluate all polynomial cross-products with exact polynomial precision and zero quadrature truncation error, we also employ a symmetric, positive degree-4 tetrahedral quadrature rule with 14 points per tetrahedron (constructed via Basix) for benchmark validations.
+For each tetrahedron $K$, the quadrature points $\mathbf x_{K,q}$ and strictly positive weights $w_{K,q} > 0$ satisfy $\sum_{q=1}^{N_{q,\rm tet}} w_{K,q} = |K|$:
 \begin{equation}
-\int_K p(\mathbf x) \, \mathrm{d}V = \sum_{q=1}^{14} w_{K,q} \, p(\mathbf x_{K,q}) \qquad \forall p \in \mathcal{P}_4(K).
+\int_K p(\mathbf x) \, \mathrm{d}V = \sum_{q=1}^{N_{q,\rm tet}} w_{K,q} \, p(\mathbf x_{K,q}) \qquad \forall p \in \mathcal{P}_d(K).
 \end{equation}
-Summing across all $N_e$ tetrahedra gives $N_q = 14 N_e$ discrete sampling points with weights $w_p > 0$.
-Defining normalized quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$, the continuum inner product~\eqref{eq:volume-inner-product} is evaluated with exact numerical precision:
+Summing across all $N_e$ tetrahedra gives $N_q = N_{q,\rm tet} N_e$ discrete sampling points with weights $w_p > 0$ ($N_q = 4 N_e$ for the 4-point rule; $N_q = 14 N_e$ for the degree-4 rule).
+Defining normalized quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$, the continuum inner product~\eqref{eq:volume-inner-product} is evaluated as:
 \begin{equation}
 \langle \mathbf u, \mathbf v \rangle_V = \sum_{p=1}^{N_q} \tilde w_p \, \mathbf u(\mathbf x_p) \cdot \mathbf v(\mathbf x_p).
 \label{eq:quadrature-sum}
 \end{equation}
+Independent comparison between the 4-point and 14-point quadrature rules confirmed that canonical pattern allocations agree to within $<0.1\%$ across all reference modes, verifying that the archived profile shares are insensitive to quadrature order.
 
 \subsubsection{Infinitesimal rigid-body motion elimination}
 Infinitesimal rigid-body displacements in $\mathbb{R}^3$ constitute a 6-dimensional linear Lie algebra subspace $\mathfrak{se}(3)$ consisting of 3 translations and 3 rotations:
@@ -579,7 +581,7 @@ The gap signal-to-noise ratio compares the nominal gap with its propagated stand
 \label{sec:robustness-methods}
 
 To separate shape and material contributions to spectral variability, we compared the full cohort against a shape-only cohort ($\chi_s$, fixed reference bone modulus) and a material-only cohort (identity deformation, subject-specific bone modulus).
-Robustness was assessed by (i)~random permutation of subject order (invariance to machine precision), (ii)~subject bootstrap with replacement ($N{=}278$, 500 replicates) with threshold re-estimation, alongside random 80\% subsampling for cohort stability, and (iii)~morphology-axis permutation null tests in which a one-dimensional anatomical proxy $\mu$ (e.g.\ AP inlet diameter) was shuffled 1000 times to assess whether swap-rate localisation along $\mu$ exceeded chance (Table~\ref{tab:detail-A6}).
+Robustness was assessed by (i)~random permutation of subject order (invariance to machine precision), (ii)~cohort bootstrap resampling with replacement, evaluated both across full cohorts ($N{=}278$, 500 replicates) with threshold re-estimation and across random $80\%$ fractional resamples ($m = 222$, 500 replicates with replacement; Table~\ref{tab:detail-B1}), and (iii)~morphology-axis permutation null tests in which a one-dimensional anatomical proxy $\mu$ (e.g.\ AP inlet diameter) was shuffled 1000 times to assess whether swap-rate localisation along $\mu$ exceeded chance (Table~\ref{tab:detail-A6}).
 Post-hoc allometric regressions of $\log\lambda_k$ on isotropic body-size scale~$s$ (with instrumental variables from volume, surface, and mass) and Shapley/LMG variance decomposition into scale, sex, shape, and material contributions are reported in Section~\ref{sec:details-D}.
 
 \subsection{Minimal analytical model for the near-degenerate regime}
@@ -654,7 +656,7 @@ Paired differences across loading conditions or mode pairs were assessed via two
 Bivariate associations between continuous anatomical dimensions (such as AP inlet diameter or isotropic scale) and modal metrics (energy fractions, spectral gaps) were quantified using Spearman's rank correlation coefficient $\rho_s$.
 Multiple hypothesis testing across spectral ranks and loading cases was controlled using the Benjamini--Hochberg procedure, maintaining the false discovery rate at $q < 0.05$; adjusted $p$-values are reported where indicated.
 Confidence intervals for median differences and median ratios in the label-exchange comparisons were obtained by percentile bootstrap resampling (5,000 independent within-group resamples; random seed 20260918), using the 2.5th and 97.5th percentiles. Mann--Whitney probabilities concern distributional differences and should not be interpreted as tests specifically of the median difference.
-Cohort-level cluster stability was evaluated by repeating the detection pipeline across 500 random subcohorts of 80\% sample size drawn without replacement ($n = 222$), yielding 95\% subsampling stability intervals.
+Cohort-level cluster stability was evaluated by repeating the detection pipeline across 500 random subcohort draws of 80\% sample size performed with replacement ($m = 222$), yielding 95\% bootstrap stability intervals.
 Full population inference was additionally confirmed by resampling subjects with replacement ($N = 278$, 500 replicates) with end-to-end recalculation of the cluster threshold $\varepsilon_{\rm in}$.
 
 Differences in subspace orientation across the cohort were quantified using the Grassmann distance $d_G(Q_{\rm ref}, Q_s) = \|\boldsymbol\theta\|_2$.
@@ -678,7 +680,7 @@ An OpenAI language model assisted the restructuring and drafting of this manuscr
 \subsection{Reference deformation atlas and numerical validation}\label{sec:details-E}
 \label{sec:global-deformation-results}
 
-This analysis provides the reference-mode atlas, synthetic validation checks, and full deformation profiles. The mathematical formulation, quadrature, rigid-motion projection, polynomial dictionary, and Shapley allocation are given in the Methods.
+This analysis provides the reference-mode atlas, synthetic validation checks, and full deformation profiles. The mathematical formulation, quadrature (4-point sampling for archived reference profiles and 14-point degree-4 rule for synthetic benchmarks), rigid-motion projection, polynomial dictionary, and Shapley allocation are given in the Methods.
 Table~\ref{tab:detail-E1} tabulates the complete 15-mode quantitative profile across all four canonical deformation families, standalone $R^2$ values, and residual fractions.
 Table~\ref{tab:detail-E2} reports the synthetic benchmark validations across idealized symmetric and irregular pelvic domains.
 
@@ -784,7 +786,7 @@ Shape changes alter \emph{how} the spatial density heterogeneity enters the stif
 This decomposition describes how variability sources differ across ranks; it does not establish a causal mechanism for cluster formation.
 
 These prevalence estimates are not driven by a few outliers or by the order in which subjects are processed.
-Subsampling stability analysis (500 random draws of 80\% cohort size without replacement) yields narrow 95\% stability intervals for the dominant clusters (9--10: 51.8--57.7\%; 12--15: 38.7--45.0\%), supporting stability of the prevalence estimates under this subsampling scheme. In addition, full subject resampling with replacement ($N{=}278$, 500 replicates) with threshold re-estimation confirms consistent prevalence estimates. Random permutation of subject order leaves cluster prevalence and swap statistics unchanged to machine precision.
+Subsampling stability analysis (500 bootstrap draws of 80\% cohort size with replacement, $m = 222$) yields narrow 95\% stability intervals for the dominant clusters (9--10: 51.8--57.7\%; 12--15: 38.7--45.0\%), supporting stability of the prevalence estimates under this resampling scheme. In addition, full subject resampling with replacement ($N{=}278$, 500 replicates) with threshold re-estimation confirms consistent prevalence estimates. Random permutation of subject order leaves cluster prevalence and swap statistics unchanged to machine precision.
 The central spectral hierarchy is therefore a cohort-level feature rather than a post-processing artefact.
 Additional cluster-mapping, swap, and robustness diagnostics are provided in Section~\ref{sec:details-A} and Section~\ref{sec:details-B}.
 
@@ -935,11 +937,11 @@ These patterns support the interpretation that inlet-related mechanics remains a
 
 The analysis uses sex effects only where they materially sharpen interpretation of the recurrent clustered subspaces, especially the 9--10 inlet-related pair.
 This analysis provides the broader sex-stratified summary and the subsampling stability evidence that the dominant clusters are stable cohort-level features rather than products of a few outlying subjects.
-Table~\ref{tab:detail-B1} gives the subsampling stability estimates for the dominant clusters and gap statistics.
+Table~\ref{tab:detail-B1} gives the bootstrap stability estimates (500 replicates of 80\% cohort size drawn with replacement, $m = 222$) for the dominant clusters and gap statistics.
 Fig.~\ref{fig:detail-B1} summarises the sex-stratified spectral structure, and Table~\ref{tab:detail-B2} reports the accompanying sex-stratified statistical tests for the spectral and subspace metrics.
 
 \begin{table*}[!htbp]
-\caption{Subsampling stability under random 80\% subcohorts. }
+\caption{Cohort bootstrap stability under random 80\% fractional resamples ($m=222$, 500 replicates with replacement). }
 \label{tab:detail-B1}
 \centering
 \DetailTableInput{cohort_bootstrap_robustness.tex}
@@ -1247,6 +1249,13 @@ The generalisable component is the analysis strategy. The observed rank partitio
 
 \subsection{Limitations and validation priorities}
 The models assume small strains, isotropic bone elasticity, homogeneous joint cartilage, and prescribed ligament properties. The superior sacral restraint and chosen load locations constrain the available deformation repertoire. Subject-specific ligament laxity, pelvic floor support, nonlinear contact, and time-dependent tissue behaviour are not represented. These omissions limit extrapolation to large deformations, altered joint conditions, and childbirth~\citep{Vleeming2012,ChenGrimm2021}.
+
+The spatial pullback mapping from the reference domain assumes a regular volumetric transformation.
+While the mapping preserves strictly positive Jacobian ($J_s > 0$) across $>99.999\%$ of the total domain volume, systematic geometric audits revealed rare, highly localized element inversions (mean 1.5 elements, maximum 7 out of $166\,808$ elements per subject) confined to thin joint cartilage interfaces.
+Independent spot checks confirmed that these localized boundary inversions do not alter global ring deformation modes, modal stiffness ordering, or subspace capacity estimates.
+Nevertheless, completely eliminating local inversions would require re-running full cohort registrations under constrained topology-preserving diffeomorphic regularization.
+Similarly, the Dirichlet restraint on the superior sacral facet was enforced via a fixed penalty parameter ($\gamma = 10^6\,\mathrm{N/mm^3}$) rather than an element-size-scaled formulation; although sensitivity sweeps confirmed invariance of modal ordering across a decade range ($10^5\text{--}10^7\,\mathrm{N/mm^3}$), exact constraint enforcement could be examined in future studies.
+Furthermore, the polynomial deformation atlas relied on positive 4-point tetrahedral sampling in the archived reference profiles (exact for $P_1$ displacement norms), which agrees with the higher-order 14-point rule to within $<0.1\%$, though neither replaces full continuum stress analysis.
 
 First-order material uncertainty propagation indicates local sensitivity of eigenvalues and gaps under the specified covariance. It does not replace re-solving the full model under broad parameter changes, nor does it verify robustness of eigenvectors and capacities in that setting. The reduced analytical example likewise cannot supply evidence about tissue-specific variability that was not measured in the cohort. Future work should test subspace capacities under explicit soft-tissue perturbations and alternative boundary conditions.
 
