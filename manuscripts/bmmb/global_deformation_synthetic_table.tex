@@ -1,0 +1,20 @@
+\begin{tabular}{llrrrrrl}
+\toprule
+Domain & Synthetic deformation field & Axial & Bending & Shear & Torsion & Resid. & Outcome \\
+ & & (\%) & (\%) & (\%) & (\%) & (\%) & \\
+\midrule
+Symmetric cube & Pure axial stretch ($x\mathbf{e}_x$) & 100.0 & 0.0 & 0.0 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Symmetric cube & Pure bending ($-xy\mathbf{e}_x + \frac{1}{2}x^2\mathbf{e}_y$) & 0.0 & 77.5 & 22.5 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Symmetric cube & Pure shear ($y\mathbf{e}_x + x\mathbf{e}_y$) & 0.0 & 0.0 & 100.0 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Symmetric cube & Pure torsion ($yz\mathbf{e}_x - xy\mathbf{e}_z$) & 0.0 & 0.0 & 0.0 & 100.0 & 0.0 & Exact closure (0.0\% residual) \\
+\midrule
+Pelvis mesh & Pure axial stretch ($x\mathbf{e}_x$) & 85.3 & 7.2 & 7.5 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Pelvis mesh & Pure triaxial ($x\mathbf{e}_x - \frac{1}{2}y\mathbf{e}_y - \frac{1}{2}z\mathbf{e}_z$) & 84.8 & 11.1 & 4.1 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Pelvis mesh & Pure bending ($-xy\mathbf{e}_x + \frac{1}{2}x^2\mathbf{e}_y$) & 17.1 & 74.1 & 8.8 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+Pelvis mesh & Pure shear ($y\mathbf{e}_x + x\mathbf{e}_y$) & 13.7 & 1.8 & 82.8 & 1.7 & 0.0 & Exact closure (0.0\% residual) \\
+Pelvis mesh & Pure torsion ($yz\mathbf{e}_x - xy\mathbf{e}_z$) & 5.5 & 0.5 & 7.0 & 87.1 & 0.0 & Exact closure (0.0\% residual) \\
+Pelvis mesh & Infinitesimal rigid translation & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & Rigid: rejected ($f_{\mathrm{nonrigid}} < 10^{-20}$) \\
+Pelvis mesh & Infinitesimal rigid rotation & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & Rigid: rejected ($f_{\mathrm{nonrigid}} < 10^{-20}$) \\
+Pelvis mesh & Axial stretch + rigid perturbation & 85.3 & 7.2 & 7.5 & 0.0 & 0.0 & Exact closure (0.0\% residual) \\
+\bottomrule
+\end{tabular}
