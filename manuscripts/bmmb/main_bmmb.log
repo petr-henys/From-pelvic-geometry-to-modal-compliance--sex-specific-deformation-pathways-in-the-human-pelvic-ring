@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  28 SEP 2026 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  28 SEP 2026 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,9 +736,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <quadrature_method.pdf, id=476, 540.5796pt x 213.19649pt>
 File: quadrature_method.pdf Graphic file (type pdf)
 <use quadrature_method.pdf>
-Package pdftex.def Info: quadrature_method.pdf  used on input line 359.
+Package pdftex.def Info: quadrature_method.pdf  used on input line 360.
 (pdftex.def)             Requested size: 495.0874pt x 195.25504pt.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 368
+LaTeX Font Info:    Trying to load font information for U+euf on input line 369
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -750,16 +750,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./quadrature_method.pdf>]
-<deformation_families.pdf, id=595, 540.5796pt x 379.4175pt>
-File: deformation_families.pdf Graphic file (type pdf)
-<use deformation_families.pdf>
-Package pdftex.def Info: deformation_families.pdf  used on input line 487.
-(pdftex.def)             Requested size: 495.0874pt x 347.48781pt.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
+<deformation_families.pdf, id=606, 540.5796pt x 379.4175pt>
+File: deformation_families.pdf Graphic file (type pdf)
+<use deformation_families.pdf>
+Package pdftex.def Info: deformation_families.pdf  used on input line 488.
+(pdftex.def)             Requested size: 495.0874pt x 347.48781pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 []\OT1/cmr/m/n/10 To assem-ble the dis-crete kine-matic design matrix, the basi
 s fields in each fam-ily $\OML/cmm/m/it/10.03749 m \OMS/cmsy/m/n/10.03749 2
  []
@@ -777,25 +777,24 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-Underfull \hbox (badness 1205) in paragraph at lines 682--685
+Underfull \hbox (badness 1205) in paragraph at lines 683--686
 []\OT1/cmr/m/n/10 Differences in sub-space ori-en-ta-tion across the cohort wer
 e quan-ti-fied using the Grass-mann dis-tance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--693
-\OT1/cmr/m/n/10 Finite-element assem-bly, eigen-solves, and post-pro-cess-ing w
-ere imple-mented in Python 3.11 with
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 690--694
+\OT1/cmr/m/n/10 Finite-element assem-bly, eigen-solves, and post-pro-cess-ing w
+ere imple-mented in Python 3.11 with
+ []
+
 <reference_mode_atlas.pdf, id=795, 540.60239pt x 688.55669pt>
 File: reference_mode_atlas.pdf Graphic file (type pdf)
 <use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 709.
+Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 710.
 (pdftex.def)             Requested size: 446.5139pt x 568.71768pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -811,7 +810,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig2.pdf, id=980, 493.95387pt x 534.54117pt>
 File: Fig2.pdf Graphic file (type pdf)
 <use Fig2.pdf>
-Package pdftex.def Info: Fig2.pdf  used on input line 815.
+Package pdftex.def Info: Fig2.pdf  used on input line 816.
 (pdftex.def)             Requested size: 495.07797pt x 535.77147pt.
 
 (./clusters.tex)
@@ -830,7 +829,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig3.pdf, id=1045, 494.80814pt x 389.99997pt>
 File: Fig3.pdf Graphic file (type pdf)
 <use Fig3.pdf>
-Package pdftex.def Info: Fig3.pdf  used on input line 912.
+Package pdftex.def Info: Fig3.pdf  used on input line 913.
 (pdftex.def)             Requested size: 495.07797pt x 390.2311pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -839,14 +838,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig4.pdf, id=1090, 494.80814pt x 244.4878pt>
 File: Fig4.pdf Graphic file (type pdf)
 <use Fig4.pdf>
-Package pdftex.def Info: Fig4.pdf  used on input line 943.
+Package pdftex.def Info: Fig4.pdf  used on input line 944.
 (pdftex.def)             Requested size: 495.07797pt x 244.63268pt.
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 964.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 965.
  (./cohort_bootstrap_robustness.tex)
 <sex_stratified_summary.pdf, id=1094, 526.37505pt x 598.39557pt>
 File: sex_stratified_summary.pdf Graphic file (type pdf)
 <use sex_stratified_summary.pdf>
-Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 974.
+Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 975.
 (pdftex.def)             Requested size: 495.07797pt x 562.848pt.
  (./sex_stratified_summary.tex)
 (./label_effects_compact.tex) (./label_effects_full_cohort_compact.tex)
@@ -862,7 +861,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig5.pdf, id=1183, 493.32306pt x 390.08765pt>
 File: Fig5.pdf Graphic file (type pdf)
 <use Fig5.pdf>
-Package pdftex.def Info: Fig5.pdf  used on input line 1035.
+Package pdftex.def Info: Fig5.pdf  used on input line 1036.
 (pdftex.def)             Requested size: 495.07797pt x 391.4795pt.
  (./mode_activation_dominant_sets.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -871,14 +870,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <function_locking_heatmap.pdf, id=1211, 598.22409pt x 227.6543pt>
 File: function_locking_heatmap.pdf Graphic file (type pdf)
 <use function_locking_heatmap.pdf>
-Package pdftex.def Info: function_locking_heatmap.pdf  used on input line 1064.
+Package pdftex.def Info: function_locking_heatmap.pdf  used on input line 1065.
 
 (pdftex.def)             Requested size: 495.07797pt x 188.40068pt.
  (./function_locking_synthesis.tex) (./mode_activation_overlap.tex)
 <routing_associations.pdf, id=1212, 494.80814pt x 403.46112pt>
 File: routing_associations.pdf Graphic file (type pdf)
 <use routing_associations.pdf>
-Package pdftex.def Info: routing_associations.pdf  used on input line 1092.
+Package pdftex.def Info: routing_associations.pdf  used on input line 1093.
 (pdftex.def)             Requested size: 495.07797pt x 403.70021pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -887,7 +886,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig6.pdf, id=1250, 493.95387pt x 404.45976pt>
 File: Fig6.pdf Graphic file (type pdf)
 <use Fig6.pdf>
-Package pdftex.def Info: Fig6.pdf  used on input line 1107.
+Package pdftex.def Info: Fig6.pdf  used on input line 1108.
 (pdftex.def)             Requested size: 495.07797pt x 405.39067pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -896,12 +895,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <allometry_dashboard.pdf, id=1287, 519.56058pt x 298.95796pt>
 File: allometry_dashboard.pdf Graphic file (type pdf)
 <use allometry_dashboard.pdf>
-Package pdftex.def Info: allometry_dashboard.pdf  used on input line 1126.
+Package pdftex.def Info: allometry_dashboard.pdf  used on input line 1127.
 (pdftex.def)             Requested size: 495.07797pt x 284.8843pt.
 <robustness.pdf, id=1288, 494.80814pt x 404.45094pt>
 File: robustness.pdf Graphic file (type pdf)
 <use robustness.pdf>
-Package pdftex.def Info: robustness.pdf  used on input line 1174.
+Package pdftex.def Info: robustness.pdf  used on input line 1175.
 (pdftex.def)             Requested size: 495.07797pt x 404.69063pt.
  (./reconstruction.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -919,7 +918,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Fig7.pdf, id=1411, 490.83789pt x 390.57718pt>
 File: Fig7.pdf Graphic file (type pdf)
 <use Fig7.pdf>
-Package pdftex.def Info: Fig7.pdf  used on input line 1238.
+Package pdftex.def Info: Fig7.pdf  used on input line 1239.
 (pdftex.def)             Requested size: 495.07797pt x 393.96729pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -993,7 +992,7 @@ xmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf
 dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1
 /public/cm-super/sfrm1000.pfb>
-Output written on main_bmmb.pdf (38 pages, 7482800 bytes).
+Output written on main_bmmb.pdf (38 pages, 7483710 bytes).
 PDF statistics:
  1714 PDF objects out of 1728 (max. 8388607)
  1030 compressed objects within 11 object streams

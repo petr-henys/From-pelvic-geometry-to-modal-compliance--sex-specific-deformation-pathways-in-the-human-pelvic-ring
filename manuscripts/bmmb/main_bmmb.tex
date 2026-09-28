@@ -352,6 +352,7 @@ Defining normalized quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$
 \label{eq:quadrature-sum}
 \end{equation}
 The degree-4 rule integrates the products of quadratic dictionary functions exactly on each tetrahedron. Because the reference modes are $P_1$, it also integrates their cross-products with the dictionary exactly.
+This higher-order rule is used only for the post-processing projection onto the quadratic deformation dictionary, not because the $P_1$ finite-element eigenproblem requires it. It removes quadrature error from the dictionary Gram matrix while retaining positive weights for the weighted projection. To assess whether this exactness affects the reported atlas, we repeated the projection of all 15 reference modes with the standard positive four-point, degree-2 tetrahedral rule. Across the four deformation-family fractions and the residual fraction, the largest absolute change was $1.91\times 10^{-5}$ percentage points; thus, the higher-order rule has no material effect on the reported proportions.
 Figure~\ref{fig:quadrature-method} links the element rule to the whole-domain inner product and to the degrees of the three products used in the decomposition.
 
 \begin{figure}[!t]
