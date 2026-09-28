@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -40,11 +40,6 @@ Bj{\"o}rck {\AA}, Golub GH (1973) Numerical methods for computing angles
 Bonet J, Wood RD (1997) Nonlinear Continuum Mechanics for Finite Element
   Analysis, 1st edn. Cambridge University Press
 
-\bibitem[{Carter and Hayes(1977)}]{CarterHayes1977}
-Carter DR, Hayes WC (1977) The compressive behavior of bone as a two-phase
-  porous structure. The Journal of Bone and Joint Surgery American Volume
-  59(7):954--962
-
 \bibitem[{Chen et~al.(2026)Chen, Hume, Wyatt, and
   Choisne}]{Chen2026PelvicModel}
 Chen J, Hume PA, Wyatt HE, et~al (2026) Development of a pelvic musculoskeletal
@@ -61,11 +56,6 @@ Chen S, Grimm MJ (2021) Childbirth computational models: Characteristics and
 Cook DD, Robertson DJ (2016) The generic modeling fallacy: Average
   biomechanical models often produce non-average results! Journal of
   Biomechanics 49(15):3609--3615. \doi{10.1016/j.jbiomech.2016.10.004}
-
-\bibitem[{Farr and Khosla(2015)}]{FarrKhosla2015}
-Farr JN, Khosla S (2015) Skeletal changes through the lifespan—from growth to
-  senescence. Nature Reviews Endocrinology 11(9):513--521.
-  \doi{10.1038/nrendo.2015.89}
 
 \bibitem[{Fernandez et~al.(2020)Fernandez, Dickinson, and
   Hunter}]{Fernandez2020Population}
@@ -131,11 +121,6 @@ Keller TS (1994) Predicting the compressive mechanical behavior of bone.
 Kuhn HW (1955) The hungarian method for the assignment problem. Naval Research
   Logistics Quarterly 2(1--2):83--97. \doi{10.1002/nav.3800020109}
 
-\bibitem[{de~Leva(1996)}]{deLeva1996}
-de~Leva P (1996) Adjustments to {Zatsiorsky--Seluyanov}'s segment inertia
-  parameters. Journal of Biomechanics 29(9):1223--1230.
-  \doi{10.1016/0021-9290(95)00178-6}
-
 \bibitem[{Manconi and Mace(2017)}]{ManconiMace2017}
 Manconi E, Mace BR (2017) Veering and strong coupling effects in structural
   dynamics. Journal of Vibration and Acoustics 139(2). \doi{10.1115/1.4035109}
@@ -178,12 +163,5 @@ Snijders CJ, Vleeming A, Stoeckart R (1993) Transfer of lumbosacral load to
 Vleeming A, Schuenke MD, Masi AT, et~al (2012) The sacroiliac joint: an
   overview of its anatomy, function and potential clinical implications.
   Journal of Anatomy 221(6):537--567. \doi{10.1111/j.1469-7580.2012.01564.x}
-
-\bibitem[{Zebaze et~al.(2010)Zebaze, Ghasem-Zadeh, Bohte, Iuliano-Burns,
-  Mirams, Price, Mackie, and Seeman}]{Zebaze2010Porosity}
-Zebaze RM, Ghasem-Zadeh A, Bohte A, et~al (2010) Intracortical remodelling and
-  porosity in the distal radius and post-mortem femurs of women: a
-  cross-sectional study. The Lancet 375(9727):1729--1736.
-  \doi{10.1016/S0140-6736(10)60320-0}
 
 \end{thebibliography}

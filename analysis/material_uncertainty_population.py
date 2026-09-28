@@ -57,6 +57,12 @@ def load_population_data() -> dict[str, np.ndarray]:
     ]:
         z = zarr.open_group(str(DATA_DIR / f"{name}.zarr"), mode="r")
         arrays[name] = np.asarray(z["data"][:])
+    corrected_path = OUTPUT_DIR / "corrected_bone_sensitivities_complete.npz"
+    corrected = np.load(corrected_path)
+    if int(corrected["completed"]) != arrays["eigenvalues"].shape[0]:
+        raise RuntimeError("Corrected bone sensitivities are incomplete")
+    arrays["bone_alpha_sensitivities"] = corrected["alpha"]
+    arrays["bone_beta_sensitivities"] = corrected["beta"]
     return arrays
 
 

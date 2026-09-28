@@ -30,5 +30,23 @@
     "material_uncertainty_table.tex": "analysis_outputs/material_uncertainty/material_uncertainty_table.tex",
     "global_deformation_modes_table.tex": "analysis_outputs/tables/global_deformation_modes_table.tex",
     "global_deformation_synthetic_table.tex": "analysis_outputs/tables/global_deformation_synthetic_table.tex"
+  },
+  "numerical_revision": {
+    "date": "2026-09-28",
+    "four_mode_capacity": "analysis/recompute_highdim_capacities.py",
+    "capacity_method": "analysis/spectral_metrics.py",
+    "bone_sensitivities": "analysis/recompute_bone_sensitivities.py",
+    "bone_shard_combination": "analysis/combine_bone_sensitivities.py",
+    "material_propagation": "analysis/material_uncertainty_population.py",
+    "atlas": "analysis/reference_mode_atlas.py",
+    "validation": "manuscripts/bmmb/audit/REPORT.md",
+    "source_sha256": {
+      "analysis/spectral_metrics.py": "b3dadf5940414d36f64ffd9ccca289efe80e6e244e8d718e074a3bbb709eb786",
+      "analysis/recompute_highdim_capacities.py": "cb5a4c91490dbdaf5fa6f288ff7fab92a1fdb8ff98f945b0ffe3250267ba7055",
+      "analysis/recompute_bone_sensitivities.py": "187ce56d0c9db0203ed0ef2c4d4a56ce71a813378d32e5c888ff08c75b74acca",
+      "analysis/combine_bone_sensitivities.py": "9b28550eaa06a7267ad6c258bb1258df8781805c1fbf6bbd54c93ef152841d26",
+      "analysis/material_uncertainty_population.py": "68b8dad3cf1ace8d1e35460017de69000a2448daa438c4b5f0ecea5c0f0e6fec",
+      "analysis/reference_mode_atlas.py": "ab219937408aa80e39014e6fcbe385fcb9584737f6446c3bbda1197b802ec714"
+    }
   }
 }

@@ -220,6 +220,7 @@ def test_material_mapper_alpha_weight_inverts_alpha():
         E_func=E, nu_func=nu, template=template, densities=densities,
         config=cfg, febio_parser=febio_stub,
     )
+    mapper.apply_reference()
     weights = mapper.compute_bone_param_sensitivity_weights()
 
     bone_idx = np.where(mapper.bone_mask)[0]
@@ -230,6 +231,39 @@ def test_material_mapper_alpha_weight_inverts_alpha():
     rho_ash = (0.8 + 0.09) / 1.14
     assert np.allclose(weights["beta"][bone_idx], np.log(rho_ash), rtol=1e-4)
     assert np.all(weights["beta"][cart_idx] == 0.0)
+
+
+def test_material_mapper_bone_derivatives_match_mapped_modulus_finite_difference():
+    """Differentiate source modulus before RBF interpolation, including branch mixture."""
+    from scipy.interpolate import RBFInterpolator
+    _require_single_rank()
+    _, _, E, nu = _make_cube_dg0()
+    labels = np.array(["PelvisBone"] * E.x.array.size, dtype=object)
+    labels[0] = "SIJCartilageLeft"
+    template = _make_template_polydata(rng_seed=9)
+    rng = np.random.default_rng(7)
+    densities = rng.uniform(0.1, 1.2, size=(1, template.n_points))
+    cfg = _material_config()
+    mapper = MaterialMapper(E, nu, template, densities, cfg,
+                            SimpleNamespace(material_labels=labels))
+    mapper.apply_reference()
+    weights = mapper.compute_bone_param_sensitivity_weights()
+    bone = mapper.bone_mask
+    for name in ("alpha", "beta"):
+        key = "BONE_MODULUS_" + name.upper()
+        base = float(cfg[key]); step = base * 1e-5
+        def mapped(delta):
+            params = {"alpha": float(cfg["BONE_MODULUS_ALPHA"]),
+                      "beta": float(cfg["BONE_MODULUS_BETA"]),
+                      "threshold": float(cfg["BONE_MODULUS_THRESHOLD"])}
+            params[name] += delta
+            source = calculate_bone_modulus(densities[0], **params)
+            return RBFInterpolator(template.points, source,
+                                   smoothing=cfg["RBF_DATA_SMOOTHING"],
+                                   neighbors=cfg["RBF_DATA_NEIGHBORS"])(mapper.dof_coordinates).ravel()
+        fd = (mapped(step)-mapped(-step))/(2*step)
+        np.testing.assert_allclose(weights[name][bone]*E.x.array[bone],fd[bone],rtol=1e-7,atol=1e-6)
+        assert np.all(weights[name][~bone]==0)
 
 
 if __name__ == "__main__":

@@ -136,48 +136,35 @@ class MaterialMapper:
         self.update_fields()
 
     def compute_bone_param_sensitivity_weights(self, *, sample_idx: int | None = None) -> dict[str, np.ndarray]:
-        """Compute sensitivity weights for bone-law parameters α and β.
+        """Return (dE_cell/dparameter)/E_cell for the implemented bone map.
 
-        For E = α ρ_ash^β (above threshold), the scalar weights are:
-        - α-weight: 1/α
-        - β-weight: ln(ρ_ash)
-
-        Args:
-            sample_idx: If provided, compute ρ_ash from this sample's density;
-                        otherwise use the reference (median) density.
-
-        Returns:
-            dict with keys 'alpha' and 'beta', arrays shaped like DG0 (per cell).
-            Zeros outside active bone or below the threshold.
+        The source-point modulus is evaluated before RBF interpolation. Its
+        parameter derivatives must be interpolated by the same RBF operator;
+        interpolating density and differentiating afterwards is not equivalent.
+        Non-bone cells have fixed moduli and therefore zero derivative.
         """
         alpha = float(self.config["BONE_MODULUS_ALPHA"])
+        beta = float(self.config["BONE_MODULUS_BETA"])
         threshold = float(self.config["BONE_MODULUS_THRESHOLD"])
-
-        # Choose density source: sample-specific or reference (median)
-        if sample_idx is None:
-            density = self._reference_density()
-        else:
-            density = np.asarray(self.densities[int(sample_idx)])
-
-        rho_ash_points = (density + 0.09) / 1.14
-        rbf = RBFInterpolator(
-            self.template.points,
-            rho_ash_points,
-            smoothing=self.rbf_smoothing,
-            neighbors=self.rbf_neighbors,
-        )
-        rho_ash = np.asarray(rbf(self.dof_coordinates)).ravel()
-
-        # Active bone region and above-threshold density
-        active = self.bone_mask & (rho_ash > threshold)
-        dg0_size = len(self.dof_coordinates)
-
-        w_alpha = np.zeros(dg0_size, dtype=float)
-        w_beta = np.zeros(dg0_size, dtype=float)
-        w_alpha[active] = 1.0 / alpha
-        w_beta[active] = np.log(np.maximum(rho_ash[active], 1e-12))
-
-        return {"alpha": w_alpha, "beta": w_beta}
+        density = self._reference_density() if sample_idx is None else np.asarray(self.densities[int(sample_idx)])
+        rho_ash = (np.maximum(density, 0.0) + 0.09) / 1.14
+        active_source = rho_ash > threshold
+        high = rho_ash**beta
+        dE_dalpha_source = np.where(active_source, high, 0.0)
+        dE_dbeta_source = np.where(active_source, alpha * high * np.log(rho_ash), 0.0)
+        derivatives = {}
+        for name, source in (("alpha", dE_dalpha_source), ("beta", dE_dbeta_source)):
+            rbf = RBFInterpolator(
+                self.template.points, source,
+                smoothing=self.rbf_smoothing, neighbors=self.rbf_neighbors,
+            )
+            dE = np.asarray(rbf(self.dof_coordinates), dtype=float).ravel()
+            weights = np.zeros_like(dE)
+            E = self.E_func.x.array
+            valid = self.bone_mask & np.isfinite(E) & (np.abs(E) > 1e-12)
+            weights[valid] = dE[valid] / E[valid]
+            derivatives[name] = weights
+        return derivatives
 
     def save_to_vtk(self, filename: str) -> None:
         mesh_topology, cell_types, geometry = plot.vtk_mesh(

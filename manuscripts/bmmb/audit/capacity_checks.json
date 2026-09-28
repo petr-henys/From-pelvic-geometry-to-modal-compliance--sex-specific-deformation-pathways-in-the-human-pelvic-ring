@@ -12,12 +12,12 @@
   {
     "subject": 0,
     "block": "12-15",
-    "implementation": 0.5792673380361859,
+    "implementation": 0.5808678947404411,
     "convex_primal": 0.5808678947406293,
     "dual_upper": 0.5808678947404502,
     "constraint_min": -7.0885519676266995e-12,
     "success": true,
-    "absolute_difference": 0.0016005567044433677
+    "absolute_difference": 1.8818280267396403e-13
   },
   {
     "subject": 101,
@@ -32,12 +32,12 @@
   {
     "subject": 101,
     "block": "12-15",
-    "implementation": 0.4999835900319797,
+    "implementation": 0.49998359003475884,
     "convex_primal": 0.4999835900347779,
     "dual_upper": 0.4999835900347779,
     "constraint_min": -1.3322676295501878e-15,
     "success": true,
-    "absolute_difference": 2.7982061112652445e-12
+    "absolute_difference": 1.9040324872321435e-14
   },
   {
     "subject": 120,
@@ -52,12 +52,12 @@
   {
     "subject": 120,
     "block": "12-15",
-    "implementation": 0.31758437026957076,
+    "implementation": 0.32503674205143607,
     "convex_primal": 0.32503674205143634,
     "dual_upper": 0.3250367420514362,
     "constraint_min": -7.771561172376096e-15,
     "success": true,
-    "absolute_difference": 0.0074523717818655855
+    "absolute_difference": 2.7755575615628914e-16
   },
   {
     "subject": 206,
@@ -72,11 +72,11 @@
   {
     "subject": 206,
     "block": "12-15",
-    "implementation": 0.40993310196829147,
+    "implementation": 0.4099401351743197,
     "convex_primal": 0.40994013517432104,
     "dual_upper": 0.4099401351743198,
     "constraint_min": -7.571721027943568e-14,
     "success": true,
-    "absolute_difference": 7.0332060295719145e-06
+    "absolute_difference": 1.3322676295501878e-15
   }
 ]

@@ -13,11 +13,11 @@ Veškerý obsah dřívějšího supplementu je začleněn do Methods a Results. 
 
 ## Hlavní redakční změny
 
-Název: **Stable deformation subspaces across anatomical variability: a population finite-element study of the human pelvis**.
+Název: **Comparing deformation subspaces across anatomical variability: a population finite-element study of the human pelvis**.
 
 Text staví na problému srovnatelnosti módů mezi jedinci, anatomických funkcionálech a statickém rozkladu energie. Rozlišuje kinematickou kapacitu od poddajnosti na jednotku síly a matematickou invarianci báze od empirické stability mezi jedinci. Obecná tvrzení o zachování biologické funkce a porodnické závěry jsou omezeny na to, co podporuje linearizovaný model.
 
-Abstrakt má přibližně 215 slov, šest klíčových slov; sekce Author summary byla odstraněna. Použita je struktura Introduction–Materials and methods–Results–Discussion–Conclusions, samostatné Statements and Declarations. Matematická formulace je součástí hlavních Methods: pullback FE formulace, materiály a vazy, spektrální mezery, principal angles a Procrustes, anatomické funkcionály a optimalizace kapacity, kvadratura, rigidní projekce, polynomiální slovník, Shapleyho rozklad, modální energie, propagace nejistoty a analytický model včetně stochastických parametrů. Atlas, rozšířené výsledky a validační kontroly jsou rovněž přímo v hlavním článku. Nové simulace ani statistické přepočty nebyly provedeny.
+Abstrakt má přibližně 215 slov, šest klíčových slov; sekce Author summary byla odstraněna. Použita je struktura Introduction–Materials and methods–Results–Discussion–Conclusions, samostatné Statements and Declarations. Matematická formulace je součástí hlavních Methods: pullback FE formulace, materiály a vazy, spektrální mezery, principal angles a Procrustes, anatomické funkcionály a optimalizace kapacity, kvadratura, rigidní projekce, polynomiální slovník, Shapleyho rozklad, modální energie, propagace nejistoty a analytický model včetně stochastických parametrů. Atlas, rozšířené výsledky a validační kontroly jsou rovněž přímo v hlavním článku. Po auditu byly přepočteny kapacity podprostorů, atlas a analytická propagace materiálové nejistoty z uložených vlastních vektorů; nové vlastní úlohy FE se neřešily.
 
 Opravy podle existujících dat a kódu:
 
@@ -60,3 +60,7 @@ Balíček obsahuje lokální závislosti, oficiální třídu a bibliografický 
 ## Rozšíření rešerše 26. 9. 2026
 
 Úvod byl přepracován s explicitním rozlišením statistických tvarových módů, mechanických módů, anatomické kapacity a zatížením vyvolané odezvy. Doplněno sedm bibliografických záznamů ověřených u vydavatelů nebo v PubMed: Cook a Robertson (2016), Salo et al. (2017), Arand et al. (2019), Henyš a Čapek (2019), Henyš et al. (2021, 2022), Chen et al. (2026). Existující Ghosh a Ghanem (2012) výslovně vymezuje matematický precedens. Diskuse a dopis návaznost reflektují; rešerše není označena za systematickou ani nepodkládá tvrzení o absolutním prvenství.
+
+## Odborný audit 28. 9. 2026
+
+Viz [audit/REPORT.md](audit/REPORT.md). Opraveny jsou derivace kostního zákona, výpočet čtyřmódových kapacit a numerická provenience atlasu. Interní auditní soubory nejsou suplementem ani součástí balíčku pro časopis.

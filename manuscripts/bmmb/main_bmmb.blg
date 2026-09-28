@@ -5,44 +5,44 @@ The style file: sn-basic.bst
 Database file #1: references.bib
 sn-basic.bst [2024/07/19 v1.1 bibliography style]
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 33 entries,
+You've used 29 entries,
             3567 wiz_defined-function locations,
-            985 strings with 12721 characters,
-and the built_in function-call counts, 30001 in all, are:
-= -- 2880
-> -- 1009
-< -- 20
-+ -- 398
-- -- 298
-* -- 2647
-:= -- 4273
-add.period$ -- 63
-call.type$ -- 33
-change.case$ -- 271
-chr.to.int$ -- 39
-cite$ -- 33
-duplicate$ -- 2354
-empty$ -- 2576
-format.name$ -- 409
-if$ -- 6305
+            952 strings with 11820 characters,
+and the built_in function-call counts, 26246 in all, are:
+= -- 2514
+> -- 892
+< -- 17
++ -- 352
+- -- 263
+* -- 2318
+:= -- 3745
+add.period$ -- 56
+call.type$ -- 29
+change.case$ -- 238
+chr.to.int$ -- 35
+cite$ -- 29
+duplicate$ -- 2061
+empty$ -- 2249
+format.name$ -- 360
+if$ -- 5515
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 259
-newline$ -- 108
-num.names$ -- 132
-pop$ -- 640
+missing$ -- 227
+newline$ -- 96
+num.names$ -- 116
+pop$ -- 562
 preamble$ -- 1
-purify$ -- 238
+purify$ -- 209
 quote$ -- 0
-skip$ -- 593
+skip$ -- 522
 stack$ -- 0
-substring$ -- 2864
-swap$ -- 681
+substring$ -- 2476
+swap$ -- 594
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 291
+type$ -- 255
 warning$ -- 0
-while$ -- 183
+while$ -- 159
 width$ -- 0
-write$ -- 400
+write$ -- 353

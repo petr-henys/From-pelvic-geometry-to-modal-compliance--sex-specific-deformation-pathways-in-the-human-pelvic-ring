@@ -1015,41 +1015,61 @@ def single_functional_capacity_max_nodal(
         return float(abs(b_vec @ best_psi)), best_psi, sigma
 
     else:
-        alpha_init = c / sigma
+        # Rescale the basis so a unit displacement uses order-one coefficients.
+        # Mass-orthonormal basis vectors are otherwise tiny at individual nodes,
+        # which causes poor SLSQP constraint gradients.
+        nodal = Q.reshape(-1, 3, r)
+        scale = float(np.linalg.norm(nodal, axis=1).max())
+        node_basis = np.ascontiguousarray(nodal / scale)
+        objective = c / scale
+        initial = np.argsort(np.sum(np.einsum("nkr,r->nk", node_basis, objective)**2, axis=1))[-16:]
+        active = set(int(i) for i in initial)
+        alpha = objective / np.linalg.norm(objective)
+        alpha /= max(float(np.linalg.norm(np.einsum("nkr,r->nk", node_basis, alpha), axis=1).max()), 1e-12)
+        for _ in range(100):
+            ids = np.fromiter(sorted(active), dtype=int)
+            U = node_basis[ids]
 
-        def loss(a):
-            norm_a = float(np.linalg.norm(a))
-            if norm_a < 1e-12:
-                return 0.0
-            a_unit = a / norm_a
-            num = abs(float(c @ a_unit))
-            u = (Q @ a_unit).reshape(-1, 3)
-            den = float(np.sqrt(np.sum(u**2, axis=1)).max())
-            return -num / max(den, 1e-12)
+            def constraints(a):
+                ua = np.einsum("nkr,r->nk", U, a)
+                return 1.0 - np.sum(ua * ua, axis=1)
 
-        init_simplex = np.zeros((r + 1, r))
-        init_simplex[0] = alpha_init
-        for k in range(r):
-            e = np.zeros(r)
-            e[k] = 1.0
-            init_simplex[k + 1] = e
+            def constraint_jac(a):
+                ua = np.einsum("nkr,r->nk", U, a)
+                return -2.0 * np.einsum("nkr,nk->nr", U, ua)
 
-        res_nm = optimize.minimize(
-            loss,
-            alpha_init,
-            method="Nelder-Mead",
-            options={
-                "initial_simplex": init_simplex,
-                "xatol": 1e-6,
-                "fatol": 1e-6,
-                "maxiter": 500,
-            },
-        )
-        best_a = res_nm.x / np.linalg.norm(res_nm.x)
-        best_psi = Q @ best_a
-        max_u = float(np.sqrt(np.sum(best_psi.reshape(-1, 3) ** 2, axis=1)).max())
-        if max_u > 1e-12:
-            best_psi /= max_u
+            result = optimize.minimize(
+                lambda a: -float(objective @ a), alpha,
+                jac=lambda a: -objective,
+                constraints={"type": "ineq", "fun": constraints, "jac": constraint_jac},
+                method="SLSQP", options={"ftol": 1e-11, "maxiter": 400},
+            )
+            alpha = result.x
+            all_u = np.einsum("nkr,r->nk", node_basis, alpha)
+            all_norm_sq = np.sum(all_u * all_u, axis=1)
+            worst = int(np.argmax(all_norm_sq))
+            if all_norm_sq[worst] <= 1.0 + 1e-8:
+                break
+            active.add(worst)
+            alpha /= np.sqrt(all_norm_sq[worst])
+        else:
+            raise RuntimeError("Capacity constraint generation did not converge")
+
+        # A non-negative Lagrange multiplier fit gives a convex dual bound.
+        near = np.where(all_norm_sq >= 1.0 - 1e-6)[0]
+        Ua = node_basis[near]
+        Hu = np.einsum("nki,nkj->nij", Ua, Ua)
+        gradients = 2.0 * np.einsum("nij,j->ni", Hu, alpha)
+        multipliers, _ = optimize.nnls(gradients.T, objective)
+        H = np.einsum("n,nij->ij", multipliers, Hu)
+        primal = float(objective @ alpha)
+        dual = float(multipliers.sum() + 0.25 * objective @ np.linalg.pinv(H, rcond=1e-12) @ objective)
+        if dual - primal > 1e-5 * max(1.0, abs(primal)):
+            raise RuntimeError(f"Capacity duality gap {dual-primal:.3g} exceeds tolerance")
+
+        best_psi = (Q @ alpha) / scale
+        max_u = float(np.linalg.norm(best_psi.reshape(-1, 3), axis=1).max())
+        best_psi /= max_u
         if b_vec @ best_psi < 0:
             best_psi = -best_psi
         return float(abs(b_vec @ best_psi)), best_psi, sigma
