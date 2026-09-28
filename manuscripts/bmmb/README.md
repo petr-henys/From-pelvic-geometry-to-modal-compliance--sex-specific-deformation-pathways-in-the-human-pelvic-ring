@@ -4,7 +4,7 @@ Samostatná redakční verze z `../natcomm/main_plos.tex`, připravená 25. 9. 2
 
 ## Dokumenty
 
-- `main_bmmb.tex` / `main_bmmb.pdf`: jediný úplný rukopis, včetně všech matematických metod, 13 unikátních obrázků, tabulek a validačních výsledků.
+- `main_bmmb.tex` / `main_bmmb.pdf`: jediný úplný rukopis, včetně všech matematických metod, 15 unikátních obrázků, tabulek a validačních výsledků.
 - `cover_letter.tex` / `cover_letter.pdf` / `cover_letter.md`: průvodní dopis.
 - `bmmb_submission.zip`: samostatný balíček rukopisu, dopisu a jejich zdrojových závislostí. Neobsahuje samostatný supplement.
 - `asset_provenance.json`: původ převzatých podkladů a kontrolní součet původního rukopisu.
@@ -17,7 +17,7 @@ Název: **Comparing deformation subspaces across anatomical variability: a popul
 
 Text staví na problému srovnatelnosti módů mezi jedinci, anatomických funkcionálech a statickém rozkladu energie. Rozlišuje kinematickou kapacitu od poddajnosti na jednotku síly a matematickou invarianci báze od empirické stability mezi jedinci. Obecná tvrzení o zachování biologické funkce a porodnické závěry jsou omezeny na to, co podporuje linearizovaný model.
 
-Abstrakt má přibližně 215 slov, šest klíčových slov; sekce Author summary byla odstraněna. Použita je struktura Introduction–Materials and methods–Results–Discussion–Conclusions, samostatné Statements and Declarations. Matematická formulace je součástí hlavních Methods: pullback FE formulace, materiály a vazy, spektrální mezery, principal angles a Procrustes, anatomické funkcionály a optimalizace kapacity, kvadratura, rigidní projekce, polynomiální slovník, Shapleyho rozklad, modální energie, propagace nejistoty a analytický model včetně stochastických parametrů. Atlas, rozšířené výsledky a validační kontroly jsou rovněž přímo v hlavním článku. Po auditu byly přepočteny kapacity podprostorů, atlas a analytická propagace materiálové nejistoty z uložených vlastních vektorů; nové vlastní úlohy FE se neřešily.
+Abstrakt má přibližně 215 slov, šest klíčových slov; sekce Author summary byla odstraněna. Použita je struktura Introduction–Materials and methods–Results–Discussion–Conclusions, samostatné Statements and Declarations. Matematická formulace je součástí hlavních Methods: pullback FE formulace, materiály a vazy, spektrální mezery, principal angles a Procrustes, anatomické funkcionály a optimalizace kapacity, kvadratura, rigidní projekce, polynomiální slovník, Shapleyho rozklad, modální energie, propagace nejistoty a analytický model včetně stochastických parametrů. Atlas, rozšířené výsledky a validační kontroly jsou rovněž přímo v hlavním článku. Dva nové obrázky v Methods ukazují 14bodovou kvadraturu na referenční síti a reprezentativní pole čtyř polynomiálních rodin deformací; jejich zdroj je `analysis/render_method_illustrations.py`. Po auditu byly přepočteny kapacity podprostorů, atlas a analytická propagace materiálové nejistoty z uložených vlastních vektorů; nové vlastní úlohy FE se neřešily.
 
 Opravy podle existujících dat a kódu:
 

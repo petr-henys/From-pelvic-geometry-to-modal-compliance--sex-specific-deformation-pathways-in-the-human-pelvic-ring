@@ -352,6 +352,17 @@ Defining normalized quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$
 \label{eq:quadrature-sum}
 \end{equation}
 The degree-4 rule integrates the products of quadratic dictionary functions exactly on each tetrahedron. Because the reference modes are $P_1$, it also integrates their cross-products with the dictionary exactly.
+Figure~\ref{fig:quadrature-method} links the element rule to the whole-domain inner product and to the degrees of the three products used in the decomposition.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\textwidth,height=0.38\textheight,keepaspectratio]{quadrature_method.pdf}
+\caption{\textbf{Volume quadrature for the whole-pelvis displacement decomposition.}
+\textbf{(A)} Reference pelvic mesh with actual quadrature positions displayed for every 80th tetrahedron, solely to make the volume sampling visible; the computation uses all $166\,808$ cells.
+\textbf{(B)} The positive 14-point degree-4 Basix rule in one reference tetrahedron. Colour and sphere size distinguish its three weight groups (six, four, and four points); weights are positive and sum to the tetrahedral volume.
+\textbf{(C)} Polynomial degrees of the squared $P_1$ FE displacement, its cross-product with a quadratic dictionary field, and the quadratic dictionary Gram product. The 14-point rule is exact through degree 4 on each tetrahedron. The illustrations show sampling geometry, not subject-specific deformation.}
+\label{fig:quadrature-method}
+\end{figure}
 
 \subsubsection{Infinitesimal rigid-body motion elimination}
 Infinitesimal rigid-body displacements in $\mathbb{R}^3$ constitute a 6-dimensional linear Lie algebra subspace $\mathfrak{se}(3)$ consisting of 3 translations and 3 rotations:
@@ -468,6 +479,17 @@ Crucially, these three vector fields satisfy the identity:
 \end{equation}
 Hence, this selected torsion-like polynomial family has algebraic dimension 2, spanned by $\{\mathbf t_x, \mathbf t_y\}$.
 \end{enumerate}
+
+Figure~\ref{fig:dictionary-families} shows one representative field from each family on the same reference anatomy. The visualisations display the polynomial fields after the rigid-motion projection used in the decomposition; they do not depict separate eigenmodes or unique physical mechanisms.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\textwidth,height=0.64\textheight,keepaspectratio]{deformation_families.pdf}
+\caption{\textbf{Representative fields of the 3D polynomial deformation dictionary.}
+One example per family is evaluated on the reference pelvis: \textbf{(A)} axial extension, $\mathbf a_{x,1}$; \textbf{(B)} shear-free bending, $\mathbf b_{xy}$; \textbf{(C)} uniform transverse shear, $\mathbf s_{xy,1}$; and \textbf{(D)} torsion-like twist, $\mathbf t_x$.
+Each card shows anterior and cranial views. Grey denotes the undeformed geometry; colour indicates displacement magnitude relative to the maximum within that field. The formulas are the raw polynomial dictionary members in dimensionless coordinates, and the rendered fields have their volume-weighted infinitesimal rigid component removed. Each rendered field is independently scaled to 50 mm maximum displacement for visibility; these are illustrative basis fields, not computed FE eigenmodes or predicted load responses.}
+\label{fig:dictionary-families}
+\end{figure}
 
 To assemble the discrete kinematic design matrix, the basis fields in each family $m \in \{\text{axial, bending, shear, torsion}\}$ are sampled at the $N_q$ quadrature points, weighted by $\sqrt{\tilde w_p}$, projected orthogonal to $\mathbf Q_{\rm rigid}$ via $\mathbf P_{\rm nonrigid}$, and orthonormalised via reduced singular value decomposition (SVD):
 \begin{equation}

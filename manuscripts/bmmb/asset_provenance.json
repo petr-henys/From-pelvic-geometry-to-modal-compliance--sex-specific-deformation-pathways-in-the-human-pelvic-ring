@@ -29,7 +29,9 @@
     "robustness.pdf": "analysis_outputs/plos_revision/figures/robustness.pdf",
     "material_uncertainty_table.tex": "analysis_outputs/material_uncertainty/material_uncertainty_table.tex",
     "global_deformation_modes_table.tex": "analysis_outputs/tables/global_deformation_modes_table.tex",
-    "global_deformation_synthetic_table.tex": "analysis_outputs/tables/global_deformation_synthetic_table.tex"
+    "global_deformation_synthetic_table.tex": "analysis_outputs/tables/global_deformation_synthetic_table.tex",
+    "quadrature_method.pdf": "analysis_outputs/method_illustrations/quadrature_method.pdf",
+    "deformation_families.pdf": "analysis_outputs/method_illustrations/deformation_families.pdf"
   },
   "numerical_revision": {
     "date": "2026-09-28",
@@ -46,7 +48,9 @@
       "analysis/recompute_bone_sensitivities.py": "187ce56d0c9db0203ed0ef2c4d4a56ce71a813378d32e5c888ff08c75b74acca",
       "analysis/combine_bone_sensitivities.py": "9b28550eaa06a7267ad6c258bb1258df8781805c1fbf6bbd54c93ef152841d26",
       "analysis/material_uncertainty_population.py": "68b8dad3cf1ace8d1e35460017de69000a2448daa438c4b5f0ecea5c0f0e6fec",
-      "analysis/reference_mode_atlas.py": "ab219937408aa80e39014e6fcbe385fcb9584737f6446c3bbda1197b802ec714"
-    }
+      "analysis/reference_mode_atlas.py": "ab219937408aa80e39014e6fcbe385fcb9584737f6446c3bbda1197b802ec714",
+      "analysis/render_method_illustrations.py": "8586bf206991b4fcbec8be04a1285299baa2c51f268685dca6b98e90d1400518"
+    },
+    "method_illustrations": "analysis/render_method_illustrations.py"
   }
 }
