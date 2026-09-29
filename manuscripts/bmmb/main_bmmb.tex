@@ -26,22 +26,22 @@
 \affil[3]{\orgdiv{Department of Orthopedic and Trauma Surgery}, \orgname{University of Leipzig}, \orgaddress{\city{Leipzig}, \country{Germany}}}
 \affil[4]{\orgdiv{Division of Biomechatronics}, \orgname{Fraunhofer Institute for Machine Tools and Forming Technology IWU}, \orgaddress{\city{Chemnitz and Dresden}, \country{Germany}}}
 \affil[5]{\orgdiv{Department of Anatomy, Faculty of Medicine in Hradec Kr\'{a}lov\'{e}}, \orgname{Charles University}, \orgaddress{\city{Hradec Kr\'{a}lov\'{e}}, \country{Czech Republic}}}
-\abstract{Comparing deformation modes across subject-specific finite-element models requires distinguishing changes in mechanical behaviour from changes in spectral ordering. We investigated this distinction in 278 computed-tomography-derived pelvic models with individual geometry and bone elasticity on a shared reference domain. The 15 lowest linearised stiffness modes were compared using spectral gaps, modal assignment, principal angles, anatomical diameter functionals, and modal strain-energy fractions under standing and internal-ring expansion loads. Modes 1--3 formed a well-separated, order-stable group with label-exchange rates below 0.4\%. A recurrent rank 9--10 cluster occurred in \PrevalenceNineTen\% of subjects. Within this cluster, median anteroposterior inlet coupling assigned to rank 9 decreased from 0.454 to 0.139 mm/mm between subjects without and with label exchange, whereas the corresponding subspace capacity changed from 0.551 to 0.525 mm/mm. Thus, the approximately 69\% difference at one rank greatly exceeded the approximately 5\% difference at the subspace level. Standing primarily recruited low-rank modes, whereas internal-ring expansion preferentially recruited the 9--10 block. An exploratory first-order material sensitivity analysis and a minimal analytical model contextualised the separation between rank instability and subspace-level deformation capacity. These findings favour comparing compact modal subspaces alongside individual modes in crowded spectral regions. The conclusion applies to the linearised pelvic models and the specified loads; it does not predict childbirth outcomes.}
+\abstract{Comparing deformation modes across subject-specific finite-element models requires distinguishing changes in mechanical behaviour from changes in spectral ordering. We investigated this distinction in 278 computed-tomography-derived pelvic models with individual geometry and bone elasticity on a shared reference domain. The 15 lowest linearised stiffness modes were compared using spectral gaps, modal assignment, principal angles, anatomical diameter functionals, and modal strain-energy fractions under standing and internal-ring expansion loads. Modes 1--3 formed a well-separated, order-stable group with label-exchange rates below 0.4\%. A recurrent rank 9--10 cluster occurred in \PrevalenceNineTen\% of subjects. Within this cluster, median anteroposterior inlet coupling assigned to rank 9 decreased from 0.454 to 0.139 mm/mm between subjects without and with label exchange, whereas the corresponding subspace capacity changed from 0.551 to 0.525 mm/mm. Thus, the approximately 69\% difference at one rank greatly exceeded the approximately 5\% difference at the subspace level. Standing primarily recruited low-rank modes, whereas internal-ring expansion preferentially recruited the 9--10 block. An exploratory first-order material sensitivity analysis and a minimal analytical model contextualised the separation between rank instability and subspace-level deformation capacity. These findings favour comparing compact modal subspaces alongside individual modes in crowded spectral regions. The conclusions concern initial elastic deformation under the specified pelvic loads.}
 \keywords{Population biomechanics, Pelvic mechanics, Finite-element modelling, Modal analysis, Anatomical variability, Invariant subspaces}
 \maketitle
 \clearpage
 \section{Introduction}\label{sec:introduction}
-The human pelvis transfers loads between the trunk and lower limbs and surrounds a canal whose dimensions have anatomical and obstetric significance. Its deformation depends on bone geometry and material properties, joint compliance, and ligamentous restraints~\citep{Snijders1993,Vleeming2012}. Pelves differ in shape, but it remains unclear whether that variation also changes the deformation pathways available to the ring and how different loads recruit them. A linearised model can address the initial structural response, without representing physiological adaptation or childbirth.
+The human pelvis transfers loads between the trunk and lower limbs and surrounds a canal whose dimensions have anatomical and obstetric significance. Its deformation depends on bone geometry and material properties, joint compliance, and ligamentous restraints~\citep{Snijders1993,Vleeming2012}. Pelves differ in shape, but it remains unclear whether that variation also changes the deformation pathways available to the ring and how different loads recruit them. We focus on the initial structural response under small deformations.
 
-A single representative geometry cannot resolve variation in mechanical behaviour across individuals; average inputs need not yield an average response~\citep{CookRobertson2016}. Population modelling therefore has a role in computational biomechanics~\citep{Fernandez2020Population}. Statistical pelvic shape models describe geometric variation~\citep{Arand2019PelvicShape}, but their principal components maximise shape variance rather than mechanical compliance. Mechanical comparisons also require material properties, joint and ligament representations, and boundary conditions. CT-derived FE studies have examined strain variation during gait in five specimen-specific pelves~\citep{Salo2017PelvicStrain}, the effects of pelvic ligaments~\citep{Henys2022Ligaments}, and joint reactions during standing and walking in female models~\citep{Chen2026PelvicModel}. These studies characterise anatomy- or load-dependent responses. Our question is how to compare the underlying deformation directions across a larger population.
+Population comparisons require multiple anatomies because average model inputs can produce responses that differ from the average response~\citep{CookRobertson2016}. Population modelling therefore has a role in computational biomechanics~\citep{Fernandez2020Population}. Statistical pelvic shape models rank geometric variance~\citep{Arand2019PelvicShape}; FE deformation modes rank mechanical response. Mechanical comparisons also require material properties, joint and ligament representations, and boundary conditions. CT-derived FE studies have examined strain variation during gait in five specimen-specific pelves~\citep{Salo2017PelvicStrain}, the effects of pelvic ligaments~\citep{Henys2022Ligaments}, and joint reactions during standing and walking in female models~\citep{Chen2026PelvicModel}. These studies characterise anatomy- or load-dependent responses. Our question is how to compare the underlying deformation directions across a larger population.
 
-A stiffness eigenproblem provides an ordered set of deformation directions independent of any one prescribed load. Pelvic modal analysis is established: \citet{HenysCapek2019Modal} studied convergence and experimental validation of a CT-derived pelvic-bone model, while \citet{Henys2021Eigenmetric} related stiffness-spectrum descriptors to anthropometry and sex. An eigenvalue rank, however, need not identify the same anatomical deformation in every subject. Near neighbouring eigenvalues, mode shapes can exchange their order or mix as parameters change, as recognised in structural mechanics~\citep{Pierre1988,ManconiMace2017}. Invariant-subspace methods address this ambiguity by comparing the span of neighbouring modes~\citep{GhoshGhanem2012}; the question here is whether that distinction changes the interpretation of pelvic deformation.
+A stiffness eigenproblem provides an ordered set of deformation directions independent of any one prescribed load. Pelvic modal analysis is established: \citet{HenysCapek2019Modal} studied convergence and experimental validation of a CT-derived pelvic-bone model, while \citet{Henys2021Eigenmetric} related stiffness-spectrum descriptors to anthropometry and sex. Across subjects, the same eigenvalue rank can represent different anatomical deformations. Near neighbouring eigenvalues, mode shapes can exchange their order or mix as parameters change, as recognised in structural mechanics~\citep{Pierre1988,ManconiMace2017}. Invariant-subspace methods address this ambiguity by comparing the span of neighbouring modes~\citep{GhoshGhanem2012}; the question here is whether that distinction changes the interpretation of pelvic deformation.
 
-Suppose an eigenvector opens the inlet in one pelvis, while its neighbouring eigenvector carries most of that response in another. A rank-by-rank comparison would suggest a large change even if the two-mode space retains a similar inlet-opening capacity. Conversely, close eigenvalues do not guarantee that the space or its anatomical coupling is preserved. We therefore compare spectral gaps, cross-subject correspondence, and anatomically defined diameter responses together. Basis invariance removes dependence on the coordinates chosen within a subspace; stability between subjects must still be measured.
+Suppose an eigenvector opens the inlet in one pelvis, while its neighbouring eigenvector carries most of that response in another. A rank-by-rank comparison would suggest a large change even if the two-mode space retains a similar inlet-opening capacity. We therefore measure spectral gaps, cross-subject correspondence, and anatomically defined diameter responses together. Basis-invariant capacity separates internal relabelling from changes in the subspace response.
 
 Inlet and outlet diameter functionals make these comparisons anatomically interpretable. The maximum diameter change attainable within a modal subspace, at a fixed maximum nodal displacement, measures its kinematic capacity. It is distinct from compliance under an applied force. Static modal strain-energy fractions assess which directions the prescribed loads actually recruit. Considering capacity and recruitment together prevents an available deformation direction from being mistaken for one that a given load strongly excites.
 
-We analyse 278 CT-derived pelvic FE models with subject-specific geometry and bone elasticity on a shared reference domain~\citep{HenyssKuchar2025BoneDat}. We ask whether low-rank modes retain correspondence, whether recurrent clustered subspaces show smaller differences in anatomical capacity than individual ranks across label-exchange groups, and whether standing and internal-ring expansion recruit different spectral regions. Material-sensitivity calculations and a minimal analytical example help interpret the comparisons. The contribution is a population-level assessment of when individual modes, rather than their spanned subspaces, provide reliable anatomical descriptors. The rank groups and load responses reported below apply to this linearised model family.
+We analyse 278 CT-derived pelvic FE models with subject-specific geometry and bone elasticity on a shared reference domain~\citep{HenyssKuchar2025BoneDat}. We ask whether low-rank modes retain correspondence, whether recurrent clustered subspaces show smaller differences in anatomical capacity than individual ranks across label-exchange groups, and whether standing and internal-ring expansion recruit different spectral regions. Material-sensitivity calculations and a minimal analytical example help interpret the comparisons. The contribution is a population-level assessment of the appropriate modal comparison unit for anatomical interpretation. The rank groups and load responses reported below apply to this linearised model family.
 
 \section{Materials and methods}
 \label{sec:methods}
@@ -53,12 +53,12 @@ We first define the shared-domain FE models and modal comparisons, then the anat
 \label{sec:cohort}
 
 We analysed a precomputed set of $N{=}278$ CT-derived pelvic finite-element models assembled on a common reference domain ($n_F{=}150$, $n_M{=}128$; age 16--91~yr, mean $54\pm19$).
-No new cohort was recruited.
+The analysis reuses the published BoneDat cohort.
 The source repository provides standardised pelvic geometries suitable for in silico analysis~\citep{HenyssKuchar2025BoneDat}.
 The reference pelvic domain $\Omega_{\rm ref}$ was discretized using a conforming volumetric mesh comprising $166\,808$ linear four-node tetrahedral elements (Lagrange $P_1$, $48\,291$ nodes, totaling $144\,873$ displacement degrees of freedom), with conforming interfaces between the bony segments (sacrum, left and right ossa coxae) and the joint cartilage domains (bilateral sacroiliac articular cartilage and the pubic symphysis disc).
 A nonrigid volumetric registration $\chi_s: \Omega_{\rm ref}\to\Omega_s$ with deformation gradient $F_s(X)=\nabla_X\chi_s(X)$ and Jacobian $J_s=\det F_s$ maps the template domain $\Omega_{\rm ref}$ onto each subject domain $\Omega_s$.
 The registration was obtained by radial-basis-function interpolation.
-The registered geometries share anatomical correspondence, but size variation remains in the archived cohort. The primary analysis uses stored solver-order spectra without the separate post-hoc eigenvalue scale adjustment; isotropic size is examined as a covariate in the allometric analysis.
+The registered geometries share anatomical correspondence and retain cohort size variation. The primary analysis uses archived solver-order spectra; the allometric analysis examines isotropic size as a covariate.
 Fig.~\ref{fig:model-setup} summarises the anatomical dimensions, ligament representation, and boundary-condition layout used to define the pelvic models analysed here.
 
 
@@ -66,7 +66,7 @@ Fig.~\ref{fig:model-setup} summarises the anatomical dimensions, ligament repres
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\textwidth]{Fig1.pdf}
-\caption{Pelvic model and standardised loading. \textbf{(A)} Bony segments, joint cartilage, ligament bundles, and superior sacral restraint. \textbf{(B)} Inlet and outlet diameter definitions on the reference anatomy. \textbf{(C)} Two-leg and one-leg standing loads. \textbf{(D)} Comparative internal-ring expansion, ischial distraction, and anteroposterior outlet distraction loads (\LAB). Each traction is normalised to the prescribed resultant across subjects. Expansion loads probe linear structural response and do not represent successive simulated stages of labour}
+\caption{Pelvic model and standardised loading. \textbf{(A)} Bony segments, joint cartilage, ligament bundles, and superior sacral restraint. \textbf{(B)} Inlet and outlet diameter definitions on the reference anatomy. \textbf{(C)} Two-leg and one-leg standing loads. \textbf{(D)} Comparative internal-ring expansion, ischial distraction, and anteroposterior outlet distraction loads (\LAB). Each traction is normalised to the prescribed resultant across subjects.}
 \label{fig:model-setup}
 \end{figure}
 
@@ -90,15 +90,15 @@ a(\widehat{\mathbf u},\widehat{\mathbf v})
 :\mathrm{sym}\!\big(\nabla_X \widehat{\mathbf v}\,F_s^{-1}\big)\,J_s\,\mathrm dX.
 \label{eq:pullback-bilinear}
 \end{equation}
-Here $F_s$ and $J_s$ arise only from the fixed image registration; no finite-strain mechanics is implied.
+The fixed image registration supplies $F_s$ and $J_s$ for the small-strain formulation.
 The mass bilinear form inherits the geometric volume factor,
 \begin{equation}
 m(\widehat{\mathbf u},\widehat{\mathbf v})
 =\int_{\Omega_{\rm ref}} J_s(X)\,\widehat{\mathbf u}\cdot\widehat{\mathbf v}\,\mathrm dX,
 \label{eq:mass-subject}
 \end{equation}
-defining an $L^2$ volume inner product weighted by local volumetric dilation rather than physical dynamic mass density.
-The resulting generalised eigenvalues $\lambda_k = \boldsymbol\phi_k^\top K_s \boldsymbol\phi_k / (\boldsymbol\phi_k^\top M_s \boldsymbol\phi_k)$ are stiffness-spectrum descriptors in a volume metric. With coordinates in mm and modulus in MPa they have units N/mm$^4$; their reciprocals have units mm$^4$/N and are not point compliances. They are not physical resonance frequencies because $M_s$ does not include mass density.
+defining an $L^2$ volume inner product weighted by local volumetric dilation.
+The resulting generalised eigenvalues $\lambda_k = \boldsymbol\phi_k^\top K_s \boldsymbol\phi_k / (\boldsymbol\phi_k^\top M_s \boldsymbol\phi_k)$ are stiffness-spectrum descriptors in a volume metric. With coordinates in mm and modulus in MPa, they have units N/mm$^4$. The geometric-volume mass form makes these static stiffness descriptors; their reciprocals have units mm$^4$/N.
 The \emph{unmapped} reference mass matrix $M_{\rm ref}^{0}$ is obtained from~\eqref{eq:mass-subject} with $J\equiv 1$ and provides a shared, registration-independent inner product across subjects.
 
 
@@ -116,9 +116,9 @@ E(x)=\begin{cases}
 \label{eq:keller}
 \end{gathered}
 \end{equation}
-with Poisson's ratio $\nu=0.3$. Negative input densities are clipped to zero. The law is applied at source points, after which the resulting modulus is interpolated to FE cells using RBF interpolation (smoothing parameter 50, ten neighbours). The constant low-density branch and the exponent 2.0 are modelling choices rather than an exact reproduction of the cited regression. Density--modulus calibration depends on anatomical site~\citep{Morgan2003Trabecular} and was not performed individually for this cohort.
+with Poisson's ratio $\nu=0.3$. Negative input densities are clipped to zero. The law is applied at source points, after which the resulting modulus is interpolated to FE cells using RBF interpolation (smoothing parameter 50, ten neighbours). The constant low-density branch and exponent 2.0 define the implemented approximation to the cited regression. Density--modulus calibration varies by anatomical site~\citep{Morgan2003Trabecular}; the cohort uses one prescribed law.
 Cartilage (sacroiliac joints and pubic symphysis) is homogeneous linear elastic with $E=1.0$\,MPa and $\nu=0.45$.
-These parameters are prescribed effective values. General accounts of bone adaptation~\citep{Frost1987,Huiskes1987} and pelvic joint mechanics~\citep{Snijders1993,Vleeming2012,Goode2008} provide context but do not validate their numerical values.
+The cartilage parameters are prescribed effective values; pelvic joint mechanics and bone adaptation provide context for this representation~\citep{Frost1987,Huiskes1987,Snijders1993,Vleeming2012,Goode2008}.
 
 \noindent\textbf{Ligaments in pullback coordinates.}
 Ligament families are represented as polyline bundles mapped from template nodes $X_i$ to physical points $x_i=\chi_s(X_i)$.
@@ -141,9 +141,9 @@ K_s=K_{\rm elas,s}+K_{\rm lig,s}+K^{\rm geo}_s(T)+K_{\Gamma,s},\qquad
 f=f_{\rm ext}+f_{\rm pret}(T),
 \label{eq:K-assembled}
 \end{equation}
-where geometric stiffness $K^{\rm geo}_s(T)$ incorporates the stabilising effect of initial ligament pretension $T$. This is a linear approximation with prescribed prestress; a geometrically nonlinear equilibrated prestressed configuration was not established.
+where geometric stiffness $K^{\rm geo}_s(T)$ incorporates the effect of prescribed ligament pretension $T$ in a linearised configuration.
 The term $K_{\Gamma,s}$ implements Dirichlet penalties on the restrained superior sacral facet $\Gamma_{\rm ref}$,
-$a_\Gamma(\widehat{\mathbf u},\widehat{\mathbf v})=\gamma\int_{\Gamma_{\rm ref}} \widehat{\mathbf u}\cdot\widehat{\mathbf v}\,J_{\Gamma,s}\,\mathrm dS_X$ with $J_{\Gamma,s}=J_s\|F_s^{-T}N\|$, using a fixed penalty parameter $\gamma = 10^6\,\mathrm{N/mm^3}$ prescribed directly without element-size or modulus scaling.
+$a_\Gamma(\widehat{\mathbf u},\widehat{\mathbf v})=\gamma\int_{\Gamma_{\rm ref}} \widehat{\mathbf u}\cdot\widehat{\mathbf v}\,J_{\Gamma,s}\,\mathrm dS_X$ with $J_{\Gamma,s}=J_s\|F_s^{-T}N\|$, using a fixed penalty parameter $\gamma = 10^6\,\mathrm{N/mm^3}$.
 
 \noindent\textbf{Force-controlled loading.}
 Neumann terms are pulled back to $\Gamma_{\rm ref}$ so that physical resultants are invariant under $\chi_s$:
@@ -159,9 +159,9 @@ All load cases in this study are defined by a total force $\mathbf F$ on a tagge
 
 Loads were applied as force-controlled Neumann tractions via~\eqref{eq:neumann-pullback} so that every subject experienced the same integrated force vector regardless of physical surface area.
 Two standing cases were considered: symmetric two-leg stance (SP2leg; $400$\,N per acetabulum, $+$CC) and one-leg stance (SP1leg; $800$\,N on the stance acetabulum, $+$CC).
-The 400\,N per hip and 800\,N one-leg magnitudes are prescribed comparative loads. The cited in-vivo hip-contact forces provide context for physiological loading but do not validate these particular traction fields~\citep{Bergmann2001JBiomech,Kutzner2016PLOS}.
-Three proxy load cases probed parturition-relevant routing without modelling contact mechanics: \LABone\ applied bilateral mediolateral internal ring expansion forces ($\pm 400$\,N outward), \LABtwo\ applied bilateral ischial-tuberosity distraction ($\pm 400$\,N), and \LABthree\ applied anteroposterior outlet distraction between the pubis insertion ($-$AP, $400$\,N) and the sacrococcygeal joint ($+$AP, $400$\,N).
-These loads act as standardised comparative probes of pelvic structural compliance rather than clinical simulations of labour~\citep{ChenGrimm2021,Almeida2024Uterus}.
+The 400\,N per hip and 800\,N one-leg magnitudes define standardised comparative loads; measured hip-contact forces provide physiological context~\citep{Bergmann2001JBiomech,Kutzner2016PLOS}.
+Three comparative pelvic expansion cases probed load-dependent routing: \LABone\ applied bilateral mediolateral internal ring expansion forces ($\pm 400$\,N outward), \LABtwo\ applied bilateral ischial-tuberosity distraction ($\pm 400$\,N), and \LABthree\ applied anteroposterior outlet distraction between the pubis insertion ($-$AP, $400$\,N) and the sacrococcygeal joint ($+$AP, $400$\,N).
+The three cases quantify initial pelvic compliance under prescribed force directions.
 Static finite-element solutions solve the linear equilibrium equation $K_s \mathbf u = \mathbf b$ with
 \begin{equation}
 \mathbf b = \mathbf f_{\rm ext} + \mathbf f_{\rm pret}
@@ -171,7 +171,7 @@ for the primary total-response analysis, where $\mathbf f_{\rm pret}$ represents
 Primary cohort-wide modal strain-energy fractions (Section~\ref{sec:load-results}; Table~\ref{tab:dominant-sets}) are computed directly from these total displacement fields $\mathbf u$.
 By linearity, total displacement decomposes as $\mathbf u = \mathbf u_{\rm pret} + \delta\mathbf u_{\rm ext}$, where $\delta\mathbf u_{\rm ext} = K_s^{-1}\mathbf f_{\rm ext}$ is the incremental external load response.
 Under external load scaling $\mathbf f_{\rm ext} \to c\mathbf f_{\rm ext}$, incremental displacements scale proportionally ($\delta\mathbf u_{\rm ext} \to c\,\delta\mathbf u_{\rm ext}$), such that modal expansion coefficients $q_i = \boldsymbol\phi_i^\top M_s \delta\mathbf u_{\rm ext}$ scale by $c$, modal energies $E_i = \frac{1}{2}\lambda_i q_i^2$ scale by $c^2$, and the normalised modal strain-energy fractions $f_i = E_i / \sum_j E_j$ of the incremental response are strictly scale-invariant.
-To examine the effect of baseline pretension on routing, we compared archived total-response and incremental-response modal fractions in 18 subjects with complete stored incremental outputs. The top recruited mode agreed for all five loads in all 18 subjects. The maximum individual change in the 9--10 block fraction was 4.24 percentage points, while its mean change under \LABone\ was $+3.48$ percentage points. The smallest dominant set reaching 80\% of retained energy had the same size in all 18 standing cases and in 14 of 18 \LABone\ cases. This subset supports similar dominant routing but does not establish exact invariance across the full cohort.
+To examine the effect of baseline pretension on routing, we compared archived total-response and incremental-response modal fractions in 18 subjects with complete stored incremental outputs. The top recruited mode agreed for all five loads in all 18 subjects. The maximum individual change in the 9--10 block fraction was 4.24 percentage points, while its mean change under \LABone\ was $+3.48$ percentage points. The smallest dominant set reaching 80\% of retained energy had the same size in all 18 standing cases and in 14 of 18 \LABone\ cases. Dominant routing was similar in this 18-subject subset.
 
 \subsection{Generalised eigenproblem, rigid-mode filtering, and cross-subject pairing}
 \label{sec:evp}
@@ -212,7 +212,7 @@ External separation is quantified by
 \label{eq:sep-out}
 \end{equation}
 defined for interior clusters ($i > 1$ and $j < N_{\rm ev}$) where both adjacent neighbours exist. For boundary blocks reaching modal truncation (such as the 12--15 cluster with $N_{\rm ev}=15$), the upper neighbour is uncomputed and two-sided separation is formally undefined.
-Exact mathematical multiplicity ($\lambda_i = \lambda_{i+1}$) was not observed under the operational numerical tolerance $\mathrm{gap}_{\rm in}\le\varepsilon_{\rm deg}=10^{-6}$ in any subject. No obvious spatial symmetry was identified that would enforce repeated eigenvalues, although accidental parameter-dependent crossings are not mathematically excluded; nonetheless, the regimes detected by~\eqref{eq:gap-in} are operational small-gap clusters in which perturbation sensitivity may be elevated~\citep{Pierre1988,ManconiMace2017}.
+All adjacent gaps exceeded the operational multiplicity tolerance $\mathrm{gap}_{\rm in}\le\varepsilon_{\rm deg}=10^{-6}$. The regimes detected by~\eqref{eq:gap-in} are operational small-gap clusters associated with elevated perturbation sensitivity~\citep{Pierre1988,ManconiMace2017}.
 
 \subsection{Invariant subspaces: principal angles, Grassmann distance, and Procrustes alignment}
 \label{sec:subspace-methods}
@@ -243,7 +243,7 @@ We compare subspaces through basis-invariant measures and retain individual-rank
 
 \noindent\textbf{Degeneracy vs.\ near-degenerate mixing.}
 Exact mathematical multiplicity requires $\lambda_i = \lambda_{i+1}$ (operationalized numerically as $\mathrm{gap}_{\rm in}(k)\le\varepsilon_{\rm deg}$ for all $k$ in the block, with $\varepsilon_{\rm deg}\ll\varepsilon_{\rm in}$); individual eigenvectors inside a degenerate subspace are then not unique, and any unitary rotation inside $\mathrm{span}(Q_s)$ is an equally valid basis.
-When $\varepsilon_{\rm deg}<\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ the eigenvalues are close but distinct; each eigenvector is unique up to sign, yet small perturbations can rotate the internal basis substantially while the spanned subspace can be less sensitive if its external separation is sufficiently large relative to the perturbation. Neither a small internal gap nor label exchange alone proves preservation of anatomical coupling.
+When $\varepsilon_{\rm deg}<\mathrm{gap}_{\rm in}(k)<\varepsilon_{\rm in}$ the eigenvalues are close but distinct; each eigenvector is unique up to sign, yet small perturbations can rotate the internal basis substantially while the spanned subspace can be less sensitive if its external separation is sufficiently large relative to the perturbation. Anatomical coupling is therefore evaluated directly with the functionals below.
 
 \subsection{Canonical anatomical functionals inside clustered subspaces}
 \label{sec:canonical-methods}
@@ -265,7 +265,7 @@ s_\ell^{(s)}(\mathbf u) = \mathbf e_\ell^{(s)\top}\! \big(\mathbf u(X_{\rm targe
 \label{eq:functional-score}
 \end{gathered}
 \end{equation}
-with measurement vectors $\mathbf b_\ell^{(s)}\in\mathbb R^n$ constructed using inverse-distance-squared weighting over the 32 nearest reference-mesh nodes at each template landmark. These weights remain fixed across subjects; the direction $\mathbf e_\ell^{(s)}$ is updated from RBF-mapped landmark positions. BIS measures the midpelvis between the ischial spines, whereas BIT measures the intertuberous outlet. The AP-outlet observable uses the sacrococcygeal landmark and is not a coccygeal-tip diameter.
+with measurement vectors $\mathbf b_\ell^{(s)}\in\mathbb R^n$ constructed using inverse-distance-squared weighting over the 32 nearest reference-mesh nodes at each template landmark. These weights remain fixed across subjects; the direction $\mathbf e_\ell^{(s)}$ is updated from RBF-mapped landmark positions. BIS measures the midpelvis between the ischial spines, whereas BIT measures the intertuberous outlet. The AP-outlet observable runs from the sacrococcygeal landmark to the inferior pubic symphysis.
 
 \noindent\textbf{Basis-invariant max-nodal anatomical capacity.}
 For any individual functional $\mathbf b_\ell^{(s)}$ and an orthonormal basis $Q_s \in \mathbb R^{n \times r}$ spanning a clustered subspace of dimension $r$ ($Q_s^\top M_{\rm ref}^0 Q_s = I_r$), every displacement in the subspace is parameterised by $\mathbf u = Q_s \boldsymbol\alpha$ with $\boldsymbol\alpha \in \mathbb R^r$.
@@ -288,15 +288,15 @@ C_s = Q_s^\top B_s = \big[Q_s^\top\mathbf b_1^{(s)}\ \ Q_s^\top\mathbf b_2^{(s)}
 \label{eq:canonical-proj}
 \end{gathered}
 \end{equation}
-where the singular values $\sigma_1\ge\sigma_2$ describe joint coupling under the coefficient constraint $\|\boldsymbol\alpha\|_2=1$, equivalent to unit norm in $M_{\rm ref}^0$. They do not give maxima under the max-nodal displacement constraint.
+where the singular values $\sigma_1\ge\sigma_2$ describe joint coupling under the coefficient constraint $\|\boldsymbol\alpha\|_2=1$, equivalent to unit norm in $M_{\rm ref}^0$. Max-nodal capacities are evaluated separately by Eq.~\eqref{eq:single-functional-max-nodal}.
 The canonical displacement modes in physical space are $\boldsymbol\psi_k^{(s)} = Q_s U_s[:, k]$ ($k=1, 2$), with corresponding dual functionals in covector space $\widetilde{\mathbf b}_k^{(s)} = B_s V_s[:, k] = V_s[0, k]\mathbf b_1^{(s)} + V_s[1, k]\mathbf b_2^{(s)}$.
 By construction, their action is exactly equal to the singular values: $\widetilde{\mathbf b}_k^{(s)\top}\boldsymbol\psi_k^{(s)} = \sigma_k$.
 The singular-direction scores subsequently normalised by maximum nodal displacement are $\widehat s_k^{(s)} = \sigma_k / \max_a \|\boldsymbol\psi_{k,a}^{(s)}\|_2$.
 Because $V_s \in \mathrm O(2)$ mixes the two anatomical axes, mode $\boldsymbol\psi_1^{(s)}$ is primary-dominant only when $|V_s[0, 0]| \ge |V_s[1, 0]|$; across the pelvic cohort, the first singular mode in the 9--10 subspace is predominantly aligned with the more strongly coupled transverse (ML) axis ($|V_s[1, 0]| > |V_s[0, 0]|$ in $99.6\%$ of subjects).
-For unambiguous, axis-specific evaluation of anatomical opening without coordinate mixing, the basis-invariant single-functional capacity $\kappa_{\ell,\infty}(Q_s)$ (Eq.~\eqref{eq:single-functional-max-nodal}) serves as our primary quantitative metric, while joint-SVD scores provide complementary bivariate structure.
+For axis-specific evaluation of anatomical opening, the basis-invariant single-functional capacity $\kappa_{\ell,\infty}(Q_s)$ (Eq.~\eqref{eq:single-functional-max-nodal}) serves as our primary quantitative metric, while joint-SVD scores provide complementary bivariate structure.
 
 \subsection{Whole-pelvis deformation decomposition}\label{sec:mechanisms-methods}
-To distinguish global ring kinematics from joint-localised strains, we decompose the reference displacement fields after removing infinitesimal rigid motion. The fractions below describe the explained squared displacement norm within a specified polynomial dictionary, not elastic energy. Synthetic checks, the reference-mode atlas, and complete profile tables are provided in Section~\ref{sec:details-E}.
+To distinguish global ring kinematics from joint-localised strains, we decompose the reference displacement fields after removing infinitesimal rigid motion. The fractions below partition the nonrigid squared displacement norm within a specified polynomial dictionary. Synthetic checks, the reference-mode atlas, and complete profile tables are provided in Section~\ref{sec:details-E}.
 
 \subsubsection{Joint strain and global ring kinematics}
 The pelvic ring is a closed, doubly-curved structural biomechanical loop composed of three major bony segments (the sacrum and bilateral coxal bones) joined anteriorly at the pubic symphysis and posteriorly at the bilateral sacroiliac joints (SIJs).
@@ -308,8 +308,7 @@ In continuum mechanics, the standard approach to characterise modal kinematics w
 In the present quasi-static finite-element formulation, an effective joint modulus of $E_{\rm cartilage} = \CartilageEffectiveModulus\,\mathrm{MPa}$ is prescribed for the sacroiliac cartilage cleft and pubic symphysis disc.
 The prescribed cartilage modulus is much lower than the representative bone moduli ($E_{\rm bone} \sim 5\text{--}18\,\mathrm{GPa}$). In these models, strain concentrates near the compliant joints: projection of modal Cauchy strain onto low-order polynomial strain fields leaves 97--99\% of the strain norm unexplained across the 15 reference modes. Such a strain-based description therefore captures little of the global ring motion of interest here.
 
-A dictionary conditioned along only one anatomical axis did not describe coupled three-dimensional ring deformation adequately in the tested example.
-For complex three-dimensional deformation pathways involving coupled out-of-plane flexure and transverse shearing (such as Mode~2), the tested one-axis dictionary left an 84\% residual. This reflects the scope of that descriptive basis and is not evidence that all beam approximations are unphysical.
+For Mode~2, a tested one-axis dictionary left 84\% of the nonrigid squared displacement norm unexplained, motivating a three-dimensional basis that represents coupled flexure and shear.
 We therefore analyse displacement over the full three-dimensional pelvic domain. After removing infinitesimal rigid motion, we project the remaining field onto four polynomial deformation families. Their unexplained residual remains explicit.
 
 \subsubsection{Continuum inner product and tetrahedral quadrature}
@@ -326,8 +325,8 @@ The continuous reference domain $\Omega$ is discretized into an unstructured tet
 Within any tetrahedron $K$, a $P_1$ displacement field $\mathbf u_h(\mathbf x)$ is an affine vector function of position ($\mathbf u_h|_K \in \mathcal{P}_1(K)$).
 When computing projections against quadratic deformation modes $\mathbf p_2 \in \mathcal{P}_2(K)$, the modal cross-product integrand $\mathbf u_h \cdot \mathbf p_2$ is a cubic polynomial ($\mathcal{P}_3(K)$), and the dictionary Gram matrix integrand $\mathbf p_2 \cdot \mathbf p_2$ is a quartic polynomial ($\mathcal{P}_4(K)$).
 
-A four-point tetrahedral rule is exact for the squared norm of a $P_1$ displacement field ($\mathcal P_2(K)$), but not generally for the quadratic dictionary products used below.
-The reference atlas and its accompanying table were regenerated with a positive degree-4 tetrahedral quadrature rule with 14 points per tetrahedron (constructed via Basix).
+The four-point tetrahedral rule integrates squared $P_1$ displacement exactly ($\mathcal P_2(K)$). Products of quadratic dictionary fields require degree-4 exactness.
+For the reference atlas and its accompanying table, we used a positive 14-point tetrahedral quadrature rule exact through polynomial degree 4.
 For a rule exact to polynomial degree $d$ ($d=2$ for four points, $d=4$ for 14 points), the quadrature points $\mathbf x_{K,q}$ and strictly positive weights $w_{K,q} > 0$ satisfy $\sum_{q=1}^{N_{q,\rm tet}} w_{K,q} = |K|$:
 \begin{equation}
 \int_K p(\mathbf x) \, \mathrm{d}V = \sum_{q=1}^{N_{q,\rm tet}} w_{K,q} \, p(\mathbf x_{K,q}) \qquad \forall p \in \mathcal{P}_d(K).
@@ -339,16 +338,16 @@ Defining normalised quadrature weights $\tilde w_p = w_p / \sum_{j=1}^{N_q} w_j$
 \label{eq:quadrature-sum}
 \end{equation}
 The degree-4 rule integrates the products of quadratic dictionary functions exactly on each tetrahedron. Because the reference modes are $P_1$, it also integrates their cross-products with the dictionary exactly.
-This higher-order rule is used only for the post-processing projection onto the quadratic deformation dictionary, not because the $P_1$ finite-element eigenproblem requires it. It removes quadrature error from the dictionary Gram matrix while retaining positive weights for the weighted projection. To assess whether this exactness affects the reported atlas, we repeated the projection of all 15 reference modes with the standard positive four-point, degree-2 tetrahedral rule. Across the four deformation-family fractions and the residual fraction, the largest absolute change was $1.91\times 10^{-5}$ percentage points; thus, the higher-order rule has no material effect on the reported proportions.
+The degree-4 rule integrates the quadratic-dictionary projection exactly on each tetrahedron and supplies positive weights for the inner product. A four-point, degree-2 sensitivity recomputation of all 15 reference modes changed the deformation-family and residual fractions by at most $1.91\times 10^{-5}$ percentage points.
 Figure~\ref{fig:quadrature-method} links the element rule to the whole-domain inner product and to the degrees of the three products used in the decomposition.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\textwidth,height=0.38\textheight,keepaspectratio]{quadrature_method.pdf}
 \caption{\textbf{Volume quadrature for the whole-pelvis displacement decomposition.}
-\textbf{(A)} Reference pelvic mesh with actual quadrature positions displayed for every 80th tetrahedron, solely to make the volume sampling visible; the computation uses all $166\,808$ cells.
-\textbf{(B)} The positive 14-point degree-4 Basix rule in one reference tetrahedron. Colour and sphere size distinguish its three weight groups (six, four, and four points); weights are positive and sum to the tetrahedral volume.
-\textbf{(C)} Polynomial degrees of the squared $P_1$ FE displacement, its cross-product with a quadratic dictionary field, and the quadratic dictionary Gram product. The 14-point rule is exact through degree 4 on each tetrahedron. The illustrations show sampling geometry, not subject-specific deformation.}
+\textbf{(A)} Reference pelvic mesh with quadrature points displayed for every 80th tetrahedron; the calculation includes all $166\,808$ cells.
+\textbf{(B)} The 14 integration points on a standard tetrahedron. Colour and sphere size distinguish the three groups of positive weights (six, four, and four points). The rule is mapped to every tetrahedron in the mesh.
+\textbf{(C)} Polynomial degrees of the squared $P_1$ FE displacement, its cross-product with a quadratic dictionary field, and the quadratic dictionary Gram product. The 14-point rule is exact through degree 4 on each tetrahedron.}
 \label{fig:quadrature-method}
 \end{figure}
 
@@ -396,7 +395,7 @@ For any raw modal displacement field $\mathbf u$, the nonrigid component is $\ma
 f_{\rm nonrigid} = \frac{\|\mathbf u_{\rm nonrigid}\|_V^2}{\|\mathbf u\|_V^2}.
 \end{gathered}
 \end{equation}
-Crucially, rigid rotation is eliminated at this foundational stage: it is neither retained in the target deformation field nor reported as an explained deformation category.
+The target field and the reported deformation fractions exclude the projected rigid rotation.
 If a displacement field satisfies $\|\mathbf u_{\rm nonrigid}\|_V^2 / \|\mathbf u\|_V^2 \le 10^{-20}$, it is identified as a pure rigid motion and excluded from nonrigid decomposition.
 
 \subsubsection{Canonical 3D polynomial dictionary}
@@ -450,7 +449,7 @@ Comprises three uniform transverse shears, six planar quadratic transverse shear
 \label{eq:shear-family}
 \end{equation}
 Unlike bending, these modes produce non-zero shear strains $\varepsilon_{ij} \ne 0$.
-The triaxial mode $\mathbf w$ is irrotational ($\nabla \times \mathbf w = \mathbf 0$) and divergence-free ($\nabla \cdot \mathbf w = 0$), completing the chosen basis of the \NonrigidDOFs-dimensional nonrigid polynomial quotient; the complement is not unique.
+The triaxial mode $\mathbf w$ is irrotational ($\nabla \times \mathbf w = \mathbf 0$) and divergence-free ($\nabla \cdot \mathbf w = 0$), completing the chosen basis of the \NonrigidDOFs-dimensional nonrigid polynomial quotient.
 
 \item \textbf{Torsion family ($d_{\rm torsion} = 2$ degrees of freedom):}
 Saint-Venant torsional twist gradients around the three Cartesian axes:
@@ -468,14 +467,14 @@ Crucially, these three vector fields satisfy the identity:
 Hence, this selected torsion-like polynomial family has algebraic dimension 2, spanned by $\{\mathbf t_x, \mathbf t_y\}$.
 \end{enumerate}
 
-Figure~\ref{fig:dictionary-families} shows one representative field from each family on the same reference anatomy. The visualisations display the polynomial fields after the rigid-motion projection used in the decomposition; they do not depict separate eigenmodes or unique physical mechanisms.
+Figure~\ref{fig:dictionary-families} shows one rigid-projected polynomial field from each family on the reference anatomy.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\textwidth,height=0.64\textheight,keepaspectratio]{deformation_families.pdf}
 \caption{\textbf{Representative fields of the 3D polynomial deformation dictionary.}
 One example per family is evaluated on the reference pelvis: \textbf{(A)} axial extension, $\mathbf a_{x,1}$; \textbf{(B)} shear-free bending, $\mathbf b_{xy}$; \textbf{(C)} uniform transverse shear, $\mathbf s_{xy,1}$; and \textbf{(D)} torsion-like twist, $\mathbf t_x$.
-Each card shows anterior and cranial views. Grey denotes the undeformed geometry; colour indicates displacement magnitude relative to the maximum within that field. The formulas are the raw polynomial dictionary members in dimensionless coordinates, and the rendered fields have their volume-weighted infinitesimal rigid component removed. Each rendered field is independently scaled to 50 mm maximum displacement for visibility; these are illustrative basis fields, not computed FE eigenmodes or predicted load responses.}
+Each card shows anterior and cranial views. Grey denotes the undeformed geometry; colour indicates displacement magnitude relative to the maximum within that field. The formulas are the raw polynomial dictionary members in dimensionless coordinates, and the rendered fields have their volume-weighted infinitesimal rigid component removed. Each representative basis field is independently scaled to a 50\,mm maximum displacement for visibility.}
 \label{fig:dictionary-families}
 \end{figure}
 
@@ -489,19 +488,19 @@ To assemble the discrete kinematic design matrix, the basis fields in each famil
 The concatenated design matrix $\mathbf A = [\mathbf Q_{\rm axial}, \mathbf Q_{\rm bending}, \mathbf Q_{\rm shear}, \mathbf Q_{\rm torsion}] \in \mathbb{R}^{3N_q \times \NonrigidDOFs}$ spans the complete \NonrigidDOFs-dimensional canonical nonrigid deformation subspace.
 
 \subsubsection{Numerical conditioning, family non-orthogonality, and the Gram matrix}
-It is important to note that the four canonical deformation families exhibit intrinsic non-orthogonality and are not mutually orthogonal even on an idealized symmetric domain.
+The four deformation families overlap even on an idealised symmetric domain.
 For example, on the symmetric unit cube $[-1, 1]^3$ (volume $V = 8$), the unnormalised continuum volume integral between the bending mode $\mathbf b = (-xy, \frac{1}{2}x^2, 0)^\top$ and the shear mode $\mathbf s = (xy, \frac{1}{2}x^2, 0)^\top$ evaluates analytically to $\int_{[-1, 1]^3} \mathbf b \cdot \mathbf s \, \mathrm dV = -22/45 \approx -0.4889$, corresponding to a volume-normalised inner product $\langle \mathbf b, \mathbf s \rangle_V = \frac{1}{V}\int_{[-1, 1]^3} \mathbf b \cdot \mathbf s \, \mathrm dV = -11/180 \approx -0.0611$ (angular cosine $\cos\theta = -11/29 \approx -0.3793$).
-Both example fields have the same nonzero mean translation $(0,1/6,0)^\top$. After subtracting it, their volume-normalised inner product is $-4/45$ and their cosine is $-2/3$. Thus non-orthogonality also holds after the rigid-motion projection used here. This does not mean the two families have a nonzero vector in their intersection.
+Both example fields have the same nonzero mean translation $(0,1/6,0)^\top$. After subtracting it, their volume-normalised inner product is $-4/45$ and their cosine is $-2/3$. Thus non-orthogonality also holds after the rigid-motion projection used here.
 
 On the real, geometrically asymmetric pelvic ring, this intrinsic non-orthogonality combines with anatomical geometry.
 The kinematic design matrix $\mathbf A$ has 2-norm condition number $\kappa(\mathbf A) \approx \DesignConditionNumber$, and the associated Gram matrix $\mathbf G = \mathbf A^\top \mathbf A \in \mathbb{R}^{\NonrigidDOFs \times \NonrigidDOFs}$ has condition number:
 \begin{equation}
 \kappa(\mathbf G) = \frac{\sigma_{\max}(\mathbf G)}{\sigma_{\min}(\mathbf G)} = \kappa(\mathbf A)^2 \approx \GramConditionNumber.
 \end{equation}
-A Gram condition number of $\sim21$ indicates that the sampled design columns were linearly independent to numerical precision at the reported geometry; it does not establish unique physical attribution to the families.
+At the reference geometry, the sampled design columns are numerically independent (Gram condition number $\sim21$). Family shares remain conditional on the selected dictionary.
 
 \subsubsection{Cooperative game-theoretic Shapley value norm allocation}
-Because the four deformation subspaces exhibit intrinsic non-orthogonality (shared explained norm) and cannot be mutually orthogonal, projecting onto them sequentially (e.g., Gram-Schmidt orthogonalisation) would introduce an arbitrary, order-dependent bias: the first chosen family would absorb all shared variance, artificially starving subsequent families.
+Because the four deformation subspaces overlap, sequential projection would allocate shared norm according to family order. We use Shapley allocation to average marginal contributions over all orders.
 To obtain an order-independent allocation conditional on this chosen dictionary, we formulate the problem using cooperative game theory.
 
 Let $M = \{\text{axial}, \text{bending}, \text{shear}, \text{torsion}\}$ denote the set of four pattern players ($|M| = 4$).
@@ -562,7 +561,7 @@ For cross-load comparison we also report cosine similarity of full 15-mode mean 
 \subsection{First-order eigenvalue sensitivities and analytical uncertainty propagation}
 \label{sec:sensitivities}
 
-To propagate material-parameter uncertainty to the spectrum without repeated finite-element solves, we use classical first-order sensitivities of the generalised eigenproblem~\eqref{eq:gep}: for a parameter $p_j$ that affects only the stiffness,
+To propagate material-parameter uncertainty to the spectrum, we use classical first-order sensitivities of the generalised eigenproblem~\eqref{eq:gep}: for a parameter $p_j$ that affects only the stiffness,
 \begin{equation}
 \frac{\partial\lambda_m}{\partial p_j}
 =\frac{\boldsymbol\phi_m^\top\,(\partial K_s/\partial p_j)\,\boldsymbol\phi_m}
@@ -576,14 +575,14 @@ Storing the dimensionless Jacobians
 \begin{equation}
 J_j^{(m)}=\frac{p_j}{\lambda_m}\frac{\partial\lambda_m}{\partial p_j}
 \end{equation}
-once per subject lets us compute first-order log-space variance propagation as $\mathrm{Var}(\log\lambda_m) \approx \mathbf J_m^\top \Sigma_{\log p} \mathbf J_m$ for an assumed covariance $\Sigma_{\log p}=\mathrm{Cov}(\log\mathbf p)$ on the material parameters. The implemented scenarios use log-space standard deviations $(0.25,0.20,0.10)$ for global, type, and side effects of ligament stiffness; $(0.35,0.25,0.12)$ for ligament pretension; and $(0.35,0.25,0.10)$ for cartilage modulus. The global ligament stiffness--pretension correlation is 0.50. Bone-law parameters $\alpha$ and $\beta$ have log-space standard deviations 0.30 and 0.20 with correlation $-0.40$. These are assumed scenarios, not parameters estimated from the cohort. Eigenvalue CoVs use the lognormal conversion $\sqrt{\exp(v)-1}$ from propagated log-variance $v$.
+once per subject lets us compute first-order log-space variance propagation as $\mathrm{Var}(\log\lambda_m) \approx \mathbf J_m^\top \Sigma_{\log p} \mathbf J_m$ for an assumed covariance $\Sigma_{\log p}=\mathrm{Cov}(\log\mathbf p)$ on the material parameters. The implemented scenarios use log-space standard deviations $(0.25,0.20,0.10)$ for global, type, and side effects of ligament stiffness; $(0.35,0.25,0.12)$ for ligament pretension; and $(0.35,0.25,0.10)$ for cartilage modulus. The global ligament stiffness--pretension correlation is 0.50. Bone-law parameters $\alpha$ and $\beta$ have log-space standard deviations 0.30 and 0.20 with correlation $-0.40$. These covariance scenarios were prescribed for the sensitivity analysis. Eigenvalue CoVs use the lognormal conversion $\sqrt{\exp(v)-1}$ from propagated log-variance $v$.
 For adjacent eigenvalues $\lambda_i, \lambda_{i+1}$, the variance of the gap $\Delta\lambda = \lambda_{i+1}-\lambda_i$ is computed from the combined sensitivity vector $\mathbf g_{i,i+1} = \lambda_{i+1}\mathbf J_{i+1} - \lambda_i\mathbf J_i$ as
 \begin{equation}
 \mathrm{Var}(\lambda_{i+1}-\lambda_i) \approx \mathbf g_{i,i+1}^\top \Sigma_{\log p}\,\mathbf g_{i,i+1} \approx \mathrm{Var}(\lambda_{i+1}) + \mathrm{Var}(\lambda_i) - 2\,\mathrm{Cov}(\lambda_i, \lambda_{i+1}),
 \label{eq:gap-cov}
 \end{equation}
 accounting for the substantial positive covariance induced by shared tissue parameters.
-The gap signal-to-noise ratio compares the nominal gap with its propagated standard deviation (Section~\ref{sec:uq-results}). It measures local susceptibility of modal ordering under the specified parameter covariance. These gap diagnostics do not directly propagate uncertainty in eigenvectors or anatomical capacities and therefore do not establish subspace robustness under large parameter changes. Sex-stratified summaries and combined uncertainty results are reported in Sections~\ref{sec:details-B} and~\ref{sec:details-D}.
+The gap signal-to-noise ratio compares the nominal gap with its propagated standard deviation (Section~\ref{sec:uq-results}). It measures local susceptibility of modal ordering under the specified parameter covariance. The propagated quantities are eigenvalues and adjacent gaps. Sex-stratified summaries and combined uncertainty results appear in Sections~\ref{sec:details-B} and~\ref{sec:details-D}.
 
 \subsection{Decomposition of variability sources and robustness analyses}
 \label{sec:robustness-methods}
@@ -626,13 +625,13 @@ K_{\rm eff} = K_2 - \frac{\mathbf d \mathbf d^\top}{s} = \begin{bmatrix} k_1-d_1
 \label{eq:schur}
 \end{equation}
 showing how coupling to an additional coordinate shifts effective detuning and coupling. Depending on the parameters, the shift can move the system toward or away from avoided crossing. The assumption $\lambda\ll s$ excludes using this condensation for an arbitrarily soft hidden coordinate.
-In all stochastic numerical simulations (Section~\ref{sec:toy-results}), the full $3\times 3$ eigenproblem is solved directly without static or dynamic truncation.
+All stochastic simulations solve the full $3\times 3$ eigenproblem (Section~\ref{sec:toy-results}).
 In the $n$-DOF finite-element setting, the detected clusters correspond to $\{q_1,q_2\}$, the canonical basis $(\boldsymbol\psi_1,\boldsymbol\psi_2)$ to the rotated eigenvectors, and $\mathrm{gap}_{\rm in}$ to $(\lambda_+-\lambda_-)/\lambda_-$.
 A stochastic population instantiation of this model, evaluated in Section~\ref{sec:toy-results}, reproduces the label--subspace dissociation, the standing-vs-task routing contrast, and the effect of hidden-pathway variability observed in the full pelvic cohort.
-The stochastic model used in the figure is specified in Section~\ref{sec:toy-specification}. Static condensation is only a limiting argument; it is not used for the reported stochastic eigensolves.
+Section~\ref{sec:toy-specification} specifies the stochastic model used in the figure.
 
 \subsubsection{Stochastic implementation}\label{sec:toy-specification}
-This specification defines the stochastic implementation evaluated in Section~\ref{sec:toy-results}. Parameters are dimensionless and illustrative; they were not fitted to the pelvic cohort. The stiffness matrix is
+The stochastic implementation evaluated in Section~\ref{sec:toy-results} uses dimensionless illustrative parameters. The stiffness matrix is
 \begin{equation}
 K=\begin{bmatrix}12+\Delta/2&c&d_1\\c&12-\Delta/2&d_2\\d_1&d_2&s\end{bmatrix},\qquad M=I.
 \end{equation}
@@ -644,13 +643,13 @@ s&=5.2\exp[(0.02+0.12\eta)Z_s],\\
 d_1&=0.28+0.42\eta+(0.01+0.08\eta)Z_1,\\
 d_2&=0.24+0.40\eta+(0.01+0.08\eta)Z_2.
 \end{align}
-Draws are accepted only when all eigenvalues exceed $10^{-10}$ and the largest absolute component of the third coordinate occurs in the lowest eigenvector. The low-rank backbone is therefore conditioned by construction, not independently discovered in this example. Up to 200 draws are attempted per subject.
+Draws are accepted only when all eigenvalues exceed $10^{-10}$ and the largest absolute component of the third coordinate occurs in the lowest eigenvector. This acceptance criterion retains a low-rank backbone by construction. Up to 200 draws are attempted per subject.
 
-The anatomical observable and task-like load are the unit-normalised vector $(1,0,0.2)^\top$; the standing-like load is the unit-normalised vector $(0.10,0.05,1)^\top$. For unit-normalised eigenvectors $\mathbf v_i$, the observable projection is $(\mathbf v_i^\top\mathbf b)^2$ and the upper-pair score is the sum for $i=2,3$. Load fractions are proportional to $(\mathbf v_i^\top\mathbf f)^2/\lambda_i$. These squared projections differ from the max-nodal anatomical capacity used in the finite-element cohort and serve only as analogous illustrative observables.
+The anatomical observable and task-like load are the unit-normalised vector $(1,0,0.2)^\top$; the standing-like load is the unit-normalised vector $(0.10,0.05,1)^\top$. For unit-normalised eigenvectors $\mathbf v_i$, the observable projection is $(\mathbf v_i^\top\mathbf b)^2$ and the upper-pair score is the sum for $i=2,3$. Load fractions are proportional to $(\mathbf v_i^\top\mathbf f)^2/\lambda_i$. The analytical example uses squared projections as illustrative observables; the pelvic cohort uses max-nodal anatomical capacity.
 
 The main illustrative cohort contains 240 evenly spaced coordinates in $[-1.10,1.10]$, perturbed by normal noise of standard deviation 0.035 (random seed 11), sorted, and simulated at $\eta=0.85$ (seed 19). The nuisance sweep uses nine values in $[0,1.6]$ and 480 coordinates in $[-0.35,0.35]$, with seed 31 at each value. Carrier change is the proportion whose larger upper-pair observable projection changes rank relative to $\eta=0$. Pair projection and task routing are summarised by their medians.
 
-The full $3\times3$ eigenproblem is solved for every accepted draw. The static-condensation formula in Eq.~\eqref{eq:schur} is a limiting argument valid for $\lambda\ll s$; it is not an approximation used for the upper-pair eigenvalues in this example. The model illustrates rank redistribution under specified parameter variation and does not validate a particular pelvic tissue mechanism.
+For every accepted draw, the full $3\times3$ eigenproblem gives the modal ordering and observable projections. The static-condensation formula in Eq.~\eqref{eq:schur} provides the limiting interpretation for $\lambda\ll s$.
 
 
 \subsection{Statistical analysis}
@@ -662,19 +661,19 @@ Two-group comparisons (e.g., non-swapped vs.\ swapped cluster members, or male v
 Effect sizes for Mann--Whitney tests are reported as rank-biserial correlations $r_{\rm rb}=1-2U_1/(n_1n_2)$, where $U_1$ is computed for the first listed group. With this orientation, positive values indicate larger observations in the second group; the statistic equals Cliff\textquotesingle s delta for second versus first group.
 Paired differences across loading conditions or mode pairs were assessed via two-sided Wilcoxon signed-rank tests.
 Bivariate associations between continuous anatomical dimensions (such as AP inlet diameter or isotropic scale) and modal metrics (energy fractions, spectral gaps) were quantified using Spearman's rank correlation coefficient $\rho_s$.
-The four pre-specified rank-versus-capacity comparisons in each label-exchange table were adjusted with the Benjamini--Hochberg procedure. Other exploratory test families were not uniformly adjusted; their raw $p$-values should not be treated as confirmatory discoveries.
-Confidence intervals for median differences and median ratios in the label-exchange comparisons were obtained by percentile bootstrap resampling (5,000 independent within-group resamples; random seed 20260918), using the 2.5th and 97.5th percentiles. Mann--Whitney probabilities concern distributional differences and should not be interpreted as tests specifically of the median difference.
+The four pre-specified rank-versus-capacity comparisons in each label-exchange table were adjusted with the Benjamini--Hochberg procedure. Other exploratory test families retain unadjusted $p$-values and are interpreted descriptively.
+Confidence intervals for median differences and median ratios in the label-exchange comparisons were obtained by percentile bootstrap resampling (5,000 independent within-group resamples; random seed 20260918), using the 2.5th and 97.5th percentiles. Mann--Whitney probabilities compare distributions; bootstrap intervals quantify median differences.
 Cohort-level cluster stability was evaluated by repeating the detection pipeline across 500 random subcohort draws of 80\% sample size performed with replacement ($m = 222$), yielding 95\% bootstrap stability intervals.
-Separate prevalence intervals used 2,000 replicates of 278 draws with replacement and threshold re-estimation (seed 20260918). These are resampling summaries, not independent biological validation.
+Separate prevalence intervals used 2,000 replicates of 278 draws with replacement and threshold re-estimation (seed 20260918). These intervals describe resampling variability within the cohort.
 
 Differences in subspace orientation across the cohort were quantified using the Grassmann distance $d_G(Q_{\rm ref}, Q_s) = \|\boldsymbol\theta\|_2$.
-Because $d_G$ is invariant to internal basis rotations, variation in this measure cannot arise from re-indexing modes within a fixed subspace. Sex-group differences in distance to one reference do not establish the direction of a subspace shift and may depend on the reference chosen.
+The Grassmann distance $d_G$ measures between-subspace orientation independently of internal basis indexing. Sex-group distances use the selected reference.
 
 \subsection{Software and computational implementation}
 
 
-Finite-element assembly, eigensolves, and postprocessing were implemented in Python~3.11 with DOLFINx/FEniCSx~($\ge$0.10), PETSc, and SLEPc.
-Study analysis scripts produced the figures, tables, and numerical results. Intermediate outputs are stored as compressed Zarr arrays. The custom code and study-specific derived data have not yet been publicly archived.
+Finite-element assembly, eigensolves, and postprocessing were implemented in Python~3.11 with DOLFINx/FEniCSx~($\ge$0.10), PETSc, and SLEPc. Quadrature points and weights were obtained with Basix~0.10.0, the finite-element library used by FEniCSx.
+Study analysis scripts produced the figures, tables, and numerical results. Intermediate outputs are stored as compressed Zarr arrays.
 
 % ============================================================
 An OpenAI language model assisted the restructuring and drafting of this manuscript and cover letter from the existing manuscript and analysis outputs. The revised numerical analyses were executed with the documented project scripts and checked against the archived finite-element fields; the authors retain responsibility for the scientific content.
@@ -695,22 +694,21 @@ We first check the polynomial decomposition on synthetic fields, then use it to 
   \caption{\textbf{Whole-pelvis deformation patterns of reference modes.}
   Anterior (left) and cranial (right) views show displacement magnitude from purple to yellow, scaled to a 50~mm maximum; grey geometry is undeformed.
   Each bar partitions the whole-pelvis nonrigid squared shape norm into fitted axial tension/compression, bending, transverse shear, torsion, and residual.
-  Infinitesimal rigid-body translation and rotation are projected out upfront; rigid rotation is not a reported deformation category.
-  The decomposition operates in full 3D Cartesian space across the entire pelvic ring without imposing a 1D reference axis.
+  Infinitesimal rigid-body translation and rotation are projected out before the decomposition.
+  The decomposition covers the complete pelvic ring in three-dimensional Cartesian coordinates.
   Overlapping pattern subspaces are allocated using Shapley values.
-  ``Fitted'' reports the percentage of nonrigid shape change explained by the four canonical 3D families.
-  All fractions use the complete continuum without bone-wise subdivision and describe kinematic shape change rather than elastic-energy shares.}
+  ``Fitted'' is the sum of the four family shares of nonrigid squared displacement norm.}
   \label{fig:si-atlas}
   \endgroup
 \end{figure}
 
 \subsubsection{Synthetic checks of the deformation decomposition}
-We tested whether the decomposition recovers prescribed polynomial fields and removes rigid motion on a cube and the reference pelvic mesh (Table~\ref{tab:detail-E2}). These tests check the implementation, not the physiological validity of the dictionary.
+Synthetic polynomial fields and rigid motions on a cube and the reference pelvic mesh provide implementation checks (Table~\ref{tab:detail-E2}).
 
 On the symmetric domain, pure synthetic fields belonging to the axial, shear, and torsion families are identified with $100.0\%$ fidelity, zero cross-talk, and exactly $0.0\%$ residual.
 For pure Euler-Bernoulli bending ($\mathbf u = (-xy, \tfrac{1}{2}x^2, 0)$), the displacement field consists of an axial cross-term $-xy$ and a transverse parabolic deflection $\tfrac{1}{2}x^2$.
 Because the quadratic shear mode $\mathbf s_{xy,2} = (xy, \tfrac{1}{2}x^2, 0)$ shares the identical transverse parabolic deflection $\tfrac{1}{2}x^2$, the pure flexural field lies in the joint span $V_{\rm bending} \oplus V_{\rm shear}$.
-The equal-weight $15\times15\times15$ grid benchmark allocates $77.5\%$ to bending and $22.5\%$ to shear, with residual rounding to zero. These numbers describe the sampled grid and the chosen Shapley game, not a unique physical decomposition of the field.
+The equal-weight $15\times15\times15$ grid benchmark allocates $77.5\%$ to bending and $22.5\%$ to shear, with residual rounding to zero. The percentages follow from the sampled grid and the specified Shapley allocation.
 
 On the actual reference pelvis mesh, pure canonical polynomial fields are recovered with exactly $0.0\%$ residual ($100.0\%$ fitted fraction):
 \begin{itemize}
@@ -720,8 +718,8 @@ On the actual reference pelvis mesh, pure canonical polynomial fields are recove
 \item Pure transverse shear: $82.8\%$ shear share, $0.0\%$ residual ($100.0\%$ fitted).
 \item Pure torsion-like polynomial field: $87.1\%$ torsion share, $0.0\%$ residual ($100.0\%$ fitted).
 \end{itemize}
-When subjected to pure infinitesimal rigid translations or pure infinitesimal rotations, the nonrigid fraction is detected as $f_{\rm nonrigid} < 10^{-27}$, correctly triggering the rigid-motion filter and showing negligible contamination in these numerical checks.
-Finally, adding arbitrary rigid-body translations and rotations to an axial deformation field yields identical Shapley shares ($85.3\%$ axial, $7.2\%$ bending, $7.5\%$ shear, $0.0\%$ torsion, $0.0\%$ residual) to within machine precision ($< 10^{-10}$), demonstrating invariance to addition of infinitesimal rigid displacement fields, rather than invariance to arbitrary rotation of anatomical axes.
+For pure infinitesimal translations and rotations, the computed nonrigid fraction is $f_{\rm nonrigid} < 10^{-27}$.
+Finally, adding arbitrary rigid-body translations and rotations to an axial deformation field yields identical Shapley shares ($85.3\%$ axial, $7.2\%$ bending, $7.5\%$ shear, $0.0\%$ torsion, $0.0\%$ residual) to within machine precision ($< 10^{-10}$), confirming invariance to added infinitesimal rigid displacement fields.
 
 \subsubsection{Reference mode deformation profiles and biomechanical interpretation}
 Table~\ref{tab:detail-E1} compiles the quantitative whole-pelvis 3D deformation decomposition for all fifteen reference eigenmodes.
@@ -731,17 +729,16 @@ The reference profiles show how the chosen polynomial families partition each mo
 For Mode~1, the nonrigid component accounts for $3.3\%$ of the total squared displacement norm; the rigid-motion projection accounts for the remainder.
 Its nonrigid shape change is predominantly out-of-plane torsional twist ($22.7\%$) and transverse shear ($17.7\%$), with a total fitted fraction of $42.7\%$ (residual $57.3\%$).
 For Mode~2, the nonrigid component ($5.5\%$ of total squared displacement norm) is a coupled sagittal ring flexure and shear ($23.6\%$ bending, $23.7\%$ shear, $20.8\%$ axial, $68.6\%$ fitted, residual $31.4\%$).
-For Mode~2, the selected 3D dictionary explains more than two-thirds of the nonrigid squared displacement norm; the tested one-axis dictionary gives a lower fit.
 
 \item \textbf{Modes~4 and~5 (dominant flexural pathways):}
 Modes~4 and~5 have bending shares of $43.6\%$ and $47.4\%$ of their nonrigid squared displacement norms, respectively (with standalone bending fits $R^2_{\rm bending}$ reaching $47.6\%$ and $62.4\%$, and total explained fractions of $74.4\%$ and $86.3\%$).
 These modes capture lateral and anteroposterior flaring of the iliac wings.
 
 \item \textbf{The inlet-related 9--10 pair:}
-Mode~9 is the most highly fitted mode in the entire spectrum ($91.8\%$ explained, residual only $8.2\%$).
-Its deformation is overwhelmingly axial ($60.6\%$ Shapley share; standalone $R^2_{\rm axial} = 67.7\%$), consistent with Cartesian normal-extension content. Its relation to inlet opening is evaluated separately with the anatomical diameter functional; the polynomial allocation does not measure circumferential strain.
+Mode~9 has the highest fitted fraction in the reference spectrum ($91.8\%$ explained; $8.2\%$ residual).
+Its deformation is overwhelmingly axial ($60.6\%$ Shapley share; standalone $R^2_{\rm axial} = 67.7\%$), consistent with Cartesian normal-extension content. Its AP-inlet response is quantified separately by the anatomical diameter functional.
 In contrast, its near-degenerate partner Mode~10 ($74.9\%$ fitted) is dominated by shear ($35.2\%$) and torsion ($34.3\%$), with minimal axial contribution ($4.3\%$; standalone $R^2_{\rm torsion} = 30.3\%$, $R^2_{\rm shear} = 32.7\%$, residual $25.1\%$).
-These reference-mode descriptions illustrate distinct kinematic patterns within the pair. Their rank-specific interpretation should not be transferred unchanged across subjects with label exchange.
+The paired-mode analysis below evaluates how these patterns correspond across subjects.
 \end{itemize}
 
 
@@ -772,11 +769,11 @@ The cohort of $N{=}278$ subjects resolves the spectrum into two regimes: an orde
 The reference deformation atlas is provided in Fig.~\ref{fig:si-atlas}. Modes~1--3 are rarely reordered across the cohort (swap rate $<0.4\%$), whereas higher ranks contain small consecutive gaps and frequent label exchange.
 Using a data-driven cluster threshold $\varepsilon_{\rm in}\approx 0.131$ (25th percentile of pooled relative consecutive gaps; see Methods), we detect nine near-degenerate rank clusters above a 3\% prevalence floor.
 The most prevalent cluster is rank modes~9--10 (\PrevalenceNineTen\% of subjects), followed by rank modes~12--15 (\PrevalenceTwelveFifteen\%) and rank modes~5--6 (\PrevalenceFiveSix\%).
-No eigenvalue pair met the operational numerical multiplicity criterion ($\mathrm{gap}_{\rm in} \le 10^{-6}$). No obvious spatial symmetry was identified that would enforce repeated eigenvalues, although accidental degeneracy is not mathematically excluded.
+The smallest observed gaps exceeded the operational multiplicity threshold ($\mathrm{gap}_{\rm in}=10^{-6}$).
 
-Anatomical variability does not destabilise the spectrum uniformly.
+The low-rank and higher-rank spectral regions show different exchange frequencies.
 Label fragility is concentrated in a small number of compact families, while low-rank order is preserved.
-The 9--10 and 12--15 blocks have small median internal gaps and show label exchange across the archived cohort. The exchange is observed across subjects; no continuous perturbation trajectory was computed, so it cannot be classified as a specific crossing or veering event.
+The 9--10 and 12--15 blocks have small median internal gaps and show label exchange across the archived cohort. These are cross-sectional exchange observations; the adjacent-pair classification is reported in Table~\ref{tab:detail-A5}.
 The 9--10 block has a larger median external separation than internal gap, whereas the 12--15 regime is left-separated but right-truncated by the eigensolve; the 9--10 pair can therefore be assessed as an interior subspace, whereas conclusions about isolation of 12--15 remain limited.
 The result identifies spectral regions in which rank-based comparison is more or less reliable under the present model assumptions.
 
@@ -784,9 +781,9 @@ Per-mode pairing shows the highest swap rates at modes~12 and~13; mode~15 also h
 
 A variability decomposition into shape-only and material-only datasets (Fig.~\ref{fig:spectral-dashboard}C) shows that the shape-only dataset has the larger coefficient of variation for modes~1--8, whereas bone-density heterogeneity contributes with increasing relative weight in modes~9--15.
 In these two restricted cohorts, geometric variation contributes more to lower-rank eigenvalue variability, while material-only variability becomes relatively more prominent at higher ranks.
-The shape-only and material-only coefficients of variation are not additive variance shares, nor do they isolate interactions or establish a causal mechanism for cluster formation.
+The two restricted cohorts quantify separate coefficients of variation; interaction effects remain within the full-cohort comparison.
 
-Resampling gives similar prevalence ranges for the main clusters. The 500 draws of 222 subjects at a fixed threshold yielded 95\% percentile ranges of 48.2--61.7\% for 9--10 and 35.6--48.6\% for 12--15 (Table~\ref{tab:detail-B1}); 2,000 full-cohort draws with threshold re-estimation gave 49.6--59.4\% and 36.7--46.0\%. Permuting subject order left the results unchanged. These checks support the reproducibility of the cluster estimates within this cohort; they do not test a new population. Further diagnostics appear in Sections~\ref{sec:details-A} and~\ref{sec:details-B}.
+Resampling gives similar prevalence ranges for the main clusters. The 500 draws of 222 subjects at a fixed threshold yielded 95\% percentile ranges of 48.2--61.7\% for 9--10 and 35.6--48.6\% for 12--15 (Table~\ref{tab:detail-B1}); 2,000 full-cohort draws with threshold re-estimation gave 49.6--59.4\% and 36.7--46.0\%. Permuting subject order left the results unchanged. These checks quantify sampling variability within the 278-subject cohort. Further diagnostics appear in Sections~\ref{sec:details-A} and~\ref{sec:details-B}.
 
 \begin{figure}[!t]
   \centering
@@ -800,7 +797,7 @@ Resampling gives similar prevalence ranges for the main clusters. The 500 draws 
 
 \begin{table*}[!t]
 \centering
-\caption{Recurrent clustered rank blocks above the 3\% prevalence floor. External separation is unavailable (---) when the block reaches the upper limit of 15 computed modes; such blocks are not established to be isolated on both sides}
+\caption{Recurrent clustered rank blocks above the 3\% prevalence floor. External separation is reported as (---) for blocks reaching the 15-mode truncation boundary}
 \label{tab:clusters}
 \StdTableFont
 \StdTableInput{clusters.tex}
@@ -841,7 +838,7 @@ The additional tables distinguish rank clusters from reference-mode identities (
 
 
 \begin{table*}[!htbp]
-\caption{Heuristic classification of observed permutations. Exchange labels do not establish a continuous eigenvalue-veering trajectory. }
+\caption{Heuristic classification of observed cross-subject permutations. }
 \label{tab:detail-A5}
 \centering
 \DetailTableInput{veering_vs_mixing_classification.tex}
@@ -864,13 +861,13 @@ The additional tables distinguish rank clusters from reference-mode identities (
 
 Because rank labels exchange, we next compare the spanned subspaces. Grassmann distance measures their orientation relative to one reference; basis-invariant diameter capacities quantify the AP and ML inlet, interspinous midpelvic, and bituberous outlet responses available within each block (Methods; Fig.~\ref{fig:subspace-dashboard}).
 
-The rank~9--10 subspace has median AP-inlet capacity \BlockNineTenAP\,mm/mm and ML-inlet capacity \BlockNineTenML\,mm/mm. The 5--6 block also accommodates outlet deformation, with interspinous capacity \BlockFiveSixBIS\,mm/mm, bituberous capacity \BlockFiveSixBIT\,mm/mm, and modelled AP-outlet capacity \BlockFiveSixOUTLETAP\,mm/mm. These anatomical responses are not exclusive to one block: the corresponding 9--10 capacities are \BlockNineTenBIS, \BlockNineTenBIT, and \BlockNineTenOUTLETAP\,mm/mm, respectively. Thus, describing 5--6 as outlet-related does not imply that it has the largest outlet capacity. Its relevance also depends on selective recruitment under the applied loads.
+The rank~9--10 subspace has median AP-inlet capacity \BlockNineTenAP\,mm/mm and ML-inlet capacity \BlockNineTenML\,mm/mm. The 5--6 block also accommodates outlet deformation, with interspinous capacity \BlockFiveSixBIS\,mm/mm, bituberous capacity \BlockFiveSixBIT\,mm/mm, and modelled AP-outlet capacity \BlockFiveSixOUTLETAP\,mm/mm. The corresponding 9--10 capacities are \BlockNineTenBIS, \BlockNineTenBIT, and \BlockNineTenOUTLETAP\,mm/mm, respectively. The 5--6 block is recruited under ischial distraction (Section~\ref{sec:load-results}).
 
 The four-dimensional 12--15 block illustrates a third regime. Its capacities were recomputed using the convex constrained optimisation described in Methods.
-It is common and internally crowded, but its measured capacities are less specific to one diameter than those of the two-mode blocks. Because the eigensolve stops at mode~15, its upper external gap is unknown. We therefore describe 12--15 as a truncated higher-rank regime rather than an isolated anatomical pathway.
+It is common and internally crowded, but its measured capacities are less specific to one diameter than those of the two-mode blocks. Because the eigensolve stops at mode~15, its upper external gap is unknown. We therefore describe 12--15 as a truncated higher-rank regime.
 
 
-Exploratory sex-group comparisons of Grassmann distance show their largest rank-biserial contrast for the 9--10 block. Because distance is measured from one reference, this contrast alone does not establish a sex-specific direction of subspace change. The anatomical capacity distributions provide a separate description of group variation (Section~\ref{sec:details-B}).
+Exploratory sex-group comparisons of Grassmann distance show their largest rank-biserial contrast for the 9--10 block. The reference-dependent distance measures magnitude of deviation; the anatomical capacity distributions describe the corresponding group variation (Section~\ref{sec:details-B}).
 
 \begin{figure}[!t]
   \centering
@@ -893,13 +890,12 @@ This hypothesis was tested for the most prevalent cluster, rank modes~9--10 (Fig
 
 Among the \ClusterMemberN\ cluster members, \ClusterNoSwapN\ showed no exchange and \ClusterSwapN\ showed exchange. Median AP-inlet coupling at rank 9 decreased from \RankNineNo\ to \RankNineYes\,mm/mm (difference \RankNineDifference; 95\% confidence interval [\RankNineLow, \RankNineHigh]; $p=\RankNinePformatted$), whereas rank-10 coupling increased from \RankTenNo\ to \RankTenYes\,mm/mm ($p=\RankTenPformatted$). Thus, the anatomical response redistributed between neighbouring ranks.
 
-The corresponding subspace capacity changed from \ScalarAPNo\ to \ScalarAPYes\,mm/mm (difference \ScalarAPDifference; 95\% confidence interval [\ScalarAPLow, \ScalarAPHigh]; rank-biserial correlation \ScalarAPRankBiserial). This is approximately a 5\% median decrease, compared with approximately 69\% at rank 9. The difference is smaller, but capacity is not identical between groups: the Mann--Whitney test gives $p=\ScalarAPPformatted$ (Benjamini--Hochberg-adjusted $q=0.040$). The test assesses distributions, whereas the bootstrap interval concerns the median difference; these summaries need not give identical significance conclusions.
+The corresponding subspace capacity changed from \ScalarAPNo\ to \ScalarAPYes\,mm/mm (difference \ScalarAPDifference; 95\% confidence interval [\ScalarAPLow, \ScalarAPHigh]; rank-biserial correlation \ScalarAPRankBiserial). This is approximately a 5\% median decrease, compared with approximately 69\% at rank 9. The Mann--Whitney test for the capacity distributions gives $p=\ScalarAPPformatted$ (Benjamini--Hochberg-adjusted $q=0.040$); the bootstrap interval estimates the median difference.
 
-Across all \CohortN\ subjects, irrespective of cluster membership, subspace capacity differed by \CohortScalarAPDifference\,mm/mm (95\% confidence interval [\CohortScalarAPLow, \CohortScalarAPHigh]; $p=\CohortScalarAPPformatted$), while rank-level coupling again redistributed strongly. This supports relative stability of the subspace descriptor, without establishing equivalence. Full estimates, effect sizes, joint-SVD comparisons, and adjusted probabilities are provided in Tables~\ref{tab:detail-B3}--\ref{tab:detail-B4}.
+Across all \CohortN\ subjects, irrespective of cluster membership, subspace capacity differed by \CohortScalarAPDifference\,mm/mm (95\% confidence interval [\CohortScalarAPLow, \CohortScalarAPHigh]; $p=\CohortScalarAPPformatted$), while rank-level coupling again redistributed strongly. The between-group capacity contrast is smaller than the rank-level contrast. Full estimates, effect sizes, joint-SVD comparisons, and adjusted probabilities are provided in Tables~\ref{tab:detail-B3}--\ref{tab:detail-B4}.
 
 The anatomical comparison concerns capacity, whereas load routing measures actual recruitment under prescribed forces (Fig.~\ref{fig:si-routing}). Subspace orientation and the internal 9--10 gap vary across subjects, and the block's energy fraction under \LAB\ is associated with morphology in a load-specific way.
 For \LABone, block throughput decreases with larger AP inlet diameter ($\rho_s{=}{-}0.48$, $p{=}4.3\times10^{-17}$), whereas \LABtwo\ and \LABthree\ show weaker and differently signed trends.
-These associations describe how inlet geometry relates to recruitment of the 9--10 block under the selected loads; they do not identify a causal effect of morphology.
 
 \begin{figure}[!t]
   \centering
@@ -918,7 +914,7 @@ These associations describe how inlet geometry relates to recruitment of the 9--
 \FloatBarrier
 \subsection{Cohort robustness and sex effects}\label{sec:details-B}
 
-Table~\ref{tab:detail-B1} reports the 500-resample cluster estimates. Figure~\ref{fig:detail-B1} and Table~\ref{tab:detail-B2} describe exploratory sex-group differences in spectral and subspace measures. The latter tests are unadjusted and do not establish mechanisms for the observed differences.
+Table~\ref{tab:detail-B1} reports the 500-resample cluster estimates. Figure~\ref{fig:detail-B1} and Table~\ref{tab:detail-B2} describe exploratory sex-group differences in spectral and subspace measures. The sex-group tests are unadjusted exploratory comparisons.
 
 \begin{table*}[!htbp]
 \caption{Cohort bootstrap stability under random 80\% fractional resamples ($m=222$, 500 replicates with replacement). }
@@ -939,7 +935,7 @@ Table~\ref{tab:detail-B1} reports the 500-resample cluster estimates. Figure~\re
 
 
 \begin{table*}[!htbp]
-\caption{Exploratory sex-stratified tests. Probabilities are unadjusted. Subspace distances use cluster-member subjects; other rows use the full cohort. The permutation-rate row reports a Fisher test, whose statistic is an odds ratio rather than Mann--Whitney $U$. }
+\caption{Exploratory sex-stratified tests. Probabilities are unadjusted. Subspace distances use cluster-member subjects; other rows use the full cohort. The permutation-rate row reports a Fisher odds ratio. }
 \label{tab:detail-B2}
 \centering
 \DetailTableInput{sex_stratified_summary.tex}
@@ -985,9 +981,7 @@ The 5--6 pair provides a secondary contrast under \LABtwo. The 12--15 block is c
 Primary cohort routing is evaluated on the total static response. Archived incremental outputs for 18 subjects showed unchanged top-mode identity across all five loads, but individual 9--10 block fractions shifted by up to 4.24 percentage points and dominant-set size changed in four \LABone\ cases (Section~\ref{sec:loading}).
 Further load and sex-group summaries appear in Sections~\ref{sec:details-B}--\ref{sec:details-C}.
 
-These are linear comparative proxy loads, not simulations of labour.
-They do not model fetal contact, tissue remodelling, hormone-dependent softening, or nonlinear late-stage birth mechanics.
-Their value is comparative: they reveal which deformation patterns are preferentially recruited under different loading geometries, not whether the model can predict clinical childbirth outcomes.
+The three prescribed traction patterns compare recruitment across pelvic loading geometries in the linear model.
 
 \begin{figure}[!t]
   \centering
@@ -1055,7 +1049,7 @@ Figure~\ref{fig:detail-C1} and Table~\ref{tab:detail-C1} report exploratory asso
 
 \FloatBarrier
 \subsection{First-order material sensitivity differentiates spectral regions}\label{sec:uq-results}
-First-order propagation with derivatives of the implemented material map predicts substantial variation in absolute eigenvalues under the assumed covariance; shared-parameter covariance reduces the calculated uncertainty of adjacent differences (Fig.~\ref{fig:material-uq}; Table~\ref{tab:detail-D2}). Mean gap signal-to-noise ratios exceed 2 for ranks 1--2 and 2--3 in both sexes, whereas the 9--10 mean is 0.997 in females and 0.947 in males. Under this assumed local perturbation model, the internal 9--10 ordering is therefore more susceptible than the low-rank gaps. The calculation concerns eigenvalues and gaps; it does not independently verify preservation of subspace orientation or anatomical capacity under large material changes.
+First-order propagation with derivatives of the implemented material map predicts substantial variation in absolute eigenvalues under the assumed covariance; shared-parameter covariance reduces the calculated uncertainty of adjacent differences (Fig.~\ref{fig:material-uq}; Table~\ref{tab:detail-D2}). Mean gap signal-to-noise ratios exceed 2 for ranks 1--2 and 2--3 in both sexes, whereas the 9--10 mean is 0.997 in females and 0.947 in males. Under this assumed local perturbation model, the internal 9--10 ordering is therefore more susceptible than the low-rank gaps. The calculation quantifies first-order uncertainty in eigenvalues and gaps under the assumed parameter covariance.
 
 \begin{figure}[!t]
   \centering
@@ -1069,7 +1063,7 @@ First-order propagation with derivatives of the implemented material map predict
 \FloatBarrier
 \subsection{Model-boundary and sensitivity analyses}\label{sec:details-D}
 
-The additional checks delimit the model-based conclusions. Figure~\ref{fig:detail-D1} and Table~\ref{tab:detail-D1} report associations between archived eigenvalues and body size; they do not recover information removed by normalisation or identify causal size effects. Figure~\ref{fig:detail-D2} shows sensitivity to cluster threshold and reference choice, size--gap associations, and 15-mode displacement reconstruction errors (Table~\ref{tab:detail-D3}). Table~\ref{tab:detail-D2} reports first-order eigenvalue uncertainty under assumed material-parameter covariance.
+The additional checks delimit the model-based conclusions. Figure~\ref{fig:detail-D1} and Table~\ref{tab:detail-D1} report associations between archived eigenvalues and body size; they describe size associations in the archived spectra. Figure~\ref{fig:detail-D2} shows sensitivity to cluster threshold and reference choice, size--gap associations, and 15-mode displacement reconstruction errors (Table~\ref{tab:detail-D3}). Table~\ref{tab:detail-D2} reports first-order eigenvalue uncertainty under assumed material-parameter covariance.
 
 \begin{figure}[!htbp]
 \centering
@@ -1086,7 +1080,7 @@ The additional checks delimit the model-based conclusions. Figure~\ref{fig:detai
 \begin{table*}[!htbp]
 
 \centering
-\caption{Allometric scaling exponents and variance decomposition per eigenvalue mode. $\beta_{\rm scale}$ is the IV-2SLS log--log coefficient of eigenvalue on isotropic scale, with HC-robust 95\,\% CIs and FDR-corrected $p$-values. $\Delta\lambda$ per IQR gives the percent eigenvalue change for an interquartile range shift in log-scale. The last four columns show LMG (Shapley) shares of explained variance divided by full-model $R^2$; they sum to approximately 100\% and are not percentages of total outcome variance. These are descriptive associations, not identified causal effects.}
+\caption{Allometric scaling exponents and variance decomposition per eigenvalue mode. $\beta_{\rm scale}$ is the IV-2SLS log--log coefficient of eigenvalue on isotropic scale, with HC-robust 95\,\% CIs and FDR-corrected $p$-values. $\Delta\lambda$ per IQR gives the percent eigenvalue change for an interquartile range shift in log-scale. The last four columns show LMG (Shapley) shares of explained variance divided by full-model $R^2$; they sum to approximately 100\% and are expressed relative to explained variance. The regressions describe associations in the archived cohort.}
 \label{tab:detail-D1}
 \small
 \resizebox{\linewidth}{!}{%
@@ -1135,7 +1129,7 @@ Mode & $\beta_{\rm scale}$ & 95\% CI & $p_{\rm FDR}$ & $\Delta\lambda$ IQR (\%) 
 
 \centering
 \small
-\caption{Population-level material uncertainty propagation stratified by sex. CoV is the total coefficient of variation (ligament + cartilage + bone). Lig/Cart/Bone columns show each group's fraction of total variance. The bone contribution uses derivatives of the implemented density-to-modulus map. Gap signal-to-noise ratios are displayed in Fig.~\ref{fig:material-uq}, not in this table.}
+\caption{Population-level material uncertainty propagation stratified by sex. CoV is the total coefficient of variation (ligament + cartilage + bone). Lig/Cart/Bone columns show each group's fraction of total variance. The bone contribution uses derivatives of the implemented density-to-modulus map. Gap signal-to-noise ratios appear in Fig.~\ref{fig:material-uq}.}
 \label{tab:detail-D2}
 \begin{tabular}{l cccc cccc}
 \toprule
@@ -1168,7 +1162,7 @@ Mode & CoV & Lig & Cart & Bone & CoV & Lig & Cart & Bone \\
 
 
 \begin{table*}[!htbp]
-\caption{Relative displacement reconstruction error for 15 modes. Errors are relative displacement norms, expressed as fractions rather than percentages. These are displacement diagnostics and do not establish strain-energy or local stress accuracy.}
+\caption{Relative displacement reconstruction error for 15 modes. Errors are relative displacement norms expressed as fractions.}
 \label{tab:detail-D3}
 \centering
 \DetailTableInput{reconstruction.tex}
@@ -1182,7 +1176,7 @@ Mode & CoV & Lig & Cart & Bone & CoV & Lig & Cart & Bone \\
 
 The constructed analytical example illustrates how a separated low-rank mode and a coupled higher pair can produce contrasting rank and subspace behaviour (Fig.~\ref{fig:toy}). As detuning varies, the dominant projection of the anatomical observable transfers between the upper eigenvectors, whereas their summed projection remains high. Standing-like and task-like loads recruit different spectral regions. Increasing the nuisance scale changes the dominant carrier more strongly than the upper-pair projection or task routing.
 
-The example conditions accepted draws on a retained low-rank backbone. Its observable is a squared projection, rather than the max-nodal capacity used in the pelvic analysis. It therefore illustrates a spectral mechanism without independently establishing either pelvic rank stability or tissue-specific compensation. The cohort permutation test did not detect exchange localisation along AP inlet diameter alone (Table~\ref{tab:detail-A6}; all tested cases $p>0.05$). A single anatomical coordinate is consequently not supported as an explanation of the observed exchange.
+The analytical example conditions accepted draws on a retained low-rank mode and measures coupling by squared projection. In the pelvic cohort, the permutation test found no significant localisation of exchange along AP inlet diameter alone (Table~\ref{tab:detail-A6}; all tested cases $p>0.05$).
 
 \begin{figure}[!t]
   \centering
@@ -1200,31 +1194,31 @@ The example conditions accepted draws on a retained low-rank backbone. Its obser
 % ============================================================
 \section{Discussion}\label{sec:discussion}
 \subsection{The comparative unit depends on spectral separation}
-The main finding is a discrepancy between rank-specific inlet coupling and capacity of the corresponding two-mode space. Among members of the recurrent 9--10 cluster, median AP-inlet coupling at rank~9 falls from \RankNineNo\ to \RankNineYes\,mm/mm between no-exchange and exchange groups (about 69\%). The maximum AP-inlet capacity within the 9--10 subspace falls from \ScalarAPNo\ to \ScalarAPYes\,mm/mm (about 5\%). A fixed-rank comparison therefore exaggerates the difference in available inlet-opening deformation for these groups. The subspace capacity is nevertheless different between groups; the data do not establish equivalence or exact preservation.
+Among members of the recurrent 9--10 cluster, median AP-inlet coupling at rank~9 falls from \RankNineNo\ to \RankNineYes\,mm/mm between no-exchange and exchange groups, a difference of approximately 69\%. The corresponding maximum capacity of the two-mode space falls from \ScalarAPNo\ to \ScalarAPYes\,mm/mm, approximately 5\%. The capacity difference is also detectable across groups ($q=0.040$). Together, these results show that a rank-specific comparison accentuates the anatomical contrast relative to the capacity available within the pair.
 
-Modal assignment detects changes in correspondence, principal angles measure subspace orientation, and anatomical functionals measure diameter response. Each answers a separate question. Basis invariance removes dependence on which orthonormal basis represents a given space, but it does not make different subjects' spaces equal. The comparison is also descriptive: exchange groups were defined using eigenvectors that contribute to the rank-level outcome. The smaller between-group difference in subspace capacity cannot be attributed causally to exchange itself, nor does it follow automatically from taking a maximum over two modes.
+Modal assignment identifies correspondence changes, principal angles measure subspace orientation, and anatomical functionals measure diameter response. Basis invariance makes the capacity independent of the basis chosen within each subject's subspace. Cross-subject stability is measured from the resulting capacity distributions. The exchange-group contrast is descriptive because the groups are defined using the modes whose coupling is compared.
 
-This distinction matters most in crowded spectral regions. Modes~1--3 rarely change order in this cohort, whereas several higher-rank blocks show frequent label exchange. The 9--10 pair has measurable separation on both sides and can be assessed as an interior block. The 12--15 block ends at the eigensolver cutoff, so its upper separation is unknown. Spectral gap and truncation checks should therefore precede anatomical interpretation of any grouped modes.
+This choice of comparison unit depends on spectral structure. Modes~1--3 rarely exchange order in the cohort, supporting individual-mode comparisons at low rank. The recurrent 9--10 pair has measurable separation on both sides and permits an interior-subspace analysis. The 12--15 block reaches the eigensolver cutoff, leaving its upper separation unknown. Gap and truncation checks therefore guide the anatomical interpretation of each block.
 
-\subsection{Anatomical capacity and load recruitment answer different questions}
-Anatomical capacity is the greatest modelled diameter change within a subspace per 1\,mm maximum nodal displacement. It is a kinematic measure, not displacement per unit force. Modal energy fractions describe recruitment under the selected loads. Standing concentrates retained modal energy in low ranks, while internal-ring expansion recruits more of the 9--10 block. The 5--6 pair contributes to ischial distraction even though it does not have the largest outlet capacity among the blocks compared. An available deformation direction therefore need not be the one most strongly activated by a load.
+\subsection{Anatomical capacity and load recruitment}
+Anatomical capacity measures the greatest modelled diameter change within a subspace per 1\,mm maximum nodal displacement. Modal energy fractions measure recruitment under a prescribed load. Standing concentrates retained energy in low ranks, while internal-ring expansion recruits more of the 9--10 block. The 5--6 pair contributes to ischial distraction despite lower outlet capacity than some other blocks. Capacity and recruitment thus provide complementary descriptions of the linear pelvic response.
 
-Together, these measures describe the initial linear response of the constrained pelvic ring. They may motivate hypotheses about load transfer and canal deformation~\citep{Gruss2015}, but they do not establish physiological compensation or changes during labour. The proxy expansion forces exclude fetal contact and nonlinear soft-tissue response. The mixed-sex cohort, with mean age approximately 54 years, also limits direct inference to pregnant or primiparous populations.
+These results concern initial deformation of a constrained pelvic ring and inform hypotheses about load transfer and canal change~\citep{Gruss2015}. The load cases use prescribed standing and expansion tractions. Their physiological interpretation is bounded by the material, joint, and boundary-condition assumptions detailed below.
 
 \subsection{Implications for population finite-element studies}
-Earlier pelvic studies used stiffness spectra as mechanical descriptors~\citep{Henys2021Eigenmetric} or compared responses under specified loads~\citep{Salo2017PelvicStrain}. Our analysis connects these approaches by asking whether a mode keeps its anatomical meaning across subjects and whether a load recruits the same region of the spectrum. The mathematical case for invariant subspaces is established~\citep{GhoshGhanem2012}; the evidence added here is the measured rank-versus-subspace discrepancy in a pelvic cohort.
+Earlier pelvic work used stiffness spectra as mechanical descriptors~\citep{Henys2021Eigenmetric} and compared responses under specified loads~\citep{Salo2017PelvicStrain}. The present analysis connects correspondence of spectral modes to anatomically measured capacity and load recruitment across subjects. Invariant-subspace methods provide the established mathematical basis~\citep{GhoshGhanem2012}; the pelvic cohort quantifies the resulting rank-versus-subspace contrast.
 
-The procedure can be tested in other anatomical models: identify crowded eigenvalue regions, check external separation, compare subspaces in a shared metric, and evaluate anatomical observables alongside load recruitment. Transfer to another structure would require new observables and validation of its own spectral range. The polynomial atlas is a descriptive summary of global displacement with explicit residuals; it does not validate local strain fields or physiological pathways. Exploratory sex-group differences and morphology associations likewise describe this cohort without identifying their causes.
+The same analysis sequence can be tested in other anatomical models: identify crowded eigenvalue regions, check external separation, compare subspaces in a shared metric, and evaluate anatomical observables with load recruitment. Each structure requires its own functionals and spectral-range assessment. The polynomial atlas summarises global displacement patterns with explicit residuals. Sex-group and morphology associations are exploratory descriptions of this cohort.
 
 \subsection{Limitations and validation priorities}
-The models assume small strains, isotropic bone elasticity, homogeneous cartilage, and prescribed ligament properties. The superior sacral restraint and load locations shape the computed modes. Subject-specific ligament laxity, pelvic floor support, nonlinear contact, and time-dependent response were not included~\citep{Vleeming2012,ChenGrimm2021}. A documented sensitivity analysis of the fixed sacral penalty parameter ($\gamma=10^6$\,N/mm$^3$) is unavailable, so its influence on the reported clusters and capacities remains unquantified.
+The FE models use small strains, isotropic bone elasticity, homogeneous cartilage, prescribed ligament properties, and a fixed superior sacral restraint. They omit subject-specific ligament laxity, pelvic floor support, nonlinear contact, and time-dependent tissue response~\citep{Vleeming2012,ChenGrimm2021}. The mixed-sex cohort has a mean age of approximately 54 years. These assumptions define the scope of the initial-response and pelvic-loading results. The influence of the sacral penalty parameter ($\gamma=10^6$\,N/mm$^3$) remains unquantified because a documented sensitivity analysis is unavailable.
 
-Material-uncertainty results use first-order eigenvalue sensitivities under assumed covariance. They do not replace FE re-solves under broad parameter changes or establish robustness of eigenvectors and anatomical capacities. The three-coordinate example illustrates possible rank redistribution but was conditioned to retain a low-rank mode and was not fitted to pelvic tissue data.
+The material-uncertainty analysis propagates assumed covariance through first-order eigenvalue derivatives. Full FE re-solves under broad tissue-parameter changes would assess eigenvectors and anatomical capacities directly. The three-coordinate example illustrates possible rank redistribution under its specified stochastic model, with accepted draws conditioned on a retained low-rank mode.
 
-Energy fractions sum to one only over the 15 retained modes. In three subjects with archived expanded spectra, those modes captured 99.3--99.5\% of full quadratic energy for standing and 76.5--94.9\% for expansion loads. This check does not establish adequacy across all 278 subjects; displacement reconstruction errors also do not establish local stress or strain accuracy. Experimental measurements under comparable loading remain necessary to validate the predicted anatomical coupling and recruitment.
+Modal energy fractions are normalised over the 15 retained modes. In three subjects with archived expanded spectra, these modes captured 99.3--99.5\% of full quadratic energy for standing and 76.5--94.9\% for expansion loads. A cohort-wide expanded-spectrum analysis would quantify truncation effects for the other subjects. Experimental ring-displacement measurements under comparable loading would test the predicted anatomical coupling and recruitment.
 
 \section{Conclusions}
-In 278 pelvic FE models, modes~1--3 rarely exchange order, while higher-rank anatomical responses can shift between neighbouring ranks. Within the recurrent 9--10 block, the between-group difference in AP-inlet capacity of the two-mode space is much smaller than the difference in coupling assigned to rank~9. Comparing clustered subspaces alongside individual modes therefore gives a more informative description of the available deformation in this linearised model. Its physiological relevance and robustness to untested model assumptions require further study.
+Across 278 pelvic FE models, modes~1--3 rarely exchange order, while anatomical coupling at higher ranks can move between neighbouring modes. In the recurrent 9--10 block, the difference in AP-inlet capacity of the two-mode space between exchange groups is much smaller than the difference assigned to rank~9. Comparing individual modes with their clustered subspaces therefore gives a fuller account of the deformation available in this linearised pelvic model.
 
 \FloatBarrier
 \section*{Statements and Declarations}

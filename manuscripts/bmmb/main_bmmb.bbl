@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -6,91 +6,154 @@
 \providecommand{\eprint}[2][]{\url{#2}}
  \bibcommenthead
 
-\bibitem[{Roque~de Almeida et~al.(2024)Roque~de Almeida, Alves Campice~de Oliveira, de~Oliveira~Campos, Martins~Rocha, and de~Souza~Bastos}]{Almeida2024Uterus}
-Roque~de Almeida P, Alves Campice~de Oliveira I, de~Oliveira~Campos J, et~al (2024) Modeling of the biomechanical behavior and growth of the human uterus during pregnancy. Journal of Biomechanics 174:112268. \doi{10.1016/j.jbiomech.2024.112268}
+\bibitem[{Arand et~al.(2019)Arand, Wagner, Richards, Noser, Kamer, Sawaguchi,
+  and Rommens}]{Arand2019PelvicShape}
+Arand C, Wagner D, Richards RG, et~al (2019) {3D} statistical model of the
+  pelvic ring---a {CT}-based statistical evaluation of anatomical variation.
+  Journal of Anatomy 234(3):376--383. \doi{10.1111/joa.12928}
 
-\bibitem[{Arand et~al.(2019)Arand, Wagner, Richards, Noser, Kamer, Sawaguchi, and Rommens}]{Arand2019PelvicShape}
-Arand C, Wagner D, Richards RG, et~al (2019) {3D} statistical model of the pelvic ring---a {CT}-based statistical evaluation of anatomical variation. Journal of Anatomy 234(3):376--383. \doi{10.1111/joa.12928}
+\bibitem[{Bergmann et~al.(2001)Bergmann, Deuretzbacher, Heller, Graichen,
+  Rohlmann, Strauss, and Duda}]{Bergmann2001JBiomech}
+Bergmann G, Deuretzbacher F, Heller M, et~al (2001) Hip contact forces and gait
+  patterns from routine activities. Journal of Biomechanics 34(7):859--871.
+  \doi{10.1016/S0021-9290(01)00040-9}
 
-\bibitem[{Bergmann et~al.(2001)Bergmann, Deuretzbacher, Heller, Graichen, Rohlmann, Strauss, and Duda}]{Bergmann2001JBiomech}
-Bergmann G, Deuretzbacher F, Heller M, et~al (2001) Hip contact forces and gait patterns from routine activities. Journal of Biomechanics 34(7):859--871. \doi{10.1016/S0021-9290(01)00040-9}
-
-\bibitem[{Bergmann et~al.(2016)Bergmann, Bender, Dymke, Duda, and Damm}]{Kutzner2016PLOS}
-Bergmann G, Bender A, Dymke J, et~al (2016) Standardized loads acting in hip implants. PLOS ONE 11(5):e0155612. \doi{10.1371/journal.pone.0155612}
+\bibitem[{Bergmann et~al.(2016)Bergmann, Bender, Dymke, Duda, and
+  Damm}]{Kutzner2016PLOS}
+Bergmann G, Bender A, Dymke J, et~al (2016) Standardized loads acting in hip
+  implants. PLOS ONE 11(5):e0155612. \doi{10.1371/journal.pone.0155612}
 
 \bibitem[{Bj{\"o}rck and Golub(1973)}]{BjorckGolub1973Angles}
-Bj{\"o}rck {\AA}, Golub GH (1973) Numerical methods for computing angles between linear subspaces. Mathematics of Computation 27(123):579--594. \doi{10.1090/S0025-5718-1973-0348991-3}
+Bj{\"o}rck {\AA}, Golub GH (1973) Numerical methods for computing angles
+  between linear subspaces. Mathematics of Computation 27(123):579--594.
+  \doi{10.1090/S0025-5718-1973-0348991-3}
 
 \bibitem[{Bonet and Wood(1997)}]{BonetWood1997}
-Bonet J, Wood RD (1997) Nonlinear Continuum Mechanics for Finite Element Analysis, 1st edn. Cambridge University Press
+Bonet J, Wood RD (1997) Nonlinear Continuum Mechanics for Finite Element
+  Analysis, 1st edn. Cambridge University Press
 
-\bibitem[{Chen et~al.(2026)Chen, Hume, Wyatt, and Choisne}]{Chen2026PelvicModel}
-Chen J, Hume PA, Wyatt HE, et~al (2026) Development of a pelvic musculoskeletal model based on statistical shape modelling for estimating sacroiliac and pubic joint reaction forces in females. Biomechanics and Modeling in Mechanobiology 25:91. \doi{10.1007/s10237-026-02110-5}
+\bibitem[{Chen et~al.(2026)Chen, Hume, Wyatt, and
+  Choisne}]{Chen2026PelvicModel}
+Chen J, Hume PA, Wyatt HE, et~al (2026) Development of a pelvic musculoskeletal
+  model based on statistical shape modelling for estimating sacroiliac and
+  pubic joint reaction forces in females. Biomechanics and Modeling in
+  Mechanobiology 25:91. \doi{10.1007/s10237-026-02110-5}
 
 \bibitem[{Chen and Grimm(2021)}]{ChenGrimm2021}
-Chen S, Grimm MJ (2021) Childbirth computational models: Characteristics and applications. Journal of Biomechanical Engineering 143(5):050801. \doi{10.1115/1.4049226}
+Chen S, Grimm MJ (2021) Childbirth computational models: Characteristics and
+  applications. Journal of Biomechanical Engineering 143(5):050801.
+  \doi{10.1115/1.4049226}
 
 \bibitem[{Cook and Robertson(2016)}]{CookRobertson2016}
-Cook DD, Robertson DJ (2016) The generic modeling fallacy: Average biomechanical models often produce non-average results! Journal of Biomechanics 49(15):3609--3615. \doi{10.1016/j.jbiomech.2016.10.004}
+Cook DD, Robertson DJ (2016) The generic modeling fallacy: Average
+  biomechanical models often produce non-average results! Journal of
+  Biomechanics 49(15):3609--3615. \doi{10.1016/j.jbiomech.2016.10.004}
 
-\bibitem[{Fernandez et~al.(2020)Fernandez, Dickinson, and Hunter}]{Fernandez2020Population}
-Fernandez J, Dickinson A, Hunter P (2020) Population based approaches to computational musculoskeletal modelling. Biomechanics and Modeling in Mechanobiology 19:1165--1168. \doi{10.1007/s10237-020-01364-x}
+\bibitem[{Fernandez et~al.(2020)Fernandez, Dickinson, and
+  Hunter}]{Fernandez2020Population}
+Fernandez J, Dickinson A, Hunter P (2020) Population based approaches to
+  computational musculoskeletal modelling. Biomechanics and Modeling in
+  Mechanobiology 19:1165--1168. \doi{10.1007/s10237-020-01364-x}
 
 \bibitem[{Frost(1987)}]{Frost1987}
-Frost HM (1987) Bone 'mass' and the 'mechanostat': A proposal. The Anatomical Record 219(1):1--9. \doi{10.1002/ar.1092190104}
+Frost HM (1987) Bone 'mass' and the 'mechanostat': A proposal. The Anatomical
+  Record 219(1):1--9. \doi{10.1002/ar.1092190104}
 
 \bibitem[{Ghosh and Ghanem(2012)}]{GhoshGhanem2012}
-Ghosh D, Ghanem R (2012) An invariant subspace-based approach to the random eigenvalue problem of systems with clustered spectrum. International Journal for Numerical Methods in Engineering 91(4):378--396. \doi{10.1002/nme.4276}
+Ghosh D, Ghanem R (2012) An invariant subspace-based approach to the random
+  eigenvalue problem of systems with clustered spectrum. International Journal
+  for Numerical Methods in Engineering 91(4):378--396. \doi{10.1002/nme.4276}
 
 \bibitem[{Goode et~al.(2008)Goode, Hegedus, and Sizer}]{Goode2008}
-Goode A, Hegedus EJ, Sizer P (2008) Three-dimensional movements of the sacroiliac joint: A systematic review of the literature and assessment of clinical utility. Journal of Manual \& Manipulative Therapy 16(1):25--38. \doi{10.1179/106698108790818639}
+Goode A, Hegedus EJ, Sizer P (2008) Three-dimensional movements of the
+  sacroiliac joint: A systematic review of the literature and assessment of
+  clinical utility. Journal of Manual \& Manipulative Therapy 16(1):25--38.
+  \doi{10.1179/106698108790818639}
 
 \bibitem[{Gruss and Schmitt(2015)}]{Gruss2015}
-Gruss LT, Schmitt D (2015) The evolution of the human pelvis: changing adaptations to bipedalism, obstetrics and thermoregulation. Philosophical Transactions of the Royal Society B: Biological Sciences 370(1663):20140063. \doi{10.1098/rstb.2014.0063}
+Gruss LT, Schmitt D (2015) The evolution of the human pelvis: changing
+  adaptations to bipedalism, obstetrics and thermoregulation. Philosophical
+  Transactions of the Royal Society B: Biological Sciences 370(1663):20140063.
+  \doi{10.1098/rstb.2014.0063}
 
 \bibitem[{Heny\v{s} and Kucha\v{r}(2025)}]{HenyssKuchar2025BoneDat}
-Heny\v{s} P, Kucha\v{r} M (2025) Bonedat, a database of standardized bone morphology for in silico analyses. Scientific Data 12(1). \doi{10.1038/s41597-025-05161-y}
+Heny\v{s} P, Kucha\v{r} M (2025) Bonedat, a database of standardized bone
+  morphology for in silico analyses. Scientific Data 12(1).
+  \doi{10.1038/s41597-025-05161-y}
 
 \bibitem[{Heny\v{s} and \v{C}apek(2019)}]{HenysCapek2019Modal}
-Heny\v{s} P, \v{C}apek L (2019) Computational modal analysis of a composite pelvic bone: convergence and validation studies. Computer Methods in Biomechanics and Biomedical Engineering 22(9):916--924. \doi{10.1080/10255842.2019.1604949}
+Heny\v{s} P, \v{C}apek L (2019) Computational modal analysis of a composite
+  pelvic bone: convergence and validation studies. Computer Methods in
+  Biomechanics and Biomedical Engineering 22(9):916--924.
+  \doi{10.1080/10255842.2019.1604949}
 
-\bibitem[{Heny\v{s} et~al.(2021)Heny\v{s}, Kucha\v{r}, H\'{a}jek, and Hammer}]{Henys2021Eigenmetric}
-Heny\v{s} P, Kucha\v{r} M, H\'{a}jek P, et~al (2021) Mechanical metric for skeletal biomechanics derived from spectral analysis of stiffness matrix. Scientific Reports 11:15690. \doi{10.1038/s41598-021-94998-5}
+\bibitem[{Heny\v{s} et~al.(2021)Heny\v{s}, Kucha\v{r}, H\'{a}jek, and
+  Hammer}]{Henys2021Eigenmetric}
+Heny\v{s} P, Kucha\v{r} M, H\'{a}jek P, et~al (2021) Mechanical metric for
+  skeletal biomechanics derived from spectral analysis of stiffness matrix.
+  Scientific Reports 11:15690. \doi{10.1038/s41598-021-94998-5}
 
-\bibitem[{Heny\v{s} et~al.(2022)Heny\v{s}, Ramezani, Schewitz, H{\"o}ch, M{\"o}bius, Ondruschka, and Hammer}]{Henys2022Ligaments}
-Heny\v{s} P, Ramezani M, Schewitz D, et~al (2022) Sacrospinous and sacrotuberous ligaments influence in pelvis kinematics. Journal of Anatomy 241(4):928--937. \doi{10.1111/joa.13739}
+\bibitem[{Heny\v{s} et~al.(2022)Heny\v{s}, Ramezani, Schewitz, H{\"o}ch,
+  M{\"o}bius, Ondruschka, and Hammer}]{Henys2022Ligaments}
+Heny\v{s} P, Ramezani M, Schewitz D, et~al (2022) Sacrospinous and
+  sacrotuberous ligaments influence in pelvis kinematics. Journal of Anatomy
+  241(4):928--937. \doi{10.1111/joa.13739}
 
-\bibitem[{Huiskes et~al.(1987)Huiskes, Weinans, Grootenboer, Dalstra, Fudala, and Slooff}]{Huiskes1987}
-Huiskes R, Weinans H, Grootenboer HJ, et~al (1987) Adaptive bone-remodeling theory applied to prosthetic-design analysis. Journal of Biomechanics 20(11--12):1135--1150. \doi{10.1016/0021-9290(87)90030-3}
+\bibitem[{Huiskes et~al.(1987)Huiskes, Weinans, Grootenboer, Dalstra, Fudala,
+  and Slooff}]{Huiskes1987}
+Huiskes R, Weinans H, Grootenboer HJ, et~al (1987) Adaptive bone-remodeling
+  theory applied to prosthetic-design analysis. Journal of Biomechanics
+  20(11--12):1135--1150. \doi{10.1016/0021-9290(87)90030-3}
 
 \bibitem[{Keller(1994)}]{Keller1994}
-Keller TS (1994) Predicting the compressive mechanical behavior of bone. Journal of Biomechanics 27(9):1159--1168. \doi{10.1016/0021-9290(94)90056-6}
+Keller TS (1994) Predicting the compressive mechanical behavior of bone.
+  Journal of Biomechanics 27(9):1159--1168. \doi{10.1016/0021-9290(94)90056-6}
 
 \bibitem[{Kuhn(1955)}]{Kuhn1955Hungarian}
-Kuhn HW (1955) The hungarian method for the assignment problem. Naval Research Logistics Quarterly 2(1--2):83--97. \doi{10.1002/nav.3800020109}
+Kuhn HW (1955) The hungarian method for the assignment problem. Naval Research
+  Logistics Quarterly 2(1--2):83--97. \doi{10.1002/nav.3800020109}
 
 \bibitem[{Manconi and Mace(2017)}]{ManconiMace2017}
-Manconi E, Mace BR (2017) Veering and strong coupling effects in structural dynamics. Journal of Vibration and Acoustics 139(2). \doi{10.1115/1.4035109}
+Manconi E, Mace BR (2017) Veering and strong coupling effects in structural
+  dynamics. Journal of Vibration and Acoustics 139(2). \doi{10.1115/1.4035109}
 
 \bibitem[{Marsden and Hughes(1983)}]{MarsdenHughes1983}
-Marsden JE, Hughes TJR (1983) Mathematical Foundations of Elasticity. Prentice Hall
+Marsden JE, Hughes TJR (1983) Mathematical Foundations of Elasticity. Prentice
+  Hall
 
-\bibitem[{Morgan et~al.(2003)Morgan, Bayraktar, and Keaveny}]{Morgan2003Trabecular}
-Morgan EF, Bayraktar HH, Keaveny TM (2003) Trabecular bone modulus-density relationships depend on anatomic site. Journal of Biomechanics 36(7):897--904. \doi{10.1016/S0021-9290(03)00071-X}
+\bibitem[{Morgan et~al.(2003)Morgan, Bayraktar, and
+  Keaveny}]{Morgan2003Trabecular}
+Morgan EF, Bayraktar HH, Keaveny TM (2003) Trabecular bone modulus-density
+  relationships depend on anatomic site. Journal of Biomechanics
+  36(7):897--904. \doi{10.1016/S0021-9290(03)00071-X}
 
 \bibitem[{Pierre(1988)}]{Pierre1988}
-Pierre C (1988) Mode localization and eigenvalue loci veering phenomena in disordered structures. Journal of Sound and Vibration 126(3):485--502. \doi{10.1016/0022-460X(88)90226-X}
+Pierre C (1988) Mode localization and eigenvalue loci veering phenomena in
+  disordered structures. Journal of Sound and Vibration 126(3):485--502.
+  \doi{10.1016/0022-460X(88)90226-X}
 
-\bibitem[{Salo et~al.(2017)Salo, Beek, Wright, Maloul, and Whyne}]{Salo2017PelvicStrain}
-Salo Z, Beek M, Wright D, et~al (2017) Analysis of pelvic strain in different gait configurations in a validated cohort of computed tomography based finite element models. Journal of Biomechanics 64:120--130. \doi{10.1016/j.jbiomech.2017.09.014}
+\bibitem[{Salo et~al.(2017)Salo, Beek, Wright, Maloul, and
+  Whyne}]{Salo2017PelvicStrain}
+Salo Z, Beek M, Wright D, et~al (2017) Analysis of pelvic strain in different
+  gait configurations in a validated cohort of computed tomography based finite
+  element models. Journal of Biomechanics 64:120--130.
+  \doi{10.1016/j.jbiomech.2017.09.014}
 
 \bibitem[{Sch{\"o}nemann(1966)}]{Schoenemann1966Procrustes}
-Sch{\"o}nemann PH (1966) A generalized solution of the orthogonal procrustes problem. Psychometrika 31(1):1--10. \doi{10.1007/BF02289451}
+Sch{\"o}nemann PH (1966) A generalized solution of the orthogonal procrustes
+  problem. Psychometrika 31(1):1--10. \doi{10.1007/BF02289451}
 
-\bibitem[{Snijders et~al.(1993)Snijders, Vleeming, and Stoeckart}]{Snijders1993}
-Snijders CJ, Vleeming A, Stoeckart R (1993) Transfer of lumbosacral load to iliac bones and legs. part 1: Biomechanics of self-bracing of the sacroiliac joints. Clinical Biomechanics 8(6):285--294. \doi{10.1016/0268-0033(93)90002-Y}
+\bibitem[{Snijders et~al.(1993)Snijders, Vleeming, and
+  Stoeckart}]{Snijders1993}
+Snijders CJ, Vleeming A, Stoeckart R (1993) Transfer of lumbosacral load to
+  iliac bones and legs. part 1: Biomechanics of self-bracing of the sacroiliac
+  joints. Clinical Biomechanics 8(6):285--294.
+  \doi{10.1016/0268-0033(93)90002-Y}
 
-\bibitem[{Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels, and Willard}]{Vleeming2012}
-Vleeming A, Schuenke MD, Masi AT, et~al (2012) The sacroiliac joint: an overview of its anatomy, function and potential clinical implications. Journal of Anatomy 221(6):537--567. \doi{10.1111/j.1469-7580.2012.01564.x}
+\bibitem[{Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels,
+  and Willard}]{Vleeming2012}
+Vleeming A, Schuenke MD, Masi AT, et~al (2012) The sacroiliac joint: an
+  overview of its anatomy, function and potential clinical implications.
+  Journal of Anatomy 221(6):537--567. \doi{10.1111/j.1469-7580.2012.01564.x}
 
 \end{thebibliography}
