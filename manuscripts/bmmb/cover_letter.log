@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  29 SEP 2026 14:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  29 SEP 2026 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,14 +271,14 @@ Package rerunfilecheck Info: File `cover_letter.out' has not changed.
 Here is how much of TeX's memory you used:
  8191 strings out of 476106
  126516 string characters out of 5793933
- 1932975 words of memory out of 5000000
+ 1929975 words of memory out of 5000000
  30157 multiletter control sequences out of 15000+600000
  559827 words of font info for 39 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 69i,5n,79p,747b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,5n,79p,609b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/
 fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on cover_letter.pdf (1 page, 50659 bytes).
+Output written on cover_letter.pdf (1 page, 49194 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream
