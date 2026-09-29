@@ -3,7 +3,7 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT main_bmmb.tex
+INPUT /mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/bmmb/main_bmmb.tex
 OUTPUT main_bmmb.log
 INPUT ./sn-jnl.cls
 INPUT sn-jnl.cls

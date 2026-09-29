@@ -1,14 +1,15 @@
 # Fdb version 4
-["bibtex main_bmmb"] 1790589901.08852 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790589902.19452 0
+["bibtex main_bmmb"] 1790589901.08852 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790616993.01212 0
   "./references.bib" 1790414712.133 11587 b5d53bd3a068652a9a757da03134a027 ""
   "./sn-basic.bst" 1790330541.81112 35515 7cc706cef7829df727b1420a5d0e9fe4 ""
-  "main_bmmb.aux" 1790589901.94691 46900 e0d26c268afca0e41ad3a7edb6f8a605 "pdflatex"
+  "main_bmmb.aux" 1790616992.80474 46900 e0d26c268afca0e41ad3a7edb6f8a605 "pdflatex"
   (generated)
   "main_bmmb.bbl"
   "main_bmmb.blg"
   (rewritten before read)
-["pdflatex"] 1790589901.15426 "main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790589902.19499 0
+["pdflatex"] 1790616991.98937 "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/bmmb/main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790616993.01265 0
   "/etc/texmf/web2c/texmf.cnf" 1761816456.53967 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/mnt/pracovni/Active_projects/Obstretrical_dillema/manuscripts/bmmb/main_bmmb.tex" 1790616989.25507 128523 e21c9fa117c8b6c50730a9826732b802 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -197,10 +198,10 @@
   "global_deformation_synthetic_table.tex" 1789793021.63481 1818 e69828fd83928050405283cdbbf871ea ""
   "label_effects_compact.tex" 1790330926.18158 539 d086c9d2b83d2c55c710d6ef86eecace ""
   "label_effects_full_cohort_compact.tex" 1790330926.18242 538 431f1604436dc94809d66058b08a5fad ""
-  "main_bmmb.aux" 1790589901.94691 46900 e0d26c268afca0e41ad3a7edb6f8a605 "pdflatex"
+  "main_bmmb.aux" 1790616992.80474 46900 e0d26c268afca0e41ad3a7edb6f8a605 "pdflatex"
   "main_bmmb.bbl" 1790589901.1494 8159 78e75045931315816995c43ff0f34e3c "bibtex main_bmmb"
-  "main_bmmb.out" 1790589901.949 13186 541178fffa16a692fc6c24201583bd07 "pdflatex"
-  "main_bmmb.tex" 1790589891.19301 128524 3d1137a1a403c38ec564c72ceae517c7 ""
+  "main_bmmb.out" 1790616992.80674 13186 541178fffa16a692fc6c24201583bd07 "pdflatex"
+  "main_bmmb.tex" 1790616989.25507 128523 e21c9fa117c8b6c50730a9826732b802 ""
   "mode_activation_dominant_sets.tex" 1789712795.76272 568 b827c061cf6cdd5c85c8b57436fa25e7 ""
   "mode_activation_overlap.tex" 1789712795.76324 582 105098a574986733242654bc7d81004e ""
   "quadrature_method.pdf" 1790587785.9395 449985 b4cc0da25a4d17a354abdcce901c15ec ""
