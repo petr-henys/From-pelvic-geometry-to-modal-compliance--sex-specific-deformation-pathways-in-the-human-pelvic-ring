@@ -9,7 +9,7 @@
     "routing_associations.pdf": "analysis_outputs/plos_revision/figures/routing_associations.pdf",
     "load_routing.pdf": "analysis_outputs/plos_revision/figures/load_routing.pdf",
     "toy_model.pdf": "analysis_outputs/plos_revision/figures/toy_model.pdf",
-    "model_setup.pdf": "manuscripts/natcomm/images/model_setup.pdf",
+    "model_setup.pdf": "analysis/render_bmmb_model_setup.py",
     "material_uncertainty.pdf": "analysis_outputs/plos_revision/figures/material_uncertainty.pdf",
     "clusters.tex": "analysis_outputs/tables/clusters.tex",
     "mode_activation_dominant_sets.tex": "analysis_outputs/tables/mode_activation_dominant_sets.tex",
@@ -21,8 +21,6 @@
     "cohort_bootstrap_robustness.tex": "analysis_outputs/tables/cohort_bootstrap_robustness.tex",
     "sex_stratified_summary.pdf": "analysis_outputs/figures/sex_stratified_summary.pdf",
     "sex_stratified_summary.tex": "analysis_outputs/tables/sex_stratified_summary.tex",
-    "function_locking_heatmap.pdf": "analysis_outputs/figures/function_locking_heatmap.pdf",
-    "function_locking_synthesis.tex": "analysis_outputs/tables/function_locking_synthesis.tex",
     "mode_activation_overlap.tex": "analysis_outputs/tables/mode_activation_overlap.tex",
     "allometry_dashboard.pdf": "analysis_outputs/figures/allometry_dashboard.pdf",
     "allometry_summary.tex": "analysis_outputs/tables/allometry_summary.tex",
@@ -31,7 +29,10 @@
     "global_deformation_modes_table.tex": "analysis_outputs/tables/global_deformation_modes_table.tex",
     "global_deformation_synthetic_table.tex": "analysis_outputs/tables/global_deformation_synthetic_table.tex",
     "quadrature_method.pdf": "analysis_outputs/method_illustrations/quadrature_method.pdf",
-    "deformation_families.pdf": "analysis_outputs/method_illustrations/deformation_families.pdf"
+    "deformation_families.pdf": "analysis_outputs/method_illustrations/deformation_families.pdf",
+    "Fig1.pdf": "analysis/render_bmmb_model_setup.py",
+    "Fig3.pdf": "analysis/render_bmmb_functional_coupling.py",
+    "coupling_routing_heatmap.pdf": "analysis_outputs/plos_revision/figures/coupling_routing_heatmap.pdf"
   },
   "numerical_revision": {
     "date": "2026-09-28",

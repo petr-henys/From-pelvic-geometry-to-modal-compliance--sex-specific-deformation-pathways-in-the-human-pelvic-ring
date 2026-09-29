@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  29 SEP 2026 14:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  29 SEP 2026 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -704,17 +704,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2
-
-]
-<Fig1.pdf, id=248, 796.44579pt x 677.65573pt>
+<Fig1.pdf, id=242, 796.44579pt x 677.65573pt>
 File: Fig1.pdf Graphic file (type pdf)
 <use Fig1.pdf>
 Package pdftex.def Info: Fig1.pdf  used on input line 68.
 (pdftex.def)             Requested size: 495.07797pt x 421.23828pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3 <./Fig1.pdf>]
@@ -730,12 +730,109 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-<quadrature_method.pdf, id=463, 540.5796pt x 213.19649pt>
+Underfull \hbox (badness 1205) in paragraph at lines 335--337
+[]\OT1/cmr/m/n/10 Differences in sub-space ori-en-ta-tion across the cohort wer
+e quan-ti-fied using the Grass-mann dis-tance
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--343
+\OT1/cmr/m/n/10 Finite-element assem-bly, eigen-solves, and post-pro-cess-ing w
+ere imple-mented in Python 3.11 with
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<Fig2.pdf, id=487, 493.95387pt x 534.54117pt>
+File: Fig2.pdf Graphic file (type pdf)
+<use Fig2.pdf>
+Package pdftex.def Info: Fig2.pdf  used on input line 372.
+(pdftex.def)             Requested size: 495.07797pt x 535.77147pt.
+ (./clusters.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./Fig2.pdf>]
+<Fig3.pdf, id=539, 494.80814pt x 389.99857pt>
+File: Fig3.pdf Graphic file (type pdf)
+<use Fig3.pdf>
+Package pdftex.def Info: Fig3.pdf  used on input line 405.
+(pdftex.def)             Requested size: 495.07797pt x 390.22968pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./Fig3.pdf>]
+<Fig4.pdf, id=584, 494.80814pt x 244.4878pt>
+File: Fig4.pdf Graphic file (type pdf)
+<use Fig4.pdf>
+Package pdftex.def Info: Fig4.pdf  used on input line 433.
+(pdftex.def)             Requested size: 495.07797pt x 244.63268pt.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 443.
+ (./label_effects_compact.tex)
+<sex_stratified_summary.pdf, id=587, 526.37505pt x 598.39557pt>
+File: sex_stratified_summary.pdf Graphic file (type pdf)
+<use sex_stratified_summary.pdf>
+Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 460.
+(pdftex.def)             Requested size: 495.07797pt x 562.848pt.
+ (./sex_stratified_summary.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./Fig4.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <./sex_stratified_summary.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14]
+<Fig5.pdf, id=674, 493.32306pt x 390.08765pt>
+File: Fig5.pdf Graphic file (type pdf)
+<use Fig5.pdf>
+Package pdftex.def Info: Fig5.pdf  used on input line 508.
+(pdftex.def)             Requested size: 495.07797pt x 391.4795pt.
+
+(./mode_activation_dominant_sets.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15
+
+]
+<routing_associations.pdf, id=682, 494.80814pt x 403.46112pt>
+File: routing_associations.pdf Graphic file (type pdf)
+<use routing_associations.pdf>
+Package pdftex.def Info: routing_associations.pdf  used on input line 532.
+(pdftex.def)             Requested size: 495.07797pt x 403.70021pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16 <./Fig5.pdf>]
+<robustness.pdf, id=710, 494.80814pt x 404.45094pt>
+File: robustness.pdf Graphic file (type pdf)
+<use robustness.pdf>
+Package pdftex.def Info: robustness.pdf  used on input line 549.
+(pdftex.def)             Requested size: 495.07797pt x 404.69063pt.
+ (./reconstruction.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <./routing_associations.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18 <./robustness.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+<quadrature_method.pdf, id=828, 540.5796pt x 213.19649pt>
 File: quadrature_method.pdf Graphic file (type pdf)
 <use quadrature_method.pdf>
-Package pdftex.def Info: quadrature_method.pdf  used on input line 346.
+Package pdftex.def Info: quadrature_method.pdf  used on input line 664.
 (pdftex.def)             Requested size: 495.0874pt x 195.25504pt.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 355
+LaTeX Font Info:    Trying to load font information for U+euf on input line 673
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -743,17 +840,17 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
+ [21 <./quadrature_method.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <./quadrature_method.pdf>]
-<deformation_families.pdf, id=581, 540.5796pt x 379.4175pt>
+ [22]
+<deformation_families.pdf, id=950, 540.5796pt x 379.4175pt>
 File: deformation_families.pdf Graphic file (type pdf)
 <use deformation_families.pdf>
-Package pdftex.def Info: deformation_families.pdf  used on input line 474.
+Package pdftex.def Info: deformation_families.pdf  used on input line 791.
 (pdftex.def)             Requested size: 495.0874pt x 347.48781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 481--482
+Underfull \hbox (badness 10000) in paragraph at lines 798--799
 []\OT1/cmr/m/n/10 To assem-ble the dis-crete kine-matic design matrix, the basi
 s fields in each fam-ily $\OML/cmm/m/it/10.03749 m \OMS/cmsy/m/n/10.03749 2
  []
@@ -761,180 +858,68 @@ s fields in each fam-ily $\OML/cmm/m/it/10.03749 m \OMS/cmsy/m/n/10.03749 2
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
+ [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <./deformation_families.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-Underfull \hbox (badness 1205) in paragraph at lines 669--671
-[]\OT1/cmr/m/n/10 Differences in sub-space ori-en-ta-tion across the cohort wer
-e quan-ti-fied using the Grass-mann dis-tance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 675--677
-\OT1/cmr/m/n/10 Finite-element assem-bly, eigen-solves, and post-pro-cess-ing w
-ere imple-mented in Python 3.11 with
- []
-
-<reference_mode_atlas.pdf, id=776, 540.60239pt x 688.55669pt>
+ [24 <./deformation_families.pdf>]
+<reference_mode_atlas.pdf, id=1089, 540.60239pt x 688.55669pt>
 File: reference_mode_atlas.pdf Graphic file (type pdf)
 <use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 691.
+Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 872.
 (pdftex.def)             Requested size: 446.5139pt x 568.71768pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ [25]
 (./global_deformation_modes_table.tex)
 (./global_deformation_synthetic_table.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
+ [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18 <./reference_mode_atlas.pdf>]
-<Fig2.pdf, id=965, 493.95387pt x 534.54117pt>
-File: Fig2.pdf Graphic file (type pdf)
-<use Fig2.pdf>
-Package pdftex.def Info: Fig2.pdf  used on input line 790.
-(pdftex.def)             Requested size: 495.07797pt x 535.77147pt.
- (./clusters.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19
-
-]
-(./rank_cluster_ref_mapping.tex) (./swap_rates.tex)
-(./swap_pair_diagnostics.tex) (./veering_vs_mixing_classification.tex)
-(./veering_null_test.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20 <./Fig2.pdf>]
-<Fig3.pdf, id=1028, 494.80814pt x 389.99997pt>
-File: Fig3.pdf Graphic file (type pdf)
-<use Fig3.pdf>
-Package pdftex.def Info: Fig3.pdf  used on input line 874.
-(pdftex.def)             Requested size: 495.07797pt x 390.2311pt.
+ [27 <./reference_mode_atlas.pdf>]
+<coupling_routing_heatmap.pdf, id=1274, 494.72952pt x 390.00182pt>
+File: coupling_routing_heatmap.pdf Graphic file (type pdf)
+<use coupling_routing_heatmap.pdf>
+Package pdftex.def Info: coupling_routing_heatmap.pdf  used on input line 951.
+(pdftex.def)             Requested size: 495.07797pt x 390.28055pt.
+<allometry_dashboard.pdf, id=1275, 519.56058pt x 298.95796pt>
+File: allometry_dashboard.pdf Graphic file (type pdf)
+<use allometry_dashboard.pdf>
+Package pdftex.def Info: allometry_dashboard.pdf  used on input line 963.
+(pdftex.def)             Requested size: 495.07797pt x 284.8843pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [28
+
+ <./coupling_routing_heatmap.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22 <./Fig3.pdf>]
-<Fig4.pdf, id=1083, 494.80814pt x 244.4878pt>
-File: Fig4.pdf Graphic file (type pdf)
-<use Fig4.pdf>
-Package pdftex.def Info: Fig4.pdf  used on input line 902.
-(pdftex.def)             Requested size: 495.07797pt x 244.63268pt.
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 920.
- (./cohort_bootstrap_robustness.tex)
-<sex_stratified_summary.pdf, id=1087, 526.37505pt x 598.39557pt>
-File: sex_stratified_summary.pdf Graphic file (type pdf)
-<use sex_stratified_summary.pdf>
-Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 930.
-(pdftex.def)             Requested size: 495.07797pt x 562.848pt.
- (./sex_stratified_summary.tex)
-(./label_effects_compact.tex) (./label_effects_full_cohort_compact.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23 <./Fig4.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24 <./sex_stratified_summary.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-<Fig5.pdf, id=1172, 493.32306pt x 390.08765pt>
-File: Fig5.pdf Graphic file (type pdf)
-<use Fig5.pdf>
-Package pdftex.def Info: Fig5.pdf  used on input line 988.
-(pdftex.def)             Requested size: 495.07797pt x 391.4795pt.
-
-(./mode_activation_dominant_sets.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26
-
- <./Fig5.pdf>]
-<function_locking_heatmap.pdf, id=1201, 598.22409pt x 227.6543pt>
-File: function_locking_heatmap.pdf Graphic file (type pdf)
-<use function_locking_heatmap.pdf>
-Package pdftex.def Info: function_locking_heatmap.pdf  used on input line 1013.
-
-(pdftex.def)             Requested size: 495.07797pt x 188.40068pt.
- (./function_locking_synthesis.tex) (./mode_activation_overlap.tex)
-<routing_associations.pdf, id=1202, 494.80814pt x 403.46112pt>
-File: routing_associations.pdf Graphic file (type pdf)
-<use routing_associations.pdf>
-Package pdftex.def Info: routing_associations.pdf  used on input line 1041.
-(pdftex.def)             Requested size: 495.07797pt x 403.70021pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27 <./function_locking_heatmap.pdf>]
-<Fig6.pdf, id=1240, 493.95387pt x 404.45976pt>
+ [29 <./allometry_dashboard.pdf>]
+<Fig6.pdf, id=1358, 493.95387pt x 404.45976pt>
 File: Fig6.pdf Graphic file (type pdf)
 <use Fig6.pdf>
-Package pdftex.def Info: Fig6.pdf  used on input line 1056.
+Package pdftex.def Info: Fig6.pdf  used on input line 1040.
 (pdftex.def)             Requested size: 495.07797pt x 405.39067pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28 <./routing_associations.pdf>]
-<allometry_dashboard.pdf, id=1277, 519.56058pt x 298.95796pt>
-File: allometry_dashboard.pdf Graphic file (type pdf)
-<use allometry_dashboard.pdf>
-Package pdftex.def Info: allometry_dashboard.pdf  used on input line 1071.
-(pdftex.def)             Requested size: 495.07797pt x 284.8843pt.
-<robustness.pdf, id=1278, 494.80814pt x 404.45094pt>
-File: robustness.pdf Graphic file (type pdf)
-<use robustness.pdf>
-Package pdftex.def Info: robustness.pdf  used on input line 1119.
-(pdftex.def)             Requested size: 495.07797pt x 404.69063pt.
- (./reconstruction.tex)
+ [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29 <./Fig6.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [30 <./allometry_dashboard.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31 <./robustness.pdf>]
+ [31 <./Fig6.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32]
-<Fig7.pdf, id=1401, 490.83789pt x 390.57718pt>
+<Fig7.pdf, id=1418, 490.83789pt x 390.57718pt>
 File: Fig7.pdf Graphic file (type pdf)
 <use Fig7.pdf>
-Package pdftex.def Info: Fig7.pdf  used on input line 1183.
+Package pdftex.def Info: Fig7.pdf  used on input line 1155.
 (pdftex.def)             Requested size: 495.07797pt x 393.96729pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33
-
- <./Fig7.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
 (./main_bmmb.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35]
 Underfull \hbox (badness 2384) in paragraph at lines 54--57
 \OT1/cmr/m/n/10 tal mod-elling. Biome-chan-ics and Mod-el-ing in Mechanobi-ol-o
 gy 19:1165--1168. [][]$https : / / doi . org / 10 . 1007 /
@@ -943,61 +928,62 @@ gy 19:1165--1168. [][]$https : / / doi . org / 10 . 1007 /
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36])
+ [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
+ [34 <./Fig7.pdf>])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35]
 (./main_bmmb.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main_bmmb.out' has not changed.
-(rerunfilecheck)             Checksum: 48467C0B1B403BE65CC458B2FAB64058;12995.
+(rerunfilecheck)             Checksum: 60F8F055779705B5950A91751D7552A8;14505.
  ) 
 Here is how much of TeX's memory you used:
- 14815 strings out of 476106
- 234759 string characters out of 5793933
- 1975975 words of memory out of 5000000
- 36295 multiletter control sequences out of 15000+600000
+ 14757 strings out of 476106
+ 233062 string characters out of 5793933
+ 1960975 words of memory out of 5000000
+ 36270 multiletter control sequences out of 15000+600000
  598109 words of font info for 185 fonts, out of 8000000 for 9000
  69 hyphenation exceptions out of 8191
- 90i,13n,93p,1617b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,93p,1433b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfrm1000.pfb>
-Output written on main_bmmb.pdf (37 pages, 7463734 bytes).
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1000.pfb>
+Output written on main_bmmb.pdf (35 pages, 7430766 bytes).
 PDF statistics:
- 1703 PDF objects out of 1728 (max. 8388607)
- 1020 compressed objects within 11 object streams
- 224 named destinations out of 1000 (max. 500000)
- 420 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1674 PDF objects out of 1728 (max. 8388607)
+ 1002 compressed objects within 11 object streams
+ 218 named destinations out of 1000 (max. 500000)
+ 460 words of extra memory for PDF output out of 10000 (max. 10000000)
 
