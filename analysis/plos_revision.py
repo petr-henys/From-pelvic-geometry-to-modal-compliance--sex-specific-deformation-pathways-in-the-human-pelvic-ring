@@ -421,7 +421,7 @@ def plots(df):
  style_axis(axs[0],spines=('left','bottom','top','right'),y_grid=False,x_grid=False)
  style_colorbar(fig,im,ax=axs[0],label='Mean share',orientation='vertical',shrink=0.88,fraction=0.035,pad=0.02)
  bottom=np.zeros(5)
- for a,b,label,c in [(0,3,'1–3 (Backbone)',BACKBONE_COLOR),(3,8,'4–8 (Mid-rank)',MIDRANK_COLOR),(8,10,'9–10 (Inlet swap)',INLET_SWAP_COLOR),(10,15,'11–15 (Higher reserve)',HIGHER_RESERVE_COLOR)]:
+ for a,b,label,c in [(0,3,'1–3 (Backbone)',BACKBONE_COLOR),(3,8,'4–8 (Mid-rank)',MIDRANK_COLOR),(8,10,'9–10 (Pair)',INLET_SWAP_COLOR),(10,15,'11–15 (Higher ranks)',HIGHER_RESERVE_COLOR)]:
   y=means[a:b].sum(axis=0);axs[1].bar(np.arange(5),y,bottom=bottom,label=label,color=c,width=0.55,edgecolor='none');bottom+=y
  axs[1].set_xticks(np.arange(5),LOADS);axs[1].set_ylabel('Mean energy share');axs[1].set_ylim(0,1.05)
  panel(axs[1],'B  Routing across modal blocks')

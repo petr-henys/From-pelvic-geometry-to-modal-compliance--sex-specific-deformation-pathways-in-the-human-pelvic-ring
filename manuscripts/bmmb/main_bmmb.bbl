@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -23,6 +23,11 @@ Bergmann G, Deuretzbacher F, Heller M, et~al (2001) Hip contact forces and gait
 Bergmann G, Bender A, Dymke J, et~al (2016) Standardized loads acting in hip
   implants. PLOS ONE 11(5):e0155612. \doi{10.1371/journal.pone.0155612}
 
+\bibitem[{Betti and Manica(2018)}]{BettiManica2018}
+Betti L, Manica A (2018) Human variation in the shape of the birth canal is
+  significant and geographically structured. Proceedings of the Royal Society
+  B: Biological Sciences 285(1889):20181807. \doi{10.1098/rspb.2018.1807}
+
 \bibitem[{Bj{\"o}rck and Golub(1973)}]{BjorckGolub1973Angles}
 Bj{\"o}rck {\AA}, Golub GH (1973) Numerical methods for computing angles
   between linear subspaces. Mathematics of Computation 27(123):579--594.
@@ -39,11 +44,6 @@ Chen J, Hume PA, Wyatt HE, et~al (2026) Development of a pelvic musculoskeletal
   pubic joint reaction forces in females. Biomechanics and Modeling in
   Mechanobiology 25:91. \doi{10.1007/s10237-026-02110-5}
 
-\bibitem[{Chen and Grimm(2021)}]{ChenGrimm2021}
-Chen S, Grimm MJ (2021) Childbirth computational models: Characteristics and
-  applications. Journal of Biomechanical Engineering 143(5):050801.
-  \doi{10.1115/1.4049226}
-
 \bibitem[{Cook and Robertson(2016)}]{CookRobertson2016}
 Cook DD, Robertson DJ (2016) The generic modeling fallacy: Average
   biomechanical models often produce non-average results! Journal of
@@ -54,6 +54,12 @@ Cook DD, Robertson DJ (2016) The generic modeling fallacy: Average
 Fernandez J, Dickinson A, Hunter P (2020) Population based approaches to
   computational musculoskeletal modelling. Biomechanics and Modeling in
   Mechanobiology 19:1165--1168. \doi{10.1007/s10237-020-01364-x}
+
+\bibitem[{Fischer and Mitteroecker(2015)}]{FischerMitteroecker2015}
+Fischer B, Mitteroecker P (2015) Covariation between human pelvis shape,
+  stature, and head size alleviates the obstetric dilemma. Proceedings of the
+  National Academy of Sciences 112(18):5655--5660.
+  \doi{10.1073/pnas.1420325112}
 
 \bibitem[{Frost(1987)}]{Frost1987}
 Frost HM (1987) Bone 'mass' and the 'mechanostat': A proposal. The Anatomical
@@ -69,12 +75,6 @@ Goode A, Hegedus EJ, Sizer P (2008) Three-dimensional movements of the
   sacroiliac joint: A systematic review of the literature and assessment of
   clinical utility. Journal of Manual \& Manipulative Therapy 16(1):25--38.
   \doi{10.1179/106698108790818639}
-
-\bibitem[{Gruss and Schmitt(2015)}]{Gruss2015}
-Gruss LT, Schmitt D (2015) The evolution of the human pelvis: changing
-  adaptations to bipedalism, obstetrics and thermoregulation. Philosophical
-  Transactions of the Royal Society B: Biological Sciences 370(1663):20140063.
-  \doi{10.1098/rstb.2014.0063}
 
 \bibitem[{Heny\v{s} and Kucha\v{r}(2025)}]{HenyssKuchar2025BoneDat}
 Heny\v{s} P, Kucha\v{r} M (2025) Bonedat, a database of standardized bone
@@ -105,6 +105,12 @@ Huiskes R, Weinans H, Grootenboer HJ, et~al (1987) Adaptive bone-remodeling
   theory applied to prosthetic-design analysis. Journal of Biomechanics
   20(11--12):1135--1150. \doi{10.1016/0021-9290(87)90030-3}
 
+\bibitem[{Huseynov et~al.(2016)Huseynov, Zollikofer, Coudyzer, Gascho,
+  Kellenberger, Hinzpeter, and Ponce~de Le{\'o}n}]{Huseynov2016}
+Huseynov A, Zollikofer CPE, Coudyzer W, et~al (2016) Developmental evidence for
+  obstetric adaptation of the human female pelvis. Proceedings of the National
+  Academy of Sciences 113(19):5227--5232. \doi{10.1073/pnas.1517085113}
+
 \bibitem[{Keller(1994)}]{Keller1994}
 Keller TS (1994) Predicting the compressive mechanical behavior of bone.
   Journal of Biomechanics 27(9):1159--1168. \doi{10.1016/0021-9290(94)90056-6}
@@ -132,6 +138,13 @@ Pierre C (1988) Mode localization and eigenvalue loci veering phenomena in
   disordered structures. Journal of Sound and Vibration 126(3):485--502.
   \doi{10.1016/0022-460X(88)90226-X}
 
+\bibitem[{Reitter et~al.(2014)Reitter, Daviss, Bisits, Schollenberger, Vogl,
+  Herrmann, Louwen, and Zangos}]{Reitter2014}
+Reitter A, Daviss BA, Bisits A, et~al (2014) Does pregnancy and/or shifting
+  positions create more room in a woman's pelvis? American Journal of
+  Obstetrics and Gynecology 211(6):662.e1--662.e9.
+  \doi{10.1016/j.ajog.2014.06.029}
+
 \bibitem[{Salo et~al.(2017)Salo, Beek, Wright, Maloul, and
   Whyne}]{Salo2017PelvicStrain}
 Salo Z, Beek M, Wright D, et~al (2017) Analysis of pelvic strain in different
@@ -149,6 +162,19 @@ Snijders CJ, Vleeming A, Stoeckart R (1993) Transfer of lumbosacral load to
   iliac bones and legs. part 1: Biomechanics of self-bracing of the sacroiliac
   joints. Clinical Biomechanics 8(6):285--294.
   \doi{10.1016/0268-0033(93)90002-Y}
+
+\bibitem[{Stansfield et~al.(2021{\natexlab{a}})Stansfield, Fischer, Grunstra,
+  Villa~Pouca, and Mitteroecker}]{StansfieldCanal2021}
+Stansfield E, Fischer B, Grunstra NDS, et~al (2021{\natexlab{a}}) The evolution
+  of pelvic canal shape and rotational birth in humans. BMC Biology 19(1):224.
+  \doi{10.1186/s12915-021-01150-w}
+
+\bibitem[{Stansfield et~al.(2021{\natexlab{b}})Stansfield, Kumar, Mitteroecker,
+  and Grunstra}]{StansfieldFloor2021}
+Stansfield E, Kumar K, Mitteroecker P, et~al (2021{\natexlab{b}}) Biomechanical
+  trade-offs in the pelvic floor constrain the evolution of the human birth
+  canal. Proceedings of the National Academy of Sciences 118(16):e2022159118.
+  \doi{10.1073/pnas.2022159118}
 
 \bibitem[{Vleeming et~al.(2012)Vleeming, Schuenke, Masi, Carreiro, Danneels,
   and Willard}]{Vleeming2012}
