@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main_bmmb"] 1790756326.26458 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790756455.37285 0
+["bibtex main_bmmb"] 1790759884.31306 "main_bmmb.aux" "main_bmmb.bbl" "main_bmmb" 1790762404.50303 0
   "./references.bib" 1790750501.2432 14243 28d04f7c528af0c475dfbf31a8a1dccb ""
   "./sn-basic.bst" 1790330541.81112 35515 7cc706cef7829df727b1420a5d0e9fe4 ""
-  "main_bmmb.aux" 1790756455.13831 45544 348331f6a261e3072aaaaae24949324c "pdflatex"
+  "main_bmmb.aux" 1790762404.26536 45575 41b57fc643fecac627ba1e4d9fc4d0c3 "pdflatex"
   (generated)
   "main_bmmb.bbl"
   "main_bmmb.blg"
   (rewritten before read)
-["pdflatex"] 1790756454.39058 "main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790756455.37324 0
+["pdflatex"] 1790762403.50211 "main_bmmb.tex" "main_bmmb.pdf" "main_bmmb" 1790762404.50329 0
   "/etc/texmf/web2c/texmf.cnf" 1761816456.53967 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -79,6 +79,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb" 1248133631 28902 2f5c04fd2884d1878057baa5aad22765 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
@@ -192,14 +193,15 @@
   "global_deformation_modes_table.tex" 1790569808.4449 1512 49579afd22a2c8758669a218c9c796a6 ""
   "global_deformation_synthetic_table.tex" 1789793021.63481 1818 e69828fd83928050405283cdbbf871ea ""
   "label_effects_compact.tex" 1790330926.18158 539 d086c9d2b83d2c55c710d6ef86eecace ""
-  "main_bmmb.aux" 1790756455.13831 45544 348331f6a261e3072aaaaae24949324c "pdflatex"
-  "main_bmmb.bbl" 1790756326.32252 9239 ecd35fdec2b654b41d887b7757cd3281 "bibtex main_bmmb"
-  "main_bmmb.out" 1790756455.14013 14856 3040734fdb7b349233f05c9bf10a772d "pdflatex"
-  "main_bmmb.tex" 1790756454.28761 116865 5323197cae50bdff731a67de98460f83 ""
+  "main_bmmb.aux" 1790762404.26536 45575 41b57fc643fecac627ba1e4d9fc4d0c3 "pdflatex"
+  "main_bmmb.bbl" 1790759884.37184 9239 ecd35fdec2b654b41d887b7757cd3281 "bibtex main_bmmb"
+  "main_bmmb.out" 1790762404.26709 14856 3040734fdb7b349233f05c9bf10a772d "pdflatex"
+  "main_bmmb.tex" 1790762313.90739 116256 50e34d730a4c05af04fc595d445e3f12 ""
   "mode_activation_dominant_sets.tex" 1789712795.76272 568 b827c061cf6cdd5c85c8b57436fa25e7 ""
   "quadrature_method.pdf" 1790587785.9395 449985 b4cc0da25a4d17a354abdcce901c15ec ""
   "reconstruction.tex" 1789822850.71721 290 caa72abfb7c680e76f035ea341f74289 ""
   "reference_mode_atlas.pdf" 1790569743.48776 2515145 e2a82c28ee65b17da1b5af262ce6bd59 ""
+  "reference_mode_contrast.pdf" 1790762375.51823 2523771 8863bef7f99a6c5ffe0c08bc17c78265 ""
   "robustness.pdf" 1790570795.80279 59315 5925a5b734735735275cf78b468b54f2 ""
   "routing_associations.pdf" 1790570793.40141 40986 369205d76de15c171c45c922d7a4c137 ""
   "sex_stratified_summary.pdf" 1789746627.86439 65309 4e246f368e5b78960d95960f1989d679 ""

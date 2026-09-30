@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  30 SEP 2026 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  30 SEP 2026 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -747,42 +747,30 @@ ere imple-mented in Python 3.11 with
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<reference_mode_atlas.pdf, id=510, 540.60239pt x 688.55669pt>
-File: reference_mode_atlas.pdf Graphic file (type pdf)
-<use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 365.
-(pdftex.def)             Requested size: 237.6353pt x 122.63803pt.
-File: reference_mode_atlas.pdf Graphic file (type pdf)
-<use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 366.
-(pdftex.def)             Requested size: 237.6353pt x 119.16664pt.
-File: reference_mode_atlas.pdf Graphic file (type pdf)
-<use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 367.
-(pdftex.def)             Requested size: 237.6353pt x 126.70161pt.
-File: reference_mode_atlas.pdf Graphic file (type pdf)
-<use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 368.
-(pdftex.def)             Requested size: 237.6353pt x 129.56232pt.
-<Fig2.pdf, id=519, 493.95387pt x 534.54117pt>
+<reference_mode_contrast.pdf, id=510, 499.99998pt x 235.55202pt>
+File: reference_mode_contrast.pdf Graphic file (type pdf)
+<use reference_mode_contrast.pdf>
+Package pdftex.def Info: reference_mode_contrast.pdf  used on input line 365.
+(pdftex.def)             Requested size: 495.07797pt x 233.24391pt.
+<Fig2.pdf, id=514, 493.95387pt x 534.54117pt>
 File: Fig2.pdf Graphic file (type pdf)
 <use Fig2.pdf>
-Package pdftex.def Info: Fig2.pdf  used on input line 383.
+Package pdftex.def Info: Fig2.pdf  used on input line 380.
 (pdftex.def)             Requested size: 495.07797pt x 535.77147pt.
  (./clusters.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <./reference_mode_atlas.pdf>]
+ [9 <./reference_mode_contrast.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./Fig2.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-<Fig3.pdf, id=737, 494.80814pt x 389.99857pt>
+<Fig3.pdf, id=744, 494.80814pt x 389.99857pt>
 File: Fig3.pdf Graphic file (type pdf)
 <use Fig3.pdf>
-Package pdftex.def Info: Fig3.pdf  used on input line 416.
+Package pdftex.def Info: Fig3.pdf  used on input line 413.
 (pdftex.def)             Requested size: 495.07797pt x 390.22968pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -790,17 +778,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [12
 
  <./Fig3.pdf>]
-<Fig4.pdf, id=781, 494.80814pt x 244.4878pt>
+<Fig4.pdf, id=788, 494.80814pt x 244.4878pt>
 File: Fig4.pdf Graphic file (type pdf)
 <use Fig4.pdf>
-Package pdftex.def Info: Fig4.pdf  used on input line 444.
+Package pdftex.def Info: Fig4.pdf  used on input line 441.
 (pdftex.def)             Requested size: 495.07797pt x 244.63268pt.
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 454.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 451.
  (./label_effects_compact.tex)
-<sex_stratified_summary.pdf, id=784, 526.37505pt x 598.39557pt>
+<sex_stratified_summary.pdf, id=791, 526.37505pt x 598.39557pt>
 File: sex_stratified_summary.pdf Graphic file (type pdf)
 <use sex_stratified_summary.pdf>
-Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 471.
+Package pdftex.def Info: sex_stratified_summary.pdf  used on input line 468.
 (pdftex.def)             Requested size: 495.07797pt x 562.848pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -809,28 +797,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14 <./sex_stratified_summary.pdf>]
-<Fig5.pdf, id=869, 493.32306pt x 390.08765pt>
+<Fig5.pdf, id=876, 493.32306pt x 390.08765pt>
 File: Fig5.pdf Graphic file (type pdf)
 <use Fig5.pdf>
-Package pdftex.def Info: Fig5.pdf  used on input line 519.
+Package pdftex.def Info: Fig5.pdf  used on input line 516.
 (pdftex.def)             Requested size: 495.07797pt x 391.4795pt.
  (./mode_activation_dominant_sets.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-<routing_associations.pdf, id=877, 494.80814pt x 403.46112pt>
+<routing_associations.pdf, id=884, 494.80814pt x 403.46112pt>
 File: routing_associations.pdf Graphic file (type pdf)
 <use routing_associations.pdf>
-Package pdftex.def Info: routing_associations.pdf  used on input line 543.
+Package pdftex.def Info: routing_associations.pdf  used on input line 540.
 (pdftex.def)             Requested size: 495.07797pt x 403.70021pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16 <./Fig5.pdf>]
-<robustness.pdf, id=905, 494.80814pt x 404.45094pt>
+<robustness.pdf, id=912, 494.80814pt x 404.45094pt>
 File: robustness.pdf Graphic file (type pdf)
 <use robustness.pdf>
-Package pdftex.def Info: robustness.pdf  used on input line 560.
+Package pdftex.def Info: robustness.pdf  used on input line 557.
 (pdftex.def)             Requested size: 495.07797pt x 404.69063pt.
  (./reconstruction.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -848,12 +836,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-<quadrature_method.pdf, id=1052, 540.5796pt x 213.19649pt>
+<quadrature_method.pdf, id=1059, 540.5796pt x 213.19649pt>
 File: quadrature_method.pdf Graphic file (type pdf)
 <use quadrature_method.pdf>
-Package pdftex.def Info: quadrature_method.pdf  used on input line 676.
+Package pdftex.def Info: quadrature_method.pdf  used on input line 673.
 (pdftex.def)             Requested size: 495.0874pt x 195.25504pt.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 685
+LaTeX Font Info:    Trying to load font information for U+euf on input line 682
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -865,13 +853,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
-<deformation_families.pdf, id=1173, 540.5796pt x 379.4175pt>
+<deformation_families.pdf, id=1179, 540.5796pt x 379.4175pt>
 File: deformation_families.pdf Graphic file (type pdf)
 <use deformation_families.pdf>
-Package pdftex.def Info: deformation_families.pdf  used on input line 803.
+Package pdftex.def Info: deformation_families.pdf  used on input line 800.
 (pdftex.def)             Requested size: 495.0874pt x 347.48781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--811
+Underfull \hbox (badness 10000) in paragraph at lines 807--808
 []\OT1/cmr/m/n/10 To assem-ble the dis-crete kine-matic design matrix, the basi
 s fields in each fam-ily $\OML/cmm/m/it/10.03749 m \OMS/cmsy/m/n/10.03749 2
  []
@@ -883,9 +871,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25 <./deformation_families.pdf>]
+<reference_mode_atlas.pdf, id=1320, 540.60239pt x 688.55669pt>
 File: reference_mode_atlas.pdf Graphic file (type pdf)
 <use reference_mode_atlas.pdf>
-Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 884.
+Package pdftex.def Info: reference_mode_atlas.pdf  used on input line 881.
 (pdftex.def)             Requested size: 446.5139pt x 568.71768pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -898,16 +887,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-<coupling_routing_heatmap.pdf, id=1338, 494.72952pt x 390.00182pt>
+ [28 <./reference_mode_atlas.pdf>]
+<coupling_routing_heatmap.pdf, id=1503, 494.72952pt x 390.00182pt>
 File: coupling_routing_heatmap.pdf Graphic file (type pdf)
 <use coupling_routing_heatmap.pdf>
-Package pdftex.def Info: coupling_routing_heatmap.pdf  used on input line 963.
+Package pdftex.def Info: coupling_routing_heatmap.pdf  used on input line 960.
 (pdftex.def)             Requested size: 495.07797pt x 390.28055pt.
-<allometry_dashboard.pdf, id=1339, 519.56058pt x 298.95796pt>
+<allometry_dashboard.pdf, id=1504, 519.56058pt x 298.95796pt>
 File: allometry_dashboard.pdf Graphic file (type pdf)
 <use allometry_dashboard.pdf>
-Package pdftex.def Info: allometry_dashboard.pdf  used on input line 975.
+Package pdftex.def Info: allometry_dashboard.pdf  used on input line 972.
 (pdftex.def)             Requested size: 495.07797pt x 284.8843pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -918,10 +907,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30 <./allometry_dashboard.pdf>]
-<Fig6.pdf, id=1423, 493.95387pt x 404.45976pt>
+<Fig6.pdf, id=1587, 493.95387pt x 404.45976pt>
 File: Fig6.pdf Graphic file (type pdf)
 <use Fig6.pdf>
-Package pdftex.def Info: Fig6.pdf  used on input line 1052.
+Package pdftex.def Info: Fig6.pdf  used on input line 1049.
 (pdftex.def)             Requested size: 495.07797pt x 405.39067pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -933,10 +922,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
-<Fig7.pdf, id=1482, 490.83789pt x 390.57718pt>
+<Fig7.pdf, id=1647, 490.83789pt x 390.57718pt>
 File: Fig7.pdf Graphic file (type pdf)
 <use Fig7.pdf>
-Package pdftex.def Info: Fig7.pdf  used on input line 1167.
+Package pdftex.def Info: Fig7.pdf  used on input line 1164.
 (pdftex.def)             Requested size: 495.07797pt x 393.96729pt.
 
 (./main_bmmb.bbl
@@ -964,10 +953,10 @@ Package rerunfilecheck Info: File `main_bmmb.out' has not changed.
 (rerunfilecheck)             Checksum: 3040734FDB7B349233F05C9BF10A772D;14856.
  ) 
 Here is how much of TeX's memory you used:
- 14796 strings out of 476106
- 233887 string characters out of 5793933
+ 14803 strings out of 476106
+ 234148 string characters out of 5793933
  1960975 words of memory out of 5000000
- 36302 multiletter control sequences out of 15000+600000
+ 36309 multiletter control sequences out of 15000+600000
  602484 words of font info for 202 fonts, out of 8000000 for 9000
  69 hyphenation exceptions out of 8191
  90i,13n,93p,1524b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -991,19 +980,20 @@ dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfrm1000.pfb>
-Output written on main_bmmb.pdf (36 pages, 7429190 bytes).
+/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
+bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfrm1000.pfb>
+Output written on main_bmmb.pdf (36 pages, 9952169 bytes).
 PDF statistics:
- 1745 PDF objects out of 2073 (max. 8388607)
- 1068 compressed objects within 11 object streams
+ 1911 PDF objects out of 2073 (max. 8388607)
+ 1112 compressed objects within 12 object streams
  225 named destinations out of 1000 (max. 500000)
- 492 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 473 words of extra memory for PDF output out of 10000 (max. 10000000)
 
