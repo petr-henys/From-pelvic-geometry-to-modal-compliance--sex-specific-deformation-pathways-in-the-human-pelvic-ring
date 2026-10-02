@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1790938185.72889 "supplement.tex" "supplement.pdf" "supplement" 1790938186.42026 0
-  "../figures/Fig6_allometry_loglog.pdf" 1790058820.77419 26349 d9e39307f458f5c3109428197911bc0b ""
-  "../figures/SuppFig1_allometry_scatter.pdf" 1789928733.26281 122468 09e8c166b8543bc28ba80ca07f6db223 ""
-  "../figures/SuppFig2_measurement_conventions.pdf" 1789929822.96116 322068 4f7c5ae5e486d316c1d207cd501dcb4b ""
+["pdflatex"] 1790947923.69307 "supplement.tex" "supplement.pdf" "supplement" 1790947924.37007 0
+  "../figures/Fig6_allometry_loglog.pdf" 1790947804.79562 62249 fbb3707a544c04e49a40e294cffd792d ""
+  "../figures/SuppFig1_allometry_scatter.pdf" 1790947814.78162 558975 34ae16651bbbbb47a4430dd1afbe07fd ""
+  "../figures/SuppFig2_measurement_conventions.pdf" 1790947815.99962 401122 08a04bffddd33d1e105f675bd2b6b2a4 ""
   "../sections/appendix_math.tex" 1790938101.24156 3273 535ffd74e4a3b957965dce8364e5d3d3 ""
   "../tables/generated/supp_age_sex.tex" 1790162960.97707 663 a6740a131b2e3eaca1bb94e362055772 ""
   "../tables/generated/supp_age_volume.tex" 1790162960.98235 1655 61c91703ec92729658b9f41671192481 ""
@@ -160,9 +160,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1771244779.23343 5349216 bf3a80e68d946c7acd95ff030fd9bb63 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1771244812 6831138 e361f9c9db2e636eb064f6a4cc93ec74 ""
-  "supplement.aux" 1790938186.32271 338 0de6d840f3f8b00728756c845e857257 "pdflatex"
-  "supplement.out" 1790938186.32334 257 b0cdc80dba326d21f377155ed084d6d1 "pdflatex"
-  "supplement.tex" 1790938180.81421 9660 cab5ffb6676d3c5177c2f21d49382b2a ""
+  "supplement.aux" 1790947924.2676 338 0de6d840f3f8b00728756c845e857257 "pdflatex"
+  "supplement.out" 1790947924.26803 257 b0cdc80dba326d21f377155ed084d6d1 "pdflatex"
+  "supplement.tex" 1790947909.34722 9679 b721cd4ad93618399a7f2b38ba4e5cef ""
   (generated)
   "supplement.aux"
   "supplement.log"

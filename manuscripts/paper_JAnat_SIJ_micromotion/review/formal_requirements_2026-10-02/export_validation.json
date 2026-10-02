@@ -1,0 +1,40 @@
+{
+  "main.docx": {
+    "zip_valid": true,
+    "native_tables": 5,
+    "native_math": 219,
+    "images": 8
+  },
+  "supplementary/supplement.docx": {
+    "zip_valid": true,
+    "native_tables": 15,
+    "native_math": 134,
+    "images": 3
+  },
+  "submission/Declaration_of_competing_interest.docx": {
+    "zip_valid": true,
+    "native_tables": 0,
+    "native_math": 0,
+    "images": 0
+  },
+  "submission/Figure_captions.docx": {
+    "zip_valid": true,
+    "native_tables": 0,
+    "native_math": 8,
+    "images": 0
+  },
+  "submission/Highlights.docx": {
+    "zip_valid": true,
+    "native_tables": 0,
+    "native_math": 0,
+    "images": 0
+  },
+  "main.pdf": {
+    "pages": 35,
+    "latex_warnings": false
+  },
+  "supplementary/supplement.pdf": {
+    "pages": 14,
+    "latex_warnings": false
+  }
+}

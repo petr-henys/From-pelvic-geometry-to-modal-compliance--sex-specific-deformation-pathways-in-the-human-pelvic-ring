@@ -1,0 +1,96 @@
+# Figure 1
+
+**Anatomical landmarks for all morphometric measures.** (A–G) Landmark
+pairs define the seven linear dimensions in Table 1. (H) The subpubic
+angle has vertex *p*<sub>2</sub> and arms toward *p*<sub>1</sub> and
+*p*<sub>3</sub>; the view is normal to their plane. (I) Measurement
+definitions and landmark key. Markers and segments are overlaid on the
+reference pelvic geometry to keep internal landmarks visible. Values
+describe the template, not cohort averages. Lengths are measured in
+three dimensions; each camera direction is perpendicular to its
+measurement segment. Panels use different views and magnifications.
+
+# Figure 2
+
+**Anatomy, motion definitions and load application.** (A) Pelvic
+assembly: green denotes the superior S1 endplate constraint, orange SIJ
+cartilage and purple the symphysis. (B) Exploded articulation with
+illustrative axis directions; these arrows do not define the
+subject-specific PCA frame or anatomical signs. (C) Rotational and
+translational reporting conventions. (D,E) Bilateral and unilateral
+acetabular loads, each totaling 800 N. (F–H) Independent internal-ring,
+ischial and AP force pairs. Load arrows show applied global directions,
+not measured joint opening. The S1 penalty approximates a fixed
+boundary.
+
+# Figure 3
+
+**Predictive information in the anatomical triad.** (A,B) Held-out
+prediction *R*<sup>2</sup> for size and triad models, separately by load
+and endpoint. Each subject is held out from training in all loads. (C)
+Triad-model translations versus archived FE endpoints; each plotted
+prediction is averaged over validation repeats for display. The reported
+metrics in panels A,B and Table 3 pool squared errors over repeats
+rather than using these averaged predictions. The dashed line is
+identity. Predictor selection was retrospective; these are internal
+validation results.
+
+# Figure 4
+
+**Load-dependent motion and asymmetry.** Rotation-triplet norm, relative
+translation norm, absolute ML rotation and bilateral
+translation-magnitude asymmetry. Points are subjects; boxplots summarize
+each sex separately using medians and IQRs, with whiskers at 1.5 IQR.
+The numerical summaries in the text and Table 4 pool both sexes. Female
+and male groups use vermilion and blue. Jitter is deterministic. No
+signed nutation direction is inferred.
+
+# Figure 5
+
+**Paired absolute-component contrasts.** (A) Median within-subject
+differences from SP2leg, with bootstrap 95% CIs. (B) Individual ML/CC
+contrast pairs and arrows to their componentwise medians. Positive
+values mean larger component magnitude, not outward joint motion.
+Corrected *q* values are reported in Supplementary Table S1; intervals
+are pointwise, not simultaneous.
+
+# Figure 6
+
+**A directional limit to scalar response reduction.** Each 400 N
+transverse side force is progressively transferred from internal-ring to
+ischial patches, holding anatomy, tissues and total side force fixed.
+(A) Thin curves show subject translations re-extracted from exact
+mixtures of the FE displacement fields; thick curves show cohort medians
+for these translations and the two endpoint estimates. (B)
+Endpoint-vector alignment versus within-subject reduction at equal force
+redistribution. The cosine is averaged over the two sides; it is a
+directional diagnostic, not an independent predictor. (C) Scalar and
+signed-vector endpoint-combination errors. Field superposition is exact
+in the implemented linear system; combining extracted kinematic vectors
+is approximate, with its residual error measured.
+
+# Figure 7
+
+**Adjustment for volume and selected dimensions attenuates
+sex-associated translation differences.** (A,B) M2 female-minus-male
+coefficients with HC3 95% CIs, shown on separate translation and
+rotation axes. Labels give BH-adjusted *q* values across six tests. (C)
+Translation coefficients attenuate as pelvic volume and the selected
+triad enter the model; connecting lines compare specifications and are
+not causal pathways. (D) The positive pooled LAB1 subpubic-angle
+association is not reproduced within either sex. All M2 intervals span
+zero; this does not establish equivalence. M0 adjusts for age, M1 adds
+volume, and M2 adds the morphometric triad.
+
+# Figure 8
+
+**Retaining individual geometry preserves between-subject variation.**
+(A) Geometry-preserved / standardized-density and (B) density-preserved
+/ template-geometry sample variances, each divided by the full-model
+variance, in percent. Five endpoints are shown. Color scales differ
+between panels and follow their actual data ranges. Values above 100%
+are allowed. Subject-level agreement complements these variance
+summaries (translation RMSE  ≤ 0.0280 mm; minimum identity-line
+*R*<sup>2</sup> = 0.9457). Bootstrap intervals and agreement diagnostics
+are provided in Supplementary Table S2; neither panel represents
+variance explained by an independent causal factor.

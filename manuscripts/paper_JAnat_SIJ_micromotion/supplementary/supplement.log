@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  2 OCT 2026 12:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.16)  2 OCT 2026 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -469,7 +469,7 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count315
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 34.
+h' as default language. on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
@@ -480,7 +480,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 34
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 35
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -494,24 +494,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./supplement.aux)
 \openout1 = `supplement.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -554,7 +554,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 34.
+or `english'. on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -578,40 +578,40 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 34.
+Package hyperref Info: Link coloring OFF on input line 35.
 
 (./supplement.out) (./supplement.out)
 \@outlinefile=\write3
 \openout3 = `supplement.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-6.
+7.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-6.
+7.
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-36.
+37.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-36.
+37.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 36.
+(Font)              <12> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 36.
+(Font)              <8> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 36.
+(Font)              <6> on input line 37.
  (../sections/appendix_math.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 2.
@@ -663,27 +663,27 @@ athsy.enc}]
 File: ../figures/SuppFig1_allometry_scatter.pdf Graphic file (type pdf)
 <use ../figures/SuppFig1_allometry_scatter.pdf>
 Package pdftex.def Info: ../figures/SuppFig1_allometry_scatter.pdf  used on inp
-ut line 106.
+ut line 107.
 (pdftex.def)             Requested size: 427.93057pt x 578.96689pt.
  [12
 
  <../figures/SuppFig1_allometry_scatter.pdf>]
-<../figures/SuppFig2_measurement_conventions.pdf, id=182, 731.13103pt x 499.570
-59pt>
+<../figures/SuppFig2_measurement_conventions.pdf, id=105, 731.13153pt x 499.566
+39pt>
 File: ../figures/SuppFig2_measurement_conventions.pdf Graphic file (type pdf)
 <use ../figures/SuppFig2_measurement_conventions.pdf>
 Package pdftex.def Info: ../figures/SuppFig2_measurement_conventions.pdf  used 
-on input line 112.
-(pdftex.def)             Requested size: 455.24411pt x 311.05693pt.
+on input line 113.
+(pdftex.def)             Requested size: 455.24411pt x 311.05432pt.
  [13
 
  <../figures/SuppFig2_measurement_conventions.pdf>]
-<../figures/Fig6_allometry_loglog.pdf, id=302, 767.26604pt x 312.89977pt>
+<../figures/Fig6_allometry_loglog.pdf, id=115, 767.26653pt x 312.899pt>
 File: ../figures/Fig6_allometry_loglog.pdf Graphic file (type pdf)
 <use ../figures/Fig6_allometry_loglog.pdf>
 Package pdftex.def Info: ../figures/Fig6_allometry_loglog.pdf  used on input li
-ne 117.
-(pdftex.def)             Requested size: 455.24411pt x 185.65486pt.
+ne 118.
+(pdftex.def)             Requested size: 455.24411pt x 185.6544pt.
 [14
 
  <../figures/Fig6_allometry_loglog.pdf>] (./supplement.aux)
@@ -713,10 +713,10 @@ pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb>
-Output written on supplement.pdf (14 pages, 759617 bytes).
+Output written on supplement.pdf (14 pages, 1323786 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  37 named destinations out of 1000 (max. 500000)
  24 words of extra memory for PDF output out of 10000 (max. 10000000)
 

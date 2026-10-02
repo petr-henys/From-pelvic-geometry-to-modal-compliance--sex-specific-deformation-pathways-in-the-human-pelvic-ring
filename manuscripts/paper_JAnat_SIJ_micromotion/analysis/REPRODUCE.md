@@ -22,12 +22,31 @@ python manuscripts/paper_JAnat_SIJ_micromotion/analysis/validate_prediction_revi
 latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/main.tex
 latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/supplementary/supplement.tex
 python manuscripts/paper_JAnat_SIJ_micromotion/analysis/export_docx.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/prepare_submission_files.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/audit_formal_requirements.py
 ```
 
-For an editorial-only build, use just the last three commands. All narrative
+For an editorial-only build, use just the last five commands. All narrative
 sections are manually maintained and authoritative. **Do not run
 `write_corrected_results.py` or the historical full workflow to build this
 revision:** that generator overwrites the revised abstract and Results.
+
+The formal audit records reproducible prose counts, declarations, citation pairs,
+Highlights character counts and fonts in both PDFs and their figure assets. It
+does not certify live journal rules: the current JTB Guide for Authors could not
+be retrieved. See `review/formal_requirements_2026-10-02/kontrola_cs.md` for the
+verified publisher policies and remaining journal-specific checks. The manuscript
+discloses Codex assistance with prose, analysis and visualization code; the author
+confirmed that no other AI tools were used, the funder had no role and both authors
+reviewed and approved the text and outputs.
+
+Legacy Type-3 figure fonts were converted to vector outlines without recomputing
+analyses. `normalize_figure_fonts.py` retains originals under the formal-review
+backup, checks rendering at 1600 pixels and exact decoded bitmap preservation,
+and writes the conversion record. It is only needed when legacy PDFs are restored.
+New Matplotlib exports specify embedded TrueType fonts. `prepare_submission_files.py`
+copies the eight main figures in manuscript order and creates a separate editable
+caption sheet; it uses current LaTeX reference numbers.
 
 Prediction uses identical subject folds across loads, outcomes and predictor sets;
 fits log outcomes with training-only standardization and arithmetic-scale

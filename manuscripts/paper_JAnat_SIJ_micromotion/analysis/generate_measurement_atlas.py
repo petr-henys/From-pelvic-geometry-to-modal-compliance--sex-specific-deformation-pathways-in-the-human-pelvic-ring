@@ -64,7 +64,7 @@ def validate(mesh):
  (P/'review/measurement_landmark_validation.json').write_text(json.dumps(report,indent=2))
 
 def atlas(mesh):
- plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10})
+ plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'pdf.fonttype':42,'ps.fonttype':42})
  fig,axs=plt.subplots(3,3,figsize=(9,7.4),layout='constrained')
  fig.get_layout_engine().set(w_pad=.035,h_pad=.04,wspace=.015,hspace=.025)
  for j,((name,key,title),color,ax) in enumerate(zip(ITEMS,COLORS,axs.flat)):

@@ -34,6 +34,8 @@ FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 # Publication styling matching PLOS / J Anat
 plt.rcParams.update({
+    "pdf.fonttype": 42,
+    "ps.fonttype": 42,
     "font.family": "sans-serif",
     "font.sans-serif": ["DejaVu Sans", "Helvetica", "Arial"],
     "font.size": 8.5,

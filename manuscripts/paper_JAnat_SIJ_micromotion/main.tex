@@ -1,4 +1,5 @@
 \documentclass[11pt,a4paper]{article}
+\pdfminorversion=7
 
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[T1]{fontenc}
@@ -71,7 +72,7 @@ Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
 \input{sections/abstract}
 \end{abstract}
 
-\noindent\textbf{Keywords:} sacroiliac joint; functional morphology; anatomical prediction; load transfer; directional response; finite-element analysis
+\noindent\textbf{Keywords:} functional morphology; cross-validation; force redistribution; directional cancellation; finite-element analysis
 
 \input{sections/introduction}
 \input{sections/methods}
@@ -83,22 +84,23 @@ Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
 
 \input{sections/appendix}
 
-\section*{Acknowledgements}
-
 \section*{Funding}
-This work was supported by the Czech Science Foundation (GA\v{C}R; Grant No.\ 24-10862S).
+This work was supported by the Czech Science Foundation (GA\v{C}R; Grant No.\ 24-10862S). The funder had no role in study design, data analysis or interpretation, manuscript preparation, or the decision to submit the article for publication.
 
 \section*{Author contributions}
 CRediT authorship contribution statement. Petr Heny\v{s}: Conceptualization; Methodology; Software; Formal analysis; Investigation; Data curation; Visualization; Funding acquisition; Writing -- original draft; Writing -- review \& editing. Niels Hammer: Supervision; Writing -- review \& editing.
 
-\section*{Conflict of interest statement}
-The authors declare no conflicts of interest.
+\section*{Declaration of competing interest}
+The authors declare no competing interests.
 
 \section*{Supporting information}
 Supporting Information provides paired prediction gains and benchmark errors, statistical definitions, direct application-site contrasts, density-standardization error tails, variance ratios, sex models, exploratory conditional volume associations and extraction sensitivity diagnostics.
 
 \section*{Data Availability Statement}
 The source anonymized CT images, segmentations and standardized anatomical geometries are available through BoneDat \citep{HenyssKuchar2025BoneDat}, with source data indexed by the \href{https://doi.org/10.5281/zenodo.15189761}{BoneDat dataset record}. The present study's derived morphometric tables, subject-level motion endpoints, held-out predictions, load-mixture results, machine-readable model estimates and analysis code have not been deposited in a public repository. The Supporting Information provides the statistical definitions, component contrasts, variance ratios, model estimates and sensitivity analyses reported here. The BoneDat record identifies the source imaging and anatomical data, not a repository for this study's FE results or code.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+OpenAI Codex (GPT-6, OpenAI) assisted with literature searches, manuscript organization and drafting, and development of analysis and visualization code. Its contribution to the research workflow is described in the Methods. Both authors reviewed and approved the resulting text and outputs and accept responsibility for the article's accuracy, interpretation and integrity.
 
 \bibliographystyle{bib/apalike-doi}
 \bibliography{bib/refs}

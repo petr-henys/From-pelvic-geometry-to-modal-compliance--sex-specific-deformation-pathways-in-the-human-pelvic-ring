@@ -1,0 +1,9 @@
+figure,label,source,submission_file
+1,fig:morphometry,figures/Fig_morphometric_landmarks.pdf,submission/figures/Figure_01.pdf
+2,fig:overview,figures/Fig1_anatomy_coordinates_loads.pdf,submission/figures/Figure_02.pdf
+3,fig:prediction,figures/Fig_prediction_subject_heldout.pdf,submission/figures/Figure_03.pdf
+4,fig:loadprofiles,figures/Fig2_primary_load_profiles.pdf,submission/figures/Figure_04.pdf
+5,fig:directional,figures/Fig3_directional_rerouting.pdf,submission/figures/Figure_05.pdf
+6,fig:mixture,figures/Fig_load_mixture_mechanism.pdf,submission/figures/Figure_06.pdf
+7,fig:sexeffects,figures/Fig4_sex_effects_lab.pdf,submission/figures/Figure_07.pdf
+8,fig:variance,figures/Fig5_variance_channels.pdf,submission/figures/Figure_08.pdf

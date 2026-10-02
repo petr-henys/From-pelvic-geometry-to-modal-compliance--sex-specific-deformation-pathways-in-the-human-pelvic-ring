@@ -1,0 +1,101 @@
+[
+  {
+    "file": "figures/Fig1_anatomy_coordinates_loads.pdf",
+    "original_sha256": "4ca0c8d06b837183529497688ade96070c5b2b0bfd55ef3d0ac854055d88f926",
+    "outlined_sha256": "21c428c716f51324bf3345f03c4e07ef15a0fce0ca1ec304c00fdd1f4168f1bf",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 7,
+    "render_mean_absolute_rgb_difference": 2.346575534759358,
+    "render_blurred_mean_absolute_rgb_difference": 0.6660127005347594,
+    "fraction_pixels_with_channel_difference_over_5": 0.023626336898395724,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig2_primary_load_profiles.pdf",
+    "original_sha256": "ce4073516d4d3dfd662fe0a62219d46208d9b23ae695db00edf4fd3ac6615f8b",
+    "outlined_sha256": "02b1435f400ae1ef2f04aeeb9c84fb350ebc971ba58993d7c7573f242e9eef94",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 0,
+    "render_mean_absolute_rgb_difference": 1.4664476872246697,
+    "render_blurred_mean_absolute_rgb_difference": 0.41818704111600585,
+    "fraction_pixels_with_channel_difference_over_5": 0.015619493392070485,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig3_directional_rerouting.pdf",
+    "original_sha256": "f2025aa7b82246f91fd11319e01816faa810582df8355dfdeaa78aaa081fdf3a",
+    "outlined_sha256": "7be5cd0835ccdfa8eca2c34398d2707ebea09d871a14987820896821991e5b65",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 0,
+    "render_mean_absolute_rgb_difference": 1.916157996506986,
+    "render_blurred_mean_absolute_rgb_difference": 0.5345421656686626,
+    "fraction_pixels_with_channel_difference_over_5": 0.02145116017964072,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig4_sex_effects_lab.pdf",
+    "original_sha256": "bb90f87c0d17cecc26f8ed061ce888385e80ee5cbf5d1c388d49b6593d69fd4a",
+    "outlined_sha256": "d07c91c80b6f0cdba6fb48398dde8dbeb82aee40f5383442f5d66ecec77f1407",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 0,
+    "render_mean_absolute_rgb_difference": 1.9080153085824494,
+    "render_blurred_mean_absolute_rgb_difference": 0.5911493490838958,
+    "fraction_pixels_with_channel_difference_over_5": 0.020315212150433946,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig5_variance_channels.pdf",
+    "original_sha256": "c35acee003683574c398615c7bdbddffaa2afc39b134f89da0a91ede34b02fcd",
+    "outlined_sha256": "79b1e03fe64c27720f3efe225284db53f4b1ba141a59886c4132488a590cec7e",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 4,
+    "render_mean_absolute_rgb_difference": 3.044560844577711,
+    "render_blurred_mean_absolute_rgb_difference": 0.8605403548225887,
+    "fraction_pixels_with_channel_difference_over_5": 0.03571870314842579,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig6_allometry_loglog.pdf",
+    "original_sha256": "d33f780a470a4359223682c0b605b5f509bf689a44b89fc20153c00e4cde4e09",
+    "outlined_sha256": "e6285c28332c658844afc143f11f06bddb6bfadcd9a0a5fb463b298c85933972",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 0,
+    "render_mean_absolute_rgb_difference": 1.6359647779479327,
+    "render_blurred_mean_absolute_rgb_difference": 0.4488147651863196,
+    "fraction_pixels_with_channel_difference_over_5": 0.01604134762633997,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/Fig_morphometric_landmarks.pdf",
+    "original_sha256": "3c97315591d1900014754bb421ce22bf2dc14fee54ec11803d35f5b216ef8027",
+    "outlined_sha256": "401c97600767c36d7f8202fab4050b0c99724b5112d9b56c46f61c3390cba48a",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 8,
+    "render_mean_absolute_rgb_difference": 1.2412637741046832,
+    "render_blurred_mean_absolute_rgb_difference": 0.5158575945404458,
+    "fraction_pixels_with_channel_difference_over_5": 0.013749530428249437,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/SuppFig1_allometry_scatter.pdf",
+    "original_sha256": "57a75abe4ea5edb836b7787f601ef8d1a03efbd4b03be13156992db45dcfe571",
+    "outlined_sha256": "08967cdfb6fa58a9240a557e67caed8645e78c5684b480064bd4add66e7843e1",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 0,
+    "render_mean_absolute_rgb_difference": 1.9138024795717103,
+    "render_blurred_mean_absolute_rgb_difference": 0.5437478867286559,
+    "fraction_pixels_with_channel_difference_over_5": 0.01995139475908707,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  },
+  {
+    "file": "figures/SuppFig2_measurement_conventions.pdf",
+    "original_sha256": "8c0201a7730b3793fe83140cc28f57274c84b346a7f224eb6fa98a5ef6e9bd61",
+    "outlined_sha256": "9a284261c72793124a1818153c201f50ceab6b3b57a88cd179a5ae8418c76319",
+    "decoded_bitmap_data_identical": true,
+    "decoded_bitmap_count": 1,
+    "render_mean_absolute_rgb_difference": 1.584943251066423,
+    "render_blurred_mean_absolute_rgb_difference": 0.5778555377818403,
+    "fraction_pixels_with_channel_difference_over_5": 0.016852719378427788,
+    "conversion": "Ghostscript pdfwrite NoOutputFonts; vector outlines; no image downsampling; lossless image filters"
+  }
+]

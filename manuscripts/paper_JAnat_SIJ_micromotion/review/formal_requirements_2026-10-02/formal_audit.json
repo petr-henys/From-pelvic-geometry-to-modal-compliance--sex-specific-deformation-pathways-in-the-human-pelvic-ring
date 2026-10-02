@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-02",
+  "word_counts": {
+    "abstract": 239,
+    "introduction": 629,
+    "methods": 2138,
+    "results": 1125,
+    "discussion": 1308,
+    "conclusion": 103,
+    "appendix": 1295,
+    "main_body_excluding_abstract_appendix_captions_tables_references": 5303,
+    "main_body_plus_abstract": 5542,
+    "keywords": 5,
+    "title": 9,
+    "main_figures": 8,
+    "main_tables": 5,
+    "references": 28
+  },
+  "counting_method": "Pandoc LaTeX AST; prose only; headings, captions, tables, citations and displayed equations excluded; each inline expression counts as one unit; hyphenated/range tokens count as one",
+  "declarations": {
+    "funding": true,
+    "funder_role": true,
+    "credit_contributions": true,
+    "competing_interest": true,
+    "data_availability": true,
+    "AI_declaration_immediately_before_references": true,
+    "AI_methods": true,
+    "ethics_approval_and_waiver": true,
+    "author_email": true,
+    "author_postal_address": true,
+    "no_empty_acknowledgements": true,
+    "separate_competing_interest_docx": true,
+    "separate_highlights_docx": true,
+    "separate_figure_captions_docx": true
+  },
+  "highlights_characters_including_spaces": [
+    76,
+    73,
+    76,
+    74
+  ],
+  "bibliography_citation_pairs_match": true,
+  "fonts": {
+    "main.pdf": {
+      "fonts": 30,
+      "all_embedded": true,
+      "type3": false
+    },
+    "supplementary/supplement.pdf": {
+      "fonts": 20,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig_morphometric_landmarks.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig1_anatomy_coordinates_loads.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig_prediction_subject_heldout.pdf": {
+      "fonts": 2,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig2_primary_load_profiles.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig3_directional_rerouting.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig_load_mixture_mechanism.pdf": {
+      "fonts": 2,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig4_sex_effects_lab.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig5_variance_channels.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/SuppFig1_allometry_scatter.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/SuppFig2_measurement_conventions.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    },
+    "figures/Fig6_allometry_loglog.pdf": {
+      "fonts": 0,
+      "all_embedded": true,
+      "type3": false
+    }
+  },
+  "journal_guide_verification": "Current JTB Guide for Authors could not be retrieved (HTTP 403); current Elsevier AI/Highlights/submission/data policies verified separately; numerical preparation targets are conservative and not fully certified live journal rules"
+}
