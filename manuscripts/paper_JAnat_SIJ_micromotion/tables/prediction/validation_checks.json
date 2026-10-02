@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "held_out_regressions_independently_refitted": 4000,
+  "max_arithmetic_prediction_difference": 2.042810365310288e-13,
+  "subjects_checked_for_both_mixture_endpoints": 278,
+  "maximum_endpoint_component_difference": 6.92904067456368e-12,
+  "checks": [
+    "paired subject folds and sex stratification",
+    "training-only raw-unit statsmodels refits",
+    "saved prediction metrics from pooled errors",
+    "all mixture endpoint components",
+    "vector triangle inequality and oracle definitions",
+    "mixed-field summary errors"
+  ]
+}

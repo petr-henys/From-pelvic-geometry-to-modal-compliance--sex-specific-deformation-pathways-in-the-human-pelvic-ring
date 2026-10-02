@@ -1,3 +1,73 @@
+# Reproduction of the anatomical-prediction revision (2 October 2026)
+
+The current manuscript addresses prediction from pelvic size and three anatomical
+measurements, followed by a controlled test of scalar load transfer. The 278
+subjects are a subset of the earlier 281-subject CT cohort; the author confirmed
+this provenance. Source simulations, historical endpoint tables and constitutive
+settings were not changed. All new outputs are in `tables/prediction/`.
+
+## Current analysis and build
+
+Run these commands serially from the repository root:
+
+```bash
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MPLCONFIGDIR=/tmp/sij_matplotlib
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/predict_anatomical_response.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/test_load_mixture_mechanism.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/audit_supporting_comparisons.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/format_prediction_results.py
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/validate_prediction_revision.py
+latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error -cd manuscripts/paper_JAnat_SIJ_micromotion/supplementary/supplement.tex
+python manuscripts/paper_JAnat_SIJ_micromotion/analysis/export_docx.py
+```
+
+For an editorial-only build, use just the last three commands. All narrative
+sections are manually maintained and authoritative. **Do not run
+`write_corrected_results.py` or the historical full workflow to build this
+revision:** that generator overwrites the revised abstract and Results.
+
+Prediction uses identical subject folds across loads, outcomes and predictor sets;
+fits log outcomes with training-only standardization and arithmetic-scale
+smearing; and resamples subjects for paired error comparisons. The triad was
+selected retrospectively before this validation, so this is internal validation
+of a fixed description, not nested selection or external validation.
+
+The mechanism analysis mixes archived LAB1/LAB2 displacement fields at fixed
+stiffness, redistributing each side's 400 N force between the original patches.
+Weights sum to one, retaining common pretension once. Joint kinematics are
+re-extracted at five force fractions. Endpoint vectors and magnitudes are FE
+information diagnostics, not predictions from anatomy alone. No FE solver is
+required for this exact linear superposition.
+
+`load_mixture_checkpoints/subject_*.npz` enables extraction to resume. Move these
+checkpoints aside and rerun the complete 278-subject extraction if any source
+fields, geometry, interpolation settings, ROI or extraction definitions change.
+`--limit` produces separate pilot summaries and must not substitute for the full
+cohort. The synchronous, read-only `zarr_field_reader.py` accepts only the archived
+Zarr-v3 float64/little-endian bytes-plus-zstd layout; it checks metadata, required
+chunks, decoded size and finite values. This avoids an asynchronous LocalStore
+hang in the current postprocessing runtime.
+
+`validate_prediction_revision.py` independently refits all 4,000 held-out
+regressions with statsmodels in raw predictor units, checks the saved metrics and
+subject folds, compares both mixture endpoints against all 278 original corrected
+archives, and verifies vector/scalar definitions and summary errors. Results are
+in `tables/prediction/validation_checks.json`. Paired intervals condition on fitted
+validation predictions and do not include refitting or feature-selection
+uncertainty. Source alignment retains the original archive row-order limitation
+reported in the manuscript.
+
+Tables S9 and Figure S3 now contain the exploratory conditional volume analysis;
+its heuristic dimensional reference exponents are supplementary context. Tables
+S10--S13 contain prediction benchmarks, density-standardization error tails,
+direct site contrasts and volume-adjustment sensitivity. The historical notes
+below document earlier revisions and are not the current run order.
+
+---
+
 # Reproduction of the corrected manuscript
 
 ## Editorial build (no analysis)

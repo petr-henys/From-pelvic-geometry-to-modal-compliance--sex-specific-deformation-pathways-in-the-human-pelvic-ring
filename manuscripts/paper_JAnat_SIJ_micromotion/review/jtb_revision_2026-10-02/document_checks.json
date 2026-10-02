@@ -1,0 +1,18 @@
+[
+  {
+    "file": "main.docx",
+    "status": "passed",
+    "embedded_figures": 8,
+    "native_math": 219,
+    "tables": 5,
+    "unresolved_references": false
+  },
+  {
+    "file": "supplementary/supplement.docx",
+    "status": "passed",
+    "embedded_figures": 3,
+    "native_math": 134,
+    "tables": 15,
+    "unresolved_references": false
+  }
+]

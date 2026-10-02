@@ -1,0 +1,17 @@
+{
+  "n_subjects": 278,
+  "weights": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "intervention": "Each bilateral 400 N transverse force is split between LAB1 and LAB2 patches",
+  "equilibrium": "Exact convex combination of full displacement fields for the fixed linearized stiffness",
+  "pretension": "Retained once because weights sum to one",
+  "extraction": "Original affine-corrected, trimmed-Kabsch definitions; same unloaded ROI across weights",
+  "validation": "Endpoint angles/translations reproduce corrected archives at both weights 0 and 1 to atol/rtol 1e-8 for every subject",
+  "oracle": "Scalar and vector comparisons both use subject-specific FE endpoint information, not anatomy-only or external predictions",
+  "scope": "Tests a directional limit under a new combination of represented force patches; does not identify causes of cross-subject CV residuals"
+}

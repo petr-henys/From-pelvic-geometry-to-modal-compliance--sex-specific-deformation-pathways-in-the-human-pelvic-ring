@@ -110,10 +110,10 @@ For the sex-interaction log model, $b_M=\beta_v$ and $b_F=\beta_v+\beta_{v:s}$. 
 \begin{equation}
 \operatorname{Var}(b_F)=\operatorname{Var}(\beta_v)+\operatorname{Var}(\beta_{v:s})+2\operatorname{Cov}(\beta_v,\beta_{v:s}).
 \end{equation}
-Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Figure~\ref{fig:allometry} reports slopes from this model. Supplementary Figure S1 shows its conditional geometric-mean curves with age and the morphometric covariates set to their cohort means.
+Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Supplementary Figure S3 reports slopes from this model. Supplementary Figure S1 shows its conditional geometric-mean curves with age and the morphometric covariates set to their cohort means.
 
 \subsection{Statistical estimands and uncertainty}
-All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume slopes. Standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization.
+All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume slopes. For the association models, standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization. Predictive models instead estimate these quantities within each training fold, as specified in the main Methods.
 
 For design matrix $\mathbf Z$, OLS residuals $e_i$ and leverage $h_{ii}$, the HC3 covariance estimator is
 \begin{equation}

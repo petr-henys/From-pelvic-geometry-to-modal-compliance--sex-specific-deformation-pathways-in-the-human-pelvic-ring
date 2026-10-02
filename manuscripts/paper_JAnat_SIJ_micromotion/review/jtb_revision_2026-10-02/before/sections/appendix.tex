@@ -1,0 +1,127 @@
+\appendix
+\section{Mathematical formulation and verification}
+\label{app:mathematical_formulation}
+
+\subsection{Implementation and correspondence checks}
+\label{app:implementation_checks}
+Subject landmarks were obtained by thin-plate-spline RBF interpolation of template-to-subject displacements (10 neighbors; smoothing parameter 100). These morphometric interpolation settings differ from those used for the FE surface reconstruction. Repeated calculation of the eight measures for all 278 subjects agreed within $10^{-8}$~mm or degrees.
+
+Reference-to-reference checks were below $10^{-8}$ in degrees and mm for every subject. Node ordering was checked against the reference displacement fields for all five load cases. Geometry and displacement were evaluated with the same RBF parameters used for surface reconstruction. Subject pairing across the three variants follows the common row indices of the geometry and density inputs. This pairing was checked for consistency of row ordering; an independent identifier-based check was not available.
+
+The FE displacement and geometry spaces were continuous vector P1 on linear tetrahedra, with DG0 material fields and integration degree 6. The linear system used PETSc \texttt{KSPPREONLY}, \texttt{PCLU} and MUMPS, with option prefix \texttt{elas\_}. Configured relative and absolute tolerances were $10^{-10}$ and $10^{-12}$, with an iteration limit of 1000; the selected direct factorization does not use an iterative residual stopping test. The implementation records PETSc's convergence reason. RBF transfer of the geometry displacement to FE nodes used 10 neighbors and smoothing 50; transfer from FE nodes to the measurement geometry used 10 neighbors and zero smoothing.
+
+\subsection{Reference mapping and equilibrium}
+Let $\Omega_0$ be the FE template and $\boldsymbol\chi_i(\mathbf X)=\mathbf X+\boldsymbol\phi_i(\mathbf X)$ the unloaded subject geometry. The anatomical registration is bijective; RBF interpolation represents its established displacement map on the FE template. The anatomical mapping and the elastic displacement are different fields. With $\mathbf F_i=\mathbf I+\nabla_X\boldsymbol\phi_i$ and $J_i=\det\mathbf F_i$, the physical small-strain tensor is
+\begin{equation}
+\boldsymbol\varepsilon_i(\mathbf u)=\operatorname{sym}(\nabla_X\mathbf u\,\mathbf F_i^{-1}).
+\end{equation}
+Here $\nabla_X\mathbf u$ differentiates the displacement represented on the template; $\operatorname{sym}\mathbf B=(\mathbf B+\mathbf B^T)/2$. Volume integration satisfies $dV_i=J_i\,dV_0$. Thus, for example, the elastic term on the template is $\int_{\Omega_0}(\mathbf C_i\boldsymbol\varepsilon_i(\mathbf u)): \boldsymbol\varepsilon_i(\mathbf v)\,J_i\,dV_0$. For physical coordinates in mm, find the discrete displacement $\mathbf u_h$ such that, for every test displacement $\mathbf v_h$, the weak problem is
+\begin{equation}
+\int_{\Omega_i}\mathbf C_i\boldsymbol\varepsilon(\mathbf u):\boldsymbol\varepsilon(\mathbf v)\,dV
++\int_{\Gamma_{S1,i}}\gamma\,\mathbf u\cdot\mathbf v\,dS
++\mathbf v_h^T\mathbf K_{lig,i}\mathbf u_h
+=\int_{\Gamma_{load,i}}\mathbf t\cdot\mathbf v\,dS+\mathbf v_h^T\mathbf f_{pre,i}.
+\end{equation}
+Here $\mathbf C_i$ is the isotropic elasticity tensor, $\mathbf t$ is the prescribed surface traction, and $\mathbf u_h,\mathbf v_h$ are nodal coefficient vectors in the spring terms. In each tissue, $\boldsymbol\sigma=2\mu\boldsymbol\varepsilon+\lambda\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I$, with $\mu=E/[2(1+\nu)]$ and $\lambda=E\nu/[(1+\nu)(1-2\nu)]$. The surface penalty has units N/mm$^3$, because its associated traction is $\gamma\mathbf u$ in N/mm$^2$. It imposes an approximate fixed boundary, not exact $\mathbf u=0$. The ligament stiffness and pretension terms are required for consistency with the assembled solver. For one spring segment of length $L$, direction $\mathbf e$, assigned stiffness $k$ and pretension $T$, its directional stiffness is
+\begin{equation}
+\mathbf W=k\mathbf e\mathbf e^T+(T/L)(\mathbf I-\mathbf e\mathbf e^T).
+\end{equation}
+This matrix is assembled with opposite off-diagonal blocks at its two endpoints. It is a linearized spring representation without tension-only switching.
+
+The surface measure obeys $dS_i=J_{surf,i}dS_0$, where
+\begin{equation}
+J_{surf,i}=J_i\|\mathbf F_i^{-T}\mathbf n_0\|,\qquad
+\mathbf t=\frac{\mathbf F^{tot}}{\int_{\Gamma_{load,0}}J_{surf,i}\,dS_0}.
+\end{equation}
+Thus the applied physical force integral equals $\mathbf F^{tot}$. The penalty and load integrals use the corresponding mapped surface measures. The force vectors are listed in Table~\ref{tab:loads}; their global axes are not assumed identical to the PCA reporting axes below.
+
+\subsection{Unloaded and loaded surfaces}
+Let $\mathbf X_j$ be surface template nodes. The two point clouds used for kinematics are
+\begin{equation}
+\mathbf p^0_{ij}=\mathbf X_j+\boldsymbol\phi_i(\mathbf X_j),\qquad
+\mathbf p^1_{i\ell j}=\mathbf p^0_{ij}+\mathbf u_{i\ell}(\mathbf X_j).
+\end{equation}
+Both use identical topology and point correspondence. Here ``unloaded'' denotes the geometric reference with zero elastic displacement, not a separately equilibrated pretension-only state. The loaded field includes both the prescribed external load and the ligament pretension right-hand side. Comparing $\mathbf X_j$ with $\mathbf p^1_{i\ell j}$ would incorrectly include subject morphology in the measured motion. Geometry was reconstructed with two-stage interpolation: template-to-FE mapping (10 neighbors, smoothing 50) followed by FE-to-surface mapping (10 neighbors, zero smoothing). Elastic displacement fields use the latter interpolation. Cached sparse interpolation weights implement the same linear RBF evaluation; numerical comparisons against direct RBF evaluation check this equivalence.
+
+\subsection{Pelvis-aligned reporting frame}
+The origin $\mathbf o$ is the centroid of the unloaded surface. The initial ML axis is the dominant eigenvector of the point-cloud covariance, with deterministic sign. The symmetry-plane routine uses this PCA approximation; it does not optimize reflection symmetry. Project the centered points onto its orthogonal plane and take the leading in-plane singular vector. Orthogonalization gives $\hat{\mathbf z}$, followed by
+\begin{equation}
+\hat{\mathbf y}=\frac{\hat{\mathbf z}\times\hat{\mathbf x}}{\|\hat{\mathbf z}\times\hat{\mathbf x}\|},\qquad
+\hat{\mathbf z}=\hat{\mathbf x}\times\hat{\mathbf y},\qquad
+\mathbf P=[\hat{\mathbf x},\hat{\mathbf y},\hat{\mathbf z}].
+\end{equation}
+The ML and AP axes are simultaneously reversed if needed so that ML points from the left to right ilium centroids. This construction is orthonormal and right-handed but does not independently anchor the AP/CC signs to anatomical landmarks. Absolute components are therefore used for comparisons. No clinical nutation sign is inferred from the stored $\alpha_x$ sign.
+
+\subsection{Affine correction, regions and rigid fits}
+Fit the sacral point correspondence by ordinary least squares,
+\begin{equation}
+(\mathbf A_S,\mathbf b_S)=\arg\min_{\mathbf A,\mathbf b}\sum_{j\in S}
+\|\mathbf p^1_j-\mathbf A\mathbf p^0_j-\mathbf b\|^2,
+\qquad \mathbf q_j=\mathbf A_S^+(\mathbf p^1_j-\mathbf b_S),
+\end{equation}
+where $+$ denotes the Moore--Penrose pseudoinverse. This removes fitted affine sacral deformation, including stretch and shear; it is not only a change of rigid observer frame.
+
+For each side, first restrict both point clouds to that side of the reporting-frame midplane (falling back to the entire bone if this set is empty). Select sacral and iliac points within 5~mm of the opposing restricted point cloud. If fewer than 80 points qualify, use up to the nearest 80 available points. Distances are between discrete points rather than continuous articular surfaces. For each bone ROI, the rigid fit maps $\mathbf p^0$ to $\mathbf q$. With centered row matrices $\widetilde{\mathbf P}_B,\widetilde{\mathbf Q}_B$,
+\begin{equation}
+\widetilde{\mathbf P}_B^T\widetilde{\mathbf Q}_B=\mathbf U\boldsymbol\Sigma\mathbf V^T,
+\quad \mathbf R_B=\mathbf V\operatorname{diag}(1,1,\det(\mathbf V\mathbf U^T))\mathbf U^T,
+\quad \mathbf t_B=\bar{\mathbf q}_B-\mathbf R_B\bar{\mathbf p}^0_B.
+\end{equation}
+The fit is repeated after excluding the largest 10\% residuals, using two trimming iterations. Trimming reduces outlier influence but does not validate the ROI as a physical contact patch.
+
+\subsection{Relative rotation and translation}
+For sacral and iliac fits $S,I$,
+\begin{equation}
+\mathbf R_{rel}=\mathbf R_S^T\mathbf R_I,\qquad
+\mathbf R_{loc}=\mathbf P^T\mathbf R_{rel}\mathbf P
+=\mathbf R_z(\gamma_z)\mathbf R_y(\beta_y)\mathbf R_x(\alpha_x).
+\end{equation}
+The fixed-axis $xyz$ extraction, for zero-based matrix indices away from gimbal lock, is
+\begin{equation}
+\alpha_x=\operatorname{atan2}(R_{21},R_{22}),\quad
+\beta_y=\arcsin[-\operatorname{clip}(R_{20},-1,1)],\quad
+\gamma_z=\operatorname{atan2}(R_{10},R_{00}).
+\end{equation}
+At $\beta_y=\pm\pi/2$, choose $\gamma_z=0$ and
+$\alpha_x=\operatorname{atan2}[-\operatorname{sign}(R_{20})R_{01},R_{11}]$.
+In implementation, the equivalent stable expression $\beta_y=\operatorname{atan2}(-R_{20},\sqrt{R_{00}^2+R_{10}^2})$ is used, with the singular branch restricted to vanishing cosine. The singular branch is included for completeness; physiological small-angle outputs should remain far from it. Matrix reconstruction tests cover both branches.
+
+For the unloaded sacral ROI centroid $\mathbf p_c$, the reported displacement is
+\begin{equation}
+\mathbf d=\mathbf P^T[(\mathbf R_I-\mathbf R_S)\mathbf p_c+\mathbf t_I-\mathbf t_S].
+\end{equation}
+It evaluates the difference of two fitted maps at a common reference point, expressed in the unloaded pelvic axes after affine correction. It is not the translational parameter of $T_S^{-1}T_I$. In fact, with $\mathbf t_{rel}=\mathbf R_S^T(\mathbf t_I-\mathbf t_S)$,
+\begin{equation}
+\mathbf d=\mathbf P^T\mathbf R_S\big[(\mathbf R_{rel}-\mathbf I)\mathbf p_c+\mathbf t_{rel}\big].
+\end{equation}
+This identity makes explicit the distinction between the relative rigid transform and the reported point-displacement difference. It is neither the distance between opposing articular surfaces nor a displacement along a surface normal. The bilateral summaries are
+\begin{align}
+|\boldsymbol\theta|&=\tfrac12\sum_{s=L,R}(\alpha_{x,s}^2+\beta_{y,s}^2+\gamma_{z,s}^2)^{1/2}, &
+|\mathbf d|&=\tfrac12\sum_{s=L,R}\|\mathbf d_s\|,\\
+|d_k|&=\tfrac12(|d_{k,L}|+|d_{k,R}|), &
+A_d&=\big|\|\mathbf d_L\|-\|\mathbf d_R\|\big|.
+\end{align}
+Angles are converted to degrees before reporting. The exact principal rotation angle would instead be $\arccos[(\operatorname{tr}\mathbf R_{rel}-1)/2]$ with numerical clipping. The Cardan norm approximates it at small angles and depends on the chosen axes and sequence.
+
+\subsection{Conditional size scaling}
+Pelvic bone volume was calculated by summing the volumes of the selected left and right hip-bone bodies and sacrum, using mapped surface geometry and converting mm$^3$ to cm$^3$. These are whole-bone geometric volumes, not birth-canal volume or a direct integral of cortical tissue. The size factor is $s_i=(V_i/V_{template})^{1/3}$. Therefore a log-volume slope $b$ becomes $3b$ under log scale, with identical fitted responses and tests.
+
+For the sex-interaction log model, $b_M=\beta_v$ and $b_F=\beta_v+\beta_{v:s}$. The female slope variance is
+\begin{equation}
+\operatorname{Var}(b_F)=\operatorname{Var}(\beta_v)+\operatorname{Var}(\beta_{v:s})+2\operatorname{Cov}(\beta_v,\beta_{v:s}).
+\end{equation}
+Reported intervals use this full covariance. Exponentiating a fitted log response gives a conditional geometric mean, not an unbiased arithmetic mean. Figure~\ref{fig:allometry} reports slopes from this model. Supplementary Figure S1 shows its conditional geometric-mean curves with age and the morphometric covariates set to their cohort means.
+
+\subsection{Statistical estimands and uncertainty}
+All logarithms are natural logarithms of numerical values in the stated units: $\log V$ abbreviates $\log[V/(1\,\mathrm{cm}^3)]$, and $\log Y$ uses 1~mm or 1 degree as the reference unit. Changing these reference units changes intercepts, but not the sex-specific volume slopes. Standardized predictors are $z_i=(x_i-\bar x)/s_x$, where $s_x$ is the cohort sample standard deviation; for log volume, the logarithm is taken before standardization.
+
+For design matrix $\mathbf Z$, OLS residuals $e_i$ and leverage $h_{ii}$, the HC3 covariance estimator is
+\begin{equation}
+\widehat{\operatorname{Cov}}_{HC3}(\widehat{\boldsymbol\beta})=
+(\mathbf Z^T\mathbf Z)^{-1}\mathbf Z^T
+\operatorname{diag}\!\left[\frac{e_i^2}{(1-h_{ii})^2}\right]
+\mathbf Z(\mathbf Z^T\mathbf Z)^{-1}.
+\end{equation}
+For any coefficient contrast $\mathbf c$, its estimate is $\mathbf c^T\widehat{\boldsymbol\beta}$ and standard error is $[\mathbf c^T\widehat{\operatorname{Cov}}_{HC3}\mathbf c]^{1/2}$. Reported Wald intervals use the normal critical value (approximately 1.96). The volume slopes are conditional elasticities: holding the other predictors fixed, multiplying volume by $a>0$ multiplies the fitted geometric-mean response by $a^b$.
+
+For a paired contrast $\Delta_i$, the reported effect is $\operatorname{median}_i\Delta_i$, not the difference between two marginal medians. With $n_*$ nonzero differences and $B=\sum_i\mathbb 1(\Delta_i>0)$, the two-sided exact sign test uses $B\sim\operatorname{Binomial}(n_*,1/2)$ under the null of balanced signs. For a continuous difference distribution this is a test of zero median; excluding exact zeros conditions on nonzero differences. Bootstrap intervals are percentile intervals obtained by resampling subjects, preserving the paired observations. They are pointwise intervals, whereas the reported $q$ values apply Benjamini--Hochberg adjustment within the specified test families; these two summaries need not cross their respective thresholds together.

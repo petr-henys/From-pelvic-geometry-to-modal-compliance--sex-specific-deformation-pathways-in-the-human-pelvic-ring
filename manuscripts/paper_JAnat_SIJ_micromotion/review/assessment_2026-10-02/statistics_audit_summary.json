@@ -1,0 +1,30 @@
+{
+  "scope": "Archived endpoint/statistical audit; no new FE solution",
+  "n_subjects": 278,
+  "n_subject_load_rows": 1390,
+  "max_abs_published_slope_or_interaction_p_error": 2.9753977059954195e-14,
+  "published_slopes_negative": true,
+  "published_max_slope_q": 0.001873632548395997,
+  "max_abs_nested_sex_estimate_or_CI_error": 6.175615574477433e-16,
+  "standing_asymmetry_medians_mm": {
+    "SP1leg": 1.601572148333707,
+    "SP2leg": 0.06493731566719345
+  },
+  "LAB1_subpubic_translation_spearman": {
+    "pooled": {
+      "r": 0.44377745736332785,
+      "p": 7.640354540601092e-15
+    },
+    "male": {
+      "r": -0.06299784837941769,
+      "p": 0.47990856499540135
+    },
+    "female": {
+      "r": -0.14460553802391218,
+      "p": 0.07747557363952495
+    }
+  },
+  "max_abs_agreement_summary_error": 1.4210854715202004e-14,
+  "site_contrasts_status": "New exploratory review diagnostic, BH family of three component tests",
+  "source_manuscript_unchanged": true
+}

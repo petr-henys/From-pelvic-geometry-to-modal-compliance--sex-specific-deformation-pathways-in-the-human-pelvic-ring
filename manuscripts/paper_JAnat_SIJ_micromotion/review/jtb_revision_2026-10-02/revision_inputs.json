@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-02",
+  "cohort_provenance": "Author confirmed 278 subjects are a subset of the previously published 281-subject CT collection",
+  "source_sha256": {
+    "main.tex": "279289044f831e779b12a72b00e48de8bc0a3b2de92b9fea4385beabd59bc8c9",
+    "sections/abstract.tex": "20f042a29ab3c40f0f36630539cec2be395eae1f736563146a985aaa18999712",
+    "sections/appendix.tex": "9ca5e53a9e5b04a2a52f60ee3388d7a14a9a8f65a826ebeab415810187037020",
+    "sections/appendix_math.tex": "e150b8161ff9e5b75105967b4954b6eb8e23a8003fa1c692a4ad24c0c49e3a6e",
+    "sections/conclusion.tex": "43c7b48d6023e1cb2e4d66a1b43e9cd7d83cd73c08f2bdb78ead2f1edfa1ef09",
+    "sections/discussion.tex": "1e072390428e503f055b32cd4881089525925c516a1d64c311263a23bef7ae85",
+    "sections/introduction.tex": "b6943a00aa4f0aa775e0deca75a19ab375adcd33234445a5a2400fcec03f1cdd",
+    "sections/methods.tex": "6aa2c021fc7bf6ea3c29f7e3cc065023b78c3673c7df472130817aca4f85aa6f",
+    "sections/results.tex": "f278b2895786ec04a549bbdaca9cb17162d7beb74cd401fd3f3951e8eb9f78aa",
+    "supplementary/supplement.tex": "c1e1c7c29ad84df715a424e64f3f54b5cfed5cef867b75ed8d86898199249064",
+    "bib/refs.bib": "1adbce0a3ad8728f83c7db022b5507ebeadb37d654352f533484739744f51112"
+  }
+}

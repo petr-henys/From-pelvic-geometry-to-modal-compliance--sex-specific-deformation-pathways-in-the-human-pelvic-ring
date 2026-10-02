@@ -14,6 +14,7 @@
 \usepackage[round,authoryear]{natbib}
 
 \newcommand{\SuppTableInput}[1]{%
+  \par
   \begingroup
   \footnotesize
   \setlength{\tabcolsep}{4pt}%
@@ -26,7 +27,7 @@
   \endgroup
 }
 
-\title{Supporting Information: Anatomical scale and architecture organize load-dependent sacroiliac motion}
+\title{Supporting Information: Anatomical prediction of sacroiliac motion and its load-dependent limits}
 \author{Petr Heny\v{s}, Niels Hammer}
 \date{}
 
@@ -73,14 +74,47 @@ Slopes are dimensionless coefficients for log motion versus log total mapped bon
 \SuppTableInput{../tables/generated/supp_age_volume.tex}
 
 \clearpage
+\section*{Table S9: Exploratory conditional log-volume slopes}
+Male and female slopes use HC3 intervals. Slope $q$ values use the 20-test family; interaction $q$ values use a separate ten-test family. The models hold the selected dimensions fixed and do not describe uniformly scaled anatomies.
+\SuppTableInput{../tables/generated/table4b_allometry.tex}
+
+\clearpage
+\section*{Table S10: Paired held-out prediction gains and benchmarks}
+Metrics use ten repeats of ten-fold subject-held-out cross-validation, with the same folds for every load, outcome and predictor set. Size uses age and log volume; triad adds AP diameter, interspinous width and subpubic angle. Triad+sex adds female sex and its log-volume interaction. The eight-measure model uses age, log volume and all eight morphometric measures. Positive $\Delta$RMSE or percentage gain favors the augmented model. RMSE units are degrees for rotation and mm for translation. Intervals are pointwise paired subject-bootstrap intervals conditional on the fitted predictions, without refitting, feature-selection uncertainty or multiplicity adjustment.
+\SuppTableInput{../tables/prediction/supp_prediction.tex}
+
+\subsection*{Table S10 continued: Additional predictor gains and individual error}
+Sex and eight-measure gains compare each benchmark with the triad. MAE and the 95th percentile of absolute error pool held-out errors across repeats for the triad model, rather than errors of repeat-averaged predictions. No benchmark gain interval is wholly positive. Nineteen of twenty intervals include zero; the remaining interval favors the triad over the sex-augmented model for SP1leg rotation.
+\SuppTableInput{../tables/prediction/supp_prediction_benchmarks.tex}
+
+\clearpage
+\section*{Table S11: Density-standardization agreement and error tails}
+Errors are geometry-preserved minus full-model endpoints, paired within subject and load. This simplification retains complete individual modeled geometry, including size. Mean bias is signed; the 95th percentile and maximum use absolute errors. Cohort RMSE does not bound individual error.
+\SuppTableInput{../tables/prediction/supp_agreement_tails.tex}
+
+\section*{Table S12: Direct application-site contrasts}
+Contrasts are within-subject LAB2 minus LAB1 differences in bilateral absolute translation components. Pointwise percentile intervals use 3000 subject bootstrap samples. Exact two-sided sign tests are adjusted within the three-component family. These retrospective contrasts compare the sites directly, separately from their contrasts with SP2leg.
+\SuppTableInput{../tables/prediction/supp_site_contrasts.tex}
+
+\clearpage
+\section*{Table S13: Effect of triad adjustment on volume slopes}
+Both models use log outcome, log volume, sex, sex--volume interaction and age; the adjusted model adds the triad. Intervals use HC3 covariance. The last column applies BH correction across the 20 sex-specific slopes from the model without the triad; adjusted-model $q$ values are in Table S9. All point estimates are negative in both specifications, but precision and magnitude depend on adjustment. These conditional coefficients are distinct from held-out predictive performance.
+\SuppTableInput{../tables/prediction/supp_volume_adjustment.tex}
+
+\clearpage
 \section*{Supplementary Figure S1: Raw data and adjusted curves}
 \begin{center}\includegraphics[width=0.94\textwidth]{../figures/SuppFig1_allometry_scatter.pdf}\end{center}
-Points are raw observations. Lines and bands are conditional geometric means and pointwise HC3 95\% confidence intervals from the adjusted model, with age and the morphometric triad held at their cohort means. Thus the curves need not pass through the raw group means. Lines are restricted to each sex's observed volume range. The corresponding conditional slopes and intervals are reported in main Figure 7 and Table 4.
+Points are raw observations. Lines and bands are conditional geometric means and pointwise HC3 95\% confidence intervals from the adjusted model, with age and the morphometric triad held at their cohort means. Thus the curves need not pass through the raw group means. Lines are restricted to each sex's observed volume range. The corresponding conditional slopes and intervals are reported in Supplementary Figure S3 and Table S9.
 
 
 \clearpage
 \section*{Supplementary Figure S2: Motion coordinates and geometric size}
 \includegraphics[width=\textwidth]{../figures/SuppFig2_measurement_conventions.pdf}
 (A--C) Isolated positive rotations about the ML, AP and CC axes in a right-handed reporting frame. These schematic angles are exaggerated for clarity; the actual Cardan decomposition follows $R_z(\gamma_z)R_y(\beta_y)R_x(\alpha_x)$, rather than three independent planar angle measurements. (D) Both fitted bone maps are evaluated at the same unloaded sacral ROI centroid $p_c$; their difference is expressed in the pelvic frame. $T_I$ and $T_S$ denote the iliac and sacral rigid fits after affine correction. This is not a surface gap. (E,F) The two hip bones and sacrum define the summed enclosed bone volume and surface area; lumbar vertebrae and the space inside the pelvic canal are excluded. Scale is the cube root of the subject-to-template volume ratio. Morphometric landmark definitions are shown in main Figure 1.
+
+\clearpage
+\section*{Supplementary Figure S3: Conditional log-volume slopes}
+\includegraphics[width=\textwidth]{../figures/Fig6_allometry_loglog.pdf}
+Male and female slopes with pointwise HC3 95\% intervals from the adjusted models in Table S9. Dashed lines at $-2/3$ (rotation) and $-1/3$ (translation) are heuristic dimensional references for geometrically similar linear-elastic structures at fixed force and modulus: $u\sim F/(EL)\propto V^{-1/3}$ and $\theta\sim u/L\propto V^{-2/3}$. They are not expected conditional regression coefficients, fitted values or tested scaling laws. The regression holds other dimensions fixed, and the model's fixed ligament stiffness and nominal tissues do not enforce geometric similarity. Numerical proximity to these references therefore provides only exploratory context. Between-load slope comparisons are descriptive. The zero line indicates no conditional association; slope tests are in Table S9.
 
 \end{document}

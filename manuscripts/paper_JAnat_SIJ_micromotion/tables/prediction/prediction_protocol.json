@@ -1,0 +1,45 @@
+{
+  "seed": 20261002,
+  "repeats": 10,
+  "folds": 10,
+  "n_subjects": 278,
+  "models": {
+    "size": [
+      "age",
+      "log_total_volume"
+    ],
+    "triad": [
+      "age",
+      "log_total_volume",
+      "AP",
+      "BiischiadicWidth",
+      "SubpubicAngle"
+    ],
+    "triad_sex": [
+      "age",
+      "log_total_volume",
+      "AP",
+      "BiischiadicWidth",
+      "SubpubicAngle",
+      "sex_F",
+      "sex_log_volume"
+    ],
+    "all_dimensions": [
+      "age",
+      "log_total_volume",
+      "AP",
+      "BiacetabularWidth",
+      "BiischiadicWidth",
+      "BituberousWidth",
+      "IliopectinealEminenceWidth",
+      "PIT",
+      "SacralWidth",
+      "SubpubicAngle"
+    ]
+  },
+  "fit": "load-specific OLS on log outcome; training-only standardization and smearing",
+  "validation": "same subject folds for all load cases, outcomes and predictor sets",
+  "bootstrap": "3000 paired subject resamples of repeat-averaged squared held-out errors; no refitting",
+  "selection": "retrospective fixed triad; its original selection is not nested within CV",
+  "generalization": "new subjects in represented cohort/loading configurations; no external validation"
+}

@@ -1,0 +1,33 @@
+{
+  "assessment_date": "2026-10-02",
+  "input_sha256": {
+    "manuscripts/paper_JAnat_SIJ_micromotion/main.tex": "279289044f831e779b12a72b00e48de8bc0a3b2de92b9fea4385beabd59bc8c9",
+    "manuscripts/paper_JAnat_SIJ_micromotion/main.pdf": "5e004cf831142cf033be3df80fd7ee9e0cfedd82e1bc18a9b4442878e5351424",
+    "manuscripts/paper_JAnat_SIJ_micromotion/supplementary/supplement.tex": "c1e1c7c29ad84df715a424e64f3f54b5cfed5cef867b75ed8d86898199249064",
+    "manuscripts/paper_JAnat_SIJ_micromotion/bib/refs.bib": "1adbce0a3ad8728f83c7db022b5507ebeadb37d654352f533484739744f51112",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/abstract.tex": "20f042a29ab3c40f0f36630539cec2be395eae1f736563146a985aaa18999712",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/appendix.tex": "9ca5e53a9e5b04a2a52f60ee3388d7a14a9a8f65a826ebeab415810187037020",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/appendix_math.tex": "e150b8161ff9e5b75105967b4954b6eb8e23a8003fa1c692a4ad24c0c49e3a6e",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/conclusion.tex": "43c7b48d6023e1cb2e4d66a1b43e9cd7d83cd73c08f2bdb78ead2f1edfa1ef09",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/discussion.tex": "1e072390428e503f055b32cd4881089525925c516a1d64c311263a23bef7ae85",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/introduction.tex": "b6943a00aa4f0aa775e0deca75a19ab375adcd33234445a5a2400fcec03f1cdd",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/methods.tex": "6aa2c021fc7bf6ea3c29f7e3cc065023b78c3673c7df472130817aca4f85aa6f",
+    "manuscripts/paper_JAnat_SIJ_micromotion/sections/results.tex": "f278b2895786ec04a549bbdaca9cb17162d7beb74cd401fd3f3951e8eb9f78aa",
+    "manuscripts/paper_JAnat_SIJ_micromotion/tables/generated/subject_level.csv": "257968c812a107e79c4a9d29bd254e3855b6d2d522d19733491203a5838fa617",
+    "manuscripts/paper_JAnat_SIJ_micromotion/tables/corrected/kinematics.csv": "f24f35dca0ee38103ea10c2f4a4744d53cf14dd9eb7998453037e79706db61d1",
+    "simulation/solver_base.py": "745ef4989966d034d0003e146e6ff23a6a70ffced82d797a220ed7af493d5c54",
+    "simulation/data_mapper.py": "277839182a468b7d50b01a1a32e29f893ebc70b0fdb8efcdc0224da16f173fef",
+    "results/ref_S1P_fixed_new2/simulation_metadata.json": "96159e09426cf70a74cb332b58ac260406f654ebc799db16fc05d3c35de96d1b"
+  },
+  "outputs": [
+    "agreement_audit.csv",
+    "audit_statistics.py",
+    "exploratory_site_contrasts.csv",
+    "mapping_nonpositive_cells.csv",
+    "mapping_quality.csv",
+    "mapping_summary.json",
+    "posudek_cs.md",
+    "statistics_audit_summary.json",
+    "volume_model_audit.csv"
+  ]
+}

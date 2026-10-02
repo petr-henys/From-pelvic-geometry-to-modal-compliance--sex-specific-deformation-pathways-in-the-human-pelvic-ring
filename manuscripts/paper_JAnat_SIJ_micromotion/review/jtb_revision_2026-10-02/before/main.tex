@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage[mathlines]{lineno}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[round,authoryear]{natbib}
+\usepackage{caption}
+
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+\newcommand{\StdTableInput}[1]{%
+  \begingroup
+  \singlespacing
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}%
+  \renewcommand{\arraystretch}{1.1}%
+  \begin{adjustbox}{max width=\linewidth}
+    \input{#1}%
+  \end{adjustbox}
+  \endgroup
+}
+
+\title{Anatomical scale and architecture organize load-dependent sacroiliac motion}
+\author{%
+Petr Heny\v{s}$^{1,*}$, Niels Hammer$^{2}$\\
+\small $^{1}$Institute of New Technologies and Applied Informatics,\\
+\small Faculty of Mechatronics, Informatics and Interdisciplinary Studies,\\
+\small Technical University of Liberec, Studentsk\'a 1402/2, 461~17 Liberec, Czech Republic\\
+\small $^{2}$Division of Macroscopic and Clinical Anatomy,\\
+\small Gottfried Schatz Research Center, Medical University of Graz,\\
+\small Auenbruggerplatz~25, 8036~Graz, Austria\\
+\small $^{*}$Corresponding author: Petr Heny\v{s} (\texttt{petr.henys@tul.cz})%
+}
+\date{}
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+% Keep float-only pages compact instead of vertically spreading figures.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{18pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
+\begin{document}
+\doublespacing
+\begingroup
+\singlespacing
+\maketitle
+\endgroup
+\linenumbers
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\noindent\textbf{Keywords:} sacroiliac joint; pelvic functional anatomy; pelvic biomechanics; sexual dimorphism; pelvic architecture; load transfer; finite-element analysis
+
+\input{sections/introduction}
+\input{sections/methods}
+\FloatBarrier
+\input{sections/results}
+\FloatBarrier
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\input{sections/appendix}
+
+\section*{Acknowledgements}
+
+\section*{Funding}
+This work was supported by the Czech Science Foundation (GA\v{C}R; Grant No.\ 24-10862S).
+
+\section*{Author contributions}
+CRediT authorship contribution statement. Petr Heny\v{s}: Conceptualization; Methodology; Software; Formal analysis; Investigation; Data curation; Visualization; Funding acquisition; Writing -- original draft; Writing -- review \& editing. Niels Hammer: Supervision; Writing -- review \& editing.
+
+\section*{Conflict of interest statement}
+The authors declare no conflicts of interest.
+
+\section*{Supporting information}
+Supporting Information provides statistical definitions, component contrasts, variance ratios, sex models, the scale reparameterization, and extraction sensitivity diagnostics.
+
+\section*{Data Availability Statement}
+The source anonymized CT images, segmentations and standardized anatomical geometries are available through BoneDat \citep{HenyssKuchar2025BoneDat}, with source data indexed by the \href{https://doi.org/10.5281/zenodo.15189761}{BoneDat dataset record}. The present study's derived morphometric tables, subject-level motion endpoints, machine-readable model estimates and analysis code have not been deposited in a public repository. The Supporting Information provides the statistical definitions, component contrasts, variance ratios, model estimates and sensitivity analyses reported here. The BoneDat record identifies the source imaging and anatomical data, not a repository for this study's FE results or code.
+
+\bibliographystyle{bib/apalike-doi}
+\bibliography{bib/refs}
+
+\end{document}
